@@ -38,7 +38,8 @@
                 </div>
 
                 <!-- Botón Directo al Calendario -->
-                <a href="#section-calendar" class="pomodoro-pill" style="text-decoration: none; color: inherit;" title="Ver Calendario Escolar y de Exámenes">
+                <a href="#section-calendar" class="pomodoro-pill" style="text-decoration: none; color: inherit;"
+                    title="Ver Calendario Escolar y de Exámenes">
                     <span>📅</span>
                     <span style="font-weight: 700;">Calendario</span>
                 </a>
@@ -92,76 +93,29 @@
             <div class="calendar-header">
                 <div class="calendar-title-group">
                     <h2><span>📅</span> Calendario Escolar & Exámenes de Álvaro</h2>
-                    <p>Fechas de exámenes de 5º, entregas de proyectos, tareas y festivos sincronizados en tiempo real con Google Calendar.</p>
+                    <p>Fechas de exámenes de 5º, entregas de proyectos, tareas y festivos sincronizados en tiempo real
+                        con Google Calendar.</p>
                 </div>
                 <div class="calendar-actions-row">
                     <button class="btn-cal-mode active" onclick="setCalendarMode('MONTH', this)">Mes</button>
                     <button class="btn-cal-mode" onclick="setCalendarMode('AGENDA', this)">Agenda</button>
                     <button class="btn-cal-mode" onclick="setCalendarMode('WEEK', this)">Semana</button>
-                    <a href="https://calendar.google.com/calendar/u/1?cid=ZGRjZTc3ZmM4NjgwODMwMzA2ZjE3YmM0YjgwM2FiMjUzYjkxYzFkNjZmYmFmNjMwN2Y3NDc4NjhkMWUzMTI3ZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank" class="btn-open-gcal">
+                    <a href="https://calendar.google.com/calendar/u/1?cid=ZGRjZTc3ZmM4NjgwODMwMzA2ZjE3YmM0YjgwM2FiMjUzYjkxYzFkNjZmYmFmNjMwN2Y3NDc4NjhkMWUzMTI3ZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                        target="_blank" class="btn-open-gcal">
                         <span>📅</span> Abrir en Google Calendar ↗
                     </a>
                 </div>
             </div>
 
             <div class="calendar-frame-container">
-                <iframe id="gcal-iframe" src="https://calendar.google.com/calendar/embed?src=ddce77fc8680830306f17bc4b803ab253b91c1d66fbaf6307f747868d1e3127d%40group.calendar.google.com&ctz=Europe%2FMadrid&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH" frameborder="0" scrolling="no"></iframe>
+                <iframe id="gcal-iframe"
+                    src="https://calendar.google.com/calendar/embed?src=ddce77fc8680830306f17bc4b803ab253b91c1d66fbaf6307f747868d1e3127d%40group.calendar.google.com&ctz=Europe%2FMadrid&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH"
+                    frameborder="0" scrolling="no"></iframe>
             </div>
 
-            <div class="calendar-tips-row">
-                <div class="calendar-tip-card">
-                    <span style="font-size: 1.4rem;">🔄</span>
-                    <div>
-                        <strong>Sincronización en Tiempo Real</strong>
-                        Cualquier examen o evento nuevo que añadas a tu calendario se reflejará aquí al instante sin necesidad de actualizar la página.
-                    </div>
-                </div>
-                <div class="calendar-tip-card">
-                    <span style="font-size: 1.4rem;">🔔</span>
-                    <div>
-                        <strong>Recordatorios en Móvil o Tablet</strong>
-                        Pulsa en <em>"Abrir en Google Calendar"</em> y suscríbete para recibir alertas y notificaciones con antelación en todos tus dispositivos.
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Compact Bottom Section -->
-    <section class="bottom-section">
-        <!-- Cómo añadir nuevo material -->
-        <div class="simple-card">
-            <h3 style="color: var(--primary);">
-                <span>📥</span> Cómo añadir nuevo material
-            </h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                1. Guarda tus nuevos archivos o PDFs en la carpeta local de la materia.<br>
-                2. Pídele al asistente: <em>"Crea los apuntes interactivos de este tema"</em>.<br>
-                3. Se creará automáticamente un módulo a medida para esa asignatura.
-            </p>
-        </div>
-
-        <!-- Checklist de estudio -->
-        <div class="simple-card">
-            <h3 style="color: var(--accent-green);">
-                <span>✅</span> Metas de Estudio de Hoy
-            </h3>
-            <div id="checklist-container">
-                <label class="checklist-row">
-                    <input type="checkbox" onchange="saveChecklist()">
-                    <span>Repasar tarjetas de Signos de Puntuación (Castellano)</span>
-                </label>
-                <label class="checklist-row">
-                    <input type="checkbox" onchange="saveChecklist()">
-                    <span>Completar el reto de Orden Alfabético</span>
-                </label>
-                <label class="checklist-row">
-                    <input type="checkbox" onchange="saveChecklist()">
-                    <span>Practicar vocabulario de Madame Curie (Inglés)</span>
-                </label>
-            </div>
-        </div>
-    </section>
 
     <!-- Modal de Opciones / Rutas Locales -->
     <div class="modal-overlay" id="detail-modal" onclick="closeModalOnBg(event)">
@@ -750,20 +704,6 @@
             document.getElementById('btn-toggle-dark').textContent = isDark ? '☀️' : '🌓';
         }
 
-        function saveChecklist() {
-            const checks = Array.from(document.querySelectorAll('#checklist-container input')).map(c => c.checked);
-            localStorage.setItem('hub_checklist', JSON.stringify(checks));
-            playClickSound();
-        }
-
-        function loadChecklist() {
-            const saved = JSON.parse(localStorage.getItem('hub_checklist') || '[]');
-            const inputs = document.querySelectorAll('#checklist-container input');
-            inputs.forEach((input, idx) => {
-                if (saved[idx] !== undefined) input.checked = saved[idx];
-            });
-        }
-
         window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('hub_dark') === 'true') {
                 document.body.classList.add('dark-mode');
@@ -771,7 +711,6 @@
             }
             document.getElementById('btn-toggle-sound').textContent = isMuted ? '🔇' : '🔊';
             renderSubjects();
-            loadChecklist();
         });
     </script>
 </body>
