@@ -139,74 +139,35 @@
     transform: translateY(-1px);
 }
 
-.btn-topic-more {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    background: var(--primary-light);
-    color: var(--primary);
-    border: 1px dashed var(--primary);
-    padding: 0.45rem 0.75rem;
-    border-radius: var(--radius-md);
-    font-size: 0.8rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.15s;
-}
-
-.btn-topic-more:hover {
-    background: var(--primary);
-    color: white;
-}
 
 .card-sub-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .btn-sub-drive {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.35rem;
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--text-muted);
     text-decoration: none;
-    padding: 0.35rem 0.6rem;
+    padding: 0.45rem 0.6rem;
     border-radius: 6px;
     background: var(--bg-main);
     border: 1px solid var(--border-color);
     transition: all 0.15s;
+    width: 100%;
 }
 
 .btn-sub-drive:hover {
     color: #2563eb;
     border-color: #93c5fd;
     background: #eff6ff;
-}
-
-.btn-sub-options {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    padding: 0.35rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    border-radius: 6px;
-    transition: all 0.15s;
-}
-
-.btn-sub-options:hover {
-    color: var(--primary);
-    background: var(--bg-main);
 }
 
 .badge-active-mark {
@@ -224,33 +185,6 @@
 body.dark-mode .badge-active-mark {
     background: #064e3b;
     color: #a7f3d0;
-}
-
-
-/* Modal Topics specific styles */
-.modal-topic-card {
-    background: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    transition: border-color 0.15s, transform 0.15s;
-}
-
-.modal-topic-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-1px);
-}
-
-.modal-prompt-box {
-    margin-top: 1.25rem;
-    background: var(--bg-main);
-    border: 1px dashed var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1rem;
 }
 
 /* ==========================================================================

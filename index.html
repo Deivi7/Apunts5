@@ -117,13 +117,7 @@
     </section>
 
 
-    <!-- Modal de Opciones / Rutas Locales -->
-    <div class="modal-overlay" id="detail-modal" onclick="closeModalOnBg(event)">
-        <div class="modal-box">
-            <button class="modal-close-btn" onclick="closeModal()">×</button>
-            <div id="modal-body"></div>
-        </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -442,9 +436,6 @@
                                 <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive">
                                     <span>☁️</span> Drive ↗
                                 </a>
-                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
-                                    <span>⚙️</span> Opciones
-                                </button>
                             </div>
                         </div>
                     `;
@@ -452,7 +443,7 @@
                     actionHtml = `
                         <div class="card-actions">
                             <div class="card-topics-list">
-                                ${s.topics.slice(0, 2).map(t => {
+                                ${s.topics.map(t => {
                         const prog = getTopicProgress(s.id, t.id);
                         return `
                                     <a href="${t.url}" class="btn-topic-launch" title="${t.title}">
@@ -462,20 +453,13 @@
                                             <span>→</span>
                                         </div>
                                     </a>
-                                `}).join('')}
-                                ${s.topics.length > 2 ? `
-                                    <button class="btn-topic-more" onclick="openSubjectModal('${s.id}')">
-                                        +${s.topics.length - 2} temas más...
-                                    </button>
-                                ` : ''}
+                                `;
+                    }).join('')}
                             </div>
                             <div class="card-sub-actions" style="margin-top: 0.35rem;">
                                 <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive">
                                     <span>☁️</span> Drive ↗
                                 </a>
-                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
-                                    <span>📚</span> Ver ${topicsCount} temas
-                                </button>
                             </div>
                         </div>
                     `;
@@ -485,12 +469,6 @@
                             <a href="${s.driveUrl}" target="_blank" class="btn-launch-app" style="background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color);">
                                 <span>☁️</span> Google Drive ↗
                             </a>
-                            <div class="card-sub-actions">
-                                <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">📁 Carpeta lista</span>
-                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
-                                    <span>➕</span> Añadir tema
-                                </button>
-                            </div>
                         </div>
                     `;
                 }
@@ -511,118 +489,6 @@
                 `;
 
                 container.appendChild(card);
-            });
-        }
-
-        function openSubjectModal(subjectId) {
-            playClickSound();
-            const s = SUBJECTS.find(item => item.id === subjectId);
-            if (!s) return;
-
-            const modal = document.getElementById('detail-modal');
-            const body = document.getElementById('modal-body');
-            const topicsCount = s.topics ? s.topics.length : 0;
-
-            body.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                    <div style="font-size: 2.2rem;">${s.icon}</div>
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                            <h2 style="font-size: 1.35rem; color: var(--text-main); margin: 0;">${s.name}</h2>
-                            <span style="font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: var(--primary-light); color: var(--primary); font-weight: 800;">${s.fullName}</span>
-                        </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0 0;">${s.description}</p>
-                    </div>
-                </div>
-
-                <!-- Lista de Temas -->
-                <div style="margin-top: 1.25rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-                        <h4 style="font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.35rem;">
-                            <span>📖</span> Temas y Apuntes Interactivos (${topicsCount})
-                        </h4>
-                        <a href="${s.driveUrl}" target="_blank" style="font-size: 0.78rem; font-weight: 700; color: #2563eb; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
-                            <span>☁️</span> Abrir Drive ↗
-                        </a>
-                    </div>
-
-                    ${topicsCount > 0 ? `
-                        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                            ${s.topics.map((t, idx) => {
-                const prog = getTopicProgress(s.id, t.id);
-                return `
-                                <div class="modal-topic-card">
-                                    <div style="flex: 1;">
-                                        <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem; flex-wrap: wrap;">
-                                            <strong style="font-size: 0.88rem; color: var(--text-main);">${idx + 1}. ${t.title}</strong>
-                                            ${prog !== null ? `<span style="font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: #ecfdf5; color: #047857; font-weight: 800;">📊 Progreso: ${prog}%</span>` : ''}
-                                            ${t.badge ? `<span style="font-size: 0.68rem; padding: 0.1rem 0.4rem; border-radius: 999px; background: var(--primary-light); color: var(--primary); font-weight: 800;">${t.badge}</span>` : ''}
-                                        </div>
-                                        <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0; line-height: 1.35;">${t.desc || ''}</p>
-                                    </div>
-                                    <a href="${t.url}" class="btn-launch-app" style="width: auto; padding: 0.45rem 0.85rem; font-size: 0.8rem; flex-shrink: 0;">
-                                        <span>🎮 Abrir</span>
-                                    </a>
-                                </div>
-                            `}).join('')}
-                        </div>
-                    ` : `
-                        <div style="text-align: center; padding: 1.25rem; background: var(--bg-main); border: 1px dashed var(--border-color); border-radius: var(--radius-md); color: var(--text-muted); font-size: 0.85rem;">
-                            Aún no hay temas interactivos creados para ${s.name}.
-                        </div>
-                    `}
-                </div>
-
-                <!-- Cómo añadir nuevos temas -->
-                <div class="modal-prompt-box">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.5rem;">
-                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.04em;">➕ Cómo añadir el próximo tema:</span>
-                        <button id="btn-copy-prompt" class="btn-sub-drive" style="font-size: 0.72rem; padding: 0.25rem 0.55rem;" onclick="copySubjectPrompt('${s.name}', '${s.localFolder}')">📋 Copiar Prompt IA</button>
-                    </div>
-                    <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.5rem 0; line-height: 1.45;">
-                        Crea una subcarpeta para el tema dentro de:
-                        <code style="display: block; padding: 0.35rem; margin: 0.3rem 0; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; color: var(--primary); font-size: 0.76rem; word-break: break-all;">c:\\Proyectos\\Apuntes Alvaro\\${s.localFolder}[nombre_tema]\\</code>
-                        Guarda tus apuntes o PDFs allí y dile al asistente que genere los apuntes interactivos web.
-                    </p>
-                    <div style="display: flex; gap: 0.4rem;">
-                        <button class="btn-sub-drive" style="flex: 1; justify-content: center; font-size: 0.76rem; padding: 0.4rem 0.6rem;" onclick="copyPath('${s.localFolder}')">
-                            📁 Copiar ruta carpeta
-                        </button>
-                        <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive" style="flex: 1; justify-content: center; font-size: 0.76rem; padding: 0.4rem 0.6rem; color: #2563eb;">
-                            ☁️ Ver Drive ↗
-                        </a>
-                    </div>
-                </div>
-            `;
-
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            playClickSound();
-            document.getElementById('detail-modal').classList.remove('active');
-        }
-
-        function closeModalOnBg(e) {
-            if (e.target.id === 'detail-modal') closeModal();
-        }
-
-        function copyPath(folder) {
-            const p = `c:\\Proyectos\\Apuntes Alvaro\\${folder}`;
-            navigator.clipboard.writeText(p).then(() => {
-                alert(`Ruta copiada al portapapeles:\n${p}`);
-            });
-        }
-
-        function copySubjectPrompt(subjectName, folder) {
-            const prompt = `Hola, he guardado nuevo material para el tema [nombre_del_tema] en c:\\Proyectos\\Apuntes Alvaro\\${folder}[nombre_del_tema]. Por favor crea los apuntes interactivos en Apuntes.html adaptados a los contenidos de ${subjectName}, y regístralo en index.html.`;
-            navigator.clipboard.writeText(prompt).then(() => {
-                const btn = document.getElementById('btn-copy-prompt');
-                if (btn) {
-                    const orig = btn.innerHTML;
-                    btn.innerHTML = '✅ ¡Copiado!';
-                    setTimeout(() => { btn.innerHTML = orig; }, 2000);
-                }
             });
         }
 
