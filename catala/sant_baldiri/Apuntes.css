@@ -1289,3 +1289,232 @@ body.dark-mode .resource-badge.jclic {
     font-weight: 800;
     color: var(--text-main);
 }
+
+/* ==========================================================================
+   NOUS ESTILS PER ALS EXERCICIS EXTESOS (PUNTS 3, 4, 5)
+   ========================================================================== */
+.exercise-subpanel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-top: 1.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.exercise-subpanel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.exercise-subpanel-title {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.round-switcher {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.btn-round {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-round:hover,
+.btn-round.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* Selector de Prefixos (des-, in-, im-) */
+.prefix-exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.prefix-item-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.prefix-item-word {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.prefix-btn-group {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.btn-prefix-choice {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-prefix-choice:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.btn-prefix-choice.correct {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+
+.btn-prefix-choice.wrong {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}
+
+/* Targeta d'anàlisi de 4 propietats de Noms */
+.noun-inspector-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.noun-inspector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.noun-target-title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.noun-property-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.noun-property-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+.noun-opt-pair {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.btn-noun-pill {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.15s ease;
+}
+
+.btn-noun-pill:hover:not(:disabled) {
+    border-color: var(--primary);
+}
+
+.btn-noun-pill.selected {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.btn-noun-pill.correct {
+    background: #10b981 !important;
+    color: #fff !important;
+    border-color: #059669 !important;
+}
+
+.btn-noun-pill.wrong {
+    background: #ef4444 !important;
+    color: #fff !important;
+    border-color: #dc2626 !important;
+}
+
+/* Col·lectius Matching */
+.collective-game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.collective-row-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Context Frases */
+.context-frase-box {
+    background: var(--bg-main);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+

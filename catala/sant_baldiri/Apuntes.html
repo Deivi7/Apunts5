@@ -920,18 +920,56 @@
                     </div>
                 </div>
 
-                <!-- MINIJOC D'EMPARELLAR PARELLES -->
-                <div style="margin-top: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                        <h3 class="section-title"><span>🃏</span> Minijoc: Emparella els Sinònims</h3>
-                        <div style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">
-                            Parelles trobades: <span id="pairs-matched-counter">0</span> / 8
+                <!-- EXERCICI 3.1: MINIJOC D'EMPARELLAR PARELLES -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🃏</span> 3.1 Minijoc: Emparella els Sinònims</h3>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                            <div class="round-switcher">
+                                <button class="btn-round active" onclick="setPairsRound(1, this)">Ronda 1</button>
+                                <button class="btn-round" onclick="setPairsRound(2, this)">Ronda 2</button>
+                            </div>
+                            <span class="nav-stat-pill" style="font-size: 0.82rem; color: var(--primary);">
+                                Parelles: <strong id="pairs-matched-counter" style="margin-left: 0.2rem;">0</strong> / 8
+                            </span>
                         </div>
                     </div>
-                    <p class="section-subtitle">Fes clic sobre una targeta i busca el seu sinònim corresponent per fer parella. Si encertes, s'il·luminaran en verd!</p>
+                    <p class="section-subtitle">Fes clic sobre una targeta i busca el seu sinònim corresponent per fer parella. Si encertes, s'il·luminaran en verd (+10 XP per parella)!</p>
 
                     <div class="pairs-game-board" id="pairs-board"></div>
                     <div class="feedback-msg" id="pairs-global-feedback"></div>
+                </div>
+
+                <!-- EXERCICI 3.2: TALLER DE PREFIXOS DE NEGACIÓ (des-, in-, im-) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🎩</span> 3.2 Taller de Prefixos de Negació (des-, in-, im-)</h3>
+                        <span class="nav-stat-pill" id="prefix-score-badge">Encerts: 0 / 8</span>
+                    </div>
+                    <p class="section-subtitle">
+                        Recorda la regla d'or de 5è: fes servir <strong>im-</strong> abans de <em>p</em> o <em>b</em>, <strong>des-</strong> per desfer una acció, i <strong>in-</strong> en la majoria dels altres casos. Tria el prefix correcte per formar l'antònim:
+                    </p>
+                    <div class="prefix-exercise-grid" id="prefix-exercise-container"></div>
+                </div>
+
+                <!-- EXERCICI 3.3: EL REPTE DELS ANTÒNIMS OPOSATS (SENSE PREFIX) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>⚡</span> 3.3 El Repte dels Antònims Oposats</h3>
+                        <span class="nav-stat-pill" id="antonym-score-badge">Encerts: 0 / 6</span>
+                    </div>
+                    <p class="section-subtitle">Molts antònims són paraules completament diferents. Tria la paraula que expressa exactament la idea contrària:</p>
+                    <div id="antonym-opposites-container" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;"></div>
+                </div>
+
+                <!-- EXERCICI 3.4: SINÒNIMS EN CONTEXT DE FRASES -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>📝</span> 3.4 Sinònims en Context de Frases Reals</h3>
+                        <span class="nav-stat-pill" id="context-score-badge">Encerts: 0 / 4</span>
+                    </div>
+                    <p class="section-subtitle">Llegeix la frase i tria la paraula que pot substituir el mot destacat sense canviar el sentit del text:</p>
+                    <div id="context-synonyms-container" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;"></div>
                 </div>
             </section>
 
@@ -1013,21 +1051,44 @@
                     </div>
                 </div>
 
-                <!-- TESTER INTERACTIU DE SEPARACIÓ DE DÍGRAFS -->
-                <div style="margin-top: 2rem;">
-                    <h3 class="section-title"><span>🧩</span> Laboratori: Separa les Paraules amb Dígrafs</h3>
-                    <p class="section-subtitle">Tria la separació sil·làbica correcta per a cada paraula:</p>
-                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;" id="syllable-tester-list"></div>
+                <!-- EXERCICI 4.1: LABORATORI DE SEPARACIÓ DE DÍGRAFS -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🧩</span> 4.1 Laboratori: Separa les Paraules amb Dígrafs</h3>
+                        <span class="nav-stat-pill" id="digraph-score-badge">Encerts: 0 / 12</span>
+                    </div>
+                    <p class="section-subtitle">Tria la partició sil·làbica correcta per a cadascuna de les 12 paraules oficials de 5è:</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;" id="syllable-tester-list"></div>
+                </div>
+
+                <!-- EXERCICI 4.2: CLASSIFICADOR RÀPID DE DÍGRAFS (SEPARABLE O INSEPARABLE?) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>✂️</span> 4.2 Classificador Ràpid: Separable o Inseparable?</h3>
+                        <span class="nav-stat-pill" id="digraph-quick-badge">Encerts: 0 / 8</span>
+                    </div>
+                    <p class="section-subtitle">Mira cada dígraf i fes clic per indicar si es pot trencar a final de línia o ha d'anar sempre junt:</p>
+                    <div id="digraph-classify-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin-top: 1rem;"></div>
+                </div>
+
+                <!-- EXERCICI 4.3: COMPTADOR DE SÍL·LABES (MONOSÍL·LABES A POLISÍL·LABES) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🔢</span> 4.3 Quantes Síl·labes Té? (Comptador Sil·làbic)</h3>
+                        <span class="nav-stat-pill" id="syllable-count-badge">Encerts: 0 / 6</span>
+                    </div>
+                    <p class="section-subtitle">Pronuncia la paraula fent cops de veu i tria el nombre exacte de síl·labes (monosíl·laba, bisíl·laba, trisíl·laba o polisíl·laba):</p>
+                    <div id="syllable-count-container" style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;"></div>
                 </div>
 
                 <!-- =======================================================
-                     NOVA SECCIÓ: LA SÍL·LABA TÒNICA & EL TRUC DEL CRIT
+                     SECCIÓ: LA SÍL·LABA TÒNICA & EL TRUC DEL CRIT
                      ======================================================= -->
                 <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--border-color);">
                     <div class="section-header">
                         <div>
                             <h3 class="section-title"><span>🗣️</span> La Síl·laba Tònica & El Truc del Crit</h3>
-                            <p class="section-subtitle">Aprèn a identificar amb precisió quina síl·laba té la força de la paraula!</p>
+                            <p class="section-subtitle">Aprèn a identificar amb precisió quina síl·laba té la força de la paraula i si és Aguda, Plana o Esdrúixola!</p>
                         </div>
                     </div>
 
@@ -1059,16 +1120,16 @@
                         </p>
                     </div>
 
-                    <!-- MINIJOC INTERACTIU: TROBA LA SÍL·LABA TÒNICA -->
-                    <div class="tonica-tester">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                            <h4 style="margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--primary);">
-                                🎯 Repte en Viu: Fes Clic sobre la Síl·laba TÒNICA
+                    <!-- EXERCICI 4.4 AMPLIAT: TROBA LA SÍL·LABA TÒNICA I EL SEU TIPUS -->
+                    <div class="exercise-subpanel">
+                        <div class="exercise-subpanel-header">
+                            <h4 class="exercise-subpanel-title">
+                                <span>🎯</span> 4.4 Repte en Viu: Fes Clic sobre la Síl·laba TÒNICA (12 Paraules)
                             </h4>
-                            <span style="font-weight: 700; font-size: 0.85rem;" id="tonica-score-badge">Encerts: 0 / 5</span>
+                            <span class="nav-stat-pill" id="tonica-score-badge">Encerts: 0 / 12</span>
                         </div>
-                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
-                            Pensa en el "Truc del Crit" i fes clic a la síl·laba que porta la força del so:
+                        <p class="section-subtitle">
+                            Pensa en el "Truc del Crit", fes clic a la síl·laba que porta la corona de la veu i comprova si és Aguda, Plana o Esdrúixola:
                         </p>
                         <div id="tonica-game-container" style="display: flex; flex-direction: column; gap: 1rem;"></div>
                     </div>
@@ -1129,11 +1190,38 @@
                     </div>
                 </div>
 
-                <!-- CLASSIFICADOR EN VIU -->
-                <div style="margin-top: 2rem;">
-                    <h3 class="section-title"><span>🎮</span> Laboratori de Classificació de Noms</h3>
-                    <p class="section-subtitle">Classifica cada paraula triant les seves propietats gramaticals:</p>
-                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.25rem;" id="noun-classifier-list"></div>
+                <!-- EXERCICI 5.1: LABORATORI DE CLASSIFICACIÓ DE NOMS -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🎮</span> 5.1 Laboratori: Identifica la Classe de Nom</h3>
+                        <span class="nav-stat-pill" id="noun-score-badge">Encerts: 0 / 12</span>
+                    </div>
+                    <p class="section-subtitle">Fes clic sobre la propietat correcta per a cadascuna de les 12 paraules (guanya +10 XP per encert):</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;" id="noun-classifier-list"></div>
+                </div>
+
+                <!-- EXERCICI 5.2: CAÇADOR DE NOMS COL·LECTIUS -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🐑</span> 5.2 Caçador de Noms Col·lectius</h3>
+                        <span class="nav-stat-pill" id="collective-score-badge">Encerts: 0 / 8</span>
+                    </div>
+                    <p class="section-subtitle">
+                        Recorda que un <strong>nom col·lectiu</strong> s'escriu en singular però designa tot un conjunt d'éssers o coses. Tria el nom col·lectiu que correspon a cada grup:
+                    </p>
+                    <div class="collective-game-grid" id="collective-game-container"></div>
+                </div>
+
+                <!-- EXERCICI 5.3: L'INSPECTOR DE LES 4 PROVES DEL SUBSTANTIU -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🔍</span> 5.3 L'Inspector de les 4 Proves (Anàlisi Completa de 5è)</h3>
+                        <span class="nav-stat-pill" id="inspector-score-badge">Analitzats: 0 / 4</span>
+                    </div>
+                    <p class="section-subtitle">
+                        Com en un examen de 5è! Passa el nom per les <strong>4 parelles oficials</strong> seleccionant una opció a cada fila i prem "Comprovar anàlisi":
+                    </p>
+                    <div id="noun-inspector-container" style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;"></div>
                 </div>
             </section>
 
@@ -1604,30 +1692,55 @@
             if (badge) badge.textContent = count + '/4';
         }
 
-        // --- 4. MINIJOC DE PARELLES DE SINÒNIMS ---
-        const pairsData = [
-            { a: 'alegre', b: 'content' },
-            { a: 'parlar', b: 'enraonar' },
-            { a: 'començar', b: 'iniciar' },
-            { a: 'llunyà', b: 'remot' },
-            { a: 'ràpid', b: 'veloç' },
-            { a: 'escollir', b: 'triar' },
-            { a: 'ocell', b: 'au' },
-            { a: 'feliç', b: 'joiós' }
-        ];
+        // --- 4. MINIJOC DE PARELLES DE SINÒNIMS (2 RONDES AMB 16 PARELLES) ---
+        const pairsDataRounds = {
+            1: [
+                { a: 'alegre', b: 'content' },
+                { a: 'parlar', b: 'enraonar' },
+                { a: 'començar', b: 'iniciar' },
+                { a: 'llunyà', b: 'remot' },
+                { a: 'ràpid', b: 'veloç' },
+                { a: 'escollir', b: 'triar' },
+                { a: 'ocell', b: 'au' },
+                { a: 'feliç', b: 'joiós' }
+            ],
+            2: [
+                { a: 'caminar', b: 'passejar' },
+                { a: 'estimar', b: 'voler' },
+                { a: 'acabar', b: 'finalitzar' },
+                { a: 'regal', b: 'obsequi' },
+                { a: 'roba', b: 'vestit' },
+                { a: 'casa', b: 'llar' },
+                { a: 'intel·ligent', b: 'llest' },
+                { a: 'dolor', b: 'mal' }
+            ]
+        };
 
+        let currentPairsRound = 1;
         let selectedPairCards = [];
         let matchedPairs = 0;
 
-        function initPairsGame() {
+        function setPairsRound(roundNum, btn) {
+            currentPairsRound = roundNum;
+            document.querySelectorAll('.round-switcher .btn-round').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            initPairsGame(roundNum);
+        }
+
+        function initPairsGame(roundNum = 1) {
             const board = document.getElementById('pairs-board');
             if (!board) return;
             board.innerHTML = '';
             matchedPairs = 0;
-            document.getElementById('pairs-matched-counter').textContent = '0';
+            selectedPairCards = [];
+            const counter = document.getElementById('pairs-matched-counter');
+            if (counter) counter.textContent = '0';
+            const globalFb = document.getElementById('pairs-global-feedback');
+            if (globalFb) globalFb.className = 'feedback-msg';
 
+            const pData = pairsDataRounds[roundNum] || pairsDataRounds[1];
             const cards = [];
-            pairsData.forEach((p, idx) => {
+            pData.forEach((p, idx) => {
                 cards.push({ id: idx, word: p.a });
                 cards.push({ id: idx, word: p.b });
             });
@@ -1643,12 +1756,12 @@
                 cardEl.className = 'pair-card';
                 cardEl.textContent = cardItem.word;
                 cardEl.dataset.pairId = cardItem.id;
-                cardEl.onclick = () => handlePairClick(cardEl);
+                cardEl.onclick = () => handlePairClick(cardEl, pData.length);
                 board.appendChild(cardEl);
             });
         }
 
-        function handlePairClick(cardEl) {
+        function handlePairClick(cardEl, totalPairs) {
             if (cardEl.classList.contains('matched') || cardEl.classList.contains('selected')) return;
             if (selectedPairCards.length >= 2) return;
 
@@ -1670,14 +1783,17 @@
                         selectedPairCards = [];
                         playSuccessSound();
                         addXP(10);
-                        document.getElementById('pairs-matched-counter').textContent = matchedPairs;
+                        const counter = document.getElementById('pairs-matched-counter');
+                        if (counter) counter.textContent = matchedPairs;
                         const statPairs = document.getElementById('stat-pairs-done');
-                        if (statPairs) statPairs.textContent = matchedPairs + '/8';
+                        if (statPairs) statPairs.textContent = matchedPairs + '/' + totalPairs;
 
-                        if (matchedPairs === pairsData.length) {
+                        if (matchedPairs === totalPairs) {
                             const fb = document.getElementById('pairs-global-feedback');
-                            fb.className = 'feedback-msg success show';
-                            fb.innerHTML = '🎉 <strong>Molt bé, Álvaro!</strong> Has trobat totes les 8 parelles de sinònims (+80 XP)!';
+                            if (fb) {
+                                fb.className = 'feedback-msg success show';
+                                fb.innerHTML = '🎉 <strong>Molt bé, Álvaro!</strong> Has completat la Ronda ' + currentPairsRound + ' amb èxit (+80 XP)!';
+                            }
                         }
                     }, 400);
                 } else {
@@ -1695,26 +1811,272 @@
             }
         }
 
-        // --- 5. TESTER DE DÍGRAFS SEPARABLES I INSEPARABLES ---
+        // --- EXERCICI 3.2: TALLER DE PREFIXOS DE NEGACIÓ (des-, in-, im-) ---
+        const prefixExercises = [
+            { word: 'enganxar', prefix: 'des-', full: 'desenganxar', tip: 'Indica l’acció contrària de desfer: des-enganxar.' },
+            { word: 'visible', prefix: 'in-', full: 'invisible', tip: 'Prefix in- de negació estàndard: in-visible.' },
+            { word: 'possible', prefix: 'im-', full: 'impossible', tip: 'Recorda la norma: sempre IM- davant de P o B (im-possible)!' },
+            { word: 'pentinar', prefix: 'des-', full: 'despentinar', tip: 'Prefix des- de desfer: des-pentinar.' },
+            { word: 'feliç', prefix: 'in-', full: 'infeliç', tip: 'Prefix in- de negació: in-feliç.' },
+            { word: 'pacient', prefix: 'im-', full: 'impacient', tip: 'Comença amb P! Per tant, obligatòriament IM-: im-pacient.' },
+            { word: 'ordenat', prefix: 'des-', full: 'desordenat', tip: 'Prefix des- de desfer ordre: des-ordenat.' },
+            { word: 'complet', prefix: 'in-', full: 'incomplet', tip: 'Prefix in- de negació: in-complet.' }
+        ];
+
+        let prefixCorrectCount = 0;
+
+        function initPrefixExercise() {
+            const container = document.getElementById('prefix-exercise-container');
+            if (!container) return;
+            container.innerHTML = '';
+            prefixCorrectCount = 0;
+
+            prefixExercises.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'prefix-item-card';
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="prefix-item-word">Paraula base: <em>${item.word}</em></span>
+                        <span style="font-size: 0.76rem; color: var(--text-muted);">+ Prefix</span>
+                    </div>
+                    <div class="prefix-btn-group">
+                        <button class="btn-prefix-choice" onclick="checkPrefix(${idx}, 'des-', this)">des-</button>
+                        <button class="btn-prefix-choice" onclick="checkPrefix(${idx}, 'in-', this)">in-</button>
+                        <button class="btn-prefix-choice" onclick="checkPrefix(${idx}, 'im-', this)">im-</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-prefix-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkPrefix(idx, chosenPrefix, btn) {
+            const item = prefixExercises[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-prefix-' + idx);
+
+            parent.querySelectorAll('.btn-prefix-choice').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (chosenPrefix === item.prefix) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                prefixCorrectCount++;
+                const badge = document.getElementById('prefix-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + prefixCorrectCount + ' / ' + prefixExercises.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Excel·lent!</strong> Forma: <em>' + item.full + '</em>. ' + item.tip;
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Revisa la regla:</strong> ' + item.tip;
+                setTimeout(() => {
+                    parent.querySelectorAll('.btn-prefix-choice').forEach(b => b.disabled = false);
+                }, 1300);
+            }
+        }
+
+        // --- EXERCICI 3.3: EL REPTE DELS ANTÒNIMS OPOSATS (SENSE PREFIX) ---
+        const antonymOpposites = [
+            { word: 'Clar', options: ['Fosc', 'Net', 'Brillant'], correct: 0, reason: 'El contrari de clar és fosc.' },
+            { word: 'Valent', options: ['Fort', 'Poruc', 'Trist'], correct: 1, reason: 'El contrari de valent és poruc (que té por).' },
+            { word: 'Ample', options: ['Llarg', 'Estret', 'Pesat'], correct: 1, reason: 'El contrari d’ample és estret.' },
+            { word: 'Pujar', options: ['Saltar', 'Baixar', 'Córrer'], correct: 1, reason: 'El contrari de pujar és baixar.' },
+            { word: 'Ple', options: ['Buit', 'Sec', 'Petit'], correct: 0, reason: 'El contrari de ple és buit.' },
+            { word: 'Fàcil', options: ['Lleuger', 'Difícil', 'Estrany'], correct: 1, reason: 'El contrari de fàcil és difícil.' }
+        ];
+
+        let antonymCorrectCount = 0;
+
+        function initAntonymOpposites() {
+            const container = document.getElementById('antonym-opposites-container');
+            if (!container) return;
+            container.innerHTML = '';
+            antonymCorrectCount = 0;
+
+            antonymOpposites.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.style.background = 'var(--bg-main)';
+                box.style.border = '1px solid var(--border-color)';
+                box.style.borderRadius = 'var(--radius-md)';
+                box.style.padding = '1rem 1.25rem';
+
+                let optsHtml = '';
+                item.options.forEach((opt, oIdx) => {
+                    optsHtml += `<button class="comp-opt-btn" onclick="checkAntonymOpposite(${idx}, ${oIdx}, this)">${opt}</button>`;
+                });
+
+                box.innerHTML = `
+                    <div style="font-weight: 800; font-size: 1.05rem; margin-bottom: 0.5rem;">
+                        Quin és l’antònim de: <span style="color: var(--primary);">«${item.word}»</span>?
+                    </div>
+                    <div class="comp-options-grid">${optsHtml}</div>
+                    <div class="feedback-msg" id="fb-antonym-${idx}"></div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function checkAntonymOpposite(idx, optIdx, btn) {
+            const item = antonymOpposites[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-antonym-' + idx);
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (optIdx === item.correct) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                antonymCorrectCount++;
+                const badge = document.getElementById('antonym-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + antonymCorrectCount + ' / ' + antonymOpposites.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Correcte!</strong> ' + item.reason;
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Pensa en el significat oposat:</strong> ' + item.reason;
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1300);
+            }
+        }
+
+        // --- EXERCICI 3.4: SINÒNIMS EN CONTEXT DE FRASES ---
+        const contextSynonyms = [
+            {
+                sentence: 'A classe de català vam començar la lectura del conte.',
+                target: 'començar',
+                options: ['aturar', 'iniciar', 'repassar'],
+                correct: 1,
+                reason: '«Començar» té com a sinònim exacte «iniciar».'
+            },
+            {
+                sentence: 'L’Àlvaro estava molt content amb el seu treball escolar.',
+                target: 'content',
+                options: ['joiós', 'enfadat', 'mandrós'],
+                correct: 0,
+                reason: '«Content» té com a sinònim «joiós» o «alegre».'
+            },
+            {
+                sentence: 'L’escola de Sant Baldiri és en un indret llunyà de la ciutat.',
+                target: 'llunyà',
+                options: ['apropat', 'remot', 'fosc'],
+                correct: 1,
+                reason: '«Llunyà» té com a sinònim formal «remot».'
+            },
+            {
+                sentence: 'El mestre Jordi ens va demanar triar un llibre de lectura.',
+                target: 'triar',
+                options: ['escollir', 'tancar', 'dibuixar'],
+                correct: 0,
+                reason: '«Triar» té com a sinònim exacte «escollir».'
+            }
+        ];
+
+        let contextCorrectCount = 0;
+
+        function initContextSynonyms() {
+            const container = document.getElementById('context-synonyms-container');
+            if (!container) return;
+            container.innerHTML = '';
+            contextCorrectCount = 0;
+
+            contextSynonyms.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.className = 'context-frase-box';
+
+                let optsHtml = '';
+                item.options.forEach((opt, oIdx) => {
+                    optsHtml += `<button class="comp-opt-btn" onclick="checkContextSynonym(${idx}, ${oIdx}, this)">${opt}</button>`;
+                });
+
+                const formattedSentence = item.sentence.replace(item.target, `<strong style="color: var(--primary); text-decoration: underline;">${item.target}</strong>`);
+
+                box.innerHTML = `
+                    <div style="font-size: 0.95rem; margin-bottom: 0.65rem; line-height: 1.5;">
+                        Frase: «${formattedSentence}»
+                    </div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 700;">
+                        Tria el sinònim que pot substituir la paraula destacada:
+                    </div>
+                    <div class="comp-options-grid">${optsHtml}</div>
+                    <div class="feedback-msg" id="fb-context-${idx}"></div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function checkContextSynonym(idx, optIdx, btn) {
+            const item = contextSynonyms[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-context-' + idx);
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (optIdx === item.correct) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                contextCorrectCount++;
+                const badge = document.getElementById('context-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + contextCorrectCount + ' / ' + contextSynonyms.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Excel·lent!</strong> ' + item.reason;
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Incorrecte.</strong> ' + item.reason;
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1300);
+            }
+        }
+
+        // --- 5. TESTER DE DÍGRAFS SEPARABLES I INSEPARABLES (12 PARAULES) ---
         const digraphTesterWords = [
             { word: 'carro', options: ['car-ro', 'ca-rro'], correct: 0, reason: 'El dígraf RR és separable: car-ro.' },
             { word: 'platja', options: ['pla-tja', 'plat-ja'], correct: 1, reason: 'El dígraf TJ és separable: plat-ja.' },
             { word: 'guitarra', options: ['gui-tar-ra', 'gu-i-tar-ra'], correct: 0, reason: 'GU és inseparable i RR és separable: gui-tar-ra.' },
             { word: 'pel·lícula', options: ['pel-lí-cu-la', 'pe-l·lí-cu-la'], correct: 0, reason: 'L·L és separable amb guió: pel-lí-cu-la.' },
-            { word: 'muntanya', options: ['mun-tan-ya', 'mun-ta-nya'], correct: 1, reason: 'NY és inseparable: mun-ta-nya.' }
+            { word: 'muntanya', options: ['mun-tan-ya', 'mun-ta-nya'], correct: 1, reason: 'NY és inseparable: mun-ta-nya.' },
+            { word: 'cotxe', options: ['cot-xe', 'co-txe'], correct: 0, reason: 'TX és separable: cot-xe.' },
+            { word: 'metge', options: ['me-tge', 'met-ge'], correct: 1, reason: 'TG és separable: met-ge.' },
+            { word: 'tassa', options: ['tas-sa', 'ta-ssa'], correct: 0, reason: 'SS és separable: tas-sa.' },
+            { word: 'esquí', options: ['es-quí', 'es-qu-í'], correct: 0, reason: 'QU és inseparable: es-quí.' },
+            { word: 'castanya', options: ['cas-tan-ya', 'cas-ta-nya'], correct: 1, reason: 'NY és inseparable: cas-ta-nya.' },
+            { word: 'cavall', options: ['ca-vall', 'cav-all'], correct: 0, reason: 'LL és inseparable: ca-vall.' },
+            { word: 'lleig', options: ['lleig', 'lle-ig'], correct: 0, reason: 'IG a final de paraula és inseparable: lleig (1 sola síl·laba).' }
         ];
+
+        let digraphCorrectCount = 0;
 
         function initDigraphTester() {
             const container = document.getElementById('syllable-tester-list');
             if (!container) return;
             container.innerHTML = '';
+            digraphCorrectCount = 0;
 
             digraphTesterWords.forEach((item, idx) => {
                 const card = document.createElement('div');
                 card.style.background = 'var(--bg-card)';
                 card.style.border = '1px solid var(--border-color)';
                 card.style.borderRadius = 'var(--radius-md)';
-                card.style.padding = '1rem 1.25rem';
+                card.style.padding = '0.9rem 1.15rem';
 
                 let optBtnsHtml = '';
                 item.options.forEach((opt, oIdx) => {
@@ -1722,8 +2084,8 @@
                 });
 
                 card.innerHTML = `
-                    <div style="font-weight: 800; font-size: 1rem; margin-bottom: 0.5rem;">Paraula: <strong>${item.word}</strong></div>
-                    <div class="comp-options-grid" style="margin-top: 0.5rem;">${optBtnsHtml}</div>
+                    <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.4rem;">${idx + 1}. Paraula: <strong>${item.word}</strong></div>
+                    <div class="comp-options-grid" style="margin-top: 0.4rem;">${optBtnsHtml}</div>
                     <div class="feedback-msg" id="fb-digraph-${idx}"></div>
                 `;
                 container.appendChild(card);
@@ -1744,6 +2106,9 @@
                 btn.classList.add('correct');
                 playSuccessSound();
                 addXP(10);
+                digraphCorrectCount++;
+                const badge = document.getElementById('digraph-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + digraphCorrectCount + ' / ' + digraphTesterWords.length;
                 fb.className = 'feedback-msg success show';
                 fb.innerHTML = '🌟 <strong>Molt bé!</strong> ' + item.reason;
             } else {
@@ -1757,13 +2122,172 @@
             }
         }
 
-        // --- 6. ENTRENADOR INTERACTIU DE LA SÍL·LABA TÒNICA (EL TRUC DEL CRIT) ---
+        // --- EXERCICI 4.2: CLASSIFICADOR RÀPID DE DÍGRAFS (SEPARABLE O INSEPARABLE?) ---
+        const quickDigraphs = [
+            { dg: 'rr', type: 'separable', ex: 'car-ro' },
+            { dg: 'ss', type: 'separable', ex: 'tas-sa' },
+            { dg: 'l·l', type: 'separable', ex: 'col-le-gi' },
+            { dg: 'tx', type: 'separable', ex: 'cot-xe' },
+            { dg: 'll', type: 'inseparable', ex: 'lla-pis' },
+            { dg: 'ny', type: 'inseparable', ex: 'mun-ta-nya' },
+            { dg: 'qu', type: 'inseparable', ex: 'pa-quet' },
+            { dg: 'gu', type: 'inseparable', ex: 'gui-tar-ra' }
+        ];
+
+        let quickDigraphsCount = 0;
+
+        function initQuickDigraphs() {
+            const container = document.getElementById('digraph-classify-container');
+            if (!container) return;
+            container.innerHTML = '';
+            quickDigraphsCount = 0;
+
+            quickDigraphs.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.style.background = 'var(--bg-main)';
+                card.style.border = '1px solid var(--border-color)';
+                card.style.borderRadius = 'var(--radius-md)';
+                card.style.padding = '0.85rem 1rem';
+                card.style.display = 'flex';
+                card.style.flexDirection = 'column';
+                card.style.gap = '0.5rem';
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1.25rem; font-weight: 900; color: var(--primary); text-transform: uppercase;">${item.dg}</span>
+                        <span style="font-size: 0.78rem; color: var(--text-muted);">(ex: <em>${item.ex}</em>)</span>
+                    </div>
+                    <div style="display: flex; gap: 0.4rem;">
+                        <button class="comp-opt-btn" style="flex: 1; text-align: center; padding: 0.45rem;" onclick="checkQuickDigraph(${idx}, 'separable', this)">✂️ Separable</button>
+                        <button class="comp-opt-btn" style="flex: 1; text-align: center; padding: 0.45rem;" onclick="checkQuickDigraph(${idx}, 'inseparable', this)">🔒 Inseparable</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-quick-dg-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkQuickDigraph(idx, chosenType, btn) {
+            const item = quickDigraphs[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-quick-dg-' + idx);
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (chosenType === item.type) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                quickDigraphsCount++;
+                const badge = document.getElementById('digraph-quick-badge');
+                if (badge) badge.textContent = 'Encerts: ' + quickDigraphsCount + ' / ' + quickDigraphs.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> ' + item.dg.toUpperCase() + ' és ' + item.type + ' (ex: <em>' + item.ex + '</em>).';
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ Recorda que ' + item.dg.toUpperCase() + ' és ' + item.type + ' (ex: <em>' + item.ex + '</em>).';
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1200);
+            }
+        }
+
+        // --- EXERCICI 4.3: COMPTADOR DE SÍL·LABES ---
+        const syllableCountWords = [
+            { word: 'sol', syllables: 'sol', count: 1, type: 'Monosíl·laba (1 cop de veu)' },
+            { word: 'bossa', syllables: 'bos-sa', count: 2, type: 'Bisíl·laba (2 cops de veu)' },
+            { word: 'escola', syllables: 'es-co-la', count: 3, type: 'Trisíl·laba (3 cops de veu)' },
+            { word: 'ordinador', syllables: 'or-di-na-dor', count: 4, type: 'Polisíl·laba (4 cops de veu)' },
+            { word: 'felicitat', syllables: 'fe-li-ci-tat', count: 4, type: 'Polisíl·laba (4 cops de veu)' },
+            { word: 'pa', syllables: 'pa', count: 1, type: 'Monosíl·laba (1 cop de veu)' }
+        ];
+
+        let syllableCountScore = 0;
+
+        function initSyllableCounter() {
+            const container = document.getElementById('syllable-count-container');
+            if (!container) return;
+            container.innerHTML = '';
+            syllableCountScore = 0;
+
+            syllableCountWords.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.style.background = 'var(--bg-main)';
+                box.style.border = '1px solid var(--border-color)';
+                box.style.borderRadius = 'var(--radius-md)';
+                box.style.padding = '0.9rem 1.25rem';
+                box.style.display = 'flex';
+                box.style.justifyContent = 'space-between';
+                box.style.alignItems = 'center';
+                box.style.flexWrap = 'wrap';
+                box.style.gap = '0.75rem';
+
+                box.innerHTML = `
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-main);">«${item.word}»</strong>
+                        <span style="font-size: 0.78rem; color: var(--text-muted); margin-left: 0.4rem;">(Compta els cops de veu)</span>
+                    </div>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                        <button class="comp-opt-btn" onclick="checkSyllableCount(${idx}, 1, this)">1 (Mono)</button>
+                        <button class="comp-opt-btn" onclick="checkSyllableCount(${idx}, 2, this)">2 (Bi)</button>
+                        <button class="comp-opt-btn" onclick="checkSyllableCount(${idx}, 3, this)">3 (Tri)</button>
+                        <button class="comp-opt-btn" onclick="checkSyllableCount(${idx}, 4, this)">4+ (Poli)</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-syl-count-${idx}" style="width: 100%;"></div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function checkSyllableCount(idx, chosenCount, btn) {
+            const item = syllableCountWords[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-syl-count-' + idx);
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (chosenCount === item.count) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                syllableCountScore++;
+                const badge = document.getElementById('syllable-count-badge');
+                if (badge) badge.textContent = 'Encerts: ' + syllableCountScore + ' / ' + syllableCountWords.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.word + '» se separa en <em>' + item.syllables + '</em> (' + item.type + ').';
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ Té ' + item.count + ' síl·laba/es: <em>' + item.syllables + '</em> (' + item.type + ').';
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1200);
+            }
+        }
+
+        // --- 6. ENTRENADOR INTERACTIU DE LA SÍL·LABA TÒNICA (12 PARAULES) ---
         const tonicaWords = [
-            { syllables: ['fe', 'li', 'ci', 'tat'], tonicaIdx: 3, word: 'felicitat', type: 'Aguda (allargues -TAAAT!)' },
-            { syllables: ['llo', 'fa'], tonicaIdx: 0, word: 'llofa', type: 'Plana (allargues LLOOO-fa)' },
-            { syllables: ['mú', 'si', 'ca'], tonicaIdx: 0, word: 'música', type: 'Esdrúixola (porta accent: MÚÚÚ-si-ca)' },
-            { syllables: ['es', 'co', 'la'], tonicaIdx: 1, word: 'escola', type: 'Plana (allargues es-COOO-la)' },
-            { syllables: ['llo', 'guer'], tonicaIdx: 1, word: 'lloguer', type: 'Aguda (allargues llo-GUEEER!)' }
+            { syllables: ['fe', 'li', 'ci', 'tat'], tonicaIdx: 3, word: 'felicitat', type: 'Aguda (força a l’última: -TAT)' },
+            { syllables: ['llo', 'fa'], tonicaIdx: 0, word: 'llofa', type: 'Plana (força a la penúltima: LLO-)' },
+            { syllables: ['mú', 'si', 'ca'], tonicaIdx: 0, word: 'música', type: 'Esdrúixola (força a l’antepenúltima: MÚ-)' },
+            { syllables: ['es', 'co', 'la'], tonicaIdx: 1, word: 'escola', type: 'Plana (força a la penúltima: -CO-)' },
+            { syllables: ['llo', 'guer'], tonicaIdx: 1, word: 'lloguer', type: 'Aguda (força a l’última: -GUER)' },
+            { syllables: ['ca', 'mell'], tonicaIdx: 1, word: 'camell', type: 'Plana (força a la penúltima: ca-MEEELL)' },
+            { syllables: ['fi', 'nes', 'tra'], tonicaIdx: 1, word: 'finestra', type: 'Plana (força a la penúltima: fi-NESSS-tra)' },
+            { syllables: ['ca', 'mi', 'ó'], tonicaIdx: 2, word: 'camió', type: 'Aguda (força a l’última: ca-mi-ÓÓÓ)' },
+            { syllables: ['fà', 'bri', 'ca'], tonicaIdx: 0, word: 'fàbrica', type: 'Esdrúixola (força a l’antepenúltima: FÀ-bri-ca)' },
+            { syllables: ['te', 'lè', 'fon'], tonicaIdx: 1, word: 'telèfon', type: 'Esdrúixola (força a l’antepenúltima: te-LÈ-fon)' },
+            { syllables: ['o', 'cell'], tonicaIdx: 1, word: 'ocell', type: 'Aguda (força a l’última: o-CELL)' },
+            { syllables: ['ra', 'to', 'lí'], tonicaIdx: 2, word: 'ratolí', type: 'Aguda (força a l’última: ra-to-LÍ)' }
         ];
 
         let tonicaCorrectCount = 0;
@@ -1779,7 +2303,7 @@
                 row.style.background = 'var(--bg-main)';
                 row.style.border = '1px solid var(--border-color)';
                 row.style.borderRadius = 'var(--radius-sm)';
-                row.style.padding = '0.85rem 1rem';
+                row.style.padding = '0.85rem 1.15rem';
 
                 let sylBtnsHtml = '';
                 item.syllables.forEach((syl, sIdx) => {
@@ -1788,8 +2312,8 @@
 
                 row.innerHTML = `
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
-                        <span style="font-weight: 800; font-size: 0.95rem;">Paraula ${wIdx + 1}: <em>${item.word}</em></span>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">📢 Fes el crit per trobar-la!</span>
+                        <span style="font-weight: 800; font-size: 0.95rem;">${wIdx + 1}. Paraula: <em>«${item.word}»</em></span>
+                        <span style="font-size: 0.78rem; color: var(--text-muted);">📢 Fes el Truc del Crit!</span>
                     </div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">${sylBtnsHtml}</div>
                     <div class="feedback-msg" id="fb-tonica-${wIdx}"></div>
@@ -1809,7 +2333,8 @@
                 playSuccessSound();
                 addXP(10);
                 tonicaCorrectCount++;
-                document.getElementById('tonica-score-badge').textContent = 'Encerts: ' + tonicaCorrectCount + ' / ' + tonicaWords.length;
+                const badge = document.getElementById('tonica-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + tonicaCorrectCount + ' / ' + tonicaWords.length;
                 fb.className = 'feedback-msg success show';
                 fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.syllables[sIdx].toUpperCase() + '» és la síl·laba tònica (' + item.type + ').';
             } else {
@@ -1823,27 +2348,36 @@
             }
         }
 
-        // --- 7. CLASSIFICADOR DE NOMS EN VIU ---
+        // --- 7. CLASSIFICADOR DE NOMS EN VIU (12 PARAULES) ---
         const nounExercises = [
-            { noun: 'Gat', expected: 'comú' },
-            { noun: 'Sant Baldiri', expected: 'propi' },
-            { noun: 'Amistat', expected: 'abstracte' },
-            { noun: 'Poma', expected: 'concret' },
-            { noun: 'Ramat', expected: 'col·lectiu' },
-            { noun: 'Arbre', expected: 'individual' }
+            { noun: 'Gat', expected: 'comú', reason: 'Designa qualsevol animal d’aquesta espècie en general.' },
+            { noun: 'Sant Baldiri', expected: 'propi', reason: 'És el nom particular d’un sant o poble i s’escriu amb majúscula.' },
+            { noun: 'Amistat', expected: 'abstracte', reason: 'És un sentiment o valor que no podem tocar amb les mans.' },
+            { noun: 'Poma', expected: 'concret', reason: 'És una fruita real que podem veure, tocar i menjar.' },
+            { noun: 'Ramat', expected: 'col·lectiu', reason: 'En singular expressa tot un conjunt d’ovelles.' },
+            { noun: 'Arbre', expected: 'individual', reason: 'En singular es refereix a una sola planta.' },
+            { noun: 'Barcelona', expected: 'propi', reason: 'És el nom particular d’una ciutat concreta.' },
+            { noun: 'Bosc', expected: 'col·lectiu', reason: 'En singular expressa un conjunt nombrós d’arbres.' },
+            { noun: 'Aigua', expected: 'no comptable', reason: 'És una matèria que es mesura en litres, però no en unitats soltes.' },
+            { noun: 'Por', expected: 'abstracte', reason: 'És una emoció que es viu internament.' },
+            { noun: 'Estol', expected: 'col·lectiu', reason: 'En singular designa un grup nombrós d’ocells volant junts.' },
+            { noun: 'Llet', expected: 'no comptable', reason: 'És un líquid que no es compta com una o dues unitats soltes.' }
         ];
+
+        let nounScoreCount = 0;
 
         function initNounClassifier() {
             const list = document.getElementById('noun-classifier-list');
             if (!list) return;
             list.innerHTML = '';
+            nounScoreCount = 0;
 
             nounExercises.forEach((item, idx) => {
                 const box = document.createElement('div');
                 box.style.background = 'var(--bg-card)';
                 box.style.border = '1px solid var(--border-color)';
                 box.style.borderRadius = 'var(--radius-md)';
-                box.style.padding = '0.85rem 1.25rem';
+                box.style.padding = '0.85rem 1.15rem';
                 box.style.display = 'flex';
                 box.style.alignItems = 'center';
                 box.style.justifyContent = 'space-between';
@@ -1852,15 +2386,16 @@
 
                 box.innerHTML = `
                     <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main);">
-                        🏷️ ${item.noun}
+                        🏷️ ${idx + 1}. <strong>«${item.noun}»</strong>
                     </div>
-                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'comú', this)">Comú</button>
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'propi', this)">Propi</button>
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'concret', this)">Concret</button>
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'abstracte', this)">Abstracte</button>
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'individual', this)">Individual</button>
                         <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'col·lectiu', this)">Col·lectiu</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'no comptable', this)">No comptable</button>
                     </div>
                     <div class="feedback-msg" id="fb-noun-${idx}" style="width: 100%;"></div>
                 `;
@@ -1879,13 +2414,221 @@
                 btn.classList.add('correct');
                 playSuccessSound();
                 addXP(10);
+                nounScoreCount++;
+                const badge = document.getElementById('noun-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + nounScoreCount + ' / ' + nounExercises.length;
                 fb.className = 'feedback-msg success show';
-                fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.noun + '» és un nom ' + item.expected + '.';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.noun + '» és un nom ' + item.expected + '. ' + item.reason;
             } else {
                 btn.classList.add('wrong');
                 playErrorSound();
                 fb.className = 'feedback-msg error show';
-                fb.innerHTML = '❌ <strong>Pensa bé:</strong> «' + item.noun + '» és ' + item.expected + '!';
+                fb.innerHTML = '❌ <strong>Pensa bé:</strong> «' + item.noun + '» és ' + item.expected + '! ' + item.reason;
+            }
+        }
+
+        // --- EXERCICI 5.2: CAÇADOR DE NOMS COL·LECTIUS ---
+        const collectiveExercises = [
+            { individual: 'Una ovella', collective: 'Un ramat', options: ['Un ramat', 'Un bosc', 'Un eixam'], correct: 0, reason: 'Ramat = conjunt d’ovelles.' },
+            { individual: 'Un arbre', collective: 'Un bosc', options: ['Un estol', 'Un bosc', 'Una orquestra'], correct: 1, reason: 'Bosc = conjunt d’arbres.' },
+            { individual: 'Un ocell', collective: 'Un estol', options: ['Un estol', 'Un banc', 'Una biblioteca'], correct: 0, reason: 'Estol = conjunt d’ocells volant junts.' },
+            { individual: 'Un peix', collective: 'Un banc', options: ['Un eixam', 'Un banc', 'Un ramat'], correct: 1, reason: 'Banc = conjunt de peixos nedant junts.' },
+            { individual: 'Una abella', collective: 'Un eixam', options: ['Un eixam', 'Un ram', 'Una flota'], correct: 0, reason: 'Eixam = conjunt d’abelles.' },
+            { individual: 'Un músic', collective: 'Una orquestra', options: ['Un ramat', 'Una orquestra', 'Un estol'], correct: 1, reason: 'Orquestra = conjunt de músics tocant instruments.' },
+            { individual: 'Un vaixell', collective: 'Una flota', options: ['Una flota', 'Un bosc', 'Un banc'], correct: 0, reason: 'Flota = conjunt de vaixells navegant.' },
+            { individual: 'Un llibre', collective: 'Una biblioteca', options: ['Un banc', 'Una biblioteca', 'Un eixam'], correct: 1, reason: 'Biblioteca = col·lecció organitzada de llibres.' }
+        ];
+
+        let collectiveScoreCount = 0;
+
+        function initCollectiveGame() {
+            const container = document.getElementById('collective-game-container');
+            if (!container) return;
+            container.innerHTML = '';
+            collectiveScoreCount = 0;
+
+            collectiveExercises.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'collective-row-card';
+
+                let optsHtml = '';
+                item.options.forEach((opt, oIdx) => {
+                    optsHtml += `<button class="comp-opt-btn" onclick="checkCollective(${idx}, ${oIdx}, this)">${opt}</button>`;
+                });
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 800; font-size: 0.95rem;">Element: <em>${item.individual}</em></span>
+                        <span style="font-size: 0.76rem; color: var(--primary); font-weight: 800;">→ Quin és el col·lectiu?</span>
+                    </div>
+                    <div class="comp-options-grid" style="margin-top: 0.4rem;">${optsHtml}</div>
+                    <div class="feedback-msg" id="fb-coll-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkCollective(idx, optIdx, btn) {
+            const item = collectiveExercises[idx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-coll-' + idx);
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (optIdx === item.correct) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                collectiveScoreCount++;
+                const badge = document.getElementById('collective-score-badge');
+                if (badge) badge.textContent = 'Encerts: ' + collectiveScoreCount + ' / ' + collectiveExercises.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> ' + item.reason;
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Pensa en el conjunt:</strong> ' + item.reason;
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1300);
+            }
+        }
+
+        // --- EXERCICI 5.3: L'INSPECTOR DE LES 4 PROVES DEL SUBSTANTIU ---
+        const nounInspectorData = [
+            {
+                word: 'Gos',
+                correct: { p1: 'comú', p2: 'concret', p3: 'individual', p4: 'comptable' },
+                desc: 'Nom comú (qualsevol gos), concret (es pot tocar), individual (1 sol animal) i comptable (1 gos, 2 gossos).'
+            },
+            {
+                word: 'Barcelona',
+                correct: { p1: 'propi', p2: 'concret', p3: 'individual', p4: 'comptable' },
+                desc: 'Nom propi (lloc concret amb majúscula), concret (ciutat física), individual (una ciutat) i comptable.'
+            },
+            {
+                word: 'Alegria',
+                correct: { p1: 'comú', p2: 'abstracte', p3: 'individual', p4: 'no-comptable' },
+                desc: 'Nom comú, abstracte (emoció que no es toca), individual i no comptable (no diem tres alegries soltes com a pomes).'
+            },
+            {
+                word: 'Ramat',
+                correct: { p1: 'comú', p2: 'concret', p3: 'col·lectiu', p4: 'comptable' },
+                desc: 'Nom comú, concret (les ovelles es toquen), col·lectiu (en singular és un grup sencer) i comptable (un ramat, dos ramats).'
+            }
+        ];
+
+        let inspectorDone = 0;
+        const inspectorUserChoices = {};
+
+        function initNounInspector() {
+            const container = document.getElementById('noun-inspector-container');
+            if (!container) return;
+            container.innerHTML = '';
+            inspectorDone = 0;
+
+            nounInspectorData.forEach((item, idx) => {
+                inspectorUserChoices[idx] = { p1: null, p2: null, p3: null, p4: null };
+
+                const card = document.createElement('div');
+                card.className = 'noun-inspector-card';
+                card.id = 'inspector-card-' + idx;
+
+                card.innerHTML = `
+                    <div class="noun-inspector-header">
+                        <span class="noun-target-title">${idx + 1}. «${item.word}»</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Passa les 4 proves gramaticals:</span>
+                    </div>
+
+                    <!-- Parella 1 -->
+                    <div class="noun-property-row">
+                        <span class="noun-property-label">1. Comú vs Propi:</span>
+                        <div class="noun-opt-pair">
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p1', 'comú', this)">Comú</button>
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p1', 'propi', this)">Propi</button>
+                        </div>
+                    </div>
+
+                    <!-- Parella 2 -->
+                    <div class="noun-property-row">
+                        <span class="noun-property-label">2. Concret vs Abstracte:</span>
+                        <div class="noun-opt-pair">
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p2', 'concret', this)">Concret</button>
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p2', 'abstracte', this)">Abstracte</button>
+                        </div>
+                    </div>
+
+                    <!-- Parella 3 -->
+                    <div class="noun-property-row">
+                        <span class="noun-property-label">3. Individual vs Col·lectiu:</span>
+                        <div class="noun-opt-pair">
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p3', 'individual', this)">Individual</button>
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p3', 'col·lectiu', this)">Col·lectiu</button>
+                        </div>
+                    </div>
+
+                    <!-- Parella 4 -->
+                    <div class="noun-property-row">
+                        <span class="noun-property-label">4. Comptable vs No Comptable:</span>
+                        <div class="noun-opt-pair">
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p4', 'comptable', this)">Comptable</button>
+                            <button class="btn-noun-pill" onclick="selectInspectorPill(${idx}, 'p4', 'no-comptable', this)">No comptable</button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="checkNounInspection(${idx})">
+                            🔍 Comprovar Anàlisi
+                        </button>
+                        <span id="insp-status-${idx}" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Tria una opció a cada fila</span>
+                    </div>
+                    <div class="feedback-msg" id="fb-inspector-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function selectInspectorPill(idx, prop, val, btn) {
+            playTone(550, 'sine', 0.05);
+            inspectorUserChoices[idx][prop] = val;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.btn-noun-pill').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function checkNounInspection(idx) {
+            const choices = inspectorUserChoices[idx];
+            const item = nounInspectorData[idx];
+            const fb = document.getElementById('fb-inspector-' + idx);
+            const status = document.getElementById('insp-status-' + idx);
+
+            if (!choices.p1 || !choices.p2 || !choices.p3 || !choices.p4) {
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '⚠️ Has de marcar una opció a cadascuna de les 4 files abans de comprovar!';
+                playErrorSound();
+                return;
+            }
+
+            const c = item.correct;
+            const isFullMatch = (choices.p1 === c.p1 && choices.p2 === c.p2 && choices.p3 === c.p3 && choices.p4 === c.p4);
+
+            if (isFullMatch) {
+                playSuccessSound();
+                addXP(20);
+                inspectorDone++;
+                const badge = document.getElementById('inspector-score-badge');
+                if (badge) badge.textContent = 'Analitzats: ' + inspectorDone + ' / ' + nounInspectorData.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Anàlisi perfecta (+20 XP)!</strong> ' + item.desc;
+                if (status) status.textContent = '✅ Anàlisi verificada';
+            } else {
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Hi ha algun error:</strong> Revisa bé les proves! Pista: ' + item.desc;
             }
         }
 
@@ -2076,10 +2819,17 @@
         // --- INICIALITZACIÓ GLOBAL AL CARREGAR ---
         window.addEventListener('DOMContentLoaded', () => {
             updateStatsUI();
-            initPairsGame();
+            initPairsGame(1);
+            initPrefixExercise();
+            initAntonymOpposites();
+            initContextSynonyms();
             initDigraphTester();
+            initQuickDigraphs();
+            initSyllableCounter();
             initTonicaGame();
             initNounClassifier();
+            initCollectiveGame();
+            initNounInspector();
             loadQuizQuestion();
         });
     </script>
