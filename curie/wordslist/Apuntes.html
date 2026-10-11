@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Master - Madame Curie | Aprende el Vocabulario del Laboratorio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top Navbar Minimal -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Volver al Portal Central">
+                <span>←</span> Volver a Temas
+            </a>
+            <div class="topic-badge-header">
+                <span>🧪</span> Science • M. Curie
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Cambiar Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temas de Science</div>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>1. Lab Vocabulary & Instruments</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Quick Cheat Sheet Button -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Abrir Chuleta de Vocabulario">
+                <span>💡</span> Chuleta Rápida
+            </button>
+
+            <!-- Stats Pills -->
+            <div class="score-pill-nav" title="Puntos de Experiencia">
+                <span>⚡</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Racha de aciertos">
+                <span>🔥</span>
+                <span id="streak-counter">0</span>
+            </div>
+            <div class="score-pill-nav" title="Palabras dominadas">
+                <span>📚</span>
+                <span id="mastered-counter">0/35</span>
+            </div>
+
+            <!-- Sonido y Modo Oscuro -->
+            <button id="btn-toggle-sound" class="btn-icon-nav" onclick="toggleSound()" title="Sonidos">🔊</button>
+            <button id="btn-toggle-dark" class="btn-icon-nav" onclick="toggleDarkMode()" title="Modo Claro/Oscuro">🌓</button>
+        </div>
+    </header>
+
+    <!-- 100% Full Width Hero Banner (Harmonized with Comunicación) -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">SCIENCE • MADAME CURIE VOCABULARY</div>
+                <h1>Lab Master: Scientific Vocabulary & Instruments</h1>
+                <p>Domina los verbos de acción, herramientas e instrumentos, ramas científicas (-y) y profesiones (-ist) con audio nativo en inglés y retos interactivos.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-words-mastered">0/35</div>
+                    <div class="stat-label">Dominadas</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-level-rank">Nivel 1</div>
+                    <div class="stat-label">Rango Lab</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Puntos XP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle Bar -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>🎴</span> <span id="mobile-current-tab-label">1. Tarjetas & Audio</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Ejercicios
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Science • Madame Curie</span>
+                <h3 class="sidebar-topic-title">1. Vocabulario de Lab</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progreso del tema</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav-list">
+                <!-- 1. Tarjetas & Audio -->
+                <button class="sidebar-item-btn active" onclick="switchSidebarTab('flashcards', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎴</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Tarjetas & Audio</span>
+                            <span class="sidebar-btn-desc">35 tarjetas con voz nativa</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-flashcards">0/35</span>
+                </button>
+
+                <!-- 2. Parejas de Memoria -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('memory', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🧩</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Parejas de Memoria</span>
+                            <span class="sidebar-btn-desc">Empareja término y significado</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-memory">Minijuego</span>
+                </button>
+
+                <!-- 3. Quiz de Examen -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('quiz', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🔘</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Quiz de Laboratorio</span>
+                            <span class="sidebar-btn-desc">10 preguntas multirespuesta</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-quiz">Test</span>
+                </button>
+
+                <!-- 4. Reto de Ortografía -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('spelling', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✍️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. Reto de Ortografía</span>
+                            <span class="sidebar-btn-desc">Escribe los términos en inglés</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-spelling">Reto</span>
+                </button>
+
+                <!-- 5. Clasificador Veloz -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('sorter', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎯</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Clasificador Veloz</span>
+                            <span class="sidebar-btn-desc">Clasifica a contrarreloj</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-sorter">Veloz</span>
+                </button>
+
+                <!-- 6. Chuleta & Tablas -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('cheatsheet', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📋</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Chuleta & Tablas</span>
+                            <span class="sidebar-btn-desc">Resumen completo e imprimible</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Ficha</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Chuleta Rápida (Ventana)
+                </button>
+                <a href="https://drive.google.com/open?id=1GE41l8nfuuGgqw9ATHSqm83e8cvQfQgA&usp=drive_copy" target="_blank" class="sidebar-link-topic">
+                    <span>📄 Material Oficial Drive</span>
+                    <span>→</span>
+                </a>
+                <button class="sidebar-reset-btn" onclick="confirmResetProgress()">
+                    ↺ Reiniciar mi progreso de este tema
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+        <!-- ==========================================
+             PESTAÑA 1: TARJETAS DE MEMORIA (FLASHCARDS)
+             ========================================== -->
+        <section id="panel-flashcards" class="tab-panel active">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎴</span> Tarjetas Interactivas de Vocabulario</h2>
+                    <p class="section-subtitle">Toca cualquier tarjeta para voltearla y pulsa el altavoz 🔊 para escuchar la pronunciación en inglés nativo.</p>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="card-search" class="search-input" placeholder="Buscar palabra (ej. Beaker, Melt...)" oninput="filterCards()">
+                </div>
+            </div>
+
+            <!-- Filtros de categoría -->
+            <div class="filter-group">
+                <button class="filter-pill active" onclick="setCardFilter('all', this)">✨ Todas (35)</button>
+                <button class="filter-pill" onclick="setCardFilter('verbs', this)">⚡ Verbos (9)</button>
+                <button class="filter-pill" onclick="setCardFilter('tools', this)">🔬 Herramientas (9)</button>
+                <button class="filter-pill" onclick="setCardFilter('areas', this)">📚 Ramas Científicas (10)</button>
+                <button class="filter-pill" onclick="setCardFilter('jobs', this)">🧑‍🔬 Profesiones (-ist) (7)</button>
+            </div>
+
+            <!-- Cuadrícula de Tarjetas -->
+            <div id="cards-container" class="cards-grid"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: JUEGO DE PAREJAS (MEMORY MATCH)
+             ========================================== -->
+        <section id="panel-memory" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🧩</span> Minijuego: Empareja y Recuerda</h2>
+                    <p class="section-subtitle">Encuentra cada pareja: la palabra en inglés con su traducción o función de laboratorio correspondiente.</p>
+                </div>
+                <button class="btn-primary" onclick="initMemoryGame()">
+                    <span>🔄</span> Nueva Partida
+                </button>
+            </div>
+
+            <div class="game-controls">
+                <div class="game-stat-box">
+                    <span>⏱️ Tiempo:</span>
+                    <span id="memory-timer" class="game-stat-val">00:00</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>🎯 Intentos:</span>
+                    <span id="memory-moves" class="game-stat-val">0</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>✨ Parejas:</span>
+                    <span id="memory-pairs" class="game-stat-val">0 / 6</span>
+                </div>
+            </div>
+
+            <div id="memory-board" class="memory-grid"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 3: QUIZ DE OPCIÓN MÚLTIPLE
+             ========================================== -->
+        <section id="panel-quiz" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🔘</span> Quiz Interactivo de Preguntas</h2>
+                    <p class="section-subtitle">Demuestra cuánto has aprendido. ¡Gana 20 XP por cada respuesta correcta!</p>
+                </div>
+                <button class="btn-primary" onclick="restartQuiz()">
+                    <span>🔄</span> Reiniciar Quiz
+                </button>
+            </div>
+
+            <div class="quiz-wrapper">
+                <div class="quiz-card" id="quiz-box">
+                    <div class="quiz-progress-num" id="quiz-counter">Pregunta 1 de 12</div>
+                    <div class="quiz-question-text" id="quiz-question">Cargando pregunta...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-explanation-box" id="quiz-explanation"></div>
+                    <div class="quiz-next-row">
+                        <button id="btn-next-quiz" class="btn-primary" style="display: none;" onclick="nextQuizQuestion()">
+                            Siguiente Pregunta &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 4: RETO DE ORTOGRAFÍA (SPELLING)
+             ========================================== -->
+        <section id="panel-spelling" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>✍️</span> Reto de Ortografía y Escritura</h2>
+                    <p class="section-subtitle">Escribe en inglés la palabra exacta. Los profesores suelen restar puntos por fallos ortográficos en el examen.</p>
+                </div>
+                <button class="btn-primary" onclick="checkAllSpelling()">
+                    <span>✅</span> Comprobar Todo
+                </button>
+            </div>
+
+            <div class="spelling-grid" id="spelling-container"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 5: CLASIFICADOR VELOZ
+             ========================================== -->
+        <section id="panel-sorter" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎯</span> Clasificador Veloz</h2>
+                    <p class="section-subtitle">Mira la palabra en pantalla y clasifícala lo más rápido posible en su categoría correspondiente.</p>
+                </div>
+                <div class="game-stat-box">
+                    <span>Aciertos seguidos:</span>
+                    <span id="sorter-streak" class="game-stat-val">0</span>
+                </div>
+            </div>
+
+            <div class="sorter-container">
+                <div class="sorter-arena">
+                    <div id="sorter-timer-bar" class="sorter-timer-bar"></div>
+                    <div id="sorter-word" class="sorter-word-display">BEAKER</div>
+                    <div id="sorter-hint" class="sorter-hint-display">¿A qué categoría pertenece esta palabra?</div>
+                    
+                    <div class="sorter-targets">
+                        <button class="btn-sorter" onclick="handleSorterPick('verbs')">
+                            <span>⚡</span> Verbo (Action)
+                        </button>
+                        <button class="btn-sorter" onclick="handleSorterPick('tools')">
+                            <span>🔬</span> Herramienta (Tool)
+                        </button>
+                        <button class="btn-sorter" onclick="handleSorterPick('areas')">
+                            <span>📚</span> Rama Científica (-y)
+                        </button>
+                        <button class="btn-sorter" onclick="handleSorterPick('jobs')">
+                            <span>🧑‍🔬</span> Profesión (-ist)
+                        </button>
+                    </div>
+                </div>
+                <div id="sorter-feedback" style="font-weight: 800; font-size: 1.1rem; min-height: 1.5rem;"></div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 6: CHULETA & RESUMEN COMPLETO
+             ========================================== -->
+        <section id="panel-cheatsheet" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📋</span> Resumen Completo de Estudio</h2>
+                    <p class="section-subtitle">Todos los conceptos extraídos directamente de los apuntes de clase, organizados y listos para imprimir o repasar.</p>
+                </div>
+                <button class="btn-accent" onclick="window.print()">
+                    <span>🖨️</span> Imprimir Ficha de Repaso
+                </button>
+            </div>
+
+            <!-- Tabla 1: Verbos -->
+            <div class="cheatsheet-table-card">
+                <h3 style="margin-bottom: 1rem; color: #f43f5e; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>⚡</span> 1. Verbos del Laboratorio (Laboratory Verbs)
+                </h3>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Verbo en Inglés</th>
+                            <th>Pronunciación</th>
+                            <th>Traducción</th>
+                            <th>Uso en el Laboratorio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-verbs-body"></tbody>
+                </table>
+            </div>
+
+            <!-- Tabla 2: Herramientas -->
+            <div class="cheatsheet-table-card">
+                <h3 style="margin-bottom: 1rem; color: #0ea5e9; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🔬</span> 2. Material e Instrumentos (Laboratory Tools)
+                </h3>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Instrumento</th>
+                            <th>Traducción</th>
+                            <th>Detalle Mnemotécnico de los Apuntes</th>
+                            <th>Función Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-tools-body"></tbody>
+                </table>
+            </div>
+
+            <!-- Tabla 3: Ciencias y Profesiones -->
+            <div class="cheatsheet-table-card">
+                <h3 style="margin-bottom: 1rem; color: #8b5cf6; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📚</span> 3. Ramas Científicas (-y) y sus Profesiones (-ist)
+                </h3>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Rama de Conocimiento (-y / -ics)</th>
+                            <th>Traducción</th>
+                            <th>Profesión Científica (-ist / -er)</th>
+                            <th>Objeto de Estudio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-areas-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    </div>
+
+    <!-- Modal de Victoria / Éxito -->
+    <div id="modal-celebrate" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div id="modal-emoji" class="modal-emoji">🏆</div>
+            <h3 id="modal-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">¡Impresionante!</h3>
+            <p id="modal-desc" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Has completado el ejercicio con éxito.</p>
+            <button class="btn-primary" onclick="closeModal()">
+                ¡Continuar Practicando!
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT PRINCIPAL DE LA APLICACIÓN -->
+    <script>
+        /* =========================================================================
+           1. BASE DE DATOS DE VOCABULARIO COMPLETA (Extraída de words List Lab.pdf)
+           ========================================================================= */
+        const VOCABULARY = [
+            // VERBOS
+            {
+                id: "v_mix",
+                term: "To mix",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə mɪks/",
+                translation: "Mezclar",
+                definition: "Combine two or more substances together so they become homogeneous.",
+                tip: "En el laboratorio se mezclan reactivos en vasos de precipitado o matraces.",
+                icon: "🥣",
+                example: "Mix the two chemical solutions thoroughly."
+            },
+            {
+                id: "v_melt",
+                term: "To melt",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə mɛlt/",
+                translation: "Derretir / Fundir",
+                definition: "Change from a solid to a liquid state by heating.",
+                tip: "En los apuntes sale el polo y el hielo derritiéndose al sol.",
+                icon: "🔥",
+                example: "The ice melts quickly under the heat of the Bunsen burner."
+            },
+            {
+                id: "v_cut",
+                term: "To cut",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə kʌt/",
+                translation: "Cortar",
+                definition: "Divide, open, or slice an object using scissors or a scalpel.",
+                tip: "Para preparar muestras y disecciones con bisturí o tijeras.",
+                icon: "✂️",
+                example: "Cut a thin slice of the plant stem for the slide."
+            },
+            {
+                id: "v_measure",
+                term: "To measure",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə ˈmɛʒ.ər/",
+                translation: "Medir",
+                definition: "Determine the exact size, weight, temperature or volume of something.",
+                tip: "¡Ojo ortográfico!: Se escribe 'measure'. Usamos probetas para medir volúmenes.",
+                icon: "📏",
+                example: "Measure exactly 40 ml of water with the graduated cylinder."
+            },
+            {
+                id: "v_observe",
+                term: "To observe",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə əbˈzɜːv/",
+                translation: "Observar",
+                definition: "Watch carefully with attention using eyes, magnifying glasses or a microscope.",
+                tip: "El primer paso del método científico: mirar con detenimiento.",
+                icon: "🔍",
+                example: "Observe the growth of the bacterial colony daily."
+            },
+            {
+                id: "v_research",
+                term: "To research",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə rɪˈsɜːtʃ/",
+                translation: "Investigar",
+                definition: "Investigate systematically to discover new facts, data or scientific principles.",
+                tip: "Lo que hacía Marie Curie con la radiactividad.",
+                icon: "📊",
+                example: "Scientists research new cures for infectious diseases."
+            },
+            {
+                id: "v_control",
+                term: "To control",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə kənˈtroʊl/",
+                translation: "Controlar / Comprobar",
+                definition: "Regulate, verify and keep constant variables in an experiment.",
+                tip: "En los experimentos siempre tenemos una muestra de control para comparar.",
+                icon: "👁️",
+                example: "We control the temperature so the bacteria can survive."
+            },
+            {
+                id: "v_move",
+                term: "To move",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə muːv/",
+                translation: "Mover / Trasladar / Verter",
+                definition: "Change the place, position, or transfer liquids between containers.",
+                tip: "Trasladar tubos o mover líquidos con cuidado para no derramar.",
+                icon: "🔄",
+                example: "Move the glass tube gently to the drying rack."
+            },
+            {
+                id: "v_dissolve",
+                term: "To break up / To dissolve",
+                category: "verbs",
+                categoryName: "Verbo",
+                phonetic: "/tə breɪk ʌp / dɪˈzɒlv/",
+                translation: "Desintegrar / Disolver",
+                definition: "Break down solid particles into a liquid until they form a solution.",
+                tip: "¡Aparece literal en los apuntes!: 'To break up = to dissolve'. Como el azúcar en el té.",
+                icon: "☕",
+                example: "Stir the salt crystals until they dissolve completely in water."
+            },
+
+            // HERRAMIENTAS (TOOLS)
+            {
+                id: "t_flask",
+                term: "Flask",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/flæsk/",
+                translation: "Matraz (Erlenmeyer)",
+                definition: "Cone-shaped glass bottle with a narrow neck, ideal for swirling liquids.",
+                tip: "Su forma cónica permite agitar sustancias químicas sin salpicar.",
+                icon: "⚗️",
+                example: "Swirl the green mixture inside the Erlenmeyer flask."
+            },
+            {
+                id: "t_funnel",
+                term: "Funnel",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈfʌn.əl/",
+                translation: "Embudo",
+                definition: "A cone-shaped tool with a narrow stem used to channel liquids into jars.",
+                tip: "Evita que se derrame el líquido al pasarlo a un recipiente de boca estrecha.",
+                icon: "▽",
+                example: "Pour the chemical solution through the funnel into the bottle."
+            },
+            {
+                id: "t_beaker",
+                term: "Beaker",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈbiː.kər/",
+                translation: "Vaso de precipitados",
+                definition: "A cylindrical glass container with a flat bottom and a pouring beak.",
+                tip: "¡Regla mnemotécnica del PDF!: 'beaker' viene de 'beak' (pico de pájaro) para verter líquidos.",
+                icon: "🥛",
+                example: "The beaker has a special beak to pour liquids without dripping."
+            },
+            {
+                id: "t_cylinder",
+                term: "Graduated cylinder",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈɡrædʒ.u.eɪ.tɪd ˈsɪl.ɪn.dər/",
+                translation: "Probeta graduada",
+                definition: "A tall glass cylinder with marked lines used to measure exact volumes.",
+                tip: "Tiene marcas numeradas para medir volúmenes con mucha precisión.",
+                icon: "📏",
+                example: "Use the graduated cylinder to measure 75 ml of solution."
+            },
+            {
+                id: "t_bunsen",
+                term: "Bunsen burner",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈbʌn.sən ˈbɜː.nər/",
+                translation: "Mechero Bunsen",
+                definition: "A gas burner used in laboratories to heat, boil or melt substances.",
+                tip: "Produce una llama caliente y limpia para calentar tubos y matraces.",
+                icon: "🔥",
+                example: "Heat the mixture carefully over the Bunsen burner flame."
+            },
+            {
+                id: "t_mortar",
+                term: "Mortar and pestle",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈmɔː.tər ənd ˈpɛs.əl/",
+                translation: "Mortero y pilón (mano)",
+                definition: "A ceramic bowl and heavy rod used for crushing and grinding solids into powder.",
+                tip: "¡Destacado en el PDF!: '(for grinding)' -> Se usa para triturar y moler.",
+                icon: "🥣",
+                example: "Grind the mineral samples with the mortar and pestle."
+            },
+            {
+                id: "t_microscope",
+                term: "Microscope",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/ˈmaɪ.krə.skoʊp/",
+                translation: "Microscopio",
+                definition: "An optical instrument for viewing objects too small to be seen with the naked eye.",
+                tip: "Permite ampliar células, bacterias y microorganismos.",
+                icon: "🔬",
+                example: "Look at the cheek cells under high magnification on the microscope."
+            },
+            {
+                id: "t_watchglass",
+                term: "Watch glass",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/wɒtʃ ɡlɑːs/",
+                translation: "Vidrio de reloj",
+                definition: "A shallow circular concave glass used to evaporate liquids or hold solids.",
+                tip: "Tiene forma de lente cóncava, parecido al cristal protector de un reloj antiguo.",
+                icon: "⚪",
+                example: "Place the crystals on the watch glass to let them dry."
+            },
+            {
+                id: "t_pipette",
+                term: "Pipette (dropper)",
+                category: "tools",
+                categoryName: "Herramienta",
+                phonetic: "/pɪˈpɛt/ (ˈdrɒp.ər)/",
+                translation: "Pipeta / Cuentagotas",
+                definition: "A narrow tube used to suction and dispense liquids drop by drop.",
+                tip: "En los apuntes: 'pipette = (dropper)'. Añade líquidos gota a gota.",
+                icon: "💧",
+                example: "Add two drops of indicator dye using the pipette."
+            },
+
+            // RAMAS CIENTÍFICAS (AREAS OF KNOWLEDGE)
+            {
+                id: "a_chemistry",
+                term: "Chemistry",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˈkɛm.ɪ.stri/",
+                translation: "Química",
+                definition: "The study of matter, atoms, molecules, chemical reactions and properties.",
+                tip: "Termina en -y. Marie Curie ganó el Premio Nobel de Química.",
+                icon: "🧪",
+                example: "Chemistry studies how atoms bond to form compounds."
+            },
+            {
+                id: "a_biology",
+                term: "Biology",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/baɪˈɒl.ə.dʒi/",
+                translation: "Biología",
+                definition: "The scientific study of life and living organisms (plants, animals, ecosystems).",
+                tip: "Bio = vida, logos = estudio. Profesión: Biologist.",
+                icon: "🌱",
+                example: "Biology explains how organisms evolve and survive in nature."
+            },
+            {
+                id: "a_botany",
+                term: "Botany",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˈbɒt.ən.i/",
+                translation: "Botánica",
+                definition: "The branch of biology that deals with the scientific study of plants.",
+                tip: "Estudio de las plantas, flores, hierbas y árboles. Profesión: Botanist.",
+                icon: "🌿",
+                example: "Botany helps scientists find medicinal properties in plants."
+            },
+            {
+                id: "a_immunology",
+                term: "Immunology",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˌɪm.jʊˈnɒl.ə.dʒi/",
+                translation: "Inmunología",
+                definition: "The study of the immune system, antibodies, defenses and vaccines.",
+                tip: "En los apuntes sale el frasco de vacuna y el escudo protector. Profesión: Immunologist.",
+                icon: "🛡️",
+                example: "Immunology is vital for the development of protective vaccines."
+            },
+            {
+                id: "a_biochemistry",
+                term: "Biochemistry",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˌbaɪ.oʊˈkɛm.ɪ.stri/",
+                translation: "Bioquímica",
+                definition: "The exploration of chemical processes inside living organisms (DNA, proteins).",
+                tip: "Biología + Química juntos. Profesión: Biochemist.",
+                icon: "🧬",
+                example: "Biochemistry explores how enzymes accelerate reactions in the human body."
+            },
+            {
+                id: "a_mineralogy",
+                term: "Mineralogy",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˌmɪn.əˈræl.ə.dʒi/",
+                translation: "Mineralogía",
+                definition: "The study of minerals, crystal structures, rocks and gemstones.",
+                tip: "Estudia minerales y cristales bajo la lupa. Profesión: Mineralogist.",
+                icon: "💎",
+                example: "Mineralogy analyzes the crystal formation of quartz and diamonds."
+            },
+            {
+                id: "a_genetics",
+                term: "Genetics",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/dʒəˈnɛt.ɪks/",
+                translation: "Genética",
+                definition: "The study of heredity and the transmission of traits through DNA and genes.",
+                tip: "Termina en -ics. Profesión: Geneticist.",
+                icon: "🧬",
+                example: "Genetics explains why eye color is passed down from parents to children."
+            },
+            {
+                id: "a_geophysics",
+                term: "Geophysics",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˌdʒiː.oʊˈfɪz.ɪks/",
+                translation: "Geofísica",
+                definition: "The physics of the Earth, including earthquakes, volcanoes and gravity.",
+                tip: "Estudio de las fuerzas físicas terrestres y movimientos de placas.",
+                icon: "🌋",
+                example: "Geophysics uses seismic detectors to locate tectonic faults."
+            },
+            {
+                id: "a_microbiology",
+                term: "Microbiology",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/ˌmaɪ.kroʊ.baɪˈɒl.ə.dʒi/",
+                translation: "Microbiología",
+                definition: "The study of all living things too small to be seen with the naked eye.",
+                tip: "Estudia bacterias, virus, hongos y algas unicelulares.",
+                icon: "🦠",
+                example: "Microbiology tests how antibiotics destroy harmful bacteria."
+            },
+            {
+                id: "a_astronomy",
+                term: "Astronomy",
+                category: "areas",
+                categoryName: "Rama Científica",
+                phonetic: "/əˈstrɒn.ə.mi/",
+                translation: "Astronomía",
+                definition: "The scientific study of stars, planets, moons and outer space.",
+                tip: "¡Excepción!: El trabajo es Astronomer (termina en -er, no en -ist).",
+                icon: "🔭",
+                example: "Astronomy observes distant galaxies using space telescopes."
+            },
+
+            // PROFESIONES CIENTÍFICAS (JOBS -ist)
+            {
+                id: "j_biologist",
+                term: "Biologist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/baɪˈɒl.ə.dʒɪst/",
+                translation: "Biólogo / Bióloga",
+                definition: "A scientist who studies living organisms and the environment.",
+                tip: "Formación: BIOLOGY -> Biologist.",
+                icon: "🧑‍🔬",
+                example: "The biologist discovered a new species of frog in the rainforest."
+            },
+            {
+                id: "j_astrophysicist",
+                term: "Astrophysicist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/ˌæs.troʊˈfɪz.ɪ.sɪst/",
+                translation: "Astrofísico / Astrofísica",
+                definition: "An expert who applies the laws of physics to stars, black holes and space.",
+                tip: "¡Especial del PDF!: ASTROPHYSICS -> Astrophysicist.",
+                icon: "🚀",
+                example: "The astrophysicist simulated the collision of two black holes."
+            },
+            {
+                id: "j_climatologist",
+                term: "Climatologist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/ˌklaɪ.məˈtɒl.ə.dʒɪst/",
+                translation: "Climatólogo / Climatóloga",
+                definition: "A scientist who analyzes climate patterns and long-term weather changes.",
+                tip: "¡Especial del PDF!: CLIMATOLOGY -> Climatologist.",
+                icon: "🌍",
+                example: "The climatologist published a report on rising sea levels."
+            },
+            {
+                id: "j_virologist",
+                term: "Virologist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/vaɪˈrɒl.ə.dʒɪst/",
+                translation: "Virólogo / Viróloga",
+                definition: "A medical scientist who specializes in studying viruses and viral diseases.",
+                tip: "¡Especial del PDF!: VIROLOGY -> Virologist.",
+                icon: "🧪",
+                example: "The virologist worked in a biosafety laboratory to sequence the virus."
+            },
+            {
+                id: "j_chemist",
+                term: "Chemist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/ˈkɛm.ɪst/",
+                translation: "Químico / Química",
+                definition: "A person trained in chemistry who conducts experiments with matter.",
+                tip: "Chemistry -> Chemist.",
+                icon: "👩‍🔬",
+                example: "The chemist developed a non-toxic biodegradable plastic."
+            },
+            {
+                id: "j_botanist",
+                term: "Botanist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/ˈbɒt.ən.ɪst/",
+                translation: "Botánico / Botánica",
+                definition: "A scientist specializing in the physiology and structure of plants.",
+                tip: "Botany -> Botanist.",
+                icon: "🌺",
+                example: "The botanist collected flower samples on the high mountain."
+            },
+            {
+                id: "j_immunologist",
+                term: "Immunologist",
+                category: "jobs",
+                categoryName: "Profesión",
+                phonetic: "/ˌɪm.jʊˈnɒl.ə.dʒɪst/",
+                translation: "Inmunólogo / Inmunóloga",
+                definition: "A medical researcher focused on allergies, defenses and immunology.",
+                tip: "Immunology -> Immunologist.",
+                icon: "💉",
+                example: "The immunologist designed an innovative vaccine against the pathogen."
+            }
+        ];
+
+        /* =========================================================================
+           2. SISTEMA DE AUDIO (Web Audio API Sintetizado + Web Speech Pronunciación)
+           ========================================================================= */
+        let audioCtx = null;
+        let isMuted = localStorage.getItem('lab_muted') === 'true';
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+        }
+
+        function playSoundTone(freq, type, duration, delay = 0) {
+            if (isMuted) return;
+            initAudio();
+            if (!audioCtx) return;
+
+            setTimeout(() => {
+                try {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + duration);
+                } catch(e) {}
+            }, delay);
+        }
+
+        function playSuccessSound() {
+            playSoundTone(523.25, 'sine', 0.15, 0);   // C5
+            playSoundTone(659.25, 'sine', 0.15, 100); // E5
+            playSoundTone(783.99, 'sine', 0.25, 200); // G5
+            playSoundTone(1046.5, 'sine', 0.35, 300); // C6
+        }
+
+        function playErrorSound() {
+            playSoundTone(220, 'sawtooth', 0.2, 0);
+            playSoundTone(185, 'sawtooth', 0.3, 150);
+        }
+
+        function playClickSound() {
+            playSoundTone(800, 'triangle', 0.05, 0);
+        }
+
+        function playFanfareSound() {
+            playSoundTone(523.25, 'triangle', 0.2, 0);
+            playSoundTone(659.25, 'triangle', 0.2, 120);
+            playSoundTone(783.99, 'triangle', 0.2, 240);
+            playSoundTone(1046.5, 'triangle', 0.5, 380);
+            playSoundTone(1318.5, 'triangle', 0.6, 550);
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            localStorage.setItem('lab_muted', isMuted);
+            updateSoundIcon();
+            if (!isMuted) playSuccessSound();
+        }
+
+        function updateSoundIcon() {
+            const btn = document.getElementById('btn-toggle-sound');
+            btn.textContent = isMuted ? '🔇' : '🔊';
+        }
+
+        // Síntesis de voz en inglés
+        function speakEnglish(text) {
+            initAudio();
+            playClickSound();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                // Clean term for speech
+                const cleanText = text.replace('To ', '').replace(/\(.*?\)/g, '').trim();
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.88; // Slightly slower for clarity
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* =========================================================================
+           3. ESTADO GLOBAL, XP Y NIVELES (Gamificación)
+           ========================================================================= */
+        let state = {
+            xp: parseInt(localStorage.getItem('lab_xp') || '0'),
+            streak: 0,
+            mastered: JSON.parse(localStorage.getItem('lab_mastered') || '[]'),
+            currentTab: 'flashcards',
+            cardFilter: 'all',
+            cardSearch: ''
+        };
+
+        function addXP(amount) {
+            state.xp += amount;
+            localStorage.setItem('lab_xp', state.xp);
+            updateUIStats();
+        }
+
+        function incrementStreak() {
+            state.streak++;
+            updateUIStats();
+        }
+
+        function resetStreak() {
+            state.streak = 0;
+            updateUIStats();
+        }
+
+        function toggleMastered(id, e) {
+            if (e) e.stopPropagation();
+            const idx = state.mastered.indexOf(id);
+            if (idx > -1) {
+                state.mastered.splice(idx, 1);
+            } else {
+                state.mastered.push(id);
+                addXP(15);
+                playSuccessSound();
+            }
+            localStorage.setItem('lab_mastered', JSON.stringify(state.mastered));
+            updateUIStats();
+            renderCards();
+        }
+
+        function updateUIStats() {
+            const xpEl = document.getElementById('xp-counter');
+            if (xpEl) xpEl.textContent = `${state.xp} XP`;
+            const streakEl = document.getElementById('streak-counter');
+            if (streakEl) streakEl.textContent = state.streak;
+            const masteredEl = document.getElementById('mastered-counter');
+            if (masteredEl) masteredEl.textContent = `${state.mastered.length}/${VOCABULARY.length}`;
+
+            // Actualizar Rango y barra
+            const ranks = [
+                { name: "Nivel 1: Novato de Laboratorio 🧪", short: "Nivel 1", threshold: 100 },
+                { name: "Nivel 2: Asistente de Marie Curie 🔬", short: "Nivel 2", threshold: 300 },
+                { name: "Nivel 3: Investigador de Élite ⚗️", short: "Nivel 3", threshold: 600 },
+                { name: "Nivel 4: Científico Senior 💡", short: "Nivel 4", threshold: 1000 },
+                { name: "Nivel 5: ¡Premio Nobel de Ciencias! 🏆", short: "Nobel 🏆", threshold: 99999 }
+            ];
+
+            let curRank = ranks[0];
+            let prevThreshold = 0;
+            for (let i = 0; i < ranks.length; i++) {
+                if (state.xp < ranks[i].threshold) {
+                    curRank = ranks[i];
+                    prevThreshold = i > 0 ? ranks[i-1].threshold : 0;
+                    break;
+                }
+            }
+
+            const rankEl = document.getElementById('user-rank');
+            if (rankEl) rankEl.textContent = curRank.name;
+            const progress = Math.min(100, Math.round(((state.xp - prevThreshold) / (curRank.threshold - prevThreshold)) * 100));
+            const fillEl = document.getElementById('level-progress-fill');
+            if (fillEl) fillEl.style.width = `${progress}%`;
+            const textEl = document.getElementById('level-progress-text');
+            if (textEl) textEl.textContent = `${progress}% al siguiente rango`;
+
+            // Stat cards mini en el hero banner
+            const heroMastered = document.getElementById('stat-words-mastered');
+            if (heroMastered) heroMastered.textContent = `${state.mastered.length}/${VOCABULARY.length}`;
+            const heroRank = document.getElementById('stat-level-rank');
+            if (heroRank) heroRank.textContent = curRank.short;
+            const heroXp = document.getElementById('stat-total-xp');
+            if (heroXp) heroXp.textContent = `${state.xp} XP`;
+
+            // Sidebar progress fill & badge
+            const pct = Math.round((state.mastered.length / VOCABULARY.length) * 100);
+            const sideFill = document.getElementById('sidebar-progress-fill');
+            if (sideFill) sideFill.style.width = `${pct}%`;
+            const sidePct = document.getElementById('sidebar-progress-pct');
+            if (sidePct) sidePct.textContent = `${pct}%`;
+            const badgeFlash = document.getElementById('badge-flashcards');
+            if (badgeFlash) badgeFlash.textContent = `${state.mastered.length}/${VOCABULARY.length}`;
+        }
+
+        function toggleTopicDropdown(e) {
+            if (e) e.stopPropagation();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && !e.target.closest('.topic-switcher-dropdown')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        function openQuickCheatSheet() {
+            switchSidebarTab('cheatsheet');
+            const target = document.getElementById('panel-cheatsheet');
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('lab_dark', isDark);
+            const btn = document.getElementById('btn-toggle-dark');
+            if (btn) btn.textContent = '🌓';
+        }
+
+        function confirmResetProgress() {
+            if (confirm("¿Quieres reiniciar todos tus puntos y tarjetas dominadas para volver a empezar de cero?")) {
+                localStorage.removeItem('lab_xp');
+                localStorage.removeItem('lab_mastered');
+                state.xp = 0;
+                state.streak = 0;
+                state.mastered = [];
+                updateUIStats();
+                renderCards();
+                initMemoryGame();
+                restartQuiz();
+                renderSpelling();
+            }
+        }
+
+        /* =========================================================================
+           4. NAVEGACIÓN CON SIDEBAR Y CONTROLADORES DE INTERFAZ
+           ========================================================================= */
+        const TAB_NAMES = {
+            flashcards: "1. Tarjetas & Audio",
+            memory: "2. Parejas de Memoria",
+            quiz: "3. Quiz de Laboratorio",
+            spelling: "4. Reto de Ortografía",
+            sorter: "5. Clasificador Veloz",
+            cheatsheet: "6. Chuleta & Tablas"
+        };
+
+        function switchSidebarTab(tabId, btn) {
+            playClickSound();
+            state.currentTab = tabId;
+
+            document.querySelectorAll('.sidebar-item-btn').forEach(b => b.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const targetBtn = document.querySelector(`.sidebar-item-btn[onclick*="'${tabId}'"]`);
+                if (targetBtn) targetBtn.classList.add('active');
+            }
+
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            const target = document.getElementById(`panel-${tabId}`);
+            if (target) target.classList.add('active');
+
+            const labelEl = document.getElementById('mobile-current-tab-label');
+            if (labelEl && TAB_NAMES[tabId]) labelEl.textContent = TAB_NAMES[tabId];
+
+            // Cerrar sidebar en móvil si está abierto
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.remove('mobile-open');
+
+            // Lazy initializers
+            if (tabId === 'memory' && !memoryState.started) {
+                initMemoryGame();
+            } else if (tabId === 'quiz' && quizState.currentIdx === 0 && !quizState.started) {
+                restartQuiz();
+            } else if (tabId === 'sorter' && !sorterState.active) {
+                initSorter();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Compatibilidad con llamadas switchTab existentes
+        function switchTab(tabId, event) {
+            const btn = document.querySelector(`.sidebar-item-btn[onclick*="'${tabId}'"]`);
+            switchSidebarTab(tabId, btn || (event ? event.currentTarget : null));
+        }
+
+        function toggleMobileSidebar() {
+            playClickSound();
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.toggle('mobile-open');
+        }
+
+        /* =========================================================================
+           5. PESTAÑA 1: TARJETAS DE MEMORIA 3D (FLASHCARDS)
+           ========================================================================= */
+        function setCardFilter(cat, btn) {
+            playClickSound();
+            state.cardFilter = cat;
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards();
+        }
+
+        function filterCards() {
+            state.cardSearch = document.getElementById('card-search').value.toLowerCase().trim();
+            renderCards();
+        }
+
+        function renderCards() {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+
+            const filtered = VOCABULARY.filter(item => {
+                const matchCat = state.cardFilter === 'all' || item.category === state.cardFilter;
+                const matchSearch = !state.cardSearch || 
+                    item.term.toLowerCase().includes(state.cardSearch) || 
+                    item.translation.toLowerCase().includes(state.cardSearch) ||
+                    item.definition.toLowerCase().includes(state.cardSearch);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔍</div>
+                        <p style="font-weight: 700;">No se encontraron palabras con ese criterio de búsqueda.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isMastered = state.mastered.includes(item.id);
+                const card = document.createElement('div');
+                card.className = "card-wrapper";
+                card.onclick = function(e) {
+                    if (e.target.closest('button')) return;
+                    playClickSound();
+                    this.classList.toggle('flipped');
+                };
+
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <!-- Cara Frontal -->
+                        <div class="card-face card-front cat-${item.category}">
+                            <div class="card-top-row">
+                                <span class="category-tag">${item.categoryName}</span>
+                                <button class="audio-btn" title="Escuchar pronunciación" onclick="speakEnglish('${item.term}')">
+                                    🔊
+                                </button>
+                            </div>
+                            <div class="card-visual-icon">${item.icon}</div>
+                            <div>
+                                <h3 class="card-term">${item.term}</h3>
+                                <div class="card-phonetic">${item.phonetic}</div>
+                            </div>
+                            <div class="card-hint-click">
+                                <span>👆 Toca para ver traducción</span>
+                            </div>
+                        </div>
+
+                        <!-- Cara Trasera -->
+                        <div class="card-face card-back">
+                            <div class="card-back-title">
+                                <span>${item.translation}</span>
+                                <button class="audio-btn" style="background: rgba(255,255,255,0.2); color: white;" onclick="speakEnglish('${item.term}')">
+                                    🔊
+                                </button>
+                            </div>
+                            <div class="card-back-def">${item.definition}</div>
+                            <div class="card-back-tip">💡 <strong>Apuntes:</strong> ${item.tip}</div>
+                            <div class="card-back-ex">"${item.example}"</div>
+                            <button class="mastered-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered('${item.id}', event)">
+                                ${isMastered ? '✓ ¡Dominada!' : 'Marcar como Dominada'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* =========================================================================
+           6. PESTAÑA 2: JUEGO DE PAREJAS (MEMORY MATCH)
+           ========================================================================= */
+        let memoryState = {
+            started: false,
+            cards: [],
+            flipped: [],
+            matchedPairs: 0,
+            moves: 0,
+            timer: 0,
+            interval: null,
+            totalPairs: 6
+        };
+
+        function initMemoryGame() {
+            clearInterval(memoryState.interval);
+            memoryState.started = true;
+            memoryState.flipped = [];
+            memoryState.matchedPairs = 0;
+            memoryState.moves = 0;
+            memoryState.timer = 0;
+            document.getElementById('memory-moves').textContent = '0';
+            document.getElementById('memory-pairs').textContent = `0 / ${memoryState.totalPairs}`;
+            document.getElementById('memory-timer').textContent = '00:00';
+
+            // Escoger 6 palabras aleatorias de diferentes categorías
+            const shuffledVocab = [...VOCABULARY].sort(() => 0.5 - Math.random()).slice(0, memoryState.totalPairs);
+
+            // Crear parejas: (A) Palabra en inglés y (B) Traducción o Definición clave
+            const deck = [];
+            shuffledVocab.forEach((item, index) => {
+                deck.push({
+                    pairId: index,
+                    text: item.term,
+                    subtext: "Inglés 🇬🇧",
+                    type: "term",
+                    speak: item.term
+                });
+                deck.push({
+                    pairId: index,
+                    text: `${item.icon} ${item.translation}`,
+                    subtext: item.categoryName,
+                    type: "trans",
+                    speak: item.term
+                });
+            });
+
+            // Barajar las 12 cartas
+            memoryState.cards = deck.sort(() => 0.5 - Math.random());
+
+            const board = document.getElementById('memory-board');
+            board.innerHTML = '';
+
+            memoryState.cards.forEach((cardData, idx) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'memory-card';
+                cardEl.dataset.idx = idx;
+                cardEl.onclick = () => handleMemoryFlip(cardEl, cardData);
+
+                cardEl.innerHTML = `
+                    <div class="memory-card-inner">
+                        <div class="memory-card-face memory-front">🧪</div>
+                        <div class="memory-card-face memory-back">
+                            <div>
+                                <div style="font-weight: 800;">${cardData.text}</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">${cardData.subtext}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                board.appendChild(cardEl);
+            });
+
+            // Arrancar temporizador
+            memoryState.interval = setInterval(() => {
+                memoryState.timer++;
+                const mins = String(Math.floor(memoryState.timer / 60)).padStart(2, '0');
+                const secs = String(memoryState.timer % 60).padStart(2, '0');
+                document.getElementById('memory-timer').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function handleMemoryFlip(cardEl, cardData) {
+            if (cardEl.classList.contains('revealed') || cardEl.classList.contains('matched')) return;
+            if (memoryState.flipped.length >= 2) return;
+
+            playClickSound();
+            cardEl.classList.add('revealed');
+            memoryState.flipped.push({ el: cardEl, data: cardData });
+
+            if (cardData.speak) speakEnglish(cardData.speak);
+
+            if (memoryState.flipped.length === 2) {
+                memoryState.moves++;
+                document.getElementById('memory-moves').textContent = memoryState.moves;
+
+                const [first, second] = memoryState.flipped;
+                if (first.data.pairId === second.data.pairId) {
+                    // ¡Pareja encontrada!
+                    setTimeout(() => {
+                        playSuccessSound();
+                        first.el.classList.add('matched');
+                        second.el.classList.add('matched');
+                        memoryState.flipped = [];
+                        memoryState.matchedPairs++;
+                        document.getElementById('memory-pairs').textContent = `${memoryState.matchedPairs} / ${memoryState.totalPairs}`;
+                        addXP(25);
+                        incrementStreak();
+
+                        if (memoryState.matchedPairs === memoryState.totalPairs) {
+                            clearInterval(memoryState.interval);
+                            playFanfareSound();
+                            triggerConfetti();
+                            setTimeout(() => {
+                                showModal("🎉 ¡Memoria Prodigiosa!", `Has completado el juego en ${memoryState.moves} intentos y ${document.getElementById('memory-timer').textContent}. ¡Ganaste +50 XP bonus!`);
+                                addXP(50);
+                            }, 500);
+                        }
+                    }, 400);
+                } else {
+                    // Fallo
+                    setTimeout(() => {
+                        playErrorSound();
+                        first.el.classList.remove('revealed');
+                        second.el.classList.remove('revealed');
+                        memoryState.flipped = [];
+                        resetStreak();
+                    }, 1000);
+                }
+            }
+        }
+
+        /* =========================================================================
+           7. PESTAÑA 3: QUIZ DE OPCIÓN MÚLTIPLE (12 Preguntas Clave)
+           ========================================================================= */
+        const QUIZ_QUESTIONS = [
+            {
+                q: "¿Qué herramienta tiene un pequeño pico ('beak') para verter líquidos sin derramar?",
+                options: ["Graduated cylinder", "Beaker", "Funnel", "Watch glass"],
+                correct: 1,
+                exp: "¡Exacto! Como explican los apuntes, 'Beaker' viene de su pico ('beak') para verter líquidos."
+            },
+            {
+                q: "¿Cuál es la herramienta diseñada especialmente '(for grinding)' triturar y moler sólidos?",
+                options: ["Mortar and pestle", "Bunsen burner", "Pipette", "Flask"],
+                correct: 0,
+                exp: "¡Correcto! 'Mortar and pestle' (mortero y pilón) se utiliza para machacar y moler sustancias sólidas hasta hacerlas polvo."
+            },
+            {
+                q: "En los apuntes de clase: ¿Qué verbo equivale exactamente a '= to dissolve'?",
+                options: ["To cut", "To measure", "To break up", "To control"],
+                correct: 2,
+                exp: "¡Excelente! La diapositiva 11 destaca literalmente: 'To break up = to dissolve' (desintegrar / disolver)."
+            },
+            {
+                q: "Transforma la ciencia en el trabajo correspondiente: VIROLOGY &rarr; ?",
+                options: ["Virologer", "Virologist", "Virologian", "Virology worker"],
+                correct: 1,
+                exp: "¡Perfecto! Las áreas que acaban en -y cambian al sufijo de profesión '-ist': Virologist."
+            },
+            {
+                q: "Transforma la ciencia en el trabajo correspondiente: ASTROPHYSICS &rarr; ?",
+                options: ["Astrophysicist", "Astrophysic", "Astrophysician", "Astronomer"],
+                correct: 0,
+                exp: "¡Muy bien! ASTROPHYSICS &rarr; Astrophysicist (Astrofísico)."
+            },
+            {
+                q: "¿Qué instrumento con forma de embudo ayuda a verter líquidos en botellas de boca estrecha?",
+                options: ["Pipette", "Funnel", "Flask", "Watch glass"],
+                correct: 1,
+                exp: "¡Así es! Un 'Funnel' (embudo) conduce el líquido sin derrames."
+            },
+            {
+                q: "¿Qué rama de la ciencia estudia las vacunas, anticuerpos y defensas del cuerpo?",
+                options: ["Immunology", "Biochemistry", "Mineralogy", "Geophysics"],
+                correct: 0,
+                exp: "¡Correcto! Immunology (Inmunología) investiga el sistema inmunitario y las vacunas."
+            },
+            {
+                q: "¿Qué herramienta cilíndrica tiene líneas graduadas para medir volúmenes exactos de líquido?",
+                options: ["Watch glass", "Bunsen burner", "Graduated cylinder", "Mortar"],
+                correct: 2,
+                exp: "¡Correcto! La probeta graduada ('Graduated cylinder') mide volúmenes exactos en mililitros."
+            },
+            {
+                q: "¿Qué verbo significa cambiar de sólido a líquido mediante la aplicación de calor?",
+                options: ["To observe", "To move", "To melt", "To mix"],
+                correct: 2,
+                exp: "¡Correcto! 'To melt' significa derretir o fundir (como el hielo o el polo al sol de los apuntes)."
+            },
+            {
+                q: "¿Qué otro nombre recibe la 'Pipette' en los apuntes de laboratorio?",
+                options: ["(dropper)", "(measurer)", "(heater)", "(cutter)"],
+                correct: 0,
+                exp: "¡Exacto! En la diapositiva 15 figura: 'pipette = (dropper)' porque dosifica gota a gota."
+            },
+            {
+                q: "¿Cómo se llama al científico que estudia las plantas, árboles y vegetación (Botany)?",
+                options: ["Plantologist", "Botanist", "Biologist", "Geologist"],
+                correct: 1,
+                exp: "¡Bien hecho! Botany &rarr; Botanist (Botánico)."
+            },
+            {
+                q: "¿Cuál de estas profesiones científicas termina excepcionalmente en '-er' en vez de '-ist'?",
+                options: ["Biologist", "Chemist", "Astronomer", "Geneticist"],
+                correct: 2,
+                exp: "¡Ojo de lince! Astronomy da lugar a 'Astronomer' (con terminación -er)."
+            }
+        ];
+
+        let quizState = {
+            started: false,
+            currentIdx: 0,
+            score: 0,
+            answered: false
+        };
+
+        function restartQuiz() {
+            quizState.started = true;
+            quizState.currentIdx = 0;
+            quizState.score = 0;
+            quizState.answered = false;
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            quizState.answered = false;
+            const qData = QUIZ_QUESTIONS[quizState.currentIdx];
+            document.getElementById('quiz-counter').textContent = `Pregunta ${quizState.currentIdx + 1} de ${QUIZ_QUESTIONS.length}`;
+            document.getElementById('quiz-question').innerHTML = `<span>❓</span> ${qData.q}`;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            const explanationBox = document.getElementById('quiz-explanation');
+            explanationBox.style.display = 'none';
+            document.getElementById('btn-next-quiz').style.display = 'none';
+
+            qData.options.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.innerHTML = `<span>${optText}</span><span style="opacity: 0.4;">➜</span>`;
+                btn.onclick = () => handleQuizAnswer(oIdx, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleQuizAnswer(selectedIdx, btnElement) {
+            if (quizState.answered) return;
+            quizState.answered = true;
+
+            const qData = QUIZ_QUESTIONS[quizState.currentIdx];
+            const allOptionBtns = document.querySelectorAll('.quiz-option-btn');
+            allOptionBtns.forEach(btn => btn.disabled = true);
+
+            const explanationBox = document.getElementById('quiz-explanation');
+
+            if (selectedIdx === qData.correct) {
+                playSuccessSound();
+                btnElement.classList.add('correct');
+                explanationBox.className = 'quiz-explanation-box success';
+                explanationBox.innerHTML = `🎉 <strong>¡Correcto!</strong> ${qData.exp}`;
+                quizState.score++;
+                addXP(20);
+                incrementStreak();
+            } else {
+                playErrorSound();
+                btnElement.classList.add('wrong');
+                allOptionBtns[qData.correct].classList.add('correct');
+                explanationBox.className = 'quiz-explanation-box error';
+                explanationBox.innerHTML = `❌ <strong>No exactamente.</strong> La respuesta correcta era: <strong>${qData.options[qData.correct]}</strong>.<br>${qData.exp}`;
+                resetStreak();
+            }
+
+            explanationBox.style.display = 'block';
+            document.getElementById('btn-next-quiz').style.display = 'inline-flex';
+        }
+
+        function nextQuizQuestion() {
+            playClickSound();
+            quizState.currentIdx++;
+            if (quizState.currentIdx < QUIZ_QUESTIONS.length) {
+                renderQuizQuestion();
+            } else {
+                // Final del Quiz
+                const pct = Math.round((quizState.score / QUIZ_QUESTIONS.length) * 100);
+                playFanfareSound();
+                triggerConfetti();
+                showModal("🏆 ¡Quiz Completado!", `Has acertado ${quizState.score} de ${QUIZ_QUESTIONS.length} preguntas (${pct}%). ¡Ganaste +100 XP por completar el examen!`);
+                addXP(100);
+            }
+        }
+
+        /* =========================================================================
+           8. PESTAÑA 4: RETO DE ORTOGRAFÍA (SPELLING LAB)
+           ========================================================================= */
+        const SPELLING_DATA = [
+            {
+                prompt: "1. Transforma la ciencia en su profesión: VIROLOGY &rarr; ?",
+                accepted: ["virologist"],
+                hint: "Empieza por V y termina en -ist"
+            },
+            {
+                prompt: "2. Transforma la ciencia en su profesión: ASTROPHYSICS &rarr; ?",
+                accepted: ["astrophysicist"],
+                hint: "Astrophysic... + -ist"
+            },
+            {
+                prompt: "3. Transforma la ciencia en su profesión: CLIMATOLOGY &rarr; ?",
+                accepted: ["climatologist"],
+                hint: "Climatolog... + -ist"
+            },
+            {
+                prompt: "4. Escribe el verbo en inglés para 'Desintegrar / Disolver':",
+                accepted: ["dissolve", "to dissolve", "break up", "to break up"],
+                hint: "En el PDF: 'To break up = to dissolve'"
+            },
+            {
+                prompt: "5. Nombre de la herramienta '(for grinding)' para moler sólidos:",
+                accepted: ["mortar and pestle", "mortar & pestle", "mortar"],
+                hint: "M... and p..."
+            },
+            {
+                prompt: "6. Nombre del vaso de laboratorio que tiene un pico ('beak'):",
+                accepted: ["beaker"],
+                hint: "Beak + -er"
+            },
+            {
+                prompt: "7. Nombre del cilindro con marcas para medir volúmenes exactos:",
+                accepted: ["graduated cylinder", "cylinder"],
+                hint: "Graduated c..."
+            },
+            {
+                prompt: "8. Nombre del quemador de gas para calentar sustancias en el lab:",
+                accepted: ["bunsen burner", "bunsen"],
+                hint: "B... burner"
+            },
+            {
+                prompt: "9. Escribe el verbo en inglés para 'Medir':",
+                accepted: ["measure", "to measure"],
+                hint: "¡Cuidado ortográfico! Contiene 'ea'"
+            },
+            {
+                prompt: "10. La rama de la ciencia que estudia plantas y árboles (Botánica):",
+                accepted: ["botany"],
+                hint: "B...y (profesión: botanist)"
+            }
+        ];
+
+        function renderSpelling() {
+            const container = document.getElementById('spelling-container');
+            container.innerHTML = '';
+
+            SPELLING_DATA.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'spelling-card';
+                card.id = `spelling-card-${idx}`;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="spelling-prompt">${item.prompt}</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">💡 Pista: ${item.hint}</div>
+                    </div>
+                    <div>
+                        <div class="spelling-input-row">
+                            <input type="text" id="spell-input-${idx}" class="spelling-input" placeholder="Escribe en inglés..." onkeydown="if(event.key==='Enter') checkSingleSpelling(${idx})">
+                            <button class="btn-check-spelling" onclick="checkSingleSpelling(${idx})">Comprobar</button>
+                        </div>
+                        <div id="spell-fb-${idx}" class="spelling-feedback"></div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkSingleSpelling(idx) {
+            const item = SPELLING_DATA[idx];
+            const input = document.getElementById(`spell-input-${idx}`);
+            const fb = document.getElementById(`spell-fb-${idx}`);
+            const val = input.value.trim().toLowerCase();
+
+            input.classList.remove('correct', 'wrong');
+
+            if (item.accepted.includes(val)) {
+                playSuccessSound();
+                input.classList.add('correct');
+                fb.style.color = '#065f46';
+                fb.textContent = '✓ ¡Perfecto! Ortografía 100% correcta.';
+                addXP(15);
+            } else {
+                playErrorSound();
+                input.classList.add('wrong');
+                fb.style.color = '#9f1239';
+                fb.textContent = `✗ Incorrecto. Respuesta esperada: "${item.accepted[0]}"`;
+            }
+        }
+
+        function checkAllSpelling() {
+            SPELLING_DATA.forEach((_, idx) => checkSingleSpelling(idx));
+        }
+
+        /* =========================================================================
+           9. PESTAÑA 5: CLASIFICADOR VELOZ (SPEED SORTER)
+           ========================================================================= */
+        let sorterState = {
+            active: false,
+            currentWord: null,
+            timerWidth: 100,
+            interval: null,
+            streak: 0
+        };
+
+        function initSorter() {
+            sorterState.active = true;
+            nextSorterWord();
+        }
+
+        function nextSorterWord() {
+            clearInterval(sorterState.interval);
+            const randomItem = VOCABULARY[Math.floor(Math.random() * VOCABULARY.length)];
+            sorterState.currentWord = randomItem;
+
+            document.getElementById('sorter-word').textContent = randomItem.term.toUpperCase();
+            document.getElementById('sorter-hint').textContent = `Significa: "${randomItem.translation}"`;
+            document.getElementById('sorter-feedback').textContent = '';
+
+            // Barra de tiempo 6 segundos
+            sorterState.timerWidth = 100;
+            const bar = document.getElementById('sorter-timer-bar');
+            bar.style.width = '100%';
+
+            sorterState.interval = setInterval(() => {
+                sorterState.timerWidth -= 1.6;
+                bar.style.width = `${Math.max(0, sorterState.timerWidth)}%`;
+                if (sorterState.timerWidth <= 0) {
+                    clearInterval(sorterState.interval);
+                    handleSorterPick('timeout');
+                }
+            }, 100);
+        }
+
+        function handleSorterPick(category) {
+            clearInterval(sorterState.interval);
+            const isCorrect = category === sorterState.currentWord.category;
+            const fb = document.getElementById('sorter-feedback');
+
+            if (isCorrect) {
+                playSuccessSound();
+                sorterState.streak++;
+                addXP(20);
+                fb.style.color = '#10b981';
+                fb.textContent = `¡Correcto! ${sorterState.currentWord.term} es ${sorterState.currentWord.categoryName}.`;
+            } else {
+                playErrorSound();
+                sorterState.streak = 0;
+                fb.style.color = '#f43f5e';
+                fb.textContent = `¡Ups! Era: ${sorterState.currentWord.categoryName}.`;
+            }
+
+            document.getElementById('sorter-streak').textContent = sorterState.streak;
+
+            setTimeout(() => {
+                nextSorterWord();
+            }, 800);
+        }
+
+        /* =========================================================================
+           10. PESTAÑA 6: TABLAS DE RESUMEN Y CHULETA DE ESTUDIO
+           ========================================================================= */
+        function renderCheatsheet() {
+            // Tabla 1: Verbos
+            const verbsBody = document.getElementById('table-verbs-body');
+            verbsBody.innerHTML = '';
+            VOCABULARY.filter(v => v.category === 'verbs').forEach(item => {
+                verbsBody.innerHTML += `
+                    <tr>
+                        <td style="font-weight: 800; color: var(--primary);">
+                            ${item.term} 
+                            <button class="audio-btn" style="display: inline-flex; width: 24px; height: 24px; font-size: 0.75rem;" onclick="speakEnglish('${item.term}')">🔊</button>
+                        </td>
+                        <td><code>${item.phonetic}</code></td>
+                        <td><strong>${item.translation}</strong></td>
+                        <td>${item.tip}</td>
+                    </tr>
+                `;
+            });
+
+            // Tabla 2: Herramientas
+            const toolsBody = document.getElementById('table-tools-body');
+            toolsBody.innerHTML = '';
+            VOCABULARY.filter(t => t.category === 'tools').forEach(item => {
+                toolsBody.innerHTML += `
+                    <tr>
+                        <td style="font-weight: 800; color: var(--accent);">
+                            ${item.icon} ${item.term} 
+                            <button class="audio-btn" style="display: inline-flex; width: 24px; height: 24px; font-size: 0.75rem;" onclick="speakEnglish('${item.term}')">🔊</button>
+                        </td>
+                        <td><strong>${item.translation}</strong></td>
+                        <td>${item.tip}</td>
+                        <td>${item.definition}</td>
+                    </tr>
+                `;
+            });
+
+            // Tabla 3: Ramas y Profesiones
+            const areasBody = document.getElementById('table-areas-body');
+            areasBody.innerHTML = '';
+            VOCABULARY.filter(a => a.category === 'areas').forEach(item => {
+                // Buscar profesión asociada
+                const matchedJob = VOCABULARY.find(j => j.category === 'jobs' && (j.term.toLowerCase().includes(item.term.toLowerCase().slice(0, 4))));
+                const jobName = matchedJob ? matchedJob.term : `${item.term.replace(/y$/, 'ist')}*`;
+
+                areasBody.innerHTML += `
+                    <tr>
+                        <td style="font-weight: 800; color: var(--accent-purple);">
+                            ${item.icon} ${item.term} 
+                            <button class="audio-btn" style="display: inline-flex; width: 24px; height: 24px; font-size: 0.75rem;" onclick="speakEnglish('${item.term}')">🔊</button>
+                        </td>
+                        <td><strong>${item.translation}</strong></td>
+                        <td style="font-weight: 700; color: var(--accent-green);">
+                            ${jobName}
+                        </td>
+                        <td>${item.definition}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        /* =========================================================================
+           11. MODAL Y CONFETI VISUAL
+           ========================================================================= */
+        function showModal(title, text) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-desc').textContent = text;
+            document.getElementById('modal-celebrate').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-celebrate').classList.remove('active');
+        }
+
+        // Efecto confeti con canvas nativo
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#4f46e5', '#10b981', '#fbbf24', '#f43f5e', '#06b6d4', '#8b5cf6'];
+
+            for (let i = 0; i < 90; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    r: Math.random() * 6 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: (Math.random() - 0.5) * 16,
+                    vy: (Math.random() - 0.7) * 16,
+                    gravity: 0.35,
+                    alpha: 1
+                });
+            }
+
+            function animateConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let alive = false;
+
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.alpha -= 0.015;
+
+                    if (p.alpha > 0) {
+                        alive = true;
+                        ctx.save();
+                        ctx.globalAlpha = p.alpha;
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                });
+
+                if (alive) {
+                    requestAnimationFrame(animateConfetti);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animateConfetti();
+        }
+
+        /* =========================================================================
+           12. INICIALIZACIÓN GLOBAL AL CARGAR
+           ========================================================================= */
+        window.addEventListener('DOMContentLoaded', () => {
+            // Cargar modo oscuro previo
+            if (localStorage.getItem('lab_dark') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+            const btnDark = document.getElementById('btn-toggle-dark');
+            if (btnDark) btnDark.textContent = '🌓';
+            updateSoundIcon();
+            updateUIStats();
+            renderCards();
+            renderSpelling();
+            renderCheatsheet();
+        });
+    </script>
+</body>
+</html>

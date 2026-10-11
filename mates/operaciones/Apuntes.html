@@ -1,0 +1,2994 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo Mental, Operaciones & Problemas | Álvaro Study Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <!-- Top Navbar Minimal -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Volver al Portal Central">
+                <span>←</span> Volver a Temas
+            </a>
+            <div class="topic-badge-header">
+                <span>📐</span> Matemáticas • Tema 1
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Cambiar Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temas de Matemáticas</div>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>1. Cálculo Mental, Operaciones & Problemas</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-right">
+            <!-- Quick Cheat Sheet Button -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+                <span>💡</span> Chuleta Rápida
+            </button>
+            <div class="score-pill-nav" title="Puntos ganados en esta sesión">
+                <span>⭐</span> <span id="nav-stars-count">0</span> pts
+            </div>
+            <div class="score-pill-nav" title="Racha de aciertos">
+                <span>🔥</span> <span id="streak-counter">0</span>
+            </div>
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sonidos Activos">🔊</button>
+            <button class="btn-icon-nav" id="btn-theme-toggle" onclick="toggleDarkMode()" title="Modo Claro/Oscuro">🌓</button>
+        </div>
+    </header>
+
+    <!-- 100% Full Width Hero Banner (Harmonized with Comunicación) -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">MATEMÁTICAS • TEMA 1 ESCOLAR</div>
+                <h1>Cálculo Mental, Operaciones & Problemas</h1>
+                <p>Entrena tu agilidad numérica: sprint contrarreloj de 2 minutos, multiplicaciones y divisiones por varias cifras, operaciones combinadas con paréntesis paso a paso y más de 30 problemas razonados.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-sprint-record">0</div>
+                    <div class="stat-label">Récord Sprint</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-problems-solved">0/32</div>
+                    <div class="stat-label">Problemas</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-stars">0</div>
+                    <div class="stat-label">Puntos Estrella</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle Bar -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Apuntes: Reglas de Oro</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Ejercicios
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Tema del Cole</span>
+                <h3 class="sidebar-topic-title">1. Operaciones & Cálculo</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progreso del tema</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav-list">
+                <!-- 1. Apuntes (SIEMPRE LA PRIMERA OPCIÓN) -->
+                <button class="sidebar-item-btn active" onclick="switchSidebarTab('apuntes', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Apuntes: Reglas de Oro</span>
+                            <span class="sidebar-btn-desc">Jerarquía, algoritmos y pruebas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-apuntes">Teoría</span>
+                </button>
+
+                <!-- 2. Sprint Cálculo Mental -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('sprint', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">⚡</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Sprint Cálculo Mental</span>
+                            <span class="sidebar-btn-desc">60 operaciones en 2 min</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-sprint">Récord: 0</span>
+                </button>
+
+                <!-- 3. Multiplicación -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('multiplication', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✖️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Multiplicación</span>
+                            <span class="sidebar-btn-desc">Varias cifras paso a paso</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-mult">Práctica</span>
+                </button>
+
+                <!-- 4. División -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('division', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">➗</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. División con Prueba</span>
+                            <span class="sidebar-btn-desc">Paso a paso guiado</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-div">Práctica</span>
+                </button>
+
+                <!-- 5. Fichas de Práctica -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('worksheet', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📄</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Fichas de Examen</span>
+                            <span class="sidebar-btn-desc">Papel sin resultado</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-ws">Imprimible</span>
+                </button>
+
+                <!-- 6. Operaciones con Paréntesis -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('parentheses', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🧩</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Paréntesis Combinados</span>
+                            <span class="sidebar-btn-desc">Jerarquía de operaciones</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-parentheses">Reto</span>
+                </button>
+
+                <!-- 7. Banco de Problemas -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('problems', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">7. Banco de Problemas</span>
+                            <span class="sidebar-btn-desc">32 problemas razonados</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-problems">0/32</span>
+                </button>
+
+                <!-- 8. Trucos & Chuleta -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('cheatsheet', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">💡</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">8. Trucos de Cálculo</span>
+                            <span class="sidebar-btn-desc">Multiplicar por 5, 9, 11 y ceros</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Chuleta</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Chuleta Rápida (Ventana)
+                </button>
+                <button class="sidebar-reset-btn" onclick="confirmResetMatesProgress()">
+                    ↺ Reiniciar mis marcas de este tema
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+        <!-- ========================================== -->
+        <!-- TAB 1: APUNTES: REGLAS DE ORO & TEORÍA (SIEMPRE LA PRIMERA OPCIÓN) -->
+        <!-- ========================================== -->
+        <section id="view-apuntes" class="view-section active">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>📖</span> Apuntes y Reglas de Oro Matemáticas</h2>
+                        <p>Los métodos fundamentales de 5º y 6º de Primaria para operar con seguridad, rapidez y sin cometer fallos en exámenes.</p>
+                    </div>
+                    <button class="btn-primary" onclick="openQuickCheatSheet()">
+                        <span>💡</span> Abrir Chuleta Rápida
+                    </button>
+                </div>
+
+                <div class="cheatsheet-grid" style="margin-top: 1.25rem;">
+                    <div class="cheat-card" style="border-top: 4px solid #4f46e5;">
+                        <h3><span>1️⃣</span> Jerarquía de las Operaciones Combinadas</h3>
+                        <p>Cuando hay varias operaciones juntas, SIEMPRE sigue este orden estricto de izquierda a derecha:</p>
+                        <div class="cheat-example">
+                            <strong>1º Paréntesis:</strong> Resuelve primero lo que esté dentro de ( ).<br>
+                            <strong>2º Multiplicaciones y Divisiones:</strong> De izquierda a derecha.<br>
+                            <strong>3º Sumas y Restas:</strong> Al final, de izquierda a derecha.<br>
+                            <em>Ejemplo: 5 + 3 × (8 - 2) = 5 + 3 × 6 = 5 + 18 = <strong>23</strong></em>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card" style="border-top: 4px solid #0ea5e9;">
+                        <h3><span>2️⃣</span> Algoritmo de Multiplicación por Varias Cifras</h3>
+                        <p>Coloca los números alineados a la derecha. Multiplica cifra por cifra del segundo número:</p>
+                        <div class="cheat-example">
+                            <strong>1.</strong> Multiplica las unidades del multiplicador por todo el número de arriba.<br>
+                            <strong>2.</strong> Al multiplicar las decenas, <strong>deja un hueco (o pon un 0) a la derecha</strong>.<br>
+                            <strong>3.</strong> Al multiplicar las centenas, deja dos huecos (o dos ceros).<br>
+                            <strong>4.</strong> Suma todos los productos parciales.
+                        </div>
+                    </div>
+
+                    <div class="cheat-card" style="border-top: 4px solid #10b981;">
+                        <h3><span>3️⃣</span> Algoritmo de División y Prueba Oficial</h3>
+                        <p>Divide cifras empezando por la izquierda. La prueba confirma si el cálculo es perfecto:</p>
+                        <div class="cheat-example">
+                            <strong>Fórmula de la Prueba:</strong> Dividendo = (Divisor × Cociente) + Resto.<br>
+                            <strong>Regla de Oro:</strong> El resto SIEMPRE debe ser menor que el divisor (Resto &lt; Divisor).<br>
+                            <em>Si el resto es igual o mayor que el divisor, cabe una vez más en el cociente.</em>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card" style="border-top: 4px solid #f59e0b;">
+                        <h3><span>4️⃣</span> Ceros en Multiplicaciones y Divisiones</h3>
+                        <p>Ahorra tiempo al operar con múltiplos de 10 (10, 100, 1.000...):</p>
+                        <div class="cheat-example">
+                            <strong>Multiplicar:</strong> Multiplica los números sin ceros y añade al final todos los ceros juntos.<br>
+                            <em>Ej: 400 × 30 = (4×3=12) + 3 ceros = <strong>12.000</strong></em><br>
+                            <strong>Dividir:</strong> Tacha la misma cantidad de ceros en dividendo y divisor.<br>
+                            <em>Ej: 4.800 ÷ 60 = 480 ÷ 6 = <strong>80</strong></em>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card" style="border-top: 4px solid #8b5cf6;">
+                        <h3><span>5️⃣</span> Trucos Relámpago de Cálculo Mental</h3>
+                        <p>Atajos mentales para responder las 60 operaciones en menos de 2 minutos:</p>
+                        <div class="cheat-example">
+                            <strong>× 5:</strong> Multiplica por 10 y saca la mitad (÷2). Ej: 34 × 5 = 340 ÷ 2 = <strong>170</strong>.<br>
+                            <strong>× 9:</strong> Multiplica por 10 y resta el número. Ej: 25 × 9 = 250 - 25 = <strong>225</strong>.<br>
+                            <strong>× 11 (2 cifras):</strong> Separa cifras y suma en medio. Ej: 53 × 11 = 5_(5+3)_3 = <strong>583</strong>.<br>
+                            <strong>Redondeo:</strong> Para sumar +29, suma +30 y resta 1.
+                        </div>
+                    </div>
+
+                    <div class="cheat-card" style="border-top: 4px solid #f43f5e;">
+                        <h3><span>6️⃣</span> Método para Resolver Problemas (4 Pasos)</h3>
+                        <p>La estructura oficial que piden todos los profesores en los controles de Primaria:</p>
+                        <div class="cheat-example">
+                            <strong>1. Datos:</strong> Anota solo las cantidades y unidades que te da el enunciado.<br>
+                            <strong>2. Pregunta & Razonamiento:</strong> ¿Qué me piden? ¿Tengo que juntar (+), quitar (-), repartir (÷) o repetir (×)?<br>
+                            <strong>3. Operaciones:</strong> Realiza los cálculos en limpio.<br>
+                            <strong>4. Solución Redactada:</strong> Responde con frase completa (ej: «Le quedan 14 euros en la hucha»).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: SPRINT CÁLCULO MENTAL (2 MIN / 60 OP) -->
+        <!-- ========================================== -->
+        <section id="view-sprint" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>⚡</span> Reto Contrarreloj de Cálculo Mental</h2>
+                        <p>Objetivo escolar: 60 operaciones en un máximo de 2 minutos (120 segundos). ¡Elige las operaciones y pon a prueba tu rapidez!</p>
+                    </div>
+                </div>
+
+                <!-- Configuración Previa -->
+                <div id="sprint-setup" class="sprint-config-box">
+                    <div class="config-col">
+                        <h3><span>⚙️</span> Operaciones a Incluir</h3>
+                        <div class="checkbox-pills">
+                            <label class="checkbox-pill-label">
+                                <input type="checkbox" id="chk-add" checked>
+                                <span>➕ Sumas (ej: 24 + 38)</span>
+                            </label>
+                            <label class="checkbox-pill-label">
+                                <input type="checkbox" id="chk-sub" checked>
+                                <span>➖ Restas (ej: 72 - 35)</span>
+                            </label>
+                            <label class="checkbox-pill-label">
+                                <input type="checkbox" id="chk-mul" checked>
+                                <span>✖️ Multiplicaciones (tablas 2 al 12)</span>
+                            </label>
+                            <label class="checkbox-pill-label">
+                                <input type="checkbox" id="chk-div" checked>
+                                <span>➗ Divisiones exactas (ej: 72 ÷ 8)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-col">
+                        <h3><span>🎯</span> Objetivo de Operaciones</h3>
+                        <div class="config-pills-row" style="margin-bottom: 1rem;">
+                            <button class="opt-btn" onclick="setSprintTarget(20, this)">20 Op.</button>
+                            <button class="opt-btn" onclick="setSprintTarget(40, this)">40 Op.</button>
+                            <button class="opt-btn active" onclick="setSprintTarget(60, this)">60 Op. (Oficial ⚡)</button>
+                        </div>
+
+                        <h3><span>⏱️</span> Límite de Tiempo</h3>
+                        <div class="config-pills-row" style="margin-bottom: 1.25rem;">
+                            <button class="opt-btn active" onclick="setSprintTime(120, this)">2 Minutos (120 s)</button>
+                            <button class="opt-btn" onclick="setSprintTime(90, this)">1:30 min</button>
+                            <button class="opt-btn" onclick="setSprintTime(60, this)">1 min (Extremo 🔥)</button>
+                        </div>
+
+                        <button class="btn-start-sprint" onclick="startSprintSession()">
+                            <span>🚀</span> ¡Comenzar Reto Ahora!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Arena de Juego Activa -->
+                <div id="sprint-arena" class="sprint-arena">
+                    <div class="sprint-top-hud">
+                        <div class="timer-badge-big" id="sprint-timer-text">
+                            <span>⏱️</span> 02:00
+                        </div>
+                        <div style="font-weight: 800; font-size: 1.1rem;">
+                            Operación: <span id="sprint-current-index" style="color: var(--primary);">1</span> / <span id="sprint-total-index">60</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem;">
+                            <span class="score-pill" style="color: var(--accent-green);">
+                                ✅ <span id="sprint-correct-count">0</span>
+                            </span>
+                            <span class="score-pill" style="color: var(--accent-rose);">
+                                ❌ <span id="sprint-wrong-count">0</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="sprint-progress-bar">
+                        <div id="sprint-progress-fill" class="sprint-progress-fill"></div>
+                    </div>
+
+                    <div class="sprint-question-box">
+                        <div id="sprint-operation-text" class="operation-display">12 + 15 = ?</div>
+                        
+                        <div class="sprint-input-row">
+                            <input type="number" id="sprint-answer-input" class="sprint-answer-input" placeholder="?" autocomplete="off" onkeydown="handleSprintKey(event)">
+                            <button class="btn-submit-answer" onclick="checkSprintAnswer()" title="Enviar respuesta">➔</button>
+                        </div>
+
+                        <div id="sprint-combo-badge" class="combo-badge" style="display: none;">
+                            🔥 ¡Racha de 3 aciertos! (+50 pts)
+                        </div>
+
+                        <!-- Teclado Numérico en Pantalla -->
+                        <div class="keypad-grid">
+                            <button class="key-btn" onclick="keypadPress('1')">1</button>
+                            <button class="key-btn" onclick="keypadPress('2')">2</button>
+                            <button class="key-btn" onclick="keypadPress('3')">3</button>
+                            <button class="key-btn" onclick="keypadPress('4')">4</button>
+                            <button class="key-btn" onclick="keypadPress('5')">5</button>
+                            <button class="key-btn" onclick="keypadPress('6')">6</button>
+                            <button class="key-btn" onclick="keypadPress('7')">7</button>
+                            <button class="key-btn" onclick="keypadPress('8')">8</button>
+                            <button class="key-btn" onclick="keypadPress('9')">9</button>
+                            <button class="key-btn key-action" onclick="keypadClear()">C</button>
+                            <button class="key-btn" onclick="keypadPress('0')">0</button>
+                            <button class="key-btn key-action" onclick="checkSprintAnswer()">↵</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pantalla de Resumen Final -->
+                <div id="sprint-summary" class="sprint-summary-box" style="display: none;">
+                    <div id="summary-badge-icon" class="summary-badge-icon">🏆</div>
+                    <h2 id="summary-title" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.4rem;">¡Sprint Completado!</h2>
+                    <p id="summary-subtitle" style="color: var(--text-muted); font-size: 0.95rem;">Has demostrado una velocidad y concentración fantásticas.</p>
+
+                    <div class="summary-grid">
+                        <div class="summary-metric">
+                            <div class="metric-val" id="sum-correct">0</div>
+                            <div class="metric-label">Aciertos</div>
+                        </div>
+                        <div class="summary-metric">
+                            <div class="metric-val" id="sum-accuracy">0%</div>
+                            <div class="metric-label">Precisión</div>
+                        </div>
+                        <div class="summary-metric">
+                            <div class="metric-val" id="sum-time">0s</div>
+                            <div class="metric-label">Tiempo Total</div>
+                        </div>
+                        <div class="summary-metric">
+                            <div class="metric-val" id="sum-speed">0.0s</div>
+                            <div class="metric-label">Seg / Operación</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1rem; margin: 1rem 0 0.5rem; text-align: left;">📋 Revisión de Operaciones:</h3>
+                    <table class="history-review-table" id="sprint-review-table"></table>
+
+                    <button class="btn-start-sprint" onclick="resetSprintToSetup()" style="margin-top: 1rem;">
+                        <span>🔄</span> Jugar Otro Reto
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: MULTIPLICACIÓN DE VARIAS CIFRAS -->
+        <!-- ========================================== -->
+        <section id="view-multiplication" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>✖️</span> Multiplicaciones de Varias Cifras</h2>
+                        <p>Domina el algoritmo vertical tradicional: unidades, decenas con hueco/escalón y suma final de filas parciales.</p>
+                    </div>
+                </div>
+
+                <div class="math-workbench">
+                    <div class="controls-panel">
+                        <h3 style="font-size: 0.95rem; font-weight: 800;">Dificultad</h3>
+                        <div class="config-pills-row">
+                            <button class="opt-btn active" onclick="setMultLevel('2x2', this)">2 × 2 cifras</button>
+                            <button class="opt-btn" onclick="setMultLevel('3x2', this)">3 × 2 cifras</button>
+                            <button class="opt-btn" onclick="setMultLevel('4x2', this)">4 × 2 cifras</button>
+                            <button class="opt-btn" onclick="setMultLevel('3x3', this)">3 × 3 cifras</button>
+                        </div>
+
+                        <button class="btn-check-problem" style="padding: 0.65rem 1rem; font-size: 0.9rem;" onclick="generateNewMultiplication()">
+                            🎲 Generar Nueva Operación
+                        </button>
+
+                        <button class="btn-toggle-dev" style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem; font-weight: 800;" onclick="goToWorksheet('mult')">
+                            <span>📄</span> Generar Ficha para Practicar a Mano
+                        </button>
+
+                        <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.2rem 0;">
+
+                        <h3 style="font-size: 0.9rem; font-weight: 800;">O escribe tus números (deberes):</h3>
+                        <div class="custom-input-group">
+                            <input type="number" id="custom-mult-a" class="math-input-custom" placeholder="Arriba (ej: 428)">
+                            <span style="font-weight: 800;">×</span>
+                            <input type="number" id="custom-mult-b" class="math-input-custom" placeholder="Abajo (ej: 36)">
+                            <button class="btn-check-problem" onclick="loadCustomMultiplication()">Ver</button>
+                        </div>
+                    </div>
+
+                    <div class="board-canvas" id="mult-board">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: DIVISIÓN DE VARIAS CIFRAS -->
+        <!-- ========================================== -->
+        <section id="view-division" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>➗</span> Divisiones de Varias Cifras (Caja Escolar)</h2>
+                        <p>Aprende el método del redondeo y tanteo: comparar cifras, tapar unidades, calcular cociente, restar y bajar la siguiente cifra.</p>
+                    </div>
+                </div>
+
+                <div class="math-workbench">
+                    <div class="controls-panel">
+                        <h3 style="font-size: 0.95rem; font-weight: 800;">Tipo de División</h3>
+                        <div class="config-pills-row">
+                            <button class="opt-btn active" onclick="setDivLevel('3div2', this)">3 cifras ÷ 2 cifras</button>
+                            <button class="opt-btn" onclick="setDivLevel('4div2', this)">4 cifras ÷ 2 cifras</button>
+                            <button class="opt-btn" onclick="setDivLevel('3div1', this)">3 cifras ÷ 1 cifra</button>
+                            <button class="opt-btn" onclick="setDivLevel('5div2', this)">5 cifras ÷ 2 cifras</button>
+                        </div>
+
+                        <button class="btn-check-problem" style="padding: 0.65rem 1rem; font-size: 0.9rem;" onclick="generateNewDivision()">
+                            🎲 Generar Nueva División
+                        </button>
+
+                        <button class="btn-toggle-dev" style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem; font-weight: 800;" onclick="goToWorksheet('div')">
+                            <span>📄</span> Generar Ficha para Practicar a Mano
+                        </button>
+
+                        <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.2rem 0;">
+
+                        <h3 style="font-size: 0.9rem; font-weight: 800;">O escribe tu división (deberes):</h3>
+                        <div class="custom-input-group">
+                            <input type="number" id="custom-div-d" class="math-input-custom" placeholder="Dividendo (ej: 846)">
+                            <span style="font-weight: 800;">÷</span>
+                            <input type="number" id="custom-div-v" class="math-input-custom" placeholder="Divisor (ej: 24)">
+                            <button class="btn-check-problem" onclick="loadCustomDivision()">Ver</button>
+                        </div>
+                    </div>
+
+                    <div class="board-canvas" id="div-board">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB: FICHAS DE PRÁCTICA (SIN RESULTADOS)   -->
+        <!-- ========================================== -->
+        <section id="view-worksheet" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>📄</span> Fichas de Práctica (Sin Resultado)</h2>
+                        <p>Genera hojas escolares de operaciones para resolver a mano o en pantalla. Luego, revísalas con la pizarra paso a paso o con el solucionario.</p>
+                    </div>
+                    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                        <button class="btn-check-problem" onclick="generatePracticeWorksheet()">
+                            <span>🎲</span> Nueva Ficha
+                        </button>
+                        <button class="btn-toggle-dev" onclick="toggleWorksheetSolutions()">
+                            <span id="btn-toggle-sol-icon">👁️</span> <span id="btn-toggle-sol-text">Mostrar Soluciones</span>
+                        </button>
+                        <button class="btn-start-sprint" style="padding: 0.48rem 1rem; font-size: 0.88rem;" onclick="window.print()">
+                            <span>🖨️</span> Imprimir / Guardar PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Configuración de la Ficha -->
+                <div class="sprint-config-box" style="margin-bottom: 1.5rem;">
+                    <div class="config-col">
+                        <h3><span>⚙️</span> Tipo de Operaciones</h3>
+                        <div class="config-pills-row">
+                            <button class="opt-btn active" id="ws-type-all" onclick="setWorksheetType('all', this)">🔀 Mixta (Ambas)</button>
+                            <button class="opt-btn" id="ws-type-mult" onclick="setWorksheetType('mult', this)">✖️ Solo Multiplicaciones</button>
+                            <button class="opt-btn" id="ws-type-div" onclick="setWorksheetType('div', this)">➗ Solo Divisiones</button>
+                        </div>
+                    </div>
+
+                    <div class="config-col">
+                        <h3><span>🎯</span> Nivel de Dificultad</h3>
+                        <div class="config-pills-row">
+                            <button class="opt-btn" onclick="setWorksheetLevel('easy', this)">Nivel 1 (Iniciación)</button>
+                            <button class="opt-btn active" onclick="setWorksheetLevel('medium', this)">Nivel 2 (Colegio Oficial ⭐)</button>
+                            <button class="opt-btn" onclick="setWorksheetLevel('hard', this)">Nivel 3 (Reto Avanzado 🔥)</button>
+                        </div>
+                    </div>
+
+                    <div class="config-col">
+                        <h3><span>🔢</span> Cantidad de Ejercicios</h3>
+                        <div class="config-pills-row">
+                            <button class="opt-btn active" onclick="setWorksheetCount(6, this)">6 operaciones</button>
+                            <button class="opt-btn" onclick="setWorksheetCount(8, this)">8 operaciones</button>
+                            <button class="opt-btn" onclick="setWorksheetCount(12, this)">12 operaciones</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cabecera Escolar Imprimible -->
+                <div class="worksheet-print-header">
+                    <div>
+                        <strong style="font-size: 1.1rem;">Álvaro Study Hub • Ficha de Práctica de Matemáticas</strong>
+                        <div style="font-size: 0.85rem; color: #4b5563;">Multiplicaciones y Divisiones de Varias Cifras</div>
+                    </div>
+                    <div class="worksheet-student-info">
+                        <span>Nombre: _______________________</span>
+                        <span>Fecha: _______________</span>
+                        <span>Nota: _______ / 10</span>
+                    </div>
+                </div>
+
+                <!-- Rejilla de Ejercicios -->
+                <div class="worksheet-grid" id="worksheet-items-container">
+                    <!-- Dinámicamente generado -->
+                </div>
+
+                <!-- Caja de Solucionario Rápido (Oculta por defecto) -->
+                <div id="worksheet-solutions-panel" style="display: none; margin-top: 2rem; background: var(--bg-main); border: 2px dashed var(--accent-green); padding: 1.5rem; border-radius: var(--radius-md);">
+                    <h3 style="color: var(--accent-green); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📋</span> Solucionario Completo de la Ficha
+                    </h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Comprueba rápidamente todos los resultados de tu ficha o haz clic en cualquier ejercicio para ver el desarrollo paso a paso en la pizarra interactiva:
+                    </p>
+                    <div id="worksheet-solutions-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: OPERACIONES CON PARÉNTESIS -->
+        <!-- ========================================== -->
+        <section id="view-parentheses" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>🧩</span> Jerarquía de Operaciones con Paréntesis</h2>
+                        <p>Aprende paso a paso qué operación tiene preferencia absoluta y cómo se simplifica la expresión línea a línea.</p>
+                    </div>
+                </div>
+
+                <div class="pemdas-rule-badge">
+                    <span>👑 Regla de Oro (Jerarquía):</span>
+                    <span class="rule-step">1º ( ) Paréntesis</span>
+                    <span>➔</span>
+                    <span class="rule-step">2º ✖️ y ➗ (de izq. a der.)</span>
+                    <span>➔</span>
+                    <span class="rule-step">3º ➕ y ➖ (de izq. a der.)</span>
+                </div>
+
+                <div class="pemdas-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.25rem;">
+                        <div class="config-pills-row">
+                            <button class="opt-btn active" onclick="setPemdasLevel(1, this)">Nivel 1: Iniciación</button>
+                            <button class="opt-btn" onclick="setPemdasLevel(2, this)">Nivel 2: Intermedio</button>
+                            <button class="opt-btn" onclick="setPemdasLevel(3, this)">Nivel 3: Avanzado</button>
+                            <button class="opt-btn" onclick="setPemdasLevel(4, this)">Nivel 4: Experto 🔥</button>
+                        </div>
+                        <button class="btn-check-problem" onclick="generateNewPemdas()">
+                            🎲 Otra Operación
+                        </button>
+                    </div>
+
+                    <div id="pemdas-interactive-arena" style="text-align: center; margin: 1.5rem 0;">
+                        <!-- Contenido dinámico -->
+                    </div>
+
+                    <div id="pemdas-steps-container" class="pemdas-step-list">
+                        <!-- Pasos explicados -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 5: BANCO DE PROBLEMAS CON DESARROLLO -->
+        <!-- ========================================== -->
+        <section id="view-problems" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>📖</span> Banco de Problemas Razonados (32 Problemas)</h2>
+                        <p>Aprende a desglosar cualquier problema escolar: Datos 📋 ➔ Razonamiento 🧠 ➔ Operaciones ✍️ ➔ Solución redactada 🎯.</p>
+                    </div>
+                </div>
+
+                <div class="problems-toolbar">
+                    <div class="config-pills-row">
+                        <button class="opt-btn active" onclick="filterProblems('all', this)">Todos (32)</button>
+                        <button class="opt-btn" onclick="filterProblems('gaming', this)">🎮 Gaming & Ocio</button>
+                        <button class="opt-btn" onclick="filterProblems('tiendas', this)">🛒 Compras & Dinero</button>
+                        <button class="opt-btn" onclick="filterProblems('deportes', this)">⚽ Deportes</button>
+                        <button class="opt-btn" onclick="filterProblems('escuela', this)">🎒 Escuela & Excursiones</button>
+                        <button class="opt-btn" onclick="filterProblems('ciencia', this)">🚀 Ciencia & Vida</button>
+                    </div>
+
+                    <input type="text" id="problem-search" class="problem-search-input" placeholder="🔍 Buscar problema o tema..." oninput="searchProblems(this.value)">
+                </div>
+
+                <div id="problems-list-container">
+                    <!-- Los 32 problemas se renderizan dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 6: CHULETA DE TRUCOS Y REGLAS DE ORO -->
+        <!-- ========================================== -->
+        <section id="view-cheatsheet" class="view-section">
+            <div class="glass-card">
+                <div class="card-header-styled">
+                    <div>
+                        <h2><span>💡</span> Trucos de Cálculo Rápido & Pizarra de Apuntes</h2>
+                        <p>Técnicas maestras que te ahorrarán tiempo en clase y te ayudarán a comprobar tus exámenes sin errores.</p>
+                    </div>
+                </div>
+
+                <div class="cheatsheet-grid">
+                    <div class="cheat-card">
+                        <h3><span>⚡</span> Multiplicar por 5 en 1 segundo</h3>
+                        <p>En lugar de multiplicar por 5, añade un cero (multiplica por 10) y luego saca la mitad (divide entre 2).</p>
+                        <div class="cheat-example">
+                            48 × 5 = ?<br>
+                            1. 48 × 10 = 480<br>
+                            2. 480 ÷ 2 = <strong>240</strong> ✨
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3><span>⚡</span> Multiplicar por 9 con el truco del 10</h3>
+                        <p>Multiplica por 10 y réstale el número original una vez.</p>
+                        <div class="cheat-example">
+                            36 × 9 = ?<br>
+                            1. 36 × 10 = 360<br>
+                            2. 360 - 36 = <strong>324</strong> ✨
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3><span>⚡</span> Multiplicar por 11 (2 cifras)</h3>
+                        <p>Separa las dos cifras y pon en medio la suma de ambas. (Si pasa de 9, suma 1 a la izquierda).</p>
+                        <div class="cheat-example">
+                            45 × 11 = ?<br>
+                            Separamos 4 y 5. En medio: 4+5 = 9.<br>
+                            Resultado: <strong>495</strong> ✨
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3><span>➗</span> La Prueba de la División</h3>
+                        <p>Para comprobar que tu división está perfecta y no equivocarte nunca en los exámenes:</p>
+                        <div class="cheat-example">
+                            <strong>Dividendo = (Divisor × Cociente) + Resto</strong><br>
+                            Ej: 95 ÷ 4 = 23 (resto 3)<br>
+                            Prueba: (4 × 23) + 3 = 92 + 3 = <strong>95</strong> ✔️
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3><span>0️⃣</span> El Truco de los Ceros</h3>
+                        <p>Al multiplicar números que terminan en cero, multiplica los números sin ceros y añade al final todos los ceros juntos.</p>
+                        <div class="cheat-example">
+                            600 × 40 = ?<br>
+                            6 × 4 = 24.<br>
+                            Añadimos 3 ceros: <strong>24.000</strong> ✨
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3><span>🎯</span> Truco para Divisiones de 2 Cifras</h3>
+                        <p>El truco de la mano: tapa las unidades del divisor y del dividendo para saber a qué número probar en el cociente.</p>
+                        <div class="cheat-example">
+                            ¿Cuánto cabe 24 en 86?<br>
+                            Tapamos el 4 y el 6.<br>
+                            Pregunta: ¿Cuántas veces cabe 2 en 8? Probamos con 3 o 4.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <!-- Floating Quick Cheat Sheet Button -->
+    <button class="btn-float-cheat" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+        <span>💡</span> Chuleta Rápida
+    </button>
+
+    <!-- Quick Cheat Sheet Modal (Universal) -->
+    <div class="cheat-modal-overlay" id="quick-cheat-modal" onclick="closeCheatOnBackdrop(event)">
+        <div class="cheat-modal-window">
+            <div class="cheat-modal-header">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Chuleta Rápida: Reglas de Oro Matemáticas</h3>
+                        <p style="font-size: 0.75rem; color: #e0e7ff; margin: 0;">Consulta instantánea sin salir de tu ejercicio ni perder tu cálculo</p>
+                    </div>
+                </div>
+                <button class="cheat-close-btn" onclick="closeQuickCheatSheet()">×</button>
+            </div>
+            <div class="cheat-modal-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1rem;">
+                    <!-- Bloque 1: Jerarquía de Operaciones -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>1️⃣</span> Jerarquía de Operaciones Combinadas
+                        </h4>
+                        <ol style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>1º Paréntesis:</strong> Resuelve primero lo que esté dentro de ( ).</li>
+                            <li><strong>2º Multiplicaciones y Divisiones:</strong> De izquierda a derecha.</li>
+                            <li><strong>3º Sumas y Restas:</strong> Al final, de izquierda a derecha.</li>
+                        </ol>
+                        <div style="margin-top: 0.5rem; font-size: 0.8rem; background: var(--bg-card); padding: 0.4rem 0.6rem; border-radius: 6px; border: 1px dashed var(--border-color);">
+                            <em>Ejemplo: 4 + 6 × (5 - 2) = 4 + 6 × 3 = 4 + 18 = <strong>22</strong></em>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2: La Prueba de la División -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>➗</span> Algoritmo & Prueba de la División
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Fórmula Clave:</strong> <code>Dividendo = (Divisor × Cociente) + Resto</code></li>
+                            <li><strong>Regla Inquebrantable:</strong> El Resto siempre debe ser MENOR que el Divisor (Resto &lt; Divisor).</li>
+                            <li><strong>Tapar con la mano:</strong> Para dividir entre 2 cifras (ej. entre 24), tapa las unidades para estimar el cociente.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 3: Trucos de Cálculo Mental -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>⚡</span> Trucos de Cálculo Rápido
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Multiplicar por 5:</strong> Añade un 0 (×10) y calcula la mitad (÷2). Ej: 38 × 5 = 380 ÷ 2 = 190.</li>
+                            <li><strong>Multiplicar por 9:</strong> Multiplica por 10 y resta el número. Ej: 42 × 9 = 420 - 42 = 378.</li>
+                            <li><strong>El truco de los Ceros:</strong> Multiplica números base y añade la suma de todos los ceros.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; text-align: center;">
+                    <button class="btn-primary" onclick="closeQuickCheatSheet()">
+                        <span>✓</span> Entendido, volver al ejercicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p><strong>Álvaro Study Hub</strong> • Matemáticas 100% Interactivas • Diseñado para el éxito escolar</p>
+    </footer>
+
+    <!-- Audio & Interactive Engine -->
+    <script>
+        /* ---------------------------------------------------- */
+        /* AUDIO SYNTHESIZER (WEB AUDIO API)                     */
+        /* ---------------------------------------------------- */
+        let audioCtx = null;
+        let isMuted = localStorage.getItem('hub_muted') === 'true';
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        function playSound(freq, type = 'sine', duration = 0.08, gainVal = 0.08) {
+            if (isMuted) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {}
+        }
+
+        function playSuccessTone() {
+            playSound(587.33, 'triangle', 0.09, 0.1); // D5
+            setTimeout(() => playSound(880, 'triangle', 0.15, 0.12), 80); // A5
+        }
+
+        function playComboTone(combo) {
+            const baseFreq = 440 + Math.min(combo * 45, 600);
+            playSound(baseFreq, 'sine', 0.12, 0.1);
+        }
+
+        function playErrorTone() {
+            playSound(196, 'sawtooth', 0.18, 0.09);
+        }
+
+        function playClickTone() {
+            playSound(700, 'triangle', 0.04, 0.04);
+        }
+
+        function playFanfare() {
+            if (isMuted) return;
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((n, i) => {
+                setTimeout(() => playSound(n, 'triangle', 0.2, 0.12), i * 110);
+            });
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            localStorage.setItem('hub_muted', isMuted);
+            document.getElementById('btn-sound-toggle').textContent = isMuted ? '🔇' : '🔊';
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('hub_dark', isDark);
+            document.getElementById('btn-theme-toggle').textContent = isDark ? '☀️' : '🌙';
+        }
+
+        /* ---------------------------------------------------- */
+        /* LOCAL STORAGE & GLOBAL STATS                         */
+        /* ---------------------------------------------------- */
+        const STORAGE_KEY = 'alvaro_progress_mates_operaciones';
+        let totalStars = parseInt(localStorage.getItem('mates_stars') || '0', 10);
+        let sprintBestRecord = parseInt(localStorage.getItem('mates_sprint_record') || '0', 10);
+        let solvedProblems = JSON.parse(localStorage.getItem('mates_solved_problems') || '[]');
+
+        function getTopicProgress() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveTopicProgress(data) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            } catch (e) {}
+            updateSidebarAndHeroStats();
+        }
+
+        function markSectionVisited(secKey) {
+            const prog = getTopicProgress();
+            if (!prog.visited) prog.visited = [];
+            if (!prog.visited.includes(secKey)) {
+                prog.visited.push(secKey);
+                saveTopicProgress(prog);
+            }
+        }
+
+        function updateSidebarAndHeroStats() {
+            const prog = getTopicProgress();
+            const navStars = document.getElementById('nav-stars-count');
+            if (navStars) navStars.textContent = totalStars;
+
+            const statStars = document.getElementById('stat-total-stars');
+            if (statStars) statStars.textContent = totalStars;
+
+            const statSprint = document.getElementById('stat-sprint-record');
+            if (statSprint) statSprint.textContent = sprintBestRecord;
+
+            const statProblems = document.getElementById('stat-problems-solved');
+            if (statProblems) statProblems.textContent = `${solvedProblems.length}/32`;
+
+            const badgeSprint = document.getElementById('badge-sprint');
+            if (badgeSprint) badgeSprint.textContent = sprintBestRecord > 0 ? `⭐ ${sprintBestRecord} Aciertos` : 'Récord: 0';
+
+            const badgeProblems = document.getElementById('badge-problems');
+            if (badgeProblems) badgeProblems.textContent = `${solvedProblems.length}/32`;
+
+            // Calcular porcentaje global de progreso del tema
+            let tasksCompleted = 0;
+            const visitedCount = (prog.visited || []).length;
+            if (visitedCount >= 3) tasksCompleted++;
+            if (sprintBestRecord >= 20) tasksCompleted++;
+            if (sprintBestRecord >= 40) tasksCompleted++;
+            if (solvedProblems.length >= 5) tasksCompleted++;
+            if (solvedProblems.length >= 15) tasksCompleted++;
+            if (totalStars >= 100) tasksCompleted++;
+
+            const pct = Math.min(100, Math.round((tasksCompleted / 6) * 100));
+            const pctEl = document.getElementById('sidebar-progress-pct');
+            if (pctEl) pctEl.textContent = `${pct}%`;
+            const fillEl = document.getElementById('sidebar-progress-fill');
+            if (fillEl) fillEl.style.width = `${pct}%`;
+        }
+
+        function updateHubStats() {
+            updateSidebarAndHeroStats();
+        }
+
+        function addStars(num) {
+            totalStars += num;
+            localStorage.setItem('mates_stars', totalStars);
+            updateSidebarAndHeroStats();
+        }
+
+        function confirmResetMatesProgress() {
+            if (confirm("¿Quieres reiniciar todos tus récords, estrellas y problemas resueltos de este tema para volver a practicar desde cero?")) {
+                localStorage.removeItem('mates_stars');
+                localStorage.removeItem('mates_sprint_record');
+                localStorage.removeItem('mates_solved_problems');
+                localStorage.removeItem(STORAGE_KEY);
+                totalStars = 0;
+                sprintBestRecord = 0;
+                solvedProblems = [];
+                updateSidebarAndHeroStats();
+                renderProblemsList();
+                alert('¡Progreso reiniciado con éxito! Listo para practicar de nuevo.');
+            }
+        }
+
+        /* ---------------------------------------------------- */
+        /* SIDEBAR NAVIGATION & TOPIC SWITCHER                   */
+        /* ---------------------------------------------------- */
+        const TAB_NAMES = {
+            apuntes: "1. Apuntes: Reglas de Oro",
+            sprint: "2. Sprint Cálculo Mental",
+            multiplication: "3. Multiplicación",
+            division: "4. División con Prueba",
+            worksheet: "5. Fichas de Examen",
+            parentheses: "6. Paréntesis Combinados",
+            problems: "7. Banco de Problemas",
+            cheatsheet: "8. Trucos de Cálculo"
+        };
+
+        function switchSidebarTab(tabId, btn) {
+            playClickTone();
+            document.querySelectorAll('.sidebar-item-btn').forEach(b => b.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const autoBtn = Array.from(document.querySelectorAll('.sidebar-item-btn')).find(b => b.getAttribute('onclick')?.includes(`'${tabId}'`));
+                if (autoBtn) autoBtn.classList.add('active');
+            }
+
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+            const target = document.getElementById(`view-${tabId}`);
+            if (target) target.classList.add('active');
+
+            const labelEl = document.getElementById('mobile-current-tab-label');
+            if (labelEl && TAB_NAMES[tabId]) labelEl.textContent = TAB_NAMES[tabId];
+
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.remove('mobile-open');
+
+            markSectionVisited(tabId);
+
+            if (tabId === 'multiplication' && !multInitialized) generateNewMultiplication();
+            if (tabId === 'division' && !divInitialized) generateNewDivision();
+            if (tabId === 'worksheet' && !worksheetInitialized) generatePracticeWorksheet();
+            if (tabId === 'parentheses' && !pemdasInitialized) generateNewPemdas();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchTab(tabId, btn) {
+            switchSidebarTab(tabId, btn);
+        }
+
+        function toggleMobileSidebar() {
+            playClickTone();
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(event) {
+            if (event) event.stopPropagation();
+            playClickTone();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        window.addEventListener('click', (e) => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && menu.classList.contains('active') && !e.target.closest('.topic-switcher-dropdown')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        /* ---------------------------------------------------- */
+        /* CHULETA RÁPIDA (MODAL UNIVERSAL)                     */
+        /* ---------------------------------------------------- */
+        function openQuickCheatSheet() {
+            playClickTone();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeQuickCheatSheet() {
+            playClickTone();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function closeCheatOnBackdrop(e) {
+            if (e.target.id === 'quick-cheat-modal') {
+                closeQuickCheatSheet();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeQuickCheatSheet();
+            }
+        });
+
+        /* ---------------------------------------------------- */
+        /* TAB 1: SPRINT 60 OPERACIONES / 2 MIN ENGINE          */
+        /* ---------------------------------------------------- */
+        let sprintConfig = {
+            targetOps: 60,
+            timeLimit: 120,
+            add: true,
+            sub: true,
+            mul: true,
+            div: true
+        };
+
+        let sprintState = {
+            active: false,
+            timer: null,
+            secondsLeft: 120,
+            currentIdx: 0,
+            correctCount: 0,
+            wrongCount: 0,
+            currentCombo: 0,
+            maxCombo: 0,
+            startTime: 0,
+            questions: [],
+            history: []
+        };
+
+        function setSprintTarget(num, btn) {
+            playClickTone();
+            sprintConfig.targetOps = num;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function setSprintTime(sec, btn) {
+            playClickTone();
+            sprintConfig.timeLimit = sec;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function generateSprintQuestionList(count) {
+            const types = [];
+            if (document.getElementById('chk-add').checked) types.push('+');
+            if (document.getElementById('chk-sub').checked) types.push('-');
+            if (document.getElementById('chk-mul').checked) types.push('×');
+            if (document.getElementById('chk-div').checked) types.push('÷');
+
+            if (types.length === 0) types.push('+'); // fallback
+
+            const list = [];
+            for (let i = 0; i < count; i++) {
+                const op = types[Math.floor(Math.random() * types.length)];
+                let a, b, ans;
+
+                if (op === '+') {
+                    // Sumas de 10 a 60
+                    a = Math.floor(Math.random() * 45) + 8;
+                    b = Math.floor(Math.random() * 45) + 8;
+                    ans = a + b;
+                } else if (op === '-') {
+                    // Restas de 15 a 99
+                    const minuend = Math.floor(Math.random() * 70) + 20;
+                    const subtrahend = Math.floor(Math.random() * (minuend - 5)) + 4;
+                    a = minuend;
+                    b = subtrahend;
+                    ans = a - b;
+                } else if (op === '×') {
+                    // Tablas 2 al 12
+                    a = Math.floor(Math.random() * 11) + 2;
+                    b = Math.floor(Math.random() * 11) + 2;
+                    ans = a * b;
+                } else {
+                    // Divisiones exactas
+                    b = Math.floor(Math.random() * 10) + 2; // divisor
+                    ans = Math.floor(Math.random() * 11) + 2; // cociente
+                    a = b * ans; // dividendo
+                }
+
+                list.push({ a, b, op, ans });
+            }
+            return list;
+        }
+
+        function startSprintSession() {
+            playSuccessTone();
+            sprintState.active = true;
+            sprintState.secondsLeft = sprintConfig.timeLimit;
+            sprintState.currentIdx = 0;
+            sprintState.correctCount = 0;
+            sprintState.wrongCount = 0;
+            sprintState.currentCombo = 0;
+            sprintState.maxCombo = 0;
+            sprintState.history = [];
+            sprintState.startTime = Date.now();
+            sprintState.questions = generateSprintQuestionList(sprintConfig.targetOps);
+
+            document.getElementById('sprint-setup').style.display = 'none';
+            document.getElementById('sprint-summary').style.display = 'none';
+            document.getElementById('sprint-arena').classList.add('active');
+
+            document.getElementById('sprint-total-index').textContent = sprintConfig.targetOps;
+            document.getElementById('sprint-correct-count').textContent = '0';
+            document.getElementById('sprint-wrong-count').textContent = '0';
+            document.getElementById('sprint-combo-badge').style.display = 'none';
+
+            updateSprintTimerDisplay();
+            showCurrentSprintQuestion();
+
+            clearInterval(sprintState.timer);
+            sprintState.timer = setInterval(tickSprintTimer, 1000);
+        }
+
+        function tickSprintTimer() {
+            sprintState.secondsLeft--;
+            updateSprintTimerDisplay();
+
+            if (sprintState.secondsLeft <= 0) {
+                endSprintSession(false); // se acabó el tiempo
+            }
+        }
+
+        function updateSprintTimerDisplay() {
+            const mins = String(Math.floor(sprintState.secondsLeft / 60)).padStart(2, '0');
+            const secs = String(sprintState.secondsLeft % 60).padStart(2, '0');
+            const timerEl = document.getElementById('sprint-timer-text');
+            timerEl.innerHTML = `<span>⏱️</span> ${mins}:${secs}`;
+
+            if (sprintState.secondsLeft <= 15) {
+                timerEl.className = 'timer-badge-big danger';
+            } else if (sprintState.secondsLeft <= 35) {
+                timerEl.className = 'timer-badge-big warning';
+            } else {
+                timerEl.className = 'timer-badge-big';
+            }
+
+            const total = sprintConfig.timeLimit;
+            const elapsed = total - sprintState.secondsLeft;
+            const pct = Math.min((elapsed / total) * 100, 100);
+            document.getElementById('sprint-progress-fill').style.width = `${pct}%`;
+        }
+
+        function showCurrentSprintQuestion() {
+            if (sprintState.currentIdx >= sprintState.questions.length) {
+                endSprintSession(true); // completó todas las operaciones
+                return;
+            }
+
+            const q = sprintState.questions[sprintState.currentIdx];
+            document.getElementById('sprint-current-index').textContent = sprintState.currentIdx + 1;
+            document.getElementById('sprint-operation-text').textContent = `${q.a} ${q.op} ${q.b} = ?`;
+            const input = document.getElementById('sprint-answer-input');
+            input.value = '';
+            input.focus();
+        }
+
+        function checkSprintAnswer() {
+            if (!sprintState.active) return;
+            const input = document.getElementById('sprint-answer-input');
+            const val = input.value.trim();
+            if (val === '') return;
+
+            const userNum = parseInt(val, 10);
+            const q = sprintState.questions[sprintState.currentIdx];
+            const isCorrect = userNum === q.ans;
+
+            sprintState.history.push({
+                operation: `${q.a} ${q.op} ${q.b}`,
+                userAnswer: userNum,
+                correctAnswer: q.ans,
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) {
+                sprintState.correctCount++;
+                sprintState.currentCombo++;
+                if (sprintState.currentCombo > sprintState.maxCombo) {
+                    sprintState.maxCombo = sprintState.currentCombo;
+                }
+                playComboTone(sprintState.currentCombo);
+
+                if (sprintState.currentCombo >= 3) {
+                    const badge = document.getElementById('sprint-combo-badge');
+                    badge.textContent = `🔥 ¡Racha de ${sprintState.currentCombo} seguidas!`;
+                    badge.style.display = 'inline-flex';
+                }
+            } else {
+                sprintState.wrongCount++;
+                sprintState.currentCombo = 0;
+                document.getElementById('sprint-combo-badge').style.display = 'none';
+                playErrorTone();
+            }
+
+            document.getElementById('sprint-correct-count').textContent = sprintState.correctCount;
+            document.getElementById('sprint-wrong-count').textContent = sprintState.wrongCount;
+
+            sprintState.currentIdx++;
+            showCurrentSprintQuestion();
+        }
+
+        function handleSprintKey(e) {
+            if (e.key === 'Enter') {
+                checkSprintAnswer();
+            }
+        }
+
+        function keypadPress(digit) {
+            const input = document.getElementById('sprint-answer-input');
+            input.value += digit;
+            input.focus();
+        }
+
+        function keypadClear() {
+            const input = document.getElementById('sprint-answer-input');
+            input.value = '';
+            input.focus();
+        }
+
+        function endSprintSession(completedAll) {
+            clearInterval(sprintState.timer);
+            sprintState.active = false;
+            playFanfare();
+
+            const timeSpent = Math.max(1, Math.round((Date.now() - sprintState.startTime) / 1000));
+            const totalAnswered = sprintState.correctCount + sprintState.wrongCount;
+            const accuracy = totalAnswered > 0 ? Math.round((sprintState.correctCount / totalAnswered) * 100) : 0;
+            const speedPerOp = sprintState.correctCount > 0 ? (timeSpent / sprintState.correctCount).toFixed(1) : '-';
+
+            // Guardar récord si supera el anterior
+            if (sprintState.correctCount > sprintBestRecord) {
+                sprintBestRecord = sprintState.correctCount;
+                localStorage.setItem('mates_sprint_record', sprintBestRecord);
+            }
+
+            // Premiar con estrellas
+            const starsAwarded = sprintState.correctCount * 3 + sprintState.maxCombo * 5;
+            addStars(starsAwarded);
+
+            // Mostrar pantalla de resumen
+            document.getElementById('sprint-arena').classList.remove('active');
+            const summary = document.getElementById('sprint-summary');
+            summary.style.display = 'block';
+
+            document.getElementById('sum-correct').textContent = `${sprintState.correctCount} / ${sprintConfig.targetOps}`;
+            document.getElementById('sum-accuracy').textContent = `${accuracy}%`;
+            document.getElementById('sum-time').textContent = `${timeSpent}s`;
+            document.getElementById('sum-speed').textContent = `${speedPerOp}s`;
+
+            // Medalla según aciertos
+            const badgeIcon = document.getElementById('summary-badge-icon');
+            const titleEl = document.getElementById('summary-title');
+            if (sprintState.correctCount >= 50) {
+                badgeIcon.textContent = '🏆';
+                titleEl.textContent = '¡Nivel Leyenda del Cálculo!';
+            } else if (sprintState.correctCount >= 35) {
+                badgeIcon.textContent = '🥇';
+                titleEl.textContent = '¡Maestro Matemático de Oro!';
+            } else if (sprintState.correctCount >= 20) {
+                badgeIcon.textContent = '🥈';
+                titleEl.textContent = '¡Muy Buen Ritmo (Plata)!';
+            } else {
+                badgeIcon.textContent = '🥉';
+                titleEl.textContent = '¡Buen Esfuerzo! Sigue practicando';
+            }
+
+            // Historial de revisión
+            const table = document.getElementById('sprint-review-table');
+            table.innerHTML = `
+                <tr>
+                    <th>#</th>
+                    <th>Operación</th>
+                    <th>Tu Respuesta</th>
+                    <th>Correcta</th>
+                    <th>Estado</th>
+                </tr>
+            `;
+            sprintState.history.forEach((h, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                    <td class="mono"><strong>${h.operation}</strong></td>
+                    <td class="mono">${h.userAnswer}</td>
+                    <td class="mono">${h.correctAnswer}</td>
+                    <td>${h.isCorrect ? '<span class="review-ok">✅ Correcto</span>' : '<span class="review-wrong">❌ Error</span>'}</td>
+                `;
+                table.appendChild(tr);
+            });
+        }
+
+        function resetSprintToSetup() {
+            playClickTone();
+            document.getElementById('sprint-summary').style.display = 'none';
+            document.getElementById('sprint-setup').style.display = 'grid';
+        }
+
+        /* ---------------------------------------------------- */
+        /* TAB 2: MULTIPLICACIÓN DE VARIAS CIFRAS ENGINE        */
+        /* ---------------------------------------------------- */
+        let multInitialized = false;
+        let currentMult = { a: 428, b: 36, level: '3x2' };
+
+        function setMultLevel(lvl, btn) {
+            playClickTone();
+            currentMult.level = lvl;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generateNewMultiplication();
+        }
+
+        function generateNewMultiplication() {
+            multInitialized = true;
+            let a, b;
+            if (currentMult.level === '2x2') {
+                a = Math.floor(Math.random() * 70) + 25;
+                b = Math.floor(Math.random() * 60) + 23;
+            } else if (currentMult.level === '3x2') {
+                a = Math.floor(Math.random() * 600) + 180;
+                b = Math.floor(Math.random() * 65) + 24;
+            } else if (currentMult.level === '4x2') {
+                a = Math.floor(Math.random() * 6000) + 1400;
+                b = Math.floor(Math.random() * 65) + 24;
+            } else { // 3x3
+                a = Math.floor(Math.random() * 600) + 180;
+                b = Math.floor(Math.random() * 300) + 125;
+            }
+            currentMult.a = a;
+            currentMult.b = b;
+            renderMultiplicationBoard();
+        }
+
+        function loadCustomMultiplication() {
+            const a = parseInt(document.getElementById('custom-mult-a').value, 10);
+            const b = parseInt(document.getElementById('custom-mult-b').value, 10);
+            if (!isNaN(a) && !isNaN(b) && a > 0 && b > 0) {
+                currentMult.a = a;
+                currentMult.b = b;
+                renderMultiplicationBoard();
+            }
+        }
+
+        function renderMultiplicationBoard() {
+            const container = document.getElementById('mult-board');
+            const a = currentMult.a;
+            const b = currentMult.b;
+            const bDigits = String(b).split('').reverse().map(Number); // unidades, decenas, centenas
+            const partialProducts = bDigits.map(digit => a * digit);
+            const total = a * b;
+
+            let html = `
+                <div style="width: 100%; max-width: 600px;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span class="mono" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">
+                            ${a.toLocaleString('es-ES')} × ${b.toLocaleString('es-ES')} = ${total.toLocaleString('es-ES')}
+                        </span>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                        <div class="multiplication-column-view">
+                            <div class="mult-line">${a.toLocaleString('es-ES')}</div>
+                            <div class="mult-line">× ${b.toLocaleString('es-ES')}</div>
+                            <div class="mult-divider"></div>
+            `;
+
+            bDigits.forEach((digit, i) => {
+                const prod = partialProducts[i];
+                const rowColors = ['var(--primary)', 'var(--secondary)', 'var(--accent-purple)', '#ec4899', '#f97316'];
+                const rowColor = rowColors[i % rowColors.length];
+                const dots = i > 0 ? `<span style="color: var(--accent-amber); font-weight: 900;">${'•'.repeat(i)}</span>` : '';
+                html += `
+                    <div class="mult-line" style="color: ${rowColor};">
+                        ${prod.toLocaleString('es-ES')}${dots}
+                    </div>
+                `;
+            });
+
+            html += `
+                            <div class="mult-divider"></div>
+                            <div class="mult-line" style="color: var(--accent-green); font-weight: 900;">
+                                ${total.toLocaleString('es-ES')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem;">
+                            📝 Explicación de los Pasos:
+                        </h4>
+            `;
+
+            bDigits.forEach((digit, i) => {
+                const placeNames = ['las Unidades', 'las Decenas', 'las Centenas', 'las Unidades de Millar', 'las Decenas de Millar'];
+                const placeName = placeNames[i] || `la posición 10^${i}`;
+                const prod = partialProducts[i];
+                const dotsDisplay = i > 0 ? ` (${'•'.repeat(i)})` : '';
+                html += `
+                    <div class="step-bubble">
+                        <strong>Paso ${i + 1}: Multiplicar por ${placeName} (${digit})</strong><br>
+                        ${a} × ${digit} = <strong>${prod.toLocaleString('es-ES')}</strong>.
+                        ${i > 0 ? ` Recuerda dejar <strong>${i} desplazamiento(s) a la derecha</strong>${dotsDisplay} porque estás multiplicando por ${placeName}.` : ''}
+                    </div>
+                `;
+            });
+
+            html += `
+                        <div class="step-bubble" style="border-left-color: var(--accent-green);">
+                            <strong>Paso Final: Sumar las Filas Parciales</strong><br>
+                            Sumamos en vertical: ${partialProducts.map((p, idx) => `${p * Math.pow(10, idx)}`).join(' + ')} = <strong>${total.toLocaleString('es-ES')}</strong>.
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        /* ---------------------------------------------------- */
+        /* TAB 3: DIVISIÓN DE VARIAS CIFRAS ENGINE              */
+        /* ---------------------------------------------------- */
+        let divInitialized = false;
+        let currentDiv = { d: 896, v: 28, level: '3div2' };
+        let currentDivMode = 'sub'; // 'sub' (con restas detalladas) | 'direct' (método directo)
+
+        function setDivLevel(lvl, btn) {
+            playClickTone();
+            currentDiv.level = lvl;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generateNewDivision();
+        }
+
+        function setDivDisplayMode(mode) {
+            playClickTone();
+            currentDivMode = mode;
+            renderDivisionBoard();
+        }
+
+        function generateNewDivision() {
+            divInitialized = true;
+            let d, v;
+            if (currentDiv.level === '3div1') {
+                v = Math.floor(Math.random() * 8) + 2;
+                d = Math.floor(Math.random() * 700) + 120;
+            } else if (currentDiv.level === '3div2') {
+                v = Math.floor(Math.random() * 35) + 12;
+                d = Math.floor(Math.random() * 800) + 150;
+            } else if (currentDiv.level === '4div2') {
+                v = Math.floor(Math.random() * 45) + 14;
+                d = Math.floor(Math.random() * 7000) + 1200;
+            } else { // 5div2
+                v = Math.floor(Math.random() * 60) + 20;
+                d = Math.floor(Math.random() * 60000) + 12000;
+            }
+            currentDiv.d = d;
+            currentDiv.v = v;
+            renderDivisionBoard();
+        }
+
+        function loadCustomDivision() {
+            const d = parseInt(document.getElementById('custom-div-d').value, 10);
+            const v = parseInt(document.getElementById('custom-div-v').value, 10);
+            if (!isNaN(d) && !isNaN(v) && d > 0 && v > 0) {
+                currentDiv.d = d;
+                currentDiv.v = v;
+                renderDivisionBoard();
+            }
+        }
+
+        // Algoritmo matemático para calcular el proceso completo de la división escolar
+        function computeDivisionCascade(dividend, divisor) {
+            const dStr = String(dividend);
+            const L = dStr.length;
+            const quotient = Math.floor(dividend / divisor);
+            const remainder = dividend % divisor;
+            const isExact = remainder === 0;
+
+            const steps = [];
+            let curIdx = 0;
+            let curPart = 0;
+
+            // Tomamos las primeras cifras necesarias
+            while (curIdx < L && (curPart < divisor || curPart === 0)) {
+                curPart = curPart * 10 + Number(dStr[curIdx]);
+                curIdx++;
+            }
+
+            let endCol = curIdx;
+            let pendingBroughtDown = [];
+
+            while (true) {
+                const qDigit = Math.floor(curPart / divisor);
+                const product = qDigit * divisor;
+                const productStr = String(product);
+                const rem = curPart - product;
+                const remStr = String(rem);
+
+                const nextBroughtDown = [];
+                let nextPart = rem;
+                while (curIdx < L) {
+                    const nextDigit = dStr[curIdx];
+                    const nextCol = curIdx + 1;
+                    curIdx++;
+                    nextPart = nextPart * 10 + Number(nextDigit);
+                    
+                    const isZero = nextPart < divisor;
+                    nextBroughtDown.push({
+                        digit: nextDigit,
+                        col: nextCol,
+                        causedZero: isZero && curIdx < L
+                    });
+
+                    if (isZero && curIdx < L) {
+                        continue;
+                    } else {
+                        break;
+                    }
+                }
+
+                const stepObj = {
+                    curPart,
+                    endCol,
+                    qDigit,
+                    product,
+                    productStr,
+                    productEndCol: endCol,
+                    productStartCol: endCol - productStr.length + 1,
+                    remainder: rem,
+                    remainderStr: remStr,
+                    remainderEndCol: endCol,
+                    remainderStartCol: endCol - remStr.length + 1,
+                    myBroughtDown: pendingBroughtDown,
+                    nextBroughtDown: nextBroughtDown
+                };
+
+                steps.push(stepObj);
+
+                if (curIdx >= L && (nextBroughtDown.length === 0 || nextPart < divisor)) {
+                    if (nextBroughtDown.length > 0 && nextPart < divisor) {
+                        const lastCol = nextBroughtDown[nextBroughtDown.length - 1].col;
+                        const remFinalStr = String(nextPart);
+                        steps.push({
+                            curPart: nextPart,
+                            endCol: lastCol,
+                            qDigit: 0,
+                            product: 0,
+                            productStr: '0',
+                            productEndCol: lastCol,
+                            productStartCol: lastCol,
+                            remainder: nextPart,
+                            remainderStr: remFinalStr,
+                            remainderEndCol: lastCol,
+                            remainderStartCol: lastCol - remFinalStr.length + 1,
+                            myBroughtDown: nextBroughtDown,
+                            nextBroughtDown: [],
+                            isTrailingZero: true
+                        });
+                    }
+                    break;
+                }
+
+                if (nextBroughtDown.length > 0) {
+                    curPart = nextPart;
+                    endCol = nextBroughtDown[nextBroughtDown.length - 1].col;
+                    pendingBroughtDown = nextBroughtDown;
+                } else {
+                    break;
+                }
+            }
+
+            return {
+                dividend,
+                divisor,
+                quotient,
+                remainder,
+                isExact,
+                dStr,
+                L,
+                totalCols: L + 2,
+                steps
+            };
+        }
+
+        function renderDivisionBoard() {
+            const container = document.getElementById('div-board');
+            const dividend = currentDiv.d;
+            const divisor = currentDiv.v;
+
+            const data = computeDivisionCascade(dividend, divisor);
+            const { quotient, remainder, isExact, dStr, L, totalCols, steps } = data;
+
+            // Helper para construir filas de celdas alineadas
+            function makeRow(cellsMap, rowClass = '', bordersMap = {}) {
+                let out = `<div class="div-row ${rowClass}">`;
+                for (let c = 0; c < totalCols; c++) {
+                    const val = cellsMap[c];
+                    const hasBorder = bordersMap[c];
+                    const bStyle = hasBorder ? 'border-bottom: 2.5px solid var(--text-main);' : '';
+                    
+                    if (val === undefined) {
+                        out += `<span class="d-cell" style="${bStyle}">&nbsp;</span>`;
+                    } else if (typeof val === 'object') {
+                        let cls = 'd-cell';
+                        if (val.isBrought) cls += ' brought-down';
+                        if (val.isFinalRem) cls += ' final-remainder';
+                        if (val.isMinus) cls += ' op-minus';
+                        if (val.isSub) cls += ' sub-digit';
+                        if (val.isDividend) cls += ' row-dividend';
+                        if (val.isSlash) {
+                            out += `<span class="d-cell" style="color: var(--accent-amber); font-weight: 900; font-size: 1.15rem; width: auto; min-width: 24px;">//</span>`;
+                        } else {
+                            out += `<span class="${cls}" style="${bStyle}" title="${val.title || ''}">${val.text}</span>`;
+                        }
+                    } else {
+                        out += `<span class="d-cell" style="${bStyle}">${val}</span>`;
+                    }
+                }
+                out += `</div>`;
+                return out;
+            }
+
+            // Construcción del proceso en cascada (lado izquierdo)
+            let cascadeHTML = '';
+
+            // Fila 0: Dividendo
+            const dCells = {};
+            for (let i = 0; i < L; i++) {
+                dCells[i + 1] = { text: dStr[i], isDividend: true };
+            }
+            cascadeHTML += makeRow(dCells, 'row-dividend');
+
+            if (currentDivMode === 'sub') {
+                // Modo escolar detallado: con restas escritas
+                steps.forEach((step, sIdx) => {
+                    const isLast = sIdx === steps.length - 1;
+
+                    if (!step.isTrailingZero) {
+                        const subCells = {};
+                        const borderMap = {};
+                        const minusCol = Math.max(0, step.productStartCol - 1);
+                        subCells[minusCol] = { text: '−', isMinus: true };
+                        borderMap[minusCol] = true;
+
+                        for (let i = 0; i < step.productStr.length; i++) {
+                            const col = step.productStartCol + i;
+                            subCells[col] = { text: step.productStr[i], isSub: true };
+                            borderMap[col] = true;
+                        }
+                        cascadeHTML += makeRow(subCells, 'row-sub', borderMap);
+                    }
+
+                    const remCells = {};
+                    for (let i = 0; i < step.remainderStr.length; i++) {
+                        const col = step.remainderStartCol + i;
+                        remCells[col] = { 
+                            text: step.remainderStr[i],
+                            isFinalRem: isLast && i === step.remainderStr.length - 1
+                        };
+                    }
+
+                    step.nextBroughtDown.forEach(b => {
+                        remCells[b.col] = { text: b.digit, isBrought: true, title: 'Cifra bajada del dividendo' };
+                    });
+
+                    if (isLast) {
+                        remCells[step.remainderEndCol + 1] = { text: '//', isSlash: true };
+                    }
+
+                    cascadeHTML += makeRow(remCells, isLast ? 'row-final-rem' : 'row-remainder');
+                });
+            } else {
+                // Modo directo: restas mentales (solo restos y bajadas)
+                steps.forEach((step, sIdx) => {
+                    const isLast = sIdx === steps.length - 1;
+                    const remCells = {};
+                    for (let i = 0; i < step.remainderStr.length; i++) {
+                        const col = step.remainderStartCol + i;
+                        remCells[col] = { 
+                            text: step.remainderStr[i],
+                            isFinalRem: isLast && i === step.remainderStr.length - 1
+                        };
+                    }
+                    step.nextBroughtDown.forEach(b => {
+                        remCells[b.col] = { text: b.digit, isBrought: true, title: 'Cifra bajada del dividendo' };
+                    });
+
+                    if (isLast) {
+                        remCells[step.remainderEndCol + 1] = { text: '//', isSlash: true };
+                    }
+
+                    cascadeHTML += makeRow(remCells, isLast ? 'row-final-rem' : 'row-remainder');
+                });
+            }
+
+            // Explicaciones didácticas paso a paso
+            const vLen = String(divisor).length;
+            const firstStep = steps[0];
+            let bubblesHTML = `
+                <div class="step-bubble">
+                    <strong>1. ¿Cuántas cifras cogemos del dividendo?</strong><br>
+                    El divisor <strong>${divisor}</strong> tiene <strong>${vLen} cifra(s)</strong>. Miramos las primeras cifras del dividendo:
+                    cogemos <strong>${firstStep.curPart}</strong> porque es mayor o igual que ${divisor}.<br>
+                    Dividimos: ${divisor} × <strong>${firstStep.qDigit}</strong> = ${firstStep.product}.<br>
+                    Restamos: ${firstStep.curPart} − ${firstStep.product} = <strong>${firstStep.remainder}</strong> de resto parcial.
+                </div>
+            `;
+
+            for (let i = 1; i < steps.length; i++) {
+                const step = steps[i];
+                const stepNum = i + 1;
+
+                if (step.isTrailingZero) {
+                    bubblesHTML += `
+                        <div class="step-bubble">
+                            <strong>${stepNum}. Cero al cociente y resto final</strong><br>
+                            Tenemos <strong>${step.curPart}</strong>, que no cabe en el divisor ${divisor}.
+                            Ponemos <strong>0 al cociente</strong>. No quedan más cifras por bajar, por lo que el resto final de la división es <strong>${step.remainder}</strong>.
+                        </div>
+                    `;
+                    continue;
+                }
+
+                const bDown = step.myBroughtDown || [];
+                let desc = '';
+                if (bDown.length === 1) {
+                    desc = `Bajamos la cifra <strong>${bDown[0].digit}</strong> del dividendo ➔ formamos el número <strong>${step.curPart}</strong>.<br>`;
+                } else if (bDown.length > 1) {
+                    desc = `Bajamos la cifra <strong>${bDown[0].digit}</strong>: como no cabe en ${divisor}, ponemos <strong>0 al cociente</strong> y bajamos la siguiente cifra <strong>${bDown[1].digit}</strong> ➔ formamos el <strong>${step.curPart}</strong>.<br>`;
+                }
+
+                desc += `Buscamos el cociente: ${divisor} × <strong>${step.qDigit}</strong> = ${step.product}.<br>`;
+                desc += `Restamos: ${step.curPart} − ${step.product} = <strong>${step.remainder}</strong> de resto parcial.`;
+
+                bubblesHTML += `
+                    <div class="step-bubble">
+                        <strong>${stepNum}. Paso siguiente</strong><br>
+                        ${desc}
+                    </div>
+                `;
+            }
+
+            let html = `
+                <div style="width: 100%; max-width: 680px;">
+                    <!-- Cabecera de la operación -->
+                    <div style="text-align: center; margin-bottom: 1.25rem;">
+                        <span class="mono" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">
+                            ${dividend.toLocaleString('es-ES')} ÷ ${divisor} = ${quotient.toLocaleString('es-ES')}
+                        </span>
+                        <div style="margin-top: 0.35rem; font-size: 0.95rem; font-weight: 700; color: ${isExact ? 'var(--accent-green)' : 'var(--accent-amber)'};">
+                            ${isExact ? '✅ División Exacta (Resto = 0)' : `⚠️ División Entera (Resto = ${remainder})`}
+                        </div>
+                    </div>
+
+                    <!-- Selector de visualización (Con resta / Directa) -->
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+                        <button class="opt-btn ${currentDivMode === 'sub' ? 'active' : ''}" onclick="setDivDisplayMode('sub')">
+                            📝 Con Restas Detalladas
+                        </button>
+                        <button class="opt-btn ${currentDivMode === 'direct' ? 'active' : ''}" onclick="setDivDisplayMode('direct')">
+                            ⚡ Método Directo (Mental)
+                        </button>
+                    </div>
+
+                    <!-- Representación Visual de la Caja Completa -->
+                    <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                        <div class="division-box-view">
+                            <div class="div-main-layout">
+                                <!-- Cascada izquierda: Dividendo y desarrollo paso a paso -->
+                                <div class="div-left-cascade">
+                                    ${cascadeHTML}
+                                </div>
+                                <!-- Caja derecha: Divisor, Cociente y Comprobación -->
+                                <div class="div-right-box">
+                                    <div class="div-divisor-row">${divisor}</div>
+                                    <div class="div-quotient-row">${quotient.toLocaleString('es-ES')}</div>
+                                    <div style="padding: 0.5rem 0.2rem;">
+                                        <div class="div-badge-status ${isExact ? 'badge-exact' : 'badge-remainder'}">
+                                            ${isExact ? '✅ Resto = 0' : `⚠️ Resto = ${remainder}`}
+                                        </div>
+                                        <div class="div-check-card">
+                                            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 800; margin-bottom: 0.25rem;">Prueba:</div>
+                                            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); font-family: 'JetBrains Mono', monospace;">
+                                                (${divisor} × ${quotient.toLocaleString('es-ES')}) + ${remainder}
+                                            </div>
+                                            <div style="font-size: 0.88rem; font-weight: 800; color: var(--primary); font-family: 'JetBrains Mono', monospace; margin-top: 0.2rem;">
+                                                = ${dividend.toLocaleString('es-ES')} ✔️
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explicación Paso a Paso del Razonamiento -->
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem;">
+                            🧠 Razonamiento Paso a Paso:
+                        </h4>
+                        ${bubblesHTML}
+                        <div class="step-bubble" style="border-left-color: var(--accent-green); background: var(--primary-light);">
+                            <strong>🎯 Prueba Oficial de la División</strong><br>
+                            Dividendo = (Divisor × Cociente) + Resto<br>
+                            <span class="mono" style="font-weight: 700;">
+                                (${divisor} × ${quotient.toLocaleString('es-ES')}) + ${remainder} = ${(divisor * quotient).toLocaleString('es-ES')} + ${remainder} = <strong>${dividend.toLocaleString('es-ES')}</strong>
+                            </span> ✔️ ¡Comprobación Perfecta!
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        /* ---------------------------------------------------- */
+        /* TAB: FICHAS DE PRÁCTICA (SIN RESULTADOS) ENGINE      */
+        /* ---------------------------------------------------- */
+        let worksheetInitialized = false;
+        let worksheetConfig = {
+            type: 'all', // 'all', 'mult', 'div'
+            level: 'medium', // 'easy', 'medium', 'hard'
+            count: 6
+        };
+        let currentWorksheetItems = [];
+        let worksheetSolutionsVisible = false;
+
+        function setWorksheetType(type, btn) {
+            playClickTone();
+            worksheetConfig.type = type;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generatePracticeWorksheet();
+        }
+
+        function setWorksheetLevel(lvl, btn) {
+            playClickTone();
+            worksheetConfig.level = lvl;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generatePracticeWorksheet();
+        }
+
+        function setWorksheetCount(num, btn) {
+            playClickTone();
+            worksheetConfig.count = num;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generatePracticeWorksheet();
+        }
+
+        function goToWorksheet(preferredType) {
+            playClickTone();
+            worksheetConfig.type = preferredType;
+            switchTab('worksheet');
+            document.querySelectorAll('#ws-type-all, #ws-type-mult, #ws-type-div').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById(`ws-type-${preferredType}`);
+            if (activeBtn) activeBtn.classList.add('active');
+            generatePracticeWorksheet();
+        }
+
+        function generateRandomMult(level) {
+            let a, b;
+            if (level === 'easy') {
+                a = Math.floor(Math.random() * 50) + 15;
+                b = Math.floor(Math.random() * 8) + 2;
+                if (Math.random() > 0.5) {
+                    a = Math.floor(Math.random() * 40) + 15;
+                    b = Math.floor(Math.random() * 30) + 12;
+                }
+            } else if (level === 'medium') {
+                a = Math.floor(Math.random() * 600) + 150;
+                b = Math.floor(Math.random() * 65) + 23;
+            } else { // hard
+                if (Math.random() > 0.5) {
+                    a = Math.floor(Math.random() * 6000) + 1200;
+                    b = Math.floor(Math.random() * 70) + 24;
+                } else {
+                    a = Math.floor(Math.random() * 700) + 200;
+                    b = Math.floor(Math.random() * 300) + 125;
+                }
+            }
+            return {
+                type: 'mult',
+                a: a,
+                b: b,
+                ans: a * b
+            };
+        }
+
+        function generateRandomDiv(level) {
+            let d, v;
+            if (level === 'easy') {
+                v = Math.floor(Math.random() * 7) + 2;
+                d = Math.floor(Math.random() * 700) + 120;
+            } else if (level === 'medium') {
+                v = Math.floor(Math.random() * 45) + 14;
+                d = Math.floor(Math.random() * 3000) + 500;
+            } else { // hard
+                v = Math.floor(Math.random() * 65) + 25;
+                d = Math.floor(Math.random() * 40000) + 8000;
+            }
+            const quotient = Math.floor(d / v);
+            const remainder = d % v;
+            return {
+                type: 'div',
+                a: d,
+                b: v,
+                quotient: quotient,
+                remainder: remainder,
+                isExact: remainder === 0
+            };
+        }
+
+        function generatePracticeWorksheet() {
+            worksheetInitialized = true;
+            playClickTone();
+            currentWorksheetItems = [];
+            worksheetSolutionsVisible = false;
+            updateWorksheetSolutionsButton();
+
+            const count = worksheetConfig.count;
+            for (let i = 0; i < count; i++) {
+                let opType = worksheetConfig.type;
+                if (opType === 'all') {
+                    opType = (i % 2 === 0) ? 'mult' : 'div';
+                }
+
+                if (opType === 'mult') {
+                    const item = generateRandomMult(worksheetConfig.level);
+                    item.id = i + 1;
+                    currentWorksheetItems.push(item);
+                } else {
+                    const item = generateRandomDiv(worksheetConfig.level);
+                    item.id = i + 1;
+                    currentWorksheetItems.push(item);
+                }
+            }
+
+            renderWorksheetItems();
+            renderWorksheetSolutionsList();
+        }
+
+        function renderWorksheetItems() {
+            const container = document.getElementById('worksheet-items-container');
+            container.innerHTML = '';
+
+            currentWorksheetItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'worksheet-card';
+                card.id = `ws-card-${item.id}`;
+
+                let opVisualHtml = '';
+                let checkRowHtml = '';
+                let solHtml = '';
+
+                if (item.type === 'mult') {
+                    opVisualHtml = `
+                        <div class="multiplication-column-view ws-vertical-exercise">
+                            <div class="mult-line">${item.a.toLocaleString('es-ES')}</div>
+                            <div class="mult-line">× ${item.b.toLocaleString('es-ES')}</div>
+                            <div class="mult-divider"></div>
+                            <div class="ws-workspace-blank"></div>
+                        </div>
+                    `;
+
+                    checkRowHtml = `
+                        <div class="ws-check-row">
+                            <span>Resultado:</span>
+                            <input type="number" class="ws-input-ans" id="ws-ans-${item.id}" placeholder="Tu resultado" onkeydown="if(event.key==='Enter') checkWorksheetItem(${item.id})">
+                            <button class="btn-check-problem" onclick="checkWorksheetItem(${item.id})">Comprobar</button>
+                            <span id="ws-fb-${item.id}" style="font-weight: 800; font-size: 0.85rem;"></span>
+                        </div>
+                    `;
+
+                    solHtml = `
+                        <div class="ws-solution-reveal" id="ws-sol-${item.id}" style="display: ${worksheetSolutionsVisible ? 'block' : 'none'};">
+                            🎯 <strong>Solución:</strong> ${item.a.toLocaleString('es-ES')} × ${item.b.toLocaleString('es-ES')} = <strong style="color: var(--accent-green); font-size: 1.05rem;">${item.ans.toLocaleString('es-ES')}</strong>
+                        </div>
+                    `;
+                } else {
+                    opVisualHtml = `
+                        <div class="division-box-view ws-vertical-exercise">
+                            <div class="div-top-row">
+                                <div class="div-dividend">${item.a}</div>
+                                <div>
+                                    <div class="div-bracket-container">${item.b}</div>
+                                    <div class="div-quotient-container" style="color: transparent; user-select: none;">---</div>
+                                </div>
+                            </div>
+                            <div class="ws-workspace-blank-div"></div>
+                        </div>
+                    `;
+
+                    checkRowHtml = `
+                        <div class="ws-check-row">
+                            <span>Cociente:</span>
+                            <input type="number" class="ws-input-ans" id="ws-ans-${item.id}" placeholder="Cociente" onkeydown="if(event.key==='Enter') checkWorksheetItem(${item.id})">
+                            <span>Resto:</span>
+                            <input type="number" class="ws-input-ans" style="width: 70px;" id="ws-rem-${item.id}" placeholder="Resto" onkeydown="if(event.key==='Enter') checkWorksheetItem(${item.id})">
+                            <button class="btn-check-problem" onclick="checkWorksheetItem(${item.id})">Comprobar</button>
+                            <span id="ws-fb-${item.id}" style="font-weight: 800; font-size: 0.85rem;"></span>
+                        </div>
+                    `;
+
+                    solHtml = `
+                        <div class="ws-solution-reveal" id="ws-sol-${item.id}" style="display: ${worksheetSolutionsVisible ? 'block' : 'none'};">
+                            🎯 <strong>Solución:</strong> Cociente = <strong style="color: var(--accent-green); font-size: 1.05rem;">${item.quotient}</strong>, Resto = <strong>${item.remainder}</strong> (${item.isExact ? 'Exacta' : 'Entera'})
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="ws-card-header">
+                        <span class="ws-badge" style="${item.type === 'div' ? 'background: var(--secondary-light); color: var(--secondary);' : ''}">
+                            Ejercicio #${item.id} • ${item.type === 'mult' ? 'Multiplicación' : 'División'}
+                        </span>
+                        <button class="ws-btn-inspect" onclick="inspectInBoard('${item.type}', ${item.a}, ${item.b})">
+                            🔍 Resolver en Pizarra Interactiva ➔
+                        </button>
+                    </div>
+
+                    <div class="ws-operation-box">
+                        ${opVisualHtml}
+                    </div>
+
+                    ${checkRowHtml}
+                    ${solHtml}
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function renderWorksheetSolutionsList() {
+            const listContainer = document.getElementById('worksheet-solutions-list');
+            listContainer.innerHTML = '';
+
+            currentWorksheetItems.forEach(item => {
+                const div = document.createElement('div');
+                div.style.background = 'var(--bg-card)';
+                div.style.padding = '0.65rem 0.85rem';
+                div.style.borderRadius = 'var(--radius-sm)';
+                div.style.border = '1px solid var(--border-color)';
+                div.style.fontSize = '0.88rem';
+
+                if (item.type === 'mult') {
+                    div.innerHTML = `
+                        <strong>#${item.id} (${item.a} × ${item.b}):</strong><br>
+                        <span class="mono" style="color: var(--accent-green); font-weight: 800; font-size: 1rem;">
+                            = ${item.ans.toLocaleString('es-ES')}
+                        </span>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <strong>#${item.id} (${item.a} ÷ ${item.b}):</strong><br>
+                        <span class="mono" style="color: var(--accent-green); font-weight: 800; font-size: 1rem;">
+                            c = ${item.quotient}
+                        </span> | <span class="mono" style="color: var(--accent-amber); font-weight: 700;">r = ${item.remainder}</span>
+                    `;
+                }
+                listContainer.appendChild(div);
+            });
+        }
+
+        function inspectInBoard(type, a, b) {
+            playSuccessTone();
+            if (type === 'mult') {
+                switchTab('multiplication');
+                currentMult.a = a;
+                currentMult.b = b;
+                const inpA = document.getElementById('custom-mult-a');
+                const inpB = document.getElementById('custom-mult-b');
+                if (inpA) inpA.value = a;
+                if (inpB) inpB.value = b;
+                renderMultiplicationBoard();
+                const board = document.getElementById('mult-board');
+                if (board) board.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                switchTab('division');
+                currentDiv.d = a;
+                currentDiv.v = b;
+                const inpD = document.getElementById('custom-div-d');
+                const inpV = document.getElementById('custom-div-v');
+                if (inpD) inpD.value = a;
+                if (inpV) inpV.value = b;
+                renderDivisionBoard();
+                const board = document.getElementById('div-board');
+                if (board) board.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function checkWorksheetItem(id) {
+            const item = currentWorksheetItems.find(it => it.id === id);
+            if (!item) return;
+
+            const card = document.getElementById(`ws-card-${id}`);
+            const fb = document.getElementById(`ws-fb-${id}`);
+            const solBox = document.getElementById(`ws-sol-${id}`);
+
+            if (item.type === 'mult') {
+                const inp = document.getElementById(`ws-ans-${id}`);
+                const val = parseInt(inp.value.trim(), 10);
+                if (isNaN(val)) return;
+
+                if (val === item.ans) {
+                    playSuccessTone();
+                    fb.innerHTML = '<span style="color: var(--accent-green);">✅ ¡Correcto!</span>';
+                    card.classList.add('is-correct');
+                    if (solBox) solBox.style.display = 'block';
+                    addStars(15);
+                } else {
+                    playErrorTone();
+                    fb.innerHTML = '<span style="color: var(--accent-rose);">❌ Revisa la suma o los puntos</span>';
+                }
+            } else {
+                const inpAns = document.getElementById(`ws-ans-${id}`);
+                const inpRem = document.getElementById(`ws-rem-${id}`);
+                const qVal = parseInt(inpAns.value.trim(), 10);
+                const rVal = inpRem.value.trim() === '' ? 0 : parseInt(inpRem.value.trim(), 10);
+
+                if (isNaN(qVal)) return;
+
+                if (qVal === item.quotient && rVal === item.remainder) {
+                    playSuccessTone();
+                    fb.innerHTML = '<span style="color: var(--accent-green);">✅ ¡División Perfecta!</span>';
+                    card.classList.add('is-correct');
+                    if (solBox) solBox.style.display = 'block';
+                    addStars(15);
+                } else {
+                    playErrorTone();
+                    fb.innerHTML = '<span style="color: var(--accent-rose);">❌ Cociente o resto erróneo</span>';
+                }
+            }
+        }
+
+        function toggleWorksheetSolutions() {
+            playClickTone();
+            worksheetSolutionsVisible = !worksheetSolutionsVisible;
+            updateWorksheetSolutionsButton();
+
+            document.querySelectorAll('.ws-solution-reveal').forEach(el => {
+                el.style.display = worksheetSolutionsVisible ? 'block' : 'none';
+            });
+
+            const solPanel = document.getElementById('worksheet-solutions-panel');
+            if (solPanel) {
+                solPanel.style.display = worksheetSolutionsVisible ? 'block' : 'none';
+                if (worksheetSolutionsVisible) {
+                    solPanel.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        function updateWorksheetSolutionsButton() {
+            const icon = document.getElementById('btn-toggle-sol-icon');
+            const text = document.getElementById('btn-toggle-sol-text');
+            if (icon && text) {
+                icon.textContent = worksheetSolutionsVisible ? '🙈' : '👁️';
+                text.textContent = worksheetSolutionsVisible ? 'Ocultar Soluciones' : 'Mostrar Soluciones';
+            }
+        }
+
+        /* ---------------------------------------------------- */
+        /* TAB 4: OPERACIONES CON PARÉNTESIS ENGINE             */
+        /* ---------------------------------------------------- */
+        let pemdasInitialized = false;
+        let currentPemdasLevel = 1;
+
+        const PEMDAS_DATABASE = {
+            1: [
+                { expr: "4 × (6 + 3)", steps: ["Resolver paréntesis: (6 + 3) = 9", "Multiplicar: 4 × 9 = 36"], ans: 36, focusPart: "(6 + 3)" },
+                { expr: "(18 - 9) × 5", steps: ["Resolver paréntesis: (18 - 9) = 9", "Multiplicar: 9 × 5 = 45"], ans: 45, focusPart: "(18 - 9)" },
+                { expr: "32 + (4 × 7)", steps: ["Resolver paréntesis: (4 × 7) = 28", "Sumar: 32 + 28 = 60"], ans: 60, focusPart: "(4 × 7)" },
+                { expr: "(45 ÷ 5) - 6", steps: ["Resolver paréntesis: (45 ÷ 5) = 9", "Restar: 9 - 6 = 3"], ans: 3, focusPart: "(45 ÷ 5)" },
+                { expr: "60 - (8 × 6)", steps: ["Resolver paréntesis: (8 × 6) = 48", "Restar: 60 - 48 = 12"], ans: 12, focusPart: "(8 × 6)" }
+            ],
+            2: [
+                { expr: "15 + (4 × 5) - 8", steps: ["Resolver paréntesis: (4 × 5) = 20", "Expresión queda: 15 + 20 - 8", "Sumas y restas de izq a der: 35 - 8 = 27"], ans: 27, focusPart: "(4 × 5)" },
+                { expr: "(20 - 8) × 3 + 14", steps: ["Resolver paréntesis: (20 - 8) = 12", "Multiplicación: 12 × 3 = 36", "Sumar: 36 + 14 = 50"], ans: 50, focusPart: "(20 - 8)" },
+                { expr: "50 - (36 ÷ 6) × 4", steps: ["Resolver paréntesis: (36 ÷ 6) = 6", "Multiplicar antes de restar: 6 × 4 = 24", "Restar: 50 - 24 = 26"], ans: 26, focusPart: "(36 ÷ 6)" },
+                { expr: "(7 + 5) × (9 - 4)", steps: ["Primer paréntesis: (7 + 5) = 12", "Segundo paréntesis: (9 - 4) = 5", "Multiplicar los resultados: 12 × 5 = 60"], ans: 60, focusPart: "(7 + 5)" }
+            ],
+            3: [
+                { expr: "65 - (3 × 8 + 6) + 12", steps: ["Dentro del paréntesis, multiplicación primero: 3 × 8 = 24", "Terminar paréntesis: 24 + 6 = 30", "Expresión queda: 65 - 30 + 12", "De izq a der: 35 + 12 = 47"], ans: 47, focusPart: "(3 × 8 + 6)" },
+                { expr: "(14 + 16) ÷ (12 - 7) + 8 × 3", steps: ["Paréntesis 1: (14 + 16) = 30", "Paréntesis 2: (12 - 7) = 5", "División y multiplicación: (30 ÷ 5) = 6, (8 × 3) = 24", "Sumar finales: 6 + 24 = 30"], ans: 30, focusPart: "(14 + 16)" },
+                { expr: "4 × (18 - 3 × 4) + 25", steps: ["Dentro del paréntesis, multiplicar primero: 3 × 4 = 12", "Terminar paréntesis: (18 - 12) = 6", "Multiplicar fuera: 4 × 6 = 24", "Sumar: 24 + 25 = 49"], ans: 49, focusPart: "3 × 4" }
+            ],
+            4: [
+                { expr: "100 - [4 × (15 - 8) + 12] ÷ 2", steps: ["Paréntesis interior: (15 - 8) = 7", "Dentro de corchetes, multiplicar: 4 × 7 = 28", "Sumar corchetes: 28 + 12 = 40", "División antes de restar: 40 ÷ 2 = 20", "Resultado: 100 - 20 = 80"], ans: 80, focusPart: "(15 - 8)" },
+                { expr: "(45 - 5 × 6) × (24 ÷ 4 - 2)", steps: ["Paréntesis 1 (multiplicar primero): 5 × 6 = 30 ➔ (45 - 30) = 15", "Paréntesis 2 (dividir primero): 24 ÷ 4 = 6 ➔ (6 - 2) = 4", "Multiplicar ambos bloques: 15 × 4 = 60"], ans: 60, focusPart: "5 × 6" },
+                { expr: "8 + 3 × (25 - 4 × 5) - (18 ÷ 3)", steps: ["Dentro de paréntesis: 4 × 5 = 20 ➔ (25 - 20) = 5", "Otro paréntesis: (18 ÷ 3) = 6", "Multiplicar: 3 × 5 = 15", "Expresión queda: 8 + 15 - 6 = 17"], ans: 17, focusPart: "4 × 5" }
+            ]
+        };
+
+        let currentPemdasItem = null;
+
+        function setPemdasLevel(lvl, btn) {
+            playClickTone();
+            currentPemdasLevel = lvl;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            generateNewPemdas();
+        }
+
+        function generateNewPemdas() {
+            pemdasInitialized = true;
+            const list = PEMDAS_DATABASE[currentPemdasLevel];
+            const item = list[Math.floor(Math.random() * list.length)];
+            currentPemdasItem = item;
+
+            // Resaltar la parte con prioridad
+            const highlightedExpr = item.expr.replace(item.focusPart, `<span class="highlight-focus">${item.focusPart}</span>`);
+
+            const arena = document.getElementById('pemdas-interactive-arena');
+            arena.innerHTML = `
+                <div style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 700;">
+                    🎯 Identifica la prioridad y resuelve:
+                </div>
+                <div class="pemdas-expression-line">
+                    ${highlightedExpr}
+                </div>
+                <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+                    <span style="font-weight: 800; font-size: 1.1rem;">Resultado final = </span>
+                    <input type="number" id="pemdas-user-answer" class="problem-input" placeholder="?" onkeydown="if(event.key==='Enter') checkPemdasAnswer()">
+                    <button class="btn-check-problem" onclick="checkPemdasAnswer()">Comprobar</button>
+                    <button class="btn-toggle-dev" onclick="revealPemdasSteps()">Ver Paso a Paso Completo</button>
+                </div>
+                <div id="pemdas-feedback" style="margin-top: 0.75rem; font-weight: 800; font-size: 1rem;"></div>
+            `;
+
+            const stepsContainer = document.getElementById('pemdas-steps-container');
+            stepsContainer.style.display = 'none';
+            stepsContainer.innerHTML = '';
+        }
+
+        function checkPemdasAnswer() {
+            const input = document.getElementById('pemdas-user-answer');
+            const val = parseInt(input.value.trim(), 10);
+            const feedback = document.getElementById('pemdas-feedback');
+
+            if (isNaN(val)) return;
+
+            if (val === currentPemdasItem.ans) {
+                playSuccessTone();
+                feedback.innerHTML = '<span style="color: var(--accent-green);">🎉 ¡Exacto! ¡Has aplicado la jerarquía como un campeón! (+20 pts)</span>';
+                addStars(20);
+                revealPemdasSteps();
+            } else {
+                playErrorTone();
+                feedback.innerHTML = `<span style="color: var(--accent-rose);">❌ No es ${val}. Revisa el orden de operaciones o pulsa "Ver Paso a Paso".</span>`;
+            }
+        }
+
+        function revealPemdasSteps() {
+            const stepsContainer = document.getElementById('pemdas-steps-container');
+            stepsContainer.style.display = 'flex';
+            stepsContainer.innerHTML = '';
+
+            currentPemdasItem.steps.forEach((st, idx) => {
+                const row = document.createElement('div');
+                row.className = 'step-row-item';
+                row.innerHTML = `
+                    <div class="step-row-num">${idx + 1}</div>
+                    <div style="font-size: 0.95rem; line-height: 1.4;">
+                        ${st}
+                    </div>
+                `;
+                stepsContainer.appendChild(row);
+            });
+        }
+
+        /* ---------------------------------------------------- */
+        /* TAB 5: BANCO DE PROBLEMAS (32 EXTENSOS)              */
+        /* ---------------------------------------------------- */
+        const PROBLEMS_DATA = [
+            {
+                id: 1,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "El Torneo de Mario Kart",
+                statement: "Álvaro y sus 3 amigos compiten en un torneo de 4 copas de Mario Kart. Cada victoria otorga 15 puntos y el segundo puesto da 12 puntos. Si Álvaro gana 3 copas y queda segundo en una, ¿cuántos puntos consigue en total?",
+                unit: "puntos",
+                ans: 57,
+                hint: "Calcula los puntos de las 3 victorias por un lado, luego suma los puntos del segundo puesto.",
+                datos: ["4 copas en total.", "3 victorias a 15 puntos cada una.", "1 segundo puesto a 12 puntos."],
+                razonamiento: "Multiplicamos las 3 victorias por 15 puntos y le sumamos los 12 puntos del segundo puesto.",
+                operaciones: "(3 × 15) + 12 = 45 + 12 = 57",
+                solucion: "Álvaro consigue un total de 57 puntos en el torneo."
+            },
+            {
+                id: 2,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "La Excursión en Autobús",
+                statement: "Los 148 alumnos de primaria van de excursión a un parque multiaventura. Cada autobús tiene capacidad para 35 plazas. ¿Cuántos autobuses completos se llenarán y cuántos alumnos irán en el último autobús?",
+                unit: "alumnos",
+                ans: 8,
+                hint: "Haz una división entera: 148 entre 35. El cociente son los autobuses llenos y el resto los alumnos restantes.",
+                datos: ["148 alumnos en total.", "Cada autobús tiene 35 plazas."],
+                razonamiento: "Dividimos 148 entre 35 para repartir los alumnos en autobuses completos y conocer el resto.",
+                operaciones: "148 ÷ 35 = 4 autobuses completos (4 × 35 = 140). Resto: 148 - 140 = 8 alumnos.",
+                solucion: "Se llenan 4 autobuses completos y en el 5º autobús viajan 8 alumnos (se necesitan 5 autobuses en total)."
+            },
+            {
+                id: 3,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "La Compra en la Tienda de Videojuegos",
+                statement: "Álvaro compra 2 videojuegos que cuestan 45€ cada uno y unos auriculares gaming de 38€. Paga en caja con dos billetes de 100€. ¿Cuánto dinero le devuelven de cambio?",
+                unit: "€",
+                ans: 72,
+                hint: "Calcula primero cuánto dinero entrega en total y réstale el coste de los 2 juegos y los auriculares.",
+                datos: ["2 videojuegos a 45€ cada uno.", "Auriculares: 38€.", "Paga con 2 billetes de 100€ (200€)."],
+                razonamiento: "Sumamos los gastos: (2 × 45) + 38 = 90 + 38 = 128€. Luego restamos de los 200€ entregados.",
+                operaciones: "200 - [(2 × 45) + 38] = 200 - 128 = 72€",
+                solucion: "Le devuelven 72€ de cambio."
+            },
+            {
+                id: 4,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "Los Cofres de Minecraft",
+                statement: "En su base secreta, Álvaro guarda 8 cofres con 27 lingotes de hierro cada uno y 5 cofres con 16 lingotes de oro cada uno. ¿Cuántos lingotes tiene guardados entre hierro y oro?",
+                unit: "lingotes",
+                ans: 296,
+                hint: "Multiplica los cofres de hierro por sus lingotes y los de oro por los suyos. Luego suma ambos totales.",
+                datos: ["8 cofres de hierro con 27 lingotes cada uno.", "5 cofres de oro con 16 lingotes cada uno."],
+                razonamiento: "Calculamos el hierro: 8 × 27. Calculamos el oro: 5 × 16. Sumamos ambos resultados.",
+                operaciones: "(8 × 27) + (5 × 16) = 216 + 80 = 296",
+                solucion: "Tiene guardados un total de 296 lingotes."
+            },
+            {
+                id: 5,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "La Biblioteca del Colegio",
+                statement: "La biblioteca del colegio ha recibido un envío de 1.560 libros nuevos para repartirlos en 12 estanterías exactamente iguales. ¿Cuántos libros se colocarán en cada estantería?",
+                unit: "libros",
+                ans: 130,
+                hint: "Es una división exacta de 4 cifras entre 2 cifras: 1.560 ÷ 12.",
+                datos: ["1.560 libros nuevos.", "12 estanterías iguales."],
+                razonamiento: "Para repartir equitativamente realizamos una división entre 12.",
+                operaciones: "1.560 ÷ 12 = 130 (resto 0)",
+                solucion: "En cada estantería se colocarán 130 libros."
+            },
+            {
+                id: 6,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "La Cosecha de Manzanas",
+                statement: "Un agricultor recoge 24 cajas con 48 manzanas en cada caja. Durante la selección de calidad, descubre que 65 manzanas están golpeadas y no se pueden vender. ¿Cuántas manzanas sanas quedan listas para vender?",
+                unit: "manzanas",
+                ans: 1087,
+                hint: "Multiplica las cajas por las manzanas por caja y luego resta las manzanas estropeadas.",
+                datos: ["24 cajas con 48 manzanas cada una.", "65 manzanas estropeadas."],
+                razonamiento: "Calculamos el total recogido (24 × 48) y le restamos las defectuosas.",
+                operaciones: "(24 × 48) - 65 = 1.152 - 65 = 1.087",
+                solucion: "Quedan 1.087 manzanas sanas para la venta."
+            },
+            {
+                id: 7,
+                cat: "deportes",
+                catName: "Deportes",
+                title: "El Álbum de Cromos de LaLiga",
+                statement: "El álbum de fútbol tiene 450 cromos. Álvaro ya ha pegado 285 cromos y se compra 25 sobres con 5 cromos cada uno. Si tiene la suerte de que no le sale ninguno repetido, ¿cuántos cromos le faltarán todavía para completar el álbum?",
+                unit: "cromos",
+                ans: 40,
+                hint: "Calcula cuántos cromos nuevos consigue con los 25 sobres, súmaselos a los que ya tiene y resta de 450.",
+                datos: ["450 cromos en el álbum.", "Tiene ya 285 cromos.", "Compra 25 sobres de 5 cromos (25 × 5 = 125)."],
+                razonamiento: "Total que tendrá: 285 + 125 = 410 cromos. Le faltarán: 450 - 410.",
+                operaciones: "450 - (285 + 25 × 5) = 450 - (285 + 125) = 450 - 410 = 40",
+                solucion: "Le faltarán únicamente 40 cromos para completar el álbum."
+            },
+            {
+                id: 8,
+                cat: "deportes",
+                catName: "Deportes",
+                title: "Equipaciones de Baloncesto",
+                statement: "Un club de baloncesto encarga 135 camisetas deportivas a 14€ cada una. La federación les concede una ayuda de 450€. ¿Cuánto dinero tiene que pagar el club finalmente de su propio presupuesto?",
+                unit: "€",
+                ans: 1440,
+                hint: "Calcula el precio total de las 135 camisetas y réstale la ayuda de 450€.",
+                datos: ["135 camisetas a 14€ cada una.", "Subvención/Ayuda: 450€."],
+                razonamiento: "Multiplicamos para saber el coste total y restamos la ayuda recibida.",
+                operaciones: "(135 × 14) - 450 = 1.890 - 450 = 1.440€",
+                solucion: "El club tiene que pagar 1.440€."
+            },
+            {
+                id: 9,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "Fiesta de Pizzas con Amigos",
+                statement: "16 amigos se reúnen para celebrar un cumpleaños. Cada pizza se corta en 8 porciones. Si calculan que cada amigo comerá 3 porciones, ¿cuántas pizzas completas deben pedir como mínimo para que nadie se quede con hambre?",
+                unit: "pizzas",
+                ans: 6,
+                hint: "Calcula cuántas porciones necesitan en total (16 × 3) y divide entre 8 porciones por pizza.",
+                datos: ["16 amigos.", "3 porciones por persona.", "8 porciones por pizza."],
+                razonamiento: "Multiplicamos 16 × 3 = 48 porciones necesarias. Dividimos 48 entre 8 para hallar el número de pizzas.",
+                operaciones: "(16 × 3) ÷ 8 = 48 ÷ 8 = 6",
+                solucion: "Deben pedir 6 pizzas completas."
+            },
+            {
+                id: 10,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "Ahorrando para la Consola",
+                statement: "Una nueva consola cuesta 299€. Álvaro tiene ahorrados 143€ y su abuela le regala 60€ por su santo. Si se propone ahorrar 12€ cada semana de su paga, ¿en cuántas semanas conseguirá el dinero que le falta?",
+                unit: "semanas",
+                ans: 8,
+                hint: "Calcula cuánto dinero tiene en total (143 + 60), resta de 299€ y divide el resultado entre 12€ por semana.",
+                datos: ["Precio consola: 299€.", "Ahorrado: 143€ + 60€ de regalo = 203€.", "Ahorro semanal: 12€."],
+                razonamiento: "Dinero restante: 299 - 203 = 96€. Semanas: 96 ÷ 12.",
+                operaciones: "(299 - 203) ÷ 12 = 96 ÷ 12 = 8",
+                solucion: "Podrá comprar la consola dentro de 8 semanas."
+            },
+            {
+                id: 11,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "El Huerto Escolar de Tomates",
+                statement: "En el huerto del colegio han plantado 16 filas con 35 plantas de tomate cada una. Si cada planta produce una media de 8 tomates a lo largo de la temporada, ¿cuántos tomates recogerán en total?",
+                unit: "tomates",
+                ans: 4480,
+                hint: "Multiplica las filas por las plantas de cada fila para saber el total de plantas, y luego multiplica por 8.",
+                datos: ["16 filas de tomateras.", "35 plantas por fila.", "8 tomates por planta."],
+                razonamiento: "Multiplicación encadenada: 16 × 35 × 8.",
+                operaciones: "16 × 35 = 560 plantas. 560 × 8 = 4.480 tomates.",
+                solucion: "Recogerán en total 4.480 tomates."
+            },
+            {
+                id: 12,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "Fábrica de Lápices de Colores",
+                statement: "Una fábrica elabora 7.680 lápices de colores al día. Los empaquetan en cajas de 24 lápices cada una. ¿Cuántas cajas completas se preparan al cabo del día?",
+                unit: "cajas",
+                ans: 320,
+                hint: "Divide el número total de lápices entre los 24 lápices que caben en cada caja.",
+                datos: ["7.680 lápices producidos.", "24 lápices por caja."],
+                razonamiento: "Dividimos 7.680 entre 24.",
+                operaciones: "7.680 ÷ 24 = 320 cajas completas (resto 0).",
+                solucion: "Se preparan 320 cajas completas al día."
+            },
+            {
+                id: 13,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "La Batería del Dron Explorador",
+                statement: "Un dron tiene una batería que dura 54 minutos con carga completa. Álvaro realiza 4 vuelos de 8 minutos cada uno y otro vuelo de 12 minutos. ¿Cuántos minutos de batería le quedan al dron?",
+                unit: "minutos",
+                ans: 10,
+                hint: "Suma el tiempo de los vuelos realizados y réstaselo a los 54 minutos iniciales.",
+                datos: ["54 minutos de batería inicial.", "4 vuelos de 8 min (4 × 8 = 32).", "1 vuelo de 12 min."],
+                razonamiento: "Minutos gastados: 32 + 12 = 44 min. Batería restante: 54 - 44.",
+                operaciones: "54 - (4 × 8 + 12) = 54 - (32 + 12) = 54 - 44 = 10",
+                solucion: "Le quedan 10 minutos de batería."
+            },
+            {
+                id: 14,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "Las Entradas del Teatro",
+                statement: "Un teatro tiene 650 butacas. En la sesión de tarde se vendieron 420 entradas a 15€ cada una, y en la sesión de noche se vendieron todas las 650 butacas a 18€ cada una. ¿Cuánto dinero recaudó el teatro en total entre ambas sesiones?",
+                unit: "€",
+                ans: 18000,
+                hint: "Calcula lo recaudado por la tarde (420 × 15) y lo de la noche (650 × 18), y suma ambas cantidades.",
+                datos: ["Tarde: 420 entradas a 15€.", "Noche: 650 entradas a 18€."],
+                razonamiento: "Multiplicamos cada grupo de entradas por su precio y sumamos.",
+                operaciones: "(420 × 15) + (650 × 18) = 6.300 + 11.700 = 18.000€",
+                solucion: "El teatro recaudó un total de 18.000€."
+            },
+            {
+                id: 15,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "El Tanque del Acuario Municipal",
+                statement: "Un acuario municipal tiene un tanque de 5.400 litros. Ya contiene 1.800 litros de agua. Si se abre una manguera que vierte 45 litros por minuto, ¿cuántos minutos tardará en llenarse por completo el tanque?",
+                unit: "minutos",
+                ans: 80,
+                hint: "Calcula cuántos litros faltan para llenarlo (5.400 - 1.800) y divide entre los 45 litros por minuto.",
+                datos: ["Capacidad: 5.400 litros.", "Tiene ya: 1.800 litros.", "Caudal de manguera: 45 litros/minuto."],
+                razonamiento: "Litros que faltan: 5.400 - 1.800 = 3.600 litros. Tiempo necesario: 3.600 ÷ 45.",
+                operaciones: "(5.400 - 1.800) ÷ 45 = 3.600 ÷ 45 = 80",
+                solucion: "Tardará 80 minutos en llenarse (1 hora y 20 minutos)."
+            },
+            {
+                id: 16,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "Campaña Solidaria de Alimentos",
+                statement: "En el colegio hay 6 cursos de primaria, con 3 clases por curso y 24 alumnos en cada clase. Si cada alumno aporta 2 kg de alimentos para el comedor social, ¿cuántos kilos de comida recogen en total?",
+                unit: "kg",
+                ans: 864,
+                hint: "Multiplica cursos × clases × alumnos × 2 kg por alumno.",
+                datos: ["6 cursos.", "3 clases por curso.", "24 alumnos por clase.", "2 kg por alumno."],
+                razonamiento: "Total de clases: 6 × 3 = 18 clases. Total alumnos: 18 × 24 = 432 alumnos. Total comida: 432 × 2.",
+                operaciones: "6 × 3 × 24 × 2 = 18 × 24 × 2 = 432 × 2 = 864",
+                solucion: "Recogen un total de 864 kg de comida solidaria."
+            },
+            {
+                id: 17,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "El Obrador de Magdalenas",
+                statement: "Un pastelero hornea 32 bandejas con 24 magdalenas cada una. Las empaqueta en bolsas de 6 magdalenas para venderlas a 3€ la bolsa. ¿Cuánto dinero ingresará si vende todas las bolsas preparadas?",
+                unit: "€",
+                ans: 384,
+                hint: "Calcula el total de magdalenas (32 × 24), divide entre 6 para saber las bolsas y multiplica por 3€.",
+                datos: ["32 bandejas de 24 magdalenas.", "6 magdalenas por bolsa.", "3€ por bolsa."],
+                razonamiento: "Magdalenas totales: 32 × 24 = 768. Bolsas: 768 ÷ 6 = 128 bolsas. Ingreso: 128 × 3.",
+                operaciones: "(32 × 24 ÷ 6) × 3 = (768 ÷ 6) × 3 = 128 × 3 = 384€",
+                solucion: "Ingresará 384€ por la venta de todas las bolsas."
+            },
+            {
+                id: 18,
+                cat: "deportes",
+                catName: "Deportes",
+                title: "El Entrenamiento en Pista de Atletismo",
+                statement: "Un atleta corre 12 vueltas completas a una pista de atletismo que mide 400 metros de longitud. ¿Cuántos kilómetros ha recorrido en total?",
+                unit: "km",
+                ans: 4.8,
+                hint: "Multiplica las vueltas por los metros (12 × 400 = 4.800 m) y convierte los metros a kilómetros dividiendo entre 1.000.",
+                datos: ["12 vueltas.", "400 metros por vuelta."],
+                razonamiento: "Metros recorridos: 12 × 400 = 4.800 metros. Pasamos a km: 4.800 ÷ 1.000.",
+                operaciones: "(12 × 400) ÷ 1.000 = 4.800 ÷ 1.000 = 4,8 km",
+                solucion: "Ha recorrido 4,8 kilómetros (4.800 metros)."
+            },
+            {
+                id: 19,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "Cartas Pokémon entre Amigos",
+                statement: "Álvaro tiene 14 sobres con 10 cartas cada uno. Su amigo Lucas tiene 18 sobres con 8 cartas cada uno. ¿Quién tiene más cartas y cuántas cartas más tiene?",
+                unit: "cartas",
+                ans: 4,
+                hint: "Calcula las cartas de Álvaro (14 × 10 = 140) y las de Lucas (18 × 8 = 144), y halla la diferencia.",
+                datos: ["Álvaro: 14 sobres de 10 cartas = 140 cartas.", "Lucas: 18 sobres de 8 cartas = 144 cartas."],
+                razonamiento: "Comparamos ambas cantidades y restamos la mayor menos la menor.",
+                operaciones: "Lucas: 18 × 8 = 144. Álvaro: 14 × 10 = 140. Diferencia: 144 - 140 = 4",
+                solucion: "Lucas tiene más cartas (tiene 4 cartas más que Álvaro)."
+            },
+            {
+                id: 20,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "Parqué para la Habitación",
+                statement: "La habitación de Álvaro mide 4 metros de largo por 3 metros de ancho. Si el metro cuadrado de suelo de parqué cuesta 26€ y la mano de obra de instalación cuesta 95€ fijos, ¿cuánto costará renovar el suelo en total?",
+                unit: "€",
+                ans: 407,
+                hint: "Calcula el área de la habitación (largo × ancho = 4 × 3 = 12 m²), multiplica por 26€ y suma los 95€.",
+                datos: ["Dimensiones: 4 m de largo × 3 m de ancho.", "Coste parqué: 26€ / m².", "Instalación: 95€."],
+                razonamiento: "Superficie: 4 × 3 = 12 m². Coste material: 12 × 26 = 312€. Coste total: 312 + 95.",
+                operaciones: "(4 × 3 × 26) + 95 = (12 × 26) + 95 = 312 + 95 = 407€",
+                solucion: "Renovar el suelo costará 407€ en total."
+            },
+            {
+                id: 21,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "El Camión de Reparto de Leche",
+                statement: "Un camión transporta 15 palés de leche. Cada palé contiene 28 cajas, y en cada caja van 6 botellas de 1 litro de leche. ¿Cuántos litros de leche lleva el camión en total?",
+                unit: "litros",
+                ans: 2520,
+                hint: "Es una multiplicación de 3 términos: palés × cajas por palé × botellas por caja.",
+                datos: ["15 palés.", "28 cajas por palé.", "6 botellas de 1 litro por caja."],
+                razonamiento: "Calculamos las cajas totales (15 × 28 = 420) y multiplicamos por 6 botellas.",
+                operaciones: "15 × 28 × 6 = 420 × 6 = 2.520 litros",
+                solucion: "El camión lleva 2.520 litros de leche."
+            },
+            {
+                id: 22,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "El Festival de Cortometrajes",
+                statement: "En el salón de actos del colegio proyectan 5 cortometrajes de 16 minutos cada uno. Entre cada corto y el siguiente hacen un descanso de 3 minutos para cambiar de grupo. ¿Cuántos minutos dura todo el evento desde que empieza el primero hasta que acaba el quinto?",
+                unit: "minutos",
+                ans: 92,
+                hint: "Atención: entre 5 películas hay 4 descansos (no 5). Suma los 5 cortos (5 × 16) más los 4 descansos (4 × 3).",
+                datos: ["5 cortometrajes de 16 minutos.", "4 descansos intermedios de 3 minutos cada uno."],
+                razonamiento: "Tiempo de cortos: 5 × 16 = 80 min. Tiempo de pausas: (5 - 1) × 3 = 12 min. Total: 80 + 12.",
+                operaciones: "(5 × 16) + (4 × 3) = 80 + 12 = 92 minutos",
+                solucion: "El festival dura 92 minutos (1 hora y 32 minutos)."
+            },
+            {
+                id: 23,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "La Siembra de Girasoles",
+                statement: "Un agricultor compra 4 sacos de semillas de girasol de 25 kg cada saco a 2€ el kilo. Si tras la cosecha vende las pipas recolectadas por un valor de 2.650€, ¿cuál ha sido su beneficio neto descontando el coste de las semillas?",
+                unit: "€",
+                ans: 2450,
+                hint: "Calcula primero cuánto gastó en las semillas (4 sacos × 25 kg × 2€ = 200€) y réstaselo a los 2.650€ de ingresos.",
+                datos: ["4 sacos de 25 kg = 100 kg de semillas.", "Precio: 2€ / kg.", "Ingresos por venta: 2.650€."],
+                razonamiento: "Gasto en semillas: 100 × 2 = 200€. Beneficio: 2.650 - 200.",
+                operaciones: "2.650 - (4 × 25 × 2) = 2.650 - 200 = 2.450€",
+                solucion: "Su beneficio neto ha sido de 2.450€."
+            },
+            {
+                id: 24,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "El Hotel Rural de Vacaciones",
+                statement: "Un hotel rural tiene 3 plantas con 24 habitaciones en cada planta. Cada habitación tiene capacidad para alojar a 4 personas. Si durante el puente festivo está lleno al 100%, ¿cuántos huéspedes hay alojados?",
+                unit: "huéspedes",
+                ans: 288,
+                hint: "Multiplica las 3 plantas por las 24 habitaciones, y luego por las 4 personas que caben en cada una.",
+                datos: ["3 plantas.", "24 habitaciones por planta.", "4 personas por habitación."],
+                razonamiento: "Total habitaciones: 3 × 24 = 72 habitaciones. Huéspedes: 72 × 4.",
+                operaciones: "3 × 24 × 4 = 72 × 4 = 288",
+                solucion: "Hay 288 huéspedes alojados en el hotel."
+            },
+            {
+                id: 25,
+                cat: "deportes",
+                catName: "Deportes",
+                title: "La Prueba de Natación de 1.500 Metros",
+                statement: "En una competición de natación en piscina olímpica de 50 metros de largo, los nadadores deben completar una prueba de fondo de 1.500 metros. ¿Cuántos largos de piscina debe nadar cada participante?",
+                unit: "largos",
+                ans: 30,
+                hint: "Divide la distancia total (1.500 m) entre la longitud de la piscina (50 m).",
+                datos: ["Distancia total: 1.500 metros.", "Longitud de piscina: 50 metros."],
+                razonamiento: "Dividimos 1.500 entre 50. Puedes usar el truco de quitar un cero: 150 ÷ 5.",
+                operaciones: "1.500 ÷ 50 = 30",
+                solucion: "Cada nadador debe completar 30 largos de piscina."
+            },
+            {
+                id: 26,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "Taller de Robótica con Engranajes",
+                statement: "En el club de robótica tienen una caja con 740 piezas de engranajes. Cada robot requiere exactamente 35 engranajes para su montaje. ¿Cuántos robots completos pueden montar y cuántas piezas sobrarán?",
+                unit: "robots",
+                ans: 21,
+                hint: "Haz una división entera: 740 ÷ 35. El cociente es la cantidad de robots completos.",
+                datos: ["740 piezas en total.", "35 piezas por robot."],
+                razonamiento: "Dividimos 740 entre 35.",
+                operaciones: "740 ÷ 35 = 21 robots completos (21 × 35 = 735 piezas). Sobran: 740 - 735 = 5 piezas.",
+                solucion: "Pueden montar 21 robots completos y les sobrarán 5 piezas de engranajes."
+            },
+            {
+                id: 27,
+                cat: "gaming",
+                catName: "Gaming & Ocio",
+                title: "Puntos de Maná en el Juego de Estrategia",
+                statement: "Álvaro tiene 1.450 puntos de maná en su partida de rol. Lanza un encantamiento protector que gasta 350 puntos y luego realiza 4 ataques mágicos que consumen 220 puntos de maná cada uno. ¿Cuántos puntos de maná le quedan?",
+                unit: "puntos",
+                ans: 220,
+                hint: "Calcula el gasto de los 4 ataques (4 × 220 = 880), suma el encantamiento (350) y resta de 1.450.",
+                datos: ["Maná inicial: 1.450 puntos.", "Encantamiento: 350 puntos.", "4 ataques a 220 puntos cada uno."],
+                razonamiento: "Gasto total: 350 + (4 × 220) = 350 + 880 = 1.230 puntos. Maná restante: 1.450 - 1.230.",
+                operaciones: "1.450 - [350 + (4 × 220)] = 1.450 - (350 + 880) = 1.450 - 1.230 = 220",
+                solucion: "Le quedan 220 puntos de maná."
+            },
+            {
+                id: 28,
+                cat: "tiendas",
+                catName: "Compras & Dinero",
+                title: "El Beneficio en la Frutería",
+                statement: "Un frutero compra 140 kg de plátanos a 0,80€ el kilo. Durante la semana vende 125 kg a 1,60€ el kilo y los 15 kg restantes se maduran demasiado y los liquida a 0,60€ el kilo. ¿Cuál es su ganancia o beneficio final?",
+                unit: "€",
+                ans: 97,
+                hint: "Calcula lo que le costaron (140 × 0,80 = 112€), luego suma las ventas (125 × 1,60 = 200€ y 15 × 0,60 = 9€) y resta los costes.",
+                datos: ["Compra: 140 kg × 0,80€ = 112€ de coste.", "Venta 1: 125 kg × 1,60€ = 200€.", "Venta 2: 15 kg × 0,60€ = 9€."],
+                razonamiento: "Ingresos totales: 200 + 9 = 209€. Beneficio: 209 - 112.",
+                operaciones: "(125 × 1,60 + 15 × 0,60) - (140 × 0,80) = (200 + 9) - 112 = 209 - 112 = 97€",
+                solucion: "Su ganancia o beneficio neto es de 97€."
+            },
+            {
+                id: 29,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "La Impresora de la Escuela",
+                statement: "Una máquina fotocopiadora imprime 85 hojas por minuto. Para preparar los cuadernos del trimestre funciona de forma continua durante 1 hora y 45 minutos (105 minutos). ¿Cuántas hojas imprime en total?",
+                unit: "hojas",
+                ans: 8925,
+                hint: "Pasa el tiempo a minutos (1 h y 45 min = 60 + 45 = 105 minutos) y multiplica por las 85 hojas por minuto.",
+                datos: ["Velocidad: 85 hojas/minuto.", "Tiempo: 105 minutos."],
+                razonamiento: "Multiplicamos 85 por 105.",
+                operaciones: "85 × 105 = 8.925 hojas",
+                solucion: "La fotocopiadora imprime 8.925 hojas."
+            },
+            {
+                id: 30,
+                cat: "escuela",
+                catName: "Escuela & Excursiones",
+                title: "Los Monitores del Campamento",
+                statement: "A un campamento de verano asisten 240 niños que se alojan en cabañas de 15 plazas cada una. La normativa exige que haya 2 monitores adultos asignados por cada cabaña. ¿Cuántos monitores en total se necesitan para cubrir todas las cabañas?",
+                unit: "monitores",
+                ans: 32,
+                hint: "Calcula cuántas cabañas se ocupan (240 ÷ 15 = 16 cabañas) y multiplica por 2 monitores por cabaña.",
+                datos: ["240 niños.", "15 plazas por cabaña.", "2 monitores por cada cabaña."],
+                razonamiento: "Número de cabañas: 240 ÷ 15 = 16 cabañas. Monitores: 16 × 2.",
+                operaciones: "(240 ÷ 15) × 2 = 16 × 2 = 32",
+                solucion: "Se necesitan 32 monitores en total."
+            },
+            {
+                id: 31,
+                cat: "ciencia",
+                catName: "Ciencia & Vida",
+                title: "El Viaje del Tren de Alta Velocidad",
+                statement: "Un tren de alta velocidad viaja a una velocidad constante de 220 kilómetros por hora. Si el trayecto entre dos ciudades dura 3 horas y media (3,5 horas), ¿cuántos kilómetros recorre el tren en el viaje?",
+                unit: "km",
+                ans: 770,
+                hint: "Multiplica 220 km/h por 3 horas (660 km) y añade la media hora (la mitad de 220 = 110 km).",
+                datos: ["Velocidad: 220 km/h.", "Tiempo: 3,5 horas."],
+                razonamiento: "Distancia = Velocidad × Tiempo: 220 × 3,5.",
+                operaciones: "220 × 3,5 = 660 + 110 = 770 km",
+                solucion: "El tren recorre 770 kilómetros."
+            },
+            {
+                id: 32,
+                cat: "deportes",
+                catName: "Deportes",
+                title: "El Circuito de Karting",
+                statement: "En una carrera de karts, Álvaro da 35 vueltas a un circuito cerrado que tiene 640 metros de cuerda. ¿Cuántos metros ha recorrido en total y cuántos kilómetros supone esa distancia?",
+                unit: "metros",
+                ans: 22400,
+                hint: "Multiplica las 35 vueltas por los 640 metros de cada vuelta.",
+                datos: ["35 vueltas.", "640 metros por vuelta."],
+                razonamiento: "Multiplicamos 35 por 640. Para pasarlo a km, dividimos entre 1.000.",
+                operaciones: "35 × 640 = 22.400 metros = 22,4 km",
+                solucion: "Ha recorrido 22.400 metros (22,4 kilómetros)."
+            }
+        ];
+
+        let currentProblemFilter = 'all';
+        let currentProblemSearch = '';
+
+        function renderProblemsList() {
+            const container = document.getElementById('problems-list-container');
+            container.innerHTML = '';
+
+            const filtered = PROBLEMS_DATA.filter(p => {
+                const matchesCat = currentProblemFilter === 'all' || p.cat === currentProblemFilter;
+                const matchesSearch = !currentProblemSearch || 
+                    p.title.toLowerCase().includes(currentProblemSearch) || 
+                    p.statement.toLowerCase().includes(currentProblemSearch);
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                        No se han encontrado problemas con ese criterio de búsqueda.
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const isSolved = solvedProblems.includes(p.id);
+                const card = document.createElement('div');
+                card.className = `problem-card ${isSolved ? 'solved' : ''}`;
+                card.id = `problem-card-${p.id}`;
+
+                card.innerHTML = `
+                    <div class="problem-header">
+                        <span class="problem-category-badge">${p.catName}</span>
+                        <span style="font-weight: 800; font-size: 0.85rem; color: ${isSolved ? 'var(--accent-green)' : 'var(--text-muted)'};">
+                            ${isSolved ? '✅ Resuelto' : '⏳ Pendiente'}
+                        </span>
+                    </div>
+
+                    <h3 class="problem-title">Problema #${p.id}: ${p.title}</h3>
+                    <p class="problem-statement">${p.statement}</p>
+
+                    <div id="hint-box-${p.id}" class="hint-accordion">
+                        💡 <strong>Pista para empezar:</strong> ${p.hint}
+                    </div>
+
+                    <div class="problem-action-row">
+                        <span style="font-size: 0.85rem; font-weight: 700;">Tu solución:</span>
+                        <input type="number" id="prob-input-${p.id}" class="problem-input" placeholder="Resultado" onkeydown="if(event.key==='Enter') checkProblemAnswer(${p.id})">
+                        <span class="mono" style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">${p.unit}</span>
+                        <button class="btn-check-problem" onclick="checkProblemAnswer(${p.id})">Comprobar</button>
+                        <button class="btn-toggle-dev" onclick="toggleHint(${p.id})">💡 Pista</button>
+                        <button class="btn-toggle-dev" onclick="toggleDevelopment(${p.id})">📖 Ver Desarrollo</button>
+                    </div>
+
+                    <div id="prob-feedback-${p.id}" style="font-size: 0.9rem; font-weight: 700; margin: 0.4rem 0;"></div>
+
+                    <!-- Caja con el desarrollo pedagógico completo -->
+                    <div id="dev-box-${p.id}" class="development-box">
+                        <div class="dev-section-title">📋 1. Datos del Enunciado:</div>
+                        <ul style="margin-left: 1.25rem; margin-bottom: 0.6rem;">
+                            ${p.datos.map(d => `<li>${d}</li>`).join('')}
+                        </ul>
+
+                        <div class="dev-section-title">🧠 2. Razonamiento:</div>
+                        <p style="margin-bottom: 0.6rem;">${p.razonamiento}</p>
+
+                        <div class="dev-section-title">✍️ 3. Operaciones Matemáticas:</div>
+                        <p class="mono" style="font-weight: 800; background: var(--bg-card); padding: 0.4rem 0.6rem; border-radius: 4px; display: inline-block; margin-bottom: 0.6rem;">
+                            ${p.operaciones}
+                        </p>
+
+                        <div class="dev-section-title" style="color: var(--accent-green);">🎯 4. Solución Formal:</div>
+                        <p style="font-weight: 800; color: var(--text-main);">${p.solucion}</p>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function filterProblems(cat, btn) {
+            playClickTone();
+            currentProblemFilter = cat;
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderProblemsList();
+        }
+
+        function searchProblems(query) {
+            currentProblemSearch = query.toLowerCase().trim();
+            renderProblemsList();
+        }
+
+        function toggleHint(id) {
+            playClickTone();
+            const el = document.getElementById(`hint-box-${id}`);
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'block';
+            }
+        }
+
+        function toggleDevelopment(id) {
+            playClickTone();
+            const el = document.getElementById(`dev-box-${id}`);
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'block';
+            }
+        }
+
+        function checkProblemAnswer(id) {
+            const p = PROBLEMS_DATA.find(item => item.id === id);
+            if (!p) return;
+
+            const input = document.getElementById(`prob-input-${id}`);
+            const val = parseFloat(input.value.trim().replace(',', '.'));
+            const feedback = document.getElementById(`prob-feedback-${id}`);
+
+            if (isNaN(val)) return;
+
+            if (Math.abs(val - p.ans) < 0.01) {
+                playSuccessTone();
+                feedback.innerHTML = '<span style="color: var(--accent-green);">🎉 ¡Correcto! Has dado con la solución exacta. (+25 pts)</span>';
+
+                if (!solvedProblems.includes(id)) {
+                    solvedProblems.push(id);
+                    localStorage.setItem('mates_solved_problems', JSON.stringify(solvedProblems));
+                    addStars(25);
+                }
+
+                document.getElementById(`problem-card-${id}`).classList.add('solved');
+                // Desplegamos el desarrollo automáticamente para confirmar el aprendizaje
+                document.getElementById(`dev-box-${id}`).style.display = 'block';
+            } else {
+                playErrorTone();
+                feedback.innerHTML = `<span style="color: var(--accent-rose);">❌ Tu respuesta (${val}) no coincide. Revisa las operaciones o pulsa "💡 Pista".</span>`;
+            }
+        }
+
+        /* ---------------------------------------------------- */
+        /* INICIALIZACIÓN GLOBAL                                */
+        /* ---------------------------------------------------- */
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('hub_dark') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('btn-theme-toggle').textContent = '☀️';
+            }
+            document.getElementById('btn-sound-toggle').textContent = isMuted ? '🔇' : '🔊';
+
+            updateHubStats();
+            renderProblemsList();
+        });
+    </script>
+</body>
+
+</html>

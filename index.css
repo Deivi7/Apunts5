@@ -1,0 +1,298 @@
+/**
+ * Álvaro Study Hub - Index / Portal Principal Styles
+ */
+
+/* Subjects Grid & Containers */
+.subjects-container {
+    max-width: 1360px;
+    margin: 1.25rem auto 2.5rem;
+    padding: 0 1.25rem;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+}
+
+/* Streamlined Subject Card */
+.subject-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+}
+
+.subject-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+.subject-card.is-active-app {
+    border: 2px solid var(--primary);
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--primary-light) 250%);
+}
+
+.card-top-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.subject-icon {
+    font-size: 1.8rem;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-main);
+    flex-shrink: 0;
+}
+
+.subject-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.subject-category-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.subject-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Clean Card Actions */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.btn-launch-app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 800;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.btn-launch-app:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.card-topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.btn-topic-launch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.48rem 0.8rem;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: all 0.15s ease;
+}
+
+.btn-topic-launch:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-topic-more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px dashed var(--primary);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btn-topic-more:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.card-sub-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.btn-sub-drive {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    transition: all 0.15s;
+}
+
+.btn-sub-drive:hover {
+    color: #2563eb;
+    border-color: #93c5fd;
+    background: #eff6ff;
+}
+
+.btn-sub-options {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+
+.btn-sub-options:hover {
+    color: var(--primary);
+    background: var(--bg-main);
+}
+
+.badge-active-mark {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+body.dark-mode .badge-active-mark {
+    background: #064e3b;
+    color: #a7f3d0;
+}
+
+/* Simplified Bottom Section */
+.bottom-section {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.simple-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.simple-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.checklist-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.checklist-row input {
+    accent-color: var(--primary);
+}
+
+/* Modal Topics specific styles */
+.modal-topic-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.modal-topic-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.modal-prompt-box {
+    margin-top: 1.25rem;
+    background: var(--bg-main);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}

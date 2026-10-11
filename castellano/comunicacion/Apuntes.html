@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Lenguaje, la Comunicación & El Diccionario | Apuntes y Práctica de Álvaro</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top Navbar Minimal -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Volver al Portal Central">
+                <span>←</span> Volver a Temas
+            </a>
+            <div class="topic-badge-header">
+                <span>✍️</span> Castellano • Tema 1
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Cambiar Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temas de Lengua Castellana</div>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>1. Comunicación & El Diccionario</strong> (Actual)
+                    </a>
+                    <a href="../signo_puntuacion/Apuntes.html" class="topic-dropdown-item">
+                        <strong>2. Signos de Puntuación & Ortografía</strong> →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Quick Cheat Sheet Button -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+                <span>💡</span> Chuleta Rápida
+            </button>
+
+            <!-- Stats Pills -->
+            <div class="score-pill-nav" title="Puntos de Experiencia">
+                <span>⚡</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Racha de aciertos">
+                <span>🔥</span>
+                <span id="streak-counter">0</span>
+            </div>
+
+            <!-- Sonido y Modo Oscuro -->
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sonidos">🔊</button>
+            <button class="btn-icon-nav" onclick="toggleDarkMode()" title="Modo Claro/Oscuro">🌓</button>
+        </div>
+    </header>
+
+    <!-- 100% Full Width Hero Banner (Harmonized with Mates) -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">LENGUA CASTELLANA • TEMA 1 ESCOLAR</div>
+                <h1>Lenguaje, Comunicación & El Diccionario</h1>
+                <p>Domina el circuito de los 6 elementos comunicativos, las clases de diccionarios, las 25 abreviaturas del diccionario escolar, el orden alfabético RAE y el taller de cómic con bocadillos.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-quiz-record">0/10</div>
+                    <div class="stat-label">Récord Quiz</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-retos-done">0/6</div>
+                    <div class="stat-label">Retos Hechos</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Puntos XP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle Bar -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Apuntes: Comunicación</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Ejercicios
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Tema del Cole</span>
+                <h3 class="sidebar-topic-title">1. Comunicación & Diccionario</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progreso del tema</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav-list">
+                <!-- 1. Apuntes (SIEMPRE LA PRIMERA OPCIÓN) -->
+                <button class="sidebar-item-btn active" onclick="switchSidebarTab('comunicacion', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Apuntes: Circuito</span>
+                            <span class="sidebar-btn-desc">Los 6 elementos & Recursos</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-comunicacion">Teoría</span>
+                </button>
+
+                <!-- 2. Cuento de Lectura: El inventor Datealpié -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('datealpie', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🛼</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Cuento: Datealpié</span>
+                            <span class="sidebar-btn-desc">Lectura & Comprensión</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-datealpie">0/4</span>
+                </button>
+
+                <!-- 2. Reto: Situaciones Reales -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('situaciones', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎮</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Reto: Casos Reales</span>
+                            <span class="sidebar-btn-desc">Identifica en vivo (+15 XP)</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-situaciones">0 Hechos</span>
+                </button>
+
+                <!-- 3. Diccionario & Abreviaturas -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('diccionario', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🔍</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. Diccionario & Abreviaturas</span>
+                            <span class="sidebar-btn-desc">Simulador RAE & 25 abreviaturas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-diccionario">0/25</span>
+                </button>
+
+                <!-- 4. Clases de Diccionarios -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('tipos_dicc', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎡</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Tipos de Diccionarios</span>
+                            <span class="sidebar-btn-desc">9 tipos y fragmentos reales</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-tipos-dicc">0/8</span>
+                </button>
+
+                <!-- 5. Reto Orden Alfabético -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('alfabetico', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🔤</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Orden Alfabético</span>
+                            <span class="sidebar-btn-desc">Los 3 retos de clase (PDF)</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-alfabetico">0/3</span>
+                </button>
+
+                <!-- 6. Taller Cómic & Puntuación -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('comic', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎨</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">7. Taller de Cómic</span>
+                            <span class="sidebar-btn-desc">Bocadillos y puntuación</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-comic">Práctica</span>
+                </button>
+
+                <!-- 7. Quiz Maestro de Examen -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('quiz', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🏆</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">8. Quiz de Examen</span>
+                            <span class="sidebar-btn-desc">10 preguntas aleatorias</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-quiz">Récord: 0</span>
+                </button>
+
+                <!-- 8. Chuleta & Materiales -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('recursos', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📋</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">9. Chuleta & Ficha</span>
+                            <span class="sidebar-btn-desc">Resumen e imprimibles</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">PDF</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Chuleta Rápida (Ventana)
+                </button>
+                <a href="../signo_puntuacion/Apuntes.html" class="sidebar-link-topic">
+                    <span>➔ Ir al Tema 2: Puntuación</span>
+                    <span>→</span>
+                </a>
+                <button class="sidebar-reset-btn" onclick="resetTopicProgress()">
+                    ↺ Reiniciar mis récords de este tema
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+        <!-- ==========================================
+             PESTAÑA 1: ELEMENTOS DE LA COMUNICACIÓN
+             ========================================== -->
+        <section id="panel-comunicacion" class="tab-panel active">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📡</span> El Circuito de la Comunicación</h2>
+                    <p class="section-subtitle">Aprende a descomponer cualquier acto comunicativo en sus 6 elementos fundamentales.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view" target="_blank" class="btn-drive">
+                        <span>📄</span> PDF Teoría Comunicación
+                    </a>
+                    <a href="https://drive.google.com/file/d/1CxYCCBflr28H-lQqUkaX8782d_u9Qomu/view?usp=drive_link" target="_blank" class="btn-drive">
+                        <span>🎬</span> Videotutorial Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 RESOURCE HUB: ENLACES OFICIALES DRIVE & WEBS GENIALLY
+                 ========================================== -->
+            <div class="resource-hub-container">
+                <div class="resource-hub-header">
+                    <div class="resource-hub-title">
+                        <span>🔗</span> Enlaces Oficiales de Clase (Google Drive & Webs del Genially)
+                    </div>
+                    <span class="badge-pill" style="font-size: 0.75rem;">Material Oficial 5º Primaria</span>
+                </div>
+                
+                <div class="resource-group-title">
+                    <span>📁</span> Documentos y Fichas en Google Drive
+                </div>
+                <div class="resource-grid">
+                    <a href="https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📖</span> El inventor Datealpié.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1QwsmmCYxbd2IFUNSn-LSLnmPvWyH5iZL/view?usp=sharing" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📝</span> Comprensión Lectora</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha con preguntas oficiales sobre la lectura de Datealpié.</p>
+                        <div class="resource-card-action"><span>Abrir en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🌐</span> Qué es el diccionario online.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔍</span> ¡Practiquemos lo aprendido!</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha de ejercicios prácticos con el diccionario online de la RAE.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔤</span> El abecedario español.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔢</span> Ordenar alfabéticamente.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha oficial con las listas de palabras para ordenar alfabéticamente.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📡</span> Teoría Elementos Comunicación</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">PDF con el esquema, definiciones y viñetas del circuito comunicativo.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1CxYCCBflr28H-lQqUkaX8782d_u9Qomu/view?usp=drive_link" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🎬</span> Videotutorial Comunicación</span>
+                            <span class="resource-badge video">Vídeo</span>
+                        </div>
+                        <p class="resource-card-desc">Vídeo explicativo oficial del circuito y elementos de la comunicación.</p>
+                        <div class="resource-card-action"><span>Ver Vídeo en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>✍️</span> Signos de puntuación.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📋</span> 41Signos de Puntuación.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+                </div>
+
+                <div class="resource-group-title">
+                    <span>✨</span> Presentación Interactiva y Actividades Web del Genially
+                </div>
+                <div class="resource-grid">
+                    <a href="https://view.genially.com/673b29cc495b2a814eb603f6" target="_blank" class="resource-card" style="border-left: 4px solid #9333ea;">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>✨</span> Genially Oficial Tema 1</span>
+                            <span class="resource-badge genially">Genially</span>
+                        </div>
+                        <p class="resource-card-desc">Presentación interactiva completa del colegio con índice, juegos y actividades.</p>
+                        <div class="resource-card-action"><span>Abrir Genially</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://aprenderespanol.org/ejercicios/gramatica/alfabeto/alfabeto-palabras-1.htm" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🌐</span> AprenderEspañol (Alfabeto)</span>
+                            <span class="resource-badge web">Web</span>
+                        </div>
+                        <p class="resource-card-desc">Actividad interactiva recomendada para ordenar palabras alfabéticamente.</p>
+                        <div class="resource-card-action"><span>Practicar Online</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🎓</span> AulaFácil: Signos Puntuación</span>
+                            <span class="resource-badge web">Web</span>
+                        </div>
+                        <p class="resource-card-desc">Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.</p>
+                        <div class="resource-card-action"><span>Ver en AulaFácil</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.daypo.com/signos-puntuacion-1.html" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🕹️</span> Daypo: Test Interactivo</span>
+                            <span class="resource-badge web">Test</span>
+                        </div>
+                        <p class="resource-card-desc">Test en línea sobre puntuación referenciado en la presentación de clase.</p>
+                        <div class="resource-card-action"><span>Realizar Test</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📖</span> Anaya Educación: Signos</span>
+                            <span class="resource-badge web">Web</span>
+                        </div>
+                        <p class="resource-card-desc">Batería de actividades multimedia de ortografía de Anaya Educación.</p>
+                        <div class="resource-card-action"><span>Abrir Actividades</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📄</span> Liveworksheets: Puntuación</span>
+                            <span class="resource-badge web">Ficha</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha interactiva autocorregible de lengua castellana en Liveworksheets.</p>
+                        <div class="resource-card-action"><span>Abrir Ficha</span> <span>↗</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Comic strip preview from the PDF -->
+            <div class="comic-preview-card">
+                <div style="flex: 1; min-width: 260px;">
+                    <span style="font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Ejemplo Real de Clase (Viñeta de Raquel)</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0.3rem 0 0.5rem;">El Teléfono de Hilo y Lata</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.4;">
+                        Raquel y su amigo se están comunicando a través de dos vasos de plástico y un hilo de lana tenso. 
+                        <strong>¿Cómo viaja la información entre ellos?</strong>
+                    </p>
+                </div>
+                <div class="comic-art">
+                    <div style="text-align: center;">
+                        <span style="font-size: 2.2rem;">👧</span>
+                        <div style="font-size: 0.75rem; font-weight: 800;">Raquel (Emisora)</div>
+                    </div>
+                    <div style="flex: 1; text-align: center; border-bottom: 2px dashed #0284c7; padding-bottom: 4px;">
+                        <div class="speech-bubble">«¿Quién puede estar interesado en cuáles sean...?»</div>
+                        <span style="font-size: 0.75rem; color: #0284c7; font-weight: 700;">Hilo y vibración sonora</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 2.2rem;">👦</span>
+                        <div style="font-size: 0.75rem; font-weight: 800;">Amigo (Receptor)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Circuit -->
+            <div class="comm-circuit">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 1.5rem;">
+                    <span class="badge-pill">💡 Haz clic en cada elemento para explorar su rol</span>
+                    <h3 style="font-size: 1.3rem; margin-top: 0.5rem;">Los 6 Elementos Imprescindibles</h3>
+                </div>
+
+                <div class="circuit-grid">
+                    <div class="circuit-node active" onclick="selectCircuitElement('emisor')">
+                        <div class="circuit-icon">🗣️</div>
+                        <div class="circuit-title">1. Emisor</div>
+                        <div class="circuit-desc">Es la persona, ser o entidad que <strong>transmite la información</strong> o elabora el mensaje.</div>
+                    </div>
+                    <div class="circuit-node" onclick="selectCircuitElement('receptor')">
+                        <div class="circuit-icon">👂</div>
+                        <div class="circuit-title">2. Receptor</div>
+                        <div class="circuit-desc">Es la persona o grupo que <strong>recibe y descodifica</strong> la información transmitida.</div>
+                    </div>
+                    <div class="circuit-node" onclick="selectCircuitElement('mensaje')">
+                        <div class="circuit-icon">✉️</div>
+                        <div class="circuit-title">3. Mensaje</div>
+                        <div class="circuit-desc">Es el <strong>contenido o información concreta</strong> que se transmite entre emisor y receptor.</div>
+                    </div>
+                    <div class="circuit-node" onclick="selectCircuitElement('codigo')">
+                        <div class="circuit-icon">🔤</div>
+                        <div class="circuit-title">4. Código</div>
+                        <div class="circuit-desc">El <strong>sistema de signos y reglas</strong> (idioma español, morse, señales) conocido por ambos.</div>
+                    </div>
+                    <div class="circuit-node" onclick="selectCircuitElement('canal')">
+                        <div class="circuit-icon">📡</div>
+                        <div class="circuit-title">5. Canal</div>
+                        <div class="circuit-desc">El <strong>medio físico</strong> por el que viaja el mensaje: aire, papel, pantalla, cable, hilo de lana.</div>
+                    </div>
+                    <div class="circuit-node" onclick="selectCircuitElement('contexto')">
+                        <div class="circuit-icon">🌍</div>
+                        <div class="circuit-title">6. Contexto</div>
+                        <div class="circuit-desc">Las <strong>circunstancias de lugar y tiempo</strong> que rodean y ayudan a comprender el acto comunicativo.</div>
+                    </div>
+                </div>
+
+                <div id="circuit-detail-box" class="comm-interactive-box">
+                    <div>
+                        <span id="detail-tag" style="font-weight: 800; color: var(--primary); font-size: 0.85rem;">DETALLE SELECCIONADO: EMISOR</span>
+                        <h4 id="detail-title" style="font-size: 1.15rem; margin-top: 0.2rem;">¿Quién envía el mensaje?</h4>
+                        <p id="detail-body" style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.3rem;">
+                            El emisor inicia el acto comunicativo codificando sus ideas en un mensaje comprensible. Ejemplo: El profesor explicando en clase o un semáforo emitiendo luz roja.
+                        </p>
+                    </div>
+                    <button class="btn-primary" onclick="testRandomCommCase()">
+                        <span>🎯</span> Probar Caso Práctico
+                    </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             PESTAÑA: LECTURA Y COMPRENSIÓN (EL INVENTOR DATEALPIÉ)
+             ========================================== -->
+        <section id="panel-datealpie" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🛼</span> Cuento: El inventor Datealpié</h2>
+                    <p class="section-subtitle">Lectura inicial de la Unidad 1 de Lengua Castellana (5º de Primaria) y test interactivo de comprensión lectora.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy" target="_blank" class="btn-drive">
+                        <span>📄</span> Cuento Original (Drive)
+                    </a>
+                    <a href="https://drive.google.com/file/d/1QwsmmCYxbd2IFUNSn-LSLnmPvWyH5iZL/view?usp=sharing" target="_blank" class="btn-drive">
+                        <span>📝</span> Ficha Preguntas (Drive)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Story Presentation Card -->
+            <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm); border-top: 5px solid #2563eb;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div>
+                        <span class="badge-pill" style="background: rgba(37, 99, 235, 0.1); color: #2563eb; border-color: rgba(37,99,235,0.2);">Lectura Oficial • Cuento de Clase</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; margin-top: 0.5rem; color: var(--text-main);">El Gran Invento del Señor Datealpié</h3>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.8rem;">
+                        <span>🛼</span><span>🎻</span><span>🪞</span>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); display: flex; flex-direction: column; gap: 1rem;">
+                    <p>
+                        A finales del siglo XVIII vivía en Bélgica un ingenioso fabricante de artilugios mecánicos conocido como el <strong>señor Datealpié</strong> (inspirado en el célebre inventor John Joseph Merlin). Datealpié pasaba días y noches en su taller buscando la invención definitiva que dejara boquiabierta a la alta sociedad.
+                    </p>
+                    <p>
+                        Una tarde se le ocurrió una idea revolucionaria: ¿por qué caminar cuando se puede deslizar? Diseñó un calzado insólito: <strong>zapatos a los que acopló pequeñas ruedas metálicas alineadas en la suela</strong>. ¡Había inventado el primer patín de ruedas de la historia!
+                    </p>
+                    <p style="background: var(--bg-main); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid #2563eb; font-style: italic;">
+                        «Para presentar su obra con máxima elegancia, el señor Datealpié se presentó en un suntuoso baile de gala en la ciudad de <strong>Bruselas</strong>. Vestido de rigurosa etiqueta y con su <strong>violín bajo el brazo</strong>, irrumpió en el salón deslizándose a toda velocidad mientras tocaba una alegre melodía. Los asistentes aplaudían entusiasmados...»
+                    </p>
+                    <p>
+                        Sin embargo, en su entusiasmo, Datealpié había pasado por alto dos detalles fundamentales: <strong>¡no había ideado un sistema de frenado ni un mecanismo para poder girar!</strong>
+                    </p>
+                    <p>
+                        A medida que aumentaba su velocidad sobre el resbaladizo suelo del palacio, el inventor comprendió su error. Sin poder detenerse ni esquivar a nadie, se precipitó a toda velocidad contra un <strong>inmenso y carísimo espejo de cristal veneciano</strong> que decoraba la pared del fondo. El estruendo fue ensordecedor: el espejo quedó hecho añicos, el violín partido en dos y el pobre Datealpié dolorido en el suelo.
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary);">
+                        ✨ Moraleja y lección: Aunque su presentación fue accidentada, la idea de Datealpié maravilló al mundo entero y abrió las puertas a la evolución del patinaje sobre ruedas moderno. ¡Todo gran invento necesita ensayos, corrección de errores y perseverancia!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Comprehension Challenge -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+                    <div>
+                        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🎯</span> Reto de Comprensión Lectora (4 Preguntas)
+                        </h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Demuestra que has entendido los detalles y moraleja de la historia para ganar XP.</p>
+                    </div>
+                    <div style="font-size: 0.9rem; font-weight: 800; color: var(--accent-green); background: rgba(5, 150, 105, 0.1); padding: 0.35rem 0.8rem; border-radius: var(--radius-full);" id="datealpie-score-display">
+                        Progreso: 0 de 4 aciertos
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;" id="datealpie-questions-container">
+                    <!-- Q1 -->
+                    <div class="datealpie-q-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                        <h4 style="font-size: 0.98rem; font-weight: 800; margin-bottom: 0.75rem;">1. ¿Qué ingenioso artefacto inventó el señor Datealpié?</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;">
+                            <button class="choice-btn" onclick="answerDatealpie(1, 0, this)">A) Unos zapatos con muelles para saltar</button>
+                            <button class="choice-btn" onclick="answerDatealpie(1, 1, this)">B) Los primeros patines de ruedas acoplados a la suela</button>
+                            <button class="choice-btn" onclick="answerDatealpie(1, 2, this)">C) Un violín que tocaba música solo</button>
+                        </div>
+                        <div class="feedback-msg" id="datealpie-fb-1" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600;"></div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="datealpie-q-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                        <h4 style="font-size: 0.98rem; font-weight: 800; margin-bottom: 0.75rem;">2. ¿Qué instrumento tocaba mientras se deslizaba velozmente en el baile?</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;">
+                            <button class="choice-btn" onclick="answerDatealpie(2, 0, this)">A) El violín</button>
+                            <button class="choice-btn" onclick="answerDatealpie(2, 1, this)">B) La guitarra española</button>
+                            <button class="choice-btn" onclick="answerDatealpie(2, 2, this)">C) La trompeta de gala</button>
+                        </div>
+                        <div class="feedback-msg" id="datealpie-fb-2" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600;"></div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="datealpie-q-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                        <h4 style="font-size: 0.98rem; font-weight: 800; margin-bottom: 0.75rem;">3. ¿Por qué ocurrió el estrepitoso choque contra el gran espejo?</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;">
+                            <button class="choice-btn" onclick="answerDatealpie(3, 0, this)">A) Porque se apagaron las velas del salón</button>
+                            <button class="choice-btn" onclick="answerDatealpie(3, 1, this)">B) Porque alguien le puso una zancadilla</button>
+                            <button class="choice-btn" onclick="answerDatealpie(3, 2, this)">C) Porque no había ideado frenos ni mecanismo para girar</button>
+                        </div>
+                        <div class="feedback-msg" id="datealpie-fb-3" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600;"></div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="datealpie-q-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                        <h4 style="font-size: 0.98rem; font-weight: 800; margin-bottom: 0.75rem;">4. ¿En qué ciudad tuvo lugar la histórica demostración y qué lección nos deja?</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;">
+                            <button class="choice-btn" onclick="answerDatealpie(4, 0, this)">A) Bruselas; que innovar requiere aprender de los errores y probar frenos</button>
+                            <button class="choice-btn" onclick="answerDatealpie(4, 1, this)">B) París; que nunca hay que bailar con zapatos</button>
+                            <button class="choice-btn" onclick="answerDatealpie(4, 2, this)">C) Londres; que los espejos deben ser de plástico</button>
+                        </div>
+                        <div class="feedback-msg" id="datealpie-fb-4" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: RETO DE SITUACIONES REALES
+             ========================================== -->
+        <section id="panel-situaciones" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎮</span> Reto: Identifica los Elementos en Vivo</h2>
+                    <p class="section-subtitle">Lee la situación comunicativa real, analiza quién interviene y responde correctamente para ganar +15 XP.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" onclick="openQuickCheatSheet()">
+                        <span>💡</span> Ver Chuleta de Apoyo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Communication Situation Tester -->
+            <div class="alpha-lab-card">
+                <div class="section-header" style="border: none; margin-bottom: 1rem; padding: 0;">
+                    <div>
+                        <h3 style="font-size: 1.25rem;">Desafío Práctico: ¿Quién es quién?</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">Acumula rachas seguidas de aciertos y bate tu propio récord personal.</p>
+                    </div>
+                    <button class="btn-secondary" onclick="nextCommChallenge()">
+                        <span>🔄</span> Siguiente Caso
+                    </button>
+                </div>
+
+                <div id="comm-case-card" style="background: var(--bg-main); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1.25rem;">
+                    <div style="font-size: 0.85rem; font-weight: 800; color: var(--primary); text-transform: uppercase;">SITUACIÓN REAL:</div>
+                    <div id="comm-case-text" style="font-size: 1.15rem; font-weight: 700; margin: 0.5rem 0;">Cargando caso...</div>
+                    <div id="comm-case-question" style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">¿Cuál es el canal?</div>
+                </div>
+
+                <div id="comm-case-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <div id="comm-case-feedback" style="margin-top: 1rem; padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.9rem; display: none;"></div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: EL DICCIONARIO & SIMULADOR RAE
+             ========================================== -->
+        <section id="panel-diccionario" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📖</span> El Diccionario & Taller de Búsqueda RAE</h2>
+                    <p class="section-subtitle">Descubre cómo consultar palabras, interpretar acepciones, abreviaturas y etimologías.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1ZYXuybUOs-I_6RHHHrHSnLNnxg2KzlWt/view" target="_blank" class="btn-drive">
+                        <span>📄</span> PDF Qué es el Diccionario
+                    </a>
+                    <a href="https://dle.rae.es" target="_blank" class="btn-drive">
+                        <span>🌐</span> Diccionario RAE Oficial
+                    </a>
+                </div>
+            </div>
+
+            <!-- Simulator Card -->
+            <div class="rae-simulator">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="badge-pill" style="background: var(--primary); color: white; border: none;">
+                        <span>🔍</span> Simulador Interactivo DLE (Real Academia Española)
+                    </span>
+                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Escribe o haz clic en las palabras de clase</span>
+                </div>
+
+                <div class="rae-search-bar">
+                    <input type="text" id="rae-search-input" class="rae-input" placeholder="Buscar palabra (ej. ventana, comer, comí, lápices, cóctel)..." onkeydown="if(event.key==='Enter') searchInDict()">
+                    <button class="btn-primary" onclick="searchInDict()">
+                        <span>🔎</span> Consultar
+                    </button>
+                </div>
+
+                <div class="rae-quick-words">
+                    <span style="font-size: 0.85rem; font-weight: 700; align-self: center; margin-right: 0.25rem;">Palabras del PDF:</span>
+                    <button class="quick-word-btn" onclick="quickSearch('ventana')">ventana</button>
+                    <button class="quick-word-btn" onclick="quickSearch('comer')">comer</button>
+                    <button class="quick-word-btn" onclick="quickSearch('comí')">comí (¿se busca así?)</button>
+                    <button class="quick-word-btn" onclick="quickSearch('lápices')">lápices (¿plural?)</button>
+                    <button class="quick-word-btn" onclick="quickSearch('cóctel')">cóctel (extranjerismo)</button>
+                    <button class="quick-word-btn" onclick="quickSearch('comunicar')">comunicar</button>
+                </div>
+
+                <!-- Dict Result Display -->
+                <div id="rae-display-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Deep Dive Questions from the PDF -->
+            <div class="alpha-lab-card">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.35rem;">💡 Las 6 Preguntas Clave del Fichero de Aula</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Preguntas de reflexión incluidas en la actividad de parejas de tu material escolar. Pulsa en cada tarjeta para ver la respuesta experta:
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 1</div>
+                        <h4 class="wheel-title">¿Qué es un diccionario?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Es una obra de consulta que recopila y define las palabras de una o varias lenguas, generalmente en orden alfabético, explicando sus significados, categoría gramatical y normas de uso.
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 2</div>
+                        <h4 class="wheel-title">¿Qué es una acepción?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Es <strong>cada uno de los significados</strong> que puede tener una misma palabra según el contexto en que se emplee. En el diccionario vienen señaladas y numeradas (1., 2., 3...).
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 3</div>
+                        <h4 class="wheel-title">¿Qué informa la etimología?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Informa sobre el <strong>origen histórico</strong> de la palabra y la lengua de la que procede (por ejemplo, del latín, del griego, del árabe o del inglés).
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 4</div>
+                        <h4 class="wheel-title">¿Qué información nos proporciona?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Significados, categoría gramatical (sustantivo, adjetivo, verbo), abreviaturas, pronunciación, etimología, sinónimos, expresiones idiomáticas y ejemplos de uso.
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 5</div>
+                        <h4 class="wheel-title">¿Qué tipos de diccionarios hay?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Diccionarios de la lengua (normativos, sinónimos y antónimos), bilingües, etimológicos, técnicos (especializados) y enciclopédicos.
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+
+                    <div class="wheel-card" onclick="toggleFaq(this)">
+                        <div class="wheel-badge">Pregunta 6</div>
+                        <h4 class="wheel-title">¿Cuándo usar un diccionario bilingüe?</h4>
+                        <div class="wheel-content" style="display: none; margin-top: 0.75rem;">
+                            Cuando queremos traducir palabras entre dos idiomas distintos (por ejemplo, de castellano a inglés o de francés a castellano), estudiar lenguas extranjeras o viajar.
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem; cursor: pointer;">👉 Ver explicación</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 LABORATORIO DE LAS 25 ABREVIATURAS DEL DICCIONARIO (XTEC)
+                 ========================================================= -->
+            <div class="alpha-lab-card" style="margin-top: 2rem;">
+                <div class="section-header" style="border: none; padding: 0; margin-bottom: 1rem;">
+                    <div>
+                        <span class="badge-pill" style="background: var(--accent-purple); color: white; border: none;">
+                            <span>🏷️</span> Actividad Oficial XTEC (Joaquim Genover - Diccio 4)
+                        </span>
+                        <h3 style="font-size: 1.35rem; margin-top: 0.4rem;">Laboratorio de las 25 Abreviaturas del Diccionario</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Para sacar todo el provecho de un diccionario es imprescindible conocer sus abreviaturas gramaticales.
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="btn-secondary" onclick="toggleAbbrTable()">
+                            <span>📋</span> <span id="toggle-abbr-btn-text">Ver las 25 Abreviaturas</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Buscador / Filtro de Abreviaturas desplegable -->
+                <div id="abbr-table-wrapper" style="display: none; margin-bottom: 1.5rem; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <div style="margin-bottom: 1rem;">
+                        <input type="text" id="abbr-search-input" class="rae-input" placeholder="Buscar abreviatura o significado (ej. adj, f., tr., fig., latín, pl.)..." oninput="filterAbbrGrid()">
+                    </div>
+                    <div id="abbr-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.75rem; max-height: 380px; overflow-y: auto; padding-right: 4px;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Minijuego Descodificador de Abreviaturas XTEC -->
+                <div style="background: var(--bg-main); border: 2px solid var(--primary); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;">
+                    <span class="badge-pill" style="background: var(--primary-light); color: var(--primary); border: none; font-weight: 800;">
+                        DESAFÍO EN VIVO: ¿QUÉ SIGNIFICA ESTA ABREVIATURA?
+                    </span>
+                    <div id="abbr-game-display" style="font-size: 2.8rem; font-family: monospace; font-weight: 900; color: var(--primary); margin: 0.75rem 0;">
+                        adj.-s.
+                    </div>
+                    <div id="abbr-game-hint" style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1.25rem;">
+                        Elige la opción que explica con precisión esta abreviatura en el diccionario:
+                    </div>
+
+                    <div id="abbr-game-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; max-width: 750px; margin: 0 auto;">
+                        <!-- Options injected via JS -->
+                    </div>
+
+                    <div id="abbr-game-feedback" style="margin-top: 1.25rem; font-weight: 700; padding: 0.85rem; border-radius: var(--radius-md); display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 3: RUEDA Y CLASES DE DICCIONARIOS (XTEC DICCIO 6)
+             ========================================== -->
+        <section id="panel-tipos_dicc" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎡</span> Clases de Diccionarios & Artículos Reales</h2>
+                    <p class="section-subtitle">Las 9 clases de diccionarios del currículo oficial y el reto de análisis de fragmentos reales (XTEC Diccio 6).</p>
+                </div>
+            </div>
+
+            <div class="wheel-grid">
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 1</div>
+                    <h3 class="wheel-title">📚 Diccionario General</h3>
+                    <p class="wheel-content">
+                        Presenta los significados de las palabras, ejemplos de acepciones, categoría gramatical, frases hechas y sinónimos.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> El DLE de la RAE o diccionarios escolares habituales.
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 2</div>
+                    <h3 class="wheel-title">🔄 Sinónimos y Antónimos</h3>
+                    <p class="wheel-content">
+                        Proporciona palabras de significado equivalente y también contrario, sin incluir definiciones extensas.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>fariseo</em> → Hipócrita, falso | Sincero, auténtico.
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 3</div>
+                    <h3 class="wheel-title">🌐 Bilingües</h3>
+                    <p class="wheel-content">
+                        Establecen la correspondencia exacta y traducción entre las palabras de dos lenguas diferentes.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>vessar</em> (cat.) → derramar, verter, rebosar (cast.).
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 4</div>
+                    <h3 class="wheel-title">📜 Etimológicos</h3>
+                    <p class="wheel-content">
+                        Indican principalmente la procedencia, raíz histórica y evolución de las palabras en el tiempo.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>hucha</em> (del francés <em>huche</em>, derivado de forma romance primitiva <em>hütica</em>).
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 5</div>
+                    <h3 class="wheel-title">🏛️ Enciclopédicos</h3>
+                    <p class="wheel-content">
+                        Incluyen simultáneamente el léxico y el conjunto de las cosas, con nombres propios, biografías e ilustraciones.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> Información sobre el planeta Marte, Marie Curie o la Revolución Francesa.
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 6</div>
+                    <h3 class="wheel-title">🩺 Especializados / Específicos</h3>
+                    <p class="wheel-content">
+                        Incluyen solo palabras que pertenecen a un área científica, técnica, artística o profesional muy concreta.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>Esfumado</em> (del italiano <em>sfumato</em>, técnica pictórica de Leonardo da Vinci).
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 7 (XTEC)</div>
+                    <h3 class="wheel-title">❓ Diccionario de Dudas</h3>
+                    <p class="wheel-content">
+                        Orienta sobre aspectos ortográficos, irregularidades verbales, régimen de preposiciones o construcciones conflictivas.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>incluir</em>: se conjuga como <em>huir</em>; construcción: <em>incluir EN...</em>
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 8 (XTEC)</div>
+                    <h3 class="wheel-title">🗣️ Diccionario de Argot</h3>
+                    <p class="wheel-content">
+                        Recoge vulgarismos, neologismos urbanos, voces jergales, lenguaje juvenil y expresiones del uso familiar.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>flipado, -da</em>: pasmado, asombrado, cautivado.
+                    </div>
+                </div>
+
+                <div class="wheel-card">
+                    <div class="wheel-badge">Clase 9 (XTEC)</div>
+                    <h3 class="wheel-title">💡 Diccionario Ideológico</h3>
+                    <p class="wheel-content">
+                        Permite asociar ideas y conceptos afines a la palabra elegida, agrupándolas por familias temáticas de pensamiento.
+                    </p>
+                    <div class="wheel-example">
+                        <strong>Ejemplo:</strong> <em>TRAVESURA</em> → diablura, trastada, travesear, revoltoso, travieso...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Challenge for Dictionary Types -->
+            <div class="alpha-lab-card" style="text-align: center; margin-bottom: 2rem;">
+                <span class="badge-pill">⚡ Mini-Juego: ¿A qué diccionario acudirías?</span>
+                <h3 style="font-size: 1.35rem; margin: 0.6rem 0;">Situaciones Cotidianas de Consulta</h3>
+                <p id="dict-challenge-scenario" style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 1.25rem;">
+                    «Necesitas averiguar qué significa exactamente la palabra médica "cefalea".»
+                </p>
+
+                <div id="dict-challenge-buttons" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div id="dict-challenge-feedback" style="margin-top: 1rem; font-weight: 700; display: none;"></div>
+            </div>
+
+            <!-- =========================================================
+                 RETO XTEC: CLASIFICA EL ARTÍCULO REAL DE DICCIONARIO
+                 ========================================================= -->
+            <div class="alpha-lab-card">
+                <div class="section-header" style="border: none; padding: 0; margin-bottom: 1.25rem;">
+                    <div>
+                        <span class="badge-pill" style="background: var(--accent-amber); color: #78350f; border: none; font-weight: 800;">
+                            <span>🔬</span> Reto Avanzado XTEC (Joaquim Genover - Diccio 6)
+                        </span>
+                        <h3 style="font-size: 1.35rem; margin-top: 0.4rem;">Clasifica el Artículo Real de Diccionario</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">
+                            Examina este fragmento auténtico extraído de un diccionario real y determina a qué clase pertenece:
+                        </p>
+                    </div>
+                    <button class="btn-secondary" onclick="nextRealArticleChallenge()">
+                        <span>🔄</span> Siguiente Fragmento
+                    </button>
+                </div>
+
+                <div style="background: #fffdf5; border: 2px dashed #d97706; border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; font-family: Georgia, serif; color: #1c1917; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: 0.78rem; font-weight: 800; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.05em; color: #b45309; margin-bottom: 0.5rem;">
+                        FRAGMENTO AUTÉNTICO DE DICCIONARIO:
+                    </div>
+                    <div id="real-article-snippet" style="font-size: 1.2rem; line-height: 1.6; font-style: italic;">
+                        Cargando fragmento...
+                    </div>
+                </div>
+
+                <div style="font-size: 0.9rem; font-weight: 800; margin-bottom: 0.75rem; text-align: center; color: var(--primary);">
+                    ¿A QUÉ CLASE DE DICCIONARIO PERTENECE ESTE ARTÍCULO?
+                </div>
+
+                <div id="real-article-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div id="real-article-feedback" style="margin-top: 1rem; font-weight: 700; padding: 0.85rem; border-radius: var(--radius-md); display: none;"></div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 4: ORDEN ALFABÉTICO (RETOS PDF)
+             ========================================== -->
+        <section id="panel-alfabetico" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🔤</span> Laboratorio de Orden Alfabético</h2>
+                    <p class="section-subtitle">Resuelve los 3 retos interactivos extraídos directamente de tu ficha <code>ordenar alfab.pdf</code>.</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1NUxueZeoTvpEvb0sDEq74RtMsTu7eywR/view" target="_blank" class="btn-drive">
+                    <span>📄</span> PDF Orden Alfabético
+                </a>
+            </div>
+
+            <div class="hero-banner" style="margin-bottom: 1.5rem;">
+                <div class="hero-text">
+                    <h2>Reglas de Oro del Orden Alfabético (Abecedario RAE: 27 letras)</h2>
+                    <p>
+                        1. Compara la <strong>primera letra</strong> de cada palabra.<br>
+                        2. Si coinciden, compara la <strong>segunda letra</strong>.<br>
+                        3. Si también coinciden, compara la <strong>tercera, cuarta, etc.</strong><br>
+                        <em>Recuerda: Los dígrafos <strong>ch</strong> y <strong>ll</strong> ya no son letras separadas; se ordenan dentro de la <strong>C</strong> y la <strong>L</strong>.</em>
+                    </p>
+                </div>
+            </div>
+
+            <div class="alpha-lab-card">
+                <div class="alpha-tabs">
+                    <button class="alpha-tab-btn active" onclick="setAlphaExercise(1)">
+                        Reto 1: Grupos de 4 Palabras
+                    </button>
+                    <button class="alpha-tab-btn" onclick="setAlphaExercise(2)">
+                        Reto 2: Las 10 Palabras del PDF
+                    </button>
+                    <button class="alpha-tab-btn" onclick="setAlphaExercise(3)">
+                        Reto 3: El Gran Reto de las 24 Palabras
+                    </button>
+                </div>
+
+                <div id="alpha-exercise-view">
+                    <!-- Exercise container loaded by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 5: TALLER DE CÓMIC & PUNTUACIÓN
+             ========================================== -->
+        <section id="panel-comic" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎨</span> Taller de Cómic & Puntuación ("Practica Escribiendo")</h2>
+                    <p class="section-subtitle">Actividad oficial del Genially: diseña viñetas de diálogo usando punto, coma, ¿?, ¡! y señala emisor y receptor.</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1mqbqLNqLo2cd22ocB8uzeu17rmeDV9QP/view" target="_blank" class="btn-drive">
+                    <span>📄</span> Plantilla Cómic Drive
+                </a>
+            </div>
+
+            <div class="studio-card">
+                <div style="background: var(--primary-light); border-left: 4px solid var(--primary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+                    <strong>Reglas de la Tarea Escolar:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.35rem; font-size: 0.9rem; line-height: 1.4;">
+                        <li>Debes crear 3 viñetas con diálogo entre personajes.</li>
+                        <li>Es obligatorio usar correctamente: <strong>el punto (.)</strong>, <strong>la coma (,)</strong>, <strong>interrogaciones (¿?)</strong> y <strong>exclamaciones (¡!)</strong>.</li>
+                        <li>Identifica quién es el <strong>Emisor</strong>, quién el <strong>Receptor</strong> y cuál es el <strong>Mensaje</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="comic-strip-editor">
+                    <!-- Viñeta 1 -->
+                    <div class="comic-panel-box">
+                        <div class="panel-header">
+                            <span>VIÑETA 1</span>
+                            <span style="font-size: 0.8rem; background: var(--border-color); padding: 2px 8px; border-radius: 999px;">Escena Inicial</span>
+                        </div>
+                        <div class="panel-char-select">
+                            <span style="font-size: 0.8rem; font-weight: 700; align-self: center;">Personaje:</span>
+                            <button class="char-btn active" onclick="setPanelChar(1, '👧 Raquel')">👧 Raquel</button>
+                            <button class="char-btn" onclick="setPanelChar(1, '👦 Amigo')">👦 Amigo</button>
+                        </div>
+                        <textarea id="panel-text-1" class="panel-textarea" placeholder="Escribe el diálogo aquí usando ¿?, ¡!, coma y punto...">¡Hola, amigo! ¿Has revisado los apuntes de lengua?</textarea>
+                        <div class="quick-puncts">
+                            <span style="font-size: 0.75rem; font-weight: 700; align-self: center;">Insertar signo:</span>
+                            <button class="punct-btn" onclick="insertSign(1, '¿')">¿</button>
+                            <button class="punct-btn" onclick="insertSign(1, '?')">?</button>
+                            <button class="punct-btn" onclick="insertSign(1, '¡')">¡</button>
+                            <button class="punct-btn" onclick="insertSign(1, '!')">!</button>
+                            <button class="punct-btn" onclick="insertSign(1, ',')">,</button>
+                            <button class="punct-btn" onclick="insertSign(1, '.')">.</button>
+                        </div>
+                    </div>
+
+                    <!-- Viñeta 2 -->
+                    <div class="comic-panel-box">
+                        <div class="panel-header">
+                            <span>VIÑETA 2</span>
+                            <span style="font-size: 0.8rem; background: var(--border-color); padding: 2px 8px; border-radius: 999px;">Respuesta</span>
+                        </div>
+                        <div class="panel-char-select">
+                            <span style="font-size: 0.8rem; font-weight: 700; align-self: center;">Personaje:</span>
+                            <button class="char-btn" onclick="setPanelChar(2, '👧 Raquel')">👧 Raquel</button>
+                            <button class="char-btn active" onclick="setPanelChar(2, '👦 Amigo')">👦 Amigo</button>
+                        </div>
+                        <textarea id="panel-text-2" class="panel-textarea" placeholder="Escribe el diálogo aquí...">Sí, los tengo aquí. He ordenado las palabras alfabéticamente, pero tengo una duda.</textarea>
+                        <div class="quick-puncts">
+                            <span style="font-size: 0.75rem; font-weight: 700; align-self: center;">Insertar signo:</span>
+                            <button class="punct-btn" onclick="insertSign(2, '¿')">¿</button>
+                            <button class="punct-btn" onclick="insertSign(2, '?')">?</button>
+                            <button class="punct-btn" onclick="insertSign(2, '¡')">¡</button>
+                            <button class="punct-btn" onclick="insertSign(2, '!')">!</button>
+                            <button class="punct-btn" onclick="insertSign(2, ',')">,</button>
+                            <button class="punct-btn" onclick="insertSign(2, '.')">.</button>
+                        </div>
+                    </div>
+
+                    <!-- Viñeta 3 -->
+                    <div class="comic-panel-box">
+                        <div class="panel-header">
+                            <span>VIÑETA 3</span>
+                            <span style="font-size: 0.8rem; background: var(--border-color); padding: 2px 8px; border-radius: 999px;">Desenlace</span>
+                        </div>
+                        <div class="panel-char-select">
+                            <span style="font-size: 0.8rem; font-weight: 700; align-self: center;">Personaje:</span>
+                            <button class="char-btn active" onclick="setPanelChar(3, '👧 Raquel')">👧 Raquel</button>
+                            <button class="char-btn" onclick="setPanelChar(3, '👦 Amigo')">👦 Amigo</button>
+                        </div>
+                        <textarea id="panel-text-3" class="panel-textarea" placeholder="Escribe el diálogo aquí...">¡No te preocupes! Buscaremos la definición en el diccionario online.</textarea>
+                        <div class="quick-puncts">
+                            <span style="font-size: 0.75rem; font-weight: 700; align-self: center;">Insertar signo:</span>
+                            <button class="punct-btn" onclick="insertSign(3, '¿')">¿</button>
+                            <button class="punct-btn" onclick="insertSign(3, '?')">?</button>
+                            <button class="punct-btn" onclick="insertSign(3, '¡')">¡</button>
+                            <button class="punct-btn" onclick="insertSign(3, '!')">!</button>
+                            <button class="punct-btn" onclick="insertSign(3, ',')">,</button>
+                            <button class="punct-btn" onclick="insertSign(3, '.')">.</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button class="btn-primary" onclick="verifyComicPunctuation()">
+                        <span>🔍</span> Analizar Signos y Comunicación del Cómic
+                    </button>
+                </div>
+
+                <div id="comic-check-result" style="margin-top: 1.25rem; display: none; padding: 1.25rem; border-radius: var(--radius-lg); background: var(--bg-main); border: 2px solid var(--border-color);"></div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 6: QUIZ MAESTRO
+             ========================================== -->
+        <section id="panel-quiz" class="tab-panel">
+            <div class="quiz-card">
+                <div class="quiz-meta">
+                    <span id="quiz-counter" style="font-size: 0.85rem; font-weight: 800; color: var(--primary);">Pregunta 1 de 10</span>
+                    <button class="btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="restartQuiz()">
+                        <span>🔄</span> Reiniciar Quiz
+                    </button>
+                </div>
+
+                <div id="quiz-question" class="quiz-question-text">Cargando pregunta...</div>
+
+                <div id="quiz-options" class="quiz-options-list">
+                    <!-- Shuffled Options via JS -->
+                </div>
+
+                <div id="quiz-explanation" class="quiz-explanation-box"></div>
+
+                <button id="btn-next-quiz" class="btn-primary" style="display: none; width: 100%; justify-content: center; padding: 0.85rem;" onclick="nextQuizQuestion()">
+                    <span>Siguiente Pregunta</span> ➡️
+                </button>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 7: CHULETA Y RECURSOS
+             ========================================== -->
+        <section id="panel-recursos" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📋</span> Chuleta Resumen & Ficha de Estudio</h2>
+                    <p class="section-subtitle">Todo el tema esquematizado para repasar antes del examen o imprimir en papel.</p>
+                </div>
+                <button class="btn-primary" onclick="window.print()">
+                    <span>🖨️</span> Imprimir Ficha de Estudio
+                </button>
+            </div>
+
+            <!-- Drive Links Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <a href="https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">📖 Cuento: El inventor Datealpié</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">PDF oficial escaneado con la lectura de los patines en Bruselas.</p>
+                </a>
+                <a href="https://drive.google.com/file/d/1QwsmmCYxbd2IFUNSn-LSLnmPvWyH5iZL/view?usp=sharing" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">📝 Comprensión Lectora Datealpié</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Ficha de preguntas de clase sobre la lectura del cuento.</p>
+                </a>
+                <a href="https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">📡 Teoría Comunicación</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">PDF con el esquema, definiciones y viñetas de clase.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">🌐 Qué es el diccionario online</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">PDF explicativo sobre entradas, acepciones y verbos en el DLE.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">🔍 ¡Practiquemos lo aprendido!</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Ficha de ejercicios con el diccionario de la RAE.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">🔤 El abecedario español (27 letras)</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Reglas oficiales de la RAE y supresión de Ch y Ll.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">🔢 Ordenar alfabéticamente</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Los ejercicios oficiales con listas de palabras para ordenar.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">✍️ Signos de puntuación</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Guía completa de 10 páginas con reglas oficiales de ortografía.</p>
+                </a>
+                <a href="https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit;">
+                    <div class="wheel-badge">Material Oficial Drive</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">📋 41Signos de Puntuación</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Ficha de ejercicios para colocar punto, coma y dos puntos.</p>
+                </a>
+                <a href="https://view.genially.com/673b29cc495b2a814eb603f6" target="_blank" class="wheel-card" style="text-decoration: none; color: inherit; border-left: 4px solid #9333ea;">
+                    <div class="wheel-badge" style="background: rgba(147, 51, 234, 0.1); color: #9333ea;">Presentación Interactiva</div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">✨ Genially del Tema 1</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Presentación oficial del colegio con actividades y juegos.</p>
+                </a>
+            </div>
+
+            <!-- Table Summary: Communication -->
+            <div class="cheatsheet-table-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">1. Elementos de la Comunicación</h3>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Definición</th>
+                            <th>Ejemplo Cotidiano</th>
+                            <th>¡Clave de Examen! ⚠️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Emisor</strong></td>
+                            <td>Quien transmite o emite el mensaje.</td>
+                            <td>El árbitro pita una falta.</td>
+                            <td>Puede ser individual, colectivo o una máquina/señal.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Receptor</strong></td>
+                            <td>Quien recibe y descifra la información.</td>
+                            <td>Los futbolistas y el público.</td>
+                            <td>Debe prestar atención para completar la comunicación.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mensaje</strong></td>
+                            <td>La información concreta que se transmite.</td>
+                            <td>"¡Juego detenido por falta!".</td>
+                            <td>Es el contenido expresado.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Código</strong></td>
+                            <td>Sistema de signos y reglas compartido.</td>
+                            <td>El sonido del silbato del árbitro.</td>
+                            <td>Si emisor y receptor no conocen el código, no hay comunicación.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Canal</strong></td>
+                            <td>Medio físico por donde viaja la señal.</td>
+                            <td>Las ondas sonoras a través del aire.</td>
+                            <td>Aire, papel, cable telefónico, pantalla digital.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contexto</strong></td>
+                            <td>Circunstancias de tiempo y lugar.</td>
+                            <td>El estadio de fútbol durante el partido.</td>
+                            <td>Da sentido exacto a lo que se dice.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table Summary: Dictionary Types -->
+            <div class="cheatsheet-table-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">2. Tipos de Diccionarios y Búsquedas RAE</h3>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Diccionario</th>
+                            <th>¿Para qué se utiliza?</th>
+                            <th>Ejemplo Típico</th>
+                            <th>Cómo buscar correctamente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>De la Lengua (Normativo)</strong></td>
+                            <td>Explica los significados autorizados por la RAE.</td>
+                            <td>Diccionario de la Lengua Española (DLE).</td>
+                            <td>Buscar sustantivos en singular y verbos en infinitivo.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sinónimos y Antónimos</strong></td>
+                            <td>Ofrece palabras equivalentes o contrarias.</td>
+                            <td>Buscar un sinónimo de <em>alegre</em> (contento).</td>
+                            <td>Útil para no repetir palabras al escribir redacciones.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bilingüe</strong></td>
+                            <td>Traduce vocablos entre dos lenguas.</td>
+                            <td>Diccionario Castellano - Inglés.</td>
+                            <td>Buscar la palabra en tu lengua o en la de destino.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Etimológico</strong></td>
+                            <td>Revela el origen de las palabras (latín, griego...).</td>
+                            <td><em>Ventana</em> procede del latín <em>ventus</em>.</td>
+                            <td>Aparece en cursiva al principio de cada entrada.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Técnico / Especializado</strong></td>
+                            <td>Vocabulario de medicina, música, informática...</td>
+                            <td>Diccionario de términos náuticos.</td>
+                            <td>Ideal para profesiones y áreas científicas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enciclopédico</strong></td>
+                            <td>Incluye datos históricos, geográficos y biografías.</td>
+                            <td>Buscar sobre la vida de Cristóbal Colón.</td>
+                            <td>Combina definiciones lingüísticas con conocimientos generales.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <!-- Floating Quick Cheat Sheet Button -->
+    <button class="btn-float-cheat" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+        <span>💡</span> Chuleta Rápida
+    </button>
+
+    <!-- Quick Cheat Sheet Modal (Universal) -->
+    <div class="cheat-modal-overlay" id="quick-cheat-modal" onclick="closeCheatOnBackdrop(event)">
+        <div class="cheat-modal-window">
+            <div class="cheat-modal-header">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Chuleta Rápida: Comunicación & Diccionario</h3>
+                        <p style="font-size: 0.75rem; color: #bae6fd; margin: 0;">Consulta instantánea de reglas sin interrumpir tu ejercicio actual</p>
+                    </div>
+                </div>
+                <button class="cheat-close-btn" onclick="closeQuickCheatSheet()">×</button>
+            </div>
+            <div class="cheat-modal-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1rem;">
+                    <!-- Bloque 1: Circuito de la Comunicación -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>📡</span> Los 6 Elementos del Circuito
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>🗣️ Emisor:</strong> Quien origina y transmite el mensaje.</li>
+                            <li><strong>👂 Receptor:</strong> Quien recibe y descifra el mensaje.</li>
+                            <li><strong>✉️ Mensaje:</strong> La información o idea concreta transmitida.</li>
+                            <li><strong>🔤 Código:</strong> Sistema de signos (el idioma castellano, luces, morse).</li>
+                            <li><strong>📡 Canal:</strong> Medio físico (aire, papel, pantalla, cable, hilo).</li>
+                            <li><strong>🌍 Contexto:</strong> Circunstancias de tiempo y lugar que rodean el acto.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 2: Las 9 Clases de Diccionario -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>🎡</span> Clases de Diccionarios Clave
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Normativo (DRAE / DLE):</strong> Significado oficial y estándar.</li>
+                            <li><strong>De Dudas (DPD):</strong> Aclara pronunciación, ortografía y conjugación.</li>
+                            <li><strong>De Sinónimos y Antónimos:</strong> Palabras equivalentes u opuestas.</li>
+                            <li><strong>Bilingüe:</strong> Traduce términos a otra lengua (inglés, etc.).</li>
+                            <li><strong>Etimológico:</strong> Origen histórico y raíz de la palabra.</li>
+                            <li><strong>De Argot / Jerga:</strong> Expresiones juveniles o coloquiales.</li>
+                            <li><strong>Técnico / Enciclopédico:</strong> Ciencias, oficios y biografías históricas.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 3: Top 10 Abreviaturas XTEC -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>🔍</span> Abreviaturas Frecuentes
+                        </h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; font-size: 0.82rem;">
+                            <div><code>sust. / s.</code> = Sustantivo</div>
+                            <div><code>adj.</code> = Adjetivo</div>
+                            <div><code>m.</code> = Masculino</div>
+                            <div><code>f.</code> = Femenino</div>
+                            <div><code>v.</code> = Verbo</div>
+                            <div><code>tr.</code> = Transitivo</div>
+                            <div><code>intr.</code> = Intransitivo</div>
+                            <div><code>loc.</code> = Locución</div>
+                            <div><code>fig.</code> = Sentido figurado</div>
+                            <div><code>ant.</code> = Antónimo</div>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 4: Orden Alfabético RAE -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--accent-green); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>🔤</span> Reglas de Oro del Abecedario
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Desempate:</strong> Si la 1ª letra es igual, compara la 2ª, luego la 3ª...</li>
+                            <li><strong>Ch y Ll:</strong> Se ordenan como dígrafos normales dentro de la C y la L (RAE 2010).</li>
+                            <li><strong>Búsqueda:</strong> Los sustantivos se buscan en singular y los verbos en infinitivo (-ar, -er, -ir).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; text-align: center;">
+                    <button class="btn-primary" onclick="closeQuickCheatSheet()">
+                        <span>✓</span> Entendido, volver al ejercicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        /* =========================================================================
+           1. ESTADO Y SISTEMA DE AUDIO (WEB AUDIO API SINTETIZADO)
+           ========================================================================= */
+        let state = {
+            xp: parseInt(localStorage.getItem('castellano_com_xp') || '0'),
+            streak: 0,
+            currentTab: 'comunicacion'
+        };
+
+        let isMuted = localStorage.getItem('castellano_com_muted') === 'true';
+
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playClickSound() {
+            if (isMuted) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(420, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.05);
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.05);
+            } catch (e) {}
+        }
+
+        function playSuccessSound() {
+            if (isMuted) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const now = ctx.currentTime;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                osc.frequency.setValueAtTime(1046.50, now + 0.24); // C6
+                gain.gain.setValueAtTime(0.12, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.45);
+            } catch (e) {}
+        }
+
+        function playErrorSound() {
+            if (isMuted) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const now = ctx.currentTime;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.linearRampToValueAtTime(130, now + 0.25);
+                gain.gain.setValueAtTime(0.12, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            } catch (e) {}
+        }
+
+        function playFanfareSound() {
+            if (isMuted) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const notes = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5];
+                const times = [0, 0.12, 0.24, 0.36, 0.52, 0.68];
+                const durations = [0.1, 0.1, 0.1, 0.14, 0.14, 0.45];
+                const now = ctx.currentTime;
+                notes.forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, now + times[i]);
+                    gain.gain.setValueAtTime(0.12, now + times[i]);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + times[i] + durations[i]);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now + times[i]);
+                    osc.stop(now + times[i] + durations[i]);
+                });
+            } catch (e) {}
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            localStorage.setItem('castellano_com_muted', isMuted);
+            document.getElementById('btn-sound').textContent = isMuted ? '🔇' : '🔊';
+            if (!isMuted) playClickSound();
+        }
+
+        function toggleDarkMode() {
+            playClickSound();
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('castellano_com_dark', isDark);
+        }
+
+        function addXP(amount) {
+            state.xp += amount;
+            localStorage.setItem('castellano_com_xp', state.xp);
+            document.getElementById('xp-counter').textContent = `${state.xp} XP`;
+        }
+
+        function incrementStreak() {
+            state.streak++;
+            document.getElementById('streak-counter').textContent = state.streak;
+        }
+
+        function resetStreak() {
+            state.streak = 0;
+            document.getElementById('streak-counter').textContent = '0';
+        }
+
+        /* =========================================================================
+           2. NAVEGACIÓN CON SIDEBAR Y CONTROLADORES DE INTERFAZ
+           ========================================================================= */
+        const TAB_NAMES = {
+            comunicacion: "1. Apuntes: Circuito",
+            datealpie: "2. Cuento: Datealpié",
+            situaciones: "3. Reto: Situaciones Reales",
+            diccionario: "4. Diccionario & Abreviaturas",
+            tipos_dicc: "5. Tipos de Diccionarios",
+            alfabetico: "6. Orden Alfabético",
+            comic: "7. Taller de Cómic",
+            quiz: "8. Quiz de Examen",
+            recursos: "9. Chuleta & Materiales"
+        };
+
+        
+        // === COMPRENSIÓN LECTORA DATEALPIÉ ===
+        const datealpieCorrect = { 1: 1, 2: 0, 3: 2, 4: 0 };
+        const datealpieExplanations = {
+            1: "¡Correcto! Acopló ruedas metálicas a las suelas de sus zapatos, creando los primeros patines.",
+            2: "¡Exacto! Tocaba el violín para cautivar y asombrar a los invitados del salón.",
+            3: "¡Muy bien! Su error de diseño fue no añadir frenos ni posibilidad de cambiar de dirección.",
+            4: "¡Perfecto! Fue en Bruselas (Bélgica), y demostró que los tropiezos impulsan la innovación futura."
+        };
+        const datealpieAnswered = {};
+
+        function answerDatealpie(qNum, selectedOption, btn) {
+            if (datealpieAnswered[qNum]) return;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.choice-btn').forEach(b => b.disabled = true);
+            
+            const fb = document.getElementById('datealpie-fb-' + qNum);
+            fb.style.display = 'block';
+
+            if (selectedOption === datealpieCorrect[qNum]) {
+                datealpieAnswered[qNum] = true;
+                btn.style.background = 'var(--accent-green)';
+                btn.style.color = '#fff';
+                btn.style.borderColor = 'var(--accent-green)';
+                fb.style.color = 'var(--accent-green)';
+                fb.textContent = '✅ ' + datealpieExplanations[qNum];
+                if (typeof playSuccessSound === 'function') playSuccessSound();
+                else if (typeof playClickSound === 'function') playClickSound();
+                if (typeof addXP === 'function') addXP(10);
+            } else {
+                btn.style.background = 'var(--accent-rose)';
+                btn.style.color = '#fff';
+                btn.style.borderColor = 'var(--accent-rose)';
+                fb.style.color = 'var(--accent-rose)';
+                fb.textContent = '❌ Revisa el texto: ' + datealpieExplanations[qNum];
+                if (typeof playErrorSound === 'function') playErrorSound();
+            }
+
+            const totalAnswered = Object.keys(datealpieAnswered).length;
+            const badge = document.getElementById('badge-datealpie');
+            if (badge) badge.textContent = totalAnswered + '/4';
+            const scoreDisplay = document.getElementById('datealpie-score-display');
+            if (scoreDisplay) scoreDisplay.textContent = 'Progreso: ' + totalAnswered + ' de 4 aciertos';
+
+            if (totalAnswered === 4) {
+                if (typeof confetti === 'function') confetti();
+                if (typeof showToast === 'function') showToast('🎉 ¡Enhorabuena! Has completado la comprensión de Datealpié (+40 XP)');
+            }
+        }
+
+        function switchSidebarTab(tabId, btn) {
+            playClickSound();
+            state.currentTab = tabId;
+
+            document.querySelectorAll('.sidebar-item-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            const target = document.getElementById(`panel-${tabId}`);
+            if (target) target.classList.add('active');
+
+            const labelEl = document.getElementById('mobile-current-tab-label');
+            if (labelEl && TAB_NAMES[tabId]) labelEl.textContent = TAB_NAMES[tabId];
+
+            // Cerrar sidebar en móvil si está abierto
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.remove('mobile-open');
+
+            if (tabId === 'alfabetico') {
+                renderAlphaExercise();
+            } else if (tabId === 'quiz' && quizState.currentIdx === 0 && !quizState.started) {
+                restartQuiz();
+            } else if (tabId === 'situaciones') {
+                renderCommChallenge();
+            }
+
+            markSectionVisited(tabId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Compatibilidad con llamadas legacy
+        function switchTab(tabId, event) {
+            const btn = Array.from(document.querySelectorAll('.sidebar-item-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+            switchSidebarTab(tabId, btn || (event ? event.currentTarget : null));
+        }
+
+        function toggleMobileSidebar() {
+            playClickSound();
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(event) {
+            if (event) event.stopPropagation();
+            playClickSound();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        window.addEventListener('click', (e) => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && menu.classList.contains('active') && !e.target.closest('.topic-switcher-dropdown')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        /* =========================================================================
+           CHULETA RÁPIDA (MODAL UNIVERSAL)
+           ========================================================================= */
+        function openQuickCheatSheet() {
+            playClickSound();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeQuickCheatSheet() {
+            playClickSound();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function closeCheatOnBackdrop(e) {
+            if (e.target.id === 'quick-cheat-modal') {
+                closeQuickCheatSheet();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeQuickCheatSheet();
+            }
+        });
+
+        /* =========================================================================
+           SISTEMA DE ALMACENAMIENTO Y LOGROS (LOCALSTORAGE)
+           ========================================================================= */
+        const STORAGE_KEY = 'alvaro_progress_castellano_comunicacion';
+
+        function getTopicProgress() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveTopicProgress(data) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            } catch (e) {}
+            updateSidebarAndHeroStats();
+        }
+
+        function markSectionVisited(secKey) {
+            const prog = getTopicProgress();
+            if (!prog.visited) prog.visited = [];
+            if (!prog.visited.includes(secKey)) {
+                prog.visited.push(secKey);
+                saveTopicProgress(prog);
+            }
+        }
+
+        function recordQuizResult(score, total) {
+            const prog = getTopicProgress();
+            prog.quizAttempts = (prog.quizAttempts || 0) + 1;
+            prog.quizBest = Math.max(prog.quizBest || 0, score);
+            saveTopicProgress(prog);
+        }
+
+        function recordSituacionSolved() {
+            const prog = getTopicProgress();
+            prog.situacionesCount = (prog.situacionesCount || 0) + 1;
+            saveTopicProgress(prog);
+        }
+
+        function recordAlphaCompleted(level) {
+            const prog = getTopicProgress();
+            if (!prog.alphaLevels) prog.alphaLevels = [];
+            if (!prog.alphaLevels.includes(level)) prog.alphaLevels.push(level);
+            saveTopicProgress(prog);
+        }
+
+        function updateSidebarAndHeroStats() {
+            const prog = getTopicProgress();
+
+            const quizBest = prog.quizBest || 0;
+            const situaciones = prog.situacionesCount || 0;
+            const alphaLevels = (prog.alphaLevels || []).length;
+            const visited = (prog.visited || []).length;
+
+            const badgeQuiz = document.getElementById('badge-quiz');
+            if (badgeQuiz) badgeQuiz.textContent = quizBest > 0 ? `⭐ ${quizBest}/10` : 'Récord: 0';
+
+            const badgeSit = document.getElementById('badge-situaciones');
+            if (badgeSit) badgeSit.textContent = situaciones > 0 ? `✅ ${situaciones} Hechos` : '0 Hechos';
+
+            const badgeAlpha = document.getElementById('badge-alfabetico');
+            if (badgeAlpha) badgeAlpha.textContent = alphaLevels > 0 ? `⭐ ${alphaLevels}/3` : '0/3';
+
+            const heroQuiz = document.getElementById('stat-quiz-record');
+            if (heroQuiz) heroQuiz.textContent = `${quizBest}/10`;
+
+            let retosDone = 0;
+            if (situaciones > 0) retosDone++;
+            if (alphaLevels > 0) retosDone++;
+            if (quizBest >= 7) retosDone++;
+            if (visited >= 4) retosDone++;
+            if (state.xp >= 100) retosDone++;
+            if (state.xp >= 300) retosDone++;
+
+            const heroRetos = document.getElementById('stat-retos-done');
+            if (heroRetos) heroRetos.textContent = `${retosDone}/6`;
+
+            const heroXp = document.getElementById('stat-total-xp');
+            if (heroXp) heroXp.textContent = `${state.xp} XP`;
+
+            const pct = Math.min(100, Math.round((retosDone / 6) * 100));
+            const pctEl = document.getElementById('sidebar-progress-pct');
+            if (pctEl) pctEl.textContent = `${pct}%`;
+            const fillEl = document.getElementById('sidebar-progress-fill');
+            if (fillEl) fillEl.style.width = `${pct}%`;
+        }
+
+        function resetTopicProgress() {
+            if (confirm('¿Quieres reiniciar tus récords y marcas de este tema para practicar de nuevo desde cero?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                localStorage.removeItem('castellano_com_xp');
+                state.xp = 0;
+                document.getElementById('xp-counter').textContent = '0 XP';
+                playSuccessSound();
+                updateSidebarAndHeroStats();
+                alert('¡Progreso reiniciado con éxito! Listo para volver a practicar.');
+            }
+        }
+
+        function testRandomCommCase() {
+            const btn = document.querySelectorAll('.sidebar-item-btn')[1];
+            switchSidebarTab('situaciones', btn);
+        }
+
+        /* =========================================================================
+           3. CIRCUITO Y SIMULADOR DE SITUACIONES COMUNICATIVAS
+           ========================================================================= */
+        const CIRCUIT_DETAILS = {
+            emisor: {
+                tag: "DETALLE SELECCIONADO: EMISOR",
+                title: "¿Quién transmite la información?",
+                desc: "Es el punto de origen. Elabora y transmite el mensaje a través de un código. Puede ser una persona, un animal, un letrero o un dispositivo."
+            },
+            receptor: {
+                tag: "DETALLE SELECCIONADO: RECEPTOR",
+                title: "¿Quién recibe la información?",
+                desc: "Es el destinatario. Recibe la señal física y descodifica el mensaje para comprenderlo. Si no conoce el código, la comunicación fracasa."
+            },
+            mensaje: {
+                tag: "DETALLE SELECCIONADO: MENSAJE",
+                title: "¿Qué información se transmite?",
+                desc: "Es la idea, dato, orden, sentimiento o pregunta que se expresa. Todo mensaje adquiere significado gracias al código y al contexto."
+            },
+            codigo: {
+                tag: "DETALLE SELECCIONADO: CÓDIGO",
+                title: "¿Qué sistema de signos se usa?",
+                desc: "Es la lengua (español, inglés...), los símbolos matemáticos, el código morse, los colores de un semáforo o los gestos con las manos."
+            },
+            canal: {
+                tag: "DETALLE SELECCIONADO: CANAL",
+                title: "¿Por qué medio físico viaja?",
+                desc: "Es el soporte material que transporta la señal: el aire (en la voz), el papel (en un libro), la fibra óptica (en internet) o un hilo de lana tenso (en el teléfono de lata)."
+            },
+            contexto: {
+                tag: "DETALLE SELECCIONADO: CONTEXTO O SITUACIÓN",
+                title: "¿Dónde y cuándo ocurre?",
+                desc: "Conjunto de circunstancias espaciales, temporales y culturales que rodean la comunicación y permiten interpretar correctamente las palabras."
+            }
+        };
+
+        function selectCircuitElement(key) {
+            playClickSound();
+            document.querySelectorAll('.circuit-node').forEach(node => node.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const item = CIRCUIT_DETAILS[key];
+            document.getElementById('detail-tag').textContent = item.tag;
+            document.getElementById('detail-title').textContent = item.title;
+            document.getElementById('detail-body').textContent = item.desc;
+        }
+
+        // Banco de situaciones comunicativas reales
+        const COMM_SITUATIONS = [
+            {
+                scenario: "Raquel habla con su amigo mediante dos vasos de plástico unidos por un hilo de lana tenso.",
+                question: "¿Cuál es el CANAL por donde viaja el sonido en esta situación?",
+                correct: "El hilo de lana tenso",
+                options: ["El hilo de lana tenso", "El idioma español", "Raquel", "El patio de la escuela"]
+            },
+            {
+                scenario: "El árbitro hace sonar fuertemente su silbato en mitad de un partido de fútbol para detener el juego.",
+                question: "¿Quién es el EMISOR en esta situación comunicativa?",
+                correct: "El árbitro",
+                options: ["El árbitro", "Los futbolistas", "El balón", "El estadio"]
+            },
+            {
+                scenario: "Un semáforo se pone en color ROJO ante un conductor que circula por la avenida.",
+                question: "¿Cuál es el CÓDIGO utilizado en esta comunicación?",
+                correct: "El sistema de luces y colores de tráfico",
+                options: ["El sistema de luces y colores de tráfico", "El asfalto de la calle", "El coche", "El claxon"]
+            },
+            {
+                scenario: "Álvaro recibe un mensaje de WhatsApp en su teléfono móvil que dice: «¡Mañana tenemos examen de lengua!»",
+                question: "¿Quién es el RECEPTOR de este mensaje?",
+                correct: "Álvaro",
+                options: ["Álvaro", "El teléfono móvil", "La pantalla de cristal", "El servidor de internet"]
+            },
+            {
+                scenario: "Un cartel en la biblioteca municipal muestra el dibujo de una persona con el dedo sobre los labios pidiendo silencio.",
+                question: "¿De qué tipo de comunicación se trata?",
+                correct: "Comunicación no verbal (gesto/icono)",
+                options: ["Comunicación no verbal (gesto/icono)", "Comunicación verbal oral", "Comunicación auditiva", "Código morse"]
+            }
+        ];
+
+        let currentCommIndex = 0;
+
+        function renderCommChallenge() {
+            const c = COMM_SITUATIONS[currentCommIndex];
+            document.getElementById('comm-case-text').textContent = `«${c.scenario}»`;
+            document.getElementById('comm-case-question').textContent = c.question;
+
+            const optsContainer = document.getElementById('comm-case-options');
+            optsContainer.innerHTML = '';
+            document.getElementById('comm-case-feedback').style.display = 'none';
+
+            // Fisher-Yates shuffle
+            const shuffled = [...c.options];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            shuffled.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.style.margin = '0';
+                btn.textContent = opt;
+                btn.onclick = () => checkCommAnswer(opt, c.correct, btn);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function checkCommAnswer(chosen, correct, btn) {
+            const allBtns = document.querySelectorAll('#comm-case-options button');
+            allBtns.forEach(b => b.disabled = true);
+
+            const fb = document.getElementById('comm-case-feedback');
+            fb.style.display = 'block';
+
+            if (chosen === correct) {
+                playSuccessSound();
+                addXP(15);
+                incrementStreak();
+                btn.classList.add('correct');
+                fb.style.background = 'rgba(16, 185, 129, 0.12)';
+                fb.style.color = '#065f46';
+                fb.innerHTML = `<strong>¡Excelente razonamiento! 🎯</strong> "${correct}" es la respuesta correcta (+15 XP).`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                btn.classList.add('incorrect');
+                fb.style.background = 'var(--accent-rose-bg)';
+                fb.style.color = '#9f1239';
+                fb.innerHTML = `<strong>¡Vaya!</strong> La respuesta adecuada era: <strong>"${correct}"</strong>.`;
+                allBtns.forEach(b => {
+                    if (b.textContent === correct) b.classList.add('correct');
+                });
+            }
+        }
+
+        function nextCommChallenge() {
+            playClickSound();
+            currentCommIndex = (currentCommIndex + 1) % COMM_SITUATIONS.length;
+            renderCommChallenge();
+        }
+
+        function testRandomCommCase() {
+            switchTab('comunicacion', { currentTarget: document.querySelectorAll('.tab-btn')[0] });
+            nextCommChallenge();
+            document.getElementById('comm-case-card').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* =========================================================================
+           4. SIMULADOR RAE Y DICCIONARIO ONLINE
+           ========================================================================= */
+        const DICT_DATABASE = {
+            "ventana": {
+                word: "ventana",
+                etymology: "Del lat. vulg. *ventāna, der. de ventus 'viento'.",
+                pos: "f. (Sustantivo femenino)",
+                senses: [
+                    "Abertura en una pared o muro que se hace para dar luz y ventilación a una habitación.",
+                    "Hoja u hojas de madera, metal o cristal con que se cierra dicha abertura.",
+                    "Informática. Área rectangular en la pantalla del ordenador que muestra los contenidos de un programa o documento."
+                ],
+                notes: "Tiene 3 acepciones principales. En el diccionario la abreviatura 'f.' indica que es femenino ('la ventana')."
+            },
+            "comer": {
+                word: "comer",
+                etymology: "Del lat. comedĕre.",
+                pos: "v. tr. e intr. (Verbo transitivo e intransitivo)",
+                senses: [
+                    "Masticar y deglutir un alimento sólido para nutrirse.",
+                    "Tomar la comida del mediodía.",
+                    "Corroer o desgastar algo por fricción o acción química."
+                ],
+                notes: "Los verbos en el diccionario SIEMPRE aparecen en su forma en infinitivo (comer, vivir, saltar)."
+            },
+            "comí": {
+                word: "comí (¡Forma Conjugada!)",
+                etymology: "1.ª persona del singular del pretérito perfecto simple del verbo comer.",
+                pos: "Forma flexiva verbal",
+                senses: [
+                    "⚠️ ¡Regla de Oro del Diccionario!: Los verbos conjugados (como 'comí', 'jugaban', 'saldremos') NO tienen entrada propia.",
+                    "Debes buscar SIEMPRE el infinitivo correspondiente: COMER."
+                ],
+                notes: "En los diccionarios online actuales, buscar 'comí' te redirige automáticamente a 'comer'."
+            },
+            "lápices": {
+                word: "lápices (¡Forma Plural!)",
+                etymology: "Plural regular de lápiz.",
+                pos: "Plural gramatical",
+                senses: [
+                    "⚠️ ¡Regla de Oro del Diccionario!: Los sustantivos y adjetivos NO se buscan en plural.",
+                    "Debes buscar SIEMPRE su forma en singular: LÁPIZ (del latín lapis, 'piedra')."
+                ],
+                notes: "Recuerda además la regla ortográfica: el singular 'lápiz' termina en 'z', y su plural cambia a 'c' ('lápices')."
+            },
+            "cóctel": {
+                word: "cóctel (o coctel)",
+                etymology: "Del inglés cocktail (literalmente 'cola de gallo').",
+                pos: "m. (Sustantivo masculino)",
+                senses: [
+                    "Bebida compuesta de una mezcla de licores a la que se añaden otros ingredientes como zumos o hielo.",
+                    "Reunión o fiesta donde se sirven este tipo de bebidas y aperitivos de pie."
+                ],
+                notes: "Es un extranjerismo adaptado al español. Lleva tilde por ser palabra llana terminada en consonante distinta de -n o -s."
+            },
+            "comunicar": {
+                word: "comunicar",
+                etymology: "Del lat. communicāre 'compartir, poner en común'.",
+                pos: "v. tr. e intr.",
+                senses: [
+                    "Hacer a una persona partícipe de lo que se tiene o se sabe.",
+                    "Descubrir, manifestar o hacer saber a alguien algo.",
+                    "Dicho de dos salas, habitaciones o lugares: tener paso o correspondencia entre sí."
+                ],
+                notes: "Es la raíz de términos como 'comunicación', 'comunicado' y 'comunidad'."
+            }
+        };
+
+        function quickSearch(term) {
+            document.getElementById('rae-search-input').value = term;
+            searchInDict();
+        }
+
+        function searchInDict() {
+            playClickSound();
+            const rawTerm = document.getElementById('rae-search-input').value.trim().toLowerCase();
+            const container = document.getElementById('rae-display-container');
+
+            if (!rawTerm) {
+                container.innerHTML = `<p style="color: var(--text-muted);">Por favor, escribe una palabra para consultar.</p>`;
+                return;
+            }
+
+            const data = DICT_DATABASE[rawTerm];
+
+            if (data) {
+                addXP(10);
+                container.innerHTML = `
+                    <div class="rae-result-card">
+                        <div class="rae-word-title">
+                            ${data.word}
+                        </div>
+                        <div class="rae-etymology">${data.etymology}</div>
+                        <div class="rae-pos-badge">${data.pos}</div>
+                        
+                        <ol class="rae-senses-list">
+                            ${data.senses.map((s, idx) => `
+                                <li class="rae-sense-item">
+                                    <span class="rae-sense-num">${idx + 1}.</span>
+                                    <span>${s}</span>
+                                </li>
+                            `).join('')}
+                        </ol>
+
+                        <div style="margin-top: 1rem; padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); font-size: 0.85rem; border-left: 3px solid var(--accent-amber);">
+                            💡 <strong>Análisis Didáctico:</strong> ${data.notes}
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="rae-result-card" style="border-left-color: var(--accent-amber);">
+                        <div class="rae-word-title" style="color: var(--accent-amber);">
+                            🔍 "${rawTerm}"
+                        </div>
+                        <p style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            No tenemos esa palabra en el simulador escolar simplificado, pero puedes consultarla en directo en el diccionario oficial de la RAE:
+                        </p>
+                        <a href="https://dle.rae.es/${encodeURIComponent(rawTerm)}" target="_blank" class="btn-primary" style="margin-top: 0.5rem;">
+                            <span>🌐</span> Ver "${rawTerm}" en DLE.RAE.ES
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function toggleFaq(cardEl) {
+            playClickSound();
+            const content = cardEl.querySelector('.wheel-content');
+            const isHidden = content.style.display === 'none';
+            content.style.display = isHidden ? 'block' : 'none';
+            cardEl.querySelector('div:last-child').textContent = isHidden ? '🔼 Ocultar explicación' : '👉 Ver explicación';
+        }
+
+        /* =========================================================================
+           4.B. LABORATORIO DE LAS 25 ABREVIATURAS DEL DICCIONARIO (XTEC DICCIO 4)
+           ========================================================================= */
+        const ABBREVIATIONS_XTEC = [
+            { abbr: "adj.", meaning: "adjetivo", example: "«efímero adj. Que dura un solo día.»" },
+            { abbr: "adj.-s.", meaning: "adjetivo usado también como substantivo", example: "«joven adj.-s. Persona de poca edad.»" },
+            { abbr: "adv.", meaning: "adverbio o adverbial", example: "«rápidamente adv. De manera rápida.»" },
+            { abbr: "conj.", meaning: "conjunción", example: "«pero conj. Introduce una contraposición.»" },
+            { abbr: "f.", meaning: "substantivo femenino", example: "«mesa f. Mueble de superficie plana.»" },
+            { abbr: "m.", meaning: "substantivo masculino", example: "«libro m. Conjunto de hojas encuadernadas.»" },
+            { abbr: "pl.", meaning: "plural", example: "«gafas f. pl. Anteojos.»" },
+            { abbr: "prep.", meaning: "preposición", example: "«hacia prep. Indica dirección.»" },
+            { abbr: "pron.", meaning: "pronombre", example: "«ella pron. Pronombre personal.»" },
+            { abbr: "sing.", meaning: "singular", example: "«lápiz m. sing. Instrumento para escribir.»" },
+            { abbr: "tr.", meaning: "verbo transitivo", example: "«pintar tr. Exige objeto directo.»" },
+            { abbr: "v.", meaning: "verbo", example: "«correr v. Acción o proceso dinámico.»" },
+            { abbr: "pp.", meaning: "participio pasivo", example: "«hecho pp. irregular de hacer.»" },
+            { abbr: "pos.", meaning: "posesivo", example: "«mío adj. pos. De primera persona.»" },
+            { abbr: "loc.", meaning: "locución", example: "«a rebosar loc. adv. Hasta arriba.»" },
+            { abbr: "irreg.", meaning: "irregular", example: "«irreg. Se conjuga con alteraciones.»" },
+            { abbr: "gralte.", meaning: "generalmente", example: "«gralte. Usado con más frecuencia.»" },
+            { abbr: "imperf.", meaning: "imperfecto", example: "«pretérito imperf. de indicativo.»" },
+            { abbr: "inf.", meaning: "infinitivo", example: "«inf. Forma no personal en -ar, -er, -ir.»" },
+            { abbr: "fig.", meaning: "sentido figurado", example: "«lince m. fig. Persona muy sagaz.»" },
+            { abbr: "art.", meaning: "artículo", example: "«el, la, los art. determinados.»" },
+            { abbr: "dim.", meaning: "diminutivo", example: "«perrito dim. de perro.»" },
+            { abbr: "esp.", meaning: "especialmente", example: "«esp. en el español de América.»" },
+            { abbr: "LIT.", meaning: "Literatura", example: "«LIT. Ámbito artístico o poético.»" },
+            { abbr: "l.", meaning: "latín, latino", example: "«l. ventus 'viento'.»" }
+        ];
+
+        let abbrGameIndex = 0;
+        let abbrGamePool = [];
+
+        function renderAbbrGrid(filterText = "") {
+            const grid = document.getElementById('abbr-cards-grid');
+            if (!grid) return;
+            const query = filterText.toLowerCase().trim();
+            const filtered = ABBREVIATIONS_XTEC.filter(item => 
+                item.abbr.toLowerCase().includes(query) || 
+                item.meaning.toLowerCase().includes(query) ||
+                item.example.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 1.5rem;">No se encontraron abreviaturas con esa búsqueda.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 0.85rem; border-left: 4px solid var(--accent-purple);">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                        <span style="font-family: monospace; font-size: 1.15rem; font-weight: 900; color: var(--accent-purple);">${item.abbr}</span>
+                        <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted);">ABREV.</span>
+                    </div>
+                    <div style="font-weight: 700; font-size: 0.85rem; color: var(--text-main); line-height: 1.25;">
+                        ${item.meaning}
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 0.35rem;">
+                        ${item.example}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterAbbrGrid() {
+            const text = document.getElementById('abbr-search-input').value;
+            renderAbbrGrid(text);
+        }
+
+        function toggleAbbrTable() {
+            playClickSound();
+            const wrapper = document.getElementById('abbr-table-wrapper');
+            const btnText = document.getElementById('toggle-abbr-btn-text');
+            const isHidden = wrapper.style.display === 'none';
+            wrapper.style.display = isHidden ? 'block' : 'none';
+            btnText.textContent = isHidden ? 'Ocultar las 25 Abreviaturas' : 'Ver las 25 Abreviaturas';
+            if (isHidden) renderAbbrGrid();
+        }
+
+        function initAbbrGame() {
+            abbrGamePool = [...ABBREVIATIONS_XTEC].sort(() => Math.random() - 0.5);
+            abbrGameIndex = 0;
+            renderAbbrGame();
+        }
+
+        function renderAbbrGame() {
+            if (abbrGamePool.length === 0) {
+                abbrGamePool = [...ABBREVIATIONS_XTEC].sort(() => Math.random() - 0.5);
+            }
+            if (abbrGameIndex >= abbrGamePool.length) {
+                abbrGameIndex = 0;
+                abbrGamePool.sort(() => Math.random() - 0.5);
+            }
+
+            const current = abbrGamePool[abbrGameIndex];
+            document.getElementById('abbr-game-display').textContent = current.abbr;
+            document.getElementById('abbr-game-hint').textContent = `¿Qué significa la abreviatura «${current.abbr}» en el artículo de un diccionario?`;
+
+            // Elegir 2 distractores
+            const distractors = ABBREVIATIONS_XTEC
+                .filter(a => a.meaning !== current.meaning)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 2)
+                .map(a => a.meaning);
+
+            const options = [current.meaning, ...distractors];
+            // Fisher-Yates
+            for (let i = options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+
+            const optsContainer = document.getElementById('abbr-game-options');
+            optsContainer.innerHTML = '';
+            document.getElementById('abbr-game-feedback').style.display = 'none';
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.style.margin = '0';
+                btn.textContent = opt;
+                btn.onclick = () => checkAbbrAnswer(opt, current.meaning, btn, current.example);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAbbrAnswer(chosen, correct, btn, example) {
+            const allBtns = document.querySelectorAll('#abbr-game-options button');
+            allBtns.forEach(b => b.disabled = true);
+
+            const fb = document.getElementById('abbr-game-feedback');
+            fb.style.display = 'block';
+
+            if (chosen === correct) {
+                playSuccessSound();
+                addXP(20);
+                incrementStreak();
+                btn.classList.add('correct');
+                fb.style.background = 'rgba(16, 185, 129, 0.12)';
+                fb.style.color = '#065f46';
+                fb.innerHTML = `<strong>¡Excelente deducción! 🎯 (+20 XP)</strong><br>«${chosen}» es el significado exacto. Ejemplo de uso: ${example}`;
+                setTimeout(() => {
+                    abbrGameIndex++;
+                    renderAbbrGame();
+                }, 2000);
+            } else {
+                playErrorSound();
+                resetStreak();
+                btn.classList.add('incorrect');
+                fb.style.background = 'var(--accent-rose-bg)';
+                fb.style.color = '#9f1239';
+                fb.innerHTML = `<strong>¡Vaya!</strong> El significado correcto era: <strong>"${correct}"</strong>.<br>Ejemplo: ${example}`;
+                allBtns.forEach(b => {
+                    if (b.textContent === correct) b.classList.add('correct');
+                });
+                setTimeout(() => {
+                    abbrGameIndex++;
+                    renderAbbrGame();
+                }, 2800);
+            }
+        }
+
+        /* =========================================================================
+           5. RETO DE TIPOS DE DICCIONARIOS Y ARTÍCULOS REALES (XTEC DICCIO 6)
+           ========================================================================= */
+        const DICT_SCENARIOS = [
+            {
+                scenario: "«Un estudiante de 5.º necesita saber de qué lengua procede y cuál es el origen histórico de la palabra 'guitarra'.»",
+                correct: "Diccionario Etimológico",
+                options: ["Diccionario Etimológico", "Diccionario Bilingüe", "Diccionario Técnico", "Diccionario Normativo"]
+            },
+            {
+                scenario: "«Una persona que viaja a Londres quiere pedir un vaso de agua y no recuerda cómo se dice en inglés.»",
+                correct: "Diccionario Bilingüe",
+                options: ["Diccionario Bilingüe", "Diccionario Enciclopédico", "Diccionario de Sinónimos", "Diccionario Técnico"]
+            },
+            {
+                scenario: "«Un cirujano busca la definición exacta del instrumento 'bisturí' y sus especificaciones médicas.»",
+                correct: "Diccionario Técnico",
+                options: ["Diccionario Técnico", "Diccionario Normativo", "Diccionario Bilingüe", "Diccionario Etimológico"]
+            },
+            {
+                scenario: "«Estás redactando un cuento y no quieres repetir tantas veces la palabra 'hermoso'.»",
+                correct: "Diccionario de Sinónimos",
+                options: ["Diccionario de Sinónimos", "Diccionario Bilingüe", "Diccionario Enciclopédico", "Diccionario Etimológico"]
+            },
+            {
+                scenario: "«Quieres averiguar en qué año nació y qué descubrimientos astronómicos hizo Galileo Galilei.»",
+                correct: "Diccionario Enciclopédico",
+                options: ["Diccionario Enciclopédico", "Diccionario Normativo", "Diccionario de Sinónimos", "Diccionario Bilingüe"]
+            },
+            {
+                scenario: "«Dudas sobre si el verbo 'prever' se escribe con una sola 'e' o dos, o cómo se conjuga correctamente.»",
+                correct: "Diccionario de Dudas",
+                options: ["Diccionario de Dudas", "Diccionario de Argot", "Diccionario Etimológico", "Diccionario Bilingüe"]
+            },
+            {
+                scenario: "«Escuchas en una serie juvenil expresiones como 'molar', 'chachi' o 'guay' y quieres saber qué significan en la jerga coloquial.»",
+                correct: "Diccionario de Argot",
+                options: ["Diccionario de Argot", "Diccionario Enciclopédico", "Diccionario Bilingüe", "Diccionario Ideológico"]
+            },
+            {
+                scenario: "«Estás escribiendo un texto sobre 'la valentía' y buscas palabras asociadas a esa idea: coraje, osadía, arrojo, bravo, audaz...»",
+                correct: "Diccionario Ideológico",
+                options: ["Diccionario Ideológico", "Diccionario Bilingüe", "Diccionario de Dudas", "Diccionario Técnico"]
+            }
+        ];
+
+        let currentDictScenarioIdx = 0;
+
+        function renderDictChallenge() {
+            const sc = DICT_SCENARIOS[currentDictScenarioIdx];
+            document.getElementById('dict-challenge-scenario').textContent = sc.scenario;
+            const container = document.getElementById('dict-challenge-buttons');
+            container.innerHTML = '';
+            document.getElementById('dict-challenge-feedback').style.display = 'none';
+
+            // Fisher-Yates
+            const shuffled = [...sc.options];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            shuffled.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-secondary';
+                btn.textContent = opt;
+                btn.onclick = () => checkDictTypeChoice(opt, sc.correct);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkDictTypeChoice(chosen, correct) {
+            const fb = document.getElementById('dict-challenge-feedback');
+            fb.style.display = 'block';
+
+            if (chosen === correct) {
+                playSuccessSound();
+                addXP(20);
+                incrementStreak();
+                fb.style.color = '#059669';
+                fb.textContent = `¡Correcto! 🎯 Se usa el ${correct} (+20 XP).`;
+                setTimeout(() => {
+                    currentDictScenarioIdx = (currentDictScenarioIdx + 1) % DICT_SCENARIOS.length;
+                    renderDictChallenge();
+                }, 1800);
+            } else {
+                playErrorSound();
+                resetStreak();
+                fb.style.color = '#e11d48';
+                fb.textContent = `¡Vaya! La opción adecuada era: ${correct}. ¡Prueba con otro!`;
+            }
+        }
+
+        // Los 8 artículos reales de muestra de XTEC (Joaquim Genover - Diccio 6)
+        const XTEC_REAL_ARTICLES = [
+            {
+                snippet: "«efímero, -ra (V. efémera) adj. Que dura un solo día. 2 Pasajero, de corta duración. 3 adj.-s. Efémera. SIN. 1 y 2 Huidizo, fugaz»",
+                correct: "Diccionario General",
+                hint: "Ofrece definición, acepciones numeradas, categoría gramatical (adj.) y sinónimos de uso común.",
+                options: ["Diccionario General", "Diccionario Bilingüe", "Diccionario Etimológico", "Diccionario de Argot"]
+            },
+            {
+                snippet: "«vessar tr. Derramar, verter, salir, rebosar. | A ~, a rebosar.»",
+                correct: "Diccionario Bilingüe",
+                hint: "Establece la correspondencia y traducción directa entre dos lenguas (catalán y castellano).",
+                options: ["Diccionario Bilingüe", "Diccionario Específico", "Diccionario de Dudas", "Diccionario Enciclopédico"]
+            },
+            {
+                snippet: "«fariseo Hipócrita, falso, farisaico, engañoso, simulador. | Sincero, auténtico.»",
+                correct: "Diccionario de Sinónimos y Antónimos",
+                hint: "Enumera palabras de significado equivalente y, tras la barra vertical (|), sus contrarios u opuestos.",
+                options: ["Diccionario de Sinónimos y Antónimos", "Diccionario General", "Diccionario Enciclopédico", "Diccionario Ideológico"]
+            },
+            {
+                snippet: "«incluir. Verbo irregular. Se conjuga como huir. Construcción: incluir EN el número; incluir ENTRE los buenos.»",
+                correct: "Diccionario de Dudas",
+                hint: "Aclara irregularidades de conjugación verbal y el uso exacto de las preposiciones en la construcción sintáctica.",
+                options: ["Diccionario de Dudas", "Diccionario Específico", "Diccionario General", "Diccionario de Argot"]
+            },
+            {
+                snippet: "«flipado, -da pp. Pasmado, asombrado, impresionado. // Cautivado. // (dro.) Drogado.»",
+                correct: "Diccionario de Argot",
+                hint: "Registra voces jergales, juveniles y coloquiales que no pertenecen al registro culto formal.",
+                options: ["Diccionario de Argot", "Diccionario de Sinónimos y Antónimos", "Diccionario Específico", "Diccionario Ideológico"]
+            },
+            {
+                snippet: "«Esfumado (ital. sfumato) *Pintura de *contornos vagos y *difuminados. Dícese en especial de la pintura de Leonardo da Vinci y sus imitadores.»",
+                correct: "Diccionario Específico o Especializado",
+                hint: "Trata un concepto técnico de una disciplina artística muy concreta (la pintura renacentista).",
+                options: ["Diccionario Específico o Especializado", "Diccionario Bilingüe", "Diccionario de Sinónimos", "Diccionario de Dudas"]
+            },
+            {
+                snippet: "«TRAVESURA travesura, diablura, trastada, barrabasada, picardía, chiquillada... / travesear, enredar, revolver, picardear, jugar... / travieso, revoltoso, bullicioso, vivaracho, inquieto, diablillo...»",
+                correct: "Diccionario Ideológico",
+                hint: "Asocia sustantivos, verbos y adjetivos vinculados a un mismo concepto o campo de ideas afines.",
+                options: ["Diccionario Ideológico", "Diccionario de Argot", "Diccionario Enciclopédico", "Diccionario Bilingüe"]
+            },
+            {
+                snippet: "«HUCHA 'arca grande que tienen los labradores para conservar objetos', tomado del fr. huche 'cofre para guardar harina', procedente de una forma HÜTICA del romance primitivo, de origen desconocido, quizás germánico. 1ª doc.: Covarr.»",
+                correct: "Diccionario Etimológico",
+                hint: "Detalla la historia, la lengua de procedencia (francés huche), formas del romance primitivo y su primera documentación histórica.",
+                options: ["Diccionario Etimológico", "Diccionario General", "Diccionario Enciclopédico", "Diccionario de Dudas"]
+            }
+        ];
+
+        let realArticleIdx = 0;
+
+        function renderRealArticleChallenge() {
+            const item = XTEC_REAL_ARTICLES[realArticleIdx];
+            document.getElementById('real-article-snippet').textContent = item.snippet;
+
+            const optsContainer = document.getElementById('real-article-options');
+            optsContainer.innerHTML = '';
+            document.getElementById('real-article-feedback').style.display = 'none';
+
+            // Fisher-Yates
+            const shuffled = [...item.options];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            shuffled.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.style.margin = '0';
+                btn.textContent = opt;
+                btn.onclick = () => checkRealArticleChoice(opt, item.correct, btn, item.hint);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function checkRealArticleChoice(chosen, correct, btn, hint) {
+            const allBtns = document.querySelectorAll('#real-article-options button');
+            allBtns.forEach(b => b.disabled = true);
+
+            const fb = document.getElementById('real-article-feedback');
+            fb.style.display = 'block';
+
+            if (chosen === correct) {
+                playSuccessSound();
+                addXP(25);
+                incrementStreak();
+                btn.classList.add('correct');
+                fb.style.background = 'rgba(16, 185, 129, 0.12)';
+                fb.style.color = '#065f46';
+                fb.innerHTML = `<strong>¡Excelente análisis lexicográfico! 🎯 (+25 XP)</strong><br>Pertenece a un <strong>${correct}</strong>: ${hint}`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                btn.classList.add('incorrect');
+                fb.style.background = 'var(--accent-rose-bg)';
+                fb.style.color = '#9f1239';
+                fb.innerHTML = `<strong>¡Atención!</strong> Pertenecía a un <strong>${correct}</strong>.<br>${hint}`;
+                allBtns.forEach(b => {
+                    if (b.textContent === correct) b.classList.add('correct');
+                });
+            }
+        }
+
+        function nextRealArticleChallenge() {
+            playClickSound();
+            realArticleIdx = (realArticleIdx + 1) % XTEC_REAL_ARTICLES.length;
+            renderRealArticleChallenge();
+        }
+
+        /* =========================================================================
+           6. LABORATORIO DE ORDEN ALFABÉTICO (3 RETOS DE LA FICHA PDF)
+           ========================================================================= */
+        let currentAlphaExercise = 1;
+
+        // Reto 1: Grupos de 4 palabras
+        const ALPHA_EX1_GROUPS = [
+            {
+                name: "Grupo 1 (Letras P / A)",
+                words: ["Pared", "Panadero", "Panadería", "Amistad"],
+                correctOrder: ["Amistad", "Panadería", "Panadero", "Pared"]
+            },
+            {
+                name: "Grupo 2 (Letra R)",
+                words: ["Refrescar", "Río", "Reír", "Riqueza"],
+                correctOrder: ["Refrescar", "Reír", "Riqueza", "Río"]
+            },
+            {
+                name: "Grupo 3 (Letra M)",
+                words: ["Mañana", "Mar", "Maceta", "Misterio"],
+                correctOrder: ["Maceta", "Mañana", "Mar", "Misterio"]
+            },
+            {
+                name: "Grupo 4 (Letra A)",
+                words: ["Automóvil", "Animal", "Ave", "Amor"],
+                correctOrder: ["Amor", "Animal", "Automóvil", "Ave"]
+            }
+        ];
+
+        // Reto 2: 10 palabras del PDF
+        const ALPHA_EX2_WORDS = [
+            "Conquistar", "Regalar", "Tipografía", "Cosechar", "Volar",
+            "Bien", "Doble", "Existir", "Habitación", "Fruta"
+        ];
+        const ALPHA_EX2_CORRECT = [
+            "Bien", "Conquistar", "Cosechar", "Doble", "Existir",
+            "Fruta", "Habitación", "Regalar", "Tipografía", "Volar"
+        ];
+
+        // Reto 3: 24 palabras completas del PDF
+        const ALPHA_EX3_WORDS = [
+            "Aceituna", "Aguacate", "Descubrir", "Estudiar", "Gallo",
+            "Chapulín", "Ecuación", "Coche", "Panda", "Marisco",
+            "Radio", "Tenis", "Correr", "Educar", "Búfalo",
+            "Amor", "Número", "Elefante", "Preguntar", "Rosa",
+            "Examen", "Secundaria", "Paquidermo", "Taco"
+        ];
+        const ALPHA_EX3_CORRECT = [
+            "Aceituna", "Aguacate", "Amor", "Búfalo", "Chapulín",
+            "Coche", "Correr", "Descubrir", "Ecuación", "Educar",
+            "Elefante", "Estudiar", "Examen", "Gallo", "Marisco",
+            "Número", "Panda", "Paquidermo", "Preguntar", "Radio",
+            "Rosa", "Secundaria", "Taco", "Tenis"
+        ];
+
+        let ex1State = {
+            groupIndex: 0,
+            userOrder: []
+        };
+
+        let ex2State = {
+            selectedWords: []
+        };
+
+        function setAlphaExercise(num) {
+            playClickSound();
+            currentAlphaExercise = num;
+            document.querySelectorAll('.alpha-tab-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === num - 1);
+            });
+            renderAlphaExercise();
+        }
+
+        function renderAlphaExercise() {
+            const container = document.getElementById('alpha-exercise-view');
+            container.innerHTML = '';
+
+            if (currentAlphaExercise === 1) {
+                // Reto 1: Grupos de 4 palabras
+                const grp = ALPHA_EX1_GROUPS[ex1State.groupIndex];
+                container.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h4 style="font-size: 1.15rem; color: var(--primary);">${grp.name} (${ex1State.groupIndex + 1} de 4)</h4>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Pulsa las palabras en orden (1, 2, 3, 4)</span>
+                    </div>
+
+                    <div style="margin-bottom: 1.25rem;">
+                        <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 0.5rem;">PALABRAS PARA ORDENAR:</div>
+                        <div class="alpha-items-grid" id="ex1-chips">
+                            ${grp.words.map(w => `
+                                <button class="alpha-item-chip ${ex1State.userOrder.includes(w) ? 'selected' : ''}" 
+                                    onclick="handleEx1Pick('${w}')" ${ex1State.userOrder.includes(w) ? 'disabled' : ''}>
+                                    ${w}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 0.5rem;">TU ORDEN SELECCIONADO:</div>
+                    <div class="alpha-slots-grid" id="ex1-slots">
+                        ${[0, 1, 2, 3].map(i => `
+                            <div class="alpha-slot ${ex1State.userOrder[i] ? 'filled' : ''}">
+                                <span>#${i + 1}</span>
+                                <strong>${ex1State.userOrder[i] || '— Vacío —'}</strong>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="checkEx1Group()" ${ex1State.userOrder.length === 4 ? '' : 'disabled'}>
+                            <span>✅</span> Comprobar Grupo
+                        </button>
+                        <button class="btn-secondary" onclick="resetEx1Current()">
+                            <span>🔄</span> Reiniciar Grupo
+                        </button>
+                    </div>
+
+                    <div id="ex1-feedback" style="margin-top: 1rem; font-weight: 700; display: none;"></div>
+                `;
+            } else if (currentAlphaExercise === 2) {
+                // Reto 2: 10 Palabras del PDF
+                container.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <h4 style="font-size: 1.15rem; color: var(--primary);">Las 10 Palabras de la Ficha (Ejercicio 3 del PDF)</h4>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Selecciona del 1 al 10 en orden</span>
+                    </div>
+
+                    <div class="alpha-items-grid" id="ex2-chips">
+                        ${ALPHA_EX2_WORDS.map(w => `
+                            <button class="alpha-item-chip ${ex2State.selectedWords.includes(w) ? 'selected' : ''}" 
+                                onclick="handleEx2Pick('${w}')" ${ex2State.selectedWords.includes(w) ? 'disabled' : ''}>
+                                ${w}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 0.5rem;">TU SECUENCIA (1 al 10):</div>
+                    <div class="alpha-slots-grid" id="ex2-slots" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));">
+                        ${ALPHA_EX2_CORRECT.map((_, i) => `
+                            <div class="alpha-slot ${ex2State.selectedWords[i] ? 'filled' : ''}">
+                                <span>${i + 1}.</span>
+                                <strong>${ex2State.selectedWords[i] || '...'}</strong>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="checkEx2()" ${ex2State.selectedWords.length === 10 ? '' : 'disabled'}>
+                            <span>✅</span> Comprobar las 10 Palabras
+                        </button>
+                        <button class="btn-secondary" onclick="resetEx2()">
+                            <span>🔄</span> Reiniciar
+                        </button>
+                    </div>
+
+                    <div id="ex2-feedback" style="margin-top: 1rem; font-weight: 700; display: none;"></div>
+                `;
+            } else if (currentAlphaExercise === 3) {
+                // Reto 3: Las 24 Palabras
+                container.innerHTML = `
+                    <div style="margin-bottom: 1.25rem;">
+                        <h4 style="font-size: 1.15rem; color: var(--primary);">El Gran Reto: Las 24 Palabras de la Ficha Escolar</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">
+                            Ordena mentalmente o en tu cuaderno y pulsa "Revelar Solución y Explicación Paso a Paso" para verificar tus números del 1 al 24.
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+                        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1rem;">
+                            <div style="font-weight: 800; margin-bottom: 0.75rem; color: var(--text-muted);">PALABRAS ORIGINALES DEL PDF:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+                                ${ALPHA_EX3_WORDS.map(w => `<span class="badge-pill">${w}</span>`).join('')}
+                            </div>
+                        </div>
+
+                        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                <div style="font-weight: 800; color: var(--primary);">ORDEN ALFABÉTICO COMPLETO (1 - 24):</div>
+                                <button class="btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;" onclick="toggleEx3Solution()">
+                                    <span>👁️</span> Revelar / Ocultar
+                                </button>
+                            </div>
+                            <ol id="ex3-solution-list" style="margin-left: 1.5rem; font-size: 0.92rem; line-height: 1.6; display: none;">
+                                ${ALPHA_EX3_CORRECT.map(w => `<li><strong>${w}</strong></li>`).join('')}
+                            </ol>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function handleEx1Pick(word) {
+            playClickSound();
+            if (ex1State.userOrder.length < 4 && !ex1State.userOrder.includes(word)) {
+                ex1State.userOrder.push(word);
+                renderAlphaExercise();
+            }
+        }
+
+        function resetEx1Current() {
+            playClickSound();
+            ex1State.userOrder = [];
+            renderAlphaExercise();
+        }
+
+        function checkEx1Group() {
+            const grp = ALPHA_EX1_GROUPS[ex1State.groupIndex];
+            const isCorrect = ex1State.userOrder.every((w, idx) => w === grp.correctOrder[idx]);
+            const fb = document.getElementById('ex1-feedback');
+            fb.style.display = 'block';
+
+            if (isCorrect) {
+                playSuccessSound();
+                addXP(25);
+                incrementStreak();
+                fb.style.color = '#059669';
+                fb.textContent = `¡Grupo superado con éxito! 🎯 Orden perfecto (+25 XP).`;
+                setTimeout(() => {
+                    ex1State.groupIndex = (ex1State.groupIndex + 1) % ALPHA_EX1_GROUPS.length;
+                    ex1State.userOrder = [];
+                    renderAlphaExercise();
+                }, 1500);
+            } else {
+                playErrorSound();
+                resetStreak();
+                fb.style.color = '#e11d48';
+                fb.innerHTML = `¡Atención! El orden correcto era: <strong>${grp.correctOrder.join(' → ')}</strong>. ¡Inténtalo de nuevo!`;
+            }
+        }
+
+        function handleEx2Pick(word) {
+            playClickSound();
+            if (ex2State.selectedWords.length < 10 && !ex2State.selectedWords.includes(word)) {
+                ex2State.selectedWords.push(word);
+                renderAlphaExercise();
+            }
+        }
+
+        function resetEx2() {
+            playClickSound();
+            ex2State.selectedWords = [];
+            renderAlphaExercise();
+        }
+
+        function checkEx2() {
+            const isCorrect = ex2State.selectedWords.every((w, idx) => w === ALPHA_EX2_CORRECT[idx]);
+            const fb = document.getElementById('ex2-feedback');
+            fb.style.display = 'block';
+
+            if (isCorrect) {
+                playFanfareSound();
+                triggerConfetti();
+                addXP(50);
+                incrementStreak();
+                fb.style.color = '#059669';
+                fb.textContent = `🎉 ¡IMPRESIONANTE! Has ordenado las 10 palabras del PDF a la perfección (+50 XP).`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                fb.style.color = '#e11d48';
+                fb.innerHTML = `Hay algún error en la secuencia. Revisa letras iniciales (Bien, Conquistar, Cosechar, Doble...).`;
+            }
+        }
+
+        function toggleEx3Solution() {
+            playClickSound();
+            const list = document.getElementById('ex3-solution-list');
+            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+        }
+
+        /* =========================================================================
+           7. TALLER DE CÓMIC & PUNTUACIÓN
+           ========================================================================= */
+        function setPanelChar(panelNum, charName) {
+            playClickSound();
+            const parent = event.currentTarget.parentElement;
+            parent.querySelectorAll('.char-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+
+        function insertSign(panelNum, sign) {
+            playClickSound();
+            const textarea = document.getElementById(`panel-text-${panelNum}`);
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const text = textarea.value;
+            textarea.value = text.substring(0, start) + sign + text.substring(end);
+            textarea.focus();
+            textarea.selectionStart = textarea.selectionEnd = start + sign.length;
+        }
+
+        function verifyComicPunctuation() {
+            playClickSound();
+            const text1 = document.getElementById('panel-text-1').value;
+            const text2 = document.getElementById('panel-text-2').value;
+            const text3 = document.getElementById('panel-text-3').value;
+            const fullText = text1 + " " + text2 + " " + text3;
+
+            const hasPunto = fullText.includes('.');
+            const hasComa = fullText.includes(',');
+            const hasInterrogacion = fullText.includes('¿') && fullText.includes('?');
+            const hasExclamacion = fullText.includes('¡') && fullText.includes('!');
+
+            const resultBox = document.getElementById('comic-check-result');
+            resultBox.style.display = 'block';
+
+            const allGood = hasPunto && hasComa && hasInterrogacion && hasExclamacion;
+
+            if (allGood) {
+                playFanfareSound();
+                triggerConfetti();
+                addXP(40);
+                resultBox.style.borderColor = 'var(--accent-green)';
+                resultBox.innerHTML = `
+                    <div style="font-weight: 800; font-size: 1.15rem; color: #059669; margin-bottom: 0.5rem;">
+                        🎉 ¡Excelente trabajo de guion y puntuación! (+40 XP)
+                    </div>
+                    <p style="font-size: 0.95rem; line-height: 1.4;">
+                        Has utilizado correctamente los 4 signos exigidos en la rúbrica del colegio: 
+                        <strong>Punto (.)</strong>, <strong>Coma (,)</strong>, <strong>Interrogación (¿?)</strong> y <strong>Exclamación (¡!)</strong>.
+                    </p>
+                    <div style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
+                        📡 <strong>Circuito Comunicativo:</strong> Los personajes alternan como Emisores y Receptores, compartiendo el código de la lengua castellana a través del canal del cómic.
+                    </div>
+                `;
+            } else {
+                playErrorSound();
+                resultBox.style.borderColor = 'var(--accent-amber)';
+                resultBox.innerHTML = `
+                    <div style="font-weight: 800; font-size: 1.15rem; color: var(--accent-amber); margin-bottom: 0.5rem;">
+                        ⚠️ Revisión de Signos de Puntuación
+                    </div>
+                    <ul style="margin-left: 1.5rem; font-size: 0.9rem; line-height: 1.5;">
+                        <li style="color: ${hasPunto ? '#059669' : '#e11d48'};">Punto (.): ${hasPunto ? '✅ Correcto' : '❌ Falta añadir al menos un punto'}</li>
+                        <li style="color: ${hasComa ? '#059669' : '#e11d48'};">Coma (,): ${hasComa ? '✅ Correcto' : '❌ Falta añadir al menos una coma'}</li>
+                        <li style="color: ${hasInterrogacion ? '#059669' : '#e11d48'};">Signos de interrogación (¿ ?): ${hasInterrogacion ? '✅ Correcto' : '❌ Falta una pregunta con doble signo (¿ ?)'}</li>
+                        <li style="color: ${hasExclamacion ? '#059669' : '#e11d48'};">Signos de exclamación (¡ !): ${hasExclamacion ? '✅ Correcto' : '❌ Falta una exclamación con doble signo (¡ !)'}</li>
+                    </ul>
+                `;
+            }
+        }
+
+        /* =========================================================================
+           8. QUIZ MAESTRO GAMIFICADO (ALEATORIZACIÓN TOTAL FISHER-YATES)
+           ========================================================================= */
+        const MASTER_QUIZ = [
+            {
+                question: "En una carta o correo electrónico, ¿quién desempeña el papel de 'receptor'?",
+                options: [
+                    "La persona a quien va dirigida la carta y que la lee.",
+                    "La persona que redacta y firma la carta.",
+                    "El cartero o el servidor de internet que la transporta.",
+                    "El papel o la pantalla del ordenador donde está escrita."
+                ],
+                correct: 0,
+                hint: "El receptor es quien recibe y descifra la información."
+            },
+            {
+                question: "¿Cuál es el código en una conversación hablada entre dos personas en Madrid?",
+                options: [
+                    "La lengua castellana o idioma español.",
+                    "El aire que transmite las ondas sonoras.",
+                    "La calle o habitación donde se encuentran.",
+                    "El mensaje que se dicen el uno al otro."
+                ],
+                correct: 0,
+                hint: "El código es el sistema de signos y reglas compartido para entenderse."
+            },
+            {
+                question: "Si buscas en el diccionario la palabra 'comí', ¿qué ocurre y cómo debes buscarla?",
+                options: [
+                    "Los verbos no aparecen conjugados; debes buscar su infinitivo: 'comer'.",
+                    "Aparece en la letra C con todas sus conjugaciones detalladas.",
+                    "Debes buscarla en el diccionario de sinónimos y antónimos.",
+                    "Se busca obligatoriamente en el diccionario bilingüe."
+                ],
+                correct: 0,
+                hint: "En el diccionario los verbos se introducen siempre por el infinitivo."
+            },
+            {
+                question: "¿Qué es una 'acepción' en un artículo del diccionario?",
+                options: [
+                    "Cada uno de los diferentes significados numerados que tiene una palabra.",
+                    "La lengua histórica de la que procede la palabra.",
+                    "La letra inicial con la que se ordena alfabéticamente.",
+                    "El tipo de papel con el que se imprime la obra."
+                ],
+                correct: 0,
+                hint: "Las acepciones se distinguen con números 1, 2, 3... según el contexto."
+            },
+            {
+                question: "¿Qué tipo de diccionario consultarías para saber cómo se dice 'fresa' en inglés?",
+                options: [
+                    "Un diccionario bilingüe (Español - Inglés).",
+                    "Un diccionario etimológico del latín.",
+                    "Un diccionario técnico de botánica.",
+                    "El diccionario normativo de la RAE."
+                ],
+                correct: 0,
+                hint: "Los diccionarios bilingües traducen palabras de un idioma a otro."
+            },
+            {
+                question: "¿Cuál es el orden alfabético correcto de estas cuatro palabras: Coche, Chapulín, Correr, Búfalo?",
+                options: [
+                    "Búfalo, Chapulín, Coche, Correr",
+                    "Chapulín, Búfalo, Coche, Correr",
+                    "Búfalo, Coche, Correr, Chapulín",
+                    "Correr, Coche, Chapulín, Búfalo"
+                ],
+                correct: 0,
+                hint: "B va primero. Luego Ch (C-h), Co-c (Coche) y Co-r (Correr)."
+            },
+            {
+                question: "¿Qué información fundamental nos proporciona la etimología de una palabra?",
+                options: [
+                    "Su origen y la lengua de la que procede históricamente.",
+                    "El número de veces que se puede pronunciar en un minuto.",
+                    "Si debe escribirse con mayúscula o minúscula.",
+                    "El listado de palabras que riman con ella."
+                ],
+                correct: 0,
+                hint: "Etimología viene del griego y estudia la raíz histórica de los términos."
+            },
+            {
+                question: "En el cómic de Raquel con el teléfono de lata, ¿qué elemento es el hilo de lana tenso?",
+                options: [
+                    "El canal físico por donde viaja la vibración.",
+                    "El código de comunicación.",
+                    "El emisor que origina la conversación.",
+                    "El contexto de la viñeta."
+                ],
+                correct: 0,
+                hint: "El canal es el medio físico de transmisión."
+            },
+            {
+                question: "¿Por qué en español es obligatorio usar signos de interrogación dobles (¿ ?)?",
+                options: [
+                    "Porque '¿' avisa dónde empieza la pregunta y '?' marca su final.",
+                    "Porque el signo de cierre solo se usa en inglés.",
+                    "Porque después de '?' es obligatorio poner un punto final.",
+                    "Porque indican que la frase debe leerse en susurros."
+                ],
+                correct: 0,
+                hint: "En español se abre obligatoriamente con ¿ y se cierra con ?."
+            },
+            {
+                question: "¿Cómo se debe buscar en el diccionario el sustantivo 'lápices'?",
+                options: [
+                    "Buscando su forma en singular: 'lápiz'.",
+                    "Buscando directamente en la L con la terminación '-ces'.",
+                    "Buscando en la sección de adjetivos en plural.",
+                    "No se puede buscar porque tiene tilde."
+                ],
+                correct: 0,
+                hint: "Los nombres y adjetivos se buscan siempre en singular."
+            }
+        ];
+
+        let quizState = {
+            currentIdx: 0,
+            answered: false,
+            started: false,
+            questions: [],
+            currentOptions: []
+        };
+
+        function restartQuiz() {
+            quizState.started = true;
+            quizState.currentIdx = 0;
+            quizState.score = 0;
+            // Barajar preguntas
+            quizState.questions = [...MASTER_QUIZ].sort(() => Math.random() - 0.5);
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            quizState.answered = false;
+            const q = quizState.questions[quizState.currentIdx];
+
+            document.getElementById('quiz-counter').textContent = `Pregunta ${quizState.currentIdx + 1} de ${quizState.questions.length}`;
+            document.getElementById('quiz-question').textContent = q.question;
+
+            // Emparejar opciones con su condición de acierto original
+            const optionsWithMeta = q.options.map((optText, origIdx) => ({
+                text: optText,
+                isCorrect: origIdx === q.correct
+            }));
+
+            // Barajar opciones con Fisher-Yates (garantiza orden 100% aleatorio)
+            for (let i = optionsWithMeta.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithMeta[i], optionsWithMeta[j]] = [optionsWithMeta[j], optionsWithMeta[i]];
+            }
+
+            quizState.currentOptions = optionsWithMeta;
+
+            const optsContainer = document.getElementById('quiz-options');
+            optsContainer.innerHTML = '';
+
+            optionsWithMeta.forEach((optObj, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.innerHTML = `<span style="width: 26px; height: 26px; border-radius: 50%; background: var(--border-color); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800;">${String.fromCharCode(65 + idx)}</span> <span>${optObj.text}</span>`;
+                btn.onclick = () => selectQuizOption(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+
+            const explBox = document.getElementById('quiz-explanation');
+            explBox.className = 'quiz-explanation-box';
+            explBox.textContent = '';
+            document.getElementById('btn-next-quiz').style.display = 'none';
+        }
+
+        function selectQuizOption(chosenIdx, btnEl) {
+            if (quizState.answered) return;
+            quizState.answered = true;
+
+            const selected = quizState.currentOptions[chosenIdx];
+            const isCorrect = selected.isCorrect;
+            const q = quizState.questions[quizState.currentIdx];
+
+            const allBtns = document.querySelectorAll('.quiz-option-btn');
+            allBtns.forEach(b => b.disabled = true);
+
+            const explBox = document.getElementById('quiz-explanation');
+            explBox.classList.add('active');
+
+            if (isCorrect) {
+                quizState.score = (quizState.score || 0) + 1;
+                playSuccessSound();
+                addXP(25);
+                incrementStreak();
+                btnEl.classList.add('correct');
+                explBox.style.background = 'rgba(16, 185, 129, 0.12)';
+                explBox.style.color = '#065f46';
+                explBox.innerHTML = `<strong>¡Respuesta Correcta! 🌟 (+25 XP)</strong><br>${q.hint}`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                btnEl.classList.add('incorrect');
+                explBox.style.background = 'var(--accent-rose-bg)';
+                explBox.style.color = '#9f1239';
+                explBox.innerHTML = `<strong>¡Vaya! No es correcto.</strong><br>${q.hint}`;
+
+                // Iluminar la correcta
+                const correctIdx = quizState.currentOptions.findIndex(o => o.isCorrect);
+                if (correctIdx !== -1) {
+                    allBtns[correctIdx].classList.add('correct');
+                }
+            }
+
+            document.getElementById('btn-next-quiz').style.display = 'inline-flex';
+        }
+
+        function nextQuizQuestion() {
+            playClickSound();
+            quizState.currentIdx++;
+            if (quizState.currentIdx < quizState.questions.length) {
+                renderQuizQuestion();
+            } else {
+                showQuizFinished();
+            }
+        }
+
+        function showQuizFinished() {
+            playFanfareSound();
+            triggerConfetti();
+            addXP(60);
+
+            const score = quizState.score || 0;
+            recordQuizResult(score, 10);
+
+            const prog = getTopicProgress();
+            const best = prog.quizBest || score;
+
+            const card = document.querySelector('.quiz-card');
+            card.innerHTML = `
+                <div style="text-align: center; padding: 2rem 1rem;">
+                    <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏆</div>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary);">
+                        ¡Enhorabuena, Álvaro!
+                    </h2>
+                    <p style="font-size: 1.15rem; font-weight: 800; color: var(--accent-green); margin-bottom: 0.5rem;">
+                        Puntuación: ${score} de 10 aciertos (⭐ Mejor récord: ${best}/10)
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem;">
+                        Has completado el Quiz Maestro de <strong>Lenguaje, Comunicación & El Diccionario</strong>. ¡Tus puntos e intentos han quedado guardados!
+                    </p>
+                    <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn-primary" onclick="restartQuiz()">
+                            <span>🔄</span> Intentar Mejorar Puntuación
+                        </button>
+                        <button class="btn-secondary" onclick="switchSidebarTab('comunicacion', document.querySelectorAll('.sidebar-item-btn')[0])">
+                            <span>📖</span> Volver a los Apuntes
+                        </button>
+                    </div>
+                </div>
+            `;
+            updateSidebarAndHeroStats();
+        }
+
+        /* =========================================================================
+           9. CONFETI EN CANVAS
+           ========================================================================= */
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const pieces = [];
+            const colors = ['#0284c7', '#059669', '#10b981', '#f59e0b', '#8b5cf6', '#f43f5e'];
+
+            for (let i = 0; i < 90; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 3 + 2,
+                    speedX: Math.random() * 2 - 1,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: Math.random() * 8 - 4
+                });
+            }
+
+            let animationId;
+            function update() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let activePieces = 0;
+
+                pieces.forEach(p => {
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+                    p.rotation += p.rotationSpeed;
+
+                    if (p.y < canvas.height) {
+                        activePieces++;
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                        ctx.restore();
+                    }
+                });
+
+                if (activePieces > 0) {
+                    animationId = requestAnimationFrame(update);
+                } else {
+                    cancelAnimationFrame(animationId);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            update();
+        }
+
+        /* =========================================================================
+           10. INICIALIZACIÓN
+           ========================================================================= */
+        window.addEventListener('DOMContentLoaded', () => {
+            // Cargar XP inicial
+            document.getElementById('xp-counter').textContent = `${state.xp} XP`;
+
+            // Modo oscuro previo
+            if (localStorage.getItem('castellano_com_dark') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+
+            // Estado de sonido
+            if (isMuted) {
+                document.getElementById('btn-sound').textContent = '🔇';
+            }
+
+            // Inicializar retos y vistas
+            renderCommChallenge();
+            quickSearch('ventana');
+            renderAbbrGrid();
+            initAbbrGame();
+            renderDictChallenge();
+            renderRealArticleChallenge();
+            renderAlphaExercise();
+            restartQuiz();
+            updateSidebarAndHeroStats();
+        });
+    </script>
+</body>
+
+</html>

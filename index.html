@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álvaro Study Hub | Plataforma Central de Estudio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Top Header Minimal -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand-badge">
+                <span class="brand-logo">🎓</span>
+                <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+                    <h1 class="brand-title">Álvaro Study Hub</h1>
+                    <span class="brand-subtitle">• Portal Central</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <!-- Pomodoro Timer -->
+                <div class="pomodoro-pill">
+                    <span>⏱️</span>
+                    <span id="timer-display"
+                        style="font-family: 'JetBrains Mono', monospace; font-weight: 800;">25:00</span>
+                    <button class="pomodoro-btn" id="btn-timer-toggle" onclick="togglePomodoro()">Iniciar</button>
+                    <button class="pomodoro-btn" onclick="resetPomodoro()">↺</button>
+                </div>
+
+                <!-- Sonido & Modo Oscuro -->
+                <button id="btn-toggle-sound" class="btn-icon-header" onclick="toggleSound()"
+                    title="Sonidos">🔊</button>
+                <button id="btn-toggle-dark" class="btn-icon-header" onclick="toggleDarkMode()"
+                    title="Modo Claro/Oscuro">🌓</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 100% Full Width Hero Banner (Harmonized with Comunicación) -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge" id="hero-stats-badge">14 ASIGNATURAS • 6 TEMAS INTERACTIVOS</div>
+                <h1>¡Hola, Álvaro! 👋</h1>
+                <p>Accede con un clic a tus carpetas de Google Drive y practica con los apuntes interactivos creados
+                    para tus materias.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-subjects">14</div>
+                    <div class="stat-label">Asignaturas</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-topics">6</div>
+                    <div class="stat-label">Temas Listos</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val">100%</div>
+                    <div class="stat-label">Interactivos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Clean Subjects Grid -->
+    <main class="subjects-container">
+        <div class="subjects-grid" id="subjects-grid"></div>
+    </main>
+
+    <!-- Compact Bottom Section -->
+    <section class="bottom-section">
+        <!-- Cómo añadir nuevo material -->
+        <div class="simple-card">
+            <h3 style="color: var(--primary);">
+                <span>📥</span> Cómo añadir nuevo material
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                1. Guarda tus nuevos archivos o PDFs en la carpeta local de la materia.<br>
+                2. Pídele al asistente: <em>"Crea los apuntes interactivos de este tema"</em>.<br>
+                3. Se creará automáticamente un módulo a medida para esa asignatura.
+            </p>
+        </div>
+
+        <!-- Checklist de estudio -->
+        <div class="simple-card">
+            <h3 style="color: var(--accent-green);">
+                <span>✅</span> Metas de Estudio de Hoy
+            </h3>
+            <div id="checklist-container">
+                <label class="checklist-row">
+                    <input type="checkbox" onchange="saveChecklist()">
+                    <span>Repasar tarjetas de Signos de Puntuación (Castellano)</span>
+                </label>
+                <label class="checklist-row">
+                    <input type="checkbox" onchange="saveChecklist()">
+                    <span>Completar el reto de Orden Alfabético</span>
+                </label>
+                <label class="checklist-row">
+                    <input type="checkbox" onchange="saveChecklist()">
+                    <span>Practicar vocabulario de Madame Curie (Inglés)</span>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Opciones / Rutas Locales -->
+    <div class="modal-overlay" id="detail-modal" onclick="closeModalOnBg(event)">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal()">×</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p><strong>Álvaro Study Hub</strong> • Plataforma de Estudio y Accesos Directos</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const SUBJECTS = [
+            {
+                id: "castellano",
+                name: "Castellà",
+                fullName: "Lengua Castellana",
+                icon: "✍️",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=13tRZMTQ0Oa0nawxQl2TMCf-zWQ64mx8l&usp=drive_copy",
+                localFolder: "castellano/",
+                description: "Signos de puntuación, taller ortográfico, el abecedario RAE y uso del diccionario online.",
+                topics: [
+                    {
+                        id: "comunicacion",
+                        title: "Lenguaje, Comunicación & El Diccionario",
+                        shortTitle: "Comunicación & Diccionario",
+                        url: "castellano/comunicacion/Apuntes.html",
+                        desc: "Elementos de la comunicación, tipos de diccionarios, orden alfabético de palabras, taller de cómic y práctica RAE.",
+                        badge: "Nuevo Tema"
+                    },
+                    {
+                        id: "signo_puntuacion",
+                        title: "Signos de Puntuación & Ortografía",
+                        shortTitle: "Signos de Puntuación",
+                        url: "castellano/signo_puntuacion/Apuntes.html",
+                        desc: "Taller interactivo de puntuación, mayúsculas, reto de orden alfabético y tarjetas de estudio.",
+                        badge: "100% Interactivo"
+                    }
+                ]
+            },
+            {
+                id: "curie",
+                name: "M. Curie",
+                fullName: "Science (Madame Curie)",
+                icon: "🧪",
+                category: "ciencias",
+                driveUrl: "https://drive.google.com/open?id=1GE41l8nfuuGgqw9ATHSqm83e8cvQfQgA&usp=drive_copy",
+                localFolder: "curie/",
+                description: "Vocabulario de laboratorio en inglés: verbos, herramientas e instrumentos científicos.",
+                topics: [
+                    {
+                        id: "wordslist",
+                        title: "Laboratory Words List & Vocabulary",
+                        shortTitle: "Vocabulario Lab",
+                        url: "curie/wordslist/Apuntes.html",
+                        desc: "Science vocabulary, flashcards con pronunciación, emparejamiento de definiciones y quiz.",
+                        badge: "English Unit"
+                    }
+                ]
+            },
+            {
+                id: "mates",
+                name: "Mates",
+                fullName: "Matemáticas",
+                icon: "📐",
+                category: "ciencias",
+                driveUrl: "https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy",
+                localFolder: "mates/",
+                description: "Cálculo mental contrarreloj, multiplicaciones y divisiones por varias cifras, operaciones con paréntesis y problemas con desarrollo.",
+                topics: [
+                    {
+                        id: "operaciones",
+                        title: "Cálculo Mental, Operaciones & Problemas",
+                        shortTitle: "Cálculo & Problemas",
+                        url: "mates/operaciones/Apuntes.html",
+                        desc: "Sprint de 60 operaciones en 2 min, multiplicación y división tradicional por varias cifras, paréntesis paso a paso y 32 problemas con desarrollo.",
+                        badge: "100% Interactivo"
+                    }
+                ]
+            },
+            {
+                id: "projecte",
+                name: "Projecte",
+                fullName: "Projecte: Ens Orientem",
+                icon: "💡",
+                category: "ciencias",
+                driveUrl: "https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy",
+                localFolder: "projecte/",
+                description: "Coordenades geogràfiques, paral·lels, meridians, latitud, longitud i repte Pokémon.",
+                topics: [
+                    {
+                        id: "coordenadas",
+                        title: "Coordenades Geogràfiques & Missió Pokémon",
+                        shortTitle: "Coordenades Pokémon",
+                        url: "projecte/coordenadas/Apuntes.html",
+                        desc: "Radar Team Rocket amb 10 Pokémon, paral·lels, meridians, latitud, longitud i silueta de Pikachu.",
+                        badge: "100% Interactiu"
+                    }
+                ]
+            },
+            {
+                id: "catala",
+                name: "Català",
+                fullName: "Llengua Catalana",
+                icon: "📚",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=1HJx9E-8g6z7rw6ugg21xfUoyrx3zF7sv&usp=drive_copy",
+                localFolder: "catala/",
+                description: "Comprensió lectora, sinònims i antònims, la síl·laba i els dígrafs, classes de noms i expressió escrita.",
+                topics: [
+                    {
+                        id: "sant_baldiri",
+                        title: "Tema 1: L'escola de Sant Baldiri",
+                        shortTitle: "Sant Baldiri & Dígrafs",
+                        url: "catala/sant_baldiri/Apuntes.html",
+                        desc: "Comprensió 'L'escola de Sant Baldiri', sinònims i antònims, síl·labes i dígrafs (separables/inseparables), el substantiu i taller d'escriptura.",
+                        badge: "100% Interactiu"
+                    }
+                ]
+            },
+            {
+                id: "amco",
+                name: "Amco",
+                fullName: "Amco English",
+                icon: "🇬🇧",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=11MTXbwRSRHr8vQThod9kVhjcwmopSonJ&usp=drive_copy",
+                localFolder: "amco/",
+                description: "Programa oficial de inglés Amco, listening, speaking, spelling y gramática.",
+                topics: []
+            },
+            {
+                id: "bae",
+                name: "B.A.E",
+                fullName: "B.A.E",
+                icon: "📘",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=1G2BLt9yt6NKJfKqpGz5NqCnccPScsrRH&usp=drive_copy",
+                localFolder: "bae/",
+                description: "Materiales y actividades de B.A.E.",
+                topics: []
+            },
+            {
+                id: "robotica",
+                name: "Robótica",
+                fullName: "Tecnología & Robótica",
+                icon: "🤖",
+                category: "ciencias",
+                driveUrl: "https://drive.google.com/open?id=14rR8YmK69H3EQTRQ-wUMTCabBFCjMX_I&usp=drive_copy",
+                localFolder: "robotica/",
+                description: "Programación, pensamiento computacional y proyectos de robótica.",
+                topics: []
+            },
+            {
+                id: "chess",
+                name: "Chess",
+                fullName: "Ajedrez",
+                icon: "♟️",
+                category: "expresion",
+                driveUrl: "https://drive.google.com/open?id=1q8gP-7Ul01ed89BBRHZtFtPLeYPKG8Xi&usp=drive_copy",
+                localFolder: "chess/",
+                description: "Táctica, aperturas, finales y jugadas de ajedrez.",
+                topics: []
+            },
+            {
+                id: "film",
+                name: "Film",
+                fullName: "Cultura Audiovisual",
+                icon: "🎬",
+                category: "expresion",
+                driveUrl: "https://drive.google.com/open?id=1xs6Knada8rFVcCuQq9yc_3r_KD581pNn&usp=drive_copy",
+                localFolder: "film/",
+                description: "Lenguaje cinematográfico, planos, sonido y análisis de cine.",
+                topics: []
+            },
+            {
+                id: "musica",
+                name: "Música",
+                fullName: "Educación Musical",
+                icon: "🎵",
+                category: "expresion",
+                driveUrl: "https://drive.google.com/open?id=1nlFzCc-zVUqHjnIjbbs5brdz7p9zyUw8&usp=drive_copy",
+                localFolder: "musica/",
+                description: "Lenguaje musical, ritmo, instrumentos y audiciones.",
+                topics: []
+            },
+            {
+                id: "ef",
+                name: "E.F.",
+                fullName: "Educación Física",
+                icon: "🏃",
+                category: "expresion",
+                driveUrl: "https://drive.google.com/open?id=1fP9XR7bVjHk9w6rJ1T0ct2NmbtOiNl-T&usp=drive_copy",
+                localFolder: "ef/",
+                description: "Deportes, reglas de juego, resistencia y salud.",
+                topics: []
+            },
+            {
+                id: "religio",
+                name: "Religió",
+                fullName: "Religión & Valores",
+                icon: "🕊️",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=1CvTzClXwHWQ_2bylB-ZqJB6dyhk4pCaw&usp=drive_copy",
+                localFolder: "religio/",
+                description: "Historia de las religiones, valores y tradiciones.",
+                topics: []
+            },
+            {
+                id: "tutoria",
+                name: "Tutoria",
+                fullName: "Tutoría",
+                icon: "🤝",
+                category: "troncales",
+                driveUrl: "https://drive.google.com/open?id=1xirbqXC-QYxl8SyZZbiOVeeU818GCYNk&usp=drive_copy",
+                localFolder: "tutoria/",
+                description: "Organización escolar, calendario de exámenes y seguimiento.",
+                topics: []
+            }
+        ];
+
+        function updateHubCounters() {
+            const totalTopics = SUBJECTS.reduce((acc, s) => acc + (s.topics ? s.topics.length : 0), 0);
+
+            const badge = document.getElementById('hero-stats-badge');
+            if (badge) {
+                badge.textContent = `${SUBJECTS.length} ASIGNATURAS • ${totalTopics} ${totalTopics === 1 ? 'TEMA INTERACTIVO' : 'TEMAS INTERACTIVOS'}`;
+            }
+            const topicsStat = document.getElementById('stat-total-topics');
+            if (topicsStat) {
+                topicsStat.textContent = totalTopics;
+            }
+            const subsStat = document.getElementById('stat-total-subjects');
+            if (subsStat) {
+                subsStat.textContent = SUBJECTS.length;
+            }
+        }
+
+        function getTopicProgress(subjectId, topicId) {
+            try {
+                if (subjectId === 'castellano' && topicId === 'comunicacion') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_castellano_comunicacion'));
+                    if (!data) return null;
+                    const q = ((data.quizBest || 0) / 10) * 30;
+                    const p = ((data.pairsMatched || 0) / 8) * 25;
+                    const f = ((data.flashcardsMastered ? data.flashcardsMastered.length : 0) / 14) * 25;
+                    const s = data.sorterDone ? 20 : 0;
+                    return Math.min(100, Math.round(q + p + f + s));
+                }
+                if (subjectId === 'castellano' && topicId === 'signo_puntuacion') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_castellano_signos'));
+                    if (!data) return null;
+                    const q = ((data.quizBest || 0) / 10) * 30;
+                    const w = ((data.workshopSolved ? data.workshopSolved.length : 0) / 10) * 25;
+                    const s = ((data.sorterSolved ? data.sorterSolved.length : 0) / 10) * 20;
+                    const f = ((data.flashcardsMastered ? data.flashcardsMastered.length : 0) / 15) * 25;
+                    return Math.min(100, Math.round(q + w + s + f));
+                }
+                if (subjectId === 'mates' && topicId === 'operaciones') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_mates_operaciones'));
+                    if (!data) return null;
+                    const s = Math.min(40, ((data.sprintRecord || 0) / 60) * 40);
+                    const p = Math.min(60, ((data.problemsSolved || 0) / 32) * 60);
+                    return Math.min(100, Math.round(s + p));
+                }
+                if (subjectId === 'projecte' && topicId === 'coordenadas') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_projecte_coordenades'));
+                    if (!data) return null;
+                    const q = ((data.testBest || 0) / 20) * 35;
+                    const p = ((data.pokemonCaught ? data.pokemonCaught.length : 0) / 10) * 35;
+                    const c = data.constellationDone ? 15 : 0;
+                    const pt = Math.min(15, (data.pointsGeneratedSolved || 0) * 3);
+                    return Math.min(100, Math.round(q + p + c + pt));
+                }
+            } catch (e) { }
+            return null;
+        }
+
+        function renderSubjects() {
+            updateHubCounters();
+            const container = document.getElementById('subjects-grid');
+            container.innerHTML = '';
+
+            SUBJECTS.forEach(s => {
+                const topicsCount = s.topics ? s.topics.length : 0;
+                const hasTopics = topicsCount > 0;
+                const card = document.createElement('div');
+                card.className = `subject-card ${hasTopics ? 'is-active-app' : ''}`;
+
+                let actionHtml = '';
+                if (topicsCount === 1) {
+                    const topTopic = s.topics[0];
+                    const prog = getTopicProgress(s.id, topTopic.id);
+                    actionHtml = `
+                        <div class="card-actions">
+                            <a href="${topTopic.url}" class="btn-launch-app" title="${topTopic.title}">
+                                <span>🎮</span> ${topTopic.shortTitle} →
+                                ${prog !== null ? `<span style="margin-left: auto; font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 999px; background: rgba(255,255,255,0.25);">${prog}%</span>` : ''}
+                            </a>
+                            <div class="card-sub-actions">
+                                <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
+                                    <span>⚙️</span> Opciones
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                } else if (topicsCount > 1) {
+                    actionHtml = `
+                        <div class="card-actions">
+                            <div class="card-topics-list">
+                                ${s.topics.slice(0, 2).map(t => {
+                        const prog = getTopicProgress(s.id, t.id);
+                        return `
+                                    <a href="${t.url}" class="btn-topic-launch" title="${t.title}">
+                                        <span>🎮 ${t.shortTitle}</span>
+                                        <div style="display: flex; align-items: center; gap: 0.35rem;">
+                                            ${prog !== null ? `<span style="font-size: 0.68rem; padding: 0.1rem 0.4rem; border-radius: 999px; background: #ecfdf5; color: #047857; font-weight: 800;">${prog}%</span>` : ''}
+                                            <span>→</span>
+                                        </div>
+                                    </a>
+                                `}).join('')}
+                                ${s.topics.length > 2 ? `
+                                    <button class="btn-topic-more" onclick="openSubjectModal('${s.id}')">
+                                        +${s.topics.length - 2} temas más...
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div class="card-sub-actions" style="margin-top: 0.35rem;">
+                                <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
+                                    <span>📚</span> Ver ${topicsCount} temas
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    actionHtml = `
+                        <div class="card-actions">
+                            <a href="${s.driveUrl}" target="_blank" class="btn-launch-app" style="background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color);">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                            <div class="card-sub-actions">
+                                <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">📁 Carpeta lista</span>
+                                <button class="btn-sub-options" onclick="openSubjectModal('${s.id}')">
+                                    <span>➕</span> Añadir tema
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    ${hasTopics ? `<span class="badge-active-mark">🌟 ${topicsCount} ${topicsCount === 1 ? 'Tema listo' : 'Temas listos'}</span>` : ''}
+                    <div>
+                        <div class="card-top-row">
+                            <div class="subject-icon">${s.icon}</div>
+                            <div>
+                                <h3 class="subject-title">${s.name}</h3>
+                                <div class="subject-category-tag">${s.fullName}</div>
+                            </div>
+                        </div>
+                        <p class="subject-desc" style="margin-top: 0.6rem;">${s.description}</p>
+                    </div>
+                    ${actionHtml}
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function openSubjectModal(subjectId) {
+            playClickSound();
+            const s = SUBJECTS.find(item => item.id === subjectId);
+            if (!s) return;
+
+            const modal = document.getElementById('detail-modal');
+            const body = document.getElementById('modal-body');
+            const topicsCount = s.topics ? s.topics.length : 0;
+
+            body.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <div style="font-size: 2.2rem;">${s.icon}</div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                            <h2 style="font-size: 1.35rem; color: var(--text-main); margin: 0;">${s.name}</h2>
+                            <span style="font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: var(--primary-light); color: var(--primary); font-weight: 800;">${s.fullName}</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0 0;">${s.description}</p>
+                    </div>
+                </div>
+
+                <!-- Lista de Temas -->
+                <div style="margin-top: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+                        <h4 style="font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.35rem;">
+                            <span>📖</span> Temas y Apuntes Interactivos (${topicsCount})
+                        </h4>
+                        <a href="${s.driveUrl}" target="_blank" style="font-size: 0.78rem; font-weight: 700; color: #2563eb; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
+                            <span>☁️</span> Abrir Drive ↗
+                        </a>
+                    </div>
+
+                    ${topicsCount > 0 ? `
+                        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                            ${s.topics.map((t, idx) => {
+                const prog = getTopicProgress(s.id, t.id);
+                return `
+                                <div class="modal-topic-card">
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem; flex-wrap: wrap;">
+                                            <strong style="font-size: 0.88rem; color: var(--text-main);">${idx + 1}. ${t.title}</strong>
+                                            ${prog !== null ? `<span style="font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: #ecfdf5; color: #047857; font-weight: 800;">📊 Progreso: ${prog}%</span>` : ''}
+                                            ${t.badge ? `<span style="font-size: 0.68rem; padding: 0.1rem 0.4rem; border-radius: 999px; background: var(--primary-light); color: var(--primary); font-weight: 800;">${t.badge}</span>` : ''}
+                                        </div>
+                                        <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0; line-height: 1.35;">${t.desc || ''}</p>
+                                    </div>
+                                    <a href="${t.url}" class="btn-launch-app" style="width: auto; padding: 0.45rem 0.85rem; font-size: 0.8rem; flex-shrink: 0;">
+                                        <span>🎮 Abrir</span>
+                                    </a>
+                                </div>
+                            `}).join('')}
+                        </div>
+                    ` : `
+                        <div style="text-align: center; padding: 1.25rem; background: var(--bg-main); border: 1px dashed var(--border-color); border-radius: var(--radius-md); color: var(--text-muted); font-size: 0.85rem;">
+                            Aún no hay temas interactivos creados para ${s.name}.
+                        </div>
+                    `}
+                </div>
+
+                <!-- Cómo añadir nuevos temas -->
+                <div class="modal-prompt-box">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.04em;">➕ Cómo añadir el próximo tema:</span>
+                        <button id="btn-copy-prompt" class="btn-sub-drive" style="font-size: 0.72rem; padding: 0.25rem 0.55rem;" onclick="copySubjectPrompt('${s.name}', '${s.localFolder}')">📋 Copiar Prompt IA</button>
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.5rem 0; line-height: 1.45;">
+                        Crea una subcarpeta para el tema dentro de:
+                        <code style="display: block; padding: 0.35rem; margin: 0.3rem 0; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; color: var(--primary); font-size: 0.76rem; word-break: break-all;">c:\\Proyectos\\Apuntes Alvaro\\${s.localFolder}[nombre_tema]\\</code>
+                        Guarda tus apuntes o PDFs allí y dile al asistente que genere los apuntes interactivos web.
+                    </p>
+                    <div style="display: flex; gap: 0.4rem;">
+                        <button class="btn-sub-drive" style="flex: 1; justify-content: center; font-size: 0.76rem; padding: 0.4rem 0.6rem;" onclick="copyPath('${s.localFolder}')">
+                            📁 Copiar ruta carpeta
+                        </button>
+                        <a href="${s.driveUrl}" target="_blank" class="btn-sub-drive" style="flex: 1; justify-content: center; font-size: 0.76rem; padding: 0.4rem 0.6rem; color: #2563eb;">
+                            ☁️ Ver Drive ↗
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            playClickSound();
+            document.getElementById('detail-modal').classList.remove('active');
+        }
+
+        function closeModalOnBg(e) {
+            if (e.target.id === 'detail-modal') closeModal();
+        }
+
+        function copyPath(folder) {
+            const p = `c:\\Proyectos\\Apuntes Alvaro\\${folder}`;
+            navigator.clipboard.writeText(p).then(() => {
+                alert(`Ruta copiada al portapapeles:\n${p}`);
+            });
+        }
+
+        function copySubjectPrompt(subjectName, folder) {
+            const prompt = `Hola, he guardado nuevo material para el tema [nombre_del_tema] en c:\\Proyectos\\Apuntes Alvaro\\${folder}[nombre_del_tema]. Por favor crea los apuntes interactivos en Apuntes.html adaptados a los contenidos de ${subjectName}, y regístralo en index.html.`;
+            navigator.clipboard.writeText(prompt).then(() => {
+                const btn = document.getElementById('btn-copy-prompt');
+                if (btn) {
+                    const orig = btn.innerHTML;
+                    btn.innerHTML = '✅ ¡Copiado!';
+                    setTimeout(() => { btn.innerHTML = orig; }, 2000);
+                }
+            });
+        }
+
+        /* Pomodoro Timer */
+        let pomodoroTime = 25 * 60;
+        let pomodoroTimer = null;
+        let pomodoroRunning = false;
+
+        function togglePomodoro() {
+            playClickSound();
+            const btn = document.getElementById('btn-timer-toggle');
+            if (!pomodoroRunning) {
+                pomodoroRunning = true;
+                btn.textContent = 'Pausa';
+                pomodoroTimer = setInterval(() => {
+                    if (pomodoroTime > 0) {
+                        pomodoroTime--;
+                        updateTimer();
+                    } else {
+                        clearInterval(pomodoroTimer);
+                        pomodoroRunning = false;
+                        btn.textContent = 'Iniciar';
+                        alert("¡Bloque de 25 minutos completado!");
+                    }
+                }, 1000);
+            } else {
+                clearInterval(pomodoroTimer);
+                pomodoroRunning = false;
+                btn.textContent = 'Reanudar';
+            }
+        }
+
+        function resetPomodoro() {
+            playClickSound();
+            clearInterval(pomodoroTimer);
+            pomodoroRunning = false;
+            pomodoroTime = 25 * 60;
+            document.getElementById('btn-timer-toggle').textContent = 'Iniciar';
+            updateTimer();
+        }
+
+        function updateTimer() {
+            const mins = String(Math.floor(pomodoroTime / 60)).padStart(2, '0');
+            const secs = String(pomodoroTime % 60).padStart(2, '0');
+            document.getElementById('timer-display').textContent = `${mins}:${secs}`;
+        }
+
+        /* Sound & Dark Mode */
+        let audioCtx = null;
+        let isMuted = localStorage.getItem('hub_muted') === 'true';
+
+        function playClickSound() {
+            if (isMuted) return;
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(750, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            } catch (e) { }
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            localStorage.setItem('hub_muted', isMuted);
+            document.getElementById('btn-toggle-sound').textContent = isMuted ? '🔇' : '🔊';
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('hub_dark', isDark);
+            document.getElementById('btn-toggle-dark').textContent = isDark ? '☀️' : '🌓';
+        }
+
+        function saveChecklist() {
+            const checks = Array.from(document.querySelectorAll('#checklist-container input')).map(c => c.checked);
+            localStorage.setItem('hub_checklist', JSON.stringify(checks));
+            playClickSound();
+        }
+
+        function loadChecklist() {
+            const saved = JSON.parse(localStorage.getItem('hub_checklist') || '[]');
+            const inputs = document.querySelectorAll('#checklist-container input');
+            inputs.forEach((input, idx) => {
+                if (saved[idx] !== undefined) input.checked = saved[idx];
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('hub_dark') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('btn-toggle-dark').textContent = '☀️';
+            }
+            document.getElementById('btn-toggle-sound').textContent = isMuted ? '🔇' : '🔊';
+            renderSubjects();
+            loadChecklist();
+        });
+    </script>
+</body>
+
+</html>

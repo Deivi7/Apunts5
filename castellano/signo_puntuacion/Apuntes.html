@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Signos de Puntuación & Lengua Castellana | Domina la Ortografía</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top Navbar Minimal -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Volver al Portal Central">
+                <span>←</span> Volver a Temas
+            </a>
+            <div class="topic-badge-header">
+                <span>✍️</span> Castellano • Tema 2
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Cambiar Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temas de Lengua Castellana</div>
+                    <a href="../comunicacion/Apuntes.html" class="topic-dropdown-item">
+                        <strong>1. Comunicación & El Diccionario</strong> →
+                    </a>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>2. Signos de Puntuación & Ortografía</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Quick Cheat Sheet Button -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+                <span>💡</span> Chuleta Rápida
+            </button>
+
+            <!-- Stats Pills -->
+            <div class="score-pill-nav" title="Puntos de Experiencia">
+                <span>⚡</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Racha de aciertos">
+                <span>🔥</span>
+                <span id="streak-counter">0</span>
+            </div>
+
+            <!-- Sonido y Modo Oscuro -->
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sonidos">🔊</button>
+            <button class="btn-icon-nav" id="btn-theme-toggle" onclick="toggleDarkMode()" title="Modo Claro/Oscuro">🌓</button>
+        </div>
+    </header>
+
+    <!-- 100% Full Width Hero Banner (Harmonized with Mates) -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">LENGUA CASTELLANA • TEMA 2 ESCOLAR</div>
+                <h1>Signos de Puntuación & Ortografía</h1>
+                <p>Domina el punto, la coma, los dos puntos, puntos suspensivos, comillas, mayúsculas y el orden alfabético RAE con tarjetas interactivas de voz, parejas y talleres prácticos.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-quiz-record">0/10</div>
+                    <div class="stat-label">Récord Quiz</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-workshop-done">0/10</div>
+                    <div class="stat-label">Puntuadas</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Puntos XP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle Bar -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Apuntes: Reglas</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Ejercicios
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Tema del Cole</span>
+                <h3 class="sidebar-topic-title">2. Signos de Puntuación</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progreso del tema</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav-list">
+                <!-- 1. Apuntes (SIEMPRE LA PRIMERA OPCIÓN) -->
+                <button class="sidebar-item-btn active" onclick="switchSidebarTab('apuntes', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Apuntes: Reglas</span>
+                            <span class="sidebar-btn-desc">Los signos explicados paso a paso</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-apuntes">Teoría</span>
+                </button>
+
+                <!-- 2. Tarjetas Interactivas con Voz -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('flashcards', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎴</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Tarjetas con Voz (15)</span>
+                            <span class="sidebar-btn-desc">Estudio con audio y ejemplos</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-flashcards">0/15</span>
+                </button>
+
+                <!-- 3. Juego de Parejas -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('memory', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🧩</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Parejas Ortográficas</span>
+                            <span class="sidebar-btn-desc">Memoria visual de signos</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-memory">Minijuego</span>
+                </button>
+
+                <!-- 4. Taller: Puntúa la Frase -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('workshop', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✍️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. Taller: Puntúa la Frase</span>
+                            <span class="sidebar-btn-desc">Inserta signos en textos reales</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-workshop">0/10</span>
+                </button>
+
+                <!-- 5. Clasificador Veloz -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('sorter', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎯</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Clasificador Veloz</span>
+                            <span class="sidebar-btn-desc">Identificación contrarreloj</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-sorter">Récord: 0</span>
+                </button>
+
+                <!-- 6. Quiz de Examen -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('quiz', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🔘</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Quiz de Examen</span>
+                            <span class="sidebar-btn-desc">10 preguntas aleatorias RAE</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-quiz">Récord: 0</span>
+                </button>
+
+                <!-- 7. Chuleta Imprimible -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('cheatsheet', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📋</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">7. Chuleta Imprimible</span>
+                            <span class="sidebar-btn-desc">Tabla oficial y trampas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Ficha</span>
+                </button>
+
+                <!-- 8. Documentos PDF -->
+                <button class="sidebar-item-btn" onclick="switchSidebarTab('docs', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📁</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">8. Documentos de Clase</span>
+                            <span class="sidebar-btn-desc">PDFs oficiales de Drive</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Drive</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Chuleta Rápida (Ventana)
+                </button>
+                <a href="../comunicacion/Apuntes.html" class="sidebar-link-topic">
+                    <span>➔ Ir al Tema 1: Comunicación</span>
+                    <span>→</span>
+                </a>
+                <button class="sidebar-reset-btn" onclick="confirmResetProgress()">
+                    ↺ Reiniciar mis récords de este tema
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+        <!-- ==========================================
+             PESTAÑA 1: APUNTES Y REGLAS DE PUNTUACIÓN (TEORÍA)
+             ========================================== -->
+        <section id="panel-apuntes" class="tab-panel active">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📖</span> Apuntes y Reglas de Puntuación</h2>
+                    <p class="section-subtitle">Aprende cuándo usar cada signo para que tus textos se lean con entonación perfecta y sin faltas ortográficas.</p>
+                </div>
+                <button class="btn-primary" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Abrir Chuleta Rápida
+                </button>
+            </div>
+
+            <!-- ==========================================
+                 RESOURCE HUB: ENLACES OFICIALES DRIVE & WEBS GENIALLY
+                 ========================================== -->
+            <div class="resource-hub-container">
+                <div class="resource-hub-header">
+                    <div class="resource-hub-title">
+                        <span>🔗</span> Enlaces Oficiales de Clase (Google Drive & Webs del Genially)
+                    </div>
+                    <span class="badge-pill" style="font-size: 0.75rem;">Material Oficial 5º Primaria</span>
+                </div>
+                
+                <div class="resource-group-title">
+                    <span>📁</span> Documentos y Fichas en Google Drive
+                </div>
+                <div class="resource-grid">
+                    <a href="https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>✍️</span> Signos de puntuación.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📋</span> 41Signos de Puntuación.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔤</span> El abecedario español.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📖</span> El inventor Datealpié.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔢</span> Ordenar alfabéticamente.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha oficial con las listas de palabras para ordenar alfabéticamente.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🌐</span> Qué es el diccionario online.pdf</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🔍</span> ¡Practiquemos lo aprendido!</span>
+                            <span class="resource-badge drive">Drive</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha de ejercicios prácticos con el diccionario online de la RAE.</p>
+                        <div class="resource-card-action"><span>Abrir PDF en Drive</span> <span>↗</span></div>
+                    </a>
+                </div>
+
+                <div class="resource-group-title">
+                    <span>✨</span> Presentación Interactiva y Actividades Web del Genially
+                </div>
+                <div class="resource-grid">
+                    <a href="https://view.genially.com/673b29cc495b2a814eb603f6" target="_blank" class="resource-card" style="border-left: 4px solid #9333ea;">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>✨</span> Genially Oficial Tema 1</span>
+                            <span class="resource-badge genially">Genially</span>
+                        </div>
+                        <p class="resource-card-desc">Presentación interactiva completa del colegio con actividades de puntuación y vocabulario.</p>
+                        <div class="resource-card-action"><span>Abrir Genially</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🎓</span> AulaFácil: Signos Puntuación</span>
+                            <span class="resource-badge web">Web</span>
+                        </div>
+                        <p class="resource-card-desc">Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.</p>
+                        <div class="resource-card-action"><span>Ver en AulaFácil</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.daypo.com/signos-puntuacion-1.html" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>🕹️</span> Daypo: Test Interactivo</span>
+                            <span class="resource-badge web">Test</span>
+                        </div>
+                        <p class="resource-card-desc">Test en línea sobre signos de puntuación referenciado en la presentación de clase.</p>
+                        <div class="resource-card-action"><span>Realizar Test</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📖</span> Anaya Educación: Signos</span>
+                            <span class="resource-badge web">Web</span>
+                        </div>
+                        <p class="resource-card-desc">Batería de actividades multimedia de ortografía de Anaya Educación.</p>
+                        <div class="resource-card-action"><span>Abrir Actividades</span> <span>↗</span></div>
+                    </a>
+
+                    <a href="https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027" target="_blank" class="resource-card">
+                        <div class="resource-card-top">
+                            <span class="resource-card-title"><span>📄</span> Liveworksheets: Puntuación</span>
+                            <span class="resource-badge web">Ficha</span>
+                        </div>
+                        <p class="resource-card-desc">Ficha interactiva autocorregible de lengua castellana en Liveworksheets.</p>
+                        <div class="resource-card-action"><span>Abrir Ficha</span> <span>↗</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #059669;">
+                    <h3 style="font-size: 1.15rem; color: #059669; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>🔴</span> 1. El Punto (.)
+                    </h3>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+                        Indica una pausa larga y el final de un enunciado. Tras punto, <strong>siempre se escribe mayúscula inicial</strong>.
+                    </p>
+                    <ul style="font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;">
+                        <li><strong>Punto y seguido:</strong> Separa oraciones dentro del mismo párrafo.</li>
+                        <li><strong>Punto y aparte:</strong> Separa párrafos que cambian de idea.</li>
+                        <li><strong>Punto final:</strong> Da fin al texto o redacción.</li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #0284c7;">
+                    <h3 style="font-size: 1.15rem; color: #0284c7; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>🟢</span> 2. La Coma (,)
+                    </h3>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+                        Marca una pausa breve dentro de la frase.
+                    </p>
+                    <ul style="font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;">
+                        <li><strong>Enumeraciones:</strong> <em>Compré manzanas, peras y uvas.</em> (Delante de 'y' no se pone coma).</li>
+                        <li><strong>Aclaraciones:</strong> <em>Mi hermano, que vive en Girona, vino ayer.</em></li>
+                        <li><strong>Vocativo:</strong> <em>Álvaro, ven a cenar. / Hola, mamá.</em></li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #d97706;">
+                    <h3 style="font-size: 1.15rem; color: #d97706; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>🟡</span> 3. Los Dos Puntos (:)
+                    </h3>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+                        Detienen el discurso para llamar la atención sobre lo que viene a continuación.
+                    </p>
+                    <ul style="font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;">
+                        <li><strong>Antes de enumeración anunciada:</strong> <em>Había tres cosas: lápiz, goma y regla.</em></li>
+                        <li><strong>Antes de cita textual:</strong> <em>El profesor dijo: «Abran el libro».</em></li>
+                        <li><strong>Cartas y correos:</strong> <em>Querido amigo: / Estimada abuela:</em></li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #8b5cf6;">
+                    <h3 style="font-size: 1.15rem; color: #8b5cf6; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>🟣</span> 4. Interrogación y Exclamación
+                    </h3>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+                        En español son <strong>signos dobles obligatorios</strong>: apertura y cierre.
+                    </p>
+                    <ul style="font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;">
+                        <li><strong>¿ ? :</strong> Expresan preguntas directas. <em>¿Qué hora es?</em></li>
+                        <li><strong>¡ ! :</strong> Expresan sorpresa, emoción o alegría. <em>¡Qué golazo!</em></li>
+                        <li><strong>Regla de oro:</strong> Tras '?' o '!' <strong>nunca se pone punto</strong> (el signo ya lo lleva).</li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #ec4899;">
+                    <h3 style="font-size: 1.15rem; color: #ec4899; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>💬</span> 5. Puntos Suspensivos y Comillas
+                    </h3>
+                    <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+                        Matices expresivos y palabras textuales.
+                    </p>
+                    <ul style="font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;">
+                        <li><strong>Puntos suspensivos (...):</strong> Son tres. Indican duda, suspense o enumeración abierta.</li>
+                        <li><strong>Comillas (« » / " "):</strong> Enmarcan citas textuales o títulos de capítulos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: TARJETAS INTERACTIVAS
+             ========================================== -->
+        <section id="panel-flashcards" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎴</span> Tarjetas Interactivas de Puntuación</h2>
+                    <p class="section-subtitle">Toca cualquier tarjeta para ver su regla y pulsa el altavoz 🔊 para escuchar la explicación en voz alta.</p>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="card-search" class="search-input" placeholder="Buscar signo o concepto (ej. Coma, Cita...)" oninput="filterCards()">
+                </div>
+            </div>
+
+            <!-- Filtros de categoría -->
+            <div class="filter-group">
+                <button class="filter-pill active" onclick="setCardFilter('all', this)">✨ Todos (15)</button>
+                <button class="filter-pill" onclick="setCardFilter('pausa', this)">⏱️ Pausas (Punto, Coma, ;)</button>
+                <button class="filter-pill" onclick="setCardFilter('expresion', this)">💬 Expresión (¿?, ¡!, ...)</button>
+                <button class="filter-pill" onclick="setCardFilter('auxiliar', this)">📐 Auxiliares (Dos puntos, (), "", -)</button>
+                <button class="filter-pill" onclick="setCardFilter('lengua', this)">📖 Diccionario & Abecedario</button>
+            </div>
+
+            <!-- Cuadrícula de Tarjetas -->
+            <div id="cards-container" class="cards-grid"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 2: JUEGO DE PAREJAS (MEMORY MATCH)
+             ========================================== -->
+        <section id="panel-memory" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🧩</span> Minijuego: Empareja Signo y Regla</h2>
+                    <p class="section-subtitle">Encuentra cada pareja: el signo de puntuación con su regla de oro o caso de uso.</p>
+                </div>
+                <button class="btn-primary" onclick="initMemoryGame()">
+                    <span>🔄</span> Nueva Partida
+                </button>
+            </div>
+
+            <div class="game-controls">
+                <div class="game-stat-box">
+                    <span>⏱️ Tiempo:</span>
+                    <span id="memory-timer" class="game-stat-val">00:00</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>🎯 Intentos:</span>
+                    <span id="memory-moves" class="game-stat-val">0</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>✨ Parejas:</span>
+                    <span id="memory-pairs" class="game-stat-val">0 / 6</span>
+                </div>
+            </div>
+
+            <div id="memory-board" class="memory-grid"></div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 3: QUIZ DE EXAMEN
+             ========================================== -->
+        <section id="panel-quiz" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🔘</span> Quiz Interactivo de Puntuación</h2>
+                    <p class="section-subtitle">Preguntas reales basadas en los exámenes escolares y las fichas de clase. ¡Gana 20 XP por acierto!</p>
+                </div>
+                <button class="btn-primary" onclick="restartQuiz()">
+                    <span>🔄</span> Reiniciar Quiz
+                </button>
+            </div>
+
+            <div class="quiz-wrapper">
+                <div class="quiz-card" id="quiz-box">
+                    <div class="quiz-progress-num" id="quiz-counter">Pregunta 1 de 12</div>
+                    <div class="quiz-question-text" id="quiz-question">Cargando pregunta...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-explanation-box" id="quiz-explanation"></div>
+                    <div class="quiz-next-row">
+                        <button id="btn-next-quiz" class="btn-primary" style="display: none;" onclick="nextQuizQuestion()">
+                            Siguiente Pregunta &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 4: TALLER PRÁCTICO (PUNTÚA LA FRASE)
+             ========================================== -->
+        <section id="panel-workshop" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>✍️</span> Taller: Puntúa las Frases & Orden Alfabético</h2>
+                    <p class="section-subtitle">Ejercicios directos de las fichas oficiales de clase. Practica con las 14 frases y juega al minijuego de ordenar palabras en la web.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-accent" onclick="resetWorkshop()">
+                        <span>🔄</span> Limpiar Frases
+                    </button>
+                    <button class="btn-primary" onclick="resetAlphaLevel()">
+                        <span>🔤</span> Reiniciar Reto ABC
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ejercicio 1: Frases -->
+            <div class="workshop-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <h3 style="color: var(--primary);">📝 Ejercicio 1: Coloca los signos faltantes (14 Frases Reales)</h3>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Usa los botones rápidos para insertar comas, puntos y comillas</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Escribe la frase puntuada o pulsa los botones rápidos para insertar los signos en la posición exacta:</p>
+                
+                <!-- Filtros de Frases -->
+                <div class="filter-group" style="margin-bottom: 1.25rem;">
+                    <button class="filter-pill active" onclick="setWorkshopFilter('all', this)">✨ Todas las Frases (14)</button>
+                    <button class="filter-pill" onclick="setWorkshopFilter('puntos_comas', this)">📌 Puntos y Comas (5)</button>
+                    <button class="filter-pill" onclick="setWorkshopFilter('punto_coma', this)">⚖️ Punto y Coma (2)</button>
+                    <button class="filter-pill" onclick="setWorkshopFilter('dos_puntos', this)">📣 Dos Puntos (4)</button>
+                    <button class="filter-pill" onclick="setWorkshopFilter('expresion_citas', this)">💬 Suspensivos & Comillas (3)</button>
+                </div>
+
+                <div id="sentences-workshop-container"></div>
+            </div>
+
+            <!-- Ejercicio 2: Minijuego Interactivo de Orden Alfabético -->
+            <div class="workshop-card" id="workshop-alpha-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <h3 style="color: var(--primary);">🔤 Ejercicio 2: Minijuego Interactivo de Orden Alfabético</h3>
+                    <span id="alpha-score-badge" style="background: var(--primary-light); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 800; font-size: 0.8rem;">Nivel 1 de 3</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    <strong>Cómo jugar:</strong> Toca las palabras desordenadas de la caja superior para colocarlas en orden alfabético estricto (Norma RAE). Si te equivocas, toca una palabra colocada para devolverla a la caja.
+                </p>
+
+                <div class="alpha-game-container">
+                    <!-- Selector de Nivel -->
+                    <div class="alpha-level-tabs">
+                        <button class="alpha-level-btn active" onclick="selectAlphaLevel(0, this)">Nivel 1: Palabras de la Ficha (8)</button>
+                        <button class="alpha-level-btn" onclick="selectAlphaLevel(1, this)">Nivel 2: Palabras con P- (Comparar 3ª/4ª letra)</button>
+                        <button class="alpha-level-btn" onclick="selectAlphaLevel(2, this)">Nivel 3: El Gran Reto (10 palabras)</button>
+                    </div>
+
+                    <!-- Caja de palabras desordenadas -->
+                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">
+                        Palabras desordenadas (Toca para colocar):
+                    </div>
+                    <div id="alpha-pool" class="alpha-pool-box"></div>
+
+                    <!-- Casillas ordenadas -->
+                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">
+                        Tu lista ordenada (Toca una palabra para quitarla):
+                    </div>
+                    <div id="alpha-slots" class="alpha-slots-grid"></div>
+
+                    <!-- Acciones del juego -->
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="checkAlphaOrder()">
+                            <span>✅</span> Comprobar Orden
+                        </button>
+                        <button class="btn-accent" onclick="resetAlphaLevel()">
+                            <span>🔄</span> Reiniciar Casillas
+                        </button>
+                        <button class="btn-primary" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color);" onclick="showAlphaHint()">
+                            <span>💡</span> Ver Pista / Regla RAE
+                        </button>
+                    </div>
+
+                    <div id="alpha-feedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: var(--radius-md); font-size: 0.9rem; line-height: 1.4;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 5: CLASIFICADOR VELOZ
+             ========================================== -->
+        <section id="panel-sorter" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🎯</span> Clasificador Veloz de Casos</h2>
+                    <p class="section-subtitle">Lee la situación o ejemplo y pulsa rápidamente el signo de puntuación que le corresponde.</p>
+                </div>
+                <button class="btn-primary" onclick="initSorter()">
+                    <span>🔄</span> Reiniciar Reto
+                </button>
+            </div>
+
+            <div class="sorter-area">
+                <div class="sorter-card">
+                    <div style="font-size: 0.85rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+                        ¿QUÉ SIGNO DEBE USARSE AQUÍ?
+                    </div>
+                    <div class="sorter-phrase-display" id="sorter-phrase">Cargando caso...</div>
+                    <div class="sorter-hint-display" id="sorter-hint">Elige la opción correcta para ganar +15 XP:</div>
+                    
+                    <div class="sorter-targets" id="sorter-buttons"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 6: CHULETA Y RESUMEN (PRINTABLE)
+             ========================================== -->
+        <section id="panel-cheatsheet" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📋</span> Chuleta Completa de Puntuación & Diccionario</h2>
+                    <p class="section-subtitle">Tabla resumen para repasar antes del examen o imprimir en papel.</p>
+                </div>
+                <button class="btn-primary" onclick="window.print()">
+                    <span>🖨️</span> Imprimir Ficha de Estudio
+                </button>
+            </div>
+
+            <div class="cheatsheet-table-card">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Signo</th>
+                            <th>Símbolo</th>
+                            <th>Regla Principal</th>
+                            <th>Ejemplo Clave</th>
+                            <th>¡Trampa de Examen! ⚠️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Punto</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">.</code></td>
+                            <td>Indica el fin de una oración con sentido completo. Pausa larga.</td>
+                            <td><em>Llegaron tarde. Todos descansaron.</em></td>
+                            <td>Después de un punto SIEMPRE se escribe mayúscula inicial.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coma</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">,</code></td>
+                            <td>Separa elementos de enumeración, aclaraciones y vocativos.</td>
+                            <td><em>Compramos manzanas, peras y uvas.</em></td>
+                            <td>No se pone coma antes del último elemento si va con «y, e, ni, o, u».</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Punto y Coma</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">;</code></td>
+                            <td>Pausa intermedia. Separa elementos con comas internas o frases largas con pero/sin embargo.</td>
+                            <td><em>A papá, una camisa; a mamá, un libro.</em></td>
+                            <td>Se usa antes de «sin embargo / no obstante» en oraciones extensas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dos Puntos</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">:</code></td>
+                            <td>Antes de citas textuales exactas, cartas y enumeraciones anunciadas.</td>
+                            <td><em>El árbitro dijo: "Empieza el partido".</em></td>
+                            <td>En cartas: «Querido amigo:» (la siguiente línea empieza con mayúscula).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Puntos Suspensivos</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">...</code></td>
+                            <td>Pausa para expresar duda, temor o enumeración incompleta.</td>
+                            <td><em>No sé si decírtelo... tengo miedo.</em></td>
+                            <td>¡Son exactamente TRES puntos! Nunca pongas «etc...» juntos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interrogación</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">¿ ?</code></td>
+                            <td>Marcan preguntas directas. En español son DOBLES (apertura y cierre).</td>
+                            <td><em>¿A qué hora quedamos mañana?</em></td>
+                            <td>NUNCA se pone punto (.) después de un signo de interrogación de cierre.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exclamación</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">¡ !</code></td>
+                            <td>Expresan emociones: alegría, sorpresa, enfado, dolor u órdenes.</td>
+                            <td><em>¡Qué alegría verte por aquí!</em></td>
+                            <td>También son obligatoriamente DOBLES (¡ y !). Tampoco llevan punto final.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paréntesis</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">( )</code></td>
+                            <td>Encierran datos aclaratorios, fechas, lugares, autor o siglas.</td>
+                            <td><em>Cervantes (1547-1616) escribió El Quijote.</em></td>
+                            <td>El punto final del párrafo siempre se coloca FUERA del paréntesis.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guion</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">-</code></td>
+                            <td>Cortar palabras al final de renglón o unir términos compuestos.</td>
+                            <td><em>Aquella ma- / ñana fuimos al cam- / po.</em></td>
+                            <td>Nunca se pueden separar vocales de un diptongo ni letras dobles (ll, ch, rr).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comillas</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">" "</code></td>
+                            <td>Encerrar palabras textuales exactas, títulos o términos extranjeros.</td>
+                            <td><em>Raúl jugó un gran "match" de ajedrez.</em></td>
+                            <td>Se usan también para indicar ironía o sentido figurado.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Abecedario RAE</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">27</code></td>
+                            <td>Consta oficialmente de 27 letras desde la 4ª edición del Diccionario.</td>
+                            <td><em>La Ch y la Ll ya no son letras aparte.</em></td>
+                            <td>Ch y Ll se ordenan alfabéticamente dentro de la C y la L respectivamente.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diccionario Online</strong></td>
+                            <td><code style="font-size: 1.2rem; font-weight: 900; color: var(--primary);">DLE</code></td>
+                            <td>Las palabras buscadas son <strong>entradas</strong>; los significados son <strong>acepciones</strong>.</td>
+                            <td><em>1. f. Abertura en la pared para luz.</em></td>
+                            <td>Los verbos se buscan siempre en <strong>infinitivo</strong> (-ar, -er, -ir).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PESTAÑA 7: ARCHIVOS ORIGINALES (PDFs)
+             ========================================== -->
+        <section id="panel-docs" class="tab-panel">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>📁</span> Documentos Originales del Tema</h2>
+                    <p class="section-subtitle">Accede y lee directamente las fichas y apuntes en formato PDF que tienes guardados en esta carpeta.</p>
+                </div>
+            </div>
+
+            <div class="pdf-shelf-grid">
+                <!-- 1. Signos de puntuación -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">📕</span>
+                        <div>
+                            <div class="pdf-name">Signos de puntuación.pdf</div>
+                            <div class="pdf-desc">Guía teórica completa de 10 páginas con todas las explicaciones y ejemplos oficiales.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="Signos de puntuación.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. 41Signos de Puntuación -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">📝</span>
+                        <div>
+                            <div class="pdf-name">41Signos-de-Puntuación.pdf-1-2.pdf</div>
+                            <div class="pdf-desc">Fichas de ejercicios de clase: colocar puntos, comas y dos puntos en frases reales.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="41Signos-de-Puntuación.pdf-1-2.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. El abecedario español -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">🔤</span>
+                        <div>
+                            <div class="pdf-name">El abecedario español.pdf</div>
+                            <div class="pdf-desc">Explicación de las 27 letras oficiales de la Real Academia Española (supresión de ch y ll).</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="El abecedario español.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. El inventor Datealpié -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">🛼</span>
+                        <div>
+                            <div class="pdf-name">El inventor Datealpié.pdf</div>
+                            <div class="pdf-desc">Cuento oficial de lectura del Tema 1 (los patines de ruedas en el baile de Bruselas).</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="El inventor Datealpié.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Ordenar alfabéticamente -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">🔢</span>
+                        <div>
+                            <div class="pdf-name">ordenar alfab.pdf</div>
+                            <div class="pdf-desc">Lista de 24 palabras para practicar el orden alfabético estricto de clase.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="ordenar alfab.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Qué es el diccionario online -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">🌐</span>
+                        <div>
+                            <div class="pdf-name">qué es el diccionario online.pdf</div>
+                            <div class="pdf-desc">Concepto de entrada, acepciones, abreviaturas gramaticales y cómo buscar verbos.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="qué es el diccionario online.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. ¡Practiquemos lo aprendido! -->
+                <div class="pdf-card">
+                    <div class="pdf-icon-title">
+                        <span class="pdf-icon">🔍</span>
+                        <div>
+                            <div class="pdf-name">¡Practiquemos lo aprendido! Diccionario online.pdf</div>
+                            <div class="pdf-desc">Práctica guiada buscando términos como 'ventana' en el diccionario de la RAE.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                        <a href="¡Practiquemos lo aprendido! Diccionario online.pdf" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center;">
+                            <span>📄</span> Local
+                        </a>
+                        <a href="https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <span>☁️</span> Drive
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <!-- Floating Quick Cheat Sheet Button -->
+    <button class="btn-float-cheat" onclick="openQuickCheatSheet()" title="Abrir Chuleta Rápida en cualquier momento">
+        <span>💡</span> Chuleta Rápida
+    </button>
+
+    <!-- Quick Cheat Sheet Modal (Universal) -->
+    <div class="cheat-modal-overlay" id="quick-cheat-modal" onclick="closeCheatOnBackdrop(event)">
+        <div class="cheat-modal-window">
+            <div class="cheat-modal-header">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Chuleta Rápida: Signos de Puntuación</h3>
+                        <p style="font-size: 0.75rem; color: #a7f3d0; margin: 0;">Consulta instantánea de reglas sin interrumpir tu ejercicio actual</p>
+                    </div>
+                </div>
+                <button class="cheat-close-btn" onclick="closeQuickCheatSheet()">×</button>
+            </div>
+            <div class="cheat-modal-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1rem;">
+                    <!-- Bloque 1: Signos de Pausa -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>⏸️</span> Signos de Pausa
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>El Punto (.):</strong> Fin de oración con sentido completo. Siempre mayúscula después.</li>
+                            <li><strong>La Coma (,):</strong> Pausa breve para enumeraciones, aclaraciones y vocativos (llamar a alguien).</li>
+                            <li><strong>Punto y Coma (;):</strong> Pausa intermedia en frases con comas internas o antes de «sin embargo».</li>
+                            <li><strong>Dos Puntos (:):</strong> Antes de enumeraciones anunciadas, citas textuales y cartas («Querido amigo:»).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 2: Signos de Expresión -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--accent-amber); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>🎭</span> Signos de Expresión y Entonación
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Interrogación (¿ ?):</strong> Preguntas directas. En español son DOBLES. ¡Nunca llevan punto después!</li>
+                            <li><strong>Exclamación (¡ !):</strong> Emoción, alegría o sorpresa. También son obligatoriamente DOBLES (¡ y !).</li>
+                            <li><strong>Puntos Suspensivos (...):</strong> Duda, misterio o lista incompleta. ¡Son exactamente 3 puntos!</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 3: Signos Auxiliares & Ortografía RAE -->
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>🔤</span> Signos Auxiliares y Alfabeto
+                        </h4>
+                        <ul style="font-size: 0.84rem; line-height: 1.5; padding-left: 1.2rem; color: var(--text-main);">
+                            <li><strong>Comillas (" "):</strong> Palabras textuales exactas, títulos o términos en otros idiomas.</li>
+                            <li><strong>Paréntesis ( ):</strong> Datos aclaratorios, fechas (1547-1616) o significado de siglas.</li>
+                            <li><strong>Guion (-):</strong> Dividir palabras al final del renglón por sílabas (sin separar diptongos).</li>
+                            <li><strong>Abecedario RAE:</strong> 27 letras oficiales. La 'Ch' y la 'Ll' van dentro de C y L.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; text-align: center;">
+                    <button class="btn-primary" onclick="closeQuickCheatSheet()">
+                        <span>✓</span> Entendido, volver al ejercicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de la Aplicación -->
+    <script>
+        /* =========================================================================
+           1. BASE DE DATOS DE CONCEPTOS (FLASHCARDS & REGLAS)
+           ========================================================================= */
+        const CONCEPTS = [
+            {
+                id: "c_punto",
+                term: "El Punto (.)",
+                symbol: ".",
+                category: "pausa",
+                categoryName: "Pausa",
+                phonetic: "[Pausa Larga y Cierre]",
+                translation: "Punto y seguido, aparte y final",
+                definition: "Marca el final de una oración con sentido completo. Tras el punto SIEMPRE se escribe mayúscula inicial.",
+                tip: "Separa oraciones dentro de un párrafo (seguido) o párrafos distintos (aparte).",
+                example: "Aquella mañana hacía mucho frío. Los niños se abrigaron bien.",
+                speak: "El punto marca una pausa larga e indica que la oración ha terminado. Siempre se escribe mayúscula después."
+            },
+            {
+                id: "c_coma",
+                term: "La Coma (,)",
+                symbol: ",",
+                category: "pausa",
+                categoryName: "Pausa",
+                phonetic: "[Pausa Breve]",
+                translation: "Separación y Aclaración",
+                definition: "Se usa para separar elementos de una enumeración, aislar aclaraciones (incisos) y separar vocativos.",
+                tip: "No se pone coma antes del último elemento si lleva: y, e, ni, o, u.",
+                example: "En el supermercado compramos fruta, verdura, carne y pan. Álvaro, ven a cenar.",
+                speak: "La coma indica una pausa breve. Se usa para enumerar, aislar aclaraciones o llamar a alguien."
+            },
+            {
+                id: "c_punto_coma",
+                term: "El Punto y Coma (;)",
+                symbol: ";",
+                category: "pausa",
+                categoryName: "Pausa",
+                phonetic: "[Pausa Intermedia]",
+                translation: "Pausa Intermedia",
+                definition: "Indica una pausa mayor que la coma y menor que el punto. Separa elementos que ya contienen comas o antes de 'sin embargo' en frases largas.",
+                tip: "Clave en enumeraciones complejas: 'A mamá, una falda; a papá, un reloj; a mi hermano, un libro'.",
+                example: "Entrenaron todos los días con gran esfuerzo; sin embargo, no pudieron clasificarse.",
+                speak: "El punto y coma señala una pausa intermedia entre el punto y la coma. Es muy útil cuando ya hemos usado comas."
+            },
+            {
+                id: "c_dos_puntos",
+                term: "Los Dos Puntos (:)",
+                symbol: ":",
+                category: "auxiliar",
+                categoryName: "Auxiliar",
+                phonetic: "[Llamada de Atención]",
+                translation: "Citas y Enumeraciones",
+                definition: "Se colocan antes de citas textuales entre comillas, tras el saludo en cartas o para abrir una enumeración anunciada.",
+                tip: "En cartas tras el saludo: 'Estimado señor:' (se continúa en el renglón siguiente con mayúscula).",
+                example: "El policía gritó: '¡Deténgase inmediatamente!'. Necesito tres cosas: lápiz, regla y goma.",
+                speak: "Los dos puntos anuncian una enumeración, una cita textual entre comillas o el saludo de una carta."
+            },
+            {
+                id: "c_puntos_susp",
+                term: "Puntos Suspensivos (...)",
+                symbol: "...",
+                category: "expresion",
+                categoryName: "Expresión",
+                phonetic: "[Suspense y Continuidad]",
+                translation: "Tres puntos exactos",
+                definition: "Expresan una pausa con duda, temor, misterio o indican que una enumeración está incompleta (equivalen a etc.).",
+                tip: "¡Trampa de examen!: Son SIEMPRE 3 puntos. Nunca se debe escribir 'etc...' junto.",
+                example: "No sé si decírtelo... tengo bastante miedo. En el zoológico vimos leones, tigres, jirafas...",
+                speak: "Los puntos suspensivos son siempre tres. Indican duda, sorpresa o que una lista continúa."
+            },
+            {
+                id: "c_interrogacion",
+                term: "Signos de Interrogación (¿ ?)",
+                symbol: "¿ ?",
+                category: "expresion",
+                categoryName: "Expresión",
+                phonetic: "[Doble Signo de Pregunta]",
+                translation: "Apertura y Cierre",
+                definition: "En español es OBLIGATORIO abrir con ¿ y cerrar con ?. Marcan preguntas directas. Nunca llevan punto final.",
+                tip: "El signo de cierre (?) ya hace de punto. La siguiente palabra empezará con mayúscula.",
+                example: "¿A qué hora llega el tren de Madrid? Si no estás seguro, ¿por qué no preguntas?",
+                speak: "Los signos de interrogación son siempre dobles en español: de apertura y de cierre. Nunca se pone punto después."
+            },
+            {
+                id: "c_exclamacion",
+                term: "Signos de Exclamación (¡ !)",
+                symbol: "¡ !",
+                category: "expresion",
+                categoryName: "Expresión",
+                phonetic: "[Doble Signo de Emoción]",
+                translation: "Admiración y Fuerza",
+                definition: "Expresan emociones intensas: sorpresa, alegría, queja, dolor o mandato. En español son obligatoriamente dobles (¡ !).",
+                tip: "Tampoco llevan punto después del cierre (!).",
+                example: "¡Menuda sorpresa nos has dado hoy! ¡Qué golazo tan increíble!",
+                speak: "Los signos de exclamación expresan emociones vivas como alegría o sorpresa. También son obligatoriamente dobles."
+            },
+            {
+                id: "c_parentesis",
+                term: "El Paréntesis ( )",
+                symbol: "( )",
+                category: "auxiliar",
+                categoryName: "Auxiliar",
+                phonetic: "[Aclaraciones y Datos]",
+                translation: "Información Complementaria",
+                definition: "Encierran fechas, lugares, el significado de siglas o aclaraciones secundarias que no alteran la frase principal.",
+                tip: "El punto final de la oración siempre se coloca por fuera del paréntesis.",
+                example: "La ONU (Organización de las Naciones Unidas) se fundó en 1945.",
+                speak: "Los paréntesis sirven para encerrar fechas, lugares, aclaraciones secundarias o el desarrollo de siglas."
+            },
+            {
+                id: "c_guion",
+                term: "El Guion (-)",
+                symbol: "-",
+                category: "auxiliar",
+                categoryName: "Auxiliar",
+                phonetic: "[División de Palabras]",
+                translation: "Corte silábico e Intervalos",
+                definition: "Se utiliza para cortar palabras al final de un renglón respetando las sílabas, o para unir palabras compuestas.",
+                tip: "Nunca se separan vocales que forman diptongo ni las letras dobles ch, ll, rr.",
+                example: "Hicimos un examen teó- / rico-práctico del curso 2024-2025.",
+                speak: "El guion divide palabras al final de línea por sílabas y une palabras compuestas como físico-químico."
+            },
+            {
+                id: "c_comillas",
+                term: "Las Comillas (\" \")",
+                symbol: "\" \"",
+                category: "auxiliar",
+                categoryName: "Auxiliar",
+                phonetic: "[Citas y Términos]",
+                translation: "Cita Textual e Ironía",
+                definition: "Encierran citas textuales exactas, palabras de otros idiomas o expresiones usadas con ironía.",
+                tip: "En español existen las comillas latinas (« ») y las inglesas (\" \").",
+                example: "Sócrates dijo: \"Solo sé que no sé nada\". Aquel \"crack\" informático solucionó el problema.",
+                speak: "Las comillas encierran las palabras textuales de alguien, términos extranjeros o palabras irónicas."
+            },
+            {
+                id: "c_abecedario",
+                term: "El Abecedario Español",
+                symbol: "27",
+                category: "lengua",
+                categoryName: "Lengua",
+                phonetic: "[27 Letras Oficiales]",
+                translation: "Norma RAE",
+                definition: "Consta de 27 letras oficiales. La RAE suprimió definitivamente 'ch' y 'll' como letras independientes en 2010.",
+                tip: "La 'ch' y la 'll' son dígrafos y se buscan y ordenan dentro de la C y de la L.",
+                example: "a, b, c, d, e, f, g, h, i, j, k, l, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z.",
+                speak: "El abecedario español tiene veintisiete letras oficiales. Las letras ch y elle ya no son independientes."
+            },
+            {
+                id: "c_orden_alfabetico",
+                term: "Orden Alfabético",
+                symbol: "A→Z",
+                category: "lengua",
+                categoryName: "Lengua",
+                phonetic: "[Criterio Letra a Letra]",
+                translation: "Búsqueda y Clasificación",
+                definition: "Para ordenar palabras se compara la primera letra. Si coinciden, se compara la segunda, luego la tercera, y así sucesivamente.",
+                tip: "Si una palabra está contenida dentro de otra más larga, la más corta va primero (ej. sol antes que solar).",
+                example: "Aceituna va antes que Aguacate porque la 'c' va antes que la 'g'.",
+                speak: "Para ordenar alfabéticamente comparamos la primera letra, luego la segunda y las siguientes si coinciden."
+            },
+            {
+                id: "c_diccionario_entrada",
+                term: "Entrada del Diccionario",
+                symbol: "📖",
+                category: "lengua",
+                categoryName: "Lengua",
+                phonetic: "[Palabra Guía en Negrita]",
+                translation: "Encabezado de Búsqueda",
+                definition: "La palabra que se busca y define en el diccionario. Siempre aparece en negrita al principio del artículo.",
+                tip: "Los verbos se buscan siempre en INFINITIVO (-ar, -er, -ir) y los sustantivos en masculino singular.",
+                example: "Si buscas 'corrían', debes buscar la entrada 'correr'.",
+                speak: "La entrada es la palabra en negrita que encabeza cada definición. Los verbos se buscan en infinitivo."
+            },
+            {
+                id: "c_diccionario_acepcion",
+                term: "Las Acepciones",
+                symbol: "1, 2...",
+                category: "lengua",
+                categoryName: "Lengua",
+                phonetic: "[Significados Numerados]",
+                translation: "Distintos Significados",
+                definition: "Cada uno de los diferentes significados numerados (1., 2., 3...) que puede tener una misma palabra según el contexto.",
+                tip: "Una palabra polisémica como 'banco' tiene múltiples acepciones (asiento, entidad financiera, grupo de peces).",
+                example: "1. f. Asiento con respaldo. 2. f. Empresa que realiza operaciones financieras.",
+                speak: "Las acepciones son los distintos significados que tiene una palabra. Cada una va marcada con un número."
+            },
+            {
+                id: "c_diccionario_abrev",
+                term: "Abreviaturas Gramaticales",
+                symbol: "adj.",
+                category: "lengua",
+                categoryName: "Lengua",
+                phonetic: "[Categoría de la Palabra]",
+                translation: "m., f., adj., tr., intr.",
+                definition: "Indican la función y género gramatical: m. (masculino), f. (femenino), adj. (adjetivo), tr. (verbo transitivo).",
+                tip: "Nos indican cómo usar la palabra de forma correcta en una frase.",
+                example: "ventana: f. (sustantivo femenino). veloz: adj. (adjetivo calificativo).",
+                speak: "Las abreviaturas del diccionario nos informan de la categoría gramatical de la palabra como género o tipo de verbo."
+            }
+        ];
+
+        /* =========================================================================
+           2. SÍNTESIS DE SONIDO Y AUDIO (Web Audio API & Speech Synthesis)
+           ========================================================================= */
+        let audioCtx = null;
+        let isMuted = localStorage.getItem('castellano_muted') === 'true';
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playTone(freq, type, duration, delay = 0) {
+            if (isMuted) return;
+            initAudio();
+            setTimeout(() => {
+                try {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + duration);
+                } catch (e) {}
+            }, delay);
+        }
+
+        function playSuccessSound() {
+            playTone(523.25, 'triangle', 0.1, 0);
+            playTone(659.25, 'triangle', 0.15, 80);
+            playTone(783.99, 'triangle', 0.25, 160);
+        }
+
+        function playErrorSound() {
+            playTone(220, 'sawtooth', 0.2, 0);
+            playTone(185, 'sawtooth', 0.3, 140);
+        }
+
+        function playClickSound() {
+            playTone(750, 'triangle', 0.04, 0);
+        }
+
+        function playFanfareSound() {
+            playTone(523.25, 'triangle', 0.15, 0);
+            playTone(659.25, 'triangle', 0.15, 110);
+            playTone(783.99, 'triangle', 0.2, 220);
+            playTone(1046.5, 'triangle', 0.45, 340);
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            localStorage.setItem('castellano_muted', isMuted);
+            document.getElementById('btn-toggle-sound').textContent = isMuted ? '🔇' : '🔊';
+            if (!isMuted) playSuccessSound();
+        }
+
+        function speakText(text) {
+            initAudio();
+            playClickSound();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'es-ES';
+                utterance.rate = 0.95;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* =========================================================================
+           3. ESTADO GLOBAL, XP Y NIVELES (Gamificación)
+           ========================================================================= */
+        let state = {
+            xp: parseInt(localStorage.getItem('castellano_xp') || '0'),
+            streak: 0,
+            mastered: JSON.parse(localStorage.getItem('castellano_mastered') || '[]'),
+            currentTab: 'apuntes',
+            cardFilter: 'all',
+            cardSearch: ''
+        };
+
+        function addXP(amount) {
+            state.xp += amount;
+            localStorage.setItem('castellano_xp', state.xp);
+            updateUIStats();
+            updateSidebarAndHeroStats();
+        }
+
+        function incrementStreak() {
+            state.streak++;
+            updateUIStats();
+        }
+
+        function resetStreak() {
+            state.streak = 0;
+            updateUIStats();
+        }
+
+        function toggleMastered(id, e) {
+            if (e) e.stopPropagation();
+            const idx = state.mastered.indexOf(id);
+            if (idx > -1) {
+                state.mastered.splice(idx, 1);
+            } else {
+                state.mastered.push(id);
+                addXP(15);
+                playSuccessSound();
+            }
+            localStorage.setItem('castellano_mastered', JSON.stringify(state.mastered));
+            updateUIStats();
+            updateSidebarAndHeroStats();
+            renderCards();
+        }
+
+        function updateUIStats() {
+            const xpCounter = document.getElementById('xp-counter');
+            if (xpCounter) xpCounter.textContent = `${state.xp} XP`;
+            const streakCounter = document.getElementById('streak-counter');
+            if (streakCounter) streakCounter.textContent = state.streak;
+            const masteredCounter = document.getElementById('mastered-counter');
+            if (masteredCounter) masteredCounter.textContent = `${state.mastered.length}/${CONCEPTS.length}`;
+
+            // Actualizar Rango y barra si existen
+            const ranks = [
+                { name: "Nivel 1: Aprendiz de Ortografía ✍️", threshold: 100 },
+                { name: "Nivel 2: Detective de Comas 🔍", threshold: 300 },
+                { name: "Nivel 3: Maestro de la Puntuación 📚", threshold: 600 },
+                { name: "Nivel 4: Académico de la RAE 🎓", threshold: 1000 },
+                { name: "Nivel 5: ¡Catedrático de las Letras! 🏆", threshold: 99999 }
+            ];
+
+            let curRank = ranks[0];
+            let prevThreshold = 0;
+            for (let i = 0; i < ranks.length; i++) {
+                if (state.xp < ranks[i].threshold) {
+                    curRank = ranks[i];
+                    prevThreshold = i > 0 ? ranks[i-1].threshold : 0;
+                    break;
+                }
+            }
+
+            const userRank = document.getElementById('user-rank');
+            if (userRank) userRank.textContent = curRank.name;
+            const progress = Math.min(100, Math.round(((state.xp - prevThreshold) / (curRank.threshold - prevThreshold)) * 100));
+            const levelFill = document.getElementById('level-progress-fill');
+            if (levelFill) levelFill.style.width = `${progress}%`;
+            const levelText = document.getElementById('level-progress-text');
+            if (levelText) levelText.textContent = `${progress}% al siguiente rango`;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('castellano_dark', isDark);
+            const btnDark = document.getElementById('btn-toggle-dark');
+            if (btnDark) btnDark.textContent = isDark ? '☀️' : '🌙';
+        }
+
+        function confirmResetProgress() {
+            if (confirm("¿Quieres reiniciar todos tus puntos y marcas de este tema para volver a empezar de cero?")) {
+                localStorage.removeItem('castellano_xp');
+                localStorage.removeItem('castellano_mastered');
+                localStorage.removeItem(STORAGE_KEY);
+                state.xp = 0;
+                state.streak = 0;
+                state.mastered = [];
+                updateUIStats();
+                updateSidebarAndHeroStats();
+                renderCards();
+                initMemoryGame();
+                restartQuiz();
+                initSorter();
+                alert('¡Progreso reiniciado con éxito! Listo para volver a practicar.');
+            }
+        }
+
+        /* =========================================================================
+           4. NAVEGACIÓN CON SIDEBAR Y CONTROLADORES DE INTERFAZ
+           ========================================================================= */
+        const TAB_NAMES = {
+            apuntes: "1. Apuntes: Reglas",
+            flashcards: "2. Tarjetas con Voz",
+            memory: "3. Parejas Ortográficas",
+            workshop: "4. Taller: Puntúa la Frase",
+            sorter: "5. Clasificador Veloz",
+            quiz: "6. Quiz de Examen",
+            cheatsheet: "7. Chuleta Imprimible",
+            docs: "8. Documentos de Clase"
+        };
+
+        function switchSidebarTab(tabId, btn) {
+            playClickSound();
+            state.currentTab = tabId;
+
+            document.querySelectorAll('.sidebar-item-btn').forEach(b => b.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const autoBtn = Array.from(document.querySelectorAll('.sidebar-item-btn')).find(b => b.getAttribute('onclick')?.includes(`'${tabId}'`));
+                if (autoBtn) autoBtn.classList.add('active');
+            }
+
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            const target = document.getElementById(`panel-${tabId}`);
+            if (target) target.classList.add('active');
+
+            const labelEl = document.getElementById('mobile-current-tab-label');
+            if (labelEl && TAB_NAMES[tabId]) labelEl.textContent = TAB_NAMES[tabId];
+
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.remove('mobile-open');
+
+            // Lazy initializers
+            if (tabId === 'memory' && (!memoryState || !memoryState.started)) {
+                initMemoryGame();
+            } else if (tabId === 'quiz' && quizState.currentIdx === 0 && !quizState.started) {
+                restartQuiz();
+            } else if (tabId === 'workshop') {
+                renderWorkshopSentences();
+                initAlphaGame();
+            } else if (tabId === 'sorter' && (!sorterState || !sorterState.active)) {
+                initSorter();
+            }
+
+            markSectionVisited(tabId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Backward compatibility
+        function switchTab(tabId, event) {
+            switchSidebarTab(tabId, event ? event.currentTarget : null);
+        }
+
+        function toggleMobileSidebar() {
+            playClickSound();
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(event) {
+            if (event) event.stopPropagation();
+            playClickSound();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        window.addEventListener('click', (e) => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && menu.classList.contains('active') && !e.target.closest('.topic-switcher-dropdown')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        /* =========================================================================
+           CHULETA RÁPIDA (MODAL UNIVERSAL)
+           ========================================================================= */
+        function openQuickCheatSheet() {
+            playClickSound();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeQuickCheatSheet() {
+            playClickSound();
+            const modal = document.getElementById('quick-cheat-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function closeCheatOnBackdrop(e) {
+            if (e.target.id === 'quick-cheat-modal') {
+                closeQuickCheatSheet();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeQuickCheatSheet();
+            }
+        });
+
+        /* =========================================================================
+           SISTEMA DE ALMACENAMIENTO Y LOGROS (LOCALSTORAGE)
+           ========================================================================= */
+        const STORAGE_KEY = 'alvaro_progress_castellano_signos';
+
+        function getTopicProgress() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveTopicProgress(data) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            } catch (e) {}
+            updateSidebarAndHeroStats();
+        }
+
+        function markSectionVisited(secKey) {
+            const prog = getTopicProgress();
+            if (!prog.visited) prog.visited = [];
+            if (!prog.visited.includes(secKey)) {
+                prog.visited.push(secKey);
+                saveTopicProgress(prog);
+            }
+        }
+
+        function recordQuizResult(score, total) {
+            const prog = getTopicProgress();
+            prog.quizAttempts = (prog.quizAttempts || 0) + 1;
+            prog.quizBest = Math.max(prog.quizBest || 0, score);
+            saveTopicProgress(prog);
+        }
+
+        function recordWorkshopSentence(sentenceId) {
+            const prog = getTopicProgress();
+            if (!prog.workshopDone) prog.workshopDone = [];
+            if (!prog.workshopDone.includes(sentenceId)) {
+                prog.workshopDone.push(sentenceId);
+                saveTopicProgress(prog);
+            }
+        }
+
+        function recordSorterChoice() {
+            const prog = getTopicProgress();
+            prog.sorterCount = (prog.sorterCount || 0) + 1;
+            saveTopicProgress(prog);
+        }
+
+        function updateSidebarAndHeroStats() {
+            const prog = getTopicProgress();
+
+            const quizBest = prog.quizBest || 0;
+            const workshopDone = (prog.workshopDone || []).length;
+            const sorterCount = prog.sorterCount || 0;
+            const masteredCount = (state.mastered || []).length;
+            const visitedCount = (prog.visited || []).length;
+
+            const badgeFlash = document.getElementById('badge-flashcards');
+            if (badgeFlash) badgeFlash.textContent = `${masteredCount}/${CONCEPTS.length}`;
+
+            const badgeWs = document.getElementById('badge-workshop');
+            if (badgeWs) badgeWs.textContent = `${workshopDone}/10`;
+
+            const badgeSorter = document.getElementById('badge-sorter');
+            if (badgeSorter) badgeSorter.textContent = sorterCount > 0 ? `✅ ${sorterCount} Clasificados` : '0 Hechos';
+
+            const badgeQuiz = document.getElementById('badge-quiz');
+            if (badgeQuiz) badgeQuiz.textContent = quizBest > 0 ? `⭐ ${quizBest}/10` : 'Récord: 0';
+
+            const heroQuiz = document.getElementById('stat-quiz-record');
+            if (heroQuiz) heroQuiz.textContent = `${quizBest}/10`;
+
+            const heroWs = document.getElementById('stat-workshop-done');
+            if (heroWs) heroWs.textContent = `${workshopDone}/10`;
+
+            const heroXp = document.getElementById('stat-total-xp');
+            if (heroXp) heroXp.textContent = `${state.xp} XP`;
+
+            let tasksDone = 0;
+            if (visitedCount >= 3) tasksDone++;
+            if (masteredCount >= 5) tasksDone++;
+            if (workshopDone >= 4) tasksDone++;
+            if (sorterCount >= 5) tasksDone++;
+            if (quizBest >= 7) tasksDone++;
+            if (state.xp >= 150) tasksDone++;
+
+            const pct = Math.min(100, Math.round((tasksDone / 6) * 100));
+            const pctEl = document.getElementById('sidebar-progress-pct');
+            if (pctEl) pctEl.textContent = `${pct}%`;
+            const fillEl = document.getElementById('sidebar-progress-fill');
+            if (fillEl) fillEl.style.width = `${pct}%`;
+        }
+
+        /* =========================================================================
+           5. PESTAÑA 1: TARJETAS INTERACTIVAS
+           ========================================================================= */
+        function setCardFilter(cat, btn) {
+            playClickSound();
+            state.cardFilter = cat;
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards();
+        }
+
+        function filterCards() {
+            state.cardSearch = document.getElementById('card-search').value.toLowerCase().trim();
+            renderCards();
+        }
+
+        function renderCards() {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+
+            const filtered = CONCEPTS.filter(item => {
+                const matchCat = state.cardFilter === 'all' || item.category === state.cardFilter;
+                const matchSearch = !state.cardSearch || 
+                    item.term.toLowerCase().includes(state.cardSearch) || 
+                    item.definition.toLowerCase().includes(state.cardSearch) ||
+                    item.tip.toLowerCase().includes(state.cardSearch);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔍</div>
+                        <p style="font-weight: 700;">No se encontraron signos ni conceptos con ese criterio.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isMastered = state.mastered.includes(item.id);
+                const card = document.createElement('div');
+                card.className = "card-wrapper";
+                card.onclick = function(e) {
+                    if (e.target.closest('button')) return;
+                    playClickSound();
+                    this.classList.toggle('flipped');
+                };
+
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <!-- Cara Frontal -->
+                        <div class="card-face card-front">
+                            <div class="card-top-row">
+                                <span class="category-tag">${item.categoryName}</span>
+                                <button class="audio-btn" title="Escuchar explicación" onclick="speakText('${item.speak}')">
+                                    🔊
+                                </button>
+                            </div>
+                            <div class="card-visual-symbol">${item.symbol}</div>
+                            <div>
+                                <h3 class="card-term">${item.term}</h3>
+                                <div class="card-phonetic">${item.phonetic}</div>
+                            </div>
+                            <div class="card-hint-click">
+                                <span>👆 Toca para voltear y ver la regla de oro</span>
+                            </div>
+                        </div>
+
+                        <!-- Cara Trasera -->
+                        <div class="card-face card-back">
+                            <div class="card-back-title">
+                                <span>${item.translation}</span>
+                                <button class="audio-btn" style="background: rgba(0,0,0,0.06);" onclick="speakText('${item.speak}')">
+                                    🔊
+                                </button>
+                            </div>
+                            <div class="card-back-def">${item.definition}</div>
+                            <div class="card-back-tip">💡 <strong>Clave de examen:</strong> ${item.tip}</div>
+                            <div class="card-back-ex">"${item.example}"</div>
+                            <button class="mastered-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered('${item.id}', event)">
+                                ${isMastered ? '✓ ¡Concepto Dominado!' : 'Marcar como Dominado'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* =========================================================================
+           6. PESTAÑA 2: JUEGO DE PAREJAS (MEMORY MATCH)
+           ========================================================================= */
+        let memoryState = {
+            started: false,
+            cards: [],
+            flipped: [],
+            matchedPairs: 0,
+            moves: 0,
+            timer: 0,
+            interval: null,
+            totalPairs: 6
+        };
+
+        function initMemoryGame() {
+            clearInterval(memoryState.interval);
+            memoryState.started = true;
+            memoryState.flipped = [];
+            memoryState.matchedPairs = 0;
+            memoryState.moves = 0;
+            memoryState.timer = 0;
+            document.getElementById('memory-moves').textContent = '0';
+            document.getElementById('memory-pairs').textContent = `0 / ${memoryState.totalPairs}`;
+            document.getElementById('memory-timer').textContent = '00:00';
+
+            const shuffledConcepts = [...CONCEPTS].sort(() => 0.5 - Math.random()).slice(0, memoryState.totalPairs);
+
+            const deck = [];
+            shuffledConcepts.forEach((item, index) => {
+                deck.push({
+                    pairId: index,
+                    text: item.term,
+                    symbol: item.symbol,
+                    type: "symbol"
+                });
+                deck.push({
+                    pairId: index,
+                    text: item.translation,
+                    subtext: item.tip.slice(0, 75) + "...",
+                    type: "rule"
+                });
+            });
+
+            deck.sort(() => 0.5 - Math.random());
+            memoryState.cards = deck;
+
+            const board = document.getElementById('memory-board');
+            board.innerHTML = '';
+
+            deck.forEach((cardData, idx) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'mem-card';
+                cardEl.dataset.index = idx;
+                cardEl.innerHTML = `
+                    <div class="mem-card-inner">
+                        <div class="mem-card-face mem-card-front">✍️</div>
+                        <div class="mem-card-face mem-card-back">
+                            ${cardData.type === 'symbol' 
+                                ? `<span style="font-size: 2.2rem; font-weight: 900; color: var(--primary);">${cardData.symbol}</span><strong style="margin-top: 0.3rem; font-size: 0.85rem;">${cardData.text}</strong>`
+                                : `<strong style="color: var(--primary); font-size: 0.85rem; margin-bottom: 0.3rem;">${cardData.text}</strong><span style="font-size: 0.72rem; color: var(--text-muted);">${cardData.subtext}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+                cardEl.onclick = () => flipMemoryCard(cardEl, idx);
+                board.appendChild(cardEl);
+            });
+
+            memoryState.interval = setInterval(() => {
+                memoryState.timer++;
+                const mins = String(Math.floor(memoryState.timer / 60)).padStart(2, '0');
+                const secs = String(memoryState.timer % 60).padStart(2, '0');
+                document.getElementById('memory-timer').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function flipMemoryCard(cardEl, index) {
+            if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched') || memoryState.flipped.length >= 2) {
+                return;
+            }
+
+            playClickSound();
+            cardEl.classList.add('flipped');
+            memoryState.flipped.push({ element: cardEl, data: memoryState.cards[index] });
+
+            if (memoryState.flipped.length === 2) {
+                memoryState.moves++;
+                document.getElementById('memory-moves').textContent = memoryState.moves;
+
+                const [c1, c2] = memoryState.flipped;
+                if (c1.data.pairId === c2.data.pairId) {
+                    playSuccessSound();
+                    setTimeout(() => {
+                        c1.element.classList.add('matched');
+                        c2.element.classList.add('matched');
+                        memoryState.matchedPairs++;
+                        document.getElementById('memory-pairs').textContent = `${memoryState.matchedPairs} / ${memoryState.totalPairs}`;
+                        memoryState.flipped = [];
+                        addXP(20);
+
+                        if (memoryState.matchedPairs === memoryState.totalPairs) {
+                            clearInterval(memoryState.interval);
+                            playFanfareSound();
+                            triggerConfetti();
+                            addXP(50);
+                            setTimeout(() => {
+                                alert(`¡Enhorabuena, Álvaro! Has completado el minijuego de parejas en ${memoryState.moves} intentos.`);
+                            }, 500);
+                        }
+                    }, 400);
+                } else {
+                    playErrorSound();
+                    setTimeout(() => {
+                        c1.element.classList.remove('flipped');
+                        c2.element.classList.remove('flipped');
+                        memoryState.flipped = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        /* =========================================================================
+           7. PESTAÑA 3: QUIZ DE EXAMEN
+           ========================================================================= */
+        const QUIZ_QUESTIONS = [
+            {
+                question: "¿Qué signo de puntuación debe escribirse SIEMPRE antes de reproducir las palabras textuales exactas que dijo otra persona?",
+                options: [
+                    "El punto y coma (;)",
+                    "Los dos puntos (:)",
+                    "Los puntos suspensivos (...)",
+                    "Un guion largo (-)"
+                ],
+                correct: 1,
+                explanation: "¡Correcto! Los dos puntos (:) se colocan antes de escribir una cita textual directa entre comillas. Ejemplo: Cervantes escribió: \"En un lugar de La Mancha...\"."
+            },
+            {
+                question: "¿Cuál de las siguientes afirmaciones sobre los signos de interrogación (¿ ?) en español es VERDADERA?",
+                options: [
+                    "Solo se pone el signo al final de la oración, como en inglés.",
+                    "Son obligatoriamente dobles (apertura y cierre) y nunca llevan punto después del cierre.",
+                    "Se debe poner un punto normal (.) justo después del signo de cierre (?).",
+                    "No se pueden usar si la pregunta empieza a mitad de la frase."
+                ],
+                correct: 1,
+                explanation: "¡Exacto! En español son dobles (¿ y ?). Además, el signo de cierre ya hace la función de punto, por lo que NUNCA se añade punto final detrás."
+            },
+            {
+                question: "En la frase: 'A mi madre le compré un pañuelo; a mi padre, una gorra; a mi hermana, un libro', ¿por qué se utiliza el punto y coma (;)?",
+                options: [
+                    "Porque el texto ha terminado por completo.",
+                    "Para separar elementos de una enumeración cuando ya contienen comas en su interior.",
+                    "Porque expresa una emoción de sorpresa muy grande.",
+                    "Es un error, deberían ser dos puntos."
+                ],
+                correct: 1,
+                explanation: "¡Muy bien! El punto y coma separa miembros de una enumeración compleja que ya llevan comas internas (en este caso, comas elípticas que sustituyen al verbo 'compré')."
+            },
+            {
+                question: "¿Cuántos puntos componen exactamente los 'puntos suspensivos' según la norma ortográfica de la RAE?",
+                options: [
+                    "Tantos como quepan en la línea según el suspense.",
+                    "Exactamente tres puntos (...).",
+                    "Dos puntos si van al final de la frase.",
+                    "Cuatro puntos si van entre paréntesis."
+                ],
+                correct: 1,
+                explanation: "¡Perfecto! Son siempre y exclusivamente TRES puntos (...). Ni dos, ni cuatro. Tampoco se debe poner nunca 'etc...' junto."
+            },
+            {
+                question: "¿Cuántas letras componen oficialmente hoy en día el abecedario de la lengua española según la RAE?",
+                options: [
+                    "29 letras (incluyendo la 'ch' y la 'll').",
+                    "27 letras (la RAE suprimió 'ch' y 'll' como letras independientes).",
+                    "26 letras (igual que el abecedario inglés).",
+                    "28 letras (con la 'rr' incluida)."
+                ],
+                correct: 1,
+                explanation: "¡Excelente! Son 27 letras oficiales. La 'ch' y la 'll' son dígrafos y se buscan y ordenan dentro de la C y la L."
+            },
+            {
+                question: "Si queremos buscar en el diccionario online la palabra 'estudiábamos', ¿cómo debemos buscarla?",
+                options: [
+                    "Exactamente como está escrita: 'estudiábamos'.",
+                    "Buscando su infinitivo: 'estudiar'.",
+                    "Buscando su sustantivo: 'estudio'.",
+                    "Los verbos no aparecen en el diccionario."
+                ],
+                correct: 1,
+                explanation: "¡Gran respuesta! En el diccionario los verbos NO aparecen conjugados; siempre deben buscarse por su forma en infinitivo (-ar, -er, -ir)."
+            },
+            {
+                question: "¿Qué son las 'acepciones' en un diccionario online o en papel?",
+                options: [
+                    "Las palabras que tienen faltas de ortografía.",
+                    "Los diferentes significados que puede tener una misma palabra, ordenados con números.",
+                    "Las abreviaturas que indican si es un verbo o adjetivo.",
+                    "El índice alfabético al principio del tomo."
+                ],
+                correct: 1,
+                explanation: "¡Correcto! Cada uno de los significados numerados (1, 2, 3...) de una palabra es una acepción."
+            },
+            {
+                question: "¿En cuál de los siguientes casos NO se debe escribir coma (,) de ninguna manera?",
+                options: [
+                    "Para aislar el nombre de la persona a la que llamamos (vocativo): 'Ven aquí, Álvaro'.",
+                    "Delante del último elemento de una enumeración si va precedido por la conjunción 'y' (ej: 'pan, leche y queso').",
+                    "Para intercalar una aclaración: 'María, mi prima, vendrá hoy'.",
+                    "Para separar enlaces como 'en efecto', 'por tanto' o 'sin embargo'."
+                ],
+                correct: 1,
+                explanation: "¡Bien visto! Delante del último elemento precedido por 'y, e, ni, o, u' no se pone coma."
+            },
+            {
+                question: "Al dividir una palabra a final de renglón con un guion (-), ¿cuál de estas separaciones es INCORRECTA?",
+                options: [
+                    "teó- / rico",
+                    "cam- / po",
+                    "ti- / erra (separando el diptongo 'ie')",
+                    "bo- / rrador"
+                ],
+                correct: 2,
+                explanation: "¡Así es! Nunca se puede romper un diptongo separando vocales que van juntas en la misma sílaba (tie-rra). Tampoco se separan dígrafos como ch, ll o rr."
+            },
+            {
+                question: "En una carta o correo electrónico, tras el saludo inicial 'Querido abuelo:', ¿cómo se continúa?",
+                options: [
+                    "En la misma línea y con minúscula.",
+                    "En la línea siguiente y empezando con mayúscula.",
+                    "Poniendo puntos suspensivos.",
+                    "En cartas nunca se ponen dos puntos."
+                ],
+                correct: 1,
+                explanation: "¡Exacto! El saludo de cartas lleva dos puntos y el cuerpo de la carta comienza en el siguiente renglón con mayúscula."
+            }
+        ];
+
+        let quizState = {
+            currentIdx: 0,
+            score: 0,
+            started: false,
+            answered: false,
+            questions: [],
+            currentOptions: []
+        };
+
+        function restartQuiz() {
+            quizState.currentIdx = 0;
+            quizState.score = 0;
+            quizState.started = true;
+            quizState.answered = false;
+            // Barajamos el orden de las preguntas para que cada examen sea variado
+            quizState.questions = [...QUIZ_QUESTIONS].sort(() => Math.random() - 0.5);
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            quizState.answered = false;
+            const qList = (quizState.questions && quizState.questions.length > 0) ? quizState.questions : QUIZ_QUESTIONS;
+            const q = qList[quizState.currentIdx];
+
+            document.getElementById('quiz-counter').textContent = `Pregunta ${quizState.currentIdx + 1} de ${qList.length}`;
+            document.getElementById('quiz-question').textContent = q.question;
+
+            // Emparejar cada opción con su indicativo de si es la correcta original
+            const optionsWithMeta = q.options.map((optText, origIdx) => ({
+                text: optText,
+                isCorrect: origIdx === q.correct
+            }));
+
+            // Algoritmo Fisher-Yates para barajar las opciones y garantizar aleatoriedad total
+            for (let i = optionsWithMeta.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithMeta[i], optionsWithMeta[j]] = [optionsWithMeta[j], optionsWithMeta[i]];
+            }
+
+            quizState.currentOptions = optionsWithMeta;
+
+            const optsContainer = document.getElementById('quiz-options');
+            optsContainer.innerHTML = '';
+
+            optionsWithMeta.forEach((optObj, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt-btn';
+                btn.innerHTML = `<span style="width: 24px; height: 24px; border-radius: 50%; background: var(--border-color); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800;">${String.fromCharCode(65 + i)}</span> <span>${optObj.text}</span>`;
+                btn.onclick = () => selectQuizOption(i, btn);
+                optsContainer.appendChild(btn);
+            });
+
+            const explBox = document.getElementById('quiz-explanation');
+            explBox.className = 'quiz-explanation-box';
+            explBox.textContent = '';
+            document.getElementById('btn-next-quiz').style.display = 'none';
+        }
+
+        function selectQuizOption(choiceIdx, btnEl) {
+            if (quizState.answered) return;
+            quizState.answered = true;
+
+            const qList = (quizState.questions && quizState.questions.length > 0) ? quizState.questions : QUIZ_QUESTIONS;
+            const q = qList[quizState.currentIdx];
+            const selectedOpt = quizState.currentOptions[choiceIdx];
+            const isCorrect = selectedOpt.isCorrect;
+
+            const allBtns = document.querySelectorAll('.quiz-opt-btn');
+            allBtns.forEach(b => b.disabled = true);
+
+            // Localizar el botón que contenía la respuesta correcta para iluminarlo en verde
+            const correctBtnIdx = quizState.currentOptions.findIndex(o => o.isCorrect);
+
+            const explBox = document.getElementById('quiz-explanation');
+            explBox.classList.add('active');
+
+            if (isCorrect) {
+                btnEl.classList.add('correct');
+                playSuccessSound();
+                incrementStreak();
+                addXP(20);
+                quizState.score++;
+                explBox.innerHTML = `<strong>✅ ¡Respuesta Correcta!</strong><br>${q.explanation}`;
+            } else {
+                btnEl.classList.add('wrong');
+                if (correctBtnIdx >= 0 && allBtns[correctBtnIdx]) {
+                    allBtns[correctBtnIdx].classList.add('correct');
+                }
+                playErrorSound();
+                resetStreak();
+                explBox.innerHTML = `<strong>❌ No es correcto.</strong><br>${q.explanation}`;
+            }
+
+            document.getElementById('btn-next-quiz').style.display = 'inline-flex';
+        }
+
+        function nextQuizQuestion() {
+            playClickSound();
+            quizState.currentIdx++;
+            const qList = (quizState.questions && quizState.questions.length > 0) ? quizState.questions : QUIZ_QUESTIONS;
+            if (quizState.currentIdx < qList.length) {
+                renderQuizQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            const card = document.getElementById('quiz-box');
+            playFanfareSound();
+            triggerConfetti();
+            addXP(40);
+            const qList = (quizState.questions && quizState.questions.length > 0) ? quizState.questions : QUIZ_QUESTIONS;
+            recordQuizResult(quizState.score, qList.length);
+            card.innerHTML = `
+                <div style="text-align: center; padding: 2rem 1rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                    <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 0.5rem;">¡Quiz Completado!</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">Has acertado <strong>${quizState.score}</strong> de <strong>${qList.length}</strong> preguntas.</p>
+                    <button class="btn-primary" onclick="restartQuiz()">
+                        <span>🔄</span> Repetir Quiz de Examen
+                    </button>
+                </div>
+            `;
+        }
+
+        /* =========================================================================
+           8. PESTAÑA 4: TALLER PRÁCTICO (PUNTÚA LA FRASE & RETO ALFABÉTICO)
+           ========================================================================= */
+        const WORKSHOP_SENTENCES = [
+            // BLOQUE 1: PUNTOS Y COMAS
+            {
+                id: "ws_1",
+                category: "puntos_comas",
+                categoryLabel: "Puntos y Comas",
+                raw: "Una noche cuando las calles estaban desiertas se oyó una explosión",
+                hint: "Aísla la aclaración temporal «cuando las calles estaban desiertas» entre comas y pon punto final.",
+                solution: "Una noche, cuando las calles estaban desiertas, se oyó una explosión."
+            },
+            {
+                id: "ws_2",
+                category: "puntos_comas",
+                categoryLabel: "Puntos y Comas",
+                raw: "El domingo en efecto llegó Rebeca La niña sólo tenía once años",
+                hint: "El conector «en efecto» va entre comas. Tras «Rebeca» va punto y seguido (y mayúscula en La).",
+                solution: "El domingo, en efecto, llegó Rebeca. La niña sólo tenía once años."
+            },
+            {
+                id: "ws_3",
+                category: "puntos_comas",
+                categoryLabel: "Puntos y Comas",
+                raw: "La casa se llenó de humo No podíamos respirar",
+                hint: "Son dos oraciones completas independientes. Sepáralas con punto y seguido.",
+                solution: "La casa se llenó de humo. No podíamos respirar."
+            },
+            {
+                id: "ws_4",
+                category: "puntos_comas",
+                categoryLabel: "Puntos y Comas",
+                raw: "Te aseguro María que no tienes razón Piénsatelo mejor",
+                hint: "El vocativo «María» va entre comas (llamamos a la persona). Luego punto y seguido.",
+                solution: "Te aseguro, María, que no tienes razón. Piénsatelo mejor."
+            },
+            {
+                id: "ws_5",
+                category: "puntos_comas",
+                categoryLabel: "Puntos y Comas",
+                raw: "Allí tomaban café contaban chistes jugaban al dominó y lo pasaban bien",
+                hint: "Separa cada acción de la enumeración con comas (excepto la última que lleva «y»).",
+                solution: "Allí tomaban café, contaban chistes, jugaban al dominó y lo pasaban bien."
+            },
+
+            // BLOQUE 2: COMAS Y PUNTOS Y COMAS
+            {
+                id: "ws_6",
+                category: "punto_coma",
+                categoryLabel: "Punto y Coma",
+                raw: "Lloró gritó se tiró por el suelo nos fue imposible calmarla",
+                hint: "Comas para la enumeración rápida («Lloró, gritó...») y punto y coma (;) antes de la conclusión.",
+                solution: "Lloró, gritó, se tiró por el suelo; nos fue imposible calmarla."
+            },
+            {
+                id: "ws_7",
+                category: "punto_coma",
+                categoryLabel: "Punto y Coma",
+                raw: "Cada verano una tormenta suele inundar estos campos el resto del año están completamente secos",
+                hint: "Punto y coma (;) para contrastar los dos períodos opuestos, y coma tras «el resto del año».",
+                solution: "Cada verano una tormenta suele inundar estos campos; el resto del año, están completamente secos."
+            },
+
+            // BLOQUE 3: COMAS Y DOS PUNTOS
+            {
+                id: "ws_8",
+                category: "dos_puntos",
+                categoryLabel: "Dos Puntos",
+                raw: "Cuando ladraba el perro mi abuela exclamaba Jesús ¿quién vendrá?",
+                hint: "Coma tras la oración inicial, dos puntos antes de la exclamación «¡Jesús!» y pregunta «¿Quién vendrá?».",
+                solution: "Cuando ladraba el perro, mi abuela exclamaba: «¡Jesús! ¿Quién vendrá?»."
+            },
+            {
+                id: "ws_9",
+                category: "dos_puntos",
+                categoryLabel: "Dos Puntos",
+                raw: "El entrenador ha decidido ya quiénes formarán la delantera Ruiz Abellán Olivares Tomás y Primo",
+                hint: "Dos puntos (:) antes de enumerar a los delanteros anunciados, y comas entre cada apellido.",
+                solution: "El entrenador ha decidido ya quiénes formarán la delantera: Ruiz, Abellán, Olivares, Tomás y Primo."
+            },
+            {
+                id: "ws_10",
+                category: "dos_puntos",
+                categoryLabel: "Dos Puntos",
+                raw: "Mi hermano es un egoísta y mi madre le repite siempre Piensa un poco en los demás Javier",
+                hint: "Dos puntos antes de las palabras de la madre y coma antes del vocativo «Javier».",
+                solution: "Mi hermano es un egoísta y mi madre le repite siempre: «Piensa un poco en los demás, Javier»."
+            },
+            {
+                id: "ws_11",
+                category: "dos_puntos",
+                categoryLabel: "Dos Puntos",
+                raw: "Has gastado más de lo debido hijo mío te he dado diez euros y sólo me devuelves uno",
+                hint: "Vocativo «hijo mío» entre comas, y dos puntos (:) antes de la causa o explicación del dinero.",
+                solution: "Has gastado más de lo debido, hijo mío: te he dado diez euros y sólo me devuelves uno."
+            },
+
+            // BLOQUE 4: PUNTOS SUSPENSIVOS, PARÉNTESIS Y COMILLAS
+            {
+                id: "ws_12",
+                category: "expresion_citas",
+                categoryLabel: "Suspensivos & Comillas",
+                raw: "Responde siempre bajando los ojos Si yo hablara",
+                hint: "Dos puntos antes de la cita, comillas y puntos suspensivos (...) para indicar frase inacabada.",
+                solution: "Responde siempre bajando los ojos: «Si yo hablara...»."
+            },
+            {
+                id: "ws_13",
+                category: "expresion_citas",
+                categoryLabel: "Suspensivos & Comillas",
+                raw: "Yo apunté con bastante miedo por cierto y me dijo mi primo Dispara",
+                hint: "Paréntesis para «(con bastante miedo, por cierto)», dos puntos tras «primo» y comillas para «Dispara».",
+                solution: "Yo apunté (con bastante miedo, por cierto) y me dijo mi primo: «Dispara»."
+            },
+            {
+                id: "ws_14",
+                category: "expresion_citas",
+                categoryLabel: "Suspensivos & Comillas",
+                raw: "Le preguntaron dónde había estado y contestó Por ahí",
+                hint: "Dos puntos tras «contestó» y comillas para la respuesta exacta.",
+                solution: "Le preguntaron dónde había estado y contestó: «Por ahí»."
+            }
+        ];
+
+        let currentWorkshopFilter = 'all';
+
+        function setWorkshopFilter(cat, btn) {
+            playClickSound();
+            currentWorkshopFilter = cat;
+            document.querySelectorAll('#panel-workshop .filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderWorkshopSentences();
+        }
+
+        function renderWorkshopSentences() {
+            const container = document.getElementById('sentences-workshop-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const filtered = WORKSHOP_SENTENCES.filter(item => {
+                return currentWorkshopFilter === 'all' || item.category === currentWorkshopFilter;
+            });
+
+            filtered.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.className = 'sentence-exercise-box';
+                box.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">FRASE ${idx + 1} • ${item.categoryLabel}</span>
+                    </div>
+                    <div class="raw-sentence">"${item.raw}"</div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.6rem;">💡 <strong>Pista:</strong> ${item.hint}</p>
+                    
+                    <!-- Barra de inserción rápida de signos -->
+                    <div class="quick-punct-bar">
+                        <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Insertar signo:</span>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', ',')" title="Insertar Coma">,</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '.')" title="Insertar Punto">.</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', ';')" title="Insertar Punto y Coma">;</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', ':')" title="Insertar Dos Puntos">:</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '...')" title="Insertar Puntos Suspensivos">...</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '¿?')" title="Insertar Interrogación">¿?</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '¡!')" title="Insertar Exclamación">¡!</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '«»')" title="Insertar Comillas">« »</button>
+                        <button class="punct-btn" onclick="insertPunct('ws-input-${item.id}', '()')" title="Insertar Paréntesis">( )</button>
+                    </div>
+
+                    <input type="text" id="ws-input-${item.id}" class="exercise-input" placeholder="Escribe aquí la frase con los signos correctos...">
+                    
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;" onclick="checkSentence('${item.id}', '${item.solution}')">
+                            <span>✅</span> Comprobar
+                        </button>
+                        <button class="btn-accent" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;" onclick="showSentenceSolution('${item.id}', '${item.solution}')">
+                            <span>👀</span> Ver Corrección
+                        </button>
+                    </div>
+                    <div id="ws-feedback-${item.id}" class="exercise-feedback"></div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function insertPunct(inputId, char) {
+            playClickSound();
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+            const val = input.value;
+            input.value = val.substring(0, start) + char + val.substring(end);
+            input.focus();
+            const newPos = start + char.length;
+            input.setSelectionRange(newPos, newPos);
+        }
+
+        function checkSentence(id, solution) {
+            const input = document.getElementById(`ws-input-${id}`).value.trim();
+            const feedback = document.getElementById(`ws-feedback-${id}`);
+
+            if (!input) {
+                alert("Por favor, escribe la frase puntuada antes de comprobar.");
+                return;
+            }
+
+            // Normalización para validar signos independientemente de si usa comillas inglesas o latinas
+            const cleanUser = input.replace(/\s+/g, ' ').replace(/["«»]/g, '"').replace(/[“”]/g, '"');
+            const cleanSol = solution.replace(/\s+/g, ' ').replace(/["«»]/g, '"').replace(/[“”]/g, '"');
+
+            if (cleanUser.toLowerCase() === cleanSol.toLowerCase()) {
+                playSuccessSound();
+                addXP(20);
+                incrementStreak();
+                recordWorkshopSentence(id);
+                feedback.className = 'exercise-feedback correct';
+                feedback.innerHTML = `<strong>✅ ¡Excelente trabajo!</strong> Frase puntuada con máxima precisión.<br><em>${solution}</em>`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                feedback.className = 'exercise-feedback error';
+                feedback.innerHTML = `<strong>⚠️ Revisa los signos o mayúsculas.</strong> Fíjate bien en la solución de los apuntes:<br><strong>Solución oficial:</strong> ${solution}`;
+            }
+        }
+
+        function showSentenceSolution(id, solution) {
+            playClickSound();
+            const input = document.getElementById(`ws-input-${id}`);
+            input.value = solution;
+            const feedback = document.getElementById(`ws-feedback-${id}`);
+            feedback.className = 'exercise-feedback correct';
+            feedback.innerHTML = `<strong>Solución oficial de clase:</strong> ${solution}`;
+        }
+
+        function resetWorkshop() {
+            playClickSound();
+            renderWorkshopSentences();
+        }
+
+        /* =========================================================================
+           MINIJUEGO INTERACTIVO: RETO DE ORDEN ALFABÉTICO (EN LA WEB)
+           ========================================================================= */
+        const ALPHA_LEVELS = [
+            {
+                name: "Nivel 1: Palabras de la Ficha (8)",
+                badge: "Nivel 1 de 3",
+                words: ["Aceituna", "Aguacate", "Chapulín", "Coche", "Correr", "Descubrir", "Ecuación", "Gallo"],
+                sorted: ["Aceituna", "Aguacate", "Chapulín", "Coche", "Correr", "Descubrir", "Ecuación", "Gallo"],
+                hint: "Regla RAE: La 'Ch' se ordena dentro de la letra C (después de Ce- y antes de Ci-). Compara: Ac- antes que Ag-, y Ch- antes que Co-."
+            },
+            {
+                name: "Nivel 2: Palabras con P- (Comparar 3ª y 4ª letra)",
+                badge: "Nivel 2 de 3",
+                words: ["Panadería", "Panadero", "Paquidermo", "Pared"],
+                sorted: ["Panadería", "Panadero", "Paquidermo", "Pared"],
+                hint: "Todas empiezan por Pa-. Compara la 3ª letra: Panad- (con 'n') va antes que Paqu- (con 'q') y Pared (con 'r'). Entre Panadería y Panadero, la 'í' va antes que la 'o'."
+            },
+            {
+                name: "Nivel 3: El Gran Reto (10 Palabras)",
+                badge: "Nivel 3 de 3",
+                words: ["Bien", "Conquistar", "Cosechar", "Doble", "Existir", "Fruta", "Habitación", "Regalar", "Tipografía", "Volar"],
+                sorted: ["Bien", "Conquistar", "Cosechar", "Doble", "Existir", "Fruta", "Habitación", "Regalar", "Tipografía", "Volar"],
+                hint: "Ordena fijándote en la letra inicial: B, C, D, E, F, H, R, T, V. Para Conquistar vs Cosechar: 'Con-' va antes que 'Cos-'."
+            }
+        ];
+
+        let alphaGame = {
+            currentLevel: 0,
+            pool: [],
+            placed: []
+        };
+
+        function selectAlphaLevel(levelIdx, btn) {
+            playClickSound();
+            alphaGame.currentLevel = levelIdx;
+            document.querySelectorAll('.alpha-level-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            document.getElementById('alpha-score-badge').textContent = ALPHA_LEVELS[levelIdx].badge;
+            initAlphaGame();
+        }
+
+        function initAlphaGame() {
+            const lvl = ALPHA_LEVELS[alphaGame.currentLevel];
+            // Barajar palabras del pool
+            alphaGame.pool = [...lvl.words].sort(() => 0.5 - Math.random());
+            alphaGame.placed = new Array(lvl.sorted.length).fill(null);
+            
+            const feedback = document.getElementById('alpha-feedback');
+            if (feedback) feedback.style.display = 'none';
+
+            renderAlphaPool();
+            renderAlphaSlots();
+        }
+
+        function renderAlphaPool() {
+            const poolEl = document.getElementById('alpha-pool');
+            if (!poolEl) return;
+            poolEl.innerHTML = '';
+
+            if (alphaGame.pool.length === 0) {
+                poolEl.innerHTML = `<span style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">¡Has colocado todas las palabras! Pulsa "Comprobar Orden" abajo.</span>`;
+                return;
+            }
+
+            alphaGame.pool.forEach(word => {
+                const chip = document.createElement('div');
+                chip.className = 'alpha-word-chip';
+                chip.textContent = word;
+                chip.onclick = () => placeWordInNextSlot(word);
+                poolEl.appendChild(chip);
+            });
+        }
+
+        function renderAlphaSlots() {
+            const slotsEl = document.getElementById('alpha-slots');
+            if (!slotsEl) return;
+            slotsEl.innerHTML = '';
+
+            const lvl = ALPHA_LEVELS[alphaGame.currentLevel];
+
+            alphaGame.placed.forEach((word, idx) => {
+                const slot = document.createElement('div');
+                slot.className = `alpha-slot ${word ? 'filled' : ''}`;
+                slot.id = `alpha-slot-${idx}`;
+                
+                slot.innerHTML = `
+                    <span class="slot-num">${idx + 1}.</span>
+                    <div class="slot-content">
+                        <span>${word || '<span style="color: var(--text-muted); font-weight: normal; font-size: 0.85rem;">(vacío)</span>'}</span>
+                        ${word ? '<span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;" title="Quitar">✖</span>' : ''}
+                    </div>
+                `;
+
+                if (word) {
+                    slot.onclick = () => returnWordToPool(idx);
+                }
+
+                slotsEl.appendChild(slot);
+            });
+        }
+
+        function placeWordInNextSlot(word) {
+            playClickSound();
+            const firstEmpty = alphaGame.placed.indexOf(null);
+            if (firstEmpty === -1) return;
+
+            // Mover de pool a slot
+            alphaGame.pool = alphaGame.pool.filter(w => w !== word);
+            alphaGame.placed[firstEmpty] = word;
+
+            renderAlphaPool();
+            renderAlphaSlots();
+        }
+
+        function returnWordToPool(slotIdx) {
+            playClickSound();
+            const word = alphaGame.placed[slotIdx];
+            if (!word) return;
+
+            alphaGame.placed[slotIdx] = null;
+            alphaGame.pool.push(word);
+
+            renderAlphaPool();
+            renderAlphaSlots();
+        }
+
+        function checkAlphaOrder() {
+            const lvl = ALPHA_LEVELS[alphaGame.currentLevel];
+            const feedback = document.getElementById('alpha-feedback');
+
+            // Verificar si hay huecos vacíos
+            if (alphaGame.placed.includes(null)) {
+                alert("Debes colocar todas las palabras en las casillas antes de comprobar.");
+                return;
+            }
+
+            let allCorrect = true;
+            alphaGame.placed.forEach((word, idx) => {
+                const slotEl = document.getElementById(`alpha-slot-${idx}`);
+                if (word === lvl.sorted[idx]) {
+                    slotEl.classList.add('correct');
+                    slotEl.classList.remove('wrong');
+                } else {
+                    slotEl.classList.add('wrong');
+                    slotEl.classList.remove('correct');
+                    allCorrect = false;
+                }
+            });
+
+            feedback.style.display = 'block';
+
+            if (allCorrect) {
+                playFanfareSound();
+                triggerConfetti();
+                addXP(35);
+                incrementStreak();
+                feedback.style.background = '#ecfdf5';
+                feedback.style.border = '1px solid #10b981';
+                feedback.style.color = '#065f46';
+                feedback.innerHTML = `<strong>🎉 ¡Enhorabuena, Álvaro! ¡Orden Alfabético Perfecto!</strong><br>${lvl.hint}`;
+            } else {
+                playErrorSound();
+                resetStreak();
+                feedback.style.background = '#fff1f2';
+                feedback.style.border = '1px solid #f43f5e';
+                feedback.style.color = '#9f1239';
+                feedback.innerHTML = `<strong>⚠️ Hay palabras desordenadas (marcadas en rojo).</strong><br>Toca las palabras incorrectas para cambiarlas de posición. 💡 <em>Pista: ${lvl.hint}</em>`;
+            }
+        }
+
+        function resetAlphaLevel() {
+            playClickSound();
+            initAlphaGame();
+        }
+
+        function showAlphaHint() {
+            playClickSound();
+            const lvl = ALPHA_LEVELS[alphaGame.currentLevel];
+            alert(`💡 Regla y Pista de Ordenación RAE:\n\n${lvl.hint}`);
+        }
+
+        /* =========================================================================
+           9. PESTAÑA 5: CLASIFICADOR VELOZ
+           ========================================================================= */
+        const SORTER_CASES = [
+            {
+                phrase: "«Estimada directora _____ Le escribo para solicitar una reunión.»",
+                correct: "Dos puntos (:)",
+                hint: "Va tras el saludo y encabezamiento en cartas o correos.",
+                options: ["Dos puntos (:)", "Punto y coma (;)", "Puntos suspensivos (...)"]
+            },
+            {
+                phrase: "«Compramos peras _____ manzanas _____ plátanos y fresas.»",
+                correct: "Coma (,)",
+                hint: "Separa los elementos en una enumeración simple.",
+                options: ["Coma (,)", "Punto y coma (;)", "Dos puntos (:)"]
+            },
+            {
+                phrase: "«No sé si contártelo _____ me da bastante vergüenza.»",
+                correct: "Puntos suspensivos (...)",
+                hint: "Indica vacilación, duda, suspense o miedo.",
+                options: ["Puntos suspensivos (...)", "Punto y seguido (.)", "Comillas (\" \")"]
+            },
+            {
+                phrase: "«Mi padre trabaja en Madrid _____ mi madre, en Toledo.»",
+                correct: "Punto y coma (;)",
+                hint: "Separa dos oraciones vinculadas que ya incluyen una coma que omite el verbo.",
+                options: ["Punto y coma (;)", "Dos puntos (:)", "Puntos suspensivos (...)"]
+            },
+            {
+                phrase: "«El profesor nos advirtió _____ \"El examen comenzará puntual\".»",
+                correct: "Dos puntos (:)",
+                hint: "Introduce las palabras exactas dichas por alguien.",
+                options: ["Dos puntos (:)", "Coma (,)", "Guion (-)"]
+            },
+            {
+                phrase: "«Miguel de Cervantes _____ 1547-1616 _____ escribió El Quijote.»",
+                correct: "Paréntesis ( )",
+                hint: "Encierra fechas de nacimiento y muerte para aportar datos aclaratorios.",
+                options: ["Paréntesis ( )", "Comillas (\" \")", "Signos de exclamación (¡ !)"]
+            },
+            {
+                phrase: "«Las 27 letras oficiales de nuestra lengua están recogidas en el _____»",
+                correct: "Abecedario RAE",
+                hint: "El conjunto de todas las letras que se usan para escribir.",
+                options: ["Abecedario RAE", "Glosario", "Índice de materias"]
+            },
+            {
+                phrase: "«_____A qué hora empieza la función de teatro_____»",
+                correct: "Signos de interrogación (¿ ?)",
+                hint: "En español son dobles y formulan una pregunta directa.",
+                options: ["Signos de interrogación (¿ ?)", "Signos de exclamación (¡ !)", "Comillas (\" \")"]
+            },
+            {
+                phrase: "«_____Qué alegría verte de nuevo por aquí_____»",
+                correct: "Signos de exclamación (¡ !)",
+                hint: "Expresan una emoción viva o alegría y son dobles.",
+                options: ["Signos de exclamación (¡ !)", "Signos de interrogación (¿ ?)", "Puntos suspensivos (...)"]
+            },
+            {
+                phrase: "«El lema del colegio dice _____Trabajo y superación_____»",
+                correct: "Comillas (\" \")",
+                hint: "Enmarcan citas textuales o lemas célebres.",
+                options: ["Comillas (\" \")", "Paréntesis ( )", "Dos puntos (:)"]
+            },
+            {
+                phrase: "«Terminamos el primer tema_____ Mañana iniciaremos el segundo.»",
+                correct: "Punto y seguido (.)",
+                hint: "Separa dos oraciones completas dentro de un mismo párrafo.",
+                options: ["Punto y seguido (.)", "Coma (,)", "Punto y coma (;)"]
+            },
+            {
+                phrase: "«Álvaro _____ recoge tus libros antes de merendar.»",
+                correct: "Coma (,)",
+                hint: "Aísla el vocativo (la palabra que nombra a quien nos dirigimos).",
+                options: ["Coma (,)", "Punto y coma (;)", "Dos puntos (:)"]
+            }
+        ];
+
+        let sorterState = {
+            currentIdx: 0,
+            active: false,
+            cases: []
+        };
+
+        function initSorter() {
+            sorterState.cases = [...SORTER_CASES].sort(() => Math.random() - 0.5);
+            sorterState.currentIdx = 0;
+            sorterState.active = true;
+            renderSorterCase();
+        }
+
+        function renderSorterCase() {
+            const list = (sorterState.cases && sorterState.cases.length > 0) ? sorterState.cases : SORTER_CASES;
+            if (sorterState.currentIdx >= list.length) {
+                showSorterFinished();
+                return;
+            }
+
+            const c = list[sorterState.currentIdx];
+            document.getElementById('sorter-phrase').textContent = c.phrase;
+            document.getElementById('sorter-hint').textContent = `Pista: ${c.hint}`;
+
+            const btnsContainer = document.getElementById('sorter-buttons');
+            btnsContainer.innerHTML = '';
+
+            // Barajar aleatoriamente las opciones para que la correcta no esté siempre en primera posición
+            const shuffledOptions = [...c.options];
+            for (let i = shuffledOptions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+            }
+
+            shuffledOptions.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-sorter';
+                btn.textContent = opt;
+                btn.onclick = () => checkSorterChoice(opt, c.correct);
+                btnsContainer.appendChild(btn);
+            });
+        }
+
+        function checkSorterChoice(chosen, correct) {
+            if (chosen === correct) {
+                playSuccessSound();
+                addXP(15);
+                incrementStreak();
+                recordSorterChoice();
+                sorterState.currentIdx++;
+                renderSorterCase();
+            } else {
+                playErrorSound();
+                resetStreak();
+                alert(`¡Vaya! La opción correcta era: "${correct}". ¡Inténtalo de nuevo!`);
+            }
+        }
+
+        function showSorterFinished() {
+            playFanfareSound();
+            triggerConfetti();
+            addXP(50);
+            document.getElementById('sorter-phrase').textContent = "🎉 ¡Has clasificado todos los casos!";
+            document.getElementById('sorter-hint').textContent = "¡Dominio total de los signos y herramientas de lengua!";
+            document.getElementById('sorter-buttons').innerHTML = `
+                <button class="btn-primary" style="grid-column: 1 / -1; justify-content: center;" onclick="initSorter()">
+                    <span>🔄</span> Jugar de Nuevo
+                </button>
+            `;
+        }
+
+        /* =========================================================================
+           10. ANIMACIÓN DE CONFETI
+           ========================================================================= */
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const pieces = [];
+            const colors = ['#10b981', '#059669', '#34d399', '#fbbf24', '#0ea5e9', '#f43f5e'];
+
+            for (let i = 0; i < 90; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * -canvas.height,
+                    w: Math.random() * 8 + 4,
+                    h: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vy: Math.random() * 4 + 3,
+                    vx: Math.random() * 4 - 2,
+                    rot: Math.random() * 360,
+                    rotSpeed: Math.random() * 6 - 3
+                });
+            }
+
+            let start = Date.now();
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.y += p.vy;
+                    p.x += p.vx;
+                    p.rot += p.rotSpeed;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate((p.rot * Math.PI) / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    ctx.restore();
+                });
+
+                if (Date.now() - start < 3500) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        /* =========================================================================
+           11. INICIALIZACIÓN
+           ========================================================================= */
+        window.addEventListener('DOMContentLoaded', () => {
+            // Cargar modo oscuro si estaba guardado
+            if (localStorage.getItem('castellano_dark') === 'true') {
+                document.body.classList.add('dark-mode');
+                const btnDark = document.getElementById('btn-toggle-dark');
+                if (btnDark) btnDark.textContent = '☀️';
+            }
+
+            // Actualizar icono de sonido
+            const btnSound = document.getElementById('btn-toggle-sound');
+            if (btnSound) btnSound.textContent = isMuted ? '🔇' : '🔊';
+
+            updateUIStats();
+            updateSidebarAndHeroStats();
+            renderCards();
+            renderWorkshopSentences();
+            initAlphaGame();
+        });
+    </script>
+</body>
+
+</html>
