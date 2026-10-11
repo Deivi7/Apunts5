@@ -296,3 +296,138 @@ body.dark-mode .badge-active-mark {
     border-radius: var(--radius-md);
     padding: 1rem;
 }
+
+/* ==========================================================================
+   Google Calendar Section
+   ========================================================================== */
+.calendar-section {
+    max-width: 1360px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1.25rem;
+}
+
+.calendar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s;
+}
+
+.calendar-card:hover {
+    border-color: #cbd5e1;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.calendar-title-group h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.calendar-title-group p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.calendar-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-cal-mode {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btn-cal-mode:hover, .btn-cal-mode.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.btn-open-gcal {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-open-gcal:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.calendar-frame-container {
+    width: 100%;
+    height: 620px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+}
+
+.calendar-frame-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.calendar-tips-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.calendar-tip-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+.calendar-tip-card strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+

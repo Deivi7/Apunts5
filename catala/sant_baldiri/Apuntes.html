@@ -58,7 +58,7 @@
             <div class="hero-title-group">
                 <div class="hero-tag-badge">LLENGUA CATALANA • TEMA 1 ESCOLAR</div>
                 <h1>L'escola de Sant Baldiri 📖</h1>
-                <p>Domina la comprensió lectora, els sinònims i antònims, la separació sil·làbica, els dígrafs i les classes de noms.</p>
+                <p>Domina la comprensió lectora, els sinònims i antònims, la separació sil·làbica, els dígrafs, la síl·laba tònica i les classes de noms amb vídeos explicatius i reptes en viu.</p>
             </div>
             <div class="hero-quick-stats">
                 <div class="stat-card-mini">
@@ -96,27 +96,26 @@
                         <span>Progrés del tema</span>
                         <span id="sidebar-progress-num">0%</span>
                     </div>
-                    <div class="sidebar-progress-bar">
-                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+                    <div class="sidebar-progress-track">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%;"></div>
                     </div>
                 </div>
             </div>
 
-            <nav class="sidebar-nav-list">
-                <!-- 1. Apunts & Recursos -->
-                <button class="sidebar-item-btn active" onclick="switchSidebarTab('apunts', this)">
+            <!-- Menú amb 8 pestanyes numerades -->
+            <nav class="sidebar-nav">
+                <button class="sidebar-tab-btn active" onclick="switchTab('apunts', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">📖</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">1. Apunts & Recursos</span>
-                            <span class="sidebar-btn-desc">Resum i enllaços oficials</span>
+                            <span class="sidebar-btn-desc">Teoria, vídeos & Hub Drive</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-apunts">Teoria</span>
+                    <span class="sidebar-btn-badge">Base</span>
                 </button>
 
-                <!-- 2. Lectura & Comprensió -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('lectura', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('lectura', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">🏫</span>
                         <div class="sidebar-btn-text">
@@ -127,44 +126,40 @@
                     <span class="sidebar-btn-badge" id="badge-lectura">0/4</span>
                 </button>
 
-                <!-- 3. Lèxic: Sinònims & Antònims -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('lexic', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('sinonims', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">🔄</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">3. Sinònims & Antònims</span>
-                            <span class="sidebar-btn-desc">Joc de parelles de mots</span>
+                            <span class="sidebar-btn-desc">Vídeo, teoria & joc parelles</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-lexic">0/8</span>
+                    <span class="sidebar-btn-badge" id="badge-sinonims">Joc</span>
                 </button>
 
-                <!-- 4. Ortografia: Síl·laba & Dígrafs -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('ortografia', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('digrafs', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">✂️</span>
                         <div class="sidebar-btn-text">
-                            <span class="sidebar-btn-title">4. Síl·laba & Dígrafs</span>
-                            <span class="sidebar-btn-desc">Separables vs inseparables</span>
+                            <span class="sidebar-btn-title">4. Síl·laba, Dígrafs & Tònica</span>
+                            <span class="sidebar-btn-desc">2 vídeos, dígrafs & truc del crit</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-ortografia">0/6</span>
+                    <span class="sidebar-btn-badge" id="badge-digrafs">Reptes</span>
                 </button>
 
-                <!-- 5. Gramàtica: El Nom -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('gramatica', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('elnom', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">🏷️</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">5. Classes de Noms</span>
-                            <span class="sidebar-btn-desc">Comú, propi, concret...</span>
+                            <span class="sidebar-btn-desc">El substantiu i dimensions</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-gramatica">0/5</span>
+                    <span class="sidebar-btn-badge" id="badge-elnom">0/8</span>
                 </button>
 
-                <!-- 6. Expressió Escrita -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('escriptura', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('expressio', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">✍️</span>
                         <div class="sidebar-btn-text">
@@ -175,59 +170,50 @@
                     <span class="sidebar-btn-badge">Taller</span>
                 </button>
 
-                <!-- 7. Quiz de Repàs -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('quiz', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('quiz', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">🏆</span>
                         <div class="sidebar-btn-text">
-                            <span class="sidebar-btn-title">7. Quiz de Repàs</span>
-                            <span class="sidebar-btn-desc">10 preguntes de 5è</span>
+                            <span class="sidebar-btn-title">7. Autoavaluació</span>
+                            <span class="sidebar-btn-desc">Test mestre de 10 preguntes</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-quiz">Rècord: 0</span>
+                    <span class="sidebar-btn-badge" id="badge-quiz">0/10</span>
                 </button>
 
-                <!-- 8. Fitxes & Documents -->
-                <button class="sidebar-item-btn" onclick="switchSidebarTab('docs', this)">
+                <button class="sidebar-tab-btn" onclick="switchTab('fitxes', this)">
                     <div class="sidebar-btn-left">
-                        <span class="sidebar-btn-icon">📁</span>
+                        <span class="sidebar-btn-icon">📥</span>
                         <div class="sidebar-btn-text">
-                            <span class="sidebar-btn-title">8. Documents & PDF</span>
-                            <span class="sidebar-btn-desc">Descàrregues de Drive</span>
+                            <span class="sidebar-btn-title">8. Fitxes & PDFs</span>
+                            <span class="sidebar-btn-desc">11 fitxes i vídeos de classe</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge">Drive</span>
+                    <span class="sidebar-btn-badge">11 doc</span>
                 </button>
             </nav>
 
-            <div class="sidebar-footer">
-                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
-                    <span>💡</span> Xulla Ràpida (Finestra)
-                </button>
+            <div class="sidebar-bottom-action">
                 <a href="https://drive.google.com/open?id=1HJx9E-8g6z7rw6ugg21xfUoyrx3zF7sv&usp=drive_copy" target="_blank" class="sidebar-link-topic">
-                    <span>📁 Carpeta de Català (Drive)</span>
-                    <span>↗</span>
+                    <span>☁️</span> Carpeta Català a Drive ↗
                 </a>
-                <button class="sidebar-reset-btn" onclick="confirmResetProgress()">
-                    ↺ Reiniciar els meus rècords
-                </button>
             </div>
         </aside>
 
-        <!-- Àrea Principal de Contingut -->
-        <main class="app-main">
+        <!-- Contingut Principal amb les 8 Pestanyes -->
+        <main class="app-main-content">
 
-            <!-- ==========================================
-                 PESTAÑA 1: APUNTS I RESOURCE HUB
-                 ========================================== -->
-            <section id="panel-apunts" class="tab-panel active">
+            <!-- =========================================================
+                 PESTANYA 1: APUNTS DE TEÒRIA I RESOURCE HUB
+                 ========================================================= -->
+            <section id="tab-apunts" class="tab-panel active">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>📖</span> Esquema General del Tema 1</h2>
-                        <p class="section-subtitle">Tots els continguts de Llengua Catalana de 5è estructurats amb accessos directes a documents oficials i activitats web.</p>
+                        <h2 class="section-title"><span>📚</span> Apunts Oficials & Recursos del Tema</h2>
+                        <p class="section-subtitle">Tots els continguts curriculars de 5è de Primària de la unitat «L'escola de Sant Baldiri».</p>
                     </div>
                     <a href="https://view.genially.com/688137a94d87ce5b85568742" target="_blank" class="btn-primary" style="background: #9333ea;">
-                        <span>✨</span> Obrir Genially del Tema
+                        <span>✨</span> Obrir Genially del Tema ↗
                     </a>
                 </div>
 
@@ -235,90 +221,115 @@
                 <div class="resource-hub-container">
                     <div class="resource-hub-header">
                         <div class="resource-hub-title">
-                            <span>🔗</span> Enllaços Oficials de Classe (Google Drive & Webs del Genially)
+                            <span>🔗</span> Enllaços Oficials de Classe (Google Drive & Webs Didàctiques)
                         </div>
                         <span class="badge-pill" style="font-size: 0.75rem;">Material 5è de Primària</span>
                     </div>
 
+                    <!-- GRUP VÍDEOS OFICIALS -->
+                    <div class="resource-group-title">
+                        <span>🎬</span> Vídeos Explicatius Oficials (Google Drive)
+                    </div>
+                    <div class="resource-grid">
+                        <a href="https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy" target="_blank" class="resource-card">
+                            <div class="resource-card-top">
+                                <span class="resource-card-title"><span>🎬</span> Sinònims i antònims</span>
+                                <span class="resource-badge video">Vídeo Drive</span>
+                            </div>
+                            <p class="resource-card-desc">Vídeo oficial amb explicació dels mots sinònims, antònims i prefixos de negació.</p>
+                            <div class="resource-card-action"><span>Veure Vídeo a Drive</span> <span>↗</span></div>
+                        </a>
+
+                        <a href="https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy" target="_blank" class="resource-card">
+                            <div class="resource-card-top">
+                                <span class="resource-card-title"><span>🎬</span> Separació de síl·labes & dígrafs</span>
+                                <span class="resource-badge video">Vídeo Drive</span>
+                            </div>
+                            <p class="resource-card-desc">Vídeo oficial d'OK CATALÀ sobre dígrafs separables, inseparables i casos difícils.</p>
+                            <div class="resource-card-action"><span>Veure Vídeo a Drive</span> <span>↗</span></div>
+                        </a>
+
+                        <a href="https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy" target="_blank" class="resource-card">
+                            <div class="resource-card-top">
+                                <span class="resource-card-title"><span>🗣️</span> La síl·laba tònica (El Truc del Crit)</span>
+                                <span class="resource-badge video">Vídeo Drive</span>
+                            </div>
+                            <p class="resource-card-desc">Com identificar fàcilment la síl·laba tònica i diferenciar-la de les àtones.</p>
+                            <div class="resource-card-action"><span>Veure Vídeo a Drive</span> <span>↗</span></div>
+                        </a>
+                    </div>
+
+                    <!-- GRUP DOCUMENTS PDF OFICIALS -->
                     <div class="resource-group-title">
                         <span>📁</span> Documents i Fitxes Oficials a Google Drive
                     </div>
                     <div class="resource-grid">
-                        <a href="https://drive.google.com/file/d/1RXqmFruolUdMpVr1FgaUK40iN1oPdxWM/view?usp=sharing" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=14HbGl_jggAPXHX9QF-4lC4qV_QcsrFFk&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📖</span> Lectura: Sant Baldiri</span>
+                                <span class="resource-card-title"><span>📖</span> Lescola de St Baldiri.PDF</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
                             <p class="resource-card-desc">PDF amb el text complet de la lectura «L'escola de Sant Baldiri».</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1oZmKzXUbP6nol4PPGlH_nCD-1-yxn2aj/view?usp=sharing" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=1CBoLZh_b_rdEf4zjDilt8sdsy-Bb8iNP&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📝</span> Què hem entès?</span>
+                                <span class="resource-card-title"><span>📝</span> Comprensió Escola St Baldiri2.pdf</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
-                            <p class="resource-card-desc">Fitxa de preguntes de comprensió lectora del tema.</p>
+                            <p class="resource-card-desc">Fitxa de preguntes de comprensió lectora «Què hem entès?».</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1Nu20eh9Y22950LBAlR9KXw-vUI-l6G3K/view?usp=sharing" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=1xQuC-rhwMuIvaslqVb6FVePKGlRD2e-N&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>🎬</span> Teoria: Sinònims i Antònims</span>
-                                <span class="resource-badge video">Vídeo</span>
-                            </div>
-                            <p class="resource-card-desc">Recurs explicatiu oficial sobre el lèxic i les parelles de mots.</p>
-                            <div class="resource-card-action"><span>Veure a Drive</span> <span>↗</span></div>
-                        </a>
-
-                        <a href="https://drive.google.com/file/d/1qzFuzmFwojjqjoyI5gyr8ewlQrZzwcq7/view?usp=drive_link" target="_blank" class="resource-card">
-                            <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📄</span> Pr 1: Sinònims i Antònims</span>
+                                <span class="resource-card-title"><span>📄</span> Exercicis sinònims i antònims 1</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
-                            <p class="resource-card-desc">Fitxa pràctica 1 d'exercicis de vocabulari de classe.</p>
+                            <p class="resource-card-desc">Fitxa pràctica 1 d'exercicis de vocabulari i parelles de mots de classe.</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1-97MWSbqJ7bPKxmzjg15INmrOSmTpz3X/view?usp=drive_link" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=16y4VSsQ_ObMbt8ACSOqRdiclbo3lfP3v&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📄</span> Pr 2: Sinònims i Antònims</span>
+                                <span class="resource-card-title"><span>📄</span> Exercicis sinònims i antònims 2</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
-                            <p class="resource-card-desc">Fitxa pràctica complementària 2 de sinònims.</p>
+                            <p class="resource-card-desc">Fitxa pràctica complementària 2 de sinònims i antònims.</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1q2PWR9XAz9wCOLXCSa3nzG4g9mjG-QfK/view?usp=sharing" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>✂️</span> Fitxa: La Síl·laba</span>
+                                <span class="resource-card-title"><span>✂️</span> Practica La síl·laba.pdf</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
-                            <p class="resource-card-desc">Exercicis de separació sil·làbica i anàlisi de dígrafs.</p>
+                            <p class="resource-card-desc">Exercicis de separació sil·làbica, dígrafs i tòniques.</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/114FP7_4JhO47e3ipVB5DcB-rHLblW6vG/view?usp=drive_link" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=1erMnFAqQus8ekkCMa67BuJFLAaOZFDHZ&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>🏷️</span> Teoria: El Substantiu (Nom)</span>
+                                <span class="resource-card-title"><span>🏷️</span> El Substantiu (o nom).pdf</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
                             <p class="resource-card-desc">Guia teòrica de classes de substantius: comú/propi, concret/abstracte...</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1Bkxvx7UEGfsqoC4t_2Pz0EsNjIFlA1UY/view?usp=sharing" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=13EjKoJYSyUL6RBEzQAKcJs-MlsqO0HIK&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📝</span> Pr 1: Classes de Noms</span>
+                                <span class="resource-card-title"><span>📝</span> El Nom_exercicis.pdf</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
-                            <p class="resource-card-desc">Fitxa d'activitats de gramàtica sobre el nom.</p>
+                            <p class="resource-card-desc">Fitxa oficial d'exercicis pràctics sobre el substantiu.</p>
                             <div class="resource-card-action"><span>Obrir a Drive</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/13yjNDLP7jtXCAFFYcI_aAjomqQTAjlR-/view?usp=drive_link" target="_blank" class="resource-card">
+                        <a href="https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>✍️</span> Expectatives de curs</span>
+                                <span class="resource-card-title"><span>✍️</span> Expectatives pel nou curs.pdf</span>
                                 <span class="resource-badge drive">Drive</span>
                             </div>
                             <p class="resource-card-desc">Pautes oficials per a la redacció d'expressió escrita.</p>
@@ -326,6 +337,7 @@
                         </a>
                     </div>
 
+                    <!-- GRUP WEBS INTERACTIVES -->
                     <div class="resource-group-title">
                         <span>✨</span> Activitats Web Interactives del Genially
                     </div>
@@ -360,475 +372,859 @@
                         <a href="https://clic.xtec.cat/projects/sinonims/jclic.js/index.html" target="_blank" class="resource-card">
                             <div class="resource-card-top">
                                 <span class="resource-card-title"><span>🧩</span> JClic: Paraules Sinònimes</span>
-                                <span class="resource-badge web">JClic</span>
+                                <span class="resource-badge jclic">JClic</span>
                             </div>
-                            <p class="resource-card-desc">Paquet d'activitats digitals de l'XTEC per practicar el lèxic.</p>
+                            <p class="resource-card-desc">Paquet d'activitats digitals interactives de la XTEC.</p>
                             <div class="resource-card-action"><span>Obrir JClic</span> <span>↗</span></div>
                         </a>
 
-                        <a href="https://www.quia.com/cc/1010226.html" target="_blank" class="resource-card">
+                        <a href="https://www.quia.com/mc/1010226.html" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>🎴</span> Quia: Targetes de Sinònims</span>
+                                <span class="resource-card-title"><span>🃏</span> Quia: Matching Sinònims</span>
                                 <span class="resource-badge web">Quia</span>
                             </div>
-                            <p class="resource-card-desc">Flashcards en línia per emparellar paraules de significat semblant.</p>
-                            <div class="resource-card-action"><span>Jugar a Quia</span> <span>↗</span></div>
+                            <p class="resource-card-desc">Joc d'emparellar paraules sinònimes en català.</p>
+                            <div class="resource-card-action"><span>Practicar a Quia</span> <span>↗</span></div>
                         </a>
 
                         <a href="https://www.liveworksheets.com/es/worksheet/ca/llengua-catalana/433203" target="_blank" class="resource-card">
                             <div class="resource-card-top">
-                                <span class="resource-card-title"><span>📄</span> Liveworksheets: Dígrafs</span>
+                                <span class="resource-card-title"><span>📋</span> Liveworksheets: Els Dígrafs</span>
                                 <span class="resource-badge web">Fitxa</span>
                             </div>
-                            <p class="resource-card-desc">Fitxa interactiva autocorregible d'ortografia en català.</p>
+                            <p class="resource-card-desc">Fitxa autoavaluativa en línia sobre la separació sil·làbica.</p>
                             <div class="resource-card-action"><span>Obrir Fitxa</span> <span>↗</span></div>
                         </a>
                     </div>
                 </div>
 
-                <!-- Resum Teòric en 4 Blocs -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-left: 4px solid var(--primary);">
-                        <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.4rem;">1. Lectura i Comprensió</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Relat de benvinguda a l'escola de Sant Baldiri, espais de l'escola, mestres i retrobada amb els companys.</p>
+                <!-- SECCIÓ AUDIOVISUAL A APUNTS: ELS 3 VÍDEOS AMB EXPLICACIÓ -->
+                <div style="margin-top: 2.5rem;">
+                    <h3 class="section-title"><span>🎥</span> Vídeos Oficials del Tema & Explicacions Didàctiques</h3>
+                    <p class="section-subtitle">Visualitza directament els videotutorials del tema i repassa els punts clau explicats.</p>
+
+                    <!-- VÍDEO 1 -->
+                    <div class="video-card-full">
+                        <div class="video-header-row">
+                            <div class="video-title-box">
+                                <div class="video-icon-bubble">🔄</div>
+                                <div>
+                                    <h4 class="video-title-text">Vídeo 1: Sinònims i antònims</h4>
+                                    <span class="video-meta-badge">Lèxic & Vocabulari</span>
+                                </div>
+                            </div>
+                            <a href="https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy" target="_blank" class="btn-drive">
+                                <span>☁️</span> Obrir a Drive ↗
+                            </a>
+                        </div>
+                        <div class="video-embed-wrap">
+                            <iframe src="https://drive.google.com/file/d/1QqswETKu1EIAPmoqS78BEpZEvxYFfihE/preview" allow="autoplay" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-explanation-box">
+                            <div class="video-explanation-title">
+                                <span>💡</span> Què ens ensenya aquest vídeo?
+                            </div>
+                            <div class="video-key-points">
+                                <div class="video-point-item">
+                                    <strong>Paraules Sinònimes</strong>
+                                    Són paraules que s'escriuen de manera diferent però que expressen una idea igual o molt similar (ex: <em>parlar / enraonar</em>, <em>començar / iniciar</em>). Serveixen per fer redaccions riques sense repetir mots.
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>Paraules Antònimes</strong>
+                                    Són paraules que tenen significats contraris o oposats (ex: <em>ràpid / lent</em>, <em>obert / tancat</em>, <em>clar / fosc</em>).
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>Prefixos de Negació</strong>
+                                    Molts antònims es formen posant un prefix davant de la paraula: <em>des-</em> (<em>endreçar / desendreçar</em>), <em>in-</em> (<em>feliç / infeliç</em>), <em>im-</em> (<em>possible / impossible</em>), <em>il-</em> (<em>lògic / il·lògic</em>).
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-left: 4px solid var(--accent);">
-                        <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.4rem;">2. Lèxic: Sinònims & Antònims</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Els <strong>sinònims</strong> tenen significat semblant (alegre = content); els <strong>antònims</strong> tenen significat contrari (ràpid ≠ lent).</p>
+
+                    <!-- VÍDEO 2 -->
+                    <div class="video-card-full">
+                        <div class="video-header-row">
+                            <div class="video-title-box">
+                                <div class="video-icon-bubble">✂️</div>
+                                <div>
+                                    <h4 class="video-title-text">Vídeo 2: Separació de síl·labes en català dígrafs i altres casos difícils (OK CATALÀ)</h4>
+                                    <span class="video-meta-badge">Ortografia Oficial</span>
+                                </div>
+                            </div>
+                            <a href="https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy" target="_blank" class="btn-drive">
+                                <span>☁️</span> Obrir a Drive ↗
+                            </a>
+                        </div>
+                        <div class="video-embed-wrap">
+                            <iframe src="https://drive.google.com/file/d/1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE/preview" allow="autoplay" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-explanation-box">
+                            <div class="video-explanation-title">
+                                <span>💡</span> Regles d'or per tallar paraules a final de línia
+                            </div>
+                            <div class="video-key-points">
+                                <div class="video-point-item">
+                                    <strong>Dígrafs Separables (es trenquen)</strong>
+                                    Es divideixen sempre entre dues síl·labes diferents: <strong>rr</strong> (<em>car-ro</em>), <strong>ss</strong> (<em>tas-sa</em>), <strong>l·l</strong> (<em>col-le-gi</em>), <strong>tx</strong> (<em>cot-xe</em>), <strong>tj</strong> (<em>plat-ja</em>), <strong>tg</strong> (<em>met-ge</em>).
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>Dígrafs Inseparables (sempre junts)</strong>
+                                    Mai es poden separar a final de línia: <strong>ll</strong> (<em>lla-pis</em>), <strong>ny</strong> (<em>ba-nyar</em>), <strong>qu</strong> (<em>pa-quet</em>), <strong>gu</strong> (<em>gui-tar-ra</em>), <strong>ig</strong> (<em>lleig</em>).
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>Grups Consonàntics Fixos</strong>
+                                    Una consonant seguida de <em>l</em> o <em>r</em> (<em>bl, br, cl, cr, dr, fl, fr, gl, gr, pl, pr, tr</em>) mai se separa (ex: <em>ta-bla</em>, <em>lli-bre</em>).
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-left: 4px solid #ef4444;">
-                        <h3 style="color: #ef4444; font-size: 1.1rem; margin-bottom: 0.4rem;">3. Ortografia: Els Dígrafs</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Dues lletres = 1 sol so. Es parteixen a final de línia: <em>rr, ss, l·l, tx, tj, tg</em>. NO es parteixen: <em>ll, ny, qu, gu, ig</em>.</p>
+
+                    <!-- VÍDEO 3 -->
+                    <div class="video-card-full">
+                        <div class="video-header-row">
+                            <div class="video-title-box">
+                                <div class="video-icon-bubble">🗣️</div>
+                                <div>
+                                    <h4 class="video-title-text">Vídeo 3: La síl·laba tònica 🗣️ Com identificar-la fàcilment (OK CATALÀ)</h4>
+                                    <span class="video-meta-badge">Pronúncia & Fonètica</span>
+                                </div>
+                            </div>
+                            <a href="https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy" target="_blank" class="btn-drive">
+                                <span>☁️</span> Obrir a Drive ↗
+                            </a>
+                        </div>
+                        <div class="video-embed-wrap">
+                            <iframe src="https://drive.google.com/file/d/1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI/preview" allow="autoplay" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-explanation-box">
+                            <div class="video-explanation-title">
+                                <span>💡</span> La tècnica del crit per trobar la tònica
+                            </div>
+                            <div class="video-key-points">
+                                <div class="video-point-item">
+                                    <strong>Síl·laba Tònica vs Àtona</strong>
+                                    La síl·laba <strong>tònica</strong> és la que es pronuncia amb més intensitat i cop de veu en tota la paraula (només n'hi ha UNA!). Les altres síl·labes són <strong>àtones</strong> (més dèbils).
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>El Truc Màgic del "Crit"</strong>
+                                    Si dubtes quina síl·laba té la força, imagina que crides la paraula a algú des de lluny pel carrer (ex: <em>"CAMEEELL!"</em> o <em>"FINESSS-TRA!"</em>). La síl·laba que allargues de manera natural és la tònica!
+                                </div>
+                                <div class="video-point-item">
+                                    <strong>Posició segons l'accent</strong>
+                                    <strong>Agudes:</strong> l'última (<em>can-çó</em>). <strong>Planes:</strong> la penúltima (<em>lli-bre</em>). <strong>Esdrúixoles:</strong> l'antepenúltima (<em>mú-si-ca</em>).
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-left: 4px solid #10b981;">
-                        <h3 style="color: #10b981; font-size: 1.1rem; margin-bottom: 0.4rem;">4. Gramàtica: El Substantiu</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Paraules que anomenen persones, animals, coses o idees. Classificació segons gènere, nombre, propietat i concreció.</p>
+                </div>
+
+                <!-- =========================================================
+                     GUIA DE TEÒRIA COMPLETA I DIDÀCTICA PER A 5È DE PRIMÀRIA
+                     ========================================================= -->
+                <div style="margin-top: 3rem;">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title"><span>📘</span> Guia de Teoria Completa per a 5è de Primària</h3>
+                            <p class="section-subtitle">Explicacions clares, exemples reals i trucs mnemotècnics perquè ho entenguis tot a la primera.</p>
+                        </div>
+                    </div>
+
+                    <div class="theory-kid-container">
+
+                        <!-- BLOC 1: SINÒNIMS I ANTÒNIMS -->
+                        <div class="theory-kid-card amber">
+                            <div class="theory-kid-header">
+                                <h4 class="theory-kid-title"><span>🔄</span> 1. Sinònims & Antònims: El Joc del Lèxic</h4>
+                                <span class="theory-kid-badge">Lèxic & Vocabulari</span>
+                            </div>
+                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;">
+                                Imagina que les paraules són com persones: n'hi ha que pensen exactament igual (germanes o <strong>sinònims</strong>) i n'hi ha que són completament oposades (rivals o <strong>antònims</strong>).
+                            </p>
+                            
+                            <div class="theory-kid-grid">
+                                <div class="theory-box-mini">
+                                    <h5><span>👯</span> Què és un Sinònim?</h5>
+                                    <p>Són paraules diferents que signifiquen el mateix o gairebé el mateix. <strong>Per a què serveixen?</strong> Per no repetir la mateixa paraula cinc vegades en una redacció!</p>
+                                    <div style="margin-top: 0.6rem; font-size: 0.85rem; background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 6px;">
+                                        • <em>parlar</em> = <em>enraonar</em><br>
+                                        • <em>alegre</em> = <em>content</em><br>
+                                        • <em>començar</em> = <em>iniciar</em>
+                                    </div>
+                                </div>
+
+                                <div class="theory-box-mini">
+                                    <h5><span>⚡</span> Què és un Antònim?</h5>
+                                    <p>Són paraules que expressen idees contràries o oposades. Ens serveixen per fer comparacions i descriure diferències.</p>
+                                    <div style="margin-top: 0.6rem; font-size: 0.85rem; background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 6px;">
+                                        • <em>ràpid</em> ≠ <em>lent</em><br>
+                                        • <em>obert</em> ≠ <em>tancat</em><br>
+                                        • <em>fosc</em> ≠ <em>clar</em>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="trick-box" style="margin-top: 1.25rem;">
+                                <div class="trick-title"><span>🎩</span> El Truc dels Prefixos Màgics de Negació</div>
+                                <p style="font-size: 0.88rem; line-height: 1.6; margin: 0; color: var(--text-main);">
+                                    Sabies que pots fabricar antònims afegint una petita peça davant de la paraula?
+                                    <br>• <strong>des-</strong> : <em>pentinar</em> → <em>despentinar</em> | <em>enganxar</em> → <em>desenganxar</em>
+                                    <br>• <strong>in-</strong> : <em>visible</em> → <em>invisible</em> | <em>feliç</em> → <em>infeliç</em>
+                                    <br>• <strong>im-</strong> : (sempre abans de <em>p</em> o <em>b</em>!): <em>possible</em> → <em>impossible</em> | <em>pacient</em> → <em>impacient</em>
+                                </p>
+                            </div>
+
+                            <div class="theory-good-bad-row">
+                                <div class="good-case">
+                                    <strong>✅ Com fer-ho bé a l'examen:</strong><br>
+                                    <em>«El cavall és veloç i el caragol és lent»</em> (has fet servir un antònim precís).
+                                </div>
+                                <div class="bad-case">
+                                    <strong>❌ Error típic de 5è:</strong><br>
+                                    Posar <em>des-</em> a totes les paraules: l'antònim de <em>gran</em> NO és <em>desgran</em>, és <em>petit</em>!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BLOC 2: LA SÍL·LABA I ELS DÍGRAFS -->
+                        <div class="theory-kid-card blue">
+                            <div class="theory-kid-header">
+                                <h4 class="theory-kid-title"><span>✂️</span> 2. La Síl·laba & Els Dígrafs: Com tallar paraules sense equivocar-te</h4>
+                                <span class="theory-kid-badge" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">Ortografia Oficial</span>
+                            </div>
+                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;">
+                                Una <strong>síl·laba</strong> és cadascun dels cops de veu amb què pronunciem un mot. <strong>La regla d'or de 5è:</strong> TOTA síl·laba necessita obligatòriament com a mínim <strong>UNA vocal</strong>!
+                            </p>
+
+                            <div class="theory-kid-grid">
+                                <div class="theory-box-mini">
+                                    <h5 style="color: #dc2626;"><span>✂️</span> Dígrafs SEPARABLES (Es trenquen)</h5>
+                                    <p>Quan s'acaba la línia i poses un guió, aquests dígrafs <strong>sempre se separen</strong> entre dues síl·labes diferents:</p>
+                                    <ul style="margin: 0.5rem 0 0 1.1rem; font-size: 0.85rem; line-height: 1.6; padding: 0;">
+                                        <li><strong>RR:</strong> <em>car - ro</em>, <em>ter - ra</em></li>
+                                        <li><strong>SS:</strong> <em>tas - sa</em>, <em>bos - sa</em></li>
+                                        <li><strong>L·L (ela geminada):</strong> <em>col - le - gi</em>, <em>pel - lí - cu - la</em> (el punt volat es converteix en guió!)</li>
+                                        <li><strong>TX:</strong> <em>cot - xe</em>, <em>pan - txa</em></li>
+                                        <li><strong>TJ:</strong> <em>plat - ja</em>, <em>mit - ja</em></li>
+                                        <li><strong>TG:</strong> <em>met - ge</em>, <em>vi - at - ge</em></li>
+                                    </ul>
+                                </div>
+
+                                <div class="theory-box-mini">
+                                    <h5 style="color: #10b981;"><span>🔒</span> Dígrafs INSEPARABLES (Millors amics)</h5>
+                                    <p>Són dues lletres que fan un únic so tan unit que <strong>mai es poden separar</strong>; van sempre junts a la mateixa síl·laba:</p>
+                                    <ul style="margin: 0.5rem 0 0 1.1rem; font-size: 0.85rem; line-height: 1.6; padding: 0;">
+                                        <li><strong>LL:</strong> <em>lla - pis</em>, <em>ca - vall</em></li>
+                                        <li><strong>NY:</strong> <em>ba - nyar</em>, <em>mun - ta - nya</em></li>
+                                        <li><strong>QU:</strong> <em>pa - quet</em>, <em>es - qui</em></li>
+                                        <li><strong>GU:</strong> <em>gui - tar - ra</em>, <em>à - gui - la</em></li>
+                                        <li><strong>IG:</strong> <em>lleig</em>, <em>des - patx</em></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="theory-good-bad-row" style="margin-top: 1rem;">
+                                <div class="good-case">
+                                    <strong>✅ Correcte a final de línia:</strong><br>
+                                    <em>mun-ta- / nya</em> (NY juntes a la segona línia)<br>
+                                    <em>pel- / lícula</em> (L·L separada amb guionet)
+                                </div>
+                                <div class="bad-case">
+                                    <strong>❌ Error molt greu a l'examen:</strong><br>
+                                    <em>mun-tan- / ya</em> (mai separis la NY!)<br>
+                                    <em>pe- / l·lícula</em> (mai deixis la L·L junta!)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BLOC 3: LA SÍL·LABA TÒNICA -->
+                        <div class="theory-kid-card purple">
+                            <div class="theory-kid-header">
+                                <h4 class="theory-kid-title"><span>🗣️</span> 3. La Síl·laba Tònica: La Reina de la Paraula & El Truc del Crit</h4>
+                                <span class="theory-kid-badge" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6;">Pronúncia & Accentuació</span>
+                            </div>
+                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;">
+                                En tota paraula en català només hi ha <strong>UNA sola síl·laba tònica</strong> (la que té la corona i sona més forta). Totes les altres són <strong>àtones</strong> (més suaus i febles).
+                            </p>
+
+                            <div class="trick-box">
+                                <div class="trick-title"><span>📢</span> Com trobar la tònica si dubtes? El Truc del Crit!</div>
+                                <p style="font-size: 0.88rem; line-height: 1.6; margin: 0; color: var(--text-main);">
+                                    Tanca els ulls i imagina que estàs a la porta de casa i crides la paraula a un amic que és a l'altra punta del pati:
+                                    <br>• Si crides <em>"CAMEEELL!"</em> → La que allargues de manera natural és <strong>MELL</strong>!
+                                    <br>• Si crides <em>"FINESSS-TRA!"</em> → La que allargues és <strong>NES</strong>!
+                                    <br>• Si crides <em>"CAMI-ÓÓÓ!"</em> → La que allargues és <strong>Ó</strong>!
+                                    <br>La síl·laba que allargues <strong>ÉS SEMPRE LA TÒNICA</strong>. Mai falla!
+                                </p>
+                            </div>
+
+                            <div style="margin-top: 1.25rem;">
+                                <h5 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 800;">On cau la força? Les 3 posicions oficials:</h5>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;">
+                                        <strong style="color: var(--primary);">1. Agudes:</strong><br>
+                                        Força a l'<strong>última</strong> síl·laba.<br>
+                                        Exemples: <em>ca-mi-Ó</em>, <em>ra-TOLÍ</em>, <em>pa-PER</em>.
+                                    </div>
+                                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;">
+                                        <strong style="color: #2563eb;">2. Planes:</strong><br>
+                                        Força a la <strong>penúltima</strong> síl·laba.<br>
+                                        Exemples: <em>CA-sa</em>, <em>CO-txe</em>, <em>LLI-bre</em>.
+                                    </div>
+                                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;">
+                                        <strong style="color: #10b981;">3. Esdrúixoles:</strong><br>
+                                        Força a l'<strong>antepenúltima</strong>.<br>
+                                        Exemples: <em>MÚ-si-ca</em>, <em>FÀ-bri-ca</em> (sempre porten accent!).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BLOC 4: LES CLASSES DE NOMS (EL SUBSTANTIU) -->
+                        <div class="theory-kid-card green">
+                            <div class="theory-kid-header">
+                                <h4 class="theory-kid-title"><span>🏷️</span> 4. El Nom o Substantiu: Les 4 Parelles per Classificar-ho Tot</h4>
+                                <span class="theory-kid-badge" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">Gramàtica Fàcil</span>
+                            </div>
+                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;">
+                                Un <strong>substantiu o nom</strong> és la paraula que fem servir per posar etiqueta a qualsevol cosa que existeix al món. Per classificar un nom a 5è de primària, només has de passar-lo per aquestes <strong>4 proves</strong>:
+                            </p>
+
+                            <div class="theory-kid-grid">
+                                <div class="theory-box-mini">
+                                    <h5><span>👤</span> Parella 1: Comú vs Propi</h5>
+                                    <p>
+                                        • <strong>Comú:</strong> Nombra qualsevol ésser o cosa en general (<em>gos, riu, ciutat, mestre</em>).<br>
+                                        • <strong>Propi:</strong> És el nom particular d'algú o d'un lloc i <strong>porta majúscula</strong>! (<em>Tobi, Ebre, Barcelona, Jordi</em>).
+                                    </p>
+                                </div>
+
+                                <div class="theory-box-mini">
+                                    <h5><span>✋</span> Parella 2: Concret vs Abstracte</h5>
+                                    <p>
+                                        • <strong>Concret:</strong> Ho pots percebre amb els 5 sentits (tocar, veure, olorar, tastar): <em>pissarra, pilota, pizza</em>.<br>
+                                        • <strong>Abstracte:</strong> Idees, valors o sentiments que són al cap o al cor: <em>alegria, pau, amistat, por</em>.
+                                    </p>
+                                </div>
+
+                                <div class="theory-box-mini">
+                                    <h5><span>🐑</span> Parella 3: Individual vs Col·lectiu</h5>
+                                    <p>
+                                        • <strong>Individual:</strong> En singular nombra 1 sol ésser (<em>ovella, arbre, ocell</em>).<br>
+                                        • <strong>Col·lectiu:</strong> En singular nombra tot un grup sencer! (<em>ramat</em> = conjunt d'ovelles; <em>bosc</em> = conjunt d'arbres; <em>estol</em> = conjunt d'ocells).
+                                    </p>
+                                </div>
+
+                                <div class="theory-box-mini">
+                                    <h5><span>🔢</span> Parella 4: Comptable vs No Comptable</h5>
+                                    <p>
+                                        • <strong>Comptable:</strong> Pots dir 1, 2, 3 unitats soltes (<em>un llapis, dues pomes, tres llibres</em>).<br>
+                                        • <strong>No comptable:</strong> Es mesura o es pesa, però no es compta en unitats individuals (<em>aigua, sucre, sorra, llet</em>).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1.25rem; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+                                <strong style="color: var(--primary);">💡 Exemple complet d'anàlisi de classe:</strong><br>
+                                Si agafem la paraula <strong>«gos»</strong>:<br>
+                                És un nom <strong>comú</strong> (no és un nom propi amb majúscula), <strong>concret</strong> (el pots tocar), <strong>individual</strong> (és un sol animal) i <strong>comptable</strong> (pots dir un gos, dos gossos). Molt fàcil!
+                            </div>
+                        </div>
+
+                        <!-- BLOC 5: RESUM VISUAL EN 1 MINUT -->
+                        <div class="theory-kid-card amber">
+                            <div class="theory-kid-header">
+                                <h4 class="theory-kid-title"><span>⚡</span> 5. Resum Visual en 1 Minut: La Chuleta de 5è</h4>
+                                <span class="theory-kid-badge">Per Repassar Ràpid</span>
+                            </div>
+                            <table class="theory-summary-table">
+                                <thead>
+                                    <tr>
+                                        <th>Concepte</th>
+                                        <th>Què és?</th>
+                                        <th>Exemple Clau</th>
+                                        <th>Truc d'Examen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Sinònims</strong></td>
+                                        <td>Significat igual</td>
+                                        <td><em>parlar = enraonar</em></td>
+                                        <td>Evita repetir paraules</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Antònims</strong></td>
+                                        <td>Significat contrari</td>
+                                        <td><em>feliç ≠ infeliç</em></td>
+                                        <td>Fes servir prefixos <em>des-</em>, <em>in-</em>, <em>im-</em></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dígrafs Separables</strong></td>
+                                        <td>Es divideixen entre dues síl·labes</td>
+                                        <td><em>car-ro, tas-sa, col-le-gi, cot-xe, plat-ja, met-ge</em></td>
+                                        <td>Sempre es trenquen a meitat</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dígrafs Inseparables</strong></td>
+                                        <td>Van sempre junts</td>
+                                        <td><em>lla-pis, mun-ta-nya, pa-quet, gui-tar-ra, lleig</em></td>
+                                        <td>Mai els separis a final de línia!</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Síl·laba Tònica</strong></td>
+                                        <td>La que sona amb més força</td>
+                                        <td><em>fe-li-ci-<strong>tat</strong></em> (aguda)</td>
+                                        <td>Fes el truc del crit!</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>El Substantiu</strong></td>
+                                        <td>Posa nom a tot el que existeix</td>
+                                        <td><em>arbre</em> (comú, concret, individual, comptable)</td>
+                                        <td>Passa les 4 parelles màgiques</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 2: LECTURA I COMPRENSIÓ
-                 ========================================== -->
-            <section id="panel-lectura" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 2: LECTURA I COMPRENSIÓ LECTORA
+                 ========================================================= -->
+            <section id="tab-lectura" class="tab-panel">
                 <div class="section-header">
                     <div>
                         <h2 class="section-title"><span>🏫</span> Lectura: L'escola de Sant Baldiri</h2>
-                        <p class="section-subtitle">Llegeix el text del curs i respon les preguntes de comprensió per aconseguir punts d'experiència.</p>
+                        <p class="section-subtitle">Llegeix atentament el fragment oficial del conte de 5è de Primària i respon el repte de comprensió.</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
-                        <a href="https://drive.google.com/file/d/1RXqmFruolUdMpVr1FgaUK40iN1oPdxWM/view?usp=sharing" target="_blank" class="btn-drive">
-                            <span>📄</span> Text Oficial (Drive)
+                        <a href="https://drive.google.com/open?id=14HbGl_jggAPXHX9QF-4lC4qV_QcsrFFk&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📖</span> Text PDF a Drive ↗
                         </a>
-                        <a href="https://drive.google.com/file/d/1oZmKzXUbP6nol4PPGlH_nCD-1-yxn2aj/view?usp=sharing" target="_blank" class="btn-drive">
-                            <span>📝</span> Fitxa Preguntes (Drive)
+                        <a href="https://drive.google.com/open?id=1CBoLZh_b_rdEf4zjDilt8sdsy-Bb8iNP&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📝</span> Preguntes PDF a Drive ↗
                         </a>
                     </div>
                 </div>
 
-                <!-- Story Presentation Card -->
-                <div class="story-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <span class="badge-pill">Text de Benvinguda a 5è</span>
-                        <span style="font-size: 1.5rem;">🎒 📚 🔔</span>
-                    </div>
-                    <div class="story-text">
-                        <p>
-                            El primer dia de classe al col·legi de Sant Baldiri té sempre una màgia especial. Després d'un estiu llarg i calorós, el pati torna a omplir-se de rialles, motxilles noves i abraçades d'aquells amics que feia setmanes que no es veien.
-                        </p>
-                        <div class="story-quote">
-                            «Pujar al pis de 5è de Primària fa impressió: som dels grans de l'escola! Les aules tenen pissarres noves, taules ordenades i mestres plens d'il·lusió per acompanyar-nos en un curs ple de nous reptes científics, literaris i artístics.»
-                        </div>
-                        <p>
-                            L'escola de Sant Baldiri és coneguda per ser un lloc on tothom aprèn a cooperar. Aquest any, els projectes en equip, els laboratoris i les assemblees de classe seran clau perquè cada infant aprengui a expressar les seves idees amb respecte i confiança.
-                        </p>
-                    </div>
+                <div class="reading-box">
+                    <p>El primer dia de classe al poble de Sant Baldiri sempre té un aire especial. Des de primera hora del matí, el camí que puja cap a l'escola s'omple de motxilles noves, rialles nervioses i passes ràpides de nens i nenes que tornen a trobar-se després de l'estiu.</p>
+                    <p>L'escola de Sant Baldiri no és gaire gran, però té uns finestrals lluminosos que miren directament cap a les oliveres i les muntanyes properes. Al pati, un vell roure centenari ofereix una ombra immensa on els alumnes de cinquè acostumen a reunir-se per compartir les primeres anècdotes de les vacances.</p>
+                    <p>—Aquest curs tenim molts reptes per endavant —va dir el mestre Jordi mentre escrivia la benvinguda a la pissarra—. Aprendrem a organitzar les nostres idees, a investigar sobre la natura i a descobrir les paraules que donen forma al nostre pensament.</p>
+                    <p>L'ambient a l'aula respirava curiositat i ganes de començar. Tots sabien que cinquè de primària era un graó important, i que a Sant Baldiri cada jornada seria una nova oportunitat per aprendre junts.</p>
                 </div>
 
-                <!-- Interactive Comprehension Questions -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-                        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">
-                            <span>🎯</span> Què hem entès? (4 Preguntes de Comprensió)
-                        </h3>
-                        <span class="badge-pill" id="lectura-score-badge">0 de 4 encerts</span>
-                    </div>
+                <!-- PREGUNTES DE COMPRENSIÓ INTERACTIVA -->
+                <div style="margin-top: 2rem;">
+                    <h3 class="section-title"><span>📝</span> Què hem entès? (Repte de Comprensió)</h3>
+                    <p class="section-subtitle">Demostra que has parat atenció als detalls del text. Guanya +10 XP per cada encert!</p>
 
-                    <!-- Q1 -->
-                    <div class="question-block">
-                        <h4 style="font-size: 0.95rem; font-weight: 800;">1. Quin curs comencen els alumnes protagonistes de la història?</h4>
-                        <div class="choice-grid">
-                            <button class="choice-btn" onclick="checkLectura(1, 0, this)">A) 3r de Primària</button>
-                            <button class="choice-btn" onclick="checkLectura(1, 1, this)">B) 5è de Primària (ja són dels grans de l'escola)</button>
-                            <button class="choice-btn" onclick="checkLectura(1, 2, this)">C) 1r d'ESO</button>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.25rem;">
+                        <!-- Pregunta 1 -->
+                        <div class="comp-question-card" id="card-comp-1">
+                            <div class="comp-q-title">1. Com és l'entorn que es veu des dels finestrals de l'escola?</div>
+                            <div class="comp-options-grid">
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(1, 0, this)">A) Un port ple de vaixells pesquers i gavines</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(1, 1, this)">B) Oliveres i muntanyes properes</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(1, 2, this)">C) Una autopista transitada amb molt soroll</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-comp-1"></div>
                         </div>
-                        <div class="feedback-msg" id="lectura-fb-1" style="display: none;"></div>
-                    </div>
 
-                    <!-- Q2 -->
-                    <div class="question-block">
-                        <h4 style="font-size: 0.95rem; font-weight: 800;">2. Quina sensació transmet el pati de l'escola el primer dia?</h4>
-                        <div class="choice-grid">
-                            <button class="choice-btn" onclick="checkLectura(2, 0, this)">A) Silenci i buidor absoluta</button>
-                            <button class="choice-btn" onclick="checkLectura(2, 1, this)">B) Retrobada, abraçades i rialles entre companys</button>
-                            <button class="choice-btn" onclick="checkLectura(2, 2, this)">C) Enuig perquè s'han acabat les vacances</button>
+                        <!-- Pregunta 2 -->
+                        <div class="comp-question-card" id="card-comp-2">
+                            <div class="comp-q-title">2. Quin arbre centenari dóna ombra al pati dels alumnes?</div>
+                            <div class="comp-options-grid">
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(2, 0, this)">A) Un vell roure</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(2, 1, this)">B) Un pi pinyoner</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(2, 2, this)">C) Una palmera alta</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-comp-2"></div>
                         </div>
-                        <div class="feedback-msg" id="lectura-fb-2" style="display: none;"></div>
-                    </div>
 
-                    <!-- Q3 -->
-                    <div class="question-block">
-                        <h4 style="font-size: 0.95rem; font-weight: 800;">3. Quin valor destaca com a fonamental a l'escola de Sant Baldiri?</h4>
-                        <div class="choice-grid">
-                            <button class="choice-btn" onclick="checkLectura(3, 0, this)">A) La cooperació i el treball en equip</button>
-                            <button class="choice-btn" onclick="checkLectura(3, 1, this)">B) La competició individual per veure qui acaba primer</button>
-                            <button class="choice-btn" onclick="checkLectura(3, 2, this)">C) No parlar amb ningú a classe</button>
+                        <!-- Pregunta 3 -->
+                        <div class="comp-question-card" id="card-comp-3">
+                            <div class="comp-q-title">3. Quin és el nom del mestre que dóna la benvinguda a la pissarra?</div>
+                            <div class="comp-options-grid">
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(3, 0, this)">A) El mestre Carles</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(3, 1, this)">B) El mestre Marc</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(3, 2, this)">C) El mestre Jordi</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-comp-3"></div>
                         </div>
-                        <div class="feedback-msg" id="lectura-fb-3" style="display: none;"></div>
-                    </div>
 
-                    <!-- Q4 -->
-                    <div class="question-block">
-                        <h4 style="font-size: 0.95rem; font-weight: 800;">4. Per a què serviran les assemblees i laboratoris d'aquest curs?</h4>
-                        <div class="choice-grid">
-                            <button class="choice-btn" onclick="checkLectura(4, 0, this)">A) Per expressar idees amb respecte i confiança</button>
-                            <button class="choice-btn" onclick="checkLectura(4, 1, this)">B) Per fer exàmens sense parar</button>
-                            <button class="choice-btn" onclick="checkLectura(4, 2, this)">C) Per netejar el pati de l'escola</button>
+                        <!-- Pregunta 4 -->
+                        <div class="comp-question-card" id="card-comp-4">
+                            <div class="comp-q-title">4. Quina actitud tenien els alumnes en entrar a l'aula de cinquè?</div>
+                            <div class="comp-options-grid">
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(4, 0, this)">A) Curiositat i ganes de començar el nou curs</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(4, 1, this)">B) Molta son i ganes de tornar al llit</button>
+                                <button class="comp-opt-btn" onclick="checkCompAnswer(4, 2, this)">C) Por i tristesa de deixar les vacances</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-comp-4"></div>
                         </div>
-                        <div class="feedback-msg" id="lectura-fb-4" style="display: none;"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 3: LÈXIC (SINÒNIMS I ANTÒNIMS)
-                 ========================================== -->
-            <section id="panel-lexic" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 3: SINÒNIMS I ANTÒNIMS
+                 ========================================================= -->
+            <section id="tab-sinonims" class="tab-panel">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>🔄</span> Lèxic: Sinònims i Antònims</h2>
-                        <p class="section-subtitle">Aprèn a enriquir el teu vocabulari emparellant paraules de significat semblant o contrari.</p>
+                        <h2 class="section-title"><span>🔄</span> Lèxic: Sinònims & Antònims</h2>
+                        <p class="section-subtitle">Aprèn a reconèixer les parelles de mots sinònims i practica amb el minijoc d'emparellar cartes.</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                        <a href="https://clic.xtec.cat/projects/sinonims/jclic.js/index.html" target="_blank" class="btn-primary">
-                            <span>🧩</span> JClic Sinònims
+                        <a href="https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>🎬</span> Vídeo Sinònims a Drive ↗
                         </a>
-                        <a href="https://www.quia.com/cc/1010226.html" target="_blank" class="btn-primary">
-                            <span>🎴</span> Quia Targetes
+                        <a href="https://drive.google.com/open?id=1xQuC-rhwMuIvaslqVb6FVePKGlRD2e-N&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📄</span> Fitxa Pràctica 1 a Drive ↗
+                        </a>
+                        <a href="https://drive.google.com/open?id=16y4VSsQ_ObMbt8ACSOqRdiclbo3lfP3v&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📄</span> Fitxa Pràctica 2 a Drive ↗
                         </a>
                     </div>
                 </div>
 
-                <!-- Matching Game: Sinònims -->
-                <div class="pairs-game-container">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <!-- VÍDEO DEDICAT DE SINÒNIMS I ANTÒNIMS -->
+                <div class="video-card-full">
+                    <div class="video-header-row">
+                        <div class="video-title-box">
+                            <div class="video-icon-bubble">🔄</div>
+                            <div>
+                                <h4 class="video-title-text">Vídeo Explicatiu: Sinònims i antònims</h4>
+                                <span class="video-meta-badge">Lliçó en Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-embed-wrap">
+                        <iframe src="https://drive.google.com/file/d/1QqswETKu1EIAPmoqS78BEpZEvxYFfihE/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-explanation-box">
+                        <div class="video-explanation-title"><span>📌</span> Resum Didàctic del Vídeo</div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                            Els <strong>sinònims</strong> ens permeten comunicar amb precisió i evitar la repetició d'una mateixa paraula en un text (ex: <em>alegre = content</em>, <em>començar = iniciar</em>). Els <strong>antònims</strong> indiquen conceptes oposats (ex: <em>obert ≠ tancat</em>). A més, recorda que molts antònims es formen amb els prefixos de negació: <strong>des-</strong> (<em>enganxar / desenganxar</em>) o <strong>in-/im-</strong> (<em>útil / inútil</em>, <em>pacient / impacient</em>).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MINIJOC D'EMPARELLAR PARELLES -->
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <h3 class="section-title"><span>🃏</span> Minijoc: Emparella els Sinònims</h3>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">
+                            Parelles trobades: <span id="pairs-matched-counter">0</span> / 8
+                        </div>
+                    </div>
+                    <p class="section-subtitle">Fes clic sobre una targeta i busca el seu sinònim corresponent per fer parella. Si encertes, s'il·luminaran en verd!</p>
+
+                    <div class="pairs-game-board" id="pairs-board"></div>
+                    <div class="feedback-msg" id="pairs-global-feedback"></div>
+                </div>
+            </section>
+
+            <!-- =========================================================
+                 PESTANYA 4: LA SÍL·LABA, ELS DÍGRAFS I LA SÍL·LABA TÒNICA
+                 ========================================================= -->
+            <section id="tab-digrafs" class="tab-panel">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title"><span>✂️</span> La Síl·laba, Dígrafs & La Síl·laba Tònica</h2>
+                        <p class="section-subtitle">Aprèn a separar correctament les paraules a final de línia, domina els dígrafs i troba la tònica amb el truc del crit.</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <a href="https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>🎬</span> Vídeo Dígrafs a Drive ↗
+                        </a>
+                        <a href="https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>🗣️</span> Vídeo Tònica a Drive ↗
+                        </a>
+                        <a href="https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📄</span> Fitxa Pràctica Síl·laba ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VÍDEO 2 DEDICAT: SEPARACIÓ DE SÍL·LABES I DÍGRAFS -->
+                <div class="video-card-full">
+                    <div class="video-header-row">
+                        <div class="video-title-box">
+                            <div class="video-icon-bubble">✂️</div>
+                            <div>
+                                <h4 class="video-title-text">Vídeo: Separació de síl·labes i dígrafs (OK CATALÀ)</h4>
+                                <span class="video-meta-badge">Lliçó en Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-embed-wrap">
+                        <iframe src="https://drive.google.com/file/d/1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- TAULA COMPARATIVA DE DÍGRAFS -->
+                <div class="digraph-comparison-container" style="margin-top: 1.5rem;">
+                    <!-- Separables -->
+                    <div class="digraph-box separable">
+                        <div class="digraph-header">
+                            <span class="digraph-title">✂️ DÍGRAFS SEPARABLES</span>
+                            <span class="digraph-badge sep">Es trenquen</span>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                            Quan tallem una paraula a final de línia, aquests dígrafs <strong>sempre queden separats</strong> entre dues síl·labes diferents:
+                        </p>
+                        <div class="digraph-tag-list">
+                            <span class="digraph-tag"><strong>RR</strong> (car-ro)</span>
+                            <span class="digraph-tag"><strong>SS</strong> (tas-sa)</span>
+                            <span class="digraph-tag"><strong>L·L</strong> (col-le-gi)</span>
+                            <span class="digraph-tag"><strong>TX</strong> (cot-xe)</span>
+                            <span class="digraph-tag"><strong>TJ</strong> (plat-ja)</span>
+                            <span class="digraph-tag"><strong>TG</strong> (met-ge)</span>
+                        </div>
+                    </div>
+
+                    <!-- Inseparables -->
+                    <div class="digraph-box inseparable">
+                        <div class="digraph-header">
+                            <span class="digraph-title">🔒 DÍGRAFS INSEPARABLES</span>
+                            <span class="digraph-badge insep">Sempre junts</span>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                            Aquests dígrafs representen un únic so i <strong>mai es poden separar</strong> a final de línia; van sempre a la mateixa síl·laba:
+                        </p>
+                        <div class="digraph-tag-list">
+                            <span class="digraph-tag"><strong>LL</strong> (lla-pis)</span>
+                            <span class="digraph-tag"><strong>NY</strong> (mun-ta-nya)</span>
+                            <span class="digraph-tag"><strong>QU</strong> (pa-quet)</span>
+                            <span class="digraph-tag"><strong>GU</strong> (gui-tar-ra)</span>
+                            <span class="digraph-tag"><strong>IG</strong> (lleig)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTER INTERACTIU DE SEPARACIÓ DE DÍGRAFS -->
+                <div style="margin-top: 2rem;">
+                    <h3 class="section-title"><span>🧩</span> Laboratori: Separa les Paraules amb Dígrafs</h3>
+                    <p class="section-subtitle">Tria la separació sil·làbica correcta per a cada paraula:</p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;" id="syllable-tester-list"></div>
+                </div>
+
+                <!-- =======================================================
+                     NOVA SECCIÓ: LA SÍL·LABA TÒNICA & EL TRUC DEL CRIT
+                     ======================================================= -->
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--border-color);">
+                    <div class="section-header">
                         <div>
-                            <span class="badge-pill">Minijoc Oficial</span>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; margin-top: 0.35rem;">Emparella els Sinònims de la Lectura</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">Clica dues paraules que tinguin el mateix significat per unir-les.</p>
+                            <h3 class="section-title"><span>🗣️</span> La Síl·laba Tònica & El Truc del Crit</h3>
+                            <p class="section-subtitle">Aprèn a identificar amb precisió quina síl·laba té la força de la paraula!</p>
                         </div>
-                        <button class="btn-primary" onclick="initPairsGame()">
-                            <span>↺</span> Reiniciar Joc
-                        </button>
                     </div>
 
-                    <div class="pairs-grid" id="pairs-grid"></div>
-                    <div id="pairs-congrats" style="display: none; margin-top: 1.25rem; text-align: center; padding: 1.25rem; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-md); border: 2px solid #059669; color: #059669; font-weight: 800;">
-                        🎉 Enhorabona! Has emparellat tots els sinònims amb èxit (+30 XP)
+                    <!-- VÍDEO 3 DEDICAT: LA SÍL·LABA TÒNICA -->
+                    <div class="video-card-full">
+                        <div class="video-header-row">
+                            <div class="video-title-box">
+                                <div class="video-icon-bubble">🗣️</div>
+                                <div>
+                                    <h4 class="video-title-text">Vídeo: La síl·laba tònica 🗣️ Com identificar-la fàcilment (OK CATALÀ)</h4>
+                                    <span class="video-meta-badge">Lliçó en Vídeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-embed-wrap">
+                            <iframe src="https://drive.google.com/file/d/1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI/preview" allow="autoplay" allowfullscreen></iframe>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Antònims Reference Card -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--accent); margin-bottom: 0.75rem;">
-                        <span>↔️</span> Els Antònims (Significat Contrari)
-                    </h3>
-                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
-                        Són paraules que expressen idees oposades. Poden formar-se amb arrels diferents o mitjançant prefixos com <em>in-, im-, des-</em>:
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
-                        <div style="background: var(--bg-main); padding: 0.75rem 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent); font-size: 0.9rem;">
-                            <strong>Alegre</strong> ≠ Trist
+                    <!-- TRUC DEL CRIT EXPLICACIÓ -->
+                    <div class="trick-box">
+                        <div class="trick-title"><span>📢</span> El Truc Màgic d'OK CATALÀ: "Cridar des de Lluny"</div>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--text-main);">
+                            Quan no sàpigues quina síl·laba és la tònica, <strong>imagina que crides la paraula a algú que està a l'altra punta del carrer</strong>:
+                            <br>• Si crides <em>"CAMEEELL!"</em>, de manera natural allargues <strong>MELL</strong> (és plana).
+                            <br>• Si crides <em>"FINESSS-TRA!"</em>, allargues <strong>NES</strong> (és plana).
+                            <br>• Si crides <em>"CAMI-ÓÓÓ!"</em>, allargues <strong>Ó</strong> (és aguda).
+                            <br>La síl·laba que allargues és <strong>sempre la tònica</strong>! Les altres que sonen suaus són <strong>àtones</strong>.
+                        </p>
+                    </div>
+
+                    <!-- MINIJOC INTERACTIU: TROBA LA SÍL·LABA TÒNICA -->
+                    <div class="tonica-tester">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <h4 style="margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--primary);">
+                                🎯 Repte en Viu: Fes Clic sobre la Síl·laba TÒNICA
+                            </h4>
+                            <span style="font-weight: 700; font-size: 0.85rem;" id="tonica-score-badge">Encerts: 0 / 5</span>
                         </div>
-                        <div style="background: var(--bg-main); padding: 0.75rem 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent); font-size: 0.9rem;">
-                            <strong>Possible</strong> ≠ Impossible
-                        </div>
-                        <div style="background: var(--bg-main); padding: 0.75rem 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent); font-size: 0.9rem;">
-                            <strong>Pujar</strong> ≠ Baixar
-                        </div>
-                        <div style="background: var(--bg-main); padding: 0.75rem 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent); font-size: 0.9rem;">
-                            <strong>Endreçar</strong> ≠ Desendreçar
-                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+                            Pensa en el "Truc del Crit" i fes clic a la síl·laba que porta la força del so:
+                        </p>
+                        <div id="tonica-game-container" style="display: flex; flex-direction: column; gap: 1rem;"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 4: ORTOGRAFIA (SÍL·LABA I DÍGRAFS)
-                 ========================================== -->
-            <section id="panel-ortografia" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 5: CLASSES DE NOMS (EL SUBSTANTIU)
+                 ========================================================= -->
+            <section id="tab-elnom" class="tab-panel">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>✂️</span> Ortografia: La Síl·laba i els Dígrafs</h2>
-                        <p class="section-subtitle">Un dígraf és la unió de <strong>dues lletres que representen un únic so</strong>. Aprèn quins se separen a final de línia i quins van sempre junts.</p>
-                    </div>
-                    <a href="https://wordwall.net/es/resource/23554794/els-d%C3%ADgrafs" target="_blank" class="btn-primary">
-                        <span>🎮</span> Wordwall Dígrafs
-                    </a>
-                </div>
-
-                <!-- Tauler de Dígrafs -->
-                <div class="digraf-board">
-                    <!-- SE SEPAREN -->
-                    <div class="digraf-col separen">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <h3 style="font-size: 1.15rem; font-weight: 800; color: #ef4444;">❌ DÍGRAFS QUE SE SEPAREN</h3>
-                            <span class="badge-pill" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Separables</span>
-                        </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
-                            Quan tallem a final de línia o dividim en síl·labes, cadascuna d'aquestes lletres va a una síl·laba diferent:
-                        </p>
-                        <div class="digraf-pills">
-                            <span class="digraf-pill sep">rr (car-ro)</span>
-                            <span class="digraf-pill sep">ss (pas-saís)</span>
-                            <span class="digraf-pill sep">l·l (col-·le-gi)</span>
-                            <span class="digraf-pill sep">tx (cot-xe)</span>
-                            <span class="digraf-pill sep">tj (met-ge)</span>
-                            <span class="digraf-pill sep">tg (fet-ge)</span>
-                        </div>
-                    </div>
-
-                    <!-- NO SE SEPAREN -->
-                    <div class="digraf-col no-separen">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <h3 style="font-size: 1.15rem; font-weight: 800; color: #10b981;">✅ DÍGRAFS QUE NO SE SEPAREN</h3>
-                            <span class="badge-pill" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Inseparables</span>
-                        </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
-                            Representen un so inseparable i MAI no es poden trencar a final de ratlla:
-                        </p>
-                        <div class="digraf-pills">
-                            <span class="digraf-pill nosep">ll (ca-vallet)</span>
-                            <span class="digraf-pill nosep">ny (mun-ta-nya)</span>
-                            <span class="digraf-pill nosep">qu (pa-quet)</span>
-                            <span class="digraf-pill nosep">gu (gui-tarra)</span>
-                            <span class="digraf-pill nosep">ig (mi-ja)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Separador de Paraules Interactiu -->
-                <div class="word-splitter-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
-                        <div>
-                            <span class="badge-pill">Laboratori Pràctic</span>
-                            <h3 style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">Classificador de Paraules amb Dígrafs</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">Comprova si el dígraf d'aquesta paraula es divideix o no.</p>
-                        </div>
-                        <span id="digraf-test-score" class="badge-pill">0 de 6 resolts</span>
-                    </div>
-
-                    <div id="digraf-current-word-box" style="margin-top: 1.25rem;">
-                        <div class="syllable-display" id="digraf-target-word">COL·LEGI</div>
-                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                            <button class="choice-btn" onclick="checkDigrafChoice(true)" style="min-width: 220px; text-align: center;">
-                                ❌ El dígraf SE SEPARA (l · l)
-                            </button>
-                            <button class="choice-btn" onclick="checkDigrafChoice(false)" style="min-width: 220px; text-align: center;">
-                                ✅ El dígraf NO SE SEPARA (inseparable)
-                            </button>
-                        </div>
-                        <div id="digraf-fb" class="feedback-msg" style="text-align: center; margin-top: 1rem; display: none;"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================
-                 PESTAÑA 5: GRAMÀTICA (EL NOM)
-                 ========================================== -->
-            <section id="panel-gramatica" class="tab-panel">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title"><span>🏷️</span> Gramàtica: El Nom o Substantiu</h2>
-                        <p class="section-subtitle">El substantiu serveix per anomenar éssers vius, objectes, llocs i conceptes. Aprèn a classificar-los per parelles de trets.</p>
+                        <h2 class="section-title"><span>🏷️</span> Gramàtica: Classes de Noms</h2>
+                        <p class="section-subtitle">El substantiu té diferents propietats segons el tipus d'ésser o idea que anomena.</p>
                     </div>
                     <div style="display: flex; gap: 0.5rem;">
-                        <a href="https://drive.google.com/file/d/114FP7_4JhO47e3ipVB5DcB-rHLblW6vG/view?usp=drive_link" target="_blank" class="btn-drive">
-                            <span>📄</span> Teoria del Nom (Drive)
+                        <a href="https://drive.google.com/open?id=1erMnFAqQus8ekkCMa67BuJFLAaOZFDHZ&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📖</span> Teoria a Drive ↗
                         </a>
-                        <a href="https://wordwall.net/es/resource/27878035/classes-de-noms" target="_blank" class="btn-primary">
-                            <span>🎮</span> Wordwall Classes de Noms
+                        <a href="https://drive.google.com/open?id=13EjKoJYSyUL6RBEzQAKcJs-MlsqO0HIK&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📝</span> Exercicis a Drive ↗
                         </a>
                     </div>
                 </div>
 
-                <!-- Nouns Classification Grid -->
-                <div class="nouns-classifier">
-                    <div class="noun-box">
-                        <div class="noun-header"><span>👥</span> Comú vs Propi</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            • <strong>Comú:</strong> Persona, animal o objecte genèric (<em>escola, gat, riu</em>).<br>
-                            • <strong>Propi:</strong> Nom específic amb majúscula inicial (<em>Sant Baldiri, Mònica, Ebre</em>).
+                <!-- QUADRE CLASSIFICADOR DE NOMS -->
+                <div class="noun-class-grid">
+                    <div class="noun-class-card">
+                        <div class="noun-class-name">1. Comú vs Propi</div>
+                        <p class="noun-class-desc">
+                            <strong>Comú:</strong> Nombra qualsevol element de la mateixa classe (<em>riu, gat, poble</em>).<br>
+                            <strong>Propi:</strong> Identifica un ésser o lloc concret i s'escriu amb majúscula (<em>Ebre, Baldiri, Barcelona</em>).
                         </p>
                     </div>
 
-                    <div class="noun-box">
-                        <div class="noun-header"><span>🧱</span> Concret vs Abstracte</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            • <strong>Concret:</strong> Es percep amb els sentits (<em>taula, llibre, música</em>).<br>
-                            • <strong>Abstracte:</strong> Idees, valors o sentiments (<em>amistat, il·lusió, pau</em>).
+                    <div class="noun-class-card">
+                        <div class="noun-class-name">2. Concret vs Abstracte</div>
+                        <p class="noun-class-desc">
+                            <strong>Concret:</strong> Es pot percebre pels 5 sentits (<em>taula, música, perfum</em>).<br>
+                            <strong>Abstracte:</strong> Idees, sentiments o emocions que no es toquen (<em>llibertat, amistat, por</em>).
                         </p>
                     </div>
 
-                    <div class="noun-box">
-                        <div class="noun-header"><span>🌲</span> Individual vs Col·lectiu</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            • <strong>Individual:</strong> En singular anomena 1 sol ésser (<em>arbre, alumne, ocell</em>).<br>
-                            • <strong>Col·lectiu:</strong> En singular anomena un grup (<em>bosc, classe, estol</em>).
+                    <div class="noun-class-card">
+                        <div class="noun-class-name">3. Individual vs Col·lectiu</div>
+                        <p class="noun-class-desc">
+                            <strong>Individual:</strong> En singular nombra un sol ésser (<em>arbre, ovella, ocell</em>).<br>
+                            <strong>Col·lectiu:</strong> En singular nombra un conjunt d'éssers (<em>bosc, ramat, estol</em>).
                         </p>
                     </div>
 
-                    <div class="noun-box">
-                        <div class="noun-header"><span>🍎</span> Comptable vs No comptable</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            • <strong>Comptable:</strong> Es pot comptar en unitats (<em>dues motxilles, tres llibretes</em>).<br>
-                            • <strong>No comptable:</strong> Matèria contínua que es mesura (<em>aigua, farina, sorra</em>).
+                    <div class="noun-class-card">
+                        <div class="noun-class-name">4. Comptable vs No Comptable</div>
+                        <p class="noun-class-desc">
+                            <strong>Comptable:</strong> Es pot comptar en unitats (<em>tres llibres, dues pomes</em>).<br>
+                            <strong>No comptable:</strong> Es mesura o es pesa, però no en unitats soltes (<em>aigua, sucre, sorra</em>).
                         </p>
                     </div>
                 </div>
 
-                <!-- Interactive Noun Challenge -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">
-                            <span>🎯</span> Repte: Quin tipus de nom és?
-                        </h3>
-                        <span id="noun-test-score" class="badge-pill">0 de 5 encertats</span>
-                    </div>
-
-                    <div id="noun-test-container">
-                        <div style="text-align: center; padding: 1.25rem; background: var(--bg-main); border-radius: var(--radius-md); font-size: 1.6rem; font-weight: 900; color: var(--accent); margin-bottom: 1rem;" id="noun-target-word">
-                            «ESTOL» (grup d'ocells que volen junts)
-                        </div>
-                        <div class="choice-grid" id="noun-choices-grid">
-                            <button class="choice-btn" onclick="checkNounClass(0, this)">A) Nom Comú, Concret i Individual</button>
-                            <button class="choice-btn" onclick="checkNounClass(1, this)">B) Nom Comú, Concret i Col·lectiu</button>
-                            <button class="choice-btn" onclick="checkNounClass(2, this)">C) Nom Propi i Abstracte</button>
-                        </div>
-                        <div id="noun-fb" class="feedback-msg" style="display: none; text-align: center; margin-top: 1rem;"></div>
-                    </div>
+                <!-- CLASSIFICADOR EN VIU -->
+                <div style="margin-top: 2rem;">
+                    <h3 class="section-title"><span>🎮</span> Laboratori de Classificació de Noms</h3>
+                    <p class="section-subtitle">Classifica cada paraula triant les seves propietats gramaticals:</p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.25rem;" id="noun-classifier-list"></div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 6: EXPRESSIÓ ESCRITA
-                 ========================================== -->
-            <section id="panel-escriptura" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 6: EXPRESSIÓ ESCRITA
+                 ========================================================= -->
+            <section id="tab-expressio" class="tab-panel">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>✍️</span> Expressió Escrita: Expectatives de Curs</h2>
-                        <p class="section-subtitle">Taller de redacció pas a pas per escriure un text organitzat sobre com comences 5è i què esperes aprendre.</p>
+                        <h2 class="section-title"><span>✍️</span> Taller d'Expressió Escrita: Expectatives de Curs</h2>
+                        <p class="section-subtitle">Redacta el teu text sobre com encares el curs de 5è a l'escola seguint la pauta oficial.</p>
                     </div>
-                    <a href="https://drive.google.com/file/d/13yjNDLP7jtXCAFFYcI_aAjomqQTAjlR-/view?usp=drive_link" target="_blank" class="btn-drive">
-                        <span>📄</span> Pautes Oficials (Drive)
+                    <a href="https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy" target="_blank" class="btn-drive">
+                        <span>📄</span> Pauta Oficial a Drive ↗
                     </a>
                 </div>
 
-                <div class="writing-guide-card">
-                    <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--primary);">
-                        Guia per Estructurar la teva Redacció en 3 Paràgrafs
-                    </h3>
+                <div class="writing-tips-card">
+                    <div style="font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+                        📋 Pautes per a una Redacció Excel·lent:
+                    </div>
+                    <ul style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-left: 1.25rem;">
+                        <li><strong>1. Introducció:</strong> Com et sents en començar 5è? Què recordes de l'estiu?</li>
+                        <li><strong>2. Desenvolupament:</strong> Quines matèries o activitats et fan més il·lusió aquest any? Quins amics o mestres t'acompanyen?</li>
+                        <li><strong>3. Conclusió:</strong> Quin és el teu gran objectiu per a aquest nou curs?</li>
+                        <li><strong>4. Ortografia & Puntuació:</strong> Revisa punts, comes, dígrafs (<em>rr, ss, l·l, tx</em>) i accents tònics.</li>
+                    </ul>
+                </div>
 
-                    <div class="writing-step">
-                        <div class="step-num">1</div>
-                        <div>
-                            <strong>Paràgraf 1: Introducció i Retrobada</strong>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
-                                Explica com ha anat l'estiu, la sensació de retrobar els companys a l'escola de Sant Baldiri i el fet de passar a ser dels cursos grans.
-                            </p>
+                <div class="writing-workshop-card">
+                    <div class="writing-editor-header">
+                        <span style="font-weight: 800; font-size: 0.95rem;">📝 El meu esborrany de redacció</span>
+                        <div class="writing-counters">
+                            <span>Paraules: <strong id="word-count">0</strong></span>
+                            <span>Caràcters: <strong id="char-count">0</strong></span>
                         </div>
                     </div>
-
-                    <div class="writing-step">
-                        <div class="step-num">2</div>
-                        <div>
-                            <strong>Paràgraf 2: Objectius i Assignatures Preferides</strong>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
-                                Quines matèries tens més ganes d'aprofundir aquest any (Projecte, Robòtica, Anglès, Català...)? Quins reptes et proposes superar?
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="writing-step">
-                        <div class="step-num">3</div>
-                        <div>
-                            <strong>Paràgraf 3: Conclusió i Convivència</strong>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
-                                Com t'agradaria que fos l'ambient a classe? Com pots ajudar els teus companys i gaudir d'un curs fantàstic?
-                            </p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 1.5rem;">
-                        <label style="display: block; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">El teu esborrany interactiu (s'autodesa al navegador):</label>
-                        <textarea id="writing-draft-text" class="writing-textarea" placeholder="Escriu aquí el teu text sobre les expectatives de 5è..." oninput="saveWritingDraft()"></textarea>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
-                            <span id="draft-char-count">0 caràcters</span>
-                            <span id="draft-save-status">💾 Desat automàticament</span>
-                        </div>
+                    <textarea class="writing-textarea" id="writing-area" placeholder="Escriu aquí el teu text sobre les teves expectatives per a 5è de primària..." oninput="handleWritingInput()"></textarea>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <button class="btn-primary" onclick="saveDraft()">
+                            <span>💾</span> Guardar Esborrany
+                        </button>
+                        <span id="draft-save-status" style="font-size: 0.82rem; color: var(--text-muted);"></span>
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 7: QUIZ DE REPÀS (10 PREGUNTES)
-                 ========================================== -->
-            <section id="panel-quiz" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 7: AUTOAVALUACIÓ I QUIZ
+                 ========================================================= -->
+            <section id="tab-quiz" class="tab-panel">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>🏆</span> Quiz de Repàs del Tema 1</h2>
-                        <p class="section-subtitle">Posa a prova tot el que has après sobre lectura, sinònims, dígrafs i noms per aconseguir la màxima puntuació.</p>
+                        <h2 class="section-title"><span>🏆</span> Autoavaluació: Test Mestre de 10 Preguntes</h2>
+                        <p class="section-subtitle">Posa a prova tot el que has après sobre lectura, lèxic, dígrafs, tòniques i noms.</p>
                     </div>
-                    <button class="btn-primary" onclick="restartQuiz()">
-                        <span>↺</span> Reiniciar Quiz
-                    </button>
+                    <div class="nav-stat-pill" style="font-size: 0.95rem;">
+                        <span>⭐</span>
+                        <span id="quiz-final-score-pill">Puntuació: 0 / 10</span>
+                    </div>
                 </div>
 
-                <div class="quiz-card" id="quiz-container">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
-                        <span class="badge-pill" id="quiz-question-num">Pregunta 1 de 10</span>
-                        <span style="font-weight: 800; color: var(--accent);" id="quiz-score-pill">Puntuació: 0 encerts</span>
+                <div id="quiz-container">
+                    <div id="quiz-question-box"></div>
+                    <div class="quiz-controls-row">
+                        <button class="btn-primary" id="btn-next-question" onclick="nextQuizQuestion()" style="display: none;">
+                            Següent Pregunta →
+                        </button>
                     </div>
-
-                    <h3 id="quiz-question-text" style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1.25rem;">Carregant pregunta...</h3>
-                    <div class="choice-grid" id="quiz-choices-container"></div>
-                    <div id="quiz-feedback-box" class="feedback-msg" style="display: none; margin-top: 1rem;"></div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PESTAÑA 8: DOCUMENTS ORIGINALES (PDFs)
-                 ========================================== -->
-            <section id="panel-docs" class="tab-panel">
+            <!-- =========================================================
+                 PESTANYA 8: FITXES & PDFS DE CLASSE
+                 ========================================================= -->
+            <section id="tab-fitxes" class="tab-panel">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title"><span>📁</span> Documents i Fitxes Oficials del Tema</h2>
-                        <p class="section-subtitle">Accedeix directament als fitxers oficials compartits pel col·legi tant a Google Drive com en la carpeta local.</p>
+                        <h2 class="section-title"><span>📥</span> Estanteria de Fitxes & Vídeos Oficials</h2>
+                        <p class="section-subtitle">Tots els 11 documents i vídeos del teu Google Drive personal ordenats i llestos per descarregar o imprimir:</p>
                     </div>
+                    <a href="https://drive.google.com/open?id=1HJx9E-8g6z7rw6ugg21xfUoyrx3zF7sv&usp=drive_copy" target="_blank" class="btn-drive">
+                        <span>☁️</span> Carpeta Completa a Drive ↗
+                    </a>
                 </div>
 
-                <div class="pdf-shelf-grid">
+                <div class="pdf-grid-shelf">
                     <!-- 1. Lectura -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">📖</span>
                             <div>
-                                <div class="pdf-name">Lectura: L'escola de Sant Baldiri</div>
-                                <div class="pdf-desc">Text oficial de la lectura inicial del curs de 5è de Primària.</div>
+                                <div class="pdf-name">Lescola de St Baldiri.PDF</div>
+                                <div class="pdf-desc">Text oficial complet del conte de classe.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1RXqmFruolUdMpVr1FgaUK40iN1oPdxWM/view?usp=sharing" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=14HbGl_jggAPXHX9QF-4lC4qV_QcsrFFk&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
@@ -839,108 +1235,156 @@
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">📝</span>
                             <div>
-                                <div class="pdf-name">Què hem entès? (Comprensió)</div>
-                                <div class="pdf-desc">Fitxa oficial de preguntes sobre la lectura de Sant Baldiri.</div>
+                                <div class="pdf-name">Comprensió Escola Sant Baldiri2.pdf</div>
+                                <div class="pdf-desc">Qüestionari de preguntes de comprensió lectora.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1oZmKzXUbP6nol4PPGlH_nCD-1-yxn2aj/view?usp=sharing" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=1CBoLZh_b_rdEf4zjDilt8sdsy-Bb8iNP&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 3. Sinònims Pr 1 -->
+                    <!-- 3. Vídeo Sinònims -->
+                    <div class="pdf-card">
+                        <div class="pdf-icon-title">
+                            <span class="pdf-icon">🎬</span>
+                            <div>
+                                <div class="pdf-name">Sinònims i antònims.mp4</div>
+                                <div class="pdf-desc">Videotutorial sobre vocabulari i prefixos.</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                            <a href="https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #d97706; color: #fff;">
+                                <span>🎬</span> Veure Vídeo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Pr 1 Sinònims -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">📄</span>
                             <div>
-                                <div class="pdf-name">Pr 1: Sinònims i Antònims</div>
-                                <div class="pdf-desc">Fitxa de vocabulari i parelles de mots de classe.</div>
+                                <div class="pdf-name">Exercicis sinònims i antònims 1.pdf</div>
+                                <div class="pdf-desc">Primera fitxa d'exercicis de lèxic.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1qzFuzmFwojjqjoyI5gyr8ewlQrZzwcq7/view?usp=drive_link" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=1xQuC-rhwMuIvaslqVb6FVePKGlRD2e-N&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 4. Sinònims Pr 2 -->
+                    <!-- 5. Pr 2 Sinònims -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">📄</span>
                             <div>
-                                <div class="pdf-name">Pr 2: Sinònims i Antònims</div>
+                                <div class="pdf-name">Exercicis sinonims i antonims 2.pdf</div>
                                 <div class="pdf-desc">Segona fitxa d'exercicis pràctics de lèxic.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1-97MWSbqJ7bPKxmzjg15INmrOSmTpz3X/view?usp=drive_link" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=16y4VSsQ_ObMbt8ACSOqRdiclbo3lfP3v&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 5. Síl·laba -->
+                    <!-- 6. Fitxa Síl·laba -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">✂️</span>
                             <div>
-                                <div class="pdf-name">Pr La Síl·laba i Dígrafs</div>
-                                <div class="pdf-desc">Exercicis de partició sil·làbica a final de línia.</div>
+                                <div class="pdf-name">Practica La síl·laba.pdf</div>
+                                <div class="pdf-desc">Dossier de pràctica de separació sil·làbica.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1q2PWR9XAz9wCOLXCSa3nzG4g9mjG-QfK/view?usp=sharing" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 6. Teoria Substantiu -->
+                    <!-- 7. Vídeo Dígrafs -->
+                    <div class="pdf-card">
+                        <div class="pdf-icon-title">
+                            <span class="pdf-icon">🎬</span>
+                            <div>
+                                <div class="pdf-name">Separació de síl·labes dígrafs (OK CATALÀ)</div>
+                                <div class="pdf-desc">Vídeo sobre dígrafs separables i inseparables.</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                            <a href="https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #d97706; color: #fff;">
+                                <span>🎬</span> Veure Vídeo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Vídeo Tònica -->
+                    <div class="pdf-card">
+                        <div class="pdf-icon-title">
+                            <span class="pdf-icon">🗣️</span>
+                            <div>
+                                <div class="pdf-name">La síl·laba tònica (OK CATALÀ)</div>
+                                <div class="pdf-desc">Videotutorial sobre la síl·laba tònica i el truc del crit.</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                            <a href="https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #d97706; color: #fff;">
+                                <span>🎬</span> Veure Vídeo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 9. Teoria Nom -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">🏷️</span>
                             <div>
-                                <div class="pdf-name">Teoria: El Substantiu</div>
-                                <div class="pdf-desc">Esquema gramatical complet de les classes de noms.</div>
+                                <div class="pdf-name">El Substantiu (o nom).pdf</div>
+                                <div class="pdf-desc">Resum teòric oficial de les classes de substantius.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/114FP7_4JhO47e3ipVB5DcB-rHLblW6vG/view?usp=drive_link" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=1erMnFAqQus8ekkCMa67BuJFLAaOZFDHZ&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 7. Pr Substantiu -->
+                    <!-- 10. Exercicis Nom -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">📝</span>
                             <div>
-                                <div class="pdf-name">Pr 1: Classes de Noms</div>
-                                <div class="pdf-desc">Activitats de reconeixement de noms comuns, concrets i col·lectius.</div>
+                                <div class="pdf-name">El Nom_exercicis.pdf</div>
+                                <div class="pdf-desc">Fitxa d'activitats de gramàtica sobre el nom.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/1Bkxvx7UEGfsqoC4t_2Pz0EsNjIFlA1UY/view?usp=sharing" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=13EjKoJYSyUL6RBEzQAKcJs-MlsqO0HIK&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
                     </div>
 
-                    <!-- 8. Expressió escrita -->
+                    <!-- 11. Expressió -->
                     <div class="pdf-card">
                         <div class="pdf-icon-title">
                             <span class="pdf-icon">✍️</span>
                             <div>
-                                <div class="pdf-name">Expectatives pel nou curs</div>
-                                <div class="pdf-desc">Guia i pautes de redacció per a expressió escrita.</div>
+                                <div class="pdf-name">Expectatives pel nou curs.pdf</div>
+                                <div class="pdf-desc">Fitxa d'instruccions per a la redacció personal.</div>
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
-                            <a href="https://drive.google.com/file/d/13yjNDLP7jtXCAFFYcI_aAjomqQTAjlR-/view?usp=drive_link" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
+                            <a href="https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy" target="_blank" class="pdf-btn-open" style="flex: 1; text-align: center; background: #2563eb; color: #fff;">
                                 <span>☁️</span> Drive Oficial
                             </a>
                         </div>
@@ -950,49 +1394,98 @@
         </main>
     </div>
 
-    <!-- Modal Xulla Ràpida -->
-    <div class="modal-overlay" id="quick-cheat-modal" onclick="closeModalOnBg(event)">
-        <div class="modal-box">
-            <button class="modal-close-btn" onclick="closeQuickCheatSheet()">×</button>
-            <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary); margin-bottom: 1rem;">
-                💡 Xulla d'Examen: Català Tema 1
-            </h3>
-            <div style="font-size: 0.9rem; line-height: 1.6; display: flex; flex-direction: column; gap: 1rem;">
-                <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-left: 4px solid #ef4444;">
-                    <strong>❌ Dígrafs que se separen:</strong><br>
-                    <code>rr</code>, <code>ss</code>, <code>l·l</code>, <code>tx</code>, <code>tj</code>, <code>tg</code> (car-ro, pas-sat, col-·le-gi, met-ge).
+    <!-- Modal de Xulla Ràpida Oficial -->
+    <div class="cheat-modal-overlay" id="quick-cheat-modal" onclick="closeCheatOnBg(event)">
+        <div class="cheat-modal-window" onclick="event.stopPropagation()">
+            <div class="cheat-modal-header">
+                <div>
+                    <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800;">💡 Xulla Ràpida: Català 5è (Tema 1)</h3>
+                    <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Conceptes clau per consultar durant l'estudi</p>
                 </div>
-                <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-left: 4px solid #10b981;">
-                    <strong>✅ Dígrafs que NO se separen:</strong><br>
-                    <code>ll</code>, <code>ny</code>, <code>qu</code>, <code>gu</code>, <code>ig</code> (ca-llar, ca-nya, pa-quet, gui-lla, lleig).
-                </div>
-                <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-left: 4px solid var(--accent);">
-                    <strong>🏷️ El Nom / Substantiu:</strong><br>
-                    • Comú (llibre) / Propi (Álvaro).<br>
-                    • Concret (taula) / Abstracte (amor).<br>
-                    • Individual (ocell) / Col·lectiu (estol, grup d'ocells).<br>
-                    • Comptable (tres llapis) / No comptable (llet, sorra).
+                <button class="cheat-close-btn" onclick="closeQuickCheatSheet()">×</button>
+            </div>
+            <div class="cheat-modal-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                        <span style="color: var(--primary); font-weight: 800; font-size: 0.8rem;">✂️ DÍGRAFS SEPARABLES</span>
+                        <h4 style="margin: 0.3rem 0; font-size: 0.95rem;">RR, SS, L·L, TX, TJ, TG</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Sempre se separen entre dues síl·labes diferents: <em>tas-sa, cot-xe, plat-ja</em>.</p>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                        <span style="color: #10b981; font-weight: 800; font-size: 0.8rem;">🔒 DÍGRAFS INSEPARABLES</span>
+                        <h4 style="margin: 0.3rem 0; font-size: 0.95rem;">LL, NY, QU, GU, IG</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Van SEMPRE junts a la mateixa síl·laba: <em>lla-pis, pa-quet, mun-ta-nya</em>.</p>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                        <span style="color: var(--accent); font-weight: 800; font-size: 0.8rem;">🗣️ LA SÍL·LABA TÒNICA</span>
+                        <h4 style="margin: 0.3rem 0; font-size: 0.95rem;">El Truc del Crit</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Imagina que crides la paraula de lluny: la que allargues és la tònica!</p>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                        <span style="color: #8b5cf6; font-weight: 800; font-size: 0.8rem;">🏷️ EL SUBSTANTIU</span>
+                        <h4 style="margin: 0.3rem 0; font-size: 0.95rem;">Classes de Noms</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Comú/propi, concret/abstracte, individual/col·lectiu, comptable/no comptable.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botó flotant de Xulla Ràpida -->
-    <button class="btn-float-cheat" onclick="openQuickCheatSheet()" title="Xulla Ràpida">
+    <!-- Botó flotant de xulla ràpida -->
+    <button class="btn-float-cheat" onclick="openQuickCheatSheet()" title="Obrir Xulla Ràpida">
         <span>💡</span> Xulla Ràpida
     </button>
 
-    <!-- Footer Oficial -->
-    <footer class="site-footer">
-        <p><strong>Álvaro Study Hub</strong> • Llengua Catalana 5è de Primària</p>
-    </footer>
-
-    <!-- Lògica JavaScript del Mòdul -->
+    <!-- SCRIPTS DE LÒGICA I INTERACTIVITAT -->
     <script>
-        // === ESTAT GLOBAL I AUDIO ===
+        // --- 1. ESTAT GLOBAL I AUDIO ---
+        let userXP = parseInt(localStorage.getItem('alvaro_xp_catala') || '0');
+        let studyStreak = parseInt(localStorage.getItem('alvaro_streak_catala') || '0');
         let soundEnabled = true;
-        let xpTotal = parseInt(localStorage.getItem('alvaro_xp_catala_t1') || '0', 10);
-        let streak = parseInt(localStorage.getItem('alvaro_streak') || '1', 10);
+
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playTone(freq, type = 'sine', duration = 0.12) {
+            if (!soundEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {}
+        }
+
+        function playSuccessSound() {
+            playTone(523, 'sine', 0.1);
+            setTimeout(() => playTone(659, 'sine', 0.1), 80);
+            setTimeout(() => playTone(784, 'sine', 0.18), 160);
+        }
+
+        function playErrorSound() {
+            playTone(280, 'triangle', 0.15);
+            setTimeout(() => playTone(220, 'triangle', 0.2), 120);
+        }
+
+        function addXP(amount) {
+            userXP += amount;
+            localStorage.setItem('alvaro_xp_catala', userXP);
+            updateStatsUI();
+        }
+
+        function updateStatsUI() {
+            const xpNav = document.getElementById('nav-xp-counter');
+            const streakNav = document.getElementById('nav-streak-counter');
+            const xpStat = document.getElementById('stat-total-xp');
+            if (xpNav) xpNav.textContent = userXP + ' XP';
+            if (streakNav) streakNav.textContent = studyStreak;
+            if (xpStat) xpStat.textContent = userXP + ' XP';
+        }
 
         function toggleSound() {
             soundEnabled = !soundEnabled;
@@ -1010,555 +1503,564 @@
             document.body.classList.add('dark-mode');
         }
 
-        function playSuccessSound() {
-            if (!soundEnabled) return;
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(783.99, ctx.currentTime + 0.15);
-                gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.2);
-            } catch(e) {}
-        }
-
-        function playErrorSound() {
-            if (!soundEnabled) return;
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(220, ctx.currentTime);
-                osc.frequency.linearRampToValueAtTime(160, ctx.currentTime + 0.2);
-                gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.2);
-            } catch(e) {}
-        }
-
-        function addXP(amount) {
-            xpTotal += amount;
-            localStorage.setItem('alvaro_xp_catala_t1', xpTotal);
-            updateXpDisplays();
-        }
-
-        function updateXpDisplays() {
-            const el1 = document.getElementById('nav-xp-counter');
-            if (el1) el1.textContent = xpTotal + ' XP';
-            const el2 = document.getElementById('stat-total-xp');
-            if (el2) el2.textContent = xpTotal + ' XP';
-            const streakEl = document.getElementById('nav-streak-counter');
-            if (streakEl) streakEl.textContent = streak;
-        }
-        updateXpDisplays();
-
-        // === NAVEGACIÓ AMB SIDEBAR ===
-        const TAB_NAMES = {
-            apunts: "1. Apunts & Recursos",
-            lectura: "2. Lectura & Comprensió",
-            lexic: "3. Sinònims & Antònims",
-            ortografia: "4. Síl·laba & Dígrafs",
-            gramatica: "5. Classes de Noms",
-            escriptura: "6. Expressió Escrita",
-            quiz: "7. Quiz de Repàs",
-            docs: "8. Documents & PDF"
-        };
-
-        function switchSidebarTab(tabId, btn) {
-            document.querySelectorAll('.sidebar-item-btn').forEach(b => b.classList.remove('active'));
+        // --- 2. GESTIÓ DE PESTANYES ---
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+            
+            const panel = document.getElementById('tab-' + tabId);
+            if (panel) panel.classList.add('active');
             if (btn) btn.classList.add('active');
 
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById('panel-' + tabId);
-            if (target) {
-                target.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            const mobileLabel = document.getElementById('mobile-current-tab-label');
+            if (mobileLabel && btn) {
+                const title = btn.querySelector('.sidebar-btn-title');
+                if (title) mobileLabel.textContent = title.textContent;
             }
 
-            const mobileLabel = document.getElementById('mobile-current-tab-label');
-            if (mobileLabel && TAB_NAMES[tabId]) mobileLabel.textContent = TAB_NAMES[tabId];
-
+            // Tancar menú mòbil si és obert
             const sidebar = document.getElementById('app-sidebar');
-            if (sidebar) sidebar.classList.remove('mobile-open');
-
-            updateOverallProgress();
+            if (sidebar) sidebar.classList.remove('open');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileSidebar() {
             const sidebar = document.getElementById('app-sidebar');
-            if (sidebar) sidebar.classList.toggle('mobile-open');
+            if (sidebar) sidebar.classList.toggle('open');
         }
 
         function openQuickCheatSheet() {
-            const m = document.getElementById('quick-cheat-modal');
-            if (m) m.classList.add('active');
+            document.getElementById('quick-cheat-modal').classList.add('open');
         }
 
         function closeQuickCheatSheet() {
-            const m = document.getElementById('quick-cheat-modal');
-            if (m) m.classList.remove('active');
+            document.getElementById('quick-cheat-modal').classList.remove('open');
         }
 
-        function closeModalOnBg(e) {
-            if (e.target.classList.contains('modal-overlay')) closeQuickCheatSheet();
+        function closeCheatOnBg(e) {
+            if (e.target.id === 'quick-cheat-modal') closeQuickCheatSheet();
         }
 
-        // === 1. COMPRENSIÓ LECTORA ===
-        const lecturaCorrect = { 1: 1, 2: 1, 3: 0, 4: 0 };
-        const lecturaAnswers = {};
+        // --- 3. REPTES DE COMPRENSIÓ LECTORA ---
+        const compAnswers = { 1: 1, 2: 0, 3: 2, 4: 0 };
+        const compDone = {};
 
-        function checkLectura(qNum, selectedIdx, btn) {
-            if (lecturaAnswers[qNum] !== undefined) return;
-            const parent = btn.parentElement;
-            parent.querySelectorAll('.choice-btn').forEach(b => b.disabled = true);
-            const fb = document.getElementById('lectura-fb-' + qNum);
-            fb.style.display = 'block';
+        function checkCompAnswer(qNum, selectedOpt, btn) {
+            const card = document.getElementById('card-comp-' + qNum);
+            const fb = document.getElementById('fb-comp-' + qNum);
+            const isCorrect = (selectedOpt === compAnswers[qNum]);
 
-            if (selectedIdx === lecturaCorrect[qNum]) {
-                lecturaAnswers[qNum] = true;
-                btn.style.background = '#10b981';
-                btn.style.color = '#fff';
-                fb.style.color = '#10b981';
-                fb.textContent = '✅ Molt bé! Resposta correcta.';
+            card.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('selected', 'correct', 'wrong');
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
                 playSuccessSound();
-                addXP(10);
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé, Álvaro!</strong> Resposta correcta. (+10 XP)';
+                if (!compDone[qNum]) {
+                    compDone[qNum] = true;
+                    addXP(10);
+                    updateCompBadge();
+                }
             } else {
-                lecturaAnswers[qNum] = false;
-                btn.style.background = '#ef4444';
-                btn.style.color = '#fff';
-                fb.style.color = '#ef4444';
-                fb.textContent = '❌ Incorrecte. Revisa el text de la lectura!';
+                btn.classList.add('wrong');
                 playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Revisa la lectura:</strong> Torna a llegir el text per localitzar aquest detall!';
+                setTimeout(() => {
+                    card.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1400);
             }
-
-            const total = Object.values(lecturaAnswers).filter(Boolean).length;
-            const badge = document.getElementById('badge-lectura');
-            if (badge) badge.textContent = total + '/4';
-            const scoreBadge = document.getElementById('lectura-score-badge');
-            if (scoreBadge) scoreBadge.textContent = total + ' de 4 encerts';
-            updateOverallProgress();
         }
 
-        // === 2. JOC DE PARELLES DE SINÒNIMS ===
-        const PAIRS_DATA = [
-            { id: 1, word: "Alegre", pairId: 1 },
-            { id: 2, word: "Content", pairId: 1 },
-            { id: 3, word: "Col·legi", pairId: 2 },
-            { id: 4, word: "Escola", pairId: 2 },
-            { id: 5, word: "Començar", pairId: 3 },
-            { id: 6, word: "Iniciar", pairId: 3 },
-            { id: 7, word: "Ràpid", pairId: 4 },
-            { id: 8, word: "Veloc", pairId: 4 },
-            { id: 9, word: "Estimar", pairId: 5 },
-            { id: 10, word: "Voler bé", pairId: 5 },
-            { id: 11, word: "Endreçar", pairId: 6 },
-            { id: 12, word: "Ordenar", pairId: 6 },
-            { id: 13, word: "Habitació", pairId: 7 },
-            { id: 14, word: "Cambra", pairId: 7 },
-            { id: 15, word: "Xerrar", pairId: 8 },
-            { id: 16, word: "Parlar", pairId: 8 }
+        function updateCompBadge() {
+            const count = Object.keys(compDone).length;
+            const badge = document.getElementById('badge-lectura');
+            if (badge) badge.textContent = count + '/4';
+        }
+
+        // --- 4. MINIJOC DE PARELLES DE SINÒNIMS ---
+        const pairsData = [
+            { a: 'alegre', b: 'content' },
+            { a: 'parlar', b: 'enraonar' },
+            { a: 'començar', b: 'iniciar' },
+            { a: 'llunyà', b: 'remot' },
+            { a: 'ràpid', b: 'veloç' },
+            { a: 'escollir', b: 'triar' },
+            { a: 'ocell', b: 'au' },
+            { a: 'feliç', b: 'joiós' }
         ];
 
-        let selectedPairCard = null;
-        let matchedPairsCount = 0;
+        let selectedPairCards = [];
+        let matchedPairs = 0;
 
         function initPairsGame() {
-            matchedPairsCount = 0;
-            selectedPairCard = null;
-            const container = document.getElementById('pairs-grid');
-            const congrats = document.getElementById('pairs-congrats');
-            if (congrats) congrats.style.display = 'none';
-            if (!container) return;
+            const board = document.getElementById('pairs-board');
+            if (!board) return;
+            board.innerHTML = '';
+            matchedPairs = 0;
+            document.getElementById('pairs-matched-counter').textContent = '0';
 
-            const shuffled = [...PAIRS_DATA].sort(() => Math.random() - 0.5);
+            const cards = [];
+            pairsData.forEach((p, idx) => {
+                cards.push({ id: idx, word: p.a });
+                cards.push({ id: idx, word: p.b });
+            });
+
+            // Barrejar les cartes (Fisher-Yates)
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+
+            cards.forEach(cardItem => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'pair-card';
+                cardEl.textContent = cardItem.word;
+                cardEl.dataset.pairId = cardItem.id;
+                cardEl.onclick = () => handlePairClick(cardEl);
+                board.appendChild(cardEl);
+            });
+        }
+
+        function handlePairClick(cardEl) {
+            if (cardEl.classList.contains('matched') || cardEl.classList.contains('selected')) return;
+            if (selectedPairCards.length >= 2) return;
+
+            cardEl.classList.add('selected');
+            selectedPairCards.push(cardEl);
+            playTone(440, 'sine', 0.08);
+
+            if (selectedPairCards.length === 2) {
+                const [c1, c2] = selectedPairCards;
+                const isMatch = (c1.dataset.pairId === c2.dataset.pairId);
+
+                if (isMatch) {
+                    setTimeout(() => {
+                        c1.classList.remove('selected');
+                        c2.classList.remove('selected');
+                        c1.classList.add('matched');
+                        c2.classList.add('matched');
+                        matchedPairs++;
+                        selectedPairCards = [];
+                        playSuccessSound();
+                        addXP(10);
+                        document.getElementById('pairs-matched-counter').textContent = matchedPairs;
+                        const statPairs = document.getElementById('stat-pairs-done');
+                        if (statPairs) statPairs.textContent = matchedPairs + '/8';
+
+                        if (matchedPairs === pairsData.length) {
+                            const fb = document.getElementById('pairs-global-feedback');
+                            fb.className = 'feedback-msg success show';
+                            fb.innerHTML = '🎉 <strong>Molt bé, Álvaro!</strong> Has trobat totes les 8 parelles de sinònims (+80 XP)!';
+                        }
+                    }, 400);
+                } else {
+                    setTimeout(() => {
+                        c1.classList.add('wrong');
+                        c2.classList.add('wrong');
+                        playErrorSound();
+                        setTimeout(() => {
+                            c1.classList.remove('selected', 'wrong');
+                            c2.classList.remove('selected', 'wrong');
+                            selectedPairCards = [];
+                        }, 700);
+                    }, 450);
+                }
+            }
+        }
+
+        // --- 5. TESTER DE DÍGRAFS SEPARABLES I INSEPARABLES ---
+        const digraphTesterWords = [
+            { word: 'carro', options: ['car-ro', 'ca-rro'], correct: 0, reason: 'El dígraf RR és separable: car-ro.' },
+            { word: 'platja', options: ['pla-tja', 'plat-ja'], correct: 1, reason: 'El dígraf TJ és separable: plat-ja.' },
+            { word: 'guitarra', options: ['gui-tar-ra', 'gu-i-tar-ra'], correct: 0, reason: 'GU és inseparable i RR és separable: gui-tar-ra.' },
+            { word: 'pel·lícula', options: ['pel-lí-cu-la', 'pe-l·lí-cu-la'], correct: 0, reason: 'L·L és separable amb guió: pel-lí-cu-la.' },
+            { word: 'muntanya', options: ['mun-tan-ya', 'mun-ta-nya'], correct: 1, reason: 'NY és inseparable: mun-ta-nya.' }
+        ];
+
+        function initDigraphTester() {
+            const container = document.getElementById('syllable-tester-list');
+            if (!container) return;
             container.innerHTML = '';
 
-            shuffled.forEach(item => {
+            digraphTesterWords.forEach((item, idx) => {
                 const card = document.createElement('div');
-                card.className = 'pair-card';
-                card.textContent = item.word;
-                card.dataset.id = item.id;
-                card.dataset.pairId = item.pairId;
-                card.onclick = () => selectPairCard(card);
+                card.style.background = 'var(--bg-card)';
+                card.style.border = '1px solid var(--border-color)';
+                card.style.borderRadius = 'var(--radius-md)';
+                card.style.padding = '1rem 1.25rem';
+
+                let optBtnsHtml = '';
+                item.options.forEach((opt, oIdx) => {
+                    optBtnsHtml += `<button class="comp-opt-btn" onclick="checkDigraphOption(${idx}, ${oIdx}, this)">${opt}</button>`;
+                });
+
+                card.innerHTML = `
+                    <div style="font-weight: 800; font-size: 1rem; margin-bottom: 0.5rem;">Paraula: <strong>${item.word}</strong></div>
+                    <div class="comp-options-grid" style="margin-top: 0.5rem;">${optBtnsHtml}</div>
+                    <div class="feedback-msg" id="fb-digraph-${idx}"></div>
+                `;
                 container.appendChild(card);
             });
         }
 
-        function selectPairCard(card) {
-            if (card.classList.contains('matched') || card === selectedPairCard) return;
+        function checkDigraphOption(wordIdx, optIdx, btn) {
+            const item = digraphTesterWords[wordIdx];
+            const parent = btn.parentElement;
+            const fb = document.getElementById('fb-digraph-' + wordIdx);
 
-            if (!selectedPairCard) {
-                selectedPairCard = card;
-                card.classList.add('selected');
-            } else {
-                const firstId = selectedPairCard.dataset.pairId;
-                const secondId = card.dataset.pairId;
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
 
-                if (firstId === secondId) {
-                    selectedPairCard.classList.remove('selected');
-                    selectedPairCard.classList.add('matched');
-                    card.classList.add('matched');
-                    selectedPairCard = null;
-                    matchedPairsCount++;
-                    playSuccessSound();
-                    addXP(5);
-
-                    const badge = document.getElementById('badge-lexic');
-                    if (badge) badge.textContent = matchedPairsCount + '/8';
-                    const statPairs = document.getElementById('stat-pairs-done');
-                    if (statPairs) statPairs.textContent = matchedPairsCount + '/8';
-
-                    if (matchedPairsCount === 8) {
-                        const congrats = document.getElementById('pairs-congrats');
-                        if (congrats) congrats.style.display = 'block';
-                        addXP(30);
-                    }
-                } else {
-                    card.classList.add('selected');
-                    playErrorSound();
-                    setTimeout(() => {
-                        if (selectedPairCard) selectedPairCard.classList.remove('selected');
-                        card.classList.remove('selected');
-                        selectedPairCard = null;
-                    }, 500);
-                }
-            }
-            updateOverallProgress();
-        }
-
-        // === 3. TEST DE DÍGRAFS (SEPAREN VS NO SEPAREN) ===
-        const DIGRAF_TEST_WORDS = [
-            { word: "COL·LEGI", sep: true, explain: "La l·l (ela geminada) sempre SE SEPARA: col-·le-gi." },
-            { word: "GUITARRA", sep: false, explain: "La gu és un dígraf inseparable: gui-tar-ra." },
-            { word: "PASSAÍS", sep: true, explain: "La ss sempre SE SEPARA: pas-saís." },
-            { word: "CAVALLET", sep: false, explain: "La ll és un dígraf inseparable: ca-val-let." },
-            { word: "COTATXE", sep: true, explain: "La tx sempre SE SEPARA: cot-xe." },
-            { word: "MUNYENYA", sep: false, explain: "La ny és un dígraf inseparable: mun-ta-nya." }
-        ];
-
-        let currentDigrafIdx = 0;
-        let digrafScore = 0;
-
-        function loadDigrafWord() {
-            const item = DIGRAF_TEST_WORDS[currentDigrafIdx];
-            const wordEl = document.getElementById('digraf-target-word');
-            const fb = document.getElementById('digraf-fb');
-            if (wordEl) wordEl.textContent = item.word;
-            if (fb) fb.style.display = 'none';
-        }
-
-        function checkDigrafChoice(choseSep) {
-            const item = DIGRAF_TEST_WORDS[currentDigrafIdx];
-            const fb = document.getElementById('digraf-fb');
-            if (!fb) return;
-            fb.style.display = 'block';
-
-            if (choseSep === item.sep) {
-                digrafScore++;
-                fb.style.color = '#10b981';
-                fb.textContent = '✅ Correcte! ' + item.explain;
+            if (optIdx === item.correct) {
+                btn.classList.add('correct');
                 playSuccessSound();
                 addXP(10);
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> ' + item.reason;
             } else {
-                fb.style.color = '#ef4444';
-                fb.textContent = '❌ Incorrecte! ' + item.explain;
+                btn.classList.add('wrong');
                 playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Incorrecte.</strong> ' + item.reason;
+                setTimeout(() => {
+                    parent.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = false);
+                }, 1200);
             }
-
-            const badge = document.getElementById('badge-ortografia');
-            if (badge) badge.textContent = digrafScore + '/6';
-            const scoreEl = document.getElementById('digraf-test-score');
-            if (scoreEl) scoreEl.textContent = digrafScore + ' de 6 resolts';
-
-            setTimeout(() => {
-                currentDigrafIdx = (currentDigrafIdx + 1) % DIGRAF_TEST_WORDS.length;
-                loadDigrafWord();
-                updateOverallProgress();
-            }, 1600);
         }
 
-        // === 4. TEST DE CLASSES DE NOMS ===
-        const NOUN_TEST_ITEMS = [
-            {
-                word: "«ESTOL» (grup d'ocells que volen junts)",
-                correct: 1,
-                explain: "És un nom comú, concret (es pot veure) i col·lectiu (anomena un grup en singular)."
-            },
-            {
-                word: "«AMISTAT» (sentiment afectiu entre amics)",
-                correct: 0,
-                choices: ["A) Nom Comú, Abstracte i Individual", "B) Nom Propi", "C) Nom Col·lectiu"],
-                explain: "És abstracte perquè és un sentiment que no es pot tocar."
-            },
-            {
-                word: "«SANT BALDIRI» (el nom de l'escola)",
-                correct: 1,
-                choices: ["A) Nom Comú", "B) Nom Propi (s'escriu en majúscula)", "C) Nom Abstracte"],
-                explain: "És un nom propi perquè identifica una entitat concreta amb majúscula."
-            }
+        // --- 6. ENTRENADOR INTERACTIU DE LA SÍL·LABA TÒNICA (EL TRUC DEL CRIT) ---
+        const tonicaWords = [
+            { syllables: ['fe', 'li', 'ci', 'tat'], tonicaIdx: 3, word: 'felicitat', type: 'Aguda (allargues -TAAAT!)' },
+            { syllables: ['llo', 'fa'], tonicaIdx: 0, word: 'llofa', type: 'Plana (allargues LLOOO-fa)' },
+            { syllables: ['mú', 'si', 'ca'], tonicaIdx: 0, word: 'música', type: 'Esdrúixola (porta accent: MÚÚÚ-si-ca)' },
+            { syllables: ['es', 'co', 'la'], tonicaIdx: 1, word: 'escola', type: 'Plana (allargues es-COOO-la)' },
+            { syllables: ['llo', 'guer'], tonicaIdx: 1, word: 'lloguer', type: 'Aguda (allargues llo-GUEEER!)' }
         ];
-        let nounTestIdx = 0;
-        let nounScore = 0;
 
-        function checkNounClass(choiceIdx, btn) {
-            const item = NOUN_TEST_ITEMS[nounTestIdx];
-            const fb = document.getElementById('noun-fb');
-            if (!fb) return;
-            fb.style.display = 'block';
+        let tonicaCorrectCount = 0;
 
-            if (choiceIdx === item.correct) {
-                nounScore++;
-                btn.style.background = '#10b981';
-                btn.style.color = '#fff';
-                fb.style.color = '#10b981';
-                fb.textContent = '✅ Molt bé! ' + item.explain;
-                playSuccessSound();
-                addXP(10);
-            } else {
-                btn.style.background = '#ef4444';
-                btn.style.color = '#fff';
-                fb.style.color = '#ef4444';
-                fb.textContent = '❌ Revisa: ' + item.explain;
-                playErrorSound();
-            }
+        function initTonicaGame() {
+            const container = document.getElementById('tonica-game-container');
+            if (!container) return;
+            container.innerHTML = '';
+            tonicaCorrectCount = 0;
 
-            const badge = document.getElementById('badge-gramatica');
-            if (badge) badge.textContent = nounScore + '/5';
-            const scoreEl = document.getElementById('noun-test-score');
-            if (scoreEl) scoreEl.textContent = nounScore + ' de 5 encertats';
+            tonicaWords.forEach((item, wIdx) => {
+                const row = document.createElement('div');
+                row.style.background = 'var(--bg-main)';
+                row.style.border = '1px solid var(--border-color)';
+                row.style.borderRadius = 'var(--radius-sm)';
+                row.style.padding = '0.85rem 1rem';
 
-            setTimeout(() => {
-                nounTestIdx = (nounTestIdx + 1) % NOUN_TEST_ITEMS.length;
-                const nextItem = NOUN_TEST_ITEMS[nounTestIdx];
-                const w = document.getElementById('noun-target-word');
-                if (w) w.textContent = nextItem.word;
-                fb.style.display = 'none';
-                document.querySelectorAll('#noun-choices-grid .choice-btn').forEach(b => {
-                    b.style.background = '';
-                    b.style.color = '';
+                let sylBtnsHtml = '';
+                item.syllables.forEach((syl, sIdx) => {
+                    sylBtnsHtml += `<button class="tonica-syllable-btn" onclick="checkTonicaSyllable(${wIdx}, ${sIdx}, this)">${syl}</button>`;
                 });
-                updateOverallProgress();
-            }, 1600);
+
+                row.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                        <span style="font-weight: 800; font-size: 0.95rem;">Paraula ${wIdx + 1}: <em>${item.word}</em></span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">📢 Fes el crit per trobar-la!</span>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">${sylBtnsHtml}</div>
+                    <div class="feedback-msg" id="fb-tonica-${wIdx}"></div>
+                `;
+                container.appendChild(row);
+            });
         }
 
-        // === 5. ESBORRANY D'EXPRESSIÓ ESCRITA ===
-        function saveWritingDraft() {
-            const txt = document.getElementById('writing-draft-text');
-            if (!txt) return;
-            localStorage.setItem('alvaro_draft_catala_t1', txt.value);
-            const count = document.getElementById('draft-char-count');
-            if (count) count.textContent = txt.value.length + ' caràcters';
-        }
+        function checkTonicaSyllable(wIdx, sIdx, btn) {
+            const item = tonicaWords[wIdx];
+            const row = btn.parentElement;
+            const fb = document.getElementById('fb-tonica-' + wIdx);
 
-        function loadWritingDraft() {
-            const saved = localStorage.getItem('alvaro_draft_catala_t1');
-            const txt = document.getElementById('writing-draft-text');
-            if (saved && txt) {
-                txt.value = saved;
-                const count = document.getElementById('draft-char-count');
-                if (count) count.textContent = saved.length + ' caràcters';
+            if (sIdx === item.tonicaIdx) {
+                btn.classList.add('correct');
+                row.querySelectorAll('.tonica-syllable-btn').forEach(b => b.disabled = true);
+                playSuccessSound();
+                addXP(10);
+                tonicaCorrectCount++;
+                document.getElementById('tonica-score-badge').textContent = 'Encerts: ' + tonicaCorrectCount + ' / ' + tonicaWords.length;
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.syllables[sIdx].toUpperCase() + '» és la síl·laba tònica (' + item.type + ').';
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ Aquesta síl·laba és àtona. Torna a cridar la paraula des de lluny!';
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                }, 900);
             }
         }
 
-        // === 6. QUIZ GENERAL DE 10 PREGUNTES ===
-        const QUIZ_QUESTIONS = [
+        // --- 7. CLASSIFICADOR DE NOMS EN VIU ---
+        const nounExercises = [
+            { noun: 'Gat', expected: 'comú' },
+            { noun: 'Sant Baldiri', expected: 'propi' },
+            { noun: 'Amistat', expected: 'abstracte' },
+            { noun: 'Poma', expected: 'concret' },
+            { noun: 'Ramat', expected: 'col·lectiu' },
+            { noun: 'Arbre', expected: 'individual' }
+        ];
+
+        function initNounClassifier() {
+            const list = document.getElementById('noun-classifier-list');
+            if (!list) return;
+            list.innerHTML = '';
+
+            nounExercises.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.style.background = 'var(--bg-card)';
+                box.style.border = '1px solid var(--border-color)';
+                box.style.borderRadius = 'var(--radius-md)';
+                box.style.padding = '0.85rem 1.25rem';
+                box.style.display = 'flex';
+                box.style.alignItems = 'center';
+                box.style.justifyContent = 'space-between';
+                box.style.flexWrap = 'wrap';
+                box.style.gap = '0.75rem';
+
+                box.innerHTML = `
+                    <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main);">
+                        🏷️ ${item.noun}
+                    </div>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'comú', this)">Comú</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'propi', this)">Propi</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'concret', this)">Concret</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'abstracte', this)">Abstracte</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'individual', this)">Individual</button>
+                        <button class="comp-opt-btn" onclick="checkNounClass(${idx}, 'col·lectiu', this)">Col·lectiu</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-noun-${idx}" style="width: 100%;"></div>
+                `;
+                list.appendChild(box);
+            });
+        }
+
+        function checkNounClass(idx, chosenClass, btn) {
+            const item = nounExercises[idx];
+            const fb = document.getElementById('fb-noun-' + idx);
+            const parent = btn.parentElement;
+
+            parent.querySelectorAll('.comp-opt-btn').forEach(b => b.classList.remove('correct', 'wrong'));
+
+            if (chosenClass === item.expected) {
+                btn.classList.add('correct');
+                playSuccessSound();
+                addXP(10);
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> «' + item.noun + '» és un nom ' + item.expected + '.';
+            } else {
+                btn.classList.add('wrong');
+                playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Pensa bé:</strong> «' + item.noun + '» és ' + item.expected + '!';
+            }
+        }
+
+        // --- 8. TALLER D'EXPRESSIÓ ESCRITA ---
+        function handleWritingInput() {
+            const txt = document.getElementById('writing-area').value;
+            const words = txt.trim() ? txt.trim().split(/\s+/).length : 0;
+            const chars = txt.length;
+
+            document.getElementById('word-count').textContent = words;
+            document.getElementById('char-count').textContent = chars;
+        }
+
+        function saveDraft() {
+            const txt = document.getElementById('writing-area').value;
+            localStorage.setItem('alvaro_draft_sant_baldiri', txt);
+            playSuccessSound();
+            addXP(15);
+            const status = document.getElementById('draft-save-status');
+            status.textContent = '✅ Esborrany guardat correctament (+15 XP)!';
+            setTimeout(() => { status.textContent = ''; }, 3000);
+        }
+
+        // Recuperar esborrany si existeix
+        const savedDraft = localStorage.getItem('alvaro_draft_sant_baldiri');
+        if (savedDraft) {
+            setTimeout(() => {
+                const area = document.getElementById('writing-area');
+                if (area) {
+                    area.value = savedDraft;
+                    handleWritingInput();
+                }
+            }, 300);
+        }
+
+        // --- 9. QUIZ MESTRE DE 10 PREGUNTES ---
+        const masterQuizData = [
             {
-                q: "1. Com s'anomenen les paraules que tenen un significat semblant?",
-                choices: ["A) Antònims", "B) Sinònims", "C) Homònims"],
-                correct: 1,
-                explain: "Els sinònims comparteixen significat semblant (ex: alegre i content)."
-            },
-            {
-                q: "2. Quin d'aquests dígrafs NO se separa mai a final de línia?",
-                choices: ["A) ll", "B) rr", "C) l·l"],
+                q: "A quina classe de dígrafs pertany 'rr' a la paraula 'carro'?",
+                options: ["Dígraf separable (car-ro)", "Dígraf inseparable (ca-rro)", "Grup consonàntic fix"],
                 correct: 0,
-                explain: "La 'll' és un dígraf inseparable en català."
+                hint: "RR, SS i L·L sempre se separen en síl·labes diferents."
             },
             {
-                q: "3. Com se separa correctament la paraula 'col·legi'?",
-                choices: ["A) co-l·le-gi", "B) col-·le-gi", "C) col·le-gi"],
+                q: "Quin és el sinònim correcte de la paraula 'alegre'?",
+                options: ["Trist", "Content", "Mandrós"],
                 correct: 1,
-                explain: "L'ela geminada es divideix col-·le-gi."
+                hint: "Un sinònim té un significat igual o equivalent."
             },
             {
-                q: "4. Quin tipus de substantiu és 'gos'?",
-                choices: ["A) Nom comú, individual i concret", "B) Nom propi", "C) Nom col·lectiu"],
-                correct: 0,
-                explain: "És comú, concret (es toca i es veu) i individual."
-            },
-            {
-                q: "5. Quin és el contrari (antònim) d'optimista?",
-                choices: ["A) Feliç", "B) Pessimista", "C) Il·lusionat"],
+                q: "Com es divideix la paraula 'col·legi' a final de línia?",
+                options: ["co-l·le-gi", "col-le-gi", "col·l-e-gi"],
                 correct: 1,
-                explain: "Optimista i pessimista són antònims."
+                hint: "La ela geminada (l·l) se separa amb guió entre les dues el·les: col-le-gi."
             },
             {
-                q: "6. Què representa exactament un dígraf?",
-                choices: ["A) Dues lletres que representen dos sons diferents", "B) Dues lletres que representen un únic so", "C) Una paraula sense vocals"],
-                correct: 1,
-                explain: "Dígraf = dues lletres associades a un sol so."
-            },
-            {
-                q: "7. Quin d'aquests noms és col·lectiu?",
-                choices: ["A) Arbre", "B) Bosc", "C) Fulla"],
-                correct: 1,
-                explain: "'Bosc' anomena en singular un conjunt d'arbres."
-            },
-            {
-                q: "8. Quin d'aquests dígrafs SÍ que se separa a final de ratlla?",
-                choices: ["A) ny", "B) qu", "C) ss"],
+                q: "Quin d'aquests noms és ABSTRACTE?",
+                options: ["Taula", "Poma", "Amistat"],
                 correct: 2,
-                explain: "La 'ss' sempre se separa (pas-sat)."
+                hint: "Els noms abstractes representen idees o sentiments que no es toquen."
             },
             {
-                q: "9. Quin tipus de nom és 'alegria'?",
-                choices: ["A) Abstracte", "B) Propi", "C) Comptable"],
+                q: "El dígraf 'ny' a la paraula 'muntanya' és...",
+                options: ["Inseparable (va sempre a la mateixa síl·laba)", "Separable (mun-tan-ya)", "Només separable a principi de frase"],
                 correct: 0,
-                explain: "L'alegria és una emoció, per tant és un nom abstracte."
+                hint: "NY, LL, QU, GU i IG mai es poden separar."
             },
             {
-                q: "10. Com han de començar sempre els noms propis?",
-                choices: ["A) Amb minúscula", "B) Amb majúscula", "C) Amb guionet"],
+                q: "Quina paraula conté un dígraf INSEPARABLE?",
+                options: ["Cotxe", "Paquet", "Platja"],
                 correct: 1,
-                explain: "Tots els noms propis s'escriuen amb majúscula inicial."
+                hint: "'qu' a 'paquet' és inseparable (pa-quet)."
+            },
+            {
+                q: "Quin és l'antònim de 'feliç' format amb prefix de negació?",
+                options: ["Desfeliç", "Infeliç", "Imfeliç"],
+                correct: 1,
+                hint: "S'utilitza el prefix in-: in-feliç."
+            },
+            {
+                q: "El mot 'ramat' és un nom...",
+                options: ["Individual", "Col·lectiu", "Propi"],
+                correct: 1,
+                hint: "Un nom col·lectiu en singular expressa un conjunt d'éssers (conjunt d'ovelles)."
+            },
+            {
+                q: "Segons el Truc del Crit, quina és la síl·laba tònica de 'felicitat'?",
+                options: ["fe", "li", "tat"],
+                correct: 2,
+                hint: "Quan crides 'FELICITAAAT!', la síl·laba que allargues és -tat (paraula aguda)."
+            },
+            {
+                q: "Quin d'aquests dígrafs és SEPARABLE?",
+                options: ["ll", "tx", "gu"],
+                correct: 1,
+                hint: "TX és separable com a cot-xe o des-pat-xar."
             }
         ];
 
-        let quizIdx = 0;
+        let quizIndex = 0;
         let quizScore = 0;
 
         function loadQuizQuestion() {
-            if (quizIdx >= QUIZ_QUESTIONS.length) {
-                // Quiz completed
-                const container = document.getElementById('quiz-container');
-                if (container) {
-                    container.innerHTML = `
-                        <div style="text-align: center; padding: 2rem;">
-                            <span style="font-size: 3rem;">🎉</span>
-                            <h3 style="font-size: 1.5rem; font-weight: 900; margin: 0.5rem 0;">Has completat el Quiz de Català!</h3>
-                            <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 1.5rem;">Puntuació final: <strong>${quizScore} de 10 encerts</strong></p>
-                            <button class="btn-primary" onclick="restartQuiz()"><span>↺</span> Tornar a intentar</button>
-                        </div>
-                    `;
-                }
-                const record = parseInt(localStorage.getItem('alvaro_quiz_record_catala_t1') || '0', 10);
-                if (quizScore > record) {
-                    localStorage.setItem('alvaro_quiz_record_catala_t1', quizScore);
-                }
-                const badge = document.getElementById('badge-quiz');
-                if (badge) badge.textContent = 'Rècord: ' + Math.max(record, quizScore);
-                const statQuiz = document.getElementById('stat-quiz-record');
-                if (statQuiz) statQuiz.textContent = Math.max(record, quizScore) + '/10';
-                addXP(quizScore * 10);
-                updateOverallProgress();
+            const box = document.getElementById('quiz-question-box');
+            const nextBtn = document.getElementById('btn-next-question');
+            if (!box) return;
+
+            if (quizIndex >= masterQuizData.length) {
+                // Finalitzat
+                box.innerHTML = `
+                    <div style="text-align: center; padding: 2rem;">
+                        <span style="font-size: 3rem;">🎉</span>
+                        <h3 style="font-size: 1.5rem; margin: 0.5rem 0;">Test Completat, Álvaro!</h3>
+                        <p style="font-size: 1.1rem; color: var(--text-muted);">
+                            Has encertat <strong>${quizScore} de ${masterQuizData.length} preguntes</strong>.
+                        </p>
+                        <button class="btn-primary" onclick="restartQuiz()" style="margin-top: 1rem;">
+                            🔄 Repetir el Test
+                        </button>
+                    </div>
+                `;
+                if (nextBtn) nextBtn.style.display = 'none';
                 return;
             }
 
-            const item = QUIZ_QUESTIONS[quizIdx];
-            const qNum = document.getElementById('quiz-question-num');
-            const qTxt = document.getElementById('quiz-question-text');
-            const choices = document.getElementById('quiz-choices-container');
-            const fb = document.getElementById('quiz-feedback-box');
+            const q = masterQuizData[quizIndex];
+            if (nextBtn) nextBtn.style.display = 'none';
 
-            if (qNum) qNum.textContent = `Pregunta ${quizIdx + 1} de 10`;
-            if (qTxt) qTxt.textContent = item.q;
-            if (fb) fb.style.display = 'none';
+            let optsHtml = '';
+            q.options.forEach((opt, oIdx) => {
+                optsHtml += `<button class="comp-opt-btn" onclick="handleQuizAnswer(${oIdx}, this)">${opt}</button>`;
+            });
 
-            if (choices) {
-                choices.innerHTML = '';
-                item.choices.forEach((c, idx) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'choice-btn';
-                    btn.textContent = c;
-                    btn.onclick = () => checkQuizAnswer(idx, btn);
-                    choices.appendChild(btn);
-                });
-            }
+            box.innerHTML = `
+                <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+                    PREGUNTA ${quizIndex + 1} DE ${masterQuizData.length}
+                </div>
+                <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 1.25rem;">
+                    ${q.q}
+                </div>
+                <div class="comp-options-grid">${optsHtml}</div>
+                <div class="feedback-msg" id="quiz-feedback-banner"></div>
+            `;
         }
 
-        function checkQuizAnswer(idx, btn) {
-            const item = QUIZ_QUESTIONS[quizIdx];
-            const choices = document.querySelectorAll('#quiz-choices-container .choice-btn');
-            choices.forEach(b => b.disabled = true);
-            const fb = document.getElementById('quiz-feedback-box');
-            if (fb) fb.style.display = 'block';
+        function handleQuizAnswer(selectedIdx, btn) {
+            const q = masterQuizData[quizIndex];
+            const box = document.getElementById('quiz-question-box');
+            const fb = document.getElementById('quiz-feedback-banner');
+            const nextBtn = document.getElementById('btn-next-question');
 
-            if (idx === item.correct) {
+            box.querySelectorAll('.comp-opt-btn').forEach(b => b.disabled = true);
+
+            if (selectedIdx === q.correct) {
+                btn.classList.add('correct');
                 quizScore++;
-                btn.style.background = '#10b981';
-                btn.style.color = '#fff';
-                if (fb) {
-                    fb.style.color = '#10b981';
-                    fb.textContent = '✅ Resposta correcta! ' + item.explain;
-                }
                 playSuccessSound();
                 addXP(10);
+                fb.className = 'feedback-msg success show';
+                fb.innerHTML = '🌟 <strong>Molt bé!</strong> Resposta correcta. (+10 XP)';
             } else {
-                btn.style.background = '#ef4444';
-                btn.style.color = '#fff';
-                if (fb) {
-                    fb.style.color = '#ef4444';
-                    fb.textContent = '❌ Incorrecte. ' + item.explain;
-                }
+                btn.classList.add('wrong');
                 playErrorSound();
+                fb.className = 'feedback-msg error show';
+                fb.innerHTML = '❌ <strong>Incorrecte.</strong> Pista: ' + q.hint;
             }
 
-            const scorePill = document.getElementById('quiz-score-pill');
-            if (scorePill) scorePill.textContent = `Puntuació: ${quizScore} encerts`;
+            document.getElementById('quiz-final-score-pill').textContent = 'Puntuació: ' + quizScore + ' / ' + masterQuizData.length;
+            const statRec = document.getElementById('stat-quiz-record');
+            if (statRec) statRec.textContent = quizScore + '/10';
+            const badgeQuiz = document.getElementById('badge-quiz');
+            if (badgeQuiz) badgeQuiz.textContent = quizScore + '/10';
 
-            setTimeout(() => {
-                quizIdx++;
-                loadQuizQuestion();
-            }, 1800);
+            if (nextBtn) nextBtn.style.display = 'inline-flex';
+        }
+
+        function nextQuizQuestion() {
+            quizIndex++;
+            loadQuizQuestion();
         }
 
         function restartQuiz() {
-            quizIdx = 0;
+            quizIndex = 0;
             quizScore = 0;
             loadQuizQuestion();
         }
 
-        // === PROGRÉS GLOBAL ===
-        function updateOverallProgress() {
-            const lecturaDone = Object.values(lecturaAnswers).filter(Boolean).length;
-            const pairsDone = matchedPairsCount;
-            const digrafDone = digrafScore;
-            const totalPoints = (lecturaDone / 4) * 25 + (pairsDone / 8) * 25 + (digrafDone / 6) * 25 + (quizScore / 10) * 25;
-            const pct = Math.min(100, Math.round(totalPoints));
-
-            const bar = document.getElementById('sidebar-progress-fill');
-            if (bar) bar.style.width = pct + '%';
-            const num = document.getElementById('sidebar-progress-num');
-            if (num) num.textContent = pct + '%';
-        }
-
-        function confirmResetProgress() {
-            if (confirm("Vols reiniciar el teu progrés i marcadors d'aquest tema?")) {
-                localStorage.removeItem('alvaro_xp_catala_t1');
-                localStorage.removeItem('alvaro_quiz_record_catala_t1');
-                localStorage.removeItem('alvaro_draft_catala_t1');
-                location.reload();
-            }
-        }
-
-        // === INICIALITZACIÓ ===
+        // --- INICIALITZACIÓ GLOBAL AL CARREGAR ---
         window.addEventListener('DOMContentLoaded', () => {
+            updateStatsUI();
             initPairsGame();
-            loadDigrafWord();
-            loadWritingDraft();
+            initDigraphTester();
+            initTonicaGame();
+            initNounClassifier();
             loadQuizQuestion();
-            updateOverallProgress();
         });
     </script>
 </body>
+
 </html>

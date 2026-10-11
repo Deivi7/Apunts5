@@ -71,4 +71,16 @@ Este archivo define las instrucciones permanentes del proyecto. Cada vez que int
   13. **Religió** (`religio/`) - Religión y Valores
   14. **Robótica** (`robotica/`) - Robótica y Tecnología
 
+## 9. Sección Obligatoria de Teoría Didáctica para 5º de Primaria
+- **Explicación completa y adaptada a niños de 5º (10-11 años):**
+  - En **TODOS los temas** de cualquier materia debe existir un apartado o pestaña prominente dedicado a la **Teoría del Tema**.
+  - No basta con enlaces, vídeos o ejercicios: la teoría debe estar **redactada de forma didáctica, clara y motivadora para un niño de 5º de primaria**.
+  - Estructura obligatoria de la teoría:
+    1. **¿Qué es y para qué sirve?** Explicación con lenguaje cercano, analogías cotidianas y visuales.
+    2. **Reglas y Pasos Clave:** Desglose paso a paso de los conceptos sin tecnicismes innecesarios.
+    3. **Ejemplos Claros (Bien vs Mal):** Contrastar el caso correcto con el error típico que suelen cometer en los exámenes.
+    4. **Trucos Mnemotécnicos ("El truco del profe"):** Pistas, rimas o reglas visuales para recordar la norma sin memorizar sin sentido (ej: el truco del grito para la sílaba tónica, etc.).
+    5. **Resumen Visual en 1 Minuto:** Cuadro o chuleta resumen para repasar antes de pasar a la práctica.
+
+
 
