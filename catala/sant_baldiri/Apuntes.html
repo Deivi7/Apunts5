@@ -15,40 +15,48 @@
 </head>
 
 <body>
-    <!-- Header Superior Oficial -->
-    <header class="site-header">
-        <div class="top-navbar">
-            <div class="nav-left">
-                <a href="../../index.html" class="nav-back-btn" title="Tornar al portal principal">
-                    <span>←</span>
-                    <span class="back-text">Tornar a Temes</span>
-                </a>
-                <div class="nav-breadcrumb">
-                    <span class="badge-topic-nav">📚 CATALÀ • TEMA 1</span>
-                    <div class="topic-switcher-wrap">
-                        <select class="topic-switcher-select" onchange="switchTopicDropdown(this.value)">
-                            <option value="sant_baldiri" selected>1. L'escola de Sant Baldiri (5è)</option>
-                        </select>
-                    </div>
+    <!-- Header Superior Oficial (Standard Harmonized Navbar) -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Tornar al Portal Central">
+                <span>←</span> Tornar a Temes
+            </a>
+            <div class="topic-badge-header">
+                <span>📚</span> Català • Tema 1
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 1. L'escola de Sant Baldiri</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temes de Llengua Catalana</div>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>1. L'escola de Sant Baldiri (5è)</strong> (Actual)
+                    </a>
                 </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Botó Xulla Ràpida -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Veure resum ràpid en qualsevol moment">
+                <span>💡</span> Xulla Ràpida
+            </button>
+
+            <!-- Stats Pills -->
+            <div class="score-pill-nav" title="Puntuació d'Experiència">
+                <span>⚡</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Ratxa d'estudi">
+                <span>🔥</span>
+                <span id="streak-counter">0</span>
             </div>
 
-            <div class="nav-right">
-                <button class="nav-cheat-btn" onclick="openQuickCheatSheet()" title="Veure resum ràpid">
-                    <span>💡</span>
-                    <span>Xulla Ràpida</span>
-                </button>
-                <div class="nav-stat-pill" title="Puntuació d'experiència">
-                    <span>⚡</span>
-                    <span id="nav-xp-counter">0 XP</span>
-                </div>
-                <div class="nav-stat-pill" title="Ratxa d'estudi">
-                    <span>🔥</span>
-                    <span id="nav-streak-counter">0</span>
-                </div>
-                <button id="btn-toggle-sound" class="btn-icon-header" onclick="toggleSound()" title="Sons">🔊</button>
-                <button id="btn-toggle-dark" class="btn-icon-header" onclick="toggleDarkMode()" title="Mode Clar/Fosc">🌓</button>
-            </div>
+            <!-- Sons i Mode Fosc -->
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sons">🔊</button>
+            <button class="btn-icon-nav" onclick="toggleDarkMode()" title="Mode Clar/Fosc">🌓</button>
         </div>
     </header>
 
@@ -77,16 +85,15 @@
         </div>
     </section>
 
-    <!-- Barra de navegació mòbil -->
-    <div class="mobile-sidebar-toggle-bar">
-        <div class="mobile-toggle-label" id="mobile-current-tab-label">1. Apunts & Recursos</div>
-        <button class="mobile-toggle-btn" onclick="toggleMobileSidebar()">
-            <span>☰</span> Menú
-        </button>
-    </div>
-
     <!-- Layout amb Sidebar Adhesiva -->
     <div class="app-layout">
+        <!-- Barra de navegació mòbil -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div class="mobile-toggle-label" id="mobile-current-tab-label">1. Apunts & Teoria</div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú d'Exercicis
+            </button>
+        </div>
         <aside class="app-sidebar" id="app-sidebar">
             <div class="sidebar-header-box">
                 <div class="sidebar-subject-title">TEMA DE L'ESCOLA</div>
@@ -103,13 +110,13 @@
             </div>
 
             <!-- Menú amb 8 pestanyes numerades -->
-            <nav class="sidebar-nav">
+            <nav class="sidebar-nav-list">
                 <button class="sidebar-tab-btn active" onclick="switchTab('apunts', this)">
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">📖</span>
                         <div class="sidebar-btn-text">
-                            <span class="sidebar-btn-title">1. Apunts & Recursos</span>
-                            <span class="sidebar-btn-desc">Teoria, vídeos & Hub Drive</span>
+                            <span class="sidebar-btn-title">1. Apunts & Teoria</span>
+                            <span class="sidebar-btn-desc">Teoria Didàctica & Drive</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge">Base</span>
@@ -120,7 +127,7 @@
                         <span class="sidebar-btn-icon">🏫</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">2. Lectura & Comprensió</span>
-                            <span class="sidebar-btn-desc">L'escola de Sant Baldiri</span>
+                            <span class="sidebar-btn-desc">L'escola de St. Baldiri</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge" id="badge-lectura">0/4</span>
@@ -131,7 +138,7 @@
                         <span class="sidebar-btn-icon">🔄</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">3. Sinònims & Antònims</span>
-                            <span class="sidebar-btn-desc">Vídeo, teoria & joc parelles</span>
+                            <span class="sidebar-btn-desc">Vídeo & Joc de parelles</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge" id="badge-sinonims">Joc</span>
@@ -141,8 +148,8 @@
                     <div class="sidebar-btn-left">
                         <span class="sidebar-btn-icon">✂️</span>
                         <div class="sidebar-btn-text">
-                            <span class="sidebar-btn-title">4. Síl·laba, Dígrafs & Tònica</span>
-                            <span class="sidebar-btn-desc">2 vídeos, dígrafs & truc del crit</span>
+                            <span class="sidebar-btn-title">4. Síl·laba & Dígrafs</span>
+                            <span class="sidebar-btn-desc">Dígrafs & Truc del Crit</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge" id="badge-digrafs">Reptes</span>
@@ -153,7 +160,7 @@
                         <span class="sidebar-btn-icon">🏷️</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">5. Classes de Noms</span>
-                            <span class="sidebar-btn-desc">El substantiu i dimensions</span>
+                            <span class="sidebar-btn-desc">El substantiu interactiu</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge" id="badge-elnom">0/8</span>
@@ -164,7 +171,7 @@
                         <span class="sidebar-btn-icon">✍️</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">6. Expressió Escrita</span>
-                            <span class="sidebar-btn-desc">Expectatives pel nou curs</span>
+                            <span class="sidebar-btn-desc">Taller de redacció</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge">Taller</span>
@@ -175,7 +182,7 @@
                         <span class="sidebar-btn-icon">🏆</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">7. Autoavaluació</span>
-                            <span class="sidebar-btn-desc">Test mestre de 10 preguntes</span>
+                            <span class="sidebar-btn-desc">Test mestre 10 preguntes</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge" id="badge-quiz">0/10</span>
@@ -186,7 +193,7 @@
                         <span class="sidebar-btn-icon">📥</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">8. Fitxes & PDFs</span>
-                            <span class="sidebar-btn-desc">11 fitxes i vídeos de classe</span>
+                            <span class="sidebar-btn-desc">11 fitxes i vídeos a Drive</span>
                         </div>
                     </div>
                     <span class="sidebar-btn-badge">11 doc</span>
@@ -201,7 +208,7 @@
         </aside>
 
         <!-- Contingut Principal amb les 8 Pestanyes -->
-        <main class="app-main-content">
+        <main class="app-main">
 
             <!-- =========================================================
                  PESTANYA 1: APUNTS DE TEÒRIA I RESOURCE HUB
@@ -1529,6 +1536,21 @@
             if (sidebar) sidebar.classList.toggle('open');
         }
 
+        
+        function toggleTopicDropdown(event) {
+            if (event) event.stopPropagation();
+            playClickSound();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        window.addEventListener('click', (e) => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && menu.classList.contains('active') && !e.target.closest('.topic-switcher-dropdown')) {
+                menu.classList.remove('active');
+            }
+        });
+    
         function openQuickCheatSheet() {
             document.getElementById('quick-cheat-modal').classList.add('open');
         }
