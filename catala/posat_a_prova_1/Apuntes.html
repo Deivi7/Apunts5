@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posa't a prova 1 (Examen Oficial & Nivell Pro) | Llengua Catalana 5è | Álvaro Study Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Estils globals compartits i estils modulars -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <!-- Top Navbar Unificat -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Tornar al Portal Central">
+                <span>←</span> Tornar a Temes
+            </a>
+            <div class="topic-badge-header">
+                <span>📚</span> Català • Posa't a prova 1
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Canviar de Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div
+                        style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">
+                        Temes de Llengua Catalana</div>
+                    <a href="../sant_baldiri/Apuntes.html" class="topic-dropdown-item">
+                        <strong>1. L'escola de Sant Baldiri (5è)</strong>
+                    </a>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>2. Posa't a prova 1 (Examen & Nivell Pro)</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Botó Xulla Ràpida -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Veure resum ràpid i regles">
+                <span>💡</span> Xulla Ràpida
+            </button>
+            <div class="score-pill-nav" title="Punts d'experiència guanyats">
+                <span>⚡</span> <span id="nav-xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Ratxa d'encerts consecutius">
+                <span>🔥</span> <span id="nav-streak-counter">0</span>
+            </div>
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()"
+                title="Activar/Silenciar sons">🔊</button>
+            <button class="btn-icon-nav" id="btn-theme-toggle" onclick="toggleDarkMode()"
+                title="Mode Clar/Fosc">🌓</button>
+        </div>
+    </header>
+
+    <!-- Hero Banner a pantalla completa -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">LLENGUA CATALANA • 5È DE PRIMÀRIA (TEMA 1)</div>
+                <h1>Posa't a prova 1 🎯</h1>
+                <p>Repassa l'examen real del 15 d'octubre (Col·legi Mare de Déu dels Àngels) de forma 100% interactiva:
+                    la síl·laba tònica, separació de dígrafs, comprensió dels dofins, sinònims, antònims i classes de noms,
+                    a més d'un mode Pro per assegurar el 10!</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-exam-score">8 / 10</div>
+                    <div class="stat-label">Nota Examen Real</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-solved-count">0/10</div>
+                    <div class="stat-label">Exercicis Fets</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Punts d'XP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Barra mòbil per alternar la sidebar -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Teoria & Trucs Clau</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Seccions
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation Sticky -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header-box">
+                <div class="sidebar-subject-title">CONTROL OFICIAL CATALÀ T.1</div>
+                <div class="sidebar-topic-name">Posa't a prova 1</div>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Completat</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar-bg">
+                        <div class="sidebar-progress-bar-fill" id="sidebar-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Llista de pestanyes -->
+            <div class="sidebar-nav-list">
+                <button class="sidebar-tab-btn active" onclick="switchTab('tab-teoria')">
+                    <div class="tab-btn-content">
+                        <span>📖</span>
+                        <span>1. Teoria & Trucs Clau</span>
+                    </div>
+                    <span class="tab-badge-count">5è</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-examen')">
+                    <div class="tab-btn-content">
+                        <span>📝</span>
+                        <span>2. Examen Real (15-10)</span>
+                    </div>
+                    <span class="tab-badge-count">10 Ex</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-pro')">
+                    <div class="tab-btn-content">
+                        <span>🚀</span>
+                        <span>3. Nivell Pro (Més Difícil)</span>
+                    </div>
+                    <span class="tab-badge-count">10 Ex</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-generator')">
+                    <div class="tab-btn-content">
+                        <span>⚡</span>
+                        <span>4. Entrenador Infinit</span>
+                    </div>
+                    <span class="tab-badge-count">Infinit</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main-content">
+
+            <!-- ==========================================================================
+                 PESTANYA 1: TEORIA DIDÀCTICA (5è de Primària - Regla 9)
+                 ========================================================================== -->
+            <section class="tab-content-panel active" id="tab-teoria">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>📖</span> Teoria & Trucs Clau per a 5è de Primària</h2>
+                        <p>Domina els 5 secrets del Tema 1 de Català: la síl·laba tònica, la llei dels dígrafs, els noms col·lectius, concrets vs abstractes i sinònims genuïns.</p>
+                    </div>
+                    <div class="action-pill-group">
+                        <button class="btn-check-exercise" onclick="switchTab('tab-examen')">
+                            <span>📝</span> Anar a l'Examen Real
+                        </button>
+                    </div>
+                </div>
+
+                <div class="theory-grid-layout">
+                    <!-- Targeta 1: La Síl·laba Tònica & El Truc del Crit -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">🗣️</div>
+                            <h3>1. La Síl·laba Tònica & El Truc del Crit</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <p><strong>Què és i per a què serveix?</strong> La síl·laba tònica és la síl·laba d'una paraula que pronunciem amb <strong>més força o intensitat</strong>. La resta de síl·labes més fluixes s'anomenen àtones.</p>
+
+                            <div class="good-vs-bad-box">
+                                <div class="good-side">
+                                    <strong>✅ Com es fa bé:</strong>
+                                    Fes servir <em>El Truc del Crit</em>: imagina que crides el teu amic des de la finestra del 3r pis. La síl·laba que allargues és la tònica!
+                                    <br>• <em>Dis-<strong>SAAAB</strong>-te!</em> (Tònica: <strong>sab</strong>)
+                                    <br>• <em>Sa-<strong>BAAA</strong>-ta!</em> (Tònica: <strong>ba</strong>)
+                                    <br>• <em>Car-<strong>GOOOL</strong>!</em> (Tònica: <strong>gol</strong>)
+                                </div>
+                                <div class="bad-side">
+                                    <strong>❌ L'error típic d'examen:</strong>
+                                    Marcar l'última síl·laba per inèrcia. A l'examen es va marcar <em>dissab-<strong>te</strong></em> per error en comptes de <em>dis-<strong>sab</strong>-te</em>.
+                                </div>
+                            </div>
+
+                            <div class="profe-tip-callout">
+                                <div class="tip-icon">💡</div>
+                                <div>
+                                    <strong>El truc del profe:</strong> Si la paraula porta accent gràfic (com <em>número</em> o <em>sabó</em>), no cal cridar! La síl·laba amb accent és <strong>sempre</strong> la tònica.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Targeta 2: La Llei dels Dígrafs (La Clau de l'Examen!) -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">✂️</div>
+                            <h3>2. Separació de Síl·labes & La Llei dels Dígrafs</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <p><strong>Què és un dígraf?</strong> Són dues lletres que juntes fan un sol so (com <em>ny</em> o <em>rr</em>). La clau és saber quines se separen a final de línia i quines van sempre juntes!</p>
+
+                            <table class="digraph-rule-table">
+                                <thead>
+                                    <tr>
+                                        <th>💥 Els Germans Barallats (SEPARABLES)</th>
+                                        <th>🤝 Els Millors Amics (INSEPARABLES)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>rr:</strong> car - re - te - ra</td>
+                                        <td><strong>ny:</strong> ba - nye - ra</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ss:</strong> clas - se</td>
+                                        <td><strong>ll:</strong> ca - va - ller</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>l·l:</strong> col - le - gi</td>
+                                        <td><strong>qu:</strong> qua - drat, pa - quet</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>tg / tj:</strong> fet - ge, plat - ja</td>
+                                        <td><strong>gu:</strong> gui - neu, ai - gua</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>tx:</strong> cot - xe, pit - xer</td>
+                                        <td><strong>ch:</strong> txe - cos - lo - vac</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="good-vs-bad-box">
+                                <div class="good-side">
+                                    <strong>✅ Monosíl·labs & Diftongs:</strong>
+                                    • <em>Peix</em> i <em>llop</em> són monosíl·labs (1 sola síl·laba, no es parteixen mai!).
+                                    <br>• <em>Ca-laix:</em> el dígraf <em>ix</em> després de vocal no se separa (es diu <em>ca-laix</em>, mai <em>ca-la-ix</em>!).
+                                </div>
+                                <div class="bad-side">
+                                    <strong>❌ Recordatori d'examen:</strong>
+                                    El professor va anotar: <em>«Ens ho hem de repassar ;-)»</em>. Mai separis <em>ba-ny-e-ra</em> ni trenquis <em>pe-ix</em>!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Targeta 3: Noms Individuals vs Col·lectius -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">🐝</div>
+                            <h3>3. Noms Individuals vs Col·lectius</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <p><strong>Què és i per a què serveix?</strong>
+                                <br>• <strong>Nom individual:</strong> Designa un sol ésser o objecte en singular (ex: <em>abella, pi, músic, jugador, colom</em>).
+                                <br>• <strong>Nom col·lectiu:</strong> És una paraula en <strong>singular</strong> que designa un <strong>conjunt d'elements</strong> de la mateixa espècie.
+                            </p>
+
+                            <div class="good-vs-bad-box">
+                                <div class="good-side">
+                                    <strong>✅ Parelles Clau de l'Examen:</strong>
+                                    • <strong>Eixam</strong> = conjunt d'<strong>abelles</strong> 🐝
+                                    <br>• <strong>Orquestra</strong> = grup de <strong>músics</strong> 🎻
+                                    <br>• <strong>Pineda</strong> = bosc de <strong>pins</strong> 🌲
+                                    <br>• <strong>Colomar</strong> = lloc per a <strong>coloms</strong> 🕊️
+                                    <br>• <strong>Equip</strong> = conjunt de <strong>jugadors</strong> ⚽
+                                </div>
+                                <div class="bad-side">
+                                    <strong>❌ Compte amb el plural:</strong>
+                                    Un nom en plural (com <em>jugadors</em> o <em>abelles</em>) <strong>NO</strong> és un nom col·lectiu; és un individual en plural. El col·lectiu és una paraula diferent en singular (<em>equip</em>, <em>eixam</em>).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Targeta 4: Noms Concrets vs Abstractes -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">🧠</div>
+                            <h3>4. Noms Concrets vs Abstractes (El Truc dels 5 Sentits)</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <p><strong>Què és i per a què serveix?</strong> Ens permet distingir coses físiques reals de conceptes mentals o emocionals.</p>
+
+                            <div class="good-vs-bad-box">
+                                <div class="good-side">
+                                    <strong>🧱 Concrets (Es poden percebre):</strong>
+                                    Realitats que podem veure, tocar, olorar, tastar o sentir:
+                                    <br><em>cadira, muntanya, llapis, flor, sorra, ordinador, cotxe</em>.
+                                </div>
+                                <div class="good-side" style="background: var(--cat-violet-light); border-color: var(--cat-violet-border); color: var(--cat-violet);">
+                                    <strong>💭 Abstractes (Idees & Sentiments):</strong>
+                                    Coses que no podem tocar ni posar dins una capsa:
+                                    <br><em>alegria, llibertat, por, amistat, generositat, vergonya, enveja</em>.
+                                </div>
+                            </div>
+
+                            <div class="profe-tip-callout">
+                                <div class="tip-icon">💡</div>
+                                <div>
+                                    <strong>El truc del profe:</strong> Pots pintar l'<em>enveja</em> de color blau o tocar-la amb la mà? No! Per tant, és un nom <strong>abstracte</strong> (a l'examen es va corregir d'un error a concrets).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Targeta 5: Sinònims i Antònims Genuïns -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">🔄</div>
+                            <h3>5. Sinònims i Antònims Genuïns en Català</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <p><strong>Sinònims:</strong> Paraules que tenen el mateix significat (o molt semblant).
+                                <br><strong>Antònims:</strong> Paraules que expressen el significat <strong>contrari</strong> l'una de l'altra.</p>
+
+                            <div class="good-vs-bad-box">
+                                <div class="good-side">
+                                    <strong>✅ Paraules de l'Examen:</strong>
+                                    • Casa → <strong>llar</strong> (evita el castellanisme <em>hogar</em>)
+                                    <br>• Tenda → <strong>botiga</strong> (mai posis <em>compre</em>!)
+                                    <br>• Generós (antònim) → <strong>garrepa / avar / egoista</strong> (mai <em>mentir</em>!)
+                                    <br>• Ràpid → <strong>veloç</strong> | Antipàtic → <strong>simpàtic</strong>
+                                </div>
+                                <div class="bad-side">
+                                    <strong>❌ Atenció a la categoria:</strong>
+                                    L'antònim d'un adjectiu (<em>generós</em>) ha de ser un altre adjectiu (<em>garrepa</em>), mai un verb (<em>mentir</em>).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Targeta 6: Resum Visual en 1 Minut -->
+                    <div class="theory-card">
+                        <div class="theory-card-header">
+                            <div class="theory-card-icon">⏱️</div>
+                            <h3>6. Resum Visual en 1 Minut</h3>
+                        </div>
+                        <div class="theory-card-body">
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.88rem; padding: 0;">
+                                <li><strong>🗣️ Tònica:</strong> La que sona més fort (crida per la finestra!).</li>
+                                <li><strong>💥 Dígrafs que se separen:</strong> <em>rr, ss, l·l, tg, tj, tx</em>.</li>
+                                <li><strong>🤝 Dígrafs que mai se separen:</strong> <em>ny, ll, qu, gu, ch</em>.</li>
+                                <li><strong>🐟 Monosíl·labs:</strong> <em>peix, llop</em> (1 sol cop de veu).</li>
+                                <li><strong>🐝 Col·lectiu:</strong> Paraula singular que agrupa elements de la mateixa espècie (<em>eixam = abelles</em>).</li>
+                                <li><strong>💭 Abstracte:</strong> Sentiments i idees que no es toquen (<em>enveja, amistat, por</em>).</li>
+                                <li><strong>🛒 Català genuí:</strong> <em>botiga</em> (no <em>compre</em>), <em>llar</em> (no <em>hogar</em>).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTANYA 2: EXAMEN REAL (15-10-2026 - Llengua Catalana T.1)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-examen">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>📝</span> Examen Oficial de Català T.1 (15-10-2026)</h2>
+                        <p>Respon els 10 exercicis reals que vas fer al col·legi Mare de Déu dels Àngels. Clica a les síl·labes, completa les taules i comprova si pots arribar al 10 absolut!</p>
+                    </div>
+                    <div class="action-pill-group">
+                        <button class="btn-check-exercise" onclick="calculateTotalExamScore()">
+                            <span>📊</span> Calcular Nota Final
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exam-timeline-container">
+
+                    <!-- ================= EXERCICI 1: SÍL·LABA TÒNICA ================= -->
+                    <div class="exam-exercise-card" id="card-ex1">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 1 • Síl·laba Tònica</div>
+                            <span class="exercise-points-badge">1 Punt (0.1 per paraula)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            1. Encercla la síl·laba tònica de cada paraula (clica damunt la síl·laba correcta):
+                        </div>
+
+                        <div class="syllable-picker-grid" id="ex1-words-grid">
+                            <!-- Es genera dinàmicament per JS amb les 10 paraules exactes -->
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx1()">Comprovar Exercici 1</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex1"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 2: GÈNERE I NOMBRE ================= -->
+                    <div class="exam-exercise-card" id="card-ex2">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 2 • Gènere i Nombre</div>
+                            <span class="exercise-points-badge">1 Punt (0.1 per paraula)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            2. Escriu el gènere (Masculí - Femení) i el nombre (Singular - Plural) d'aquestes paraules:
+                        </div>
+
+                        <div class="gn-table-wrapper">
+                            <table class="gn-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Gènere</th>
+                                        <th>Nombre</th>
+                                        <th>Nom</th>
+                                        <th>Gènere</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="gn-word-cell">Finestres</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-finestres" data-val="F" onclick="setChoice('g-finestres', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-finestres" data-val="M" onclick="setChoice('g-finestres', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-finestres" data-val="P" onclick="setChoice('n-finestres', 'P', this)">P</button>
+                                            <button class="btn-pill-choice" data-target="n-finestres" data-val="S" onclick="setChoice('n-finestres', 'S', this)">S</button>
+                                        </td>
+                                        <td class="gn-word-cell">Màquines</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-maquines" data-val="F" onclick="setChoice('g-maquines', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-maquines" data-val="M" onclick="setChoice('g-maquines', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-maquines" data-val="P" onclick="setChoice('n-maquines', 'P', this)">P</button>
+                                            <button class="btn-pill-choice" data-target="n-maquines" data-val="S" onclick="setChoice('n-maquines', 'S', this)">S</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Taula</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-taula" data-val="F" onclick="setChoice('g-taula', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-taula" data-val="M" onclick="setChoice('g-taula', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-taula" data-val="S" onclick="setChoice('n-taula', 'S', this)">S</button>
+                                            <button class="btn-pill-choice" data-target="n-taula" data-val="P" onclick="setChoice('n-taula', 'P', this)">P</button>
+                                        </td>
+                                        <td class="gn-word-cell">Jocs</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-jocs" data-val="M" onclick="setChoice('g-jocs', 'M', this)">M</button>
+                                            <button class="btn-pill-choice" data-target="g-jocs" data-val="F" onclick="setChoice('g-jocs', 'F', this)">F</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-jocs" data-val="P" onclick="setChoice('n-jocs', 'P', this)">P</button>
+                                            <button class="btn-pill-choice" data-target="n-jocs" data-val="S" onclick="setChoice('n-jocs', 'S', this)">S</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Llibre</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-llibre" data-val="M" onclick="setChoice('g-llibre', 'M', this)">M</button>
+                                            <button class="btn-pill-choice" data-target="g-llibre" data-val="F" onclick="setChoice('g-llibre', 'F', this)">F</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-llibre" data-val="S" onclick="setChoice('n-llibre', 'S', this)">S</button>
+                                            <button class="btn-pill-choice" data-target="n-llibre" data-val="P" onclick="setChoice('n-llibre', 'P', this)">P</button>
+                                        </td>
+                                        <td class="gn-word-cell">Llibreta</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-llibreta" data-val="F" onclick="setChoice('g-llibreta', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-llibreta" data-val="M" onclick="setChoice('g-llibreta', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-llibreta" data-val="S" onclick="setChoice('n-llibreta', 'S', this)">S</button>
+                                            <button class="btn-pill-choice" data-target="n-llibreta" data-val="P" onclick="setChoice('n-llibreta', 'P', this)">P</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Mapes</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-mapes" data-val="M" onclick="setChoice('g-mapes', 'M', this)">M</button>
+                                            <button class="btn-pill-choice" data-target="g-mapes" data-val="F" onclick="setChoice('g-mapes', 'F', this)">F</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-mapes" data-val="P" onclick="setChoice('n-mapes', 'P', this)">P</button>
+                                            <button class="btn-pill-choice" data-target="n-mapes" data-val="S" onclick="setChoice('n-mapes', 'S', this)">S</button>
+                                        </td>
+                                        <td class="gn-word-cell">Plàtans</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-platans" data-val="M" onclick="setChoice('g-platans', 'M', this)">M</button>
+                                            <button class="btn-pill-choice" data-target="g-platans" data-val="F" onclick="setChoice('g-platans', 'F', this)">F</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-platans" data-val="P" onclick="setChoice('n-platans', 'P', this)">P</button>
+                                            <button class="btn-pill-choice" data-target="n-platans" data-val="S" onclick="setChoice('n-platans', 'S', this)">S</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Ploma</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-ploma" data-val="F" onclick="setChoice('g-ploma', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-ploma" data-val="M" onclick="setChoice('g-ploma', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-ploma" data-val="S" onclick="setChoice('n-ploma', 'S', this)">S</button>
+                                            <button class="btn-pill-choice" data-target="n-ploma" data-val="P" onclick="setChoice('n-ploma', 'P', this)">P</button>
+                                        </td>
+                                        <td class="gn-word-cell">Tassa</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="g-tassa" data-val="F" onclick="setChoice('g-tassa', 'F', this)">F</button>
+                                            <button class="btn-pill-choice" data-target="g-tassa" data-val="M" onclick="setChoice('g-tassa', 'M', this)">M</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="n-tassa" data-val="S" onclick="setChoice('n-tassa', 'S', this)">S</button>
+                                            <button class="btn-pill-choice" data-target="n-tassa" data-val="P" onclick="setChoice('n-tassa', 'P', this)">P</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx2()">Comprovar Exercici 2</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex2"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 3: SEPARACIÓ DE SÍL·LABES I TÒNICA ================= -->
+                    <div class="exam-exercise-card" id="card-ex3">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 3 • Separació en Síl·labes i Tònica</div>
+                            <span class="exercise-points-badge">1.5 Punts (La clau d'or!)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            3. Torna a copiar les següents paraules <strong>separades en síl·labes amb guions (-)</strong> i selecciona la seva síl·laba tònica:
+                            <br><small style="color: var(--text-muted);">Recorda: els dígrafs <em>rr, ss, l·l, tg</em> se separen, mentre que <em>ny, qu</em> van junts. Els monosíl·labs no porten guió!</small>
+                        </div>
+
+                        <div class="syllable-split-card-grid" id="ex3-split-grid">
+                            <!-- Generat dinàmicament per JS -->
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx3()">Comprovar Exercici 3</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex3"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 4: NOMS INDIVIDUALS & COL·LECTIUS ================= -->
+                    <div class="exam-exercise-card" id="card-ex4">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 4 • Noms Individuals a partir de Col·lectius</div>
+                            <span class="exercise-points-badge">1 Punt (0.2 per paraula)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            4. Escriu el nom <strong>individual</strong> que correspon a cadascun d'aquests noms col·lectius:
+                        </div>
+
+                        <div class="collective-matching-grid">
+                            <div class="collective-card-item">
+                                <label>🌲 Pineda:</label>
+                                <input type="text" class="collective-input" id="coll-pineda" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🕊️ Colomar:</label>
+                                <input type="text" class="collective-input" id="coll-colomar" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🎻 Orquestra:</label>
+                                <input type="text" class="collective-input" id="coll-orquestra" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>⚽ Equip:</label>
+                                <input type="text" class="collective-input" id="coll-equip" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🐝 Eixam:</label>
+                                <input type="text" class="collective-input" id="coll-eixam" placeholder="Nom individual...">
+                            </div>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx4()">Comprovar Exercici 4</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex4"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 5: COMPRENSIÓ LECTORA DOFINS ================= -->
+                    <div class="exam-exercise-card" id="card-ex5">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 5 • Comprensió Lectora</div>
+                            <span class="exercise-points-badge">1.5 Punts (0.3 per pregunta)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            5. Llegeix el text següent i respon les preguntes:
+                        </div>
+
+                        <!-- Text Oficial dels Dofins -->
+                        <div class="reading-text-card">
+                            <div class="reading-text-title">
+                                <span>🐬</span> ELS DOFINS I LA SEVA VIDA A L'OCEÀ
+                            </div>
+                            <p>Els Dofins són mamífers marins molt intel·ligents i sociables que viuen en grups. Encara que viuen a l'aigua, necessiten sortir a la superfície per respirar mitjançant un orifici especial anomenat <strong>espiracle</strong>, situat a la part superior del seu cap.</p>
+                            <p style="margin-top: 0.6rem;">Aquests animals es comuniquen entre ells utilitzant una gran varietat de sons, com <strong>clics, xiulets i crits</strong>. També utilitzen un sistema anomenat <strong>ecolocalització</strong>, que els permet enviar ones de so per l'aigua per detectar obstacles i trobar aliment, principalment peixos petits i calamars.</p>
+                            <p style="margin-top: 0.6rem;">Els Dofins són molt juganers i sovint se'ls pot veure saltant fora de l'aigua o fent acrobàcies a prop de les embarcacions. Les mares tenen una cura excel·lent de les seves cries, acompanyant-les i protegint-les durant els seus primers anys de vida.</p>
+                        </div>
+
+                        <!-- Preguntes Interactives de l'Examen -->
+                        <div class="reading-questions-list">
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Com respiren els Dofins si viuen a l'aigua?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setReadingAns(1, 'A', this)">A) Amb brànquies com tots els peixos de l'oceà.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(1, 'B', this)">B) Mitjançant un orifici especial anomenat espiracle, situat a la part superior del cap.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(1, 'C', this)">C) Absorbint l'oxigen directament per la pell humida.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Quins tipus de sons utilitzen per comunicar-se?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setReadingAns(2, 'A', this)">A) Clics, xiulets i crits.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(2, 'B', this)">B) Només rugits i cants greus subaquàtics.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(2, 'C', this)">C) Cops de cua forts a la superfície de l'aigua.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Per a què serveix el sistema d'ecolocalització?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setReadingAns(3, 'A', this)">A) Per nedar més ràpidament que els taurons.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(3, 'B', this)">B) Per enviar ones de so per detectar obstacles i trobar aliment.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(3, 'C', this)">C) Per avisar els pescadors de les tempestes marines.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• De què s'alimenten principalment els Dofins?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setReadingAns(4, 'A', this)">A) Algues marines i plàncton microscòpic.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(4, 'B', this)">B) Peixos petits i calamars.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(4, 'C', this)">C) Crancs durs i cloïsses de roca.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Quines activitats o jocs solen fer quan estan a prop de les embarcacions?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setReadingAns(5, 'A', this)">A) Amagar-se al fons marí en silenci absolut.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(5, 'B', this)">B) Saltar fora de l'aigua o fer acrobàcies divertides.</button>
+                                    <button class="reading-opt-btn" onclick="setReadingAns(5, 'C', this)">C) Empènyer els vaixells cap a la costa.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx5()">Comprovar Exercici 5</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex5"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 6: BUSCA AL TEXT ================= -->
+                    <div class="exam-exercise-card" id="card-ex6">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 6 • Cerca de Paraules al Text</div>
+                            <span class="exercise-points-badge">1 Punt</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            6. Del text dels Dofins, troba les paraules indicades seleccionant-les:
+                        </div>
+
+                        <div class="text-hunt-grid">
+                            <!-- 5 Monosíl·labs -->
+                            <div class="hunt-category-box">
+                                <div class="hunt-category-title">
+                                    <span>🔹</span> 5 paraules monosil·làbiques:
+                                </div>
+                                <div class="hunt-pills-container" id="hunt-mono-container">
+                                    <!-- Generat per JS -->
+                                </div>
+                                <small style="color: var(--text-muted);">Tria'n 5 d'entre les opcions del text.</small>
+                            </div>
+
+                            <!-- 5 Trissíl·labs -->
+                            <div class="hunt-category-box">
+                                <div class="hunt-category-title">
+                                    <span>🔹</span> 5 paraules trissil·làbiques:
+                                </div>
+                                <div class="hunt-pills-container" id="hunt-tri-container">
+                                    <!-- Generat per JS -->
+                                </div>
+                                <small style="color: var(--text-muted);">Tria'n 5 que tinguin exactament 3 síl·labes.</small>
+                            </div>
+
+                            <!-- 3 Dígrafs -->
+                            <div class="hunt-category-box">
+                                <div class="hunt-category-title">
+                                    <span>🔹</span> 3 paraules amb dígraf:
+                                </div>
+                                <div class="hunt-pills-container" id="hunt-digraph-container">
+                                    <!-- Generat per JS -->
+                                </div>
+                                <small style="color: var(--text-muted);">Tria'n 3 que continguin un dígraf oficial (l·l, ss, qu, tg, etc.).</small>
+                            </div>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx6()">Comprovar Exercici 6</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex6"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 7: SINÒNIMS I ANTÒNIMS ================= -->
+                    <div class="exam-exercise-card" id="card-ex7">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 7 • Taula de Sinònims i Antònims</div>
+                            <span class="exercise-points-badge">1 Punt (0.125 per paraula)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            7. Escriu de cada paraula un <strong>sinònim</strong> o un <strong>antònim</strong> segons la columna:
+                        </div>
+
+                        <div class="syn-ant-table-wrapper">
+                            <table class="syn-ant-table">
+                                <thead>
+                                    <tr>
+                                        <th>Paraula Base</th>
+                                        <th>Sinònim (Significat igual)</th>
+                                        <th>Paraula Base</th>
+                                        <th>Antònim (Significat contrari)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Casa</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="syn-casa" placeholder="Escriu un sinònim...">
+                                        </td>
+                                        <td><strong>Generós</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="ant-generos" placeholder="Escriu un antònim...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Parlar</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="syn-parlar" placeholder="Escriu un sinònim...">
+                                        </td>
+                                        <td><strong>Content</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="ant-content" placeholder="Escriu un antònim...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ràpid</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="syn-rapid" placeholder="Escriu un sinònim...">
+                                        </td>
+                                        <td><strong>Divertit</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="ant-divertit" placeholder="Escriu un antònim...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tenda</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="syn-tenda" placeholder="Escriu un sinònim...">
+                                        </td>
+                                        <td><strong>Antipàtic</strong></td>
+                                        <td class="syn-input-cell">
+                                            <input type="text" class="syn-ant-input" id="ant-antipatic" placeholder="Escriu un antònim...">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx7()">Comprovar Exercici 7</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex7"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 8: TEST D'ANTÒNIMS ================= -->
+                    <div class="exam-exercise-card" id="card-ex8">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 8 • Tria l'Opció Correcta (Antònims)</div>
+                            <span class="exercise-points-badge">1 Punt (0.5 per pregunta)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            8. Tria l'opció correcta per a cadascuna de les dues preguntes:
+                        </div>
+
+                        <div class="reading-questions-list">
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Tria l'opció en la qual TOTES les parelles de paraules siguin <strong>antònimes</strong>:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(1, 'A', this)">A) Rural, urbà; xerraire, callat.</button>
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(1, 'B', this)">B) Clar, lluminós; fred, gelat.</button>
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(1, 'C', this)">C) Alt, baix; Fatigat, cansat.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Els antònims són paraules que signifiquen:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(2, 'A', this)">A) Exactament el mateix.</button>
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(2, 'B', this)">B) El contrari l'una de l'altra.</button>
+                                    <button class="reading-opt-btn" onclick="setEx8Ans(2, 'C', this)">C) Coses semblants o properes.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx8()">Comprovar Exercici 8</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex8"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 9: DEFINICIONS DE NOMS ================= -->
+                    <div class="exam-exercise-card" id="card-ex9">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 9 • Classes de Noms (Test)</div>
+                            <span class="exercise-points-badge">1 Punt (0.5 per pregunta)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            9. Selecciona la resposta correcta per a cada definició:
+                        </div>
+
+                        <div class="reading-questions-list">
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• El nom col·lectiu és:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(1, 'A', this)">A) El que designa un sol element en singular.</button>
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(1, 'B', this)">B) El nom propi d'una ciutat o d'un país.</button>
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(1, 'C', this)">C) El que designa en singular un conjunt d'elements de la mateixa espècie.</button>
+                                </div>
+                            </div>
+
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">• Els noms que designen una realitat que no es pot veure ni tocar, com per exemple els sentiments i les idees, s'anomenen:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(2, 'A', this)">A) Abstractes.</button>
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(2, 'B', this)">B) Concrets.</button>
+                                    <button class="reading-opt-btn" onclick="setEx9Ans(2, 'C', this)">C) Individuals.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkEx9()">Comprovar Exercici 9</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex9"></div>
+                    </div>
+
+                    <!-- ================= EXERCICI 10: CONCRETS VS ABSTRACTES ================= -->
+                    <div class="exam-exercise-card" id="card-ex10">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Exercici 10 • Classifica els Noms (Concrets vs Abstractes)</div>
+                            <span class="exercise-points-badge">1 Punt (14 paraules)</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            10. Classifica aquests 14 noms segons siguin <strong>concrets</strong> o <strong>abstractes</strong>. Clica una paraula i després clica a la columna on vulguis col·locar-la:
+                        </div>
+
+                        <div class="concrete-abstract-container">
+                            <!-- Bossa de paraules pendents -->
+                            <div class="words-bank-tag-cloud" id="words-bank-cloud">
+                                <!-- Generat per JS: Alegria, cadira, llibertat, muntanya, por, llapis, amistat, flor, generositat, sorra, enveja, ordinador, vergonya, cotxe -->
+                            </div>
+
+                            <div class="sortable-columns-grid">
+                                <!-- Columna Concrets -->
+                                <div class="sort-target-col" id="col-concrets" onclick="moveSelectedTagTo('concrets')">
+                                    <div class="col-header-box">
+                                        <span>🧱 Noms Concrets</span>
+                                        <span class="tab-badge-count" id="count-concrets">0 / 7</span>
+                                    </div>
+                                    <div class="items-in-col" id="items-concrets"></div>
+                                </div>
+
+                                <!-- Columna Abstractes -->
+                                <div class="sort-target-col" id="col-abstractes" onclick="moveSelectedTagTo('abstractes')">
+                                    <div class="col-header-box">
+                                        <span>💭 Noms Abstractes</span>
+                                        <span class="tab-badge-count" id="count-abstractes">0 / 7</span>
+                                    </div>
+                                    <div class="items-in-col" id="items-abstractes"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <button class="btn-score-secondary" onclick="resetEx10()">↺ Reiniciar Classificador</button>
+                            <button class="btn-check-exercise" onclick="checkEx10()">Comprovar Exercici 10</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-ex10"></div>
+                    </div>
+
+                    <!-- ================= PANELL DE NOTA FINAL ================= -->
+                    <div class="exam-summary-card">
+                        <div class="exam-score-big-circle" id="final-score-display">--</div>
+                        <h3 id="final-score-title">Completa els exercicis per calcular la teva nota!</h3>
+                        <p id="final-score-desc">L'Álvaro va treure un <strong>8 / 10</strong> a l'examen real a classe. Pots corregir els petits detalls i assolir el <strong>10 / 10</strong> absolut?</p>
+                        <div class="exam-actions-btn-group">
+                            <button class="btn-score-primary" onclick="calculateTotalExamScore()">📊 Corregir Tot l'Examen Ara</button>
+                            <button class="btn-score-secondary" onclick="resetExam()">🔄 Reiniciar Examen</button>
+                            <button class="btn-score-secondary" onclick="switchTab('tab-pro')">🚀 Passar al Nivell Pro</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTANYA 3: NIVELL PRO (Més Difícil / Ampliació)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-pro">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🚀</span> Entrenament Nivell Pro (Més Difícil)</h2>
+                        <p>10 exercicis avançats dissenyats específicament per consolidar i ampliar els conceptes clau: dígrafs separables barrejats, diftongs vs hiats, col·lectius de nivell i vocabulari genuí.</p>
+                    </div>
+                    <div class="action-pill-group">
+                        <button class="btn-check-exercise" onclick="switchTab('tab-examen')">
+                            <span>📝</span> Tornar a l'Examen Real
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exam-timeline-container">
+
+                    <!-- PRO 1: La Síl·laba Tònica Trampa -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 1 • Tònica en Paraules Complexes</div>
+                            <span class="exercise-points-badge">Agudes, Planes i Esdrúixoles</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Troba la síl·laba tònica d'aquestes paraules amb parany:
+                        </div>
+                        <div class="syllable-picker-grid" id="pro1-grid">
+                            <!-- Generat per JS -->
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro1()">Comprovar Pro 1</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro1"></div>
+                    </div>
+
+                    <!-- PRO 2: Laboratori dels Dígrafs Barrejats -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 2 • Separació amb Múltiples Dígrafs</div>
+                            <span class="exercise-points-badge">Alta Dificultat</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Separa correctament amb guions (-) aquestes paraules que contenen dos o més dígrafs a la vegada:
+                        </div>
+                        <div class="syllable-split-card-grid" id="pro2-grid">
+                            <!-- Generat per JS: metgessa, passadís, rocallós, esquitxar, intel·ligència, guixeta -->
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro2()">Comprovar Pro 2</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro2"></div>
+                    </div>
+
+                    <!-- PRO 3: Diftong vs Hiat -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 3 • Diftong o Hiat?</div>
+                            <span class="exercise-points-badge">Síl·labes Especials</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Indica si les lletres destacades formen <strong>Diftong</strong> (es pronuncien juntes en 1 síl·laba) o <strong>Hiat</strong> (se separen en 2 síl·labes diferents):
+                        </div>
+                        <div class="gn-table-wrapper">
+                            <table class="gn-table">
+                                <thead>
+                                    <tr>
+                                        <th>Paraula</th>
+                                        <th>Separació Sil·làbica</th>
+                                        <th>És Diftong o Hiat?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="gn-word-cell">Ai-re</td>
+                                        <td>ai - re</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="dh-aire" data-val="diftong" onclick="setChoice('dh-aire', 'diftong', this)">Diftong</button>
+                                            <button class="btn-pill-choice" data-target="dh-aire" data-val="hiat" onclick="setChoice('dh-aire', 'hiat', this)">Hiat</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Pa-ís</td>
+                                        <td>pa - ís</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="dh-pais" data-val="diftong" onclick="setChoice('dh-pais', 'diftong', this)">Diftong</button>
+                                            <button class="btn-pill-choice" data-target="dh-pais" data-val="hiat" onclick="setChoice('dh-pais', 'hiat', this)">Hiat</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Rei-na</td>
+                                        <td>rei - na</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="dh-reina" data-val="diftong" onclick="setChoice('dh-reina', 'diftong', this)">Diftong</button>
+                                            <button class="btn-pill-choice" data-target="dh-reina" data-val="hiat" onclick="setChoice('dh-reina', 'hiat', this)">Hiat</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Te-a-tre</td>
+                                        <td>te - a - tre</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="dh-teatre" data-val="diftong" onclick="setChoice('dh-teatre', 'diftong', this)">Diftong</button>
+                                            <button class="btn-pill-choice" data-target="dh-teatre" data-val="hiat" onclick="setChoice('dh-teatre', 'hiat', this)">Hiat</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro3()">Comprovar Pro 3</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro3"></div>
+                    </div>
+
+                    <!-- PRO 4: El Gran Diccionari de Noms Col·lectius -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 4 • Diccionari de Col·lectius de 5è</div>
+                            <span class="exercise-points-badge">Vocabulari Enriquit</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Escriu el nom individual que correspon a aquests col·lectius menys habituals:
+                        </div>
+                        <div class="collective-matching-grid">
+                            <div class="collective-card-item">
+                                <label>🏝️ Arxipèlag:</label>
+                                <input type="text" class="collective-input" id="pro4-arxipelag" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🐑 Ramat:</label>
+                                <input type="text" class="collective-input" id="pro4-ramat" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🐟 Banc (de peixos):</label>
+                                <input type="text" class="collective-input" id="pro4-banc" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>⭐ Constel·lació:</label>
+                                <input type="text" class="collective-input" id="pro4-constellacio" placeholder="Nom individual...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>🌳 Fageda:</label>
+                                <input type="text" class="collective-input" id="pro4-fageda" placeholder="Nom individual...">
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro4()">Comprovar Pro 4</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro4"></div>
+                    </div>
+
+                    <!-- PRO 5: Concrets vs Abstractes Nivell Expert -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 5 • Concrets vs Abstractes Subtils</div>
+                            <span class="exercise-points-badge">Pensament Crític</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Classifica aquests conceptes que sovint fan dubtar: <em>aire</em> (es respira i es nota la pressió), <em>justícia</em>, <em>fum</em>, <em>ombra</em>, <em>orgull</em> i <em>paciència</em>.
+                        </div>
+                        <div class="gn-table-wrapper">
+                            <table class="gn-table">
+                                <thead>
+                                    <tr>
+                                        <th>Paraula</th>
+                                        <th>Raonament</th>
+                                        <th>Classificació</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="gn-word-cell">Aire</td>
+                                        <td>És matèria física (gas) que podem sentir a la pell i que té massa.</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="ca-aire" data-val="C" onclick="setChoice('ca-aire', 'C', this)">Concret</button>
+                                            <button class="btn-pill-choice" data-target="ca-aire" data-val="A" onclick="setChoice('ca-aire', 'A', this)">Abstracte</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Justícia</td>
+                                        <td>És un valor ètic o idea que no podem tocar ni tancar en un calaix.</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="ca-justicia" data-val="C" onclick="setChoice('ca-justicia', 'C', this)">Concret</button>
+                                            <button class="btn-pill-choice" data-target="ca-justicia" data-val="A" onclick="setChoice('ca-justicia', 'A', this)">Abstracte</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Fum</td>
+                                        <td>És matèria (partícules sòlides i gas) que es pot veure i olorar.</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="ca-fum" data-val="C" onclick="setChoice('ca-fum', 'C', this)">Concret</button>
+                                            <button class="btn-pill-choice" data-target="ca-fum" data-val="A" onclick="setChoice('ca-fum', 'A', this)">Abstracte</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gn-word-cell">Paciència</td>
+                                        <td>És una virtut o capacitat de calma interior que no té forma física.</td>
+                                        <td>
+                                            <button class="btn-pill-choice" data-target="ca-paciencia" data-val="C" onclick="setChoice('ca-paciencia', 'C', this)">Concret</button>
+                                            <button class="btn-pill-choice" data-target="ca-paciencia" data-val="A" onclick="setChoice('ca-paciencia', 'A', this)">Abstracte</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro5()">Comprovar Pro 5</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro5"></div>
+                    </div>
+
+                    <!-- PRO 6: Sinònims Genuïns en Català -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 6 • Sinònims Genuïns vs Castellanismes</div>
+                            <span class="exercise-points-badge">Llengua Viva</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Tria la paraula genuïna en català per substituir el terme subratllat:
+                        </div>
+                        <div class="reading-questions-list">
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">1. Vaig anar a la <u>tienda</u> a comprar pomes:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(1, 'A', this)">A) Compre</button>
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(1, 'B', this)">B) Botiga</button>
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(1, 'C', this)">C) Parada</button>
+                                </div>
+                            </div>
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">2. Torno content al caliu de la meva <u>casa / hogar</u>:</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(2, 'A', this)">A) Llar</button>
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(2, 'B', this)">B) Hogar</button>
+                                    <button class="reading-opt-btn" onclick="setPro6Ans(2, 'C', this)">C) Pís</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro6()">Comprovar Pro 6</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro6"></div>
+                    </div>
+
+                    <!-- PRO 7: Roda d'Antònims Rics -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 7 • Antònims de Vocabulari Enriquit</div>
+                            <span class="exercise-points-badge">Lèxic</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Emparella cada paraula amb el seu antònim exacte:
+                        </div>
+                        <div class="collective-matching-grid">
+                            <div class="collective-card-item">
+                                <label>Lleuger 🪶:</label>
+                                <select id="pro7-lleuger" style="padding: 0.45rem; border-radius: 4px; border: 1px solid var(--border-color); font-weight: 700;">
+                                    <option value="">-- Tria antònim --</option>
+                                    <option value="pesat">Pesat</option>
+                                    <option value="valent">Valent</option>
+                                    <option value="arrogant">Arrogant</option>
+                                </select>
+                            </div>
+                            <div class="collective-card-item">
+                                <label>Modest 🙇:</label>
+                                <select id="pro7-modest" style="padding: 0.45rem; border-radius: 4px; border: 1px solid var(--border-color); font-weight: 700;">
+                                    <option value="">-- Tria antònim --</option>
+                                    <option value="arrogant">Arrogant / Presumit</option>
+                                    <option value="garrepa">Garrepa</option>
+                                    <option value="pesat">Pesat</option>
+                                </select>
+                            </div>
+                            <div class="collective-card-item">
+                                <label>Covard 🙈:</label>
+                                <select id="pro7-covard" style="padding: 0.45rem; border-radius: 4px; border: 1px solid var(--border-color); font-weight: 700;">
+                                    <option value="">-- Tria antònim --</option>
+                                    <option value="valent">Valent / Atrevit</option>
+                                    <option value="trist">Trist</option>
+                                    <option value="fresc">Fresc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro7()">Comprovar Pro 7</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro7"></div>
+                    </div>
+
+                    <!-- PRO 8: Plurals i Femenins Especials -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 8 • Plurals i Femenins Irregulars</div>
+                            <span class="exercise-points-badge">Morfologia</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Escriu la forma corresponent segons s'indica:
+                        </div>
+                        <div class="collective-matching-grid">
+                            <div class="collective-card-item">
+                                <label>Plural de <strong>bosc</strong>:</label>
+                                <input type="text" class="collective-input" id="pro8-bosc" placeholder="Escriu el plural...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>Plural de <strong>braç</strong>:</label>
+                                <input type="text" class="collective-input" id="pro8-brac" placeholder="Escriu el plural...">
+                            </div>
+                            <div class="collective-card-item">
+                                <label>Femení de <strong>cavall</strong>:</label>
+                                <input type="text" class="collective-input" id="pro8-cavall" placeholder="Escriu el femení...">
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro8()">Comprovar Pro 8</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro8"></div>
+                    </div>
+
+                    <!-- PRO 9: Comprensió Lectora Pro -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 9 • Comprensió de Text Científic</div>
+                            <span class="exercise-points-badge">Inferència</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            Llegeix aquest fragment sobre el Linx Ibèric i respon la inferència:
+                        </div>
+                        <div class="reading-text-card">
+                            <div class="reading-text-title">
+                                <span>🐾</span> EL LINX IBÈRIC I LA SEVA VISTA INFAL·LIBLE
+                            </div>
+                            <p>El linx ibèric és el felí més amenaçat del planeta i un caçador nocturn formidable. Els seus pinzells a les orelles no són només decoratius: actuen com a antenes que milloren la seva audició per detectar conills amagats entre el matoll. A més, les seves patilles blanques i negres li permeten camuflar-se perfectament a la penombra del bosc mediterrani.</p>
+                        </div>
+                        <div class="reading-question-box">
+                            <div class="reading-q-label">• Segons el text, per a què serveixen els pinzells de pèl a les orelles del linx?</div>
+                            <div class="reading-q-options">
+                                <button class="reading-opt-btn" onclick="setPro9Ans('A', this)">A) Per espantar altres depredadors fent-se passar per més gran.</button>
+                                <button class="reading-opt-btn" onclick="setPro9Ans('B', this)">B) Com a antenes que milloren la seva audició per caçar conills.</button>
+                                <button class="reading-opt-btn" onclick="setPro9Ans('C', this)">C) Per netejar-se els ulls de pols a la nit.</button>
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro9()">Comprovar Pro 9</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro9"></div>
+                    </div>
+
+                    <!-- PRO 10: Caçador d'Errors d'Examen -->
+                    <div class="exam-exercise-card">
+                        <div class="exercise-header-badge">
+                            <div class="exercise-number-pill">Pro 10 • Fes de Mestre: Caçador d'Errors</div>
+                            <span class="exercise-points-badge">Repàs Total</span>
+                        </div>
+                        <div class="exercise-question-text">
+                            En Pere ha comès 3 errors en separar síl·labes. Troba l'opció que conté una separació <strong>INCORRECTA</strong>:
+                        </div>
+                        <div class="reading-questions-list">
+                            <div class="reading-question-box">
+                                <div class="reading-q-label">Quina d'aquestes tres separacions està MAL feta?</div>
+                                <div class="reading-q-options">
+                                    <button class="reading-opt-btn" onclick="setPro10Ans('A', this)">A) car - re - te - ra (rr separada)</button>
+                                    <button class="reading-opt-btn" onclick="setPro10Ans('B', this)">B) ba - ny - e - ra (ny separada en dues lletres)</button>
+                                    <button class="reading-opt-btn" onclick="setPro10Ans('C', this)">C) col - le - gi (l·l separada en dues lletres)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 0.5rem;">
+                            <button class="btn-check-exercise" onclick="checkPro10()">Comprovar Pro 10</button>
+                        </div>
+                        <div class="exercise-feedback-box" id="feedback-pro10"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTANYA 4: ENTRENADOR INFINIT (Generador Dinàmic)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-generator">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>⚡</span> Entrenador Infinit & Mini-Jocs Ràpids</h2>
+                        <p>Posa a prova els teus reflexos amb preguntes aleatòries il·limitades sobre la síl·laba tònica, dígrafs, concrets/abstractes i sinònims.</p>
+                    </div>
+                </div>
+
+                <div class="generator-game-box">
+                    <div class="game-modes-pills">
+                        <button class="game-mode-btn active" id="btn-mode-tonica" onclick="setGameMode('tonica')">🗣️ Clica la Tònica!</button>
+                        <button class="game-mode-btn" id="btn-mode-digraf" onclick="setGameMode('digraf')">✂️ Separa o No Separa?</button>
+                        <button class="game-mode-btn" id="btn-mode-concrets" onclick="setGameMode('concrets')">🧱 Concret o Abstracte?</button>
+                    </div>
+
+                    <div class="infinite-arena" id="arena-box">
+                        <div style="font-size: 0.88rem; font-weight: 800; color: var(--text-muted);" id="arena-instruction">
+                            Clica damunt de la síl·laba que sona amb més força:
+                        </div>
+                        <div class="arena-word-display" id="arena-display-word">
+                            <!-- Paraula del joc -->
+                        </div>
+                        <div class="arena-options-row" id="arena-options-container">
+                            <!-- Opcions dinàmiques -->
+                        </div>
+                        <div class="exercise-feedback-box" id="arena-feedback" style="max-width: 450px;"></div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.5rem;">
+                        <div style="font-size: 0.88rem; font-weight: 800;">
+                            Encerts consecutius al joc: <span id="game-streak" style="color: var(--primary);">0 🔥</span>
+                        </div>
+                        <button class="btn-check-exercise" onclick="nextGameRound()">
+                            <span>🎲</span> Següent Repte Aleatori
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ================= MODAL XULLA RÀPIDA ================= -->
+    <div class="cheat-modal-overlay" id="cheat-modal" onclick="closeCheatSheetOnClickOutside(event)">
+        <div class="cheat-modal-card">
+            <div class="cheat-modal-header">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem; font-weight: 900; color: var(--cat-ocean);">
+                    <span>💡</span> Xulla Ràpida • Llengua Catalana T.1
+                </div>
+                <button class="btn-close-modal" onclick="closeQuickCheatSheet()">✕</button>
+            </div>
+            <div class="theory-card-body">
+                <p><strong>1. La Síl·laba Tònica:</strong> Cridar la paraula per la finestra (<em>El truc del crit</em>). Si té accent gràfic, la tònica és sempre la síl·laba accentuada.</p>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.6rem 0;">
+                <p><strong>2. Dígrafs que SE SEPAREN (Germans barallats):</strong><br>
+                    <code>rr</code> (car-re-te-ra), <code>ss</code> (clas-se), <code>l·l</code> (col-le-gi), <code>tg</code> (fet-ge), <code>tj</code> (plat-ja), <code>tx</code> (cot-xe).
+                </p>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.6rem 0;">
+                <p><strong>3. Dígrafs que NO SE SEPAREN MAI (Millors amics):</strong><br>
+                    <code>ny</code> (ba-nye-ra), <code>ll</code> (ca-va-ll), <code>qu</code> (qua-drat), <code>gu</code> (gui-neu), <code>ch</code>.
+                </p>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.6rem 0;">
+                <p><strong>4. Noms Col·lectius Clau:</strong><br>
+                    • Eixam = abelles | Orquestra = músics | Pineda = pins | Colomar = coloms | Equip = jugadors.
+                </p>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.6rem 0;">
+                <p><strong>5. Noms Concrets vs Abstractes:</strong><br>
+                    • Concrets: es toquen o perceben pels 5 sentits (<em>ordinador, flor, cotxe, sorra</em>).<br>
+                    • Abstractes: idees i sentiments (<em>enveja, vergonya, alegria, amor, llibertat</em>).
+                </p>
+            </div>
+            <div style="text-align: right;">
+                <button class="btn-check-exercise" onclick="closeQuickCheatSheet()">Entès! Tancar Xulla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de la Lògica Interactiva -->
+    <script>
+        /* ==========================================================================
+           1. ESTAT GLOBAL I AUDIO SYNTH
+           ========================================================================== */
+        let state = {
+            xp: parseInt(localStorage.getItem('alvaro_xp_catala') || '0'),
+            streak: parseInt(localStorage.getItem('alvaro_streak_catala') || '0'),
+            soundEnabled: true,
+            solvedCount: 0,
+            examScore: null
+        };
+
+        // Carregar progrés previ si existeix
+        try {
+            const savedProg = JSON.parse(localStorage.getItem('alvaro_progress_catala_posat_a_prova_1'));
+            if (savedProg && typeof savedProg.solvedCount === 'number') {
+                state.solvedCount = savedProg.solvedCount;
+            }
+        } catch (e) { }
+
+        // Audio Synth amb Web Audio API
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playTone(freq, type = 'sine', duration = 0.15) {
+            if (!state.soundEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) { }
+        }
+
+        function playSuccessSound() {
+            playTone(523.25, 'sine', 0.1);
+            setTimeout(() => playTone(659.25, 'sine', 0.15), 100);
+            setTimeout(() => playTone(783.99, 'sine', 0.25), 200);
+        }
+
+        function playWrongSound() {
+            playTone(330, 'sawtooth', 0.15);
+            setTimeout(() => playTone(260, 'sawtooth', 0.25), 150);
+        }
+
+        function playCelebrationFanfare() {
+            playTone(523.25, 'triangle', 0.12);
+            setTimeout(() => playTone(659.25, 'triangle', 0.12), 120);
+            setTimeout(() => playTone(783.99, 'triangle', 0.12), 240);
+            setTimeout(() => playTone(1046.50, 'triangle', 0.4), 360);
+        }
+
+        function addXP(amount) {
+            state.xp += amount;
+            localStorage.setItem('alvaro_xp_catala', state.xp);
+            document.getElementById('nav-xp-counter').innerText = state.xp + ' XP';
+            document.getElementById('stat-total-xp').innerText = state.xp + ' XP';
+            playSuccessSound();
+        }
+
+        function incrementStreak() {
+            state.streak++;
+            localStorage.setItem('alvaro_streak_catala', state.streak);
+            document.getElementById('nav-streak-counter').innerText = state.streak;
+        }
+
+        function resetStreak() {
+            state.streak = 0;
+            localStorage.setItem('alvaro_streak_catala', 0);
+            document.getElementById('nav-streak-counter').innerText = '0';
+        }
+
+        function toggleSound() {
+            state.soundEnabled = !state.soundEnabled;
+            document.getElementById('btn-sound').innerText = state.soundEnabled ? '🔊' : '🔇';
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('alvaro_dark_mode', document.body.classList.contains('dark-mode'));
+        }
+
+        if (localStorage.getItem('alvaro_dark_mode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        /* ==========================================================================
+           2. NAVEGACIÓ ENTRE PESTANYES & SIDEBAR
+           ========================================================================== */
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+
+            const panel = document.getElementById(tabId);
+            if (panel) panel.classList.add('active');
+
+            const btn = Array.from(document.querySelectorAll('.sidebar-tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            if (btn) btn.classList.add('active');
+
+            const mobileLabel = document.getElementById('mobile-current-tab-label');
+            if (mobileLabel && btn) {
+                mobileLabel.innerText = btn.querySelector('.tab-btn-content span:last-child').innerText;
+            }
+
+            // Tancar sidebar en mòbil si estava oberta
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.remove('mobile-open');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('app-sidebar');
+            if (sidebar) sidebar.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.remove('active');
+        });
+
+        function openQuickCheatSheet() {
+            document.getElementById('cheat-modal').classList.add('active');
+        }
+
+        function closeQuickCheatSheet() {
+            document.getElementById('cheat-modal').classList.remove('active');
+        }
+
+        function closeCheatSheetOnClickOutside(e) {
+            if (e.target.id === 'cheat-modal') closeQuickCheatSheet();
+        }
+
+        function updateProgress() {
+            const pct = Math.min(100, Math.round((state.solvedCount / 10) * 100));
+            document.getElementById('sidebar-progress-pct').innerText = pct + '%';
+            document.getElementById('sidebar-progress-bar').style.width = pct + '%';
+            document.getElementById('stat-solved-count').innerText = state.solvedCount + '/10';
+            try {
+                localStorage.setItem('alvaro_progress_catala_posat_a_prova_1', JSON.stringify({
+                    solvedCount: state.solvedCount,
+                    pct: pct
+                }));
+            } catch (e) { }
+        }
+
+        /* ==========================================================================
+           3. EXERCICI 1: SÍL·LABA TÒNICA PICKER
+           ========================================================================== */
+        const EX1_WORDS = [
+            { word: "Número", syllables: ["Nú", "me", "ro"], tonicIdx: 0 },
+            { word: "Dissabte", syllables: ["Dis", "sab", "te"], tonicIdx: 1 },
+            { word: "Sabata", syllables: ["Sa", "ba", "ta"], tonicIdx: 1 },
+            { word: "Camisa", syllables: ["Ca", "mi", "sa"], tonicIdx: 1 },
+            { word: "Menjador", syllables: ["Men", "ja", "dor"], tonicIdx: 2 },
+            { word: "Ordre", syllables: ["Or", "dre"], tonicIdx: 0 },
+            { word: "Ordinaris", syllables: ["Or", "di", "na", "ris"], tonicIdx: 2 },
+            { word: "Sabó", syllables: ["Sa", "bó"], tonicIdx: 1 },
+            { word: "Cadira", syllables: ["Ca", "di", "ra"], tonicIdx: 1 },
+            { word: "Cargol", syllables: ["Car", "gol"], tonicIdx: 1 }
+        ];
+
+        let ex1Answers = {};
+
+        function initEx1() {
+            const container = document.getElementById('ex1-words-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            EX1_WORDS.forEach((item, wIdx) => {
+                const box = document.createElement('div');
+                box.className = 'syllable-picker-word-box';
+
+                let syllButtons = item.syllables.map((s, sIdx) => `
+                    <button class="syllable-pill-btn" id="ex1-w${wIdx}-s${sIdx}" onclick="selectEx1Syllable(${wIdx}, ${sIdx}, this)">${s}</button>
+                `).join('');
+
+                box.innerHTML = `
+                    <span class="word-label-num">${wIdx + 1}.</span>
+                    <strong style="font-size: 0.95rem;">${item.word}</strong>
+                    <div class="syllables-group">${syllButtons}</div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function selectEx1Syllable(wIdx, sIdx, btn) {
+            ex1Answers[wIdx] = sIdx;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.syllable-pill-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function checkEx1() {
+            let correct = 0;
+            EX1_WORDS.forEach((item, wIdx) => {
+                const userChoice = ex1Answers[wIdx];
+                item.syllables.forEach((_, sIdx) => {
+                    const btn = document.getElementById(`ex1-w${wIdx}-s${sIdx}`);
+                    if (!btn) return;
+                    btn.classList.remove('correct', 'wrong');
+                    if (sIdx === item.tonicIdx) {
+                        btn.classList.add('correct');
+                    } else if (userChoice === sIdx) {
+                        btn.classList.add('wrong');
+                    }
+                });
+                if (userChoice === item.tonicIdx) correct++;
+            });
+
+            const fb = document.getElementById('feedback-ex1');
+            if (correct === 10) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Molt bé!</strong> Has trobat la síl·laba tònica de les 10 paraules (recorda: <em>dis-<strong>sab</strong>-te</em> és plana!). +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 1);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat <strong>${correct}/10</strong> paraules. Fixa't en les que estan marcades en verd com a solució. Clica sobre <em>dissabte</em> recordant el truc del crit!`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           4. EXERCICI 2: GÈNERE I NOMBRE
+           ========================================================================== */
+        let choices = {};
+
+        function setChoice(key, val, btn) {
+            choices[key] = val;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.btn-pill-choice').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const EX2_SOLUTIONS = {
+            'g-finestres': 'F', 'n-finestres': 'P',
+            'g-taula': 'F', 'n-taula': 'S',
+            'g-llibre': 'M', 'n-llibre': 'S',
+            'g-mapes': 'M', 'n-mapes': 'P',
+            'g-ploma': 'F', 'n-ploma': 'S',
+            'g-maquines': 'F', 'n-maquines': 'P',
+            'g-jocs': 'M', 'n-jocs': 'P',
+            'g-llibreta': 'F', 'n-llibreta': 'S',
+            'g-platans': 'M', 'n-platans': 'P',
+            'g-tassa': 'F', 'n-tassa': 'S'
+        };
+
+        function checkEx2() {
+            let correct = 0;
+            let total = Object.keys(EX2_SOLUTIONS).length;
+
+            for (const [key, correctVal] of Object.entries(EX2_SOLUTIONS)) {
+                const userVal = choices[key];
+                const btns = document.querySelectorAll(`[data-target="${key}"]`);
+                btns.forEach(b => {
+                    b.classList.remove('correct', 'wrong');
+                    if (b.getAttribute('data-val') === correctVal) {
+                        b.classList.add('correct');
+                    } else if (b.getAttribute('data-val') === userVal) {
+                        b.classList.add('wrong');
+                    }
+                });
+                if (userVal === correctVal) correct++;
+            }
+
+            const fb = document.getElementById('feedback-ex2');
+            if (correct === total) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Excel·lent!</strong> Has classificat correctament el gènere i el nombre de les 10 paraules (igual que a l\'examen on vas fer 10/10!). +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 2);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has obtingut <strong>${correct}/${total}</strong> encerts. Les opcions en verd són les correctes. Recorda posar <em>el/la</em> i <em>els/les</em> al davant!`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           5. EXERCICI 3: SEPARACIÓ SIL·LÀBICA I TÒNICA
+           ========================================================================== */
+        const EX3_DATA = [
+            { word: "Banyera", correctSplit: "ba-nye-ra", tonic: "nye", tip: "dígraf inseparables ny" },
+            { word: "Balena", correctSplit: "ba-le-na", tonic: "le", tip: "paraula plana" },
+            { word: "Classe", correctSplit: "clas-se", tonic: "clas", tip: "dígraf separable ss" },
+            { word: "Peix", correctSplit: "peix", tonic: "peix", tip: "monosíl·laba, no es separa!" },
+            { word: "Llop", correctSplit: "llop", tonic: "llop", tip: "monosíl·laba, no es separa!" },
+            { word: "Calaix", correctSplit: "ca-laix", tonic: "laix", tip: "diftong -aix no es trenca!" },
+            { word: "Col·legi", correctSplit: "col-le-gi", tonic: "le", tip: "l·l es separa com l-l" },
+            { word: "Quadrat", correctSplit: "qua-drat", tonic: "drat", tip: "dígraf qu inseparable" },
+            { word: "Carretera", correctSplit: "car-re-te-ra", tonic: "te", tip: "dígraf separable rr" },
+            { word: "Fetge", correctSplit: "fet-ge", tonic: "fet", tip: "dígraf separable tg" }
+        ];
+
+        function initEx3() {
+            const container = document.getElementById('ex3-split-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            EX3_DATA.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'split-card-item';
+                card.innerHTML = `
+                    <div class="split-item-header">
+                        <span>${idx + 1}. ${item.word}</span>
+                    </div>
+                    <div class="split-input-row">
+                        <input type="text" class="split-text-input" id="ex3-split-${idx}" placeholder="síl-la-bes...">
+                        <input type="text" class="tonic-select-input" id="ex3-tonic-${idx}" placeholder="Tònica" style="width: 80px;">
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function cleanString(str) {
+            return (str || '').toLowerCase().trim().replace(/\s+/g, '');
+        }
+
+        function checkEx3() {
+            let correctSplits = 0;
+            let correctTonics = 0;
+
+            EX3_DATA.forEach((item, idx) => {
+                const splitVal = cleanString(document.getElementById(`ex3-split-${idx}`).value);
+                const tonicVal = cleanString(document.getElementById(`ex3-tonic-${idx}`).value);
+
+                const splitInput = document.getElementById(`ex3-split-${idx}`);
+                const tonicInput = document.getElementById(`ex3-tonic-${idx}`);
+
+                if (splitVal === cleanString(item.correctSplit)) {
+                    splitInput.style.borderColor = 'var(--correct-border)';
+                    correctSplits++;
+                } else {
+                    splitInput.style.borderColor = 'var(--wrong-border)';
+                }
+
+                if (tonicVal === cleanString(item.tonic)) {
+                    tonicInput.style.borderColor = 'var(--correct-border)';
+                    correctTonics++;
+                } else {
+                    tonicInput.style.borderColor = 'var(--wrong-border)';
+                }
+            });
+
+            const fb = document.getElementById('feedback-ex3');
+            if (correctSplits === 10 && correctTonics === 10) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🌟 <strong>Extraordinari!</strong> Has superat el punt clau de l\'examen on el professor va anotar <em>«Ens ho hem de repassar»</em>. Has separat a la perfecció els dígrafs i els monosíl·labs! +150 XP';
+                addXP(150);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 3);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat <strong>${correctSplits}/10</strong> separacions i <strong>${correctTonics}/10</strong> tòniques.
+                    <br><strong>Recorda:</strong> <em>ba-nye-ra</em> (ny junta), <em>clas-se</em> (ss separada), <em>peix</em> i <em>llop</em> (sense guió), <em>ca-laix</em> (laix junt), <em>col-le-gi</em> (l-l), <em>car-re-te-ra</em> (r-r) i <em>fet-ge</em> (t-ge).`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           6. EXERCICI 4: NOMS INDIVIDUALS & COL·LECTIUS
+           ========================================================================== */
+        const EX4_SOLUTIONS = {
+            'pineda': ['pi', 'pins'],
+            'colomar': ['colom', 'coloms'],
+            'orquestra': ['músic', 'music', 'instrumentista', 'músics'],
+            'equip': ['jugador', 'jugadors'],
+            'eixam': ['abella', 'abelles']
+        };
+
+        function checkEx4() {
+            let correct = 0;
+            for (const [key, valids] of Object.entries(EX4_SOLUTIONS)) {
+                const input = document.getElementById(`coll-${key}`);
+                const val = cleanString(input.value);
+                if (valids.includes(val)) {
+                    input.style.borderColor = 'var(--correct-border)';
+                    correct++;
+                } else {
+                    input.style.borderColor = 'var(--wrong-border)';
+                }
+            }
+
+            const fb = document.getElementById('feedback-ex4');
+            if (correct === 5) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Perfecte!</strong> Has resolt tots els noms individuals, incloent <em>orquestra → músic</em> i <em>eixam → abella</em> que havien quedat pendents! +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 4);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat <strong>${correct}/5</strong>. Pistes: orquestra correspon a <em>músic</em> i eixam correspon a <em>abella</em>.`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           7. EXERCICI 5: COMPRENSIÓ LECTORA DOFINS
+           ========================================================================== */
+        let readingAnswers = {};
+
+        function setReadingAns(qNum, opt, btn) {
+            readingAnswers[qNum] = opt;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const EX5_SOLUTIONS = { 1: 'B', 2: 'A', 3: 'B', 4: 'B', 5: 'B' };
+
+        function checkEx5() {
+            let correct = 0;
+            for (const [qNum, opt] of Object.entries(EX5_SOLUTIONS)) {
+                if (readingAnswers[qNum] === opt) correct++;
+            }
+
+            const fb = document.getElementById('feedback-ex5');
+            if (correct === 5) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🐬 <strong>Molt bona comprensió!</strong> Has respost correctament les 5 preguntes sobre els dofins, l\'espiracle i l\'ecolocalització! +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 5);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat <strong>${correct}/5</strong> preguntes. Revisa el text: els dofins respiren per l'espiracle i utilitzen clics, xiulets i crits per comunicar-se.`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           8. EXERCICI 6: BUSCA AL TEXT
+           ========================================================================== */
+        const HUNT_MONOS = ["molt", "que", "són", "com", "del", "cap", "en", "per", "so", "fora"];
+        const HUNT_TRIS = ["sociables", "mamífers", "animals", "orifici", "calamars", "juganers"];
+        const HUNT_DIGRAPHS = ["intel·ligents", "necessiten", "que", "acrobàcies", "mitjançant"];
+
+        let selectedMonos = new Set();
+        let selectedTris = new Set();
+        let selectedDigraphs = new Set();
+
+        function initEx6() {
+            const mCont = document.getElementById('hunt-mono-container');
+            const tCont = document.getElementById('hunt-tri-container');
+            const dCont = document.getElementById('hunt-digraph-container');
+
+            if (mCont) {
+                mCont.innerHTML = HUNT_MONOS.map(w => `<span class="hunt-word-chip" onclick="toggleHuntChip(this, 'mono', '${w}')">${w}</span>`).join('');
+            }
+            if (tCont) {
+                tCont.innerHTML = HUNT_TRIS.map(w => `<span class="hunt-word-chip" onclick="toggleHuntChip(this, 'tri', '${w}')">${w}</span>`).join('');
+            }
+            if (dCont) {
+                dCont.innerHTML = HUNT_DIGRAPHS.map(w => `<span class="hunt-word-chip" onclick="toggleHuntChip(this, 'digraph', '${w}')">${w}</span>`).join('');
+            }
+        }
+
+        function toggleHuntChip(el, type, word) {
+            let setRef = type === 'mono' ? selectedMonos : (type === 'tri' ? selectedTris : selectedDigraphs);
+            if (setRef.has(word)) {
+                setRef.delete(word);
+                el.classList.remove('selected');
+            } else {
+                setRef.add(word);
+                el.classList.add('selected');
+            }
+        }
+
+        function checkEx6() {
+            const monoOk = selectedMonos.size >= 5;
+            const triOk = selectedTris.size >= 5;
+            const digOk = selectedDigraphs.size >= 3;
+
+            const fb = document.getElementById('feedback-ex6');
+            if (monoOk && triOk && digOk) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Molt ben trobat!</strong> Has identificat les monosíl·labes, les trissíl·labes i les paraules amb dígraf (l·l, ss, qu) del text. +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 6);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has seleccionat ${selectedMonos.size}/5 monosíl·labes, ${selectedTris.size}/5 trissíl·labes i ${selectedDigraphs.size}/3 paraules amb dígraf.`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           9. EXERCICI 7: SINÒNIMS I ANTÒNIMS
+           ========================================================================== */
+        const EX7_SOLUTIONS = {
+            'syn-casa': ['llar', 'habitatge', 'domicili'],
+            'syn-parlar': ['xerrar', 'conversar', 'enraonar', 'parla'],
+            'syn-rapid': ['veloç', 'veloc', 'lleuger', 'cuita-corrents'],
+            'syn-tenda': ['botiga', 'comerc', 'comerç', 'establiment'],
+            'ant-generos': ['garrepa', 'avar', 'egoista', 't garrepa'],
+            'ant-content': ['trist', 'afligit', 'descontent', 'amoïnat'],
+            'ant-divertit': ['avorrit', 'tediós', 'monòton'],
+            'ant-antipatic': ['simpàtic', 'simpatic', 'amable', 'agradable']
+        };
+
+        function checkEx7() {
+            let correct = 0;
+            for (const [id, valids] of Object.entries(EX7_SOLUTIONS)) {
+                const input = document.getElementById(id);
+                const val = cleanString(input.value);
+                if (valids.some(v => cleanString(v) === val)) {
+                    input.style.borderColor = 'var(--correct-border)';
+                    correct++;
+                } else {
+                    input.style.borderColor = 'var(--wrong-border)';
+                }
+            }
+
+            const fb = document.getElementById('feedback-ex7');
+            if (correct === 8) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Genial!</strong> Has encertat tots els sinònims i antònims (especialment <em>tenda → botiga</em> i <em>generós → garrepa</em> que calia corregir!). +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 7);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat <strong>${correct}/8</strong>. Recorda: el sinònim de tenda és <em>botiga</em> i l'antònim de generós és <em>garrepa</em> o <em>avar</em>.`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           10. EXERCICI 8 & 9: TESTS D'ANTÒNIMS I DEFINICIONS
+           ========================================================================== */
+        let ex8Answers = {};
+        let ex9Answers = {};
+
+        function setEx8Ans(qNum, opt, btn) {
+            ex8Answers[qNum] = opt;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function checkEx8() {
+            const correct1 = ex8Answers[1] === 'A';
+            const correct2 = ex8Answers[2] === 'B';
+            const fb = document.getElementById('feedback-ex8');
+
+            if (correct1 && correct2) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Correcte!</strong> Rural/urbà i xerraire/callat són antònims, i expressen el significat contrari. +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 8);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Revisa les opcions: els antònims expressen el contrari (com rural vs urbà).';
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        function setEx9Ans(qNum, opt, btn) {
+            ex9Answers[qNum] = opt;
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function checkEx9() {
+            const correct1 = ex9Answers[1] === 'C';
+            const correct2 = ex9Answers[2] === 'A';
+            const fb = document.getElementById('feedback-ex9');
+
+            if (correct1 && correct2) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Molt bé!</strong> El nom col·lectiu designa un conjunt en singular, i els abstractes representen idees i sentiments. +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 9);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Recorda: un col·lectiu és una paraula en singular per a un grup (opció C), i els sentiments són abstractes (opció A).';
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           11. EXERCICI 10: CLASSIFICADOR CONCRETS VS ABSTRACTES
+           ========================================================================== */
+        const EX10_WORDS = [
+            { text: "Alegria", type: "abstractes" },
+            { text: "Cadira", type: "concrets" },
+            { text: "Llibertat", type: "abstractes" },
+            { text: "Muntanya", type: "concrets" },
+            { text: "Por", type: "abstractes" },
+            { text: "Llapis", type: "concrets" },
+            { text: "Amistat", type: "abstractes" },
+            { text: "Flor", type: "concrets" },
+            { text: "Generositat", type: "abstractes" },
+            { text: "Sorra", type: "concrets" },
+            { text: "Enveja", type: "abstractes" }, // PUNT CLAU CORREGIT DE L'EXAMEN
+            { text: "Ordinador", type: "concrets" },
+            { text: "Vergonya", type: "abstractes" },
+            { text: "Cotxe", type: "concrets" }
+        ];
+
+        let selectedSortTag = null;
+        let placedConcrets = [];
+        let placedAbstractes = [];
+
+        function initEx10() {
+            const cloud = document.getElementById('words-bank-cloud');
+            if (!cloud) return;
+            cloud.innerHTML = '';
+            document.getElementById('items-concrets').innerHTML = '';
+            document.getElementById('items-abstractes').innerHTML = '';
+            placedConcrets = [];
+            placedAbstractes = [];
+            selectedSortTag = null;
+
+            EX10_WORDS.forEach((item, idx) => {
+                const tag = document.createElement('span');
+                tag.className = 'sortable-tag';
+                tag.id = `ex10-tag-${idx}`;
+                tag.innerText = item.text;
+                tag.onclick = (e) => {
+                    e.stopPropagation();
+                    selectTagForSorting(idx, tag);
+                };
+                cloud.appendChild(tag);
+            });
+            updateEx10Counters();
+        }
+
+        function selectTagForSorting(idx, tagEl) {
+            document.querySelectorAll('.sortable-tag').forEach(t => t.classList.remove('active'));
+            selectedSortTag = { idx, item: EX10_WORDS[idx], el: tagEl };
+            tagEl.classList.add('active');
+        }
+
+        function moveSelectedTagTo(targetCol) {
+            if (!selectedSortTag) return;
+            const { idx, item, el } = selectedSortTag;
+
+            // Treure de l'estat anterior
+            placedConcrets = placedConcrets.filter(i => i.idx !== idx);
+            placedAbstractes = placedAbstractes.filter(i => i.idx !== idx);
+
+            const targetContainer = document.getElementById(`items-${targetCol}`);
+            targetContainer.appendChild(el);
+            el.classList.remove('active');
+
+            if (targetCol === 'concrets') {
+                placedConcrets.push({ idx, item });
+            } else {
+                placedAbstractes.push({ idx, item });
+            }
+
+            selectedSortTag = null;
+            updateEx10Counters();
+        }
+
+        function updateEx10Counters() {
+            document.getElementById('count-concrets').innerText = `${placedConcrets.length} / 7`;
+            document.getElementById('count-abstractes').innerText = `${placedAbstractes.length} / 7`;
+        }
+
+        function resetEx10() {
+            initEx10();
+        }
+
+        function checkEx10() {
+            let correct = 0;
+            placedConcrets.forEach(p => {
+                if (p.item.type === 'concrets') correct++;
+            });
+            placedAbstractes.forEach(p => {
+                if (p.item.type === 'abstractes') correct++;
+            });
+
+            const fb = document.getElementById('feedback-ex10');
+            if (correct === 14) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Classificació Perfecta!</strong> Has situat els 7 concrets i els 7 abstractes al seu lloc exacte (especialment <em>enveja</em> com a abstracte!). +100 XP';
+                addXP(100);
+                incrementStreak();
+                state.solvedCount = Math.max(state.solvedCount, 10);
+                updateProgress();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Tens <strong>${correct}/14</strong> paraules ben classificades. Recorda: <em>enveja</em>, <em>vergonya</em> i <em>por</em> són sentiments (abstractes)!`;
+                playWrongSound();
+                resetStreak();
+            }
+        }
+
+        /* ==========================================================================
+           12. CÀLCUL DE NOTA FINAL DE L'EXAMEN
+           ========================================================================== */
+        function calculateTotalExamScore() {
+            // Executar comprovacions de tots els exercicis
+            checkEx1();
+            checkEx2();
+            checkEx3();
+            checkEx4();
+            checkEx5();
+            checkEx6();
+            checkEx7();
+            checkEx8();
+            checkEx9();
+            checkEx10();
+
+            // Puntuació simulada amb màxim rigor
+            let score = 0;
+            // Ex 1 (1 pt)
+            let ex1Count = 0;
+            EX1_WORDS.forEach((item, idx) => { if (ex1Answers[idx] === item.tonicIdx) ex1Count++; });
+            score += (ex1Count / 10) * 1.0;
+
+            // Ex 2 (1 pt)
+            let ex2Count = 0;
+            for (const [k, v] of Object.entries(EX2_SOLUTIONS)) { if (choices[k] === v) ex2Count++; }
+            score += (ex2Count / 20) * 1.0;
+
+            // Ex 3 (1.5 pts)
+            let ex3Count = 0;
+            EX3_DATA.forEach((item, idx) => {
+                const s = cleanString(document.getElementById(`ex3-split-${idx}`).value);
+                const t = cleanString(document.getElementById(`ex3-tonic-${idx}`).value);
+                if (s === cleanString(item.correctSplit) && t === cleanString(item.tonic)) ex3Count++;
+            });
+            score += (ex3Count / 10) * 1.5;
+
+            // Ex 4 (1 pt)
+            let ex4Count = 0;
+            for (const [k, v] of Object.entries(EX4_SOLUTIONS)) {
+                if (v.includes(cleanString(document.getElementById(`coll-${k}`).value))) ex4Count++;
+            }
+            score += (ex4Count / 5) * 1.0;
+
+            // Ex 5 (1.5 pts)
+            let ex5Count = 0;
+            for (const [k, v] of Object.entries(EX5_SOLUTIONS)) { if (readingAnswers[k] === v) ex5Count++; }
+            score += (ex5Count / 5) * 1.5;
+
+            // Ex 6 (1 pt)
+            if (selectedMonos.size >= 5 && selectedTris.size >= 5 && selectedDigraphs.size >= 3) score += 1.0;
+            else score += 0.5;
+
+            // Ex 7 (1 pt)
+            let ex7Count = 0;
+            for (const [k, v] of Object.entries(EX7_SOLUTIONS)) {
+                if (v.some(item => cleanString(item) === cleanString(document.getElementById(k).value))) ex7Count++;
+            }
+            score += (ex7Count / 8) * 1.0;
+
+            // Ex 8 (1 pt)
+            if (ex8Answers[1] === 'A' && ex8Answers[2] === 'B') score += 1.0;
+
+            // Ex 9 (1 pt)
+            if (ex9Answers[1] === 'C' && ex9Answers[2] === 'A') score += 1.0;
+
+            // Ex 10 (1 pt)
+            let ex10Count = 0;
+            placedConcrets.forEach(p => { if (p.item.type === 'concrets') ex10Count++; });
+            placedAbstractes.forEach(p => { if (p.item.type === 'abstractes') ex10Count++; });
+            score += (ex10Count / 14) * 1.0;
+
+            score = Math.min(10, Math.round(score * 10) / 10);
+            state.examScore = score;
+
+            const scoreDisplay = document.getElementById('final-score-display');
+            const scoreTitle = document.getElementById('final-score-title');
+            const scoreDesc = document.getElementById('final-score-desc');
+
+            scoreDisplay.innerText = score;
+            if (score >= 9.5) {
+                scoreTitle.innerText = "🏆 10 / 10 ABSOLUT! Ets un mestre del Català!";
+                scoreDesc.innerHTML = `Has superat l'examen amb una puntuació perfecta de <strong>${score} / 10</strong>. Has dominat tots els punts de millora!`;
+                playCelebrationFanfare();
+            } else if (score >= 8) {
+                scoreTitle.innerText = "👏 Molt bona feina! Has igualat o superat el teu 8 real!";
+                scoreDesc.innerHTML = `Has obtingut un <strong>${score} / 10</strong>. Revisa les targetes marcades en vermell per polir els últims detalls i assolir el 10!`;
+                playSuccessSound();
+            } else {
+                scoreTitle.innerText = "💪 Bon intent! Encara podem millorar!";
+                scoreDesc.innerHTML = `Has obtingut un <strong>${score} / 10</strong>. Fes un cop d'ull a la Teoria & Trucs Clau o a la Xulla Ràpida i torna-ho a intentar!`;
+            }
+
+            document.getElementById('stat-exam-score').innerText = `${score} / 10`;
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetExam() {
+            ex1Answers = {};
+            choices = {};
+            readingAnswers = {};
+            ex8Answers = {};
+            ex9Answers = {};
+            initEx1();
+            initEx3();
+            initEx6();
+            initEx10();
+            document.querySelectorAll('.exercise-feedback-box').forEach(b => {
+                b.style.display = 'none';
+                b.innerHTML = '';
+            });
+            document.querySelectorAll('input[type="text"]').forEach(i => {
+                i.value = '';
+                i.style.borderColor = 'var(--border-color)';
+            });
+            document.querySelectorAll('.btn-pill-choice, .reading-opt-btn').forEach(b => b.classList.remove('active', 'correct', 'wrong'));
+            document.getElementById('final-score-display').innerText = '--';
+            document.getElementById('final-score-title').innerText = "Completa els exercicis per calcular la teva nota!";
+        }
+
+        /* ==========================================================================
+           13. NIVELL PRO (MÉS DIFÍCIL)
+           ========================================================================== */
+        const PRO1_WORDS = [
+            { word: "Màquina", syllables: ["Mà", "qui", "na"], tonicIdx: 0 },
+            { word: "Telèfon", syllables: ["Te", "lè", "fon"], tonicIdx: 1 },
+            { word: "Excursió", syllables: ["Ex", "cur", "sió"], tonicIdx: 2 },
+            { word: "Farmàcia", syllables: ["Far", "mà", "cia"], tonicIdx: 1 },
+            { word: "Humit", syllables: ["Hu", "mit"], tonicIdx: 1 }
+        ];
+        let pro1Answers = {};
+
+        function initPro1() {
+            const container = document.getElementById('pro1-grid');
+            if (!container) return;
+            container.innerHTML = '';
+            PRO1_WORDS.forEach((item, wIdx) => {
+                const box = document.createElement('div');
+                box.className = 'syllable-picker-word-box';
+                let syllButtons = item.syllables.map((s, sIdx) => `
+                    <button class="syllable-pill-btn" id="pro1-w${wIdx}-s${sIdx}" onclick="selectPro1Syllable(${wIdx}, ${sIdx}, this)">${s}</button>
+                `).join('');
+                box.innerHTML = `
+                    <span class="word-label-num">P${wIdx + 1}.</span>
+                    <strong>${item.word}</strong>
+                    <div class="syllables-group">${syllButtons}</div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function selectPro1Syllable(wIdx, sIdx, btn) {
+            pro1Answers[wIdx] = sIdx;
+            btn.parentElement.querySelectorAll('.syllable-pill-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function checkPro1() {
+            let correct = 0;
+            PRO1_WORDS.forEach((item, wIdx) => {
+                const choice = pro1Answers[wIdx];
+                if (choice === item.tonicIdx) correct++;
+            });
+            const fb = document.getElementById('feedback-pro1');
+            if (correct === 5) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🚀 <strong>Nivell Pro Superat!</strong> Has identificat la tònica de paraules agudes, planes i esdrúixoles amb accents oberts i tancats! +120 XP';
+                addXP(120);
+                incrementStreak();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat ${correct}/5. Recorda: l'accent marca sempre la tònica!`;
+                playWrongSound();
+            }
+        }
+
+        const PRO2_WORDS = [
+            { word: "Metgessa", split: "met-ges-sa" },
+            { word: "Passadís", split: "pas-sa-dís" },
+            { word: "Rocallós", split: "ro-cal-lós" },
+            { word: "Esquitxar", split: "es-quit-xar" },
+            { word: "Guixeta", split: "gui-xe-ta" }
+        ];
+
+        function initPro2() {
+            const container = document.getElementById('pro2-grid');
+            if (!container) return;
+            container.innerHTML = '';
+            PRO2_WORDS.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'split-card-item';
+                card.innerHTML = `
+                    <div class="split-item-header">
+                        <span>${item.word}</span>
+                    </div>
+                    <div class="split-input-row">
+                        <input type="text" class="split-text-input" id="pro2-input-${idx}" placeholder="síl-la-bes...">
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkPro2() {
+            let correct = 0;
+            PRO2_WORDS.forEach((item, idx) => {
+                const val = cleanString(document.getElementById(`pro2-input-${idx}`).value);
+                const sol = cleanString(item.split);
+                if (val === sol) {
+                    document.getElementById(`pro2-input-${idx}`).style.borderColor = 'var(--correct-border)';
+                    correct++;
+                } else {
+                    document.getElementById(`pro2-input-${idx}`).style.borderColor = 'var(--wrong-border)';
+                }
+            });
+            const fb = document.getElementById('feedback-pro2');
+            if (correct === 5) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🚀 <strong>Increïble domini dels dígrafs!</strong> <em>met-ges-sa</em> (tg i ss separats), <em>es-quit-xar</em> (qu junt, tx separat)! +150 XP';
+                addXP(150);
+                incrementStreak();
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat ${correct}/5. Revisa: <em>met-ges-sa</em>, <em>pas-sa-dís</em>, <em>ro-cal-lós</em>, <em>es-quit-xar</em>, <em>gui-xe-ta</em>.`;
+                playWrongSound();
+            }
+        }
+
+        function checkPro3() {
+            const okAire = choices['dh-aire'] === 'diftong';
+            const okPais = choices['dh-pais'] === 'hiat';
+            const okReina = choices['dh-reina'] === 'diftong';
+            const okTeatre = choices['dh-teatre'] === 'hiat';
+
+            const fb = document.getElementById('feedback-pro3');
+            if (okAire && okPais && okReina && okTeatre) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎉 <strong>Molt bé!</strong> <em>Ai-re</em> i <em>rei-na</em> van junts (diftong), mentre que <em>pa-ís</em> i <em>te-a-tre</em> se separen en 2 cops de veu (hiat). +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Hi ha algun error. Quan dues vocals fortes van juntes (e-a a <em>te-a-tre</em>) o la i porta accent (<em>pa-ís</em>) es fa un hiat!';
+                playWrongSound();
+            }
+        }
+
+        function checkPro4() {
+            const solArx = ['illa', 'illes'];
+            const solRam = ['ovella', 'ovelles', 'be'];
+            const solBanc = ['peix', 'peixos'];
+            const solConst = ['estrella', 'estrelles'];
+            const solFag = ['faig', 'faigs'];
+
+            let c = 0;
+            if (solArx.includes(cleanString(document.getElementById('pro4-arxipelag').value))) c++;
+            if (solRam.includes(cleanString(document.getElementById('pro4-ramat').value))) c++;
+            if (solBanc.includes(cleanString(document.getElementById('pro4-banc').value))) c++;
+            if (solConst.includes(cleanString(document.getElementById('pro4-constellacio').value))) c++;
+            if (solFag.includes(cleanString(document.getElementById('pro4-fageda').value))) c++;
+
+            const fb = document.getElementById('feedback-pro4');
+            if (c === 5) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🌟 <strong>Vocabulari Pro Impecable!</strong> Arxipèlag d\'illes, ramat d\'ovelles, banc de peixos, constel·lació d\'estrelles i fageda de faigs! +120 XP';
+                addXP(120);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat ${c}/5. Pensa en quin element forma cadascun (illa, ovella, peix, estrella, faig).`;
+                playWrongSound();
+            }
+        }
+
+        function checkPro5() {
+            const cAire = choices['ca-aire'] === 'C';
+            const cJust = choices['ca-justicia'] === 'A';
+            const cFum = choices['ca-fum'] === 'C';
+            const cPac = choices['ca-paciencia'] === 'A';
+
+            const fb = document.getElementById('feedback-pro5');
+            if (cAire && cJust && cFum && cPac) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🧠 <strong>Brillant raonament filosòfic!</strong> L\'aire i el fum són matèria física (concrets), mentre que la justícia i la paciència són virtuts o idees (abstractes). +120 XP';
+                addXP(120);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Recorda: tot el que és matèria gasosa (aire, fum) és concret; les virtuts són abstractes.';
+                playWrongSound();
+            }
+        }
+
+        let pro6Ans = {};
+        function setPro6Ans(q, opt, btn) {
+            pro6Ans[q] = opt;
+            btn.parentElement.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function checkPro6() {
+            const fb = document.getElementById('feedback-pro6');
+            if (pro6Ans[1] === 'B' && pro6Ans[2] === 'A') {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🛒 <strong>Català genuí al 100%!</strong> Anem a la <em>botiga</em> (mai tienda/compre) i tornem a la <em>llar</em> (mai hogar). +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Recorda: en català es diu <em>botiga</em> i <em>llar</em>.';
+                playWrongSound();
+            }
+        }
+
+        function checkPro7() {
+            const ok1 = document.getElementById('pro7-lleuger').value === 'pesat';
+            const ok2 = document.getElementById('pro7-modest').value === 'arrogant';
+            const ok3 = document.getElementById('pro7-covard').value === 'valent';
+
+            const fb = document.getElementById('feedback-pro7');
+            if (ok1 && ok2 && ok3) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '✨ <strong>Antònims perfectes!</strong> Lleuger vs pesat, modest vs arrogant, covard vs valent. +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Revisa les seleccions als desplegables.';
+                playWrongSound();
+            }
+        }
+
+        function checkPro8() {
+            const solBosc = ['boscos', 'boscs'];
+            const solBrac = ['braços', 'bracos'];
+            const solCavall = ['euga', 'egua'];
+
+            const v1 = cleanString(document.getElementById('pro8-bosc').value);
+            const v2 = cleanString(document.getElementById('pro8-brac').value);
+            const v3 = cleanString(document.getElementById('pro8-cavall').value);
+
+            let c = 0;
+            if (solBosc.includes(v1)) c++;
+            if (solBrac.includes(v2)) c++;
+            if (solCavall.includes(v3)) c++;
+
+            const fb = document.getElementById('feedback-pro8');
+            if (c === 3) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🐴 <strong>Formes irregulars dominades!</strong> <em>boscos</em>, <em>braços</em> i el femení de cavall és <em>euga</em>! +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `Has encertat ${c}/3. Pista: els plurals de paraules en -sc i -ç afegeixen -os (boscos, braços) i la parella del cavall és l'euga.`;
+                playWrongSound();
+            }
+        }
+
+        let pro9Ans = null;
+        function setPro9Ans(opt, btn) {
+            pro9Ans = opt;
+            btn.parentElement.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function checkPro9() {
+            const fb = document.getElementById('feedback-pro9');
+            if (pro9Ans === 'B') {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🐾 <strong>Exacte!</strong> Els pinzells funcionen com a antenes auditives per detectar conills en la foscor. +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Revisa el text: parla de com milloren l\'audició per detectar preses.';
+                playWrongSound();
+            }
+        }
+
+        let pro10Ans = null;
+        function setPro10Ans(opt, btn) {
+            pro10Ans = opt;
+            btn.parentElement.querySelectorAll('.reading-opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function checkPro10() {
+            const fb = document.getElementById('feedback-pro10');
+            if (pro10Ans === 'B') {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = '🎓 <strong>Has fet de mestre de 10!</strong> El dígraf <em>ny</em> és inseparable, així que <em>ba-ny-e-ra</em> és un error greu. La forma correcta és <em>ba-nye-ra</em>! +100 XP';
+                addXP(100);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = 'Fixa\'t en la regla: <em>rr</em> i <em>l·l</em> sí se separen, però <em>ny</em> no se separa mai!';
+                playWrongSound();
+            }
+        }
+
+        /* ==========================================================================
+           14. ENTRENADOR INFINIT (GENERADOR ALEATORI)
+           ========================================================================== */
+        let currentGameMode = 'tonica';
+        let gameStreakCount = 0;
+
+        const INFINITE_WORDS = [
+            { word: "Oceà", syllables: ["O", "ce", "à"], tonic: 2, type: "concrets" },
+            { word: "Intel·ligència", syllables: ["In", "tel", "li", "gèn", "cia"], tonic: 3, type: "abstractes" },
+            { word: "Espiracle", syllables: ["Es", "pi", "ra", "cle"], tonic: 2, type: "concrets" },
+            { word: "Vergonya", syllables: ["Ver", "go", "nya"], tonic: 1, type: "abstractes" },
+            { word: "Plàtan", syllables: ["Plà", "tan"], tonic: 0, type: "concrets" },
+            { word: "Llibertat", syllables: ["Lli", "ber", "tat"], tonic: 2, type: "abstractes" },
+            { word: "Xiulet", syllables: ["Xiu", "let"], tonic: 1, type: "concrets" },
+            { word: "Amistat", syllables: ["A", "mis", "tat"], tonic: 2, type: "abstractes" },
+            { word: "Calamar", syllables: ["Ca", "la", "mar"], tonic: 2, type: "concrets" },
+            { word: "Generositat", syllables: ["Ge", "ne", "ro", "si", "tat"], tonic: 4, type: "abstractes" }
+        ];
+
+        let currentQuestion = null;
+        let isGameLocked = false;
+        let gameTimer = null;
+
+        function setGameMode(mode) {
+            currentGameMode = mode;
+            if (gameTimer) clearTimeout(gameTimer);
+            document.querySelectorAll('.game-mode-btn').forEach(b => b.classList.remove('active'));
+            if (mode === 'tonica') document.getElementById('btn-mode-tonica').classList.add('active');
+            if (mode === 'digraf') document.getElementById('btn-mode-digraf').classList.add('active');
+            if (mode === 'concrets') document.getElementById('btn-mode-concrets').classList.add('active');
+            nextGameRound();
+        }
+
+        function nextGameRound() {
+            if (gameTimer) clearTimeout(gameTimer);
+            isGameLocked = false;
+            const randItem = INFINITE_WORDS[Math.floor(Math.random() * INFINITE_WORDS.length)];
+            currentQuestion = randItem;
+            const arenaDisplay = document.getElementById('arena-display-word');
+            const arenaOptions = document.getElementById('arena-options-container');
+            const arenaInst = document.getElementById('arena-instruction');
+            const fb = document.getElementById('arena-feedback');
+            const arenaBox = document.querySelector('.infinite-arena');
+
+            if (arenaBox) arenaBox.classList.remove('wrong-state', 'correct-state');
+            if (arenaDisplay) arenaDisplay.classList.remove('wrong-word', 'correct-word');
+            fb.style.display = 'none';
+            fb.className = 'exercise-feedback-box';
+
+            if (currentGameMode === 'tonica') {
+                arenaInst.innerText = "Clica damunt de la síl·laba que té la màxima força (tònica):";
+                arenaDisplay.innerText = randItem.word;
+                arenaOptions.innerHTML = randItem.syllables.map((s, idx) => `
+                    <button class="btn-score-secondary" id="arena-opt-${idx}" style="font-size: 1.1rem; padding: 0.6rem 1.2rem;" onclick="checkInfiniteTonica(${idx})">${s}</button>
+                `).join('');
+            } else if (currentGameMode === 'digraf') {
+                const pairs = [
+                    { pair: "rr (carretera)", sep: true },
+                    { pair: "ny (banyera)", sep: false },
+                    { pair: "ss (classe)", sep: true },
+                    { pair: "qu (quadrat)", sep: false },
+                    { pair: "l·l (col·legi)", sep: true },
+                    { pair: "ll (cavall)", sep: false },
+                    { pair: "tg (fetge)", sep: true }
+                ];
+                const p = pairs[Math.floor(Math.random() * pairs.length)];
+                currentQuestion = p;
+                arenaInst.innerText = "Aquest dígraf se separa a final de línia o va sempre junt?";
+                arenaDisplay.innerText = p.pair;
+                arenaOptions.innerHTML = `
+                    <button class="btn-score-secondary" id="arena-opt-true" style="font-size: 1.05rem;" onclick="checkInfiniteDigraf(true)">✂️ SE SEPARA (Germans barallats)</button>
+                    <button class="btn-score-secondary" id="arena-opt-false" style="font-size: 1.05rem;" onclick="checkInfiniteDigraf(false)">🤝 MAI SE SEPARA (Millors amics)</button>
+                `;
+            } else if (currentGameMode === 'concrets') {
+                arenaInst.innerText = "Aquest nom és concret (físic) o abstracte (emoció / idea)?";
+                arenaDisplay.innerText = randItem.word;
+                arenaOptions.innerHTML = `
+                    <button class="btn-score-secondary" id="arena-opt-concrets" style="font-size: 1.05rem;" onclick="checkInfiniteConcrets('concrets')">🧱 NOM CONCRET</button>
+                    <button class="btn-score-secondary" id="arena-opt-abstractes" style="font-size: 1.05rem;" onclick="checkInfiniteConcrets('abstractes')">💭 NOM ABSTRACTE</button>
+                `;
+            }
+        }
+
+        function checkInfiniteTonica(chosenIdx) {
+            if (isGameLocked) return;
+            const fb = document.getElementById('arena-feedback');
+            const arenaBox = document.querySelector('.infinite-arena');
+            const arenaDisplay = document.getElementById('arena-display-word');
+            const chosenBtn = document.getElementById(`arena-opt-${chosenIdx}`);
+            const correctBtn = document.getElementById(`arena-opt-${currentQuestion.tonic}`);
+
+            if (chosenIdx === currentQuestion.tonic) {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('correct-state');
+                if (arenaDisplay) arenaDisplay.classList.add('correct-word');
+
+                fb.className = 'exercise-feedback-box correct';
+                fb.style.display = 'block';
+                fb.innerHTML = '🎉 <strong>Molt bé!</strong> Encertat! +25 XP';
+                addXP(25);
+                gameStreakCount++;
+                document.getElementById('game-streak').innerText = `${gameStreakCount} 🔥`;
+                gameTimer = setTimeout(nextGameRound, 900);
+            } else {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('wrong');
+                if (correctBtn) correctBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('wrong-state');
+                if (arenaDisplay) arenaDisplay.classList.add('wrong-word');
+
+                fb.className = 'exercise-feedback-box wrong';
+                fb.style.display = 'block';
+                fb.innerHTML = `❌ <strong>ERROR EN VERMELL!</strong> La tònica no és «${currentQuestion.syllables[chosenIdx]}», sinó <strong>${currentQuestion.syllables[currentQuestion.tonic]}</strong>. Recorda el truc del crit!`;
+                playWrongSound();
+                gameStreakCount = 0;
+                document.getElementById('game-streak').innerText = '0 🔥';
+                gameTimer = setTimeout(nextGameRound, 2400);
+            }
+        }
+
+        function checkInfiniteDigraf(chosenSep) {
+            if (isGameLocked) return;
+            const fb = document.getElementById('arena-feedback');
+            const arenaBox = document.querySelector('.infinite-arena');
+            const arenaDisplay = document.getElementById('arena-display-word');
+            const chosenBtn = document.getElementById(`arena-opt-${chosenSep}`);
+            const correctBtn = document.getElementById(`arena-opt-${currentQuestion.sep}`);
+
+            if (chosenSep === currentQuestion.sep) {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('correct-state');
+                if (arenaDisplay) arenaDisplay.classList.add('correct-word');
+
+                fb.className = 'exercise-feedback-box correct';
+                fb.style.display = 'block';
+                fb.innerHTML = '🎉 <strong>Exacte!</strong> Resposta correcta! +25 XP';
+                addXP(25);
+                gameStreakCount++;
+                document.getElementById('game-streak').innerText = `${gameStreakCount} 🔥`;
+                gameTimer = setTimeout(nextGameRound, 900);
+            } else {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('wrong');
+                if (correctBtn) correctBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('wrong-state');
+                if (arenaDisplay) arenaDisplay.classList.add('wrong-word');
+
+                fb.className = 'exercise-feedback-box wrong';
+                fb.style.display = 'block';
+                fb.innerHTML = `❌ <strong>ERROR EN VERMELL!</strong> <em>${currentQuestion.pair}</em> ${currentQuestion.sep ? '<strong>SÍ SE SEPARA</strong> (germans barallats)' : '<strong>MAI SE SEPARA</strong> (millors amics)'}.`;
+                playWrongSound();
+                gameStreakCount = 0;
+                document.getElementById('game-streak').innerText = '0 🔥';
+                gameTimer = setTimeout(nextGameRound, 2400);
+            }
+        }
+
+        function checkInfiniteConcrets(chosenType) {
+            if (isGameLocked) return;
+            const fb = document.getElementById('arena-feedback');
+            const arenaBox = document.querySelector('.infinite-arena');
+            const arenaDisplay = document.getElementById('arena-display-word');
+            const chosenBtn = document.getElementById(`arena-opt-${chosenType}`);
+            const correctBtn = document.getElementById(`arena-opt-${currentQuestion.type}`);
+
+            if (chosenType === currentQuestion.type) {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('correct-state');
+                if (arenaDisplay) arenaDisplay.classList.add('correct-word');
+
+                fb.className = 'exercise-feedback-box correct';
+                fb.style.display = 'block';
+                fb.innerHTML = '🎉 <strong>Molt ben deduït!</strong> +25 XP';
+                addXP(25);
+                gameStreakCount++;
+                document.getElementById('game-streak').innerText = `${gameStreakCount} 🔥`;
+                gameTimer = setTimeout(nextGameRound, 900);
+            } else {
+                isGameLocked = true;
+                if (chosenBtn) chosenBtn.classList.add('wrong');
+                if (correctBtn) correctBtn.classList.add('correct');
+                if (arenaBox) arenaBox.classList.add('wrong-state');
+                if (arenaDisplay) arenaDisplay.classList.add('wrong-word');
+
+                fb.className = 'exercise-feedback-box wrong';
+                fb.style.display = 'block';
+                fb.innerHTML = `❌ <strong>ERROR EN VERMELL!</strong> <em>${currentQuestion.word}</em> no és ${chosenType}, és un nom <strong>${currentQuestion.type === 'concrets' ? 'CONCRET (físic/perceptible)' : 'ABSTRACTE (idea/emoció)'}</strong>.`;
+                playWrongSound();
+                gameStreakCount = 0;
+                document.getElementById('game-streak').innerText = '0 🔥';
+                gameTimer = setTimeout(nextGameRound, 2400);
+            }
+        }
+
+        // Inicialització en carregar la pàgina
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('nav-xp-counter').innerText = state.xp + ' XP';
+            document.getElementById('stat-total-xp').innerText = state.xp + ' XP';
+            document.getElementById('nav-streak-counter').innerText = state.streak;
+            updateProgress();
+            initEx1();
+            initEx3();
+            initEx6();
+            initEx10();
+            initPro1();
+            initPro2();
+            nextGameRound();
+        });
+    </script>
+</body>
+
+</html>
