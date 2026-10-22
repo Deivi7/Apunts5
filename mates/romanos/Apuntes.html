@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Romanos: El Imperio de las Cifras | Matemáticas 5º | Álvaro Study Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Estilos compartidos y específicos -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <!-- Top Navbar Unificado -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Volver al Portal Central">
+                <span>←</span> Volver a Temas
+            </a>
+            <div class="topic-badge-header">
+                <span>📐</span> Mates • Números Romanos
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Cambiar de Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">
+                        Temas de Matemáticas
+                    </div>
+                    <a href="../operaciones/Apuntes.html" class="topic-dropdown-item">
+                        <strong>1. Cálculo Mental, Operaciones & Problemas</strong>
+                    </a>
+                    <a href="../posat_a_prova_1/Apuntes.html" class="topic-dropdown-item">
+                        <strong>2. Posa't a prova 1 (Examen & Nivell Pro)</strong>
+                    </a>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>3. Números Romanos (El Imperio de las Cifras)</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Abrir Chuleta Imperial de Números Romanos">
+                <span>💡</span> Chuleta Rápida
+            </button>
+            <div class="score-pill-nav" title="Puntos de experiencia ganados">
+                <span>⚡</span> <span id="nav-xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Racha de aciertos consecutivos">
+                <span>🔥</span> <span id="nav-streak-counter">0</span>
+            </div>
+            <div class="score-pill-nav" title="Rango en el Imperio Romano">
+                <span>🏛️</span> <span id="nav-rank-badge">Recluta</span>
+            </div>
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Activar/Silenciar efectos sonoros">🔊</button>
+            <button class="btn-icon-nav" id="btn-theme-toggle" onclick="toggleDarkMode()" title="Modo Claro/Oscuro">🌓</button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Imperial a Ancho Completo -->
+    <section class="module-hero hero-romanos">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">MATEMÁTICAS 5º PRIMARIA • SISTEMA DE NUMERACIÓN ROMANO</div>
+                <h1>Números Romanos: El Imperio de las Cifras 🏛️</h1>
+                <p>Domina las 7 letras legendarias (I, V, X, L, C, D, M), aprende a descomponer cualquier número en segundos, evita las trampas de examen y calcula siglos con el truco del profe.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-rank-display">Recluta</div>
+                    <div class="stat-label">Rango Imperial</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-solved-count">0/35</div>
+                    <div class="stat-label">Retos Hechos</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Puntos Totales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Apuntes & Teoría de Oro</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú de Actividades
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation Sticky -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Mates • 5º Primaria</span>
+                <h3 class="sidebar-topic-title">Números Romanos</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progreso del Módulo</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listado de Pestanyas -->
+            <div class="sidebar-nav-list">
+                <button class="sidebar-tab-btn active" onclick="switchTab('tab-teoria')">
+                    <div class="tab-btn-content">
+                        <span>📖</span>
+                        <span>1. Apuntes & Teoría de Oro</span>
+                    </div>
+                    <span class="tab-badge-count">5º</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-conversor')">
+                    <div class="tab-btn-content">
+                        <span>🔮</span>
+                        <span>2. Conversor & Descompositor</span>
+                    </div>
+                    <span class="tab-badge-count">Mágico</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-practica')">
+                    <div class="tab-btn-content">
+                        <span>✍️</span>
+                        <span>3. Taller (Romano ↔ Decimal)</span>
+                    </div>
+                    <span class="tab-badge-count">3 Niveles</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-detective')">
+                    <div class="tab-btn-content">
+                        <span>🕵️</span>
+                        <span>4. Detective de Errores</span>
+                    </div>
+                    <span class="tab-badge-count">¿Bien/Mal?</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-siglos')">
+                    <div class="tab-btn-content">
+                        <span>⏳</span>
+                        <span>5. Reto de Siglos & Relojes</span>
+                    </div>
+                    <span class="tab-badge-count">Práctico</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-coliseo')">
+                    <div class="tab-btn-content">
+                        <span>⚔️</span>
+                        <span>6. Coliseo Contrarreloj (2 min)</span>
+                    </div>
+                    <span class="tab-badge-count">Sprint</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-print')">
+                    <div class="tab-btn-content">
+                        <span>🖨️</span>
+                        <span>7. Ficha Imprimible A4</span>
+                    </div>
+                    <span class="tab-badge-count">Papel</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Chuleta Imperial
+                </button>
+                <button class="sidebar-reset-btn" onclick="resetAllProgress()">
+                    Reiniciar puntuación y récords
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+            <!-- ==========================================================================
+                 PESTAÑA 1: APUNTES & TEORÍA DE ORO (OBLIGATORIA REGLA 9)
+                 ========================================================================== -->
+            <section class="tab-content-panel active" id="tab-teoria">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>📖</span> Teoría Didáctica de Números Romanos</h2>
+                        <p>Explicación completa paso a paso para 5º de Primaria: las 7 letras, las 4 reglas sagradas, el cálculo de siglos y los errores prohibidos de examen.</p>
+                    </div>
+                    <div>
+                        <button class="btn-check-action" onclick="switchTab('tab-conversor')">
+                            <span>🔮</span> Ir al Conversor Mágico →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 1. ¿Qué es y para qué sirve? -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🏛️</div>
+                        <div>
+                            <h3>1. ¿Qué son los números romanos y para qué sirven hoy?</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">En català: «Els nombres romans»</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Hace más de 2.000 años, los antiguos romanos inventaron un sistema para contar y registrar cuentas usando las letras mayúsculas de su abecedario. 
+                        <strong>No conocían el número 0</strong> (¡el cero llegó a Europa mucho después!) y su sistema no era posicional como el nuestro, sino <strong>aditivo y sustractivo</strong> (las letras suman o restan según dónde se coloquen).
+                    </p>
+                    <div class="rule-examples-box">
+                        <strong>¿Dónde los usamos en la vida real hoy en día?</strong>
+                        <ul style="margin-left: 1.25rem; margin-top: 0.35rem; line-height: 1.5;">
+                            <li><strong>Siglos de la historia:</strong> Estamos en el siglo <strong>XXI</strong>, Colón llegó a América en el siglo <strong>XV</strong>.</li>
+                            <li><strong>Reyes, reinas y papas:</strong> El rey de España Felipe <strong>VI</strong>, la reina Isabel <strong>II</strong>, el papa Juan Pablo <strong>II</strong>.</li>
+                            <li><strong>Esferas de relojes:</strong> Muchos relojes clásicos marcan las horas con <strong>I, II, III, IV, V... XII</strong>.</li>
+                            <li><strong>Monumentos y películas:</strong> En las piedras angulares de edificios antiguos (ej: <strong>MCMLXXV</strong> = 1975) o sagas como <em>Star Wars: Episodio <strong>IV</strong></em>.</li>
+                            <li><strong>Olimpiadas y eventos:</strong> Edición de los Juegos Olímpicos (ej: <strong>XXXIII</strong> Olimpiada en París 2024).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Las 7 Letras Fundamentales -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🔤</div>
+                        <h3>2. Las 7 Letras Legendarias (Los Bloques de Construcción)</h3>
+                    </div>
+                    <p class="rule-desc">
+                        Todo el sistema romano se construye combinando únicamente <strong>7 letras mayúsculas</strong>. Se dividen en dos grupos muy diferentes:
+                    </p>
+
+                    <!-- Showcase interactivo de las 7 letras -->
+                    <div class="letters-showcase-grid">
+                        <div class="letter-card primary-letter" onclick="inspectLetter('I', 1, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">I</div>
+                            <div class="letter-value">1</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('V', 5, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">V</div>
+                            <div class="letter-value">5</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('X', 10, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">X</div>
+                            <div class="letter-value">10</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('L', 50, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">L</div>
+                            <div class="letter-value">50</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('C', 100, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">C</div>
+                            <div class="letter-value">100</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('D', 500, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">D</div>
+                            <div class="letter-value">500</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('M', 1000, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">M</div>
+                            <div class="letter-value">1.000</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem;">
+                        <div style="background: var(--bg-main); padding: 0.75rem; border-radius: var(--radius-md); border-left: 4px solid #3b82f6;">
+                            <strong style="color: #2563eb;">🔵 Letras Principales (I, X, C, M):</strong>
+                            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: var(--text-muted);">
+                                Representan el 1 y sus potencias de 10. Son las <strong>únicas que se pueden repetir hasta 3 veces</strong> y las <strong>únicas que pueden restar</strong>.
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-main); padding: 0.75rem; border-radius: var(--radius-md); border-left: 4px solid #ef4444;">
+                            <strong style="color: #dc2626;">🔴 Letras Secundarias (V, L, D):</strong>
+                            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: var(--text-muted);">
+                                Representan los múltiplos de 5 (5, 50, 500). <strong>NUNCA se repiten</strong> (nunca verás VV ni LL) y <strong>NUNCA se colocan a la izquierda para restar</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Las 4 Reglas Sagradas -->
+                <div class="rules-grid">
+                    <!-- Regla 1: Suma -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">➕</div>
+                            <div>
+                                <h3>Regla 1: Suma (Adición)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">A la derecha se suma</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Una letra escrita a la <strong>DERECHA</strong> de otra de igual o mayor valor <strong>SUMA</strong> su valor.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight">VI = 5 + 1 = 6</span>
+                                <span class="rule-pill highlight">XI = 10 + 1 = 11</span>
+                                <span class="rule-pill highlight">LV = 50 + 5 = 55</span>
+                                <span class="rule-pill highlight">CL = 100 + 50 = 150</span>
+                                <span class="rule-pill highlight">MD = 1000 + 500 = 1500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regla 2: Resta -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">➖</div>
+                            <div>
+                                <h3>Regla 2: Resta (Sustracción)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">A la izquierda resta (¡solo 3 parejas!)</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Una letra de menor valor escrita a la <strong>IZQUIERDA</strong> de otra mayor <strong>RESTA</strong> su valor. 
+                            <strong>¡Ojo! Solo existen 3 parejas permitidas:</strong>
+                        </p>
+                        <div class="rule-examples-box">
+                            <ul style="margin-left: 1.1rem; line-height: 1.45; font-size: 0.8rem;">
+                                <li><strong>I</strong> solo resta a <strong>V</strong> y a <strong>X</strong>: <code>IV = 4</code>, <code>IX = 9</code>.</li>
+                                <li><strong>X</strong> solo resta a <strong>L</strong> y a <strong>C</strong>: <code>XL = 40</code>, <code>XC = 90</code>.</li>
+                                <li><strong>C</strong> solo resta a <strong>D</strong> y a <strong>M</strong>: <code>CD = 400</code>, <code>CM = 900</code>.</li>
+                                <li><em>¡V, L, D NUNCA restan! Y nunca se ponen dos letras restando (8 no es IIX, es VIII).</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Regla 3: Repetición -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">🔁</div>
+                            <div>
+                                <h3>Regla 3: Repetición (Máx. 3)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">I, X, C, M hasta 3 veces seguidas</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Las letras <strong>I, X, C, M</strong> solo pueden repetirse como máximo <strong>3 VECES SEGUIDAS</strong>.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight">III = 3</span>
+                                <span class="rule-pill warn">IIII = ❌ ¡Mal! Se escribe IV</span>
+                                <span class="rule-pill highlight">XXX = 30</span>
+                                <span class="rule-pill warn">XXXX = ❌ ¡Mal! Se escribe XL</span>
+                                <span class="rule-pill highlight">CCC = 300</span>
+                                <span class="rule-pill warn">CCCC = ❌ ¡Mal! Se escribe CD</span>
+                            </div>
+                            <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #ef4444; font-weight: 700;">
+                                ⚠️ Las letras V, L, D no se pueden repetir NUNCA (10 no es VV, 100 no es LL).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Regla 4: Multiplicación de Millar -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">📏</div>
+                            <div>
+                                <h3>Regla 4: Raya Multiplicadora</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">Para números a partir de 4.000</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Como no se puede escribir MMMM para 4.000, los romanos ponían una <strong>raya horizontal encima</strong>, que <strong>multiplica su valor por 1.000</strong>.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight" style="text-decoration: overline;">IV = 4.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">V = 5.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">IX = 9.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">X = 10.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">L = 50.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. El Gran Truco del Cálculo de Siglos -->
+                <div class="rule-box" style="margin-bottom: 1.5rem; border: 2px solid var(--roman-gold);">
+                    <div class="rule-header">
+                        <div class="rule-icon-box" style="background: var(--roman-gold); color: white;">⏳</div>
+                        <div>
+                            <h3>El Truco Maestro: ¿Cómo Calcular el Siglo de Cualquier Año?</h3>
+                            <span style="font-size: 0.74rem; color: var(--roman-gold-hover); font-weight: 800;">¡Pregunta fija de examen en 5º de Primaria!</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Un siglo tiene 100 años. El siglo I empezó el año 1 y terminó el año 100. El siglo II empezó en el 101 y terminó en el 200. Por eso, para saber el siglo de cualquier año, sigue esta regla de oro:
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
+                        <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-top: 3px solid #10b981;">
+                            <strong style="color: #059669;">Caso A: Termina en "00" (Cero-Cero)</strong>
+                            <p style="font-size: 0.82rem; margin-top: 0.25rem;">
+                                ¡Facilísimo! Solo <strong>quita los dos ceros</strong> y el número que queda es el siglo.
+                            </p>
+                            <div class="rule-pill-list" style="margin-top: 0.4rem;">
+                                <span class="rule-pill highlight">Año 1800 → Siglo XVIII (18)</span>
+                                <span class="rule-pill highlight">Año 2000 → Siglo XX (20)</span>
+                                <span class="rule-pill highlight">Año 500 → Siglo V (5)</span>
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-top: 3px solid #6366f1;">
+                            <strong style="color: #4f46e5;">Caso B: NO termina en "00"</strong>
+                            <p style="font-size: 0.82rem; margin-top: 0.25rem;">
+                                Tapa las dos últimas cifras y <strong>SÚMALE 1 (+1)</strong> a lo que te queda delante.
+                            </p>
+                            <div class="rule-pill-list" style="margin-top: 0.4rem;">
+                                <span class="rule-pill highlight">Año 1492 → 14 + 1 = Siglo XV (15)</span>
+                                <span class="rule-pill highlight">Año 1789 → 17 + 1 = Siglo XVIII (18)</span>
+                                <span class="rule-pill highlight">Año 2026 → 20 + 1 = Siglo XXI (21)</span>
+                                <span class="rule-pill highlight">Año 711 → 7 + 1 = Siglo VIII (8)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Tabla Bien vs Mal (Errores de Examen) -->
+                <div class="vs-table-container">
+                    <div class="vs-table-title">
+                        <span>⚔️</span> Errores Clásicos que Cuestan Puntos en los Controles (Bien vs Mal)
+                    </div>
+                    <div class="vs-grid">
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IIII</div>
+                                <div class="vs-reason">Repetición prohibida (> 3 veces)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ IV (4)</div>
+                                <div class="vs-reason">Resta: 5 - 1 = 4</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ VV</div>
+                                <div class="vs-reason">V nunca se repite</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ X (10)</div>
+                                <div class="vs-reason">10 ya tiene letra propia</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IL</div>
+                                <div class="vs-reason">I no puede restar a L (solo a V y X)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ XLIX (49)</div>
+                                <div class="vs-reason">40 (XL) + 9 (IX) = 49</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IC</div>
+                                <div class="vs-reason">I no puede restar a C</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ XCIX (99)</div>
+                                <div class="vs-reason">90 (XC) + 9 (IX) = 99</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ VX</div>
+                                <div class="vs-reason">V nunca se coloca restando</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ V (5)</div>
+                                <div class="vs-reason">10 - 5 = 5 se escribe V</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ XD</div>
+                                <div class="vs-reason">X solo resta a L y C (no a D)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ CDXC (490)</div>
+                                <div class="vs-reason">400 (CD) + 90 (XC) = 490</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Trucos Mnemotécnicos -->
+                <div class="teacher-trick-card">
+                    <div class="teacher-trick-header">
+                        <span>💡</span> «El Truco del Profe»: Frases Mágicas para No Olvidar Jamás
+                    </div>
+                    <div class="teacher-trick-body">
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>1. Para recordar las 7 letras de menor a mayor (1 → 1000):</strong><br>
+                            Aprende esta divertida frase: 
+                            <span class="mnemo-highlight">«<strong>I</strong>rene <strong>V</strong>e <strong>X</strong>ilófonos en <strong>L</strong>a <strong>C</strong>asa <strong>D</strong>e <strong>M</strong>i abuela»</span>
+                            <br>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">(I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1.000).</span>
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>2. El truco del 4 y el 9:</strong><br>
+                            Siempre que un número tenga un <strong>4</strong> o un <strong>9</strong> en cualquier posición (unidades, decenas o centenas), <strong>¡SE ESCRIBE RESTANDO!</strong>
+                            <br>
+                            • 4 = IV | 9 = IX | 40 = XL | 90 = XC | 400 = CD | 900 = CM.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. Resumen Visual en 1 Minuto -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">⏱️</div>
+                        <h3>7. Resumen Visual en 1 Minuto (La Tabla de Oro)</h3>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center;">
+                            <thead>
+                                <tr style="background: var(--bg-main); border-bottom: 2px solid var(--border-color);">
+                                    <th style="padding: 0.5rem;">Posición</th>
+                                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Unidades</td>
+                                    <td>I</td><td>II</td><td>III</td><td style="color:#ef4444; font-weight:800;">IV</td><td>V</td><td>VI</td><td>VII</td><td>VIII</td><td style="color:#ef4444; font-weight:800;">IX</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Decenas</td>
+                                    <td>X</td><td>XX</td><td>XXX</td><td style="color:#ef4444; font-weight:800;">XL</td><td>L</td><td>LX</td><td>LXX</td><td>LXXX</td><td style="color:#ef4444; font-weight:800;">XC</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Centenas</td>
+                                    <td>C</td><td>CC</td><td>CCC</td><td style="color:#ef4444; font-weight:800;">CD</td><td>D</td><td>DC</td><td>DCC</td><td>DCCC</td><td style="color:#ef4444; font-weight:800;">CM</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Millares</td>
+                                    <td>M</td><td>MM</td><td>MMM</td><td style="color:#ef4444; font-weight:800; text-decoration:overline;">IV</td><td style="text-decoration:overline;">V</td><td style="text-decoration:overline;">VI</td><td style="text-decoration:overline;">VII</td><td style="text-decoration:overline;">VIII</td><td style="color:#ef4444; font-weight:800; text-decoration:overline;">IX</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 8. Resource Hub (Regla 6 y 7) -->
+                <div class="resource-hub-container">
+                    <div class="resource-hub-header">
+                        <div class="resource-hub-title">
+                            <span>📚</span> Resource Hub: Materiales de Números Romanos & Drive
+                        </div>
+                        <a href="https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy" target="_blank" class="sidebar-action-btn">
+                            <span>☁️</span> Abrir Carpeta Mates en Google Drive ↗
+                        </a>
+                    </div>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-card-top">
+                                <div class="resource-card-title">
+                                    <span>📄</span> Fichas de Clase (Drive)
+                                </div>
+                                <span class="resource-badge drive">Google Drive</span>
+                            </div>
+                            <div class="resource-card-desc">
+                                Carpeta oficial de Matemáticas 5º de Primaria de Álvaro para subir o consultar los apuntes escolares.
+                            </div>
+                            <div class="resource-card-action">
+                                <a href="https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy" target="_blank" style="text-decoration:none; color:inherit; font-weight:800;">
+                                    Ver en la Nube ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-top">
+                                <div class="resource-card-title">
+                                    <span>🎮</span> Entrenador Interactivo
+                                </div>
+                                <span class="resource-badge web">Herramienta Web</span>
+                            </div>
+                            <div class="resource-card-desc">
+                                Conversor paso a paso, detector de errores y sprint contrarreloj del Imperio Romano.
+                            </div>
+                            <div class="resource-card-action">
+                                <button onclick="switchTab('tab-conversor')" style="background:none; border:none; cursor:pointer; color:var(--primary); font-weight:800; font-size:inherit;">
+                                    Probar Conversor →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 2: CONVERSOR & DESCOMPOSITOR MÁGICO
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-conversor">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🔮</span> Conversor & Descompositor Mágico</h2>
+                        <p>Escribe un número normal o en cifras romanas: la máquina lo traducirá en directo y te mostrará la descomposición matemática paso a paso.</p>
+                    </div>
+                    <div>
+                        <button class="btn-hint-action" onclick="loadRandomToConverter()">
+                            <span>🎲</span> Probar Número Aleatorio
+                        </button>
+                    </div>
+                </div>
+
+                <div class="converter-container">
+                    <div class="converter-dual-inputs">
+                        <!-- Input Decimal -->
+                        <div class="converter-input-box">
+                            <div class="converter-input-label">
+                                <span>🔢 Número Decimal (Arábigo)</span>
+                                <span style="font-size: 0.7rem; color: var(--text-muted);">1 al 3.999 (o más con raya)</span>
+                            </div>
+                            <input type="number" id="conv-decimal-input" class="converter-input" placeholder="Ej: 1984" min="1" max="99999" oninput="handleDecimalInput(this.value)">
+                        </div>
+
+                        <!-- Input Romano -->
+                        <div class="converter-input-box">
+                            <div class="converter-input-label">
+                                <span>🏛️ Número Romano</span>
+                                <span style="font-size: 0.7rem; color: var(--text-muted);">Letras mayúsculas</span>
+                            </div>
+                            <input type="text" id="conv-roman-input" class="converter-input" placeholder="Ej: MCMLXXXIV" oninput="handleRomanInput(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Teclado Virtual Romano -->
+                    <div style="text-align: center; margin-top: 0.5rem;">
+                        <span style="font-size: 0.74rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">
+                            Teclado Táctil Romano
+                        </span>
+                        <div class="virtual-keypad">
+                            <button class="keypad-btn" onclick="pressKeypad('I')">I</button>
+                            <button class="keypad-btn" onclick="pressKeypad('V')">V</button>
+                            <button class="keypad-btn" onclick="pressKeypad('X')">X</button>
+                            <button class="keypad-btn" onclick="pressKeypad('L')">L</button>
+                            <button class="keypad-btn" onclick="pressKeypad('C')">C</button>
+                            <button class="keypad-btn" onclick="pressKeypad('D')">D</button>
+                            <button class="keypad-btn" onclick="pressKeypad('M')">M</button>
+                            <button class="keypad-btn action-btn" onclick="backspaceKeypad()">⌫ Borrar</button>
+                            <button class="keypad-btn action-btn" onclick="clearKeypad()">Limpiar Todo</button>
+                        </div>
+                    </div>
+
+                    <!-- Descomposición visual animada -->
+                    <div class="decomposition-display" id="decomp-display" style="display: none;">
+                        <div class="decomp-title">
+                            <span>🧩</span> Descomposición Posicional Paso a Paso:
+                        </div>
+                        <div class="decomp-steps-row" id="decomp-steps-container">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                        <div id="decomp-rule-note" style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);"></div>
+                    </div>
+
+                    <!-- Alerta de validez -->
+                    <div id="conv-feedback-box" class="exercise-feedback-box"></div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 3: TALLER DE PRÁCTICA (ROMANO ↔ DECIMAL)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-practica">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>✍️</span> Taller de Práctica Adaptativa</h2>
+                        <p>Resuelve retos aleatorios de traducción entre numeración decimal y romana. Supera los 3 niveles para ascender en el Imperio Romano.</p>
+                    </div>
+                    <div class="action-pill-group">
+                        <span class="score-pill-nav">Nivel Seleccionado</span>
+                    </div>
+                </div>
+
+                <div class="practice-container">
+                    <!-- Selector de Nivel -->
+                    <div class="level-selector-pills">
+                        <button class="level-pill-btn active" id="btn-lvl-1" onclick="setPracticeLevel(1)">
+                            🟢 Nivel 1: Recluta (1 a 50)
+                        </button>
+                        <button class="level-pill-btn" id="btn-lvl-2" onclick="setPracticeLevel(2)">
+                            🟡 Nivel 2: Centurión (51 a 1.000)
+                        </button>
+                        <button class="level-pill-btn" id="btn-lvl-3" onclick="setPracticeLevel(3)">
+                            🔴 Nivel 3: César Pro (1.000 a 3.999)
+                        </button>
+                    </div>
+
+                    <!-- Selector de Modo -->
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+                        <button class="pomodoro-btn" id="btn-mode-dec-to-rom" onclick="setPracticeMode('dec2rom')">
+                            🔢 Decimal → Romano
+                        </button>
+                        <button class="pomodoro-btn" id="btn-mode-rom-to-dec" onclick="setPracticeMode('rom2dec')">
+                            🏛️ Romano → Decimal
+                        </button>
+                        <button class="pomodoro-btn" id="btn-mode-mixed" onclick="setPracticeMode('mixed')">
+                            🔀 Modo Mezclado
+                        </button>
+                    </div>
+
+                    <!-- Tarjeta del Reto -->
+                    <div class="challenge-box">
+                        <div class="challenge-question-label" id="practice-prompt-label">
+                            ¿Cómo se escribe este número en cifras romanas?
+                        </div>
+                        <div class="challenge-main-display" id="practice-challenge-display">
+                            48
+                        </div>
+
+                        <div class="challenge-input-row">
+                            <input type="text" id="practice-user-input" class="challenge-input" placeholder="Tu respuesta..." autocomplete="off" onkeydown="if(event.key==='Enter') checkPracticeAnswer()">
+                            <button class="btn-check-action" onclick="checkPracticeAnswer()">
+                                <span>✓</span> Comprobar
+                            </button>
+                            <button class="btn-hint-action" onclick="getPracticeHint()">
+                                <span>💡</span> Pista
+                            </button>
+                            <button class="btn-hint-action" onclick="nextPracticeChallenge()">
+                                <span>⏭️</span> Saltar
+                            </button>
+                        </div>
+
+                        <!-- Mini teclado táctil para este ejercicio -->
+                        <div class="virtual-keypad" id="practice-mini-keypad" style="margin-top: 1rem;">
+                            <button class="keypad-btn" onclick="pressPracticeKey('I')">I</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('V')">V</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('X')">X</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('L')">L</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('C')">C</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('D')">D</button>
+                            <button class="keypad-btn" onclick="pressPracticeKey('M')">M</button>
+                            <button class="keypad-btn action-btn" onclick="backspacePracticeKey()">⌫</button>
+                        </div>
+
+                        <!-- Feedback Box -->
+                        <div id="practice-feedback" class="exercise-feedback-box"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 4: DETECTIVE DE ERRORES (¿BIEN O MAL?)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-detective">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🕵️</span> Detective de Errores: ¿Es Válido o Trampa?</h2>
+                        <p>Los escribas romanos han enviado estos manuscritos. Tu misión como inspector imperial es detectar si cumplen todas las normas de Roma o si cometen alguna infracción.</p>
+                    </div>
+                    <div>
+                        <div class="score-pill-nav">
+                            <span>🔍 Aciertos de Detective:</span> <strong id="detective-score">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detective-card">
+                    <span class="detective-badge">Caso Imperial de Inspección</span>
+                    <div class="detective-mystery-word" id="detective-number-display">
+                        IIII
+                    </div>
+                    <div class="detective-question" id="detective-question-text">
+                        ¿Está escrito de forma <strong>correcta</strong> según las reglas romanas?
+                    </div>
+
+                    <div class="detective-actions">
+                        <button class="btn-detective valid" onclick="submitDetectiveVerdict(true)">
+                            <span>✅</span> ¡Es Correcto!
+                        </button>
+                        <button class="btn-detective invalid" onclick="submitDetectiveVerdict(false)">
+                            <span>❌</span> ¡Es Incorrecto / Trampa!
+                        </button>
+                    </div>
+
+                    <div id="detective-feedback" class="exercise-feedback-box" style="margin-top: 1.5rem; text-align: left;"></div>
+                    
+                    <div style="margin-top: 1rem;">
+                        <button class="btn-hint-action" id="btn-next-detective" onclick="generateDetectiveCase()" style="display: none;">
+                            <span>⏭️</span> Siguiente Caso de Investigación →
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 5: RETO DE LOS SIGLOS & RELOJES
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-siglos">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>⏳</span> Reto de Siglos & Relojes Romanos</h2>
+                        <p>Aplica los números romanos a situaciones del mundo real: averigua el siglo de acontecimientos históricos y aprende a leer la hora en relojes con numeración romana.</p>
+                    </div>
+                </div>
+
+                <div class="centuries-grid">
+                    <!-- Herramienta 1: Adivina el Siglo del Acontecimiento -->
+                    <div class="century-tool-card">
+                        <div class="century-tool-header">
+                            <span>📜</span> Desafío de Acontecimientos & Siglos
+                        </div>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+                            ¿A qué siglo pertenece este año histórico? Recuerda: si termina en 00, quita los ceros. Si no, ¡suma 1 a las centenas!
+                        </p>
+
+                        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;" id="event-name-display">
+                                Descubrimiento de América
+                            </div>
+                            <div style="font-size: 2.2rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--roman-crimson); margin: 0.35rem 0;" id="event-year-display">
+                                Año 1492
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 0.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                            <span style="font-weight: 800; font-size: 0.9rem;">Siglo:</span>
+                            <input type="text" id="century-user-input" class="challenge-input" placeholder="Ej: XV" style="width: 130px;" onkeydown="if(event.key==='Enter') checkCenturyAnswer()">
+                            <button class="btn-check-action" onclick="checkCenturyAnswer()">
+                                <span>✓</span> Comprobar
+                            </button>
+                            <button class="btn-hint-action" onclick="nextCenturyChallenge()">
+                                <span>🎲</span> Otro
+                            </button>
+                        </div>
+
+                        <div id="century-feedback" class="exercise-feedback-box"></div>
+                    </div>
+
+                    <!-- Herramienta 2: Reloj Romano Interactivo -->
+                    <div class="century-tool-card">
+                        <div class="century-tool-header">
+                            <span>🕰️</span> Reloj Romano Interactivo
+                        </div>
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                            Observa la esfera clásica del reloj y averigua qué hora exacta están marcando las manecillas.
+                        </p>
+
+                        <div class="clock-canvas-container">
+                            <svg id="clock-svg" class="clock-svg" width="200" height="200" viewBox="0 0 200 200">
+                                <!-- Esfera externa -->
+                                <circle cx="100" cy="100" r="95" fill="var(--bg-card)" stroke="var(--roman-gold)" stroke-width="6"/>
+                                <circle cx="100" cy="100" r="88" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="1"/>
+                                
+                                <!-- Números romanos del I al XII -->
+                                <g font-family="Outfit" font-size="12" font-weight="900" fill="var(--text-main)" text-anchor="middle" dominant-baseline="central">
+                                    <text x="100" y="24">XII</text>
+                                    <text x="138" y="34">I</text>
+                                    <text x="166" y="62">II</text>
+                                    <text x="176" y="100">III</text>
+                                    <text x="166" y="138">IV</text>
+                                    <text x="138" y="166">V</text>
+                                    <text x="100" y="176">VI</text>
+                                    <text x="62" y="166">VII</text>
+                                    <text x="34" y="138">VIII</text>
+                                    <text x="24" y="100">IX</text>
+                                    <text x="34" y="62">X</text>
+                                    <text x="62" y="34">XI</text>
+                                </g>
+
+                                <!-- Manecilla de las Horas -->
+                                <line id="clock-hour-hand" x1="100" y1="100" x2="100" y2="55" stroke="var(--roman-crimson)" stroke-width="5" stroke-linecap="round"/>
+                                
+                                <!-- Manecilla de los Minutos -->
+                                <line id="clock-minute-hand" x1="100" y1="100" x2="100" y2="35" stroke="var(--text-main)" stroke-width="3" stroke-linecap="round"/>
+                                
+                                <!-- Centro -->
+                                <circle cx="100" cy="100" r="5" fill="var(--roman-gold)"/>
+                            </svg>
+
+                            <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                                <span style="font-weight: 800; font-size: 0.85rem;">Hora (HH:MM):</span>
+                                <input type="text" id="clock-user-input" class="challenge-input" placeholder="08:20" style="width: 110px;" onkeydown="if(event.key==='Enter') checkClockAnswer()">
+                                <button class="btn-check-action" onclick="checkClockAnswer()">
+                                    <span>✓</span> Comprobar
+                                </button>
+                                <button class="btn-hint-action" onclick="generateRandomClockTime()">
+                                    <span>🎲</span> Nueva Hora
+                                </button>
+                            </div>
+
+                            <div id="clock-feedback" class="exercise-feedback-box"></div>
+                        </div>
+
+                        <div class="clock-curiosity-box">
+                            <strong>🤔 Curiosidad histórica:</strong> ¿Te has fijado en que muchos relojes antiguos ponen <code>IIII</code> en vez de <code>IV</code> para el 4? El rey Carlos V de Francia o Luis XIV lo exigieron así para equilibrar la vista con el <code>VIII</code> (8) del otro lado de la esfera. ¡Pero en clase siempre debemos escribir <code>IV</code>!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 6: EL COLISEO CONTRARRELOJ (SPRINT 2 MIN)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-coliseo">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>⚔️</span> La Batalla del Coliseo (Sprint Contrarreloj)</h2>
+                        <p>Tienes 2 minutos para convertir tantas cifras como puedas. Cada acierto suma puntos y combos de racha. ¿Serás capaz de batir tu propio récord?</p>
+                    </div>
+                    <div>
+                        <div class="score-pill-nav">
+                            <span>🏆 Récord Personal:</span> <strong id="sprint-record-val">0</strong> aciertos
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coliseum-arena-card">
+                    <!-- HUD Superior -->
+                    <div class="coliseum-hud">
+                        <div class="hud-stat">
+                            <div class="hud-stat-num" id="sprint-timer-val">120</div>
+                            <div class="hud-stat-lbl">Segundos</div>
+                        </div>
+                        <div class="hud-stat">
+                            <div class="hud-stat-num" id="sprint-score-val">0</div>
+                            <div class="hud-stat-lbl">Aciertos</div>
+                        </div>
+                        <div class="hud-stat">
+                            <div class="hud-stat-num" id="sprint-combo-val">x1</div>
+                            <div class="hud-stat-lbl">Multiplicador</div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de Tiempo -->
+                    <div class="coliseum-timer-bar">
+                        <div class="coliseum-timer-fill" id="sprint-timer-bar"></div>
+                    </div>
+
+                    <!-- Pantalla Previa o En Juego -->
+                    <div id="sprint-start-view">
+                        <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏛️🛡️</div>
+                        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.5rem;">¿Listo para entrar a la arena, gladiador?</h3>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 480px; margin: 0 auto 1.25rem;">
+                            Aparecerá un número en pantalla y 4 opciones posibles. Elige la correcta lo más rápido que puedas para mantener el combo activo.
+                        </p>
+                        <button class="btn-check-action" style="font-size: 1.15rem; padding: 0.85rem 2rem;" onclick="startColiseumSprint()">
+                            <span>⚔️</span> ¡Comenzar Batalla de 2 Minutos!
+                        </button>
+                    </div>
+
+                    <div id="sprint-active-view" style="display: none;">
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">
+                            Convierte a números romanos:
+                        </div>
+                        <div style="font-size: 3rem; font-weight: 900; color: var(--roman-crimson); margin: 0.5rem 0 1rem; font-family: 'JetBrains Mono', monospace;" id="sprint-question-num">
+                            74
+                        </div>
+
+                        <!-- 4 Opciones de Botón -->
+                        <div class="sprint-options-grid" id="sprint-options-container">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 7: FICHA IMPRIMIBLE A4
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-print">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🖨️</span> Generador de Fichas Imprimibles (A4)</h2>
+                        <p>Genera una ficha de trabajo limpia y lista para imprimir en papel o guardar en PDF. Ideal para practicar a mano con lápiz como en el colegio.</p>
+                    </div>
+                </div>
+
+                <div class="worksheet-preview-container">
+                    <div class="worksheet-actions-bar">
+                        <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                            <button class="btn-check-action btn-new-sheet-action" onclick="generateNewPrintableSheet()">
+                                <span>🔄</span> Generar Nueva Ficha Aleatoria
+                            </button>
+                            <button class="btn-hint-action btn-print-action" onclick="window.print()">
+                                <span>🖨️</span> Imprimir Ficha (PDF / Papel)
+                            </button>
+                        </div>
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 700; cursor: pointer;">
+                            <input type="checkbox" id="chk-show-solutions" onchange="toggleSheetSolutions(this.checked)">
+                            Mostrar Soluciones Oficiales (para corregir)
+                        </label>
+                    </div>
+
+                    <!-- Papel A4 Estilizado -->
+                    <div class="sheet-paper" id="printable-sheet-paper">
+                        <div class="sheet-header">
+                            <div class="sheet-title-group">
+                                <h2>CONTROL DE MATEMÁTICAS: NÚMEROS ROMANOS</h2>
+                                <p>5º de Primaria • Sistema de Numeración Romano & Cálculo de Siglos</p>
+                            </div>
+                            <div class="sheet-student-info">
+                                <div><strong>Nombre:</strong> ________________________</div>
+                                <div><strong>Fecha:</strong> ____ / ____ / 2026</div>
+                                <div><strong>Nota:</strong> _____ / 10</div>
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 1 -->
+                        <div class="sheet-exercise-block">
+                            <div class="sheet-exercise-title">
+                                <span>1.</span> Escribe en números romanos las siguientes cantidades:
+                            </div>
+                            <div class="sheet-grid-3col" id="sheet-ex1-container">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 2 -->
+                        <div class="sheet-exercise-block">
+                            <div class="sheet-exercise-title">
+                                <span>2.</span> Escribe en nuestro sistema decimal los siguientes números romanos:
+                            </div>
+                            <div class="sheet-grid-3col" id="sheet-ex2-container">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 3 -->
+                        <div class="sheet-exercise-block">
+                            <div class="sheet-exercise-title">
+                                <span>3.</span> Averigua y escribe a qué siglo (en números romanos) pertenece cada año:
+                            </div>
+                            <div class="sheet-grid-3col" id="sheet-ex3-container">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 4 -->
+                        <div class="sheet-exercise-block">
+                            <div class="sheet-exercise-title">
+                                <span>4.</span> Detecta el error en los siguientes números romanos incorrectos y escribe la forma correcta:
+                            </div>
+                            <div class="sheet-grid-3col" id="sheet-ex4-container">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal Chuleta Imperial Rápida -->
+    <div class="modal-overlay" id="quickCheatModal" onclick="if(event.target===this) closeQuickCheatSheet()">
+        <div class="modal-box" style="max-width: 650px;">
+            <button class="modal-close-btn" onclick="closeQuickCheatSheet()">✕</button>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem;">🏛️</span>
+                <h3 style="font-size: 1.25rem; font-weight: 900; color: var(--roman-crimson);">Chuleta Imperial: Números Romanos</h3>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.35rem; text-align: center; margin-bottom: 1rem;">
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">I</div>
+                    <div style="font-size:0.75rem; font-weight:800;">1</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">V</div>
+                    <div style="font-size:0.75rem; font-weight:800;">5</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">X</div>
+                    <div style="font-size:0.75rem; font-weight:800;">10</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">L</div>
+                    <div style="font-size:0.75rem; font-weight:800;">50</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">C</div>
+                    <div style="font-size:0.75rem; font-weight:800;">100</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">D</div>
+                    <div style="font-size:0.75rem; font-weight:800;">500</div>
+                </div>
+                <div style="background:var(--bg-main); padding:0.4rem; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                    <div style="font-weight:900; color:var(--roman-crimson); font-size:1.1rem;">M</div>
+                    <div style="font-size:0.75rem; font-weight:800;">1000</div>
+                </div>
+            </div>
+
+            <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+                <div style="margin-bottom: 0.6rem; padding: 0.5rem; background: var(--bg-main); border-radius: var(--radius-sm);">
+                    <strong>1. Suma:</strong> Letra menor a la derecha suma (VI = 6, LX = 60).
+                </div>
+                <div style="margin-bottom: 0.6rem; padding: 0.5rem; background: var(--bg-main); border-radius: var(--radius-sm);">
+                    <strong>2. Resta (Solo 3 parejas):</strong>
+                    <code>IV (4)</code>, <code>IX (9)</code> | <code>XL (40)</code>, <code>XC (90)</code> | <code>CD (400)</code>, <code>CM (900)</code>.
+                    <br><span style="color:#ef4444; font-size:0.75rem;">¡V, L, D NUNCA restan! Y nunca se ponen dos letras restando.</span>
+                </div>
+                <div style="margin-bottom: 0.6rem; padding: 0.5rem; background: var(--bg-main); border-radius: var(--radius-sm);">
+                    <strong>3. Repetición:</strong> I, X, C, M se pueden repetir máx. 3 veces seguidas (III=3, XXX=30, CCC=300, MMM=3000). V, L, D NUNCA se repiten.
+                </div>
+                <div style="padding: 0.5rem; background: var(--bg-main); border-radius: var(--radius-sm);">
+                    <strong>4. Siglos:</strong> Si acaba en 00, quita ceros (1800 → Siglo XVIII). Si no, suma 1 (1492 → 14+1 = Siglo XV).
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas de Confeti Opcional -->
+    <canvas id="confetti-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 9999; display: none;"></canvas>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p><strong>Álvaro Study Hub</strong> • Matemáticas 5º Primaria • Números Romanos</p>
+    </footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT DINÁMICO & GAMIFICACIÓN
+         ========================================================================== -->
+    <script>
+        // ESTADO GLOBAL & PERSISTENCIA
+        let totalXP = parseInt(localStorage.getItem('alvaro_romanos_xp') || '0');
+        let streak = parseInt(localStorage.getItem('alvaro_romanos_streak') || '0');
+        let solvedCount = parseInt(localStorage.getItem('alvaro_romanos_solved') || '0');
+        let sprintRecord = parseInt(localStorage.getItem('alvaro_romanos_sprint_rec') || '0');
+        let soundEnabled = true;
+
+        // TABLA OFICIAL DE CONVERSIÓN
+        const ROMAN_NUMERALS = [
+            { value: 1000, numeral: "M" },
+            { value: 900,  numeral: "CM" },
+            { value: 500,  numeral: "D" },
+            { value: 400,  numeral: "CD" },
+            { value: 100,  numeral: "C" },
+            { value: 90,   numeral: "XC" },
+            { value: 50,   numeral: "L" },
+            { value: 40,   numeral: "XL" },
+            { value: 10,   numeral: "X" },
+            { value: 9,    numeral: "IX" },
+            { value: 5,    numeral: "V" },
+            { value: 4,    numeral: "IV" },
+            { value: 1,    numeral: "I" }
+        ];
+
+        // FUNCIONES DE CONVERSIÓN MATEMÁTICA PURA
+        function toRoman(num) {
+            if (num <= 0 || isNaN(num)) return "";
+            let result = "";
+            let n = num;
+            for (let i = 0; i < ROMAN_NUMERALS.length; i++) {
+                while (n >= ROMAN_NUMERALS[i].value) {
+                    result += ROMAN_NUMERALS[i].numeral;
+                    n -= ROMAN_NUMERALS[i].value;
+                }
+            }
+            return result;
+        }
+
+        function fromRoman(str) {
+            if (!str) return NaN;
+            str = str.toUpperCase().trim();
+            // Validación con Regex Estricto Romano (1 a 3999)
+            const strictRegex = /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+            if (!strictRegex.test(str)) {
+                return NaN;
+            }
+            const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+            let total = 0;
+            for (let i = 0; i < str.length; i++) {
+                const current = map[str[i]];
+                const next = map[str[i + 1]];
+                if (next && current < next) {
+                    total -= current;
+                } else {
+                    total += current;
+                }
+            }
+            return total;
+        }
+
+        // SISTEMA DE SONIDOS SINTETIZADOS (Web Audio API nativo)
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioContext();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.1); // E5
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.2); // G5
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.linearRampToValueAtTime(140, now + 0.25);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'fanfare') {
+                    const freqs = [523.25, 659.25, 783.99, 1046.50];
+                    freqs.forEach((f, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.value = f;
+                        g.gain.setValueAtTime(0.2, now + idx * 0.12);
+                        g.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.12 + 0.3);
+                        o.start(now + idx * 0.12);
+                        o.stop(now + idx * 0.12 + 0.3);
+                    });
+                }
+            } catch (e) {
+                console.log("Audio not allowed yet");
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById('btn-sound');
+            if (btn) btn.textContent = soundEnabled ? '🔊' : '🔇';
+        }
+
+        // GAMIFICACIÓN Y RANGOS
+        function addXP(amount) {
+            totalXP += amount;
+            streak++;
+            solvedCount++;
+            localStorage.setItem('alvaro_romanos_xp', totalXP);
+            localStorage.setItem('alvaro_romanos_streak', streak);
+            localStorage.setItem('alvaro_romanos_solved', solvedCount);
+            updateStatsUI();
+        }
+
+        function resetStreak() {
+            streak = 0;
+            localStorage.setItem('alvaro_romanos_streak', streak);
+            updateStatsUI();
+        }
+
+        function getImperialRank(xp) {
+            if (xp >= 1500) return 'César Emperador 👑';
+            if (xp >= 1000) return 'Cónsul Romano 🏛️';
+            if (xp >= 600)  return 'Tribuno Militar ⚔️';
+            if (xp >= 300)  return 'Centurión 🛡️';
+            if (xp >= 100)  return 'Legionario 🗡️';
+            return 'Recluta Imperial 🪖';
+        }
+
+        function updateStatsUI() {
+            const xpNav = document.getElementById('nav-xp-counter');
+            const streakNav = document.getElementById('nav-streak-counter');
+            const rankNav = document.getElementById('nav-rank-badge');
+            const totalXpStat = document.getElementById('stat-total-xp');
+            const solvedStat = document.getElementById('stat-solved-count');
+            const rankStat = document.getElementById('stat-rank-display');
+
+            const rank = getImperialRank(totalXP);
+
+            if (xpNav) xpNav.textContent = totalXP + ' XP';
+            if (streakNav) streakNav.textContent = streak;
+            if (rankNav) rankNav.textContent = rank.split(' ')[0];
+            if (totalXpStat) totalXpStat.textContent = totalXP + ' XP';
+            if (solvedStat) solvedStat.textContent = solvedCount + '/35';
+            if (rankStat) rankStat.textContent = rank;
+
+            const pct = Math.min(100, Math.round((solvedCount / 35) * 100));
+            const pBar = document.getElementById('sidebar-progress-bar');
+            const pTxt = document.getElementById('sidebar-progress-pct');
+            if (pBar) pBar.style.width = pct + '%';
+            if (pTxt) pTxt.textContent = pct + '%';
+
+            const sprintRecEl = document.getElementById('sprint-record-val');
+            if (sprintRecEl) sprintRecEl.textContent = sprintRecord;
+        }
+
+        function resetAllProgress() {
+            if (confirm("¿Estás seguro de que deseas reiniciar todos los puntos XP y registros del tema?")) {
+                totalXP = 0;
+                streak = 0;
+                solvedCount = 0;
+                sprintRecord = 0;
+                localStorage.removeItem('alvaro_romanos_xp');
+                localStorage.removeItem('alvaro_romanos_streak');
+                localStorage.removeItem('alvaro_romanos_solved');
+                localStorage.removeItem('alvaro_romanos_sprint_rec');
+                updateStatsUI();
+                alert("Puntuación reiniciada con éxito.");
+            }
+        }
+
+        // NAVEGACIÓN ENTRE PESTAÑAS
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+            const targetPanel = document.getElementById(tabId);
+            if (targetPanel) targetPanel.classList.add('active');
+
+            const tabMap = {
+                'tab-teoria': '1. Apuntes & Teoría de Oro',
+                'tab-conversor': '2. Conversor & Descompositor',
+                'tab-practica': '3. Taller (Romano ↔ Decimal)',
+                'tab-detective': '4. Detective de Errores',
+                'tab-siglos': '5. Reto de Siglos & Relojes',
+                'tab-coliseo': '6. Coliseo Contrarreloj (2 min)',
+                'tab-print': '7. Ficha Imprimible A4'
+            };
+
+            const mobileLabel = document.getElementById('mobile-current-tab-label');
+            if (mobileLabel && tabMap[tabId]) mobileLabel.textContent = tabMap[tabId];
+
+            const btns = document.querySelectorAll('.sidebar-tab-btn');
+            const keys = Object.keys(tabMap);
+            const idx = keys.indexOf(tabId);
+            if (idx >= 0 && btns[idx]) btns[idx].classList.add('active');
+
+            const sb = document.getElementById('app-sidebar');
+            if (sb) sb.classList.remove('mobile-open');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileSidebar() {
+            const sb = document.getElementById('app-sidebar');
+            if (sb) sb.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(e) {
+            e.stopPropagation();
+            const dd = document.getElementById('topic-dropdown-menu');
+            if (dd) dd.classList.toggle('active');
+        }
+
+        document.addEventListener('click', () => {
+            const dd = document.getElementById('topic-dropdown-menu');
+            if (dd) dd.classList.remove('active');
+        });
+
+        // MODO CLARO / OSCURO
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('alvaro_theme', isDark ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('alvaro_theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // MODAL CHULETA
+        function openQuickCheatSheet() {
+            document.getElementById('quickCheatModal').classList.add('active');
+        }
+        function closeQuickCheatSheet() {
+            document.getElementById('quickCheatModal').classList.remove('active');
+        }
+
+        // =========================================================================
+        // PESTAÑA 1: INSPECCIÓN DE LETRAS
+        // =========================================================================
+        function inspectLetter(letter, val, canRepeat) {
+            playSound('correct');
+            alert(`Letra ${letter} = ${val}\n${canRepeat ? '✅ Es letra PRINCIPAL: Se puede repetir hasta 3 veces y puede restar.' : '❌ Es letra SECUNDARIA: NUNCA se repite ni resta.'}`);
+        }
+
+        // =========================================================================
+        // PESTAÑA 2: CONVERSOR & DESCOMPOSITOR MÁGICO
+        // =========================================================================
+        function handleDecimalInput(val) {
+            const num = parseInt(val);
+            const romanInput = document.getElementById('conv-roman-input');
+            const fb = document.getElementById('conv-feedback-box');
+            const decomp = document.getElementById('decomp-display');
+
+            if (isNaN(num) || num <= 0) {
+                romanInput.value = "";
+                decomp.style.display = 'none';
+                fb.style.display = 'none';
+                return;
+            }
+
+            if (num > 3999) {
+                // Modo raya multiplicadora de millar
+                const thousands = Math.floor(num / 1000);
+                const remainder = num % 1000;
+                const romanThousands = toRoman(thousands);
+                const romanRemainder = toRoman(remainder);
+                romanInput.value = romanThousands + "̅" + romanRemainder;
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = `📏 <strong>Número mayor de 3.999:</strong> Usa la raya superior. <span style="text-decoration:overline; font-weight:900;">${romanThousands}</span> (${thousands} × 1.000) + ${romanRemainder} (${remainder}).`;
+                fb.style.display = 'block';
+                decomp.style.display = 'none';
+                return;
+            }
+
+            const rom = toRoman(num);
+            romanInput.value = rom;
+            renderDecomposition(num, rom);
+            fb.style.display = 'none';
+        }
+
+        function handleRomanInput(val) {
+            const raw = val.trim().toUpperCase();
+            document.getElementById('conv-roman-input').value = raw;
+            const decInput = document.getElementById('conv-decimal-input');
+            const fb = document.getElementById('conv-feedback-box');
+            const decomp = document.getElementById('decomp-display');
+
+            if (!raw) {
+                decInput.value = "";
+                decomp.style.display = 'none';
+                fb.style.display = 'none';
+                return;
+            }
+
+            const num = fromRoman(raw);
+            if (isNaN(num)) {
+                decInput.value = "";
+                decomp.style.display = 'none';
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `❌ <strong>«${raw}» no es un número romano válido.</strong> Revisa las reglas: no repitas más de 3 veces (I, X, C, M), no repitas V, L, D y usa solo las parejas de resta permitidas (IV, IX, XL, XC, CD, CM).`;
+                fb.style.display = 'block';
+            } else {
+                decInput.value = num;
+                renderDecomposition(num, raw);
+                fb.style.display = 'none';
+            }
+        }
+
+        function renderDecomposition(num, rom) {
+            const decomp = document.getElementById('decomp-display');
+            const container = document.getElementById('decomp-steps-container');
+            const note = document.getElementById('decomp-rule-note');
+            container.innerHTML = "";
+
+            const thousands = Math.floor(num / 1000) * 1000;
+            const hundreds = Math.floor((num % 1000) / 100) * 100;
+            const tens = Math.floor((num % 100) / 10) * 10;
+            const units = num % 10;
+
+            const parts = [
+                { type: 'Millares', val: thousands, rom: toRoman(thousands) },
+                { type: 'Centenas', val: hundreds, rom: toRoman(hundreds) },
+                { type: 'Decenas', val: tens, rom: toRoman(tens) },
+                { type: 'Unidades', val: units, rom: toRoman(units) }
+            ].filter(p => p.val > 0);
+
+            parts.forEach((p, index) => {
+                const block = document.createElement('div');
+                block.className = 'decomp-block';
+                block.innerHTML = `
+                    <div class="decomp-block-type">${p.type}</div>
+                    <div class="decomp-block-num">${p.val}</div>
+                    <div class="decomp-block-arrow">↓</div>
+                    <div class="decomp-block-roman">${p.rom}</div>
+                `;
+                container.appendChild(block);
+
+                if (index < parts.length - 1) {
+                    const plus = document.createElement('div');
+                    plus.className = 'decomp-plus-sign';
+                    plus.textContent = '+';
+                    container.appendChild(plus);
+                }
+            });
+
+            decomp.style.display = 'block';
+            note.innerHTML = `💡 <strong>Resultado final ensamblado:</strong> <code>${num}</code> = <strong>${rom}</strong>`;
+        }
+
+        function pressKeypad(letter) {
+            const input = document.getElementById('conv-roman-input');
+            input.value += letter;
+            handleRomanInput(input.value);
+            playSound('correct');
+        }
+
+        function backspaceKeypad() {
+            const input = document.getElementById('conv-roman-input');
+            input.value = input.value.slice(0, -1);
+            handleRomanInput(input.value);
+        }
+
+        function clearKeypad() {
+            document.getElementById('conv-roman-input').value = "";
+            document.getElementById('conv-decimal-input').value = "";
+            document.getElementById('decomp-display').style.display = 'none';
+            document.getElementById('conv-feedback-box').style.display = 'none';
+        }
+
+        function loadRandomToConverter() {
+            const randoms = [4, 9, 14, 29, 44, 49, 88, 99, 149, 494, 999, 1492, 1789, 1984, 2026, 3456];
+            const pick = randoms[Math.floor(Math.random() * randoms.length)];
+            document.getElementById('conv-decimal-input').value = pick;
+            handleDecimalInput(pick);
+            playSound('correct');
+        }
+
+        // =========================================================================
+        // PESTAÑA 3: TALLER DE PRÁCTICA
+        // =========================================================================
+        let practiceState = {
+            level: 1,
+            mode: 'dec2rom',
+            currentDec: 48,
+            currentRom: 'XLVIII',
+            isCurrentDecToRom: true
+        };
+
+        function setPracticeLevel(lvl) {
+            practiceState.level = lvl;
+            document.querySelectorAll('.level-pill-btn').forEach((b, i) => {
+                b.classList.toggle('active', i + 1 === lvl);
+            });
+            nextPracticeChallenge();
+        }
+
+        function setPracticeMode(mode) {
+            practiceState.mode = mode;
+            document.getElementById('btn-mode-dec-to-rom').style.background = mode === 'dec2rom' ? 'var(--primary)' : '';
+            document.getElementById('btn-mode-rom-to-dec').style.background = mode === 'rom2dec' ? 'var(--primary)' : '';
+            document.getElementById('btn-mode-mixed').style.background = mode === 'mixed' ? 'var(--primary)' : '';
+            nextPracticeChallenge();
+        }
+
+        function nextPracticeChallenge() {
+            let min = 1, max = 50;
+            if (practiceState.level === 2) { min = 51; max = 1000; }
+            if (practiceState.level === 3) { min = 1001; max = 3999; }
+
+            const num = Math.floor(Math.random() * (max - min + 1)) + min;
+            practiceState.currentDec = num;
+            practiceState.currentRom = toRoman(num);
+
+            if (practiceState.mode === 'mixed') {
+                practiceState.isCurrentDecToRom = Math.random() > 0.5;
+            } else {
+                practiceState.isCurrentDecToRom = (practiceState.mode === 'dec2rom');
+            }
+
+            const prompt = document.getElementById('practice-prompt-label');
+            const display = document.getElementById('practice-challenge-display');
+            const input = document.getElementById('practice-user-input');
+            const fb = document.getElementById('practice-feedback');
+            const miniKeypad = document.getElementById('practice-mini-keypad');
+
+            input.value = "";
+            input.className = "challenge-input";
+            fb.style.display = 'none';
+
+            if (practiceState.isCurrentDecToRom) {
+                prompt.textContent = "¿Cómo se escribe este número en cifras romanas?";
+                display.textContent = num;
+                input.placeholder = "Escribe en romano...";
+                miniKeypad.style.display = 'flex';
+            } else {
+                prompt.textContent = "¿Qué número decimal representa esta cifra romana?";
+                display.textContent = practiceState.currentRom;
+                input.placeholder = "Escribe en número normal...";
+                miniKeypad.style.display = 'none';
+            }
+            input.focus();
+        }
+
+        function pressPracticeKey(l) {
+            const input = document.getElementById('practice-user-input');
+            input.value += l;
+            input.focus();
+        }
+
+        function backspacePracticeKey() {
+            const input = document.getElementById('practice-user-input');
+            input.value = input.value.slice(0, -1);
+            input.focus();
+        }
+
+        function checkPracticeAnswer() {
+            const input = document.getElementById('practice-user-input');
+            const fb = document.getElementById('practice-feedback');
+            const userVal = input.value.trim().toUpperCase();
+
+            if (!userVal) {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = '⚠️ Escribe tu respuesta antes de comprobar.';
+                return;
+            }
+
+            let correct = false;
+            if (practiceState.isCurrentDecToRom) {
+                correct = (userVal === practiceState.currentRom);
+            } else {
+                correct = (parseInt(userVal) === practiceState.currentDec);
+            }
+
+            if (correct) {
+                input.className = 'challenge-input is-correct';
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = `🎉 <strong>¡Exacto!</strong> <code>${practiceState.currentDec}</code> = <strong>${practiceState.currentRom}</strong>. ¡Gran trabajo!`;
+                playSound('correct');
+                addXP(15);
+                setTimeout(nextPracticeChallenge, 1500);
+            } else {
+                input.className = 'challenge-input is-wrong';
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `❌ No es correcto. La respuesta correcta es <strong>${practiceState.isCurrentDecToRom ? practiceState.currentRom : practiceState.currentDec}</strong>. ¡Revisa la descomposición!`;
+                playSound('wrong');
+                resetStreak();
+            }
+        }
+
+        function getPracticeHint() {
+            const fb = document.getElementById('practice-feedback');
+            const num = practiceState.currentDec;
+            const hundreds = Math.floor((num % 1000) / 100) * 100;
+            const tens = Math.floor((num % 100) / 10) * 10;
+            const units = num % 10;
+            fb.className = 'exercise-feedback-box';
+            fb.style.display = 'block';
+            fb.style.background = 'var(--roman-gold-light)';
+            fb.style.color = '#78350f';
+            fb.innerHTML = `💡 <strong>Pista del Profe:</strong> Descompón: ${hundreds > 0 ? hundreds + ' (' + toRoman(hundreds) + ') + ' : ''}${tens > 0 ? tens + ' (' + toRoman(tens) + ') + ' : ''}${units} (${toRoman(units)}).`;
+        }
+
+        // =========================================================================
+        // PESTAÑA 4: DETECTIVE DE ERRORES (¿BIEN O MAL?)
+        // =========================================================================
+        const DETECTIVE_CASES = [
+            { text: "IIII", valid: false, reason: "No se puede repetir la letra 'I' más de 3 veces. Se debe escribir IV (4)." },
+            { text: "VV", valid: false, reason: "La letra 'V' (5) no se puede repetir nunca. 5 + 5 = 10, y 10 ya tiene letra propia: X." },
+            { text: "XCIX", valid: true, reason: "¡Totalmente correcto! 90 (XC) + 9 (IX) = 99." },
+            { text: "IL", valid: false, reason: "La letra 'I' solo puede restar a V y a X. Para escribir 49 se escribe XLIX (40 + 9)." },
+            { text: "CDXCIV", valid: true, reason: "¡Perfecto! 400 (CD) + 90 (XC) + 4 (IV) = 494." },
+            { text: "VX", valid: false, reason: "Las letras secundarias (V, L, D) NUNCA se colocan a la izquierda para restar. 10 - 5 = 5 se escribe V." },
+            { text: "IC", valid: false, reason: "'I' solo resta a V y X, no a C. Para 99 se escribe XCIX (90 + 9)." },
+            { text: "MDCLXVI", valid: true, reason: "¡Excelente! 1000 (M) + 500 (D) + 100 (C) + 50 (L) + 10 (X) + 5 (V) + 1 (I) = 1666 (¡todas las letras de mayor a menor!)." },
+            { text: "LL", valid: false, reason: "'L' (50) nunca se puede repetir. 50 + 50 = 100, y 100 se escribe C." },
+            { text: "XD", valid: false, reason: "'X' solo puede restar a L y a C, nunca a D. Para escribir 490 se escribe CDXC (400 + 90)." },
+            { text: "VIII", valid: true, reason: "¡Correcto! 5 + 1 + 1 + 1 = 8. 'I' se repite 3 veces, que es el máximo permitido." },
+            { text: "IIX", valid: false, reason: "Nunca se pueden poner dos letras restando a la vez a la izquierda. Para escribir 8 se escribe VIII (5 + 3)." }
+        ];
+
+        let currentDetectiveIdx = 0;
+        let detectiveScore = 0;
+
+        function generateDetectiveCase() {
+            currentDetectiveIdx = Math.floor(Math.random() * DETECTIVE_CASES.length);
+            const item = DETECTIVE_CASES[currentDetectiveIdx];
+            document.getElementById('detective-number-display').textContent = item.text;
+            document.getElementById('detective-feedback').style.display = 'none';
+            document.getElementById('btn-next-detective').style.display = 'none';
+        }
+
+        function submitDetectiveVerdict(userThinksValid) {
+            const item = DETECTIVE_CASES[currentDetectiveIdx];
+            const fb = document.getElementById('detective-feedback');
+            const nextBtn = document.getElementById('btn-next-detective');
+
+            if (userThinksValid === item.valid) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = `🎉 <strong>¡Acertaste, detective!</strong> ${item.valid ? 'Efectivamente es un número válido.' : '¡Bien visto! Era una infracción a las reglas.'}<br>📖 <em>Explicación:</em> ${item.reason}`;
+                playSound('correct');
+                detectiveScore++;
+                document.getElementById('detective-score').textContent = detectiveScore;
+                addXP(20);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `❌ <strong>¡Te ha engañado el manuscrito!</strong> En realidad ${item.valid ? 'SÍ era válido.' : 'NO era válido (cometía trampa).'}<br>📖 <em>Explicación oficial:</em> ${item.reason}`;
+                playSound('wrong');
+                resetStreak();
+            }
+            nextBtn.style.display = 'inline-block';
+        }
+
+        // =========================================================================
+        // PESTAÑA 5: SIGLOS & RELOJES ROMANOS
+        // =========================================================================
+        const HISTORIC_EVENTS = [
+            { name: "Descubrimiento de América", year: 1492, centuryRom: "XV", centuryDec: 15 },
+            { name: "Revolución Francesa", year: 1789, centuryRom: "XVIII", centuryDec: 18 },
+            { name: "Llegada del Hombre a la Luna", year: 1969, centuryRom: "XX", centuryDec: 20 },
+            { name: "Año Actual (Hoy)", year: 2026, centuryRom: "XXI", centuryDec: 21 },
+            { name: "Coronación de Carlomagno", year: 800, centuryRom: "VIII", centuryDec: 8 },
+            { name: "Caída del Imperio Romano de Occidente", year: 476, centuryRom: "V", centuryDec: 5 },
+            { name: "Inicio de la Edad Contemporánea", year: 1800, centuryRom: "XVIII", centuryDec: 18 },
+            { name: "Invasión Musulmana de la Península", year: 711, centuryRom: "VIII", centuryDec: 8 }
+        ];
+
+        let currentEvent = null;
+
+        function nextCenturyChallenge() {
+            currentEvent = HISTORIC_EVENTS[Math.floor(Math.random() * HISTORIC_EVENTS.length)];
+            document.getElementById('event-name-display').textContent = currentEvent.name;
+            document.getElementById('event-year-display').textContent = "Año " + currentEvent.year;
+            document.getElementById('century-user-input').value = "";
+            document.getElementById('century-feedback').style.display = 'none';
+        }
+
+        function checkCenturyAnswer() {
+            const input = document.getElementById('century-user-input');
+            const fb = document.getElementById('century-feedback');
+            const userVal = input.value.trim().toUpperCase();
+
+            if (!userVal) return;
+
+            const isCorrect = (userVal === currentEvent.centuryRom || parseInt(userVal) === currentEvent.centuryDec);
+
+            if (isCorrect) {
+                fb.className = 'exercise-feedback-box correct';
+                const endsIn00 = (currentEvent.year % 100 === 0);
+                fb.innerHTML = `🎉 <strong>¡Correcto!</strong> El año ${currentEvent.year} pertenece al <strong>Siglo ${currentEvent.centuryRom}</strong> (${currentEvent.centuryDec}).<br>${endsIn00 ? 'Como acaba en 00, se quitan los ceros directamente.' : 'Como no acaba en 00, aplicamos la regla: ' + Math.floor(currentEvent.year / 100) + ' + 1 = ' + currentEvent.centuryDec + '.'}`;
+                playSound('correct');
+                addXP(15);
+                setTimeout(nextCenturyChallenge, 2000);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `❌ No es correcto. El año ${currentEvent.year} pertenece al <strong>Siglo ${currentEvent.centuryRom}</strong>. Recuerda la regla del profe.`;
+                playSound('wrong');
+                resetStreak();
+            }
+        }
+
+        let currentClockHours = 8;
+        let currentClockMinutes = 20;
+
+        function generateRandomClockTime() {
+            currentClockHours = Math.floor(Math.random() * 12) + 1; // 1 to 12
+            const minuteSteps = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+            currentClockMinutes = minuteSteps[Math.floor(Math.random() * minuteSteps.length)];
+
+            // Rotar manecillas
+            // Hora: 360 / 12 = 30 deg por hora + 0.5 deg por minuto
+            const hourAngle = (currentClockHours % 12) * 30 + (currentClockMinutes * 0.5);
+            const minuteAngle = currentClockMinutes * 6; // 360 / 60 = 6 deg
+
+            const hourHand = document.getElementById('clock-hour-hand');
+            const minuteHand = document.getElementById('clock-minute-hand');
+
+            // x1=100, y1=100, x2 = 100 + r * sin(angle), y2 = 100 - r * cos(angle)
+            const rHour = 45;
+            const rMin = 65;
+            const radH = (hourAngle * Math.PI) / 180;
+            const radM = (minuteAngle * Math.PI) / 180;
+
+            hourHand.setAttribute('x2', 100 + rHour * Math.sin(radH));
+            hourHand.setAttribute('y2', 100 - rHour * Math.cos(radH));
+
+            minuteHand.setAttribute('x2', 100 + rMin * Math.sin(radM));
+            minuteHand.setAttribute('y2', 100 - rMin * Math.cos(radM));
+
+            document.getElementById('clock-user-input').value = "";
+            document.getElementById('clock-feedback').style.display = 'none';
+        }
+
+        function checkClockAnswer() {
+            const input = document.getElementById('clock-user-input');
+            const fb = document.getElementById('clock-feedback');
+            const val = input.value.trim().replace('.', ':');
+
+            const hStr = currentClockHours.toString().padStart(2, '0');
+            const mStr = currentClockMinutes.toString().padStart(2, '0');
+            const expected24h = `${hStr}:${mStr}`;
+            const expectedShort = `${currentClockHours}:${mStr}`;
+
+            if (val === expected24h || val === expectedShort) {
+                fb.className = 'exercise-feedback-box correct';
+                fb.innerHTML = `🎉 <strong>¡Perfecto!</strong> El reloj marca las <strong>${expectedShort}</strong> (${toRoman(currentClockHours)} horas y ${toRoman(currentClockMinutes)} minutos).`;
+                playSound('correct');
+                addXP(15);
+                setTimeout(generateRandomClockTime, 1800);
+            } else {
+                fb.className = 'exercise-feedback-box wrong';
+                fb.innerHTML = `❌ Revisa la posición: la manecilla corta (horas) apunta cerca de ${toRoman(currentClockHours)} y la larga (minutos) a ${currentClockMinutes} min.`;
+                playSound('wrong');
+                resetStreak();
+            }
+        }
+
+        // =========================================================================
+        // PESTAÑA 6: EL COLISEO CONTRARRELOJ (SPRINT 2 MIN)
+        // =========================================================================
+        let sprintInterval = null;
+        let sprintTimeLeft = 120;
+        let sprintScore = 0;
+        let sprintMultiplier = 1;
+        let sprintCurrentAnswer = "";
+
+        function startColiseumSprint() {
+            document.getElementById('sprint-start-view').style.display = 'none';
+            document.getElementById('sprint-active-view').style.display = 'block';
+
+            sprintTimeLeft = 120;
+            sprintScore = 0;
+            sprintMultiplier = 1;
+            updateSprintHUD();
+
+            clearInterval(sprintInterval);
+            sprintInterval = setInterval(() => {
+                sprintTimeLeft--;
+                updateSprintHUD();
+                if (sprintTimeLeft <= 0) {
+                    endColiseumSprint();
+                }
+            }, 1000);
+
+            nextSprintQuestion();
+            playSound('correct');
+        }
+
+        function updateSprintHUD() {
+            document.getElementById('sprint-timer-val').textContent = sprintTimeLeft;
+            document.getElementById('sprint-score-val').textContent = sprintScore;
+            document.getElementById('sprint-combo-val').textContent = `x${sprintMultiplier}`;
+
+            const pct = (sprintTimeLeft / 120) * 100;
+            document.getElementById('sprint-timer-bar').style.width = pct + '%';
+        }
+
+        function nextSprintQuestion() {
+            const num = Math.floor(Math.random() * 300) + 1;
+            sprintCurrentAnswer = toRoman(num);
+            document.getElementById('sprint-question-num').textContent = num;
+
+            // Generar 3 opciones erróneas convincentes
+            const options = [sprintCurrentAnswer];
+            while (options.length < 4) {
+                const delta = (Math.floor(Math.random() * 5) + 1) * (Math.random() > 0.5 ? 1 : -1);
+                const fakeNum = Math.max(1, num + delta);
+                const fakeRom = toRoman(fakeNum);
+                if (!options.includes(fakeRom)) options.push(fakeRom);
+            }
+
+            // Mezclar
+            options.sort(() => Math.random() - 0.5);
+
+            const container = document.getElementById('sprint-options-container');
+            container.innerHTML = "";
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-sprint-option';
+                btn.textContent = opt;
+                btn.onclick = () => submitSprintOption(opt);
+                container.appendChild(btn);
+            });
+        }
+
+        function submitSprintOption(selected) {
+            if (selected === sprintCurrentAnswer) {
+                sprintScore += 1 * sprintMultiplier;
+                if (sprintScore % 5 === 0 && sprintMultiplier < 4) sprintMultiplier++;
+                playSound('correct');
+            } else {
+                sprintMultiplier = 1;
+                playSound('wrong');
+            }
+            updateSprintHUD();
+            nextSprintQuestion();
+        }
+
+        function endColiseumSprint() {
+            clearInterval(sprintInterval);
+            playSound('fanfare');
+            if (sprintScore > sprintRecord) {
+                sprintRecord = sprintScore;
+                localStorage.setItem('alvaro_romanos_sprint_rec', sprintRecord);
+                alert(`🏛️ ¡TIEMPO AGOTADO! 🏛️\n\n¡¡NUEVO RÉCORD IMPERIAL!!\nHas conseguido ${sprintScore} puntos en 2 minutos.\n¡Te has ganado el título de Gladiador de Roma!`);
+            } else {
+                alert(`🏛️ ¡TIEMPO AGOTADO! 🏛️\n\nHas conseguido ${sprintScore} puntos.\nTu récord actual es de ${sprintRecord} puntos.`);
+            }
+            addXP(sprintScore * 5);
+            document.getElementById('sprint-start-view').style.display = 'block';
+            document.getElementById('sprint-active-view').style.display = 'none';
+        }
+
+        // =========================================================================
+        // PESTAÑA 7: FICHA IMPRIMIBLE A4
+        // =========================================================================
+        function generateNewPrintableSheet() {
+            // Ejercicio 1: Decimal a Romano
+            const ex1Nums = [14, 29, 44, 76, 95, 149, 482, 890, 1984];
+            const ex1Container = document.getElementById('sheet-ex1-container');
+            ex1Container.innerHTML = "";
+            ex1Nums.forEach(n => {
+                const line = document.createElement('div');
+                line.className = 'sheet-item-line';
+                line.innerHTML = `<span><strong>${n}</strong> = __________</span> <span class="sheet-solution-tag">${toRoman(n)}</span>`;
+                ex1Container.appendChild(line);
+            });
+
+            // Ejercicio 2: Romano a Decimal
+            const ex2Roms = ["XVI", "XLVIII", "LXXIX", "XCIV", "CCXXXV", "CDL", "DCCXVIII", "CMXX", "MCMXCIX"];
+            const ex2Container = document.getElementById('sheet-ex2-container');
+            ex2Container.innerHTML = "";
+            ex2Roms.forEach(r => {
+                const line = document.createElement('div');
+                line.className = 'sheet-item-line';
+                line.innerHTML = `<span><strong>${r}</strong> = __________</span> <span class="sheet-solution-tag">${fromRoman(r)}</span>`;
+                ex2Container.appendChild(line);
+            });
+
+            // Ejercicio 3: Siglos
+            const ex3Years = [
+                { y: 711, s: "VIII" }, { y: 1492, s: "XV" }, { y: 1789, s: "XVIII" },
+                { y: 1800, s: "XVIII" }, { y: 1969, s: "XX" }, { y: 2026, s: "XXI" }
+            ];
+            const ex3Container = document.getElementById('sheet-ex3-container');
+            ex3Container.innerHTML = "";
+            ex3Years.forEach(item => {
+                const line = document.createElement('div');
+                line.className = 'sheet-item-line';
+                line.innerHTML = `<span>Año <strong>${item.y}</strong> → Siglo ______</span> <span class="sheet-solution-tag">Siglo ${item.s}</span>`;
+                ex3Container.appendChild(line);
+            });
+
+            // Ejercicio 4: Corregir errores
+            const ex4Errors = [
+                { bad: "IIII", good: "IV" }, { bad: "VV", good: "X" }, { bad: "IL", good: "XLIX" },
+                { bad: "IC", good: "XCIX" }, { bad: "VX", good: "V" }, { bad: "CCCC", good: "CD" }
+            ];
+            const ex4Container = document.getElementById('sheet-ex4-container');
+            ex4Container.innerHTML = "";
+            ex4Errors.forEach(item => {
+                const line = document.createElement('div');
+                line.className = 'sheet-item-line';
+                line.innerHTML = `<span>❌ <strong>${item.bad}</strong> → Correcto: ________</span> <span class="sheet-solution-tag">${item.good}</span>`;
+                ex4Container.appendChild(line);
+            });
+        }
+
+        function toggleSheetSolutions(show) {
+            const paper = document.getElementById('printable-sheet-paper');
+            if (show) paper.classList.add('show-solutions');
+            else paper.classList.remove('show-solutions');
+        }
+
+        // INICIALIZACIÓN
+        window.addEventListener('DOMContentLoaded', () => {
+            updateStatsUI();
+            nextPracticeChallenge();
+            generateDetectiveCase();
+            nextCenturyChallenge();
+            generateRandomClockTime();
+            generateNewPrintableSheet();
+        });
+    </script>
+</body>
+
+</html>
