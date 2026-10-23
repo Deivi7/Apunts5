@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pas del Temps: Història & Nombres Romans | Projecte 5è | Álvaro Study Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Estils globals i específics -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <!-- Top Navbar Unificat -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Tornar al Portal Central">
+                <span>←</span> Tornar a Temes
+            </a>
+            <div class="topic-badge-header">
+                <span>⏳</span> Projecte • El Pas del Temps
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 Canviar Tema</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">
+                        Temes de Projecte (Medi)
+                    </div>
+                    <a href="../coordenadas/Apuntes.html" class="topic-dropdown-item">
+                        <strong>1. Orienta't i atrapa'ls (Coordenades & Pokémon)</strong>
+                    </a>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>2. El Pas del Temps (Història & Nombres Romans)</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Obrir Xulla Ràpida">
+                <span>💡</span> Xulla Ràpida
+            </button>
+            <div class="score-pill-nav" title="Punts d'experiència">
+                <span>⚡</span> <span id="nav-xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Racha d'encerts consecutius">
+                <span>🔥</span> <span id="nav-streak-counter">0</span>
+            </div>
+            <div class="score-pill-nav" title="Rang d'Historiador">
+                <span>🏛️</span> <span id="nav-rank-badge">Explorador</span>
+            </div>
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sons">🔊</button>
+            <button class="btn-icon-nav" id="btn-theme-toggle" onclick="toggleDarkMode()" title="Canviar Mode Clar/Fosc">🌓</button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Temàtic -->
+    <section class="module-hero hero-pasdeltemps">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">PROJECTE DE MEDI 5È • EL PAS DEL TEMPS</div>
+                <h1>El Pas del Temps: Història & Nombres Romans ⏳🏛️</h1>
+                <p>Comprèn les 5 grans etapes de la història de la humanitat, aprèn a mesurar el temps en lustres, dècades i segles, i domina el sistema dels nombres romans com un autèntic emperador!</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-rank-display">Explorador</div>
+                    <div class="stat-label">Rang Historiador</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-solved-count">0/42</div>
+                    <div class="stat-label">Reptes Fets</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Punts d'Èxit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Layout: Sidebar + Main Content -->
+    <div class="app-layout">
+        <!-- Mobile Sidebar Toggle -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div style="font-weight: 800; font-size: 0.9rem;">
+                <span>📖</span> <span id="mobile-current-tab-label">1. Apuntes: Teoria d'Or</span>
+            </div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú d'Activitats
+            </button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-topic-label">Projecte • 5è Primària</span>
+                <h3 class="sidebar-topic-title">El Pas del Temps</h3>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-meta">
+                        <span>Progrés del tema</span>
+                        <span id="sidebar-progress-pct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-bar">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Llistat de Pestanyes (Numeració Seqüencial Oficial) -->
+            <div class="sidebar-nav-list">
+                <button class="sidebar-tab-btn active" onclick="switchTab('tab-teoria')">
+                    <div class="tab-btn-content">
+                        <span>📖</span>
+                        <span>1. Apuntes & Teoria d'Or</span>
+                    </div>
+                    <span class="tab-badge-count">5è</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-romans')">
+                    <div class="tab-btn-content">
+                        <span>🏛️</span>
+                        <span>2. Nombres Romans (Taller)</span>
+                    </div>
+                    <span class="tab-badge-count">4 Retos</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-segles')">
+                    <div class="tab-btn-content">
+                        <span>⏳</span>
+                        <span>3. Anys, Segles & Cronologia</span>
+                    </div>
+                    <span class="tab-badge-count">Fitxa</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-h5p-drag')">
+                    <div class="tab-btn-content">
+                        <span>🎯</span>
+                        <span>4. Repte H5P: Classifica per Edats</span>
+                    </div>
+                    <span class="tab-badge-count">18 Targetes</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-h5p-blanks')">
+                    <div class="tab-btn-content">
+                        <span>✏️</span>
+                        <span>5. Repte H5P: Omple els Buits</span>
+                    </div>
+                    <span class="tab-badge-count">10 Frases</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-etapes-mindmap')">
+                    <div class="tab-btn-content">
+                        <span>🗺️</span>
+                        <span>6. Etapes & Mapa Mental</span>
+                    </div>
+                    <span class="tab-badge-count">5 Edats</span>
+                </button>
+                <button class="sidebar-tab-btn" onclick="switchTab('tab-documents')">
+                    <div class="tab-btn-content">
+                        <span>📁</span>
+                        <span>7. Biblioteca de Documents & Vídeos</span>
+                    </div>
+                    <span class="tab-badge-count">10 Arxius</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-action-btn" onclick="openQuickCheatSheet()">
+                    <span>💡</span> Xulla Ràpida del Temps
+                </button>
+                <button class="sidebar-reset-btn" onclick="resetAllProgress()">
+                    Reiniciar puntuació i progrés
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+
+            <!-- ==========================================================================
+                 PESTANYA 1: APUNTES & TEORIA D'OR (REGLA 9 DIDÀCTICA)
+                 ========================================================================== -->
+            <section class="tab-content-panel active" id="tab-teoria">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>📖</span> Teoria Didàctica: El Pas del Temps & Els Nombres Romans</h2>
+                        <p>Tot el que necessites saber per a 5è de Primària: com es mesura el temps, el truc del profe per saber els segles, les regles romanes i les 5 grans etapes històriques.</p>
+                    </div>
+                    <div>
+                        <button class="btn-check-action" onclick="switchTab('tab-h5p-drag')">
+                            <span>🎮</span> Anar al Joc de Classificar →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resource Hub Oficial de Classe -->
+                <div class="rule-box highlight-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🌟</div>
+                        <div>
+                            <h3 style="margin: 0;">Resource Hub de l'Escola</h3>
+                            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Accés directe a les eines digitals oficials de 5è</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Aquests són els espais oficials del tema creats per l'escola. Pots practicar-hi amb un sol clic:
+                    </p>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem;">
+                        <a href="https://view.genially.com/5c73dcab5d0e4e575e19003c" target="_blank" class="btn-check-action" style="text-decoration: none;">
+                            <span>✨</span> Obrir Genially Oficial: El Pas del Temps ↗
+                        </a>
+                        <a href="https://sites.google.com/site/elpasdeltemps5e/" target="_blank" class="btn-check-action" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); text-decoration: none;">
+                            <span>🌐</span> Obrir Google Sites de 5è ↗
+                        </a>
+                        <button class="btn-check-action" onclick="switchTab('tab-documents')" style="background: linear-gradient(135deg, #059669, #047857);">
+                            <span>📁</span> Veure els 10 Documents & Vídeos Drive →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 1. Què és i per a què serveix mesurar el temps? -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">⏳</div>
+                        <div>
+                            <h3>1. Què és el temps històric i per a què serveix mesurar-lo?</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Conceptes clau per a la vida quotidiana</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Des de fa milers d'anys, els éssers humans necessitem situar en el temps quan van succeir les coses. Si diem només "fa molt de temps", no sabem si va passar quan vivien els avis, a l'edat dels castells o a l'època de les cavernes.
+                        Per això, la història divideix el temps en unitats de mesura i en <strong>5 grans etapes històriques</strong> separades per invents o fets revolucionaris.
+                    </p>
+                    <div class="rule-examples-box">
+                        <strong>Com mesurem el temps històric? (Les unitats clau):</strong>
+                        <ul style="margin-left: 1.25rem; margin-top: 0.4rem; line-height: 1.6;">
+                            <li><strong>Any:</strong> 365 dies (el temps que triga la Terra a fer la volta al Sol).</li>
+                            <li><strong>Lustre:</strong> Un període de <strong>5 anys</strong> (Ex: 235 anys són 47 lustres).</li>
+                            <li><strong>Dècada:</strong> Un període de <strong>10 anys</strong> (Ex: La dècada dels 90 va del 1990 al 1999).</li>
+                            <li><strong>Segle:</strong> Un període de <strong>100 anys</strong> (Sempre s'escriu en nombres romans: s. XXI).</li>
+                            <li><strong>Mil·lenni:</strong> Un període de <strong>1.000 anys</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Vídeo integrat: Mesura del Temps -->
+                    <div style="margin-top: 1.25rem; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: var(--shadow-sm);">
+                        <video controls style="width: 100%; display: block; max-height: 380px;">
+                            <source src="documents/Medida del tiempo.mp4" type="video/mp4">
+                            El teu navegador no suporta el reproductor de vídeo.
+                        </video>
+                        <div style="padding: 0.6rem 0.85rem; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
+                            <span>🎬 <strong>Vídeo didàctic:</strong> Com es mesura el temps (lustres, dècades i segles)</span>
+                            <div style="display: flex; gap: 0.4rem;">
+                                <a href="https://www.youtube.com/watch?v=kXvimwd0uC0" target="_blank" class="btn-doc-download btn-doc-local" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">▶️ YouTube ↗</a>
+                                <a href="https://drive.google.com/open?id=1i84nkcmD4377uEERs64iisRBVDnYMplb&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">☁️ Drive ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Com comptem els anys: Abans de Crist (aC) i Després de Crist (dC) -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">✝️</div>
+                        <h3>2. Com comptem els anys: Abans de Crist (aC) i Després de Crist (dC)</h3>
+                    </div>
+                    <p class="rule-desc">
+                        A la nostra cultura, el punt de partida o <strong>any 1</strong> és el naixement de Jesucrist.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.75rem;">
+                        <div style="background: var(--bg-main); border: 2px solid #ef4444; border-radius: var(--radius-md); padding: 0.85rem;">
+                            <strong style="color: #dc2626; display: block; font-size: 1rem; margin-bottom: 0.35rem;">◀ Abans de Crist (aC)</strong>
+                            <p style="font-size: 0.88rem; line-height: 1.5;">
+                                Es compta <strong>cap enrere</strong>! Com més gran és el número, més antic és el fet.<br>
+                                <em>Exemple: L'any 500 aC va passar ABANS que l'any 200 aC.</em>
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-main); border: 2px solid #10b981; border-radius: var(--radius-md); padding: 0.85rem;">
+                            <strong style="color: #059669; display: block; font-size: 1rem; margin-bottom: 0.35rem;">Després de Crist (dC) ▶</strong>
+                            <p style="font-size: 0.88rem; line-height: 1.5;">
+                                Es compta <strong>cap endavant</strong>! Com més gran és el número, més actual és el fet.<br>
+                                <em>Exemple: L'any 2026 és més recent que l'any 1492.</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Truc del Profe per saber el Segle -->
+                    <div class="pro-trick-banner">
+                        <div class="pro-trick-icon">💡</div>
+                        <div class="pro-trick-content">
+                            <h4>El Truc del Profe: Com saber a quin segle pertany qualsevol any en 3 segons</h4>
+                            <p>
+                                <strong>1. Si l'any acaba en "00":</strong> Tapa els dos zeros. El que queda és el segle exacte.<br>
+                                <em>Exemple: any 1500 ➜ segle XV. Any 800 ➜ segle VIII. Any 2000 ➜ segle XX.</em><br><br>
+                                <strong>2. Si l'any NO acaba en "00":</strong> Tapa les dues últimes xifres i <strong>SUMA-LI 1</strong> al número restant!<br>
+                                <em>Exemple: 1492 ➜ Tapem el 92, queda 14 ➜ 14 + 1 = <strong>segle XV</strong>.<br>
+                                Exemple: 1789 ➜ Tapem el 89, queda 17 ➜ 17 + 1 = <strong>segle XVIII</strong>.<br>
+                                Exemple: 2026 ➜ Tapem el 26, queda 20 ➜ 20 + 1 = <strong>segle XXI</strong>.<br>
+                                Exemple: 75 aC ➜ Any de dues xifres (menor de 100) ➜ sempre és el <strong>segle I aC</strong>!</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Nombres Romans: Les 7 Lletres i les 4 Regles Sagrades -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🏛️</div>
+                        <div>
+                            <h3>3. Els Nombres Romans: 7 lletres i 4 regles fonamentals</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Els romans feien servir lletres per escriure nombres</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        A l'antiga Roma no tenien xifres com el 0, 1, 2... sinó que combinaven <strong>7 lletres majúscules</strong>:
+                    </p>
+
+                    <!-- Showcase interactiu de les 7 lletres -->
+                    <div class="letters-showcase-grid">
+                        <div class="letter-card primary-letter">
+                            <div class="letter-glyph">I</div>
+                            <div class="letter-value">1</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter">
+                            <div class="letter-glyph">V</div>
+                            <div class="letter-value">5</div>
+                            <span class="letter-badge-role norep">Mai es repeteix</span>
+                        </div>
+                        <div class="letter-card primary-letter">
+                            <div class="letter-glyph">X</div>
+                            <div class="letter-value">10</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter">
+                            <div class="letter-glyph">L</div>
+                            <div class="letter-value">50</div>
+                            <span class="letter-badge-role norep">Mai es repeteix</span>
+                        </div>
+                        <div class="letter-card primary-letter">
+                            <div class="letter-glyph">C</div>
+                            <div class="letter-value">100</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter">
+                            <div class="letter-glyph">D</div>
+                            <div class="letter-value">500</div>
+                            <span class="letter-badge-role norep">Mai es repeteix</span>
+                        </div>
+                        <div class="letter-card primary-letter">
+                            <div class="letter-glyph">M</div>
+                            <div class="letter-value">1000</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                    </div>
+
+                    <!-- Imatge oficial de la classe integrada -->
+                    <div style="margin: 1.25rem 0; text-align: center;">
+                        <img src="documents/Com llegir num romans.png" alt="Com llegir números romans infografia" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); border: 2px solid var(--border-color); box-shadow: var(--shadow-md);">
+                    </div>
+
+                    <!-- Les 4 Regles Sagrades -->
+                    <div class="rule-examples-box" style="margin-top: 1rem;">
+                        <strong>Les 4 Regles que SEMPRE cauen als exàmens de 5è:</strong>
+                        <ol style="margin-left: 1.25rem; margin-top: 0.5rem; line-height: 1.7;">
+                            <li><strong>Regla de la Suma:</strong> Si una lletra de valor menor o igual està a la DRETA, es <strong>SUMA</strong>.<br>
+                                <em>Exemples: VI = 5 + 1 = 6 | XV = 10 + 5 = 15 | CL = 100 + 50 = 150</em></li>
+                            <li><strong>Regla de la Resta:</strong> Si una lletra menor està a l'ESQUERRA d'una més gran, es <strong>RESTA</strong>.<br>
+                                <em>ATENCIÓ: Només es pot restar I (davant V i X ➜ IV=4, IX=9), X (davant L i C ➜ XL=40, XC=90) i C (davant D i M ➜ CD=400, CM=900)!</em></li>
+                            <li><strong>Regla de la Repetició:</strong> Només <strong>I, X, C i M</strong> es poden repetir com a màxim <strong>3 vegades seguides</strong>.<br>
+                                <em>Exemples: III = 3, XXX = 30, CCC = 300, MMM = 3000. MAI s'escriu IIII ni XXXX!</em></li>
+                            <li><strong>Regla de NO Repetició:</strong> Les lletres <strong>V, L i D MAI es repeteixen</strong> ni es posen a l'esquerra per restar.<br>
+                                <em>10 s'escriu X (mai VV!), 100 s'escriu C (mai LL!), 1000 s'escriu M (mai DD!).</em></li>
+                        </ol>
+                    </div>
+
+                    <!-- Vídeo integrat: Nombres Romans -->
+                    <div style="margin-top: 1.25rem; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: var(--shadow-sm);">
+                        <video controls poster="documents/Com llegir num romans.png" style="width: 100%; display: block; max-height: 380px;">
+                            <source src="documents/Numeros romanos.mp4" type="video/mp4">
+                            El teu navegador no suporta el reproductor de vídeo.
+                        </video>
+                        <div style="padding: 0.6rem 0.85rem; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
+                            <span>🎬 <strong>Vídeo didàctic:</strong> Els Nombres Romans explicats pas a pas (Eduteca)</span>
+                            <div style="display: flex; gap: 0.4rem;">
+                                <a href="https://www.youtube.com/watch?v=IAtWxaQLboY" target="_blank" class="btn-doc-download btn-doc-local" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">▶️ YouTube ↗</a>
+                                <a href="https://drive.google.com/open?id=1n_kjc5TyasUxPaNagRkejha0G0k1bN-N&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">☁️ Drive ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Les 5 Etapes Històriques -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🏰</div>
+                        <div>
+                            <h3>4. Les 5 Grans Etapes de la Història de la Humanitat</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">De l'origen de l'ésser humà fins als nostres dies</span>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto; margin-top: 0.75rem;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--bg-main); border-bottom: 2px solid var(--border-color); text-align: left;">
+                                    <th style="padding: 0.75rem;">Etapa Històrica</th>
+                                    <th style="padding: 0.75rem;">Començament (Fet inicial)</th>
+                                    <th style="padding: 0.75rem;">Final (Fet final)</th>
+                                    <th style="padding: 0.75rem;">Fets & Invents Destacats</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.75rem; font-weight: 800; color: #d97706;">1. PREHISTÒRIA</td>
+                                    <td style="padding: 0.75rem;">Aparició dels primers humans (fa ~5 milions d'anys)</td>
+                                    <td style="padding: 0.75rem;">Invenció de l'escriptura (~3.500 aC)</td>
+                                    <td style="padding: 0.75rem;">Foc, coves, pintures rupestres, nòmades, agricultura, roda i metalls.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.75rem; font-weight: 800; color: #2563eb;">2. EDAT ANTIGA</td>
+                                    <td style="padding: 0.75rem;">Invenció de l'escriptura (~3.500 aC)</td>
+                                    <td style="padding: 0.75rem;">Caiguda de l'Imperi Romà d'Occident (476 dC)</td>
+                                    <td style="padding: 0.75rem;">Piràmides d'Egipte, Grècia clàssica, Imperi Romà, primer paper i monedes.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.75rem; font-weight: 800; color: #7c3aed;">3. EDAT MITJANA</td>
+                                    <td style="padding: 0.75rem;">Caiguda de l'Imperi Romà (476 dC)</td>
+                                    <td style="padding: 0.75rem;">Descobriment d'Amèrica per Colom (1492)</td>
+                                    <td style="padding: 0.75rem;">Castells medievals, cavallers, feudalisme, art romànic i art gòtic.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.75rem; font-weight: 800; color: #059669;">4. EDAT MODERNA</td>
+                                    <td style="padding: 0.75rem;">Descobriment d'Amèrica (1492)</td>
+                                    <td style="padding: 0.75rem;">Revolució Francesa (1789)</td>
+                                    <td style="padding: 0.75rem;">La impremta de Gutenberg, grans viatges, microscopi, telescopi i màquina de vapor.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; font-weight: 800; color: #dc2626;">5. EDAT CONTEMPORÀNIA</td>
+                                    <td style="padding: 0.75rem;">Revolució Francesa (1789)</td>
+                                    <td style="padding: 0.75rem;">L'actualitat (els nostres dies)</td>
+                                    <td style="padding: 0.75rem;">Bombeta d'Edison, penicil·lina, automòbils, avions, coets a la Lluna, ordinadors i l'Euro.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Vídeos integrats: Etapes de la Història -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
+                        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: var(--shadow-sm);">
+                            <video controls style="width: 100%; display: block; max-height: 260px;">
+                                <source src="documents/HISTORIA para niños.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                            <div style="padding: 0.6rem 0.85rem; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
+                                <span>🎬 <strong>Història per a nens:</strong> Viatge animat</span>
+                                <div style="display: flex; gap: 0.4rem;">
+                                    <a href="https://www.youtube.com/watch?v=bMUox4s8RHw" target="_blank" class="btn-doc-download btn-doc-local" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">▶️ YouTube ↗</a>
+                                    <a href="https://drive.google.com/open?id=1kHVDm0_MzglzxW-fGN1Tf6X9mIe3uIkV&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">☁️ Drive ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); background: #000; box-shadow: var(--shadow-sm);">
+                            <video controls style="width: 100%; display: block; max-height: 260px;">
+                                <source src="documents/etapas de la historia.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                            <div style="padding: 0.6rem 0.85rem; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
+                                <span>🎬 <strong>Etapes de la Història:</strong> Explicació completa</span>
+                                <div style="display: flex; gap: 0.4rem;">
+                                    <a href="https://www.youtube.com/watch?time_continue=1&v=L0PRenMeb5k" target="_blank" class="btn-doc-download btn-doc-local" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">▶️ YouTube ↗</a>
+                                    <a href="https://drive.google.com/open?id=1DOqH2-yHD31FAJxn0_HMSuHRyToSzaGv&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive" style="padding: 0.25rem 0.6rem; font-size: 0.78rem;">☁️ Drive ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Taula d'Errors Típics: Bé vs Mal -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">❌</div>
+                        <h3>5. Compte amb les Trampes de l'Examen! (Bé vs Mal)</h3>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); padding: 1rem;">
+                            <strong style="color: #b91c1c; display: block; margin-bottom: 0.5rem;">❌ ERROR TÍPIC (MAL)</strong>
+                            <ul style="font-size: 0.88rem; line-height: 1.6; color: #7f1d1d; margin-left: 1.25rem;">
+                                <li>Escriure el 4 com <code>IIII</code> (es repeteix 4 cops!).</li>
+                                <li>Escriure el 99 com <code>IC</code> (la I només resta a V i X!).</li>
+                                <li>Escriure el 95 com <code>VC</code> (la V MAI resta!).</li>
+                                <li>Pensar que el 1492 és el segle XIV (com que no acaba en 00, és el segle XV!).</li>
+                                <li>Dir que l'any 500 aC és més recent que el 200 aC (en aC es compta cap enrere!).</li>
+                            </ul>
+                        </div>
+                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 1rem;">
+                            <strong style="color: #047857; display: block; margin-bottom: 0.5rem;">✅ FORMA CORRECTA (BÉ)</strong>
+                            <ul style="font-size: 0.88rem; line-height: 1.6; color: #064e3b; margin-left: 1.25rem;">
+                                <li>El 4 s'escriu <code>IV</code> (5 - 1 = 4).</li>
+                                <li>El 99 s'escriu <code>XCIX</code> (90 + 9 = XC + IX).</li>
+                                <li>El 95 s'escriu <code>XCV</code> (90 + 5 = XC + V).</li>
+                                <li>L'any 1492 pertany al <strong>segle XV</strong> (14 + 1 = 15).</li>
+                                <li>L'any 500 aC és molt més antic que el 200 aC.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Resum en 1 minut -->
+                <div class="rule-box" style="background: linear-gradient(135deg, rgba(217,119,6,0.1), rgba(180,83,9,0.05)); border: 2px solid var(--time-gold);">
+                    <h3 style="color: var(--time-gold-dark); margin-bottom: 0.5rem;">⚡ Resum Visual en 1 Minut</h3>
+                    <p style="font-size: 0.92rem; line-height: 1.6;">
+                        Recorda les tres parelles màgiques que sumen 100 anys per canviar de segle: si l'any no acaba en "00", afegeix 1. 
+                        En nombres romans: <strong>I, X, C, M</strong> fins a 3 cops; <strong>V, L, D</strong> només un cop.
+                        I les 5 edats: <strong>Prehistòria</strong> (escriptura) ➔ <strong>Edat Antiga</strong> (Imperi Romà 476) ➔ <strong>Edat Mitjana</strong> (Colom 1492) ➔ <strong>Edat Moderna</strong> (Rev. Francesa 1789) ➔ <strong>Edat Contemporània</strong> (fins avui).
+                    </p>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 2: NOMBRES ROMANS (TALLER & CONVERSOR)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-romans">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🏛️</span> Nombres Romans: Taller & Conversor Pas a Pas</h2>
+                        <p>Exercicis oficials de la fitxa de classe (Numeració romana - El pas del temps.pdf) amb conversor màgic i comprovació en viu.</p>
+                    </div>
+                    <div>
+                        <button class="btn-check-action" onclick="resetRomanWorkshop()">
+                            <span>↺</span> Reiniciar Taller
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conversor Màgic -->
+                <div class="converter-container">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.15rem; color: var(--text-main);">🔮 Conversor & Descompositor Màgic de Nombres Romans</h3>
+                    <div class="converter-inputs-grid">
+                        <div class="input-group-calc">
+                            <label for="input-decimal">Nombre Decimal Normal (1 - 3999):</label>
+                            <input type="number" id="input-decimal" class="input-huge" placeholder="Ex: 1492" min="1" max="3999" oninput="convertFromDecimal()">
+                        </div>
+                        <div class="converter-divider-arrow">⇄</div>
+                        <div class="input-group-calc">
+                            <label for="input-roman">Nombres Romans (I, V, X, L, C, D, M):</label>
+                            <input type="text" id="input-roman" class="input-huge" placeholder="Ex: MCDXCII" oninput="convertFromRoman()">
+                        </div>
+                    </div>
+                    <div class="converter-breakdown-box" id="converter-breakdown">
+                        <strong>Com es descompon?</strong> Escriu qualsevol nombre a sobre per veure com se suma o es resta pas a pas!
+                    </div>
+                </div>
+
+                <!-- Exercici 1: Escriu el valor de cada número -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">1</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat I: Escriu el valor de cada número</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">De nombres romans a xifres normals</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> CMLXII:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-cmlxii" placeholder="Ex: 962">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-cmlxii', 962, 'CMLXII = CM (900) + LX (60) + II (2) = 962')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-cmlxii-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> XCV:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-xcv" placeholder="Ex: 95">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-xcv', 95, 'XCV = XC (90) + V (5) = 95')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-xcv-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> MMDCCVI:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-mmdccvi" placeholder="Ex: 2706">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-mmdccvi', 2706, 'MMDCCVI = MM (2000) + DCC (700) + VI (6) = 2706')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-mmdccvi-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> XXII:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-xxii" placeholder="Ex: 22">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-xxii', 22, 'XXII = XX (20) + II (2) = 22')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-xxii-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> CXCIII:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-cxciii" placeholder="Ex: 193">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-cxciii', 193, 'CXCIII = C (100) + XC (90) + III (3) = 193')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-cxciii-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📜</span> CDXL:</div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act1-cdxl" placeholder="Ex: 440">
+                                <button class="btn-mini-check" onclick="checkExactValue('act1-cdxl', 440, 'CDXL = CD (400) + XL (40) = 440')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act1-cdxl-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercici 2: Escriu en números romans -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">2</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat II: Escriu en números romans</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">De nombres decimals a lletres romanes</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 54:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-54" placeholder="Ex: LIV">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-54', 'LIV', '54 = 50 (L) + 4 (IV) = LIV')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-54-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 63:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-63" placeholder="Ex: LXIII">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-63', 'LXIII', '63 = 60 (LX) + 3 (III) = LXIII')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-63-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 99:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-99" placeholder="Ex: XCIX">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-99', 'XCIX', '99 = 90 (XC) + 9 (IX) = XCIX (MAI IC!)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-99-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 245:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-245" placeholder="Ex: CCXLV">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-245', 'CCXLV', '245 = 200 (CC) + 40 (XL) + 5 (V) = CCXLV')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-245-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 467:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-467" placeholder="Ex: CDLXVII">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-467', 'CDLXVII', '467 = 400 (CD) + 60 (LX) + 7 (VII) = CDLXVII')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-467-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 690:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-690" placeholder="Ex: DCXC">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-690', 'DCXC', '690 = 600 (DC) + 90 (XC) = DCXC')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-690-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 1204:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-1204" placeholder="Ex: MCCIV">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-1204', 'MCCIV', '1204 = 1000 (M) + 200 (CC) + 4 (IV) = MCCIV')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-1204-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 2023:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-2023" placeholder="Ex: MMXXIII">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-2023', 'MMXXIII', '2023 = 2000 (MM) + 20 (XX) + 3 (III) = MMXXIII')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-2023-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔢</span> 2601:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="act2-2601" placeholder="Ex: MMDCI">
+                                <button class="btn-mini-check" onclick="checkExactString('act2-2601', 'MMDCI', '2601 = 2000 (MM) + 600 (DC) + 1 (I) = MMDCI')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act2-2601-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercici 3: Encercla l'opció correcta -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">3</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat III: Encercla l'opció correcta</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Tria el valor o la forma romana ben escrita</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Quin valor té <strong>XCIX</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-1', 'XC=90, IX=9 ➜ 99')">90</button>
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-1', 'Correcte! 90 + 9 = 99')">99</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-1', '89 seria LXXXIX')">89</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-1-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Quin valor té <strong>LXIV</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-2', 'Correcte! LX (60) + IV (4) = 64')">64</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-2', '54 seria LIV')">54</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-2', '45 seria XLV')">45</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-2-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Quin valor té <strong>XXVIII</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-3', 'Correcte! 20 + 8 = 28')">28</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-3', '38 seria XXXVIII')">38</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-3', '24 seria XXIV')">24</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-3-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Quin valor té <strong>LXXXVIII</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-4', '89 seria LXXXIX')">89</button>
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-4', 'Correcte! 50 + 30 + 8 = 88')">88</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-4', '87 seria LXXXVII')">87</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-4-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Com s'escriu <strong>258</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-5', 'La D val 500, no es resta!')">CCLDIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-5', 'Molt bé! CC (200) + L (50) + VIII (8) = CCLVIII')">CCLVIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-5', 'La L mai es repeteix!')">CLLVIII</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-5-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Com s'escriu <strong>88</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-6', 'La C no es pot restar darrere LXXX!')">LXXXCIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-6', 'Això val 78!')">LXXVIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-6', 'Correcte! L (50) + XXX (30) + VIII (8) = LXXXVIII')">LXXXVIII</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-6-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Com s'escriu <strong>107</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-7', 'Això val 152!')">CLII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-7', 'Molt bé! C (100) + VII (7) = CVII')">CVII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-7', 'No es poden restar dues I!')">CIIX</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-7-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>⛵</span> Com s'escriu <strong>688</strong>?</div>
+                            <div class="choice-pill-group">
+                                <button class="choice-btn" onclick="checkChoice(this, true, 'act3-8', 'Genial! DC (600) + LXXX (80) + VIII (8) = DCLXXXVIII')">DCLXXXVIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-8', 'Error de sintaxi romana!')">DCLXXCVIII</button>
+                                <button class="choice-btn" onclick="checkChoice(this, false, 'act3-8', 'Això no correspon!')">CCCDXVIII</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act3-8-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercici 4: Escriu l'any d'aquests esdeveniments -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">4</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat IV: Escriu l'any d'aquests esdeveniments</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Descobreix l'any d'aquests fets històrics clau</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card" style="border-top: 4px solid #f59e0b;">
+                            <div class="exercise-prompt">
+                                <span>💡</span>
+                                <div>
+                                    <strong>Thomas Edison</strong> va aconseguir fer anar una bombeta durant 48 hores. L'any <strong>MDCCCLXXIX</strong>:
+                                </div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act4-edison" placeholder="Any:">
+                                <button class="btn-mini-check" onclick="checkExactValue('act4-edison', 1879, 'MDCCCLXXIX = M (1000) + DCCC (800) + LXX (70) + IX (9) = 1879!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act4-edison-msg"></div>
+                        </div>
+                        <div class="exercise-item-card" style="border-top: 4px solid #2563eb;">
+                            <div class="exercise-prompt">
+                                <span>⛵</span>
+                                <div>
+                                    <strong>Cristòfor Colom</strong> va arribar a Amèrica. L'any <strong>MCDXCII</strong>:
+                                </div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act4-colom" placeholder="Any:">
+                                <button class="btn-mini-check" onclick="checkExactValue('act4-colom', 1492, 'MCDXCII = M (1000) + CD (400) + XC (90) + II (2) = 1492!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act4-colom-msg"></div>
+                        </div>
+                        <div class="exercise-item-card" style="border-top: 4px solid #7c3aed;">
+                            <div class="exercise-prompt">
+                                <span>🚀</span>
+                                <div>
+                                    El primer home en arribar a la Lluna (Neil Armstrong). L'any <strong>MCMLXIX</strong>:
+                                </div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="number" class="exercise-input" id="act4-lluna" placeholder="Any:">
+                                <button class="btn-mini-check" onclick="checkExactValue('act4-lluna', 1969, 'MCMLXIX = M (1000) + CM (900) + LX (60) + IX (9) = 1969!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="act4-lluna-msg"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 3: ANYS, SEGLES & CRONOLOGIA
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-segles">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>⏳</span> Anys, Segles & Mesura del Temps</h2>
+                        <p>Exercicis oficials de les fitxes (Anys i segles.pdf i 7 repassem 2 - classificació.pdf).</p>
+                    </div>
+                    <div>
+                        <button class="btn-check-action" onclick="checkAllSegles()">
+                            <span>✓</span> Comprovar Tot
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Act 1: Escriu el segle al qual pertanyen aquests anys -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">I</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat I: Escriu el segle al qual pertanyen aquests anys</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Recorda utilitzar nombres romans (Ex: segle I, segle XX, segle I aC...)</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 102:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-102" placeholder="Ex: II o s. II">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-102', ['II', 's. II', 'segle II'], '102 = Segle II (101-200)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-102-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 50 aC:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-50ac" placeholder="Ex: I aC">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-50ac', ['I aC', 's. I aC', 'segle I aC', 'IaC'], '50 aC = Segle I aC (100 a 1 aC)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-50ac-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 10:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-10" placeholder="Ex: I o s. I">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-10', ['I', 's. I', 'segle I'], '10 = Segle I (1-100)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-10-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 1.950:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-1950" placeholder="Ex: XX o s. XX">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-1950', ['XX', 's. XX', 'segle XX'], '1950 = Segle XX (1901-2000)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-1950-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 170 aC:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-170ac" placeholder="Ex: II aC">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-170ac', ['II aC', 's. II aC', 'segle II aC', 'IIaC'], '170 aC = Segle II aC (200 a 101 aC)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-170ac-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>📅</span> Any 2.005:</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="segle-2005" placeholder="Ex: XXI o s. XXI">
+                                <button class="btn-mini-check" onclick="checkSegleInput('segle-2005', ['XXI', 's. XXI', 'segle XXI'], '2005 = Segle XXI (2001-2100)')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="segle-2005-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 2: Personatges històrics -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">II</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat II: Ajuda a buscar el segle del qual pertany cada personatge</h3>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🎼</span>
+                                <div><strong>Mozart:</strong> "Vaig compondre una de les simfonies més famoses l'any 1788"</div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="char-mozart" placeholder="Segle:">
+                                <button class="btn-mini-check" onclick="checkSegleInput('char-mozart', ['XVIII', 's. XVIII', 'segle XVIII'], '1788 ➜ 17 + 1 = Segle XVIII')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="char-mozart-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>⚡</span>
+                                <div><strong>Harry Potter:</strong> "La primera pel·lícula es va estrenar l'any 2001"</div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="char-harry" placeholder="Segle:">
+                                <button class="btn-mini-check" onclick="checkSegleInput('char-harry', ['XXI', 's. XXI', 'segle XXI'], '2001 ➜ 20 + 1 = Segle XXI')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="char-harry-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🏛️</span>
+                                <div><strong>August (Emperador):</strong> "Em vaig proclamar emperador romà al 27 aC"</div>
+                            </div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="char-august" placeholder="Segle:">
+                                <button class="btn-mini-check" onclick="checkSegleInput('char-august', ['I aC', 's. I aC', 'segle I aC', 'IaC'], '27 aC ➜ Segle I aC')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="char-august-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 3: Indica quants lustres, dècades i segles són 235 anys -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">III</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat III: Indica quants lustres, dècades i segles són 235 anys</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Recorda: Lustre = 5 anys, Dècada = 10 anys, Segle = 100 anys</span>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🌿</span> Quants Lustres? (cada 5 anys):</div>
+                            <div class="exercise-input-row">
+                                <input type="number" step="any" class="exercise-input" id="calc-lustres" placeholder="Ex: 47">
+                                <button class="btn-mini-check" onclick="checkExactValue('calc-lustres', 47, '235 ÷ 5 = 47 lustres exactes!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="calc-lustres-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>🔟</span> Quantes Dècades? (cada 10 anys):</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="calc-decades" placeholder="Ex: 23,5 o 23">
+                                <button class="btn-mini-check" onclick="checkFlexibleNumber('calc-decades', [23.5, 23], '235 ÷ 10 = 23,5 dècades (o 23 dècades i 5 anys)!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="calc-decades-msg"></div>
+                        </div>
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt"><span>💯</span> Quants Segles? (cada 100 anys):</div>
+                            <div class="exercise-input-row">
+                                <input type="text" class="exercise-input" id="calc-segles" placeholder="Ex: 2,35 o 2">
+                                <button class="btn-mini-check" onclick="checkFlexibleNumber('calc-segles', [2.35, 2], '235 ÷ 100 = 2,35 segles (o 2 segles i 35 anys)!')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="calc-segles-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 4: Ordena les dades de la més antiga a la més actual (10 dates) -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">IV</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat IV: Ordena les dades de la més antiga a la més actual</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Les 10 dates de la fitxa: s.X aC • 1.925 • s.II • 554 • 200 aC • 2.006 • 75 aC • s.XV • 1.789 • 33</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Fes clic a les dates en l'ordre cronològic correcte (des del passat més remot fins al més recent):
+                    </p>
+                    <div id="chrono-dates-pool" class="breakdown-chips-row" style="margin-bottom: 1.25rem;"></div>
+                    <div style="background: var(--time-parchment); border: 2px solid var(--time-parchment-border); border-radius: var(--radius-lg); padding: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                            <strong>La teva línia del temps ordenada (1 a 10):</strong>
+                            <button class="btn-mini-check" onclick="resetChronoTimeline()" style="background: var(--text-muted);">Reiniciar Ordre</button>
+                        </div>
+                        <div id="chrono-timeline-slots" style="display: flex; flex-direction: column; gap: 0.4rem;"></div>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: right;">
+                        <button class="btn-check-action" onclick="checkChronoTimeline()">
+                            <span>✓</span> Comprovar Línia del Temps
+                        </button>
+                    </div>
+                    <div id="chrono-feedback-msg" style="margin-top: 0.5rem; font-weight: 700;"></div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 4: REPTE H5P CLASSIFICA PER EDATS (DRAG & DROP)
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-h5p-drag">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🎯</span> Repte H5P: Classifica els 18 Elements a les 5 Etapes</h2>
+                        <p>Arrossega cada targeta a l'edat històrica que li correspongui (o fes clic a la targeta i després a la zona en mòbil!).</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-check-action" onclick="checkH5PDrag()">
+                            <span>✓</span> Comprovar Classificació
+                        </button>
+                        <button class="btn-check-action" onclick="resetH5PDrag()" style="background: var(--text-muted);">
+                            <span>↺</span> Reiniciar Joc
+                        </button>
+                    </div>
+                </div>
+
+                <div class="h5p-drag-section">
+                    <div class="h5p-header-bar">
+                        <div>
+                            <span style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">Tauler d'Edats Històriques (5 Dropzones)</span>
+                            <div style="font-size: 0.85rem; color: var(--text-muted);">Col·loca cadascun dels 18 elements a la seva etapa corresponent.</div>
+                        </div>
+                        <div class="score-pill-nav" style="font-size: 0.95rem;">
+                            <span>🏆</span> <span id="h5p-drag-score">0 / 18</span> Correctes
+                        </div>
+                    </div>
+
+                    <!-- 5 Dropzones -->
+                    <div class="h5p-dropzones-grid">
+                        <!-- 1. Prehistòria -->
+                        <div class="dropzone-card zone-prehistoria" data-zone="prehistoria" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'prehistoria')" onclick="handleZoneClick('prehistoria')">
+                            <div class="dropzone-header">
+                                <div class="dropzone-title" style="color: #d97706;">PREHISTÒRIA</div>
+                                <div class="dropzone-sub">Fins ~3500 aC</div>
+                            </div>
+                            <div class="dropzone-items-container" id="zone-prehistoria"></div>
+                        </div>
+
+                        <!-- 2. Edat Antiga -->
+                        <div class="dropzone-card zone-antiga" data-zone="antiga" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'antiga')" onclick="handleZoneClick('antiga')">
+                            <div class="dropzone-header">
+                                <div class="dropzone-title" style="color: #2563eb;">EDAT ANTIGA</div>
+                                <div class="dropzone-sub">3500 aC - 476 dC</div>
+                            </div>
+                            <div class="dropzone-items-container" id="zone-antiga"></div>
+                        </div>
+
+                        <!-- 3. Edat Mitjana -->
+                        <div class="dropzone-card zone-mitjana" data-zone="mitjana" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'mitjana')" onclick="handleZoneClick('mitjana')">
+                            <div class="dropzone-header">
+                                <div class="dropzone-title" style="color: #7c3aed;">EDAT MITJANA</div>
+                                <div class="dropzone-sub">476 - 1492</div>
+                            </div>
+                            <div class="dropzone-items-container" id="zone-mitjana"></div>
+                        </div>
+
+                        <!-- 4. Edat Moderna -->
+                        <div class="dropzone-card zone-moderna" data-zone="moderna" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'moderna')" onclick="handleZoneClick('moderna')">
+                            <div class="dropzone-header">
+                                <div class="dropzone-title" style="color: #059669;">EDAT MODERNA</div>
+                                <div class="dropzone-sub">1492 - 1789</div>
+                            </div>
+                            <div class="dropzone-items-container" id="zone-moderna"></div>
+                        </div>
+
+                        <!-- 5. Edat Contemporània -->
+                        <div class="dropzone-card zone-contemporania" data-zone="contemporania" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'contemporania')" onclick="handleZoneClick('contemporania')">
+                            <div class="dropzone-header">
+                                <div class="dropzone-title" style="color: #dc2626;">EDAT CONTEMPORÀNIA</div>
+                                <div class="dropzone-sub">1789 - Avui</div>
+                            </div>
+                            <div class="dropzone-items-container" id="zone-contemporania"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pool de Targetes per Arrossegar (18 grabbables de l'H5P) -->
+                    <div class="grabbables-pool">
+                        <div class="grabbables-pool-header">
+                            <div class="grabbables-pool-title">📦 Targetes pendents de classificar (<span id="h5p-pending-count">18</span> pendents):</div>
+                            <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">💡 En mòbil: toca una targeta i després toca l'edat!</span>
+                        </div>
+                        <div class="grabbables-chips-flow" id="h5p-pool"></div>
+                    </div>
+
+                    <div id="h5p-drag-feedback" style="margin-top: 1.25rem; font-weight: 700; font-size: 1rem; min-height: 1.5rem;"></div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 5: REPTE H5P OMPLE ELS BUITS
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-h5p-blanks">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>✏️</span> Repte H5P: Omple els Buits amb les Etapes Històriques</h2>
+                        <p>Escriu a cada buit l'etapa històrica correcta (Prehistòria, antiga, mitjana, moderna o contemporània).</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-check-action" onclick="checkH5PBlanks()">
+                            <span>✓</span> Comprovar Frases
+                        </button>
+                        <button class="btn-check-action" onclick="resetH5PBlanks()" style="background: var(--text-muted);">
+                            <span>↺</span> Netejar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rule-box highlight-box" style="margin-bottom: 1.5rem;">
+                    <strong>💡 Xulla d'opcions:</strong> Pots escriure: <em>Prehistòria</em>, <em>antiga</em>, <em>mitjana</em>, <em>moderna</em> o <em>contemporània</em> (no et preocupis per majúscules o accents, el corrector els accepta tots!).
+                </div>
+
+                <!-- Llista de les 10 Oracions H5P -->
+                <div class="blanks-sentences-list">
+                    <div class="blank-sentence-card" id="card-b1">
+                        1. La <input type="text" class="blank-inline-input" id="blank-1" placeholder="etapa..."> acaba amb la invenció de l'escriptura.
+                        <span class="exercise-feedback-msg" id="blank-1-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b2">
+                        2. El fet que marca el començament de l'edat <input type="text" class="blank-inline-input" id="blank-2" placeholder="etapa..."> és la revolució francesa.
+                        <span class="exercise-feedback-msg" id="blank-2-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b3">
+                        3. A l'edat <input type="text" class="blank-inline-input" id="blank-3" placeholder="etapa..."> neix Jesucrist.
+                        <span class="exercise-feedback-msg" id="blank-3-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b4">
+                        4. El segle XVII pertany a l'edat <input type="text" class="blank-inline-input" id="blank-4" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-4-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b5">
+                        5. L'edat <input type="text" class="blank-inline-input" id="blank-5" placeholder="etapa..."> comença amb la caiguda de l'imperi romà.
+                        <span class="exercise-feedback-msg" id="blank-5-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b6">
+                        6. El paleolític és la primera etapa de la <input type="text" class="blank-inline-input" id="blank-6" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-6-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b7">
+                        7. La Revolució francesa marca el final de l'edat <input type="text" class="blank-inline-input" id="blank-7" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-7-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b8">
+                        8. L'arribada de Colom a Amèrica marca el final de l'edat <input type="text" class="blank-inline-input" id="blank-8" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-8-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b9">
+                        9. L'any 1.492 es produeix un fet molt important que marca el començament de l'edat <input type="text" class="blank-inline-input" id="blank-9" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-9-msg"></span>
+                    </div>
+                    <div class="blank-sentence-card" id="card-b10">
+                        10. L'edat històrica més llarga és la <input type="text" class="blank-inline-input" id="blank-10" placeholder="etapa...">.
+                        <span class="exercise-feedback-msg" id="blank-10-msg"></span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div id="blanks-overall-msg" style="font-weight: 800; font-size: 1.1rem;"></div>
+                    <button class="btn-check-action" onclick="checkH5PBlanks()">
+                        <span>✓</span> Comprovar Respostes (10/10)
+                    </button>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 6: ETAPES DE LA HISTÒRIA & MAPA MENTAL
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-etapes-mindmap">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>🗺️</span> Etapes de la Història & Mapa Mental</h2>
+                        <p>Activitats de les fitxes 2 etapes hist.pdf i Mapa mental El pas del temps.pdf.</p>
+                    </div>
+                </div>
+
+                <!-- Fets històrics, segle i edat -->
+                <div class="rule-box">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">📜</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat: Indica en quin segle i en quina edat històrica van ocórrer aquests fets</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Exercici 1 de la fitxa «2 etapes hist.pdf»</span>
+                        </div>
+                    </div>
+                    <div class="exercises-subgrid">
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🏛️</span>
+                                <div>Octavi August és proclamat el primer emperador romà (27 aC)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact1-segle" placeholder="Segle (Ex: I aC)">
+                                <input type="text" class="exercise-input" id="fact1-edat" placeholder="Edat (Ex: Edat Antiga)">
+                                <button class="btn-mini-check" onclick="checkFact('fact1', ['I aC', 's. I aC', 'segle I aC'], ['Edat Antiga', 'Antiga'], 'Segle I aC • Edat Antiga')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact1-msg"></div>
+                        </div>
+
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>⚔️</span>
+                                <div>Inici de la guerra dels Cent Anys entre Anglaterra i França (1.337)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact2-segle" placeholder="Segle (Ex: XIV)">
+                                <input type="text" class="exercise-input" id="fact2-edat" placeholder="Edat (Ex: Edat Mitjana)">
+                                <button class="btn-mini-check" onclick="checkFact('fact2', ['XIV', 's. XIV', 'segle XIV'], ['Edat Mitjana', 'Mitjana'], 'Segle XIV • Edat Mitjana')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact2-msg"></div>
+                        </div>
+
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🌍</span>
+                                <div>Finalitza la primera volta al món (1.520)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact3-segle" placeholder="Segle (Ex: XVI)">
+                                <input type="text" class="exercise-input" id="fact3-edat" placeholder="Edat (Ex: Edat Moderna)">
+                                <button class="btn-mini-check" onclick="checkFact('fact3', ['XVI', 's. XVI', 'segle XVI'], ['Edat Moderna', 'Moderna'], 'Segle XVI • Edat Moderna')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact3-msg"></div>
+                        </div>
+
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>📖</span>
+                                <div>Ramon Llull escriu Blanquerna (1.283)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact4-segle" placeholder="Segle (Ex: XIII)">
+                                <input type="text" class="exercise-input" id="fact4-edat" placeholder="Edat (Ex: Edat Mitjana)">
+                                <button class="btn-mini-check" onclick="checkFact('fact4', ['XIII', 's. XIII', 'segle XIII'], ['Edat Mitjana', 'Mitjana'], 'Segle XIII • Edat Mitjana')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact4-msg"></div>
+                        </div>
+
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🚗</span>
+                                <div>S'inventa el primer automòbil amb motor de gasolina (1.886)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact5-segle" placeholder="Segle (Ex: XIX)">
+                                <input type="text" class="exercise-input" id="fact5-edat" placeholder="Edat (Ex: Edat Contemporània)">
+                                <button class="btn-mini-check" onclick="checkFact('fact5', ['XIX', 's. XIX', 'segle XIX'], ['Edat Contemporània', 'Contemporania', 'Edat Contemporania'], 'Segle XIX • Edat Contemporània')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact5-msg"></div>
+                        </div>
+
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>⚽</span>
+                                <div>Grècia guanya l'Eurocopa de futbol (2.004)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <input type="text" class="exercise-input" id="fact6-segle" placeholder="Segle (Ex: XXI)">
+                                <input type="text" class="exercise-input" id="fact6-edat" placeholder="Edat (Ex: Edat Contemporània)">
+                                <button class="btn-mini-check" onclick="checkFact('fact6', ['XXI', 's. XXI', 'segle XXI'], ['Edat Contemporània', 'Contemporania', 'Edat Contemporania'], 'Segle XXI • Edat Contemporània')">✓</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="fact6-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taller interactiu del Mapa Mental de la Història -->
+                <div class="mindmap-container">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.25rem; margin: 0; color: var(--text-main);">🧠 Mapa Mental Interactiu de la Història</h3>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Estructura oficial sol·licitada a classe amb les 4 sub-branques: Inici, Etapes internes, Característiques i Final.</span>
+                        </div>
+                    </div>
+
+                    <div class="mindmap-branches-grid">
+                        <!-- Branca 1: Prehistòria -->
+                        <div class="mindmap-branch-card branch-pre">
+                            <div class="branch-header">
+                                <div class="branch-num" style="background: #d97706;">1</div>
+                                <h4>Prehistòria</h4>
+                            </div>
+                            <div class="sub-branches-list">
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Inici:</span>
+                                    Fa ~5 milions d'anys (Aparició dels primers homínids).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Etapes:</span>
+                                    Paleolític, Neolític i Edat dels Metalls.
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Característiques:</span>
+                                    Descobriment del foc, coves, eines de pedra i os, pintures rupestres, nòmades que es tornen sedentaris amb l'agricultura, monuments megalítics (menhirs i dòlmens) i invenció de la roda (~3000 aC).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Final:</span>
+                                    Invenció de l'escriptura (cap al 3.500 aC a Mesopotàmia).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branca 2: Edat Antiga -->
+                        <div class="mindmap-branch-card branch-ant">
+                            <div class="branch-header">
+                                <div class="branch-num" style="background: #2563eb;">2</div>
+                                <h4>Edat Antiga</h4>
+                            </div>
+                            <div class="sub-branches-list">
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Inici:</span>
+                                    Invenció de l'escriptura (3.500 aC).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Etapes:</span>
+                                    Primeres civilitzacions (Egipte, Mesopotàmia), Grècia Clàssica i l'Imperi Romà.
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Característiques:</span>
+                                    Construcció de piràmides, ciutats estat gregues, democràcia, imperi romà, calçades, aqüeductes, lleis, naixement de Jesucrist (any 1) i primeres monedes (s. VIII aC).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Final:</span>
+                                    Caiguda de l'Imperi Romà d'Occident (any 476 dC).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branca 3: Edat Mitjana -->
+                        <div class="mindmap-branch-card branch-mit">
+                            <div class="branch-header">
+                                <div class="branch-num" style="background: #7c3aed;">3</div>
+                                <h4>Edat Mitjana</h4>
+                            </div>
+                            <div class="sub-branches-list">
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Inici:</span>
+                                    Caiguda de l'Imperi Romà (476 dC).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Etapes:</span>
+                                    Alta Edat Mitjana i Baixa Edat Mitjana. Dura 10 segles (1.000 anys!).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Característiques:</span>
+                                    Feudalisme (senyors feudals, cavallers i vassalls), castells fortificats, monestirs, naixement de l'Islam (622), art romànic i art gòtic (catedrals amb vitralls).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Final:</span>
+                                    Arribada de Cristòfor Colom a Amèrica (any 1492).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branca 4: Edat Moderna -->
+                        <div class="mindmap-branch-card branch-mod">
+                            <div class="branch-header">
+                                <div class="branch-num" style="background: #059669;">4</div>
+                                <h4>Edat Moderna</h4>
+                            </div>
+                            <div class="sub-branches-list">
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Inici:</span>
+                                    Descobriment d'Amèrica (1492).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Etapes:</span>
+                                    Renaixement, Barroc i Il·lustració (Segles XV, XVI, XVII i XVIII).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Característiques:</span>
+                                    Invenció de la impremta (Gutenberg), navegació mundial (primera volta al món per Magalhães i Elcano), microscopi (1590), telescopi de Galileu, pólvora i màquina de vapor (1769).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Final:</span>
+                                    La Revolució Francesa (any 1789).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branca 5: Edat Contemporània -->
+                        <div class="mindmap-branch-card branch-con">
+                            <div class="branch-header">
+                                <div class="branch-num" style="background: #dc2626;">5</div>
+                                <h4>Edat Contemporània</h4>
+                            </div>
+                            <div class="sub-branches-list">
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Inici:</span>
+                                    Revolució Francesa (1789).
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Etapes:</span>
+                                    Revolució Industrial, Segle XX i Segle XXI.
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Característiques:</span>
+                                    Bombeta elèctrica (Thomas Edison), medicina moderna (penicil·lina), primer cotxe a gasolina (1886), primer vol amb avió (1903), arribada de l'ésser humà a la Lluna (1969), ordinador personal (1975), internet i la moneda Euro.
+                                </div>
+                                <div class="sub-branch-item">
+                                    <span class="sub-branch-tag">Final:</span>
+                                    Continua viva en el present (l'actualitat).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================================================
+                 PESTAÑA 7: BIBLIOTECA DE DOCUMENTS & VÍDEOS
+                 ========================================================================== -->
+            <section class="tab-content-panel" id="tab-documents">
+                <div class="section-banner-title">
+                    <div>
+                        <h2><span>📁</span> Biblioteca Oficial: Documents & Vídeos</h2>
+                        <p>Tots els materials originals de classe amb enllaços dobles a l'arxiu Local i a Google Drive.</p>
+                    </div>
+                    <div>
+                        <a href="https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy" target="_blank" class="btn-check-action" style="text-decoration: none;">
+                            <span>☁️</span> Carpeta Drive de Projecte ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Estanteria de Documents PDF & Imatges -->
+                <h3 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">📄 Documents Didàctics & Fitxes de Treball</h3>
+                <div class="docs-shelf-grid">
+                    <!-- Doc 1: Numeració romana -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">📜</div>
+                            <div>
+                                <div class="doc-file-name">Numeració romana - El pas del temps.pdf</div>
+                                <div class="doc-file-desc">Fitxa de 4 activitats de nombres romans, valors, esdeveniments històrics i opció correcta.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/Numeració romana - El pas del temps.pdf" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>📄</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1YhX5WHqZ_mL_jliCDzTXQTs2shZ567KI&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Doc 2: Anys i segles -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">⏳</div>
+                            <div>
+                                <div class="doc-file-name">Anys i segles - El pas del temps.pdf</div>
+                                <div class="doc-file-desc">Càlcul de segles, personatges històrics (Mozart, Harry Potter, August), lustres, dècades i cronologia.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/Anys i segles - El pas del temps.pdf" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>📄</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1VzM4qnuCn1THSI4HKmi7KHSU3k_KOMGy&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Doc 3: 2 etapes hist -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">🏰</div>
+                            <div>
+                                <div class="doc-file-name">2 etapes hist.pdf</div>
+                                <div class="doc-file-desc">Línia del temps de les 5 etapes, fets clau (Octavi August, 100 anys, Blanquerna...) i taula d'inici i final.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/2 etapes hist.pdf" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>📄</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1Fm8ZowuhL-2AqJYCDuepsMhLnEy6SmR_&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Doc 4: 7 repassem 2 classificació -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">✏️</div>
+                            <div>
+                                <div class="doc-file-name">7 repassem 2 -excercicis classificació.pdf</div>
+                                <div class="doc-file-desc">Qüestions clau d'inici i final d'edats històriques i ordenació de 9 dates cronològiques.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/7 repassem 2 -excercicis classificació.pdf" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>📄</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1FFwCCKPCSF0xQcKN72yGvl5XaNHiMCr1&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Doc 5: Mapa mental -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">🧠</div>
+                            <div>
+                                <div class="doc-file-name">Mapa mental El pas del temps.pdf</div>
+                                <div class="doc-file-desc">Guia per elaborar el mapa mental de les 5 etapes amb sub-branques: Inici, etapes, característiques i final.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/Mapa mental El pas del temps.pdf" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>📄</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1n3KF6CwGz88lUS_Tc1bppmAHbzOpMwcD&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Doc 6: Infografia Nombres Romans -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">🖼️</div>
+                            <div>
+                                <div class="doc-file-name">Com llegir num romans.png</div>
+                                <div class="doc-file-desc">Infografia didàctica completa: els 7 símbols, sumes, restes, repeticions i paperet imprescindible.</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <a href="documents/Com llegir num romans.png" target="_blank" class="btn-doc-download btn-doc-local">
+                                <span>🖼️</span> Local
+                            </a>
+                            <a href="https://drive.google.com/open?id=1YglKlSkpGmgqzndVRZ__tsHEaD6UOChr&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estanteria de Vídeos de Classe -->
+                <h3 style="font-size: 1.15rem; color: var(--text-main); margin-top: 2rem; margin-bottom: 0.5rem;">🎬 Vídeos Didàctics de l'Assignatura</h3>
+                <div class="video-shelf-grid">
+                    <!-- Video 1: Nombres Romans -->
+                    <div class="video-card">
+                        <div class="video-frame-wrap">
+                            <video controls poster="documents/Com llegir num romans.png">
+                                <source src="documents/Numeros romanos.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                        </div>
+                        <div class="video-card-body">
+                            <div class="video-card-title">Números Romans (Eduteca)</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Explicació visual de les regles de suma i resta romana.</div>
+                            <div class="doc-actions-row">
+                                <a href="https://www.youtube.com/watch?v=IAtWxaQLboY" target="_blank" class="btn-doc-download btn-doc-local">
+                                    <span>▶️</span> YouTube ↗
+                                </a>
+                                <a href="https://drive.google.com/open?id=1n_kjc5TyasUxPaNagRkejha0G0k1bN-N&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2: Medida del tiempo -->
+                    <div class="video-card">
+                        <div class="video-frame-wrap">
+                            <video controls>
+                                <source src="documents/Medida del tiempo.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                        </div>
+                        <div class="video-card-body">
+                            <div class="video-card-title">Mesura del Temps</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Com es mesura el temps: lustres, dècades, segles i mil·lennis.</div>
+                            <div class="doc-actions-row">
+                                <a href="https://www.youtube.com/watch?v=kXvimwd0uC0" target="_blank" class="btn-doc-download btn-doc-local">
+                                    <span>▶️</span> YouTube ↗
+                                </a>
+                                <a href="https://drive.google.com/open?id=1i84nkcmD4377uEERs64iisRBVDnYMplb&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3: Història per a nens -->
+                    <div class="video-card">
+                        <div class="video-frame-wrap">
+                            <video controls>
+                                <source src="documents/HISTORIA para niños.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                        </div>
+                        <div class="video-card-body">
+                            <div class="video-card-title">Història per a nens</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Viatge animat per les etapes de la història de la humanitat.</div>
+                            <div class="doc-actions-row">
+                                <a href="https://www.youtube.com/watch?v=bMUox4s8RHw" target="_blank" class="btn-doc-download btn-doc-local">
+                                    <span>▶️</span> YouTube ↗
+                                </a>
+                                <a href="https://drive.google.com/open?id=1kHVDm0_MzglzxW-fGN1Tf6X9mIe3uIkV&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4: Etapas de la historia -->
+                    <div class="video-card">
+                        <div class="video-frame-wrap">
+                            <video controls>
+                                <source src="documents/etapas de la historia.mp4" type="video/mp4">
+                                El teu navegador no suporta el reproductor de vídeo.
+                            </video>
+                        </div>
+                        <div class="video-card-body">
+                            <div class="video-card-title">Etapes de la Història Completes</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">Aprofundiment de les 5 grans edats històriques.</div>
+                            <div class="doc-actions-row">
+                                <a href="https://www.youtube.com/watch?time_continue=1&v=L0PRenMeb5k" target="_blank" class="btn-doc-download btn-doc-local">
+                                    <span>▶️</span> YouTube ↗
+                                </a>
+                                <a href="https://drive.google.com/open?id=1DOqH2-yHD31FAJxn0_HMSuHRyToSzaGv&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive">
+                                    <span>☁️</span> Drive ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Xulla Ràpida (Popup flotant) -->
+    <div class="cheat-modal-overlay" id="cheat-modal" onclick="closeCheatModalOnBg(event)">
+        <div class="cheat-modal-card">
+            <button class="cheat-modal-close" onclick="closeQuickCheatSheet()">&times;</button>
+            <h2 style="font-size: 1.4rem; color: var(--time-gold-dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>💡</span> Xulla Imperial del Pas del Temps
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem; line-height: 1.6;">
+                <div style="background: var(--bg-main); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                    <strong style="color: var(--primary); display: block; margin-bottom: 0.35rem;">🏛️ Nombres Romans Clau:</strong>
+                    I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000.<br>
+                    <strong>Suma:</strong> si la menor està a la dreta (VI = 6, XV = 15).<br>
+                    <strong>Resta:</strong> IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900.<br>
+                    <strong>Repetició:</strong> només I, X, C, M fins a 3 cops. V, L, D mai es repeteixen!
+                </div>
+                <div style="background: var(--bg-main); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                    <strong style="color: var(--time-gold-dark); display: block; margin-bottom: 0.35rem;">⏳ Segles & Temps:</strong>
+                    1 lustre = 5 anys • 1 dècada = 10 anys • 1 segle = 100 anys.<br>
+                    <strong>Truc del Segle:</strong> Tapar dues últimes xifres i sumar 1 (excepte si acaba en 00).<br>
+                    1492 ➜ 14 + 1 = Segle XV.<br>
+                    1789 ➜ 17 + 1 = Segle XVIII.<br>
+                    2026 ➜ 20 + 1 = Segle XXI.
+                </div>
+            </div>
+            <div style="margin-top: 1rem; background: var(--time-parchment); border: 1px solid var(--time-parchment-border); padding: 1rem; border-radius: var(--radius-md); font-size: 0.88rem;">
+                <strong style="color: #c2410c; display: block; margin-bottom: 0.35rem;">🏰 Les 5 Etapes Històriques:</strong>
+                <strong>1. Prehistòria:</strong> Fa ~5 milions d'anys fins a la invenció de l'escriptura (~3500 aC).<br>
+                <strong>2. Edat Antiga:</strong> Escriptura fins a la caiguda de l'Imperi Romà (476 dC).<br>
+                <strong>3. Edat Mitjana:</strong> Any 476 fins al descobriment d'Amèrica (1492).<br>
+                <strong>4. Edat Moderna:</strong> Any 1492 fins a la Revolució Francesa (1789).<br>
+                <strong>5. Edat Contemporània:</strong> Any 1789 fins als nostres dies (avui).
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de lògica interactiva -->
+    <script>
+        /* ==========================================================================
+           ESTAT I PERSISTÈNCIA DE L'USUARI
+           ========================================================================== */
+        const STORAGE_KEY = 'alvaro_progress_projecte_pasdeltemps';
+        let state = {
+            xp: 0,
+            streak: 0,
+            solvedCount: 0,
+            solvedIds: {},
+            h5pDragScore: 0,
+            h5pBlanksScore: 0
+        };
+
+        let soundEnabled = true;
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    state = { ...state, ...parsed };
+                }
+                const savedSound = localStorage.getItem('alvaro_sound_enabled');
+                if (savedSound !== null) soundEnabled = (savedSound === 'true');
+            } catch (e) {
+                console.warn('Error carregant estat:', e);
+            }
+            updateUI();
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch (e) { }
+        }
+
+        function updateUI() {
+            document.getElementById('nav-xp-counter').textContent = `${state.xp} XP`;
+            document.getElementById('stat-total-xp').textContent = `${state.xp} XP`;
+            document.getElementById('nav-streak-counter').textContent = state.streak;
+            document.getElementById('stat-solved-count').textContent = `${state.solvedCount}/42`;
+
+            // Càlcul de Rang Historiador
+            let rank = 'Explorador';
+            if (state.xp >= 600) rank = 'Mestre dels Segles';
+            else if (state.xp >= 350) rank = 'Catedràtic';
+            else if (state.xp >= 150) rank = 'Arqueòleg Pro';
+            else if (state.xp >= 50) rank = 'Cronista';
+
+            document.getElementById('nav-rank-badge').textContent = rank;
+            document.getElementById('stat-rank-display').textContent = rank;
+
+            // Progrés
+            const pct = Math.min(100, Math.round((state.solvedCount / 42) * 100));
+            document.getElementById('sidebar-progress-pct').textContent = `${pct}%`;
+            document.getElementById('sidebar-progress-bar').style.width = `${pct}%`;
+
+            const btnSound = document.getElementById('btn-sound');
+            if (btnSound) btnSound.textContent = soundEnabled ? '🔊' : '🔇';
+        }
+
+        function addSuccess(id, xpGain = 15) {
+            if (!state.solvedIds[id]) {
+                state.solvedIds[id] = true;
+                state.solvedCount++;
+                state.xp += xpGain;
+                state.streak++;
+                playSound('success');
+            } else {
+                playSound('correct');
+            }
+            saveState();
+            updateUI();
+        }
+
+        function addFailure() {
+            state.streak = 0;
+            playSound('error');
+            saveState();
+            updateUI();
+        }
+
+        function resetAllProgress() {
+            if (confirm('Vols reiniciar tota la puntuació i les activitats d\'aquest tema?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                state = {
+                    xp: 0,
+                    streak: 0,
+                    solvedCount: 0,
+                    solvedIds: {},
+                    h5pDragScore: 0,
+                    h5pBlanksScore: 0
+                };
+                saveState();
+                updateUI();
+                location.reload();
+            }
+        }
+
+        /* ==========================================================================
+           AUDIO SYNTHESIZER (WEB AUDIO API - ZERO ARXIUS EXTERNS)
+           ========================================================================== */
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            return audioCtx;
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const ctx = getAudioContext();
+                if (ctx.state === 'suspended') ctx.resume();
+
+                if (type === 'success') {
+                    // Tríada d'èxit major alegre
+                    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                    notes.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+                        gain.gain.setValueAtTime(0.15, ctx.currentTime + idx * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.35);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(ctx.currentTime + idx * 0.08);
+                        osc.stop(ctx.currentTime + idx * 0.08 + 0.35);
+                    });
+                } else if (type === 'correct') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.25);
+                } else if (type === 'error') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, ctx.currentTime);
+                    osc.frequency.linearRampToValueAtTime(110, ctx.currentTime + 0.25);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                }
+            } catch (e) { }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            localStorage.setItem('alvaro_sound_enabled', soundEnabled);
+            updateUI();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('alvaro_dark_mode', isDark);
+        }
+
+        // Recuperar Dark Mode guardat
+        if (localStorage.getItem('alvaro_dark_mode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        /* ==========================================================================
+           NAVEGACIÓ ENTRE PESTANYES
+           ========================================================================== */
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+
+            const targetPanel = document.getElementById(tabId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            const activeBtn = document.querySelector(`.sidebar-tab-btn[onclick*="${tabId}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Actualitzar etiqueta mòbil
+            const labelMap = {
+                'tab-teoria': '1. Apuntes: Teoria d\'Or',
+                'tab-romans': '2. Nombres Romans (Taller)',
+                'tab-segles': '3. Anys, Segles & Cronologia',
+                'tab-h5p-drag': '4. Repte H5P: Classifica per Edats',
+                'tab-h5p-blanks': '5. Repte H5P: Omple els Buits',
+                'tab-etapes-mindmap': '6. Etapes & Mapa Mental',
+                'tab-documents': '7. Biblioteca de Documents & Vídeos'
+            };
+            const mobLabel = document.getElementById('mobile-current-tab-label');
+            if (mobLabel && labelMap[tabId]) mobLabel.textContent = labelMap[tabId];
+
+            // Tancar menú mòbil si està obert
+            const sb = document.getElementById('app-sidebar');
+            if (sb) sb.classList.remove('mobile-open');
+        }
+
+        function toggleMobileSidebar() {
+            const sb = document.getElementById('app-sidebar');
+            if (sb) sb.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.remove('active');
+        });
+
+        /* ==========================================================================
+           XULLA MODAL FLOTANT
+           ========================================================================== */
+        function openQuickCheatSheet() {
+            const modal = document.getElementById('cheat-modal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeQuickCheatSheet() {
+            const modal = document.getElementById('cheat-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function closeCheatModalOnBg(e) {
+            if (e.target.id === 'cheat-modal') closeQuickCheatSheet();
+        }
+
+        /* ==========================================================================
+           LÒGICA DEL CONVERSOR DE NOMBRES ROMANS
+           ========================================================================== */
+        const ROMAN_MAP = [
+            { val: 1000, sym: 'M' },
+            { val: 900, sym: 'CM' },
+            { val: 500, sym: 'D' },
+            { val: 400, sym: 'CD' },
+            { val: 100, sym: 'C' },
+            { val: 90, sym: 'XC' },
+            { val: 50, sym: 'L' },
+            { val: 40, sym: 'XL' },
+            { val: 10, sym: 'X' },
+            { val: 9, sym: 'IX' },
+            { val: 5, sym: 'V' },
+            { val: 4, sym: 'IV' },
+            { val: 1, sym: 'I' }
+        ];
+
+        function toRomanWithSteps(num) {
+            let n = parseInt(num);
+            if (isNaN(n) || n < 1 || n > 3999) return { roman: '', steps: [] };
+            let result = '';
+            let steps = [];
+            for (let item of ROMAN_MAP) {
+                while (n >= item.val) {
+                    result += item.sym;
+                    steps.push(`${item.sym} (${item.val})`);
+                    n -= item.val;
+                }
+            }
+            return { roman: result, steps: steps };
+        }
+
+        function fromRoman(str) {
+            if (!str) return NaN;
+            str = str.toUpperCase().trim();
+            const valMap = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
+            let total = 0;
+            for (let i = 0; i < str.length; i++) {
+                const current = valMap[str[i]];
+                const next = valMap[str[i + 1]];
+                if (!current) return NaN;
+                if (next && next > current) {
+                    total += (next - current);
+                    i++;
+                } else {
+                    total += current;
+                }
+            }
+            return total;
+        }
+
+        function convertFromDecimal() {
+            const val = document.getElementById('input-decimal').value;
+            const bd = document.getElementById('converter-breakdown');
+            if (!val || val < 1 || val > 3999) {
+                document.getElementById('input-roman').value = '';
+                bd.innerHTML = '<strong>Com es descompon?</strong> Introdueix un nombre entre 1 i 3999.';
+                return;
+            }
+            const res = toRomanWithSteps(val);
+            document.getElementById('input-roman').value = res.roman;
+            bd.innerHTML = `<strong>Descomposició de ${val}:</strong>
+                <div class="breakdown-chips-row">
+                    ${res.steps.map(s => `<span class="breakdown-chip">${s}</span>`).join(' + ')}
+                    = <strong>${res.roman}</strong>
+                </div>`;
+        }
+
+        function convertFromRoman() {
+            const str = document.getElementById('input-roman').value.toUpperCase().trim();
+            const bd = document.getElementById('converter-breakdown');
+            if (!str) {
+                document.getElementById('input-decimal').value = '';
+                bd.innerHTML = '<strong>Com es descompon?</strong> Escriu lletres romanes (I, V, X, L, C, D, M).';
+                return;
+            }
+            const num = fromRoman(str);
+            if (isNaN(num)) {
+                bd.innerHTML = '<span style="color: var(--accent-rose); font-weight: 700;">⚠️ Nombre romà invàlid. Revisa les lletres!</span>';
+                document.getElementById('input-decimal').value = '';
+                return;
+            }
+            document.getElementById('input-decimal').value = num;
+            const res = toRomanWithSteps(num);
+            bd.innerHTML = `<strong>Descomposició de ${str}:</strong>
+                <div class="breakdown-chips-row">
+                    ${res.steps.map(s => `<span class="breakdown-chip">${s}</span>`).join(' + ')}
+                    = <strong>${num}</strong>
+                </div>`;
+        }
+
+        /* ==========================================================================
+           VALIDADORS D'EXERCICIS
+           ========================================================================== */
+        function checkExactValue(inputId, expected, explanation) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(inputId + '-msg');
+            const val = parseInt(input.value);
+
+            if (val === expected) {
+                input.className = 'exercise-input correct';
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ Molt bé! ${explanation}`;
+                addSuccess(inputId, 10);
+            } else {
+                input.className = 'exercise-input incorrect';
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ Incorrecte. Revisa la descomposició!`;
+                addFailure();
+            }
+        }
+
+        function checkExactString(inputId, expected, explanation) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(inputId + '-msg');
+            const val = input.value.toUpperCase().trim();
+
+            if (val === expected.toUpperCase()) {
+                input.className = 'exercise-input correct';
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ Molt bé! ${explanation}`;
+                addSuccess(inputId, 10);
+            } else {
+                input.className = 'exercise-input incorrect';
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ No és correcte. Torna-ho a intentar!`;
+                addFailure();
+            }
+        }
+
+        function checkChoice(btn, isCorrect, groupKey, explanation) {
+            const container = btn.parentElement;
+            container.querySelectorAll('.choice-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('selected-correct', 'selected-wrong');
+            });
+
+            const msg = document.getElementById(groupKey + '-msg');
+            if (isCorrect) {
+                btn.classList.add('selected-correct');
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ ${explanation}`;
+                addSuccess(groupKey, 10);
+            } else {
+                btn.classList.add('selected-wrong');
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ ${explanation}`;
+                addFailure();
+            }
+        }
+
+        function checkSegleInput(inputId, validList, explanation) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(inputId + '-msg');
+            const raw = input.value.toLowerCase().replace(/\s+/g, ' ').trim();
+
+            const isMatch = validList.some(v => raw === v.toLowerCase().replace(/\s+/g, ' ').trim());
+
+            if (isMatch) {
+                input.className = 'exercise-input correct';
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ Exacte! ${explanation}`;
+                addSuccess(inputId, 10);
+            } else {
+                input.className = 'exercise-input incorrect';
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ Revisa les regles del segle!`;
+                addFailure();
+            }
+        }
+
+        function checkFlexibleNumber(inputId, validNumbers, explanation) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(inputId + '-msg');
+            const cleanStr = input.value.replace(',', '.').trim();
+            const val = parseFloat(cleanStr);
+
+            const isMatch = validNumbers.some(v => Math.abs(val - v) < 0.01);
+            if (isMatch) {
+                input.className = 'exercise-input correct';
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ Correcte! ${explanation}`;
+                addSuccess(inputId, 10);
+            } else {
+                input.className = 'exercise-input incorrect';
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ Càlcul incorrecte. Torna a dividir!`;
+                addFailure();
+            }
+        }
+
+        function checkFact(prefix, validSegles, validEdats, explanation) {
+            const segleInput = document.getElementById(prefix + '-segle');
+            const edatInput = document.getElementById(prefix + '-edat');
+            const msg = document.getElementById(prefix + '-msg');
+
+            const sVal = segleInput.value.toLowerCase().trim();
+            const eVal = edatInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+            const sMatch = validSegles.some(v => sVal === v.toLowerCase().trim());
+            const eMatch = validEdats.some(v => eVal.includes(v.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")));
+
+            if (sMatch && eMatch) {
+                segleInput.className = 'exercise-input correct';
+                edatInput.className = 'exercise-input correct';
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ Fantàstic! ${explanation}`;
+                addSuccess(prefix, 15);
+            } else {
+                if (!sMatch) segleInput.className = 'exercise-input incorrect';
+                else segleInput.className = 'exercise-input correct';
+                if (!eMatch) edatInput.className = 'exercise-input incorrect';
+                else edatInput.className = 'exercise-input correct';
+
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ Hi ha algun camp incorrecte. Revisa el segle o l'edat!`;
+                addFailure();
+            }
+        }
+
+        function checkAllSegles() {
+            document.querySelectorAll('#tab-segles .btn-mini-check').forEach(b => b.click());
+        }
+
+        function resetRomanWorkshop() {
+            document.querySelectorAll('#tab-romans .exercise-input').forEach(i => {
+                i.value = '';
+                i.className = 'exercise-input';
+            });
+            document.querySelectorAll('#tab-romans .exercise-feedback-msg').forEach(m => m.textContent = '');
+            document.querySelectorAll('#tab-romans .choice-btn').forEach(b => {
+                b.disabled = false;
+                b.classList.remove('selected-correct', 'selected-wrong');
+            });
+        }
+
+        /* ==========================================================================
+           ACTIVITAT IV: CRONOLOGIA D'ORDENAR 10 DATES
+           ========================================================================== */
+        const CHRONO_ITEMS = [
+            { id: 'c1', label: 's.X aC', val: -1000 },
+            { id: 'c2', label: '200 aC', val: -200 },
+            { id: 'c3', label: '75 aC', val: -75 },
+            { id: 'c4', label: '33', val: 33 },
+            { id: 'c5', label: 's.II', val: 150 },
+            { id: 'c6', label: '554', val: 554 },
+            { id: 'c7', label: 's.XV', val: 1450 },
+            { id: 'c8', label: '1.789', val: 1789 },
+            { id: 'c9', label: '1.925', val: 1925 },
+            { id: 'c10', label: '2.006', val: 2006 }
+        ];
+
+        let chronoSelectedOrder = [];
+
+        function initChronoActivity() {
+            const pool = document.getElementById('chrono-dates-pool');
+            if (!pool) return;
+            pool.innerHTML = '';
+            // Desordenar
+            const shuffled = [...CHRONO_ITEMS].sort(() => Math.random() - 0.5);
+            shuffled.forEach(item => {
+                const chip = document.createElement('button');
+                chip.className = 'btn-doc-download btn-doc-local';
+                chip.style.cursor = 'pointer';
+                chip.id = 'chip-' + item.id;
+                chip.textContent = item.label;
+                chip.onclick = () => selectChronoItem(item);
+                pool.appendChild(chip);
+            });
+            renderChronoSlots();
+        }
+
+        function selectChronoItem(item) {
+            if (chronoSelectedOrder.some(x => x.id === item.id)) return;
+            chronoSelectedOrder.push(item);
+            const chip = document.getElementById('chip-' + item.id);
+            if (chip) chip.style.display = 'none';
+            renderChronoSlots();
+        }
+
+        function renderChronoSlots() {
+            const slots = document.getElementById('chrono-timeline-slots');
+            if (!slots) return;
+            slots.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                const item = chronoSelectedOrder[i];
+                const row = document.createElement('div');
+                row.style.display = 'flex';
+                row.style.alignItems = 'center';
+                row.style.gap = '0.75rem';
+                row.style.background = 'var(--bg-card)';
+                row.style.padding = '0.4rem 0.8rem';
+                row.style.borderRadius = 'var(--radius-sm)';
+                row.style.border = '1px solid var(--border-color)';
+
+                row.innerHTML = `<span style="font-weight: 800; color: var(--time-gold-dark); width: 28px;">${i + 1}.</span>
+                    <span style="font-weight: 700; flex: 1;">${item ? item.label : '<em style="color: var(--text-muted); font-weight: normal;">(Buit)</em>'}</span>`;
+                slots.appendChild(row);
+            }
+        }
+
+        function resetChronoTimeline() {
+            chronoSelectedOrder = [];
+            CHRONO_ITEMS.forEach(it => {
+                const chip = document.getElementById('chip-' + it.id);
+                if (chip) chip.style.display = 'inline-block';
+            });
+            renderChronoSlots();
+            document.getElementById('chrono-feedback-msg').textContent = '';
+        }
+
+        function checkChronoTimeline() {
+            const msg = document.getElementById('chrono-feedback-msg');
+            if (chronoSelectedOrder.length < 10) {
+                msg.style.color = 'var(--accent-amber)';
+                msg.textContent = `⚠️ Has de col·locar les 10 dates abans de comprovar (en portes ${chronoSelectedOrder.length}/10).`;
+                return;
+            }
+            let isCorrect = true;
+            for (let i = 0; i < 10; i++) {
+                if (chronoSelectedOrder[i].id !== CHRONO_ITEMS[i].id) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+            if (isCorrect) {
+                msg.style.color = 'var(--accent-green)';
+                msg.textContent = `🎉 Excel·lent! Has ordenat correctament les 10 dates històriques des del segle X aC fins a l'any 2006!`;
+                addSuccess('chrono-timeline-10', 25);
+            } else {
+                msg.style.color = 'var(--accent-rose)';
+                msg.textContent = `✗ Hi ha dates desordenades. Recorda que les dates aC van cap enrere! Revisa i torna-ho a intentar.`;
+                addFailure();
+            }
+        }
+
+        /* ==========================================================================
+           JOC H5P DRAG & DROP: 18 TARGETES A 5 ETAPES
+           ========================================================================== */
+        const H5P_ITEMS = [
+            { id: 'h1', text: 'Trueque', era: 'antiga' },
+            { id: 'h2', text: 'Descobriment del foc', era: 'prehistoria' },
+            { id: 'h3', text: 'Piràmides', era: 'antiga' },
+            { id: 'h4', text: 'Monuments megalítics', era: 'prehistoria' },
+            { id: 'h5', text: 'Art Gòtic', era: 'mitjana' },
+            { id: 'h6', text: 'Bombeta', era: 'contemporania' },
+            { id: 'h7', text: 'Roda', era: 'prehistoria' },
+            { id: 'h8', text: 'Cubisme', era: 'contemporania' },
+            { id: 'h9', text: 'Romànic', era: 'mitjana' },
+            { id: 'h10', text: 'Vivien en coves', era: 'prehistoria' },
+            { id: 'h11', text: 'Euro', era: 'contemporania' },
+            { id: 'h12', text: 'Pintures rupestres', era: 'prehistoria' },
+            { id: 'h13', text: 'Feudalisme', era: 'mitjana' },
+            { id: 'h14', text: 'Edat dels metalls', era: 'prehistoria' },
+            { id: 'h15', text: 'Impremta', era: 'moderna' },
+            { id: 'h16', text: 'Nòmades', era: 'prehistoria' },
+            { id: 'h17', text: 'Pólvora', era: 'moderna' },
+            { id: 'h18', text: 'Penicil·lina', era: 'contemporania' }
+        ];
+
+        let h5pPlacements = {}; // itemId -> era
+        let selectedMobileBadge = null;
+
+        function initH5PDragGame() {
+            const pool = document.getElementById('h5p-pool');
+            if (!pool) return;
+            pool.innerHTML = '';
+            // Netejar contenidors
+            ['prehistoria', 'antiga', 'mitjana', 'moderna', 'contemporania'].forEach(era => {
+                const z = document.getElementById('zone-' + era);
+                if (z) z.innerHTML = '';
+            });
+
+            // Barrejar
+            const shuffled = [...H5P_ITEMS].sort(() => Math.random() - 0.5);
+            shuffled.forEach(item => {
+                const badge = document.createElement('div');
+                badge.className = 'h5p-item-badge';
+                badge.id = 'h5p-item-' + item.id;
+                badge.textContent = item.text;
+                badge.draggable = true;
+                badge.ondragstart = (e) => handleDragStart(e, item.id);
+                badge.ondragend = (e) => handleDragEnd(e);
+                badge.onclick = () => handleBadgeClickMobile(item.id);
+                pool.appendChild(badge);
+            });
+            updateH5PPendingCount();
+        }
+
+        function updateH5PPendingCount() {
+            const placed = Object.keys(h5pPlacements).length;
+            const pending = 18 - placed;
+            document.getElementById('h5p-pending-count').textContent = pending;
+            document.getElementById('h5p-drag-score').textContent = `${state.h5pDragScore} / 18`;
+        }
+
+        function handleDragStart(e, itemId) {
+            e.dataTransfer.setData('text/plain', itemId);
+            e.target.classList.add('dragging');
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('drag-over');
+        }
+
+        function handleDrop(e, targetEra) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('drag-over');
+            const itemId = e.dataTransfer.getData('text/plain');
+            placeBadgeInEra(itemId, targetEra);
+        }
+
+        function handleBadgeClickMobile(itemId) {
+            if (selectedMobileBadge === itemId) {
+                // Deseleccionar
+                selectedMobileBadge = null;
+                document.querySelectorAll('.h5p-item-badge').forEach(b => b.classList.remove('selected-mobile'));
+                return;
+            }
+            selectedMobileBadge = itemId;
+            document.querySelectorAll('.h5p-item-badge').forEach(b => b.classList.remove('selected-mobile'));
+            const el = document.getElementById('h5p-item-' + itemId);
+            if (el) el.classList.add('selected-mobile');
+        }
+
+        function handleZoneClick(era) {
+            if (selectedMobileBadge) {
+                placeBadgeInEra(selectedMobileBadge, era);
+                selectedMobileBadge = null;
+                document.querySelectorAll('.h5p-item-badge').forEach(b => b.classList.remove('selected-mobile'));
+            }
+        }
+
+        function placeBadgeInEra(itemId, era) {
+            const badge = document.getElementById('h5p-item-' + itemId);
+            const container = document.getElementById('zone-' + era);
+            if (!badge || !container) return;
+
+            h5pPlacements[itemId] = era;
+            container.appendChild(badge);
+            badge.classList.remove('selected-mobile');
+            updateH5PPendingCount();
+            playSound('correct');
+        }
+
+        function checkH5PDrag() {
+            const feedback = document.getElementById('h5p-drag-feedback');
+            const placedCount = Object.keys(h5pPlacements).length;
+            if (placedCount < 18) {
+                feedback.style.color = 'var(--accent-amber)';
+                feedback.textContent = `⚠️ Has de classificar totes les targetes! En portes ${placedCount}/18.`;
+                return;
+            }
+
+            let correct = 0;
+            H5P_ITEMS.forEach(it => {
+                const badge = document.getElementById('h5p-item-' + it.id);
+                if (h5pPlacements[it.id] === it.era) {
+                    correct++;
+                    if (badge) {
+                        badge.classList.remove('incorrect');
+                        badge.classList.add('correct');
+                    }
+                } else {
+                    if (badge) {
+                        badge.classList.remove('correct');
+                        badge.classList.add('incorrect');
+                    }
+                }
+            });
+
+            state.h5pDragScore = correct;
+            document.getElementById('h5p-drag-score').textContent = `${correct} / 18`;
+
+            if (correct === 18) {
+                feedback.style.color = 'var(--accent-green)';
+                feedback.textContent = `🎉 PERFECTE! Has classificat els 18 elements de forma impecable! Punts XP sumats.`;
+                addSuccess('h5p-drag-18', 30);
+            } else {
+                feedback.style.color = 'var(--accent-rose)';
+                feedback.textContent = `Has encertat ${correct} de 18. Revisa les targetes marcades en vermell!`;
+                addFailure();
+            }
+            saveState();
+            updateUI();
+        }
+
+        function resetH5PDrag() {
+            h5pPlacements = {};
+            selectedMobileBadge = null;
+            initH5PDragGame();
+            document.getElementById('h5p-drag-feedback').textContent = '';
+        }
+
+        /* ==========================================================================
+           JOC H5P: OMPLE ELS BUITS (10 FRASES)
+           ========================================================================== */
+        const BLANKS_SOLUTIONS = [
+            { id: 1, expected: ['prehistòria', 'prehistoria'] },
+            { id: 2, expected: ['contemporània', 'contemporania'] },
+            { id: 3, expected: ['antiga'] },
+            { id: 4, expected: ['moderna'] },
+            { id: 5, expected: ['mitjana'] },
+            { id: 6, expected: ['prehistòria', 'prehistoria'] },
+            { id: 7, expected: ['moderna'] },
+            { id: 8, expected: ['mitjana'] },
+            { id: 9, expected: ['moderna'] },
+            { id: 10, expected: ['prehistòria', 'prehistoria'] }
+        ];
+
+        function checkH5PBlanks() {
+            let correct = 0;
+            BLANKS_SOLUTIONS.forEach(item => {
+                const input = document.getElementById('blank-' + item.id);
+                const msg = document.getElementById('blank-' + item.id + '-msg');
+                const val = input.value.toLowerCase().trim();
+
+                const isMatch = item.expected.some(e => val === e);
+                if (isMatch) {
+                    correct++;
+                    input.className = 'blank-inline-input correct';
+                    msg.className = 'exercise-feedback-msg correct';
+                    msg.textContent = '✓';
+                } else {
+                    input.className = 'blank-inline-input incorrect';
+                    msg.className = 'exercise-feedback-msg incorrect';
+                    msg.textContent = '✗';
+                }
+            });
+
+            state.h5pBlanksScore = correct;
+            const overall = document.getElementById('blanks-overall-msg');
+
+            if (correct === 10) {
+                overall.style.color = 'var(--accent-green)';
+                overall.textContent = `🎉 10/10 EXCEL·LENT! Totes les etapes completades perfectament!`;
+                addSuccess('h5p-blanks-10', 30);
+            } else {
+                overall.style.color = 'var(--accent-rose)';
+                overall.textContent = `Has encertat ${correct} de 10. Revisa els buits marcats en vermell!`;
+                addFailure();
+            }
+            saveState();
+            updateUI();
+        }
+
+        function resetH5PBlanks() {
+            BLANKS_SOLUTIONS.forEach(it => {
+                const input = document.getElementById('blank-' + it.id);
+                const msg = document.getElementById('blank-' + it.id + '-msg');
+                input.value = '';
+                input.className = 'blank-inline-input';
+                msg.textContent = '';
+            });
+            document.getElementById('blanks-overall-msg').textContent = '';
+        }
+
+        /* ==========================================================================
+           INICIALITZACIÓ GLOBAL
+           ========================================================================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            initChronoActivity();
+            initH5PDragGame();
+        });
+    </script>
+</body>
+
+</html>

@@ -200,34 +200,34 @@
                         url: "mates/posat_a_prova_1/Apuntes.html",
                         desc: "Examen oficial interactiu de 5è (EMAT) amb mapa de rutes, càlcul d'àrea i perímetre, divisions tradicionals, taula censal i mode Pro.",
                         badge: "Examen Oficial"
-                    },
-                    {
-                        id: "romanos",
-                        title: "Números Romanos: El Imperio de las Cifras",
-                        shortTitle: "Números Romanos",
-                        url: "mates/romanos/Apuntes.html",
-                        desc: "Las 7 letras clave (I, V, X, L, C, D, M), reglas de suma, resta y repetición, cálculo de siglos, detective de errores y Coliseo contrarreloj.",
-                        badge: "Nuevo Tema"
                     }
                 ]
             },
             {
                 id: "projecte",
                 name: "Projecte",
-                fullName: "Projecte: Ens Orientem",
+                fullName: "Projecte: Medi Natural, Social & Cultural",
                 icon: "💡",
                 category: "ciencias",
                 driveUrl: "https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy",
                 localFolder: "projecte/",
-                description: "Coordenades geogràfiques, paral·lels, meridians, latitud, longitud i repte Pokémon.",
+                description: "Coordenades geogràfiques i missió Pokémon; el pas del temps, etapes de la història, mesura del temps i nombres romans.",
                 topics: [
                     {
                         id: "coordenadas",
-                        title: "Coordenades Geogràfiques & Missió Pokémon",
-                        shortTitle: "Coordenades Pokémon",
+                        title: "Tema 1: Orienta't i atrapa'ls (Coordenades & Pokémon)",
+                        shortTitle: "Orienta't i atrapa'ls",
                         url: "projecte/coordenadas/Apuntes.html",
                         desc: "Radar Team Rocket amb 10 Pokémon, paral·lels, meridians, latitud, longitud i silueta de Pikachu.",
                         badge: "100% Interactiu"
+                    },
+                    {
+                        id: "pasdeltemps",
+                        title: "Tema 2: El pas del temps (Història & Nombres Romans)",
+                        shortTitle: "El pas del temps",
+                        url: "projecte/pasdeltemps/Apuntes.html",
+                        desc: "Les 5 etapes de la història, mesura del temps (anys, lustres, segles), nombres romans complets, jocs H5P i mapa mental.",
+                        badge: "Nou Tema"
                     }
                 ]
             },
@@ -430,6 +430,12 @@
                     const c = data.constellationDone ? 15 : 0;
                     const pt = Math.min(15, (data.pointsGeneratedSolved || 0) * 3);
                     return Math.min(100, Math.round(q + p + c + pt));
+                }
+                if (subjectId === 'projecte' && topicId === 'pasdeltemps') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_projecte_pasdeltemps'));
+                    if (!data) return null;
+                    const solved = data.solvedCount || 0;
+                    return Math.min(100, Math.round((solved / 42) * 100));
                 }
                 if (subjectId === 'catala' && topicId === 'posat_a_prova_1') {
                     const data = JSON.parse(localStorage.getItem('alvaro_progress_catala_posat_a_prova_1'));
