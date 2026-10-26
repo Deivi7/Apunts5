@@ -1204,3 +1204,175 @@ body.dark-mode .letter-badge-role.norep {
     transform: scale(1.05);
 }
 
+/* ==========================================================================
+   NOVA INFOGRAFIA: LES EDATS DE LA HISTÒRIA & EXERCICIS PENÍNSULA
+   ========================================================================== */
+.infographic-viewer-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-top: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.infographic-viewer-card:hover {
+    border-color: var(--time-gold);
+    box-shadow: var(--shadow-lg);
+}
+
+.infographic-img-wrapper {
+    position: relative;
+    cursor: zoom-in;
+    background: #ffffff;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infographic-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    transition: transform 0.2s ease;
+    display: block;
+}
+
+.infographic-img-wrapper:hover .infographic-img {
+    transform: scale(1.01);
+}
+
+.infographic-badge-zoom {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.infographic-footer-info {
+    padding: 0.85rem 1.25rem;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.timeline-era-tags-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.era-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.era-tag.pre { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.era-tag.ant { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+.era-tag.mit { background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }
+.era-tag.mod { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.era-tag.con { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+body.dark-mode .era-tag.pre { background: #3d2c14; color: #fde68a; border-color: #78350f; }
+body.dark-mode .era-tag.ant { background: #172554; color: #93c5fd; border-color: #1e3a8a; }
+body.dark-mode .era-tag.mit { background: #2e1065; color: #c4b5fd; border-color: #4c1d95; }
+body.dark-mode .era-tag.mod { background: #064e3b; color: #6ee7b7; border-color: #047857; }
+body.dark-mode .era-tag.con { background: #450a0a; color: #fca5a5; border-color: #991b1b; }
+
+/* Lightbox Modal per a la imatge */
+.image-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.image-lightbox-overlay.active {
+    display: flex;
+}
+
+.image-lightbox-card {
+    position: relative;
+    max-width: 95vw;
+    max-height: 92vh;
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.image-lightbox-header {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.image-lightbox-body {
+    overflow: auto;
+    padding: 0.5rem;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-lightbox-body img {
+    max-width: 100%;
+    max-height: 80vh;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.image-lightbox-close {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.image-lightbox-close:hover {
+    color: var(--accent-rose);
+}
+
+

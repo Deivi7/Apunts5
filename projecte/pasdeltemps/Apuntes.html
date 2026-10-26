@@ -156,14 +156,14 @@
                         <span>🗺️</span>
                         <span>6. Etapes & Mapa Mental</span>
                     </div>
-                    <span class="tab-badge-count">5 Edats</span>
+                    <span class="tab-badge-count">5 Edats & Fets</span>
                 </button>
                 <button class="sidebar-tab-btn" onclick="switchTab('tab-documents')">
                     <div class="tab-btn-content">
                         <span>📁</span>
                         <span>7. Biblioteca de Documents & Vídeos</span>
                     </div>
-                    <span class="tab-badge-count">10 Arxius</span>
+                    <span class="tab-badge-count">11 Arxius</span>
                 </button>
             </div>
 
@@ -212,11 +212,14 @@
                         <a href="https://view.genially.com/5c73dcab5d0e4e575e19003c" target="_blank" class="btn-check-action" style="text-decoration: none;">
                             <span>✨</span> Obrir Genially Oficial: El Pas del Temps ↗
                         </a>
+                        <button class="btn-check-action" onclick="openImageModal('documents/les edats de la historia.webp', 'Les Edats de la Història')" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                            <span>🗺️</span> Nova Infografia: Línia del Temps ↗
+                        </button>
                         <a href="https://sites.google.com/site/elpasdeltemps5e/" target="_blank" class="btn-check-action" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); text-decoration: none;">
                             <span>🌐</span> Obrir Google Sites de 5è ↗
                         </a>
                         <button class="btn-check-action" onclick="switchTab('tab-documents')" style="background: linear-gradient(135deg, #059669, #047857);">
-                            <span>📁</span> Veure els 10 Documents & Vídeos Drive →
+                            <span>📁</span> Veure els 11 Documents & Vídeos Drive →
                         </button>
                     </div>
                 </div>
@@ -478,11 +481,150 @@
                     </div>
                 </div>
 
-                <!-- 5. Taula d'Errors Típics: Bé vs Mal -->
+                <!-- 5. La Nova Infografia Oficial: Les Edats de la Història i la Península Ibèrica -->
+                <div class="rule-box" id="sec-infografia-peninsula">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🗺️</div>
+                        <div>
+                            <h3 style="margin: 0;">5. La Línia del Temps Oficial: De la Prehistòria a l'Actualitat</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Nova làmina de classe: etapes internes, pobles colonitzadors i fets de la Península Ibèrica</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Aquesta és la nova infografia oficial de classe que connecta les grans edats amb la història de la nostra terra. Fes clic a la imatge per ampliar-la a pantalla completa:
+                    </p>
+
+                    <!-- Visualitzador interactiu de la imatge -->
+                    <div class="infographic-viewer-card">
+                        <div class="infographic-img-wrapper" onclick="openImageModal('documents/les edats de la historia.webp', 'Les Edats de la Història')">
+                            <img src="documents/les edats de la historia.webp" alt="Les Edats de la Història - Infografia oficial de classe" class="infographic-img">
+                            <div class="infographic-badge-zoom">
+                                <span>🔍</span> Clica per ampliar en gran
+                            </div>
+                        </div>
+                        <div class="infographic-footer-info">
+                            <div>
+                                <strong>📜 Infografia Oficial: Les Edats de la Història</strong>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Prehistòria, Edat Antiga, Mitjana, Moderna i Contemporània amb les fites peninsulars.</div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn-doc-download btn-doc-local" onclick="openImageModal('documents/les edats de la historia.webp', 'Les Edats de la Història')">
+                                    <span>🔍</span> Ampliar
+                                </button>
+                                <a href="documents/les edats de la historia.webp" download="les_edats_de_la_historia.webp" class="btn-doc-download btn-doc-drive">
+                                    <span>💾</span> Descarregar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desglossament didàctic de les 5 etapes i subetapes segons la làmina -->
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 0.75rem;">📚 Desglossament detallat de la làmina per a 5è de Primària:</h4>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            
+                            <!-- 1. Prehistòria -->
+                            <div style="background: var(--bg-card); border-left: 5px solid #d97706; border-radius: var(--radius-md); padding: 1rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                    <strong style="color: #d97706; font-size: 1.05rem;">🟡 1. PREHISTÒRIA (Fa 5.000.000 anys – 3.500 aC)</strong>
+                                    <span class="era-tag pre">L'etapa més llarga</span>
+                                </div>
+                                <ul style="font-size: 0.9rem; line-height: 1.6; margin-left: 1.25rem;">
+                                    <li><strong>Inici:</strong> Fa 5.000.000 d'anys amb l'aparició del primer ésser humà.</li>
+                                    <li><strong>Paleolític (Edat de Pedra antiga):</strong> 
+                                        <em>Fa 1.200.000 anys:</em> L'<strong>Homo antecessor</strong> habita a la serra d'Atapuerca (Burgos, Península Ibèrica).<br>
+                                        <em>Fa 35.000 anys:</em> Els éssers humans fan les primeres obres d'art rupestre (pintures a coves).
+                                    </li>
+                                    <li><strong>Neolític (Edat de Pedra nova):</strong> 
+                                        <em>Cap al 9.000 aC:</em> Sorgeixen l'<strong>agricultura i la ramaderia</strong>. L'ésser humà passa de ser nòmada a ser <strong>sedentari</strong> i apareix la ceràmica.
+                                    </li>
+                                    <li><strong>Edat dels Metalls:</strong> 
+                                        <em>5.000 aC:</em> Es fabriquen els primers objectes de metall (coure, bronze i ferro).<br>
+                                        <em>Cap al 3.000 aC:</em> <strong>Invenció de la roda</strong>.
+                                    </li>
+                                    <li><strong>Fita límit que tanca la Prehistòria:</strong> <strong>3.500 aC - Invenció de l'escriptura</strong> (neix la Història escrita).</li>
+                                </ul>
+                            </div>
+
+                            <!-- 2. Edat Antiga -->
+                            <div style="background: var(--bg-card); border-left: 5px solid #2563eb; border-radius: var(--radius-md); padding: 1rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                    <strong style="color: #2563eb; font-size: 1.05rem;">🔵 2. EDAT ANTIGA (3.500 aC – 476 dC)</strong>
+                                    <span class="era-tag ant">Pobles colonitzadors & Romans</span>
+                                </div>
+                                <ul style="font-size: 0.9rem; line-height: 1.6; margin-left: 1.25rem;">
+                                    <li><strong>Primeres civilitzacions (1.000 aC):</strong> Egipte, Mesopotàmia, Grècia clàssica.</li>
+                                    <li><strong>Època preromana a la Península (Celtes i Ibers):</strong> 
+                                        Arribada dels pobles colonitzadors del Mediterrani per comerciar:<br>
+                                        • <em>Cap al 700 aC:</em> Els <strong>fenicis</strong> arriben a la Península.<br>
+                                        • <em>Cap al 600 aC:</em> Els <strong>grecs</strong> desembarquen a la Península (fundació d'Empúries).<br>
+                                        • <em>Cap al 400 aC:</em> Els <strong>cartaginesos</strong> arriben a la Península.
+                                    </li>
+                                    <li><strong>Època romana:</strong> 
+                                        • <em>218 aC:</em> Els <strong>romans desembarquen a Empòrion (Empúries)</strong>.<br>
+                                        • <em>19 aC:</em> Fi de la conquesta d'Hispània per part d'Octavi August.
+                                    </li>
+                                    <li><strong>Fita límit que tanca l'Edat Antiga:</strong> <strong>476 dC - Fi i caiguda de l'Imperi Romà d'Occident</strong>.</li>
+                                </ul>
+                            </div>
+
+                            <!-- 3. Edat Mitjana -->
+                            <div style="background: var(--bg-card); border-left: 5px solid #7c3aed; border-radius: var(--radius-md); padding: 1rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                    <strong style="color: #7c3aed; font-size: 1.05rem;">🟣 3. EDAT MITJANA (476 dC – 1492 dC)</strong>
+                                    <span class="era-tag mit">Alta i Baixa Edat Mitjana</span>
+                                </div>
+                                <ul style="font-size: 0.9rem; line-height: 1.6; margin-left: 1.25rem;">
+                                    <li><strong>Alta Edat Mitjana:</strong> 
+                                        • <em>Any 711:</em> <strong>Invasió dels musulmans</strong> a la Península Ibèrica (creació d'Al-Àndalus).
+                                    </li>
+                                    <li><strong>Baixa Edat Mitjana (Segles X - XI aproximadament):</strong> 
+                                        Creixement del feudalisme, construcció de castells, senyors i vassalls, art romànic i catedrals gòtiques.
+                                    </li>
+                                    <li><strong>Fita límit que tanca l'Edat Mitjana:</strong> <strong>1492 - Arribada de Cristòfor Colom a Amèrica</strong> (i conquesta de Granada).</li>
+                                </ul>
+                            </div>
+
+                            <!-- 4. Edat Moderna -->
+                            <div style="background: var(--bg-card); border-left: 5px solid #059669; border-radius: var(--radius-md); padding: 1rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                    <strong style="color: #059669; font-size: 1.05rem;">🟢 4. EDAT MODERNA (1492 – 1789)</strong>
+                                    <span class="era-tag mod">Dinasties Reials</span>
+                                </div>
+                                <ul style="font-size: 0.9rem; line-height: 1.6; margin-left: 1.25rem;">
+                                    <li><strong>Monarquies i dinasties clau a Espanya:</strong><br>
+                                        • <em>1516:</em> Comença la <strong>Dinastia dels Àustria</strong> (Carles I, Felip II...).<br>
+                                        • <em>1701:</em> Comença la <strong>Dinastia dels Borbó</strong> (Felip V).
+                                    </li>
+                                    <li><strong>Grans fites mundials:</strong> La impremta de Gutenberg, grans viatges de navegació mundial, microscopi, telescopi i màquina de vapor.</li>
+                                    <li><strong>Fita límit que tanca l'Edat Moderna:</strong> <strong>1789 - La Revolució Francesa</strong>.</li>
+                                </ul>
+                            </div>
+
+                            <!-- 5. Edat Contemporània -->
+                            <div style="background: var(--bg-card); border-left: 5px solid #dc2626; border-radius: var(--radius-md); padding: 1rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                                    <strong style="color: #dc2626; font-size: 1.05rem;">🔴 5. EDAT CONTEMPORÀNIA (1789 – Actualitat)</strong>
+                                    <span class="era-tag con">Segles XIX, XX i XXI</span>
+                                </div>
+                                <ul style="font-size: 0.9rem; line-height: 1.6; margin-left: 1.25rem;">
+                                    <li><strong>Fites històriques de la Península:</strong><br>
+                                        • <em>1808 - 1814:</em> <strong>Guerra de la Independència</strong> (Guerra del Francès contra Napoleó).<br>
+                                        • <em>1936 - 1939:</em> <strong>Guerra Civil</strong> espanyola.<br>
+                                        • <em>1978:</em> Aprovació de la <strong>Constitució democràtica</strong>.
+                                    </li>
+                                    <li><strong>Fins avui dia:</strong> És l'etapa en què vivim actualment.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Taula d'Errors Típics: Bé vs Mal -->
                 <div class="rule-box">
                     <div class="rule-header">
                         <div class="rule-icon-box">❌</div>
-                        <h3>5. Compte amb les Trampes de l'Examen! (Bé vs Mal)</h3>
+                        <h3>6. Compte amb les Trampes de l'Examen! (Bé vs Mal)</h3>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); padding: 1rem;">
@@ -493,6 +635,8 @@
                                 <li>Escriure el 95 com <code>VC</code> (la V MAI resta!).</li>
                                 <li>Pensar que el 1492 és el segle XIV (com que no acaba en 00, és el segle XV!).</li>
                                 <li>Dir que l'any 500 aC és més recent que el 200 aC (en aC es compta cap enrere!).</li>
+                                <li>Dir que Atapuerca és del Neolític (Atapuerca és del Paleolític, fa 1.200.000 anys!).</li>
+                                <li>Confondre l'arribada dels romans (218 aC) amb la fi de la conquesta (19 aC).</li>
                             </ul>
                         </div>
                         <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 1rem;">
@@ -503,18 +647,20 @@
                                 <li>El 95 s'escriu <code>XCV</code> (90 + 5 = XC + V).</li>
                                 <li>L'any 1492 pertany al <strong>segle XV</strong> (14 + 1 = 15).</li>
                                 <li>L'any 500 aC és molt més antic que el 200 aC.</li>
+                                <li>L'Homo antecessor d'Atapuerca és del <strong>Paleolític</strong>.</li>
+                                <li>Els romans van arribar el <strong>218 aC</strong> i van acabar la conquesta el <strong>19 aC</strong>.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- 6. Resum en 1 minut -->
+                <!-- 7. Resum en 1 minut -->
                 <div class="rule-box" style="background: linear-gradient(135deg, rgba(217,119,6,0.1), rgba(180,83,9,0.05)); border: 2px solid var(--time-gold);">
                     <h3 style="color: var(--time-gold-dark); margin-bottom: 0.5rem;">⚡ Resum Visual en 1 Minut</h3>
                     <p style="font-size: 0.92rem; line-height: 1.6;">
                         Recorda les tres parelles màgiques que sumen 100 anys per canviar de segle: si l'any no acaba en "00", afegeix 1. 
                         En nombres romans: <strong>I, X, C, M</strong> fins a 3 cops; <strong>V, L, D</strong> només un cop.
-                        I les 5 edats: <strong>Prehistòria</strong> (escriptura) ➔ <strong>Edat Antiga</strong> (Imperi Romà 476) ➔ <strong>Edat Mitjana</strong> (Colom 1492) ➔ <strong>Edat Moderna</strong> (Rev. Francesa 1789) ➔ <strong>Edat Contemporània</strong> (fins avui).
+                        I la línia del temps de la península: <strong>Atapuerca (Paleolític)</strong> ➔ <strong>Agricultura 9000 aC (Neolític)</strong> ➔ <strong>Escriptura 3500 aC</strong> ➔ <strong>Fenicis (700 aC), Grecs (600 aC) i Romans (218 aC)</strong> ➔ <strong>Musulmans (711)</strong> ➔ <strong>Àustria (1516) i Borbó (1701)</strong> ➔ <strong>Independència (1808) i Constitució (1978)</strong>.
                     </p>
                 </div>
             </section>
@@ -1437,6 +1583,181 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ==========================================================================
+                     NOVA SECCIÓ: EXERCICIS DE LA INFOGRAFIA DE LES EDATS I LA PENÍNSULA
+                     ========================================================================== -->
+                <!-- Infografia de Referència -->
+                <div class="rule-box" style="margin-top: 1.5rem; background: var(--time-parchment); border: 2px solid var(--time-gold);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 style="margin: 0; color: var(--time-gold-dark);">🗺️ Infografia de Referència: Les Edats de la Història</h3>
+                            <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700;">Utilitza aquesta làmina oficial per resoldre els següents exercicis</span>
+                        </div>
+                        <button class="btn-check-action" onclick="openImageModal('documents/les edats de la historia.webp', 'Les Edats de la Història')" style="background: linear-gradient(135deg, #d97706, #b45309);">
+                            <span>🔍</span> Obrir Làmina en Pantalla Completa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Activitat II: El Gran Quiz Cronològic de la Península -->
+                <div class="rule-box" id="sec-quiz-peninsula">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🧠</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat II: El Gran Quiz de la Història de la Península</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">8 reptes interactius basats en la nova làmina oficial</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Tria l'opció correcta per a cadascuna de les preguntes clau sobre les etapes, els colonitzadors i els fets històrics:
+                    </p>
+
+                    <div class="exercises-subgrid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                        <!-- Q1 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🦴</span>
+                                <div><strong>1. Atapuerca:</strong> A quina etapa de la Prehistòria va viure l'Homo antecessor a Atapuerca fa 1.200.000 anys?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q1', 'Exacte! L\'Homo antecessor és del Paleolític (Edat de Pedra antiga).')">A) Al Paleolític</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q1', 'Incorrecte. Al Neolític comença l\'agricultura, molt més tard!')">B) Al Neolític</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q1', 'Incorrecte. L\'Edat dels Metalls comença cap al 5000 aC.')">C) A l'Edat dels Metalls</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q1-msg"></div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🌾</span>
+                                <div><strong>2. Neolític:</strong> Quina gran fita sorgeix cap al 9.000 aC que fa que els humans siguin sedentaris?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q2', 'Molt bé! Amb l\'agricultura i la ramaderia es queden a viure al mateix lloc.')">A) L'agricultura i la ramaderia</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q2', 'Incorrecte. La impremta es va inventar a l\'Edat Moderna.')">B) La impremta</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q2', 'Incorrecte. L\'escriptura sorgeix més tard, cap al 3500 aC.')">C) L'escriptura</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q2-msg"></div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>📜</span>
+                                <div><strong>3. Pas a la Història:</strong> Quin invent del 3.500 aC tanca la Prehistòria i comença l'Edat Antiga?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q3', 'Correcte! La invenció de l\'escriptura és la frontera entre Prehistòria i Història.')">A) La invenció de l'escriptura</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q3', 'Incorrecte. La roda és cap al 3000 aC, però no és el canvi d\'etapa.')">B) La invenció de la roda</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q3', 'Incorrecte. El foc es va descobrir al Paleolític.')">C) El descobriment del foc</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q3-msg"></div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🏺</span>
+                                <div><strong>4. Pobles Colonitzadors:</strong> Quins pobles van arribar a la Península a comerciar abans que els romans?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q4', 'Exacte! Fenicis (~700 aC), Grecs (~600 aC a Empúries) i Cartaginesos (~400 aC).')">A) Fenicis (700 aC), Grecs (600 aC) i Cartaginesos (400 aC)</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q4', 'Incorrecte. Els musulmans van arribar el 711 dC.')">B) Els musulmans i els visigots</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q4', 'Incorrecte. Els Àustria són reis de l\'Edat Moderna!')">C) Els Àustria i els Borbó</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q4-msg"></div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🏛️</span>
+                                <div><strong>5. Romans a Empúries:</strong> En quin any desembarquen els romans a Empòrion (Empúries)?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q5', 'Fantàstic! El 218 aC comença la presència romana a Catalunya i la Península.')">A) L'any 218 aC</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q5', 'Incorrecte. El 19 aC és quan acaben la conquesta, no quan arriben!')">B) L'any 19 aC</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q5', 'Incorrecte. El 476 dC cau l\'Imperi Romà.')">C) L'any 476 dC</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q5-msg"></div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>🕌</span>
+                                <div><strong>6. Edat Mitjana a la Península:</strong> Quin any marca l'inici de la invasió musulmana (Alta Edat Mitjana)?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q6', 'Molt bé! L\'any 711 els musulmans creuen l\'estret i neix Al-Àndalus.')">A) L'any 711 dC</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q6', 'Incorrecte. L\'any 1492 és el final de l\'Edat Mitjana!')">B) L'any 1492 dC</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q6', 'Incorrecte. El 1789 comença l\'Edat Contemporània.')">C) L'any 1789 dC</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q6-msg"></div>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>👑</span>
+                                <div><strong>7. Dinasties de l'Edat Moderna:</strong> Quines dues grans dinasties van regnar a l'Edat Moderna a Espanya?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q7', 'Genial! Els Àustria comencen el 1516 i els Borbó el 1701.')">A) Dinastia dels Àustria (1516) i dels Borbó (1701)</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q7', 'Incorrecte. Aquests són pobles antics preromans!')">B) Celtes i Ibers</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q7', 'Incorrecte. Fenicis i grecs van viure a l\'Edat Antiga.')">C) Fenicis i Grecs</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q7-msg"></div>
+                        </div>
+
+                        <!-- Q8 -->
+                        <div class="exercise-item-card">
+                            <div class="exercise-prompt">
+                                <span>⚔️</span>
+                                <div><strong>8. Edat Contemporània:</strong> Quin conflicte històric va tenir lloc a la Península entre 1808 i 1814?</div>
+                            </div>
+                            <div class="choices-row" style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, true, 'pen-q8', 'Exacte! La Guerra del Francès / Guerra de la Independència contra Napoleó.')">A) La Guerra de la Independència (Guerra del Francès)</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q8', 'Incorrecte. La Guerra Civil espanyola va ser del 1936 al 1939.')">B) La Guerra Civil espanyola</button>
+                                <button class="choice-btn" onclick="checkPeninsulaQuiz(this, false, 'pen-q8', 'Incorrecte. La Constitució democràtica es va votar el 1978.')">C) La Constitució democràtica</button>
+                            </div>
+                            <div class="exercise-feedback-msg" id="pen-q8-msg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activitat III: Crono-Repte de la Península -->
+                <div class="rule-box" id="sec-crono-peninsula">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">⏳</div>
+                        <div>
+                            <h3 style="margin: 0;">Activitat III: Crono-Repte de la Península Ibèrica</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">Ordena aquests 6 fets cabdals de la làmina des del més antic fins al més recent</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Fes clic als fets per col·locar-los a la línia. Un cop col·locats, pots <strong>reordenar-los amb ▲ / ▼</strong> o arrossegant-los, i treure'ls amb <strong>✕</strong>:
+                    </p>
+                    <div id="peninsula-chrono-pool" class="breakdown-chips-row" style="margin-bottom: 1.25rem;"></div>
+                    <div style="background: var(--time-parchment); border: 2px solid var(--time-parchment-border); border-radius: var(--radius-lg); padding: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <strong>La teva línia del temps de la Península (1 a 6):</strong>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">💡 Usa <strong>▲ / ▼</strong> o arrossega per moure</span>
+                                <button class="btn-mini-check" onclick="resetPeninsulaChrono()" style="background: var(--text-muted);">Reiniciar Ordre</button>
+                            </div>
+                        </div>
+                        <div id="peninsula-chrono-slots" style="display: flex; flex-direction: column; gap: 0.4rem;"></div>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: right;">
+                        <button class="btn-check-action" onclick="checkPeninsulaChrono()">
+                            <span>✓</span> Comprovar Cronologia de la Península
+                        </button>
+                    </div>
+                    <div id="peninsula-chrono-msg" style="margin-top: 0.5rem; font-weight: 700;"></div>
+                </div>
             </section>
 
             <!-- ==========================================================================
@@ -1571,6 +1892,25 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- Doc 7: Infografia Les edats de la història -->
+                    <div class="doc-file-card">
+                        <div class="doc-file-info">
+                            <div class="doc-file-icon">🗺️</div>
+                            <div>
+                                <div class="doc-file-name">les edats de la historia.webp</div>
+                                <div class="doc-file-desc">Infografia cronològica oficial: Prehistòria (Atapuerca, Neolític, Metalls), Edat Antiga (colonitzadors, romans 218 aC), Mitjana (711), Moderna (Àustria, Borbó) i Contemporània (1808, 1936, 1978).</div>
+                            </div>
+                        </div>
+                        <div class="doc-actions-row">
+                            <button onclick="openImageModal('documents/les edats de la historia.webp', 'Les Edats de la Història')" class="btn-doc-download btn-doc-local">
+                                <span>🖼️</span> Local (Ampliar)
+                            </button>
+                            <a href="https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy" target="_blank" class="btn-doc-download btn-doc-drive" title="Carpeta oficial de Drive de Projecte">
+                                <span>☁️</span> Google Drive ↗
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Estanteria de Vídeos de Classe -->
@@ -1699,6 +2039,19 @@
                 <strong>3. Edat Mitjana:</strong> Any 476 fins al descobriment d'Amèrica (1492).<br>
                 <strong>4. Edat Moderna:</strong> Any 1492 fins a la Revolució Francesa (1789).<br>
                 <strong>5. Edat Contemporània:</strong> Any 1789 fins als nostres dies (avui).
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Lightbox per visualitzar la Infografia en gran -->
+    <div class="image-lightbox-overlay" id="image-lightbox-modal" onclick="closeImageModalOnBg(event)">
+        <div class="image-lightbox-card">
+            <div class="image-lightbox-header">
+                <strong id="lightbox-title" style="color: var(--text-main); font-size: 1.05rem;">Les Edats de la Història</strong>
+                <button class="image-lightbox-close" onclick="closeImageModal()">&times;</button>
+            </div>
+            <div class="image-lightbox-body">
+                <img id="lightbox-img" src="" alt="Infografia">
             </div>
         </div>
     </div>
@@ -2627,11 +2980,264 @@
         }
 
         /* ==========================================================================
+           LIGHTBOX PER A LA INFOGRAFIA EN GRAN
+           ========================================================================== */
+        function openImageModal(src, title) {
+            const modal = document.getElementById('image-lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const titleEl = document.getElementById('lightbox-title');
+            if (modal && img) {
+                img.src = src;
+                if (titleEl && title) titleEl.textContent = title;
+                modal.classList.add('active');
+            }
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-lightbox-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function closeImageModalOnBg(e) {
+            if (e.target.id === 'image-lightbox-modal') closeImageModal();
+        }
+
+        /* ==========================================================================
+           EXERCICIS PENÍNSULA: QUIZ DE 8 PREGUNTES
+           ========================================================================== */
+        function checkPeninsulaQuiz(btn, isCorrect, groupKey, explanation) {
+            const container = btn.parentElement;
+            container.querySelectorAll('.choice-btn').forEach(b => {
+                b.disabled = true;
+                b.classList.remove('selected-correct', 'selected-wrong');
+            });
+
+            const msg = document.getElementById(groupKey + '-msg');
+            if (isCorrect) {
+                btn.classList.add('selected-correct');
+                msg.className = 'exercise-feedback-msg correct';
+                msg.textContent = `✓ ${explanation}`;
+                addSuccess(groupKey, 10);
+            } else {
+                btn.classList.add('selected-wrong');
+                msg.className = 'exercise-feedback-msg incorrect';
+                msg.textContent = `✗ ${explanation}`;
+                addFailure();
+            }
+        }
+
+        /* ==========================================================================
+           EXERCICIS PENÍNSULA: CRONO-REPTE DE 6 FETS AMB REORDENACIÓ
+           ========================================================================== */
+        const PENINSULA_CHRONO_ITEMS = [
+            { id: 'p1', label: '🦴 Atapuerca: Homo antecessor (fa 1.200.000 anys)', val: -1200000 },
+            { id: 'p2', label: '🏺 Fenicis arriben a la Península (700 aC)', val: -700 },
+            { id: 'p3', label: '🏛️ Romans desembarquen a Empòrion (218 aC)', val: -218 },
+            { id: 'p4', label: '🕌 Invasió musulmana / Al-Àndalus (711 dC)', val: 711 },
+            { id: 'p5', label: '👑 Comença la Dinastia dels Àustria (1516)', val: 1516 },
+            { id: 'p6', label: '📜 Constitució democràtica (1978)', val: 1978 }
+        ];
+
+        let peninsulaSelectedOrder = [];
+        let peninsulaDragSrcIndex = null;
+
+        function initPeninsulaChrono() {
+            const pool = document.getElementById('peninsula-chrono-pool');
+            if (!pool) return;
+            pool.innerHTML = '';
+            // Desordenar aleatòriament
+            const shuffled = [...PENINSULA_CHRONO_ITEMS].sort(() => Math.random() - 0.5);
+            shuffled.forEach(item => {
+                const chip = document.createElement('button');
+                chip.className = 'btn-doc-download btn-doc-local';
+                chip.style.cursor = 'pointer';
+                chip.id = 'pen-chip-' + item.id;
+                chip.textContent = item.label;
+                chip.onclick = () => selectPeninsulaChronoItem(item);
+                pool.appendChild(chip);
+            });
+            renderPeninsulaChronoSlots();
+        }
+
+        function selectPeninsulaChronoItem(item) {
+            if (peninsulaSelectedOrder.some(x => x.id === item.id)) return;
+            if (peninsulaSelectedOrder.length >= 6) return;
+            peninsulaSelectedOrder.push(item);
+            const chip = document.getElementById('pen-chip-' + item.id);
+            if (chip) chip.style.display = 'none';
+            renderPeninsulaChronoSlots();
+            const msg = document.getElementById('peninsula-chrono-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function renderPeninsulaChronoSlots() {
+            const slots = document.getElementById('peninsula-chrono-slots');
+            if (!slots) return;
+            slots.innerHTML = '';
+            for (let i = 0; i < 6; i++) {
+                const item = peninsulaSelectedOrder[i];
+                const row = document.createElement('div');
+                row.className = 'chrono-timeline-row' + (item ? ' filled' : ' empty');
+                row.dataset.index = i;
+
+                if (item) {
+                    row.draggable = true;
+                    row.ondragstart = (e) => handlePeninsulaDragStart(e, i);
+                    row.ondragover = (e) => handlePeninsulaDragOver(e);
+                    row.ondragenter = (e) => handlePeninsulaDragEnter(e, row);
+                    row.ondragleave = (e) => handlePeninsulaDragLeave(e, row);
+                    row.ondrop = (e) => handlePeninsulaDrop(e, i);
+                    row.ondragend = (e) => handlePeninsulaDragEnd(e);
+
+                    row.innerHTML = `
+                        <span class="chrono-drag-handle" title="Arrossega per moure">☰</span>
+                        <span class="chrono-slot-num">${i + 1}.</span>
+                        <span class="chrono-item-label">${item.label}</span>
+                        <div class="chrono-actions">
+                            <button class="btn-chrono-move" onclick="movePeninsulaChronoItem(${i}, -1)" ${i === 0 ? 'disabled' : ''} title="Pujar una posició (més antic)">▲</button>
+                            <button class="btn-chrono-move" onclick="movePeninsulaChronoItem(${i}, 1)" ${i === peninsulaSelectedOrder.length - 1 ? 'disabled' : ''} title="Baixar una posició (més recent)">▼</button>
+                            <button class="btn-chrono-remove" onclick="removePeninsulaChronoItem(${i})" title="Treure i tornar a les opcions">✕</button>
+                        </div>
+                    `;
+                } else {
+                    row.ondragover = (e) => handlePeninsulaDragOver(e);
+                    row.ondrop = (e) => handlePeninsulaDropOnEmpty(e, i);
+                    row.innerHTML = `
+                        <span class="chrono-slot-num" style="opacity: 0.4;">${i + 1}.</span>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.88rem;">(Buit - Clica un fet de dalt per col·locar-lo)</span>
+                    `;
+                }
+                slots.appendChild(row);
+            }
+        }
+
+        function movePeninsulaChronoItem(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= peninsulaSelectedOrder.length) return;
+            const temp = peninsulaSelectedOrder[index];
+            peninsulaSelectedOrder[index] = peninsulaSelectedOrder[targetIndex];
+            peninsulaSelectedOrder[targetIndex] = temp;
+            renderPeninsulaChronoSlots();
+            const msg = document.getElementById('peninsula-chrono-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function removePeninsulaChronoItem(index) {
+            const removed = peninsulaSelectedOrder.splice(index, 1)[0];
+            if (removed) {
+                const chip = document.getElementById('pen-chip-' + removed.id);
+                if (chip) chip.style.display = 'inline-block';
+            }
+            renderPeninsulaChronoSlots();
+            const msg = document.getElementById('peninsula-chrono-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function handlePeninsulaDragStart(e, index) {
+            peninsulaDragSrcIndex = index;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', index);
+            e.currentTarget.classList.add('dragging');
+        }
+
+        function handlePeninsulaDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handlePeninsulaDragEnter(e, row) {
+            row.classList.add('drag-over');
+        }
+
+        function handlePeninsulaDragLeave(e, row) {
+            row.classList.remove('drag-over');
+        }
+
+        function handlePeninsulaDrop(e, targetIndex) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (peninsulaDragSrcIndex !== null && peninsulaDragSrcIndex !== targetIndex) {
+                const itemToMove = peninsulaSelectedOrder.splice(peninsulaDragSrcIndex, 1)[0];
+                peninsulaSelectedOrder.splice(targetIndex, 0, itemToMove);
+                renderPeninsulaChronoSlots();
+                const msg = document.getElementById('peninsula-chrono-msg');
+                if (msg) msg.textContent = '';
+            }
+        }
+
+        function handlePeninsulaDropOnEmpty(e, emptyIndex) {
+            e.preventDefault();
+            if (peninsulaDragSrcIndex !== null) {
+                const itemToMove = peninsulaSelectedOrder.splice(peninsulaDragSrcIndex, 1)[0];
+                peninsulaSelectedOrder.push(itemToMove);
+                renderPeninsulaChronoSlots();
+                const msg = document.getElementById('peninsula-chrono-msg');
+                if (msg) msg.textContent = '';
+            }
+        }
+
+        function handlePeninsulaDragEnd(e) {
+            peninsulaDragSrcIndex = null;
+            document.querySelectorAll('#peninsula-chrono-slots .chrono-timeline-row').forEach(r => {
+                r.classList.remove('dragging', 'drag-over');
+            });
+        }
+
+        function resetPeninsulaChrono() {
+            peninsulaSelectedOrder = [];
+            PENINSULA_CHRONO_ITEMS.forEach(it => {
+                const chip = document.getElementById('pen-chip-' + it.id);
+                if (chip) chip.style.display = 'inline-block';
+            });
+            renderPeninsulaChronoSlots();
+            const msg = document.getElementById('peninsula-chrono-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function checkPeninsulaChrono() {
+            const msg = document.getElementById('peninsula-chrono-msg');
+            if (peninsulaSelectedOrder.length < 6) {
+                msg.style.color = 'var(--accent-amber)';
+                msg.textContent = `⚠️ Has de col·locar els 6 fets abans de comprovar (en portes ${peninsulaSelectedOrder.length}/6).`;
+                return;
+            }
+            let correctCount = 0;
+            const rows = document.querySelectorAll('#peninsula-chrono-slots .chrono-timeline-row');
+
+            for (let i = 0; i < 6; i++) {
+                const isItemCorrect = (peninsulaSelectedOrder[i].id === PENINSULA_CHRONO_ITEMS[i].id);
+                if (isItemCorrect) {
+                    correctCount++;
+                    if (rows[i]) {
+                        rows[i].style.borderColor = 'var(--accent-green)';
+                        rows[i].style.backgroundColor = 'rgba(16, 185, 129, 0.08)';
+                    }
+                } else {
+                    if (rows[i]) {
+                        rows[i].style.borderColor = 'var(--accent-rose)';
+                        rows[i].style.backgroundColor = 'rgba(239, 68, 68, 0.08)';
+                    }
+                }
+            }
+
+            if (correctCount === 6) {
+                msg.style.color = 'var(--accent-green)';
+                msg.textContent = `🎉 Extraordinari! Has ordenat perfectament la història de la Península des d'Atapuerca fins a la Constitució de 1978! (6 / 6 correctes)`;
+                addSuccess('chrono-peninsula-6', 25);
+            } else {
+                msg.style.color = 'var(--accent-rose)';
+                msg.textContent = `✗ Tens ${correctCount} de 6 fets ben situats. Recorda l'ordre: Paleolític ➔ Fenicis ➔ Romans ➔ Musulmans ➔ Àustria ➔ Constitució! Mou els fets en vermell amb ▲ / ▼ o arrossegant-los.`;
+                addFailure();
+            }
+        }
+
+        /* ==========================================================================
            INICIALITZACIÓ GLOBAL
            ========================================================================== */
         window.addEventListener('DOMContentLoaded', () => {
             loadState();
             initChronoActivity();
+            initPeninsulaChrono();
             initH5PDragGame();
         });
     </script>
