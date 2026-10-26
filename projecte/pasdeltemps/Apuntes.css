@@ -1375,4 +1375,37 @@ body.dark-mode .era-tag.con { background: #450a0a; color: #fca5a5; border-color:
     color: var(--accent-rose);
 }
 
+/* ==========================================================================
+   SUBDOTS PER AL DESGLOSSAMENT DE LA LÀMINA
+   ========================================================================== */
+.timeline-subdots-list {
+    list-style-type: disc !important;
+    margin: 0.35rem 0 0.65rem 1.4rem !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.timeline-subdots-list li {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-muted);
+    list-style-type: disc !important;
+}
+
+.timeline-subdots-list li strong {
+    color: var(--text-main);
+}
+
+.timeline-subdots-list li em {
+    color: var(--time-gold-dark);
+    font-style: normal;
+    font-weight: 700;
+}
+
+body.dark-mode .timeline-subdots-list li em {
+    color: var(--time-gold-light);
+}
+
 
