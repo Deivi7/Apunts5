@@ -1081,3 +1081,126 @@ body.dark-mode .letter-badge-role.norep {
 .cheat-modal-close:hover {
     color: var(--text-main);
 }
+
+/* ==========================================================================
+   ACTIVITAT IV: CRONOLOGIA REORDENABLE
+   ========================================================================== */
+.chrono-timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-card);
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.chrono-timeline-row.filled {
+    cursor: grab;
+}
+
+.chrono-timeline-row.filled:hover {
+    border-color: var(--time-gold);
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12);
+}
+
+.chrono-timeline-row.dragging {
+    opacity: 0.4;
+    cursor: grabbing;
+    background: var(--time-gold-light);
+    border: 2px dashed var(--time-gold);
+}
+
+.chrono-timeline-row.drag-over {
+    border: 2px solid var(--time-gold) !important;
+    background: rgba(217, 119, 6, 0.1) !important;
+    transform: scale(1.01);
+}
+
+.chrono-drag-handle {
+    cursor: grab;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    padding: 0 0.35rem 0 0.1rem;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.chrono-drag-handle:hover {
+    color: var(--time-gold-dark);
+}
+
+.chrono-slot-num {
+    font-weight: 800;
+    color: var(--time-gold-dark);
+    width: 28px;
+    font-size: 0.95rem;
+}
+
+.chrono-item-label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+    flex: 1;
+}
+
+.chrono-actions {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.btn-chrono-move {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-chrono-move:hover:not(:disabled) {
+    background: var(--time-gold);
+    color: #ffffff;
+    border-color: var(--time-gold-dark);
+    transform: translateY(-1px);
+}
+
+.btn-chrono-move:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.btn-chrono-remove {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: var(--radius-sm);
+    color: var(--accent-rose);
+    font-size: 0.85rem;
+    font-weight: 800;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-chrono-remove:hover {
+    background: var(--accent-rose);
+    color: #ffffff;
+    border-color: var(--accent-rose);
+    transform: scale(1.05);
+}
+

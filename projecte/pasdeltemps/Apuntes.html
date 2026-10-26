@@ -1007,13 +1007,16 @@
                         </div>
                     </div>
                     <p class="rule-desc">
-                        Fes clic a les dates en l'ordre cronològic correcte (des del passat més remot fins al més recent):
+                        Fes clic a les dates per col·locar-les a la línia del temps. Un cop col·locades, pots <strong>reordenar-les fàcilment</strong> arrossegant-les o amb les fletxes <strong>▲ / ▼</strong> (i treure-les amb <strong>✕</strong> si vols canviar-les):
                     </p>
                     <div id="chrono-dates-pool" class="breakdown-chips-row" style="margin-bottom: 1.25rem;"></div>
                     <div style="background: var(--time-parchment); border: 2px solid var(--time-parchment-border); border-radius: var(--radius-lg); padding: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
                             <strong>La teva línia del temps ordenada (1 a 10):</strong>
-                            <button class="btn-mini-check" onclick="resetChronoTimeline()" style="background: var(--text-muted);">Reiniciar Ordre</button>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">💡 Usa <strong>▲ / ▼</strong> o arrossega per moure</span>
+                                <button class="btn-mini-check" onclick="resetChronoTimeline()" style="background: var(--text-muted);">Reiniciar Ordre</button>
+                            </div>
                         </div>
                         <div id="chrono-timeline-slots" style="display: flex; flex-direction: column; gap: 0.4rem;"></div>
                     </div>
@@ -2219,12 +2222,17 @@
             renderChronoSlots();
         }
 
+        let chronoDragSrcIndex = null;
+
         function selectChronoItem(item) {
             if (chronoSelectedOrder.some(x => x.id === item.id)) return;
+            if (chronoSelectedOrder.length >= 10) return;
             chronoSelectedOrder.push(item);
             const chip = document.getElementById('chip-' + item.id);
             if (chip) chip.style.display = 'none';
             renderChronoSlots();
+            const msg = document.getElementById('chrono-feedback-msg');
+            if (msg) msg.textContent = '';
         }
 
         function renderChronoSlots() {
@@ -2234,18 +2242,110 @@
             for (let i = 0; i < 10; i++) {
                 const item = chronoSelectedOrder[i];
                 const row = document.createElement('div');
-                row.style.display = 'flex';
-                row.style.alignItems = 'center';
-                row.style.gap = '0.75rem';
-                row.style.background = 'var(--bg-card)';
-                row.style.padding = '0.4rem 0.8rem';
-                row.style.borderRadius = 'var(--radius-sm)';
-                row.style.border = '1px solid var(--border-color)';
+                row.className = 'chrono-timeline-row' + (item ? ' filled' : ' empty');
+                row.dataset.index = i;
 
-                row.innerHTML = `<span style="font-weight: 800; color: var(--time-gold-dark); width: 28px;">${i + 1}.</span>
-                    <span style="font-weight: 700; flex: 1;">${item ? item.label : '<em style="color: var(--text-muted); font-weight: normal;">(Buit)</em>'}</span>`;
+                if (item) {
+                    row.draggable = true;
+                    row.ondragstart = (e) => handleChronoDragStart(e, i);
+                    row.ondragover = (e) => handleChronoDragOver(e);
+                    row.ondragenter = (e) => handleChronoDragEnter(e, row);
+                    row.ondragleave = (e) => handleChronoDragLeave(e, row);
+                    row.ondrop = (e) => handleChronoDrop(e, i);
+                    row.ondragend = (e) => handleChronoDragEnd(e);
+
+                    row.innerHTML = `
+                        <span class="chrono-drag-handle" title="Arrossega per moure de lloc">☰</span>
+                        <span class="chrono-slot-num">${i + 1}.</span>
+                        <span class="chrono-item-label">${item.label}</span>
+                        <div class="chrono-actions">
+                            <button class="btn-chrono-move" onclick="moveChronoItem(${i}, -1)" ${i === 0 ? 'disabled' : ''} title="Pujar una posició (més antic)">▲</button>
+                            <button class="btn-chrono-move" onclick="moveChronoItem(${i}, 1)" ${i === chronoSelectedOrder.length - 1 ? 'disabled' : ''} title="Baixar una posició (més recent)">▼</button>
+                            <button class="btn-chrono-remove" onclick="removeChronoItem(${i})" title="Treure de la línia i tornar a les opcions">✕</button>
+                        </div>
+                    `;
+                } else {
+                    row.ondragover = (e) => handleChronoDragOver(e);
+                    row.ondrop = (e) => handleChronoDropOnEmpty(e, i);
+                    row.innerHTML = `
+                        <span class="chrono-slot-num" style="opacity: 0.4;">${i + 1}.</span>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.88rem;">(Buit - Clica una data de dalt per col·locar-la aquí)</span>
+                    `;
+                }
                 slots.appendChild(row);
             }
+        }
+
+        function moveChronoItem(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= chronoSelectedOrder.length) return;
+            const temp = chronoSelectedOrder[index];
+            chronoSelectedOrder[index] = chronoSelectedOrder[targetIndex];
+            chronoSelectedOrder[targetIndex] = temp;
+            renderChronoSlots();
+            const msg = document.getElementById('chrono-feedback-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function removeChronoItem(index) {
+            const removed = chronoSelectedOrder.splice(index, 1)[0];
+            if (removed) {
+                const chip = document.getElementById('chip-' + removed.id);
+                if (chip) chip.style.display = 'inline-block';
+            }
+            renderChronoSlots();
+            const msg = document.getElementById('chrono-feedback-msg');
+            if (msg) msg.textContent = '';
+        }
+
+        function handleChronoDragStart(e, index) {
+            chronoDragSrcIndex = index;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', index);
+            e.currentTarget.classList.add('dragging');
+        }
+
+        function handleChronoDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handleChronoDragEnter(e, row) {
+            row.classList.add('drag-over');
+        }
+
+        function handleChronoDragLeave(e, row) {
+            row.classList.remove('drag-over');
+        }
+
+        function handleChronoDrop(e, targetIndex) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (chronoDragSrcIndex !== null && chronoDragSrcIndex !== targetIndex) {
+                const itemToMove = chronoSelectedOrder.splice(chronoDragSrcIndex, 1)[0];
+                chronoSelectedOrder.splice(targetIndex, 0, itemToMove);
+                renderChronoSlots();
+                const msg = document.getElementById('chrono-feedback-msg');
+                if (msg) msg.textContent = '';
+            }
+        }
+
+        function handleChronoDropOnEmpty(e, emptyIndex) {
+            e.preventDefault();
+            if (chronoDragSrcIndex !== null) {
+                const itemToMove = chronoSelectedOrder.splice(chronoDragSrcIndex, 1)[0];
+                chronoSelectedOrder.push(itemToMove);
+                renderChronoSlots();
+                const msg = document.getElementById('chrono-feedback-msg');
+                if (msg) msg.textContent = '';
+            }
+        }
+
+        function handleChronoDragEnd(e) {
+            chronoDragSrcIndex = null;
+            document.querySelectorAll('.chrono-timeline-row').forEach(r => {
+                r.classList.remove('dragging', 'drag-over');
+            });
         }
 
         function resetChronoTimeline() {
@@ -2255,7 +2355,8 @@
                 if (chip) chip.style.display = 'inline-block';
             });
             renderChronoSlots();
-            document.getElementById('chrono-feedback-msg').textContent = '';
+            const msg = document.getElementById('chrono-feedback-msg');
+            if (msg) msg.textContent = '';
         }
 
         function checkChronoTimeline() {
@@ -2265,20 +2366,32 @@
                 msg.textContent = `⚠️ Has de col·locar les 10 dates abans de comprovar (en portes ${chronoSelectedOrder.length}/10).`;
                 return;
             }
-            let isCorrect = true;
+            let correctCount = 0;
+            const rows = document.querySelectorAll('#chrono-timeline-slots .chrono-timeline-row');
+
             for (let i = 0; i < 10; i++) {
-                if (chronoSelectedOrder[i].id !== CHRONO_ITEMS[i].id) {
-                    isCorrect = false;
-                    break;
+                const isItemCorrect = (chronoSelectedOrder[i].id === CHRONO_ITEMS[i].id);
+                if (isItemCorrect) {
+                    correctCount++;
+                    if (rows[i]) {
+                        rows[i].style.borderColor = 'var(--accent-green)';
+                        rows[i].style.backgroundColor = 'rgba(16, 185, 129, 0.08)';
+                    }
+                } else {
+                    if (rows[i]) {
+                        rows[i].style.borderColor = 'var(--accent-rose)';
+                        rows[i].style.backgroundColor = 'rgba(239, 68, 68, 0.08)';
+                    }
                 }
             }
-            if (isCorrect) {
+
+            if (correctCount === 10) {
                 msg.style.color = 'var(--accent-green)';
-                msg.textContent = `🎉 Excel·lent! Has ordenat correctament les 10 dates històriques des del segle X aC fins a l'any 2006!`;
+                msg.textContent = `🎉 Excel·lent! Has ordenat correctament les 10 dates històriques des del segle X aC fins a l'any 2006! (10 / 10 correctes)`;
                 addSuccess('chrono-timeline-10', 25);
             } else {
                 msg.style.color = 'var(--accent-rose)';
-                msg.textContent = `✗ Hi ha dates desordenades. Recorda que les dates aC van cap enrere! Revisa i torna-ho a intentar.`;
+                msg.textContent = `✗ Tens ${correctCount} de 10 dates al lloc correcte. Recorda que les dates aC van en compte enrere (com més alt el nombre aC, més antic és)! Mou les dates marcades en vermell amb ▲ / ▼ o arrossegant-les.`;
                 addFailure();
             }
         }
