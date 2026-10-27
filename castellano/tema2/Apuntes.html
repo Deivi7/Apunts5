@@ -76,7 +76,7 @@
 
             <div class="hero-stats-panel">
                 <div class="hero-stat-card">
-                    <span class="stat-number" id="stat-challenges-total">110+</span>
+                    <span class="stat-number" id="stat-challenges-total">150+</span>
                     <span class="stat-desc">Retos Prácticos</span>
                 </div>
                 <div class="hero-stat-card">
@@ -136,7 +136,7 @@
                             <span class="sidebar-btn-desc">Tecnicismos & Neologismos</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-vocabulario">0/8</span>
+                    <span class="sidebar-btn-badge" id="badge-vocabulario">16 retos</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('verbo', this)">
@@ -147,7 +147,7 @@
                             <span class="sidebar-btn-desc">Formas no personales & Raíz</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-verbo">28 retos</span>
+                    <span class="sidebar-btn-badge" id="badge-verbo">38 retos</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('acentuacion', this)">
@@ -158,7 +158,7 @@
                             <span class="sidebar-btn-desc">Agudas, llanas & esdrújulas</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-acentuacion">75 retos</span>
+                    <span class="sidebar-btn-badge" id="badge-acentuacion">93 retos</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('taller', this)">
@@ -658,6 +658,22 @@
                         </div>
                     </div>
                 </div>
+                                <!-- Actividad Oficial 3 (Tecnicismos_Guia_Ejercicios.pdf): Clasificador de Tecnicismos por Especialidad -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🏷️</span> Reto Oficial (Tecnicismos_Guia_Ejercicios.pdf): Clasifica los tecnicismos en su especialidad
+                            </div>
+                            <span class="sidebar-btn-badge" id="badge-tec-specialties">8 Ámbitos Profesionales</span>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                            Selecciona a qué disciplina pertenece cada uno de estos tecnicismos de la ficha oficial:
+                        </p>
+
+                        <div class="exercise-grid-inputs" id="tecnicismos-specialties-grid">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
             </section>
 
             <!-- ===================================================================
@@ -769,6 +785,73 @@
                         </p>
 
                         <div class="exercise-grid-inputs" id="verb-conj-grid">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
+                                <!-- Actividad Oficial 2 (Act. Verbos.pdf): Identifica la Forma No Personal en la Oración -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🎯</span> Actividad Oficial 2 (Act. Verbos.pdf): Identifica la forma no personal de cada oración
+                            </div>
+                            <span class="sidebar-btn-badge">4 Oraciones Clave</span>
+                        </div>
+                        <div class="exercise-grid-inputs">
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. «Hemos <strong>participado</strong> en el concurso»</div>
+                                <div class="exercise-input-row">
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(1, 'infinitivo')">Infinitivo</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(1, 'gerundio')">Gerundio</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(1, 'participio')">Participio</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-oracion-1"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. «María quiere <strong>cruzar</strong> el puente»</div>
+                                <div class="exercise-input-row">
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(2, 'infinitivo')">Infinitivo</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(2, 'gerundio')">Gerundio</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(2, 'participio')">Participio</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-oracion-2"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. «Sus amigos quieren <strong>ver</strong> el partido»</div>
+                                <div class="exercise-input-row">
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(3, 'infinitivo')">Infinitivo</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(3, 'gerundio')">Gerundio</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(3, 'participio')">Participio</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-oracion-3"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. «Todos están <strong>durmiendo</strong> tranquilos»</div>
+                                <div class="exercise-input-row">
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(4, 'infinitivo')">Infinitivo</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(4, 'gerundio')">Gerundio</button>
+                                    <button class="btn-quiz-option" style="flex:1;" onclick="checkOracionVerbal(4, 'participio')">Participio</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-oracion-4"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actividad Oficial 3 (Act. Verbos.pdf): Tabla de Infinitivo, Gerundio y Participio -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>📊</span> Actividad Oficial 3 (Act. Verbos.pdf): Completa la tabla de formas no personales
+                            </div>
+                            <span class="sidebar-btn-badge">6 Verbos de Examen</span>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                            A partir de la forma conjugada, escribe su Infinitivo, Gerundio y Participio correspondientes:
+                        </p>
+
+                        <div class="exercise-grid-inputs" id="tabla-verbos-grid">
                             <!-- Generado dinámicamente -->
                         </div>
                     </div>
@@ -897,6 +980,39 @@
                             </p>
                         </div>
                     </div>
+                                <!-- Actividad Oficial 1 (Act. Agudas.pdf): Clasifica las 12 palabras -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>📌</span> Actividad Oficial (Act. Agudas.pdf): Clasifica las 12 palabras en Agudas, Llanas o Esdrújulas
+                            </div>
+                            <span class="sidebar-btn-badge" id="badge-act-agudas">12 Palabras</span>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                            Indica si cada palabra es Aguda (última sílaba), Llana (penúltima) o Esdrújula (antepenúltima):
+                        </p>
+
+                        <div class="exercise-grid-inputs" id="act-agudas-grid">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Actividad Oficial (Pictogramas ARASAAC): Justificación de Tildes -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🎨</span> Actividad Oficial (Pictogramas ARASAAC): ¿Por qué lleva o no lleva tilde?
+                            </div>
+                            <span class="sidebar-btn-badge">6 Preguntas Clave</span>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                            Elige la justificación correcta de la regla ortográfica para cada palabra de la ficha oficial con pictogramas:
+                        </p>
+
+                        <div class="exercise-grid-inputs" id="picto-justif-grid">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
             </section>
 
             <!-- ===================================================================
@@ -1012,7 +1128,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/El perro azul.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/open?id=1F1o4n1w3ipU-1IftRPUBDw178vuOhEqT" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1adgl6qA2QsmKzCs_BP-y6vjoi2lNxCQm&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1030,7 +1146,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Comp. lect. 2.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/open?id=1K6ttxM7PwTP9w6j7v5zTWzfobuV7dVAW" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1llKZU_upMm3yQQ_CgcYTxpNF3j72gKGq&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1048,7 +1164,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Tecnicismos_Guia_Ejercicios.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://media.unprofesor.com/es/ejercicios/9/1/7/ejercicio_que_son_los_tecnicismos_719.pdf" target="_blank" class="btn-shelf-action btn-shelf-drive">🌐 Web Original</a>
+                                <a href="https://drive.google.com/open?id=1JkDDV-Z5lgflMCQ0RvqZKJ-jZrxc8RfL&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1066,7 +1182,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Formas no personales - esquema + ejercicios.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/file/d/17vDcO-7t_xHOU3_Jid1PAuiCvjzX4tDb/view" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1kXkh6-M9nhO3Az5s5YuvFrXE5B9V6ROl&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1084,7 +1200,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Act. Verbos.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/file/d/1qgxE_81tz8Z5EL4R44JUqJPpCYHBzK6e/view" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=14z5mGaEziBhkUa0QGedbOs7ifnCLiB_3&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1102,7 +1218,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Las-reglas-de-acentuación-con-pictogramas.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/open?id=1FjEy4KKcWSJDYLstE5qt_LukWk_s3mgr" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1B0JVxs6elL1W5VaCpdfXSi1LpH_PA9Lg&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1120,7 +1236,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Act. Agudas.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/open?id=199E2F16AQiRrq8K7Une2rO9kBzdabLtU" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1dBGer_FZwECqp8qNOv-cfSarlh_tIfkc&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
 
@@ -1138,7 +1254,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                             </div>
                             <div class="shelf-actions-row">
                                 <a href="./documents/Act. Normas.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
-                                <a href="https://drive.google.com/file/d/1tys6vQKW_VCN3CptSoOq8QoLFDP_q2hs/view?usp=sharing" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                                <a href="https://drive.google.com/open?id=1PJAzsqojkUEi-qyQ-NoxtmSzPUUcIokr&usp=drive_copy" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
                             </div>
                         </div>
                     </div>
@@ -2510,11 +2626,274 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
             }
         }
 
+        
+        // =========================================================================
+        // 5b. RETO DE ESPECIALIDADES DE TECNICISMOS (Tecnicismos_Guia_Ejercicios.pdf)
+        // =========================================================================
+        const tecSpecialtiesData = [
+            { word: "Amigdalitis", cat: "Medicina", opts: ["Medicina", "Informática", "Música", "Economía"] },
+            { word: "Compilador", cat: "Informática", opts: ["Arte", "Informática", "Mecánica", "Medicina"] },
+            { word: "Carburador", cat: "Mecánica", opts: ["Mecánica", "Química", "Música", "Economía"] },
+            { word: "Largometraje", cat: "Cine/Literatura", opts: ["Cine/Literatura", "Medicina", "Economía", "Química"] },
+            { word: "Balance", cat: "Economía", opts: ["Economía", "Informática", "Música", "Mecánica"] },
+            { word: "Obelisco", cat: "Arte/Arquitectura", opts: ["Arte/Arquitectura", "Medicina", "Química", "Música"] },
+            { word: "Filarmónica", cat: "Música", opts: ["Música", "Informática", "Economía", "Mecánica"] },
+            { word: "Alambique", cat: "Química/Laboratorio", opts: ["Química/Laboratorio", "Cine/Literatura", "Medicina", "Economía"] }
+        ];
+
+        function renderTecSpecialties() {
+            const container = document.getElementById('tecnicismos-specialties-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            tecSpecialtiesData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">
+                        <strong>${idx + 1}.</strong> Tecnicismo: <span style="font-weight:800; color:var(--primary); font-size:1.05rem;">«${item.word}»</span>
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.35rem 0;">
+                        ${item.opts.map(opt => `
+                            <button class="btn-quiz-option" style="padding:0.35rem 0.65rem; font-size:0.82rem;" onclick="checkTecSpecialty(${idx}, '${opt}')">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="feedback-msg" id="fb-tecspec-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkTecSpecialty(idx, chosen) {
+            const item = tecSpecialtiesData[idx];
+            const fb = document.getElementById(`fb-tecspec-${idx}`);
+            if (chosen === item.cat) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Correcto! «${item.word}» pertenece al ámbito de ${item.cat} (+10 XP).`;
+                if (!state.solvedTasks[`tecspec_${idx}`]) {
+                    state.solvedTasks[`tecspec_${idx}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Revisa. «${item.word}» se usa en el ámbito de ${item.cat}.`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 6c. ORACIONES DE FORMAS NO PERSONALES (Act. Verbos.pdf)
+        // =========================================================================
+        const oracionesVerbalesSol = {
+            1: { sol: "participio", tip: "«participado» termina en -ado y va tras el verbo haber" },
+            2: { sol: "infinitivo", tip: "«cruzar» termina en -ar y es el nombre de la acción" },
+            3: { sol: "infinitivo", tip: "«ver» termina en -er" },
+            4: { sol: "gerundio", tip: "«durmiendo» termina en -iendo e indica una acción en progreso" }
+        };
+
+        function checkOracionVerbal(num, choice) {
+            const expected = oracionesVerbalesSol[num];
+            const fb = document.getElementById(`fb-oracion-${num}`);
+            if (choice === expected.sol) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Exacto! Es un ${expected.sol.toUpperCase()}. (${expected.tip}) (+10 XP).`;
+                if (!state.solvedTasks[`oracverb_${num}`]) {
+                    state.solvedTasks[`oracverb_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ No es correcto. Piensa: ${expected.tip}.`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 6d. TABLA DE FORMAS NO PERSONALES (Act. Verbos.pdf)
+        // =========================================================================
+        const tablaVerbosData = [
+            { conj: "dabais", inf: "dar", ger: "dando", part: "dado" },
+            { conj: "cruzábamos", inf: "cruzar", ger: "cruzando", part: "cruzado" },
+            { conj: "soy", inf: "ser", ger: "siendo", part: "sido" },
+            { conj: "traerás", inf: "traer", ger: "trayendo", part: "traído" },
+            { conj: "duerma", inf: "dormir", ger: "durmiendo", part: "dormido" },
+            { conj: "pidió", inf: "pedir", ger: "pidiendo", part: "pedido" }
+        ];
+
+        function renderTablaVerbos() {
+            const container = document.getElementById('tabla-verbos-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            tablaVerbosData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">
+                        <strong>${idx + 1}.</strong> Forma: <span style="font-weight:800; color:var(--primary);">«${item.conj}»</span>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.4rem; margin: 0.35rem 0;">
+                        <input type="text" id="t-inf-${idx}" class="exercise-input-text" placeholder="Infinitivo...">
+                        <input type="text" id="t-ger-${idx}" class="exercise-input-text" placeholder="Gerundio...">
+                        <input type="text" id="t-part-${idx}" class="exercise-input-text" placeholder="Participio...">
+                    </div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-check-answer" style="padding:0.4rem 0.8rem; font-size:0.8rem;" onclick="checkFilaTablaVerbo(${idx})">Comprobar fila</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-tverb-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkFilaTablaVerbo(idx) {
+            const item = tablaVerbosData[idx];
+            const vInf = (document.getElementById(`t-inf-${idx}`).value || '').trim().toLowerCase();
+            const vGer = (document.getElementById(`t-ger-${idx}`).value || '').trim().toLowerCase();
+            const vPart = (document.getElementById(`t-part-${idx}`).value || '').trim().toLowerCase();
+            const fb = document.getElementById(`fb-tverb-${idx}`);
+
+            const okInf = vInf === item.inf;
+            const okGer = vGer === item.ger;
+            const okPart = (vPart === item.part || vPart === item.part.replace('í', 'i'));
+
+            if (okInf && okGer && okPart) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Perfecto! ${item.inf} (infinitivo) | ${item.ger} (gerundio) | ${item.part} (participio) (+15 XP).`;
+                if (!state.solvedTasks[`tabverb_${idx}`]) {
+                    state.solvedTasks[`tabverb_${idx}`] = true;
+                    addXP(15);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Revisa los 3 campos. Esperado: Infinitivo: "${item.inf}", Gerundio: "${item.ger}", Participio: "${item.part}".`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 7c. CLASIFICADOR DE 12 PALABRAS (Act. Agudas.pdf)
+        // =========================================================================
+        const actAgudasData = [
+            { word: "ábaco", type: "esdrujula", syl: "á-ba-co" },
+            { word: "responsabilidad", type: "aguda", syl: "res-pon-sa-bi-li-dad" },
+            { word: "lápiz", type: "llana", syl: "lá-piz" },
+            { word: "ballena", type: "llana", syl: "ba-lle-na" },
+            { word: "lágrima", type: "esdrujula", syl: "lá-gri-ma" },
+            { word: "cárcel", type: "llana", syl: "cár-cel" },
+            { word: "mejillón", type: "aguda", syl: "me-ji-llón" },
+            { word: "túnica", type: "esdrujula", syl: "tú-ni-ca" },
+            { word: "tortuga", type: "llana", syl: "tor-tu-ga" },
+            { word: "portugués", type: "aguda", syl: "por-tu-gués" },
+            { word: "pirámide", type: "esdrujula", syl: "pi-rá-mi-de" },
+            { word: "sofá", type: "aguda", syl: "so-fá" }
+        ];
+
+        function renderActAgudas() {
+            const container = document.getElementById('act-agudas-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            actAgudasData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">
+                        <strong>${idx + 1}.</strong> Palabra: <span style="font-weight:800; font-size:1.05rem; color:var(--primary);">«${item.word}»</span> <small style="color:var(--text-muted);">(${item.syl})</small>
+                    </div>
+                    <div style="display:flex; gap:0.4rem; margin:0.35rem 0;">
+                        <button class="btn-quiz-option" style="flex:1; padding:0.35rem;" onclick="checkActAguda(${idx}, 'aguda')">Aguda</button>
+                        <button class="btn-quiz-option" style="flex:1; padding:0.35rem;" onclick="checkActAguda(${idx}, 'llana')">Llana</button>
+                        <button class="btn-quiz-option" style="flex:1; padding:0.35rem;" onclick="checkActAguda(${idx}, 'esdrujula')">Esdrújula</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-actaguda-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkActAguda(idx, choice) {
+            const item = actAgudasData[idx];
+            const fb = document.getElementById(`fb-actaguda-${idx}`);
+            if (choice === item.type) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Correcto! «${item.word}» es ${item.type.toUpperCase()} (+10 XP).`;
+                if (!state.solvedTasks[`actaguda_${idx}`]) {
+                    state.solvedTasks[`actaguda_${idx}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Incorrecto. La sílaba tónica está en otra posición. «${item.word}» es ${item.type.toUpperCase()}.`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 7d. JUSTIFICACIÓN DE TILDES CON PICTOGRAMAS (ARASAAC)
+        // =========================================================================
+        const pictoJustifData = [
+            { word: "camión", opts: ["Aguda terminada en -n", "Llana terminada en vocal", "Esdrújula sin excepción"], correct: 0 },
+            { word: "sofá", opts: ["Llana terminada en vocal", "Aguda terminada en vocal", "Esdrújula"], correct: 1 },
+            { word: "frágil", opts: ["Llana que termina en consonante que no es n ni s (-l)", "Aguda terminada en l", "Esdrújula"], correct: 0 },
+            { word: "águila", opts: ["Esdrújula: la fuerza en antepenúltima y lleva tilde SIEMPRE", "Aguda terminada en vocal", "Llana"], correct: 0 },
+            { word: "comedor", opts: ["Llana con tilde", "Aguda que NO lleva tilde porque termina en consonante que no es n ni s (-r)", "Esdrújula"], correct: 1 },
+            { word: "mecedora", opts: ["Esdrújula", "Aguda terminada en vocal", "Llana que NO lleva tilde porque termina en vocal"], correct: 2 }
+        ];
+
+        function renderPictoJustif() {
+            const container = document.getElementById('picto-justif-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            pictoJustifData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">
+                        <strong>${idx + 1}.</strong> ¿Por qué <span style="font-weight:800; color:var(--primary);">«${item.word}»</span> se escribe así?
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem; margin:0.35rem 0;">
+                        ${item.opts.map((opt, oIdx) => `
+                            <button class="btn-quiz-option" style="text-align:left; font-size:0.85rem;" onclick="checkPictoJustif(${idx}, ${oIdx})">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="feedback-msg" id="fb-picto-${idx}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkPictoJustif(idx, chosenOpt) {
+            const item = pictoJustifData[idx];
+            const fb = document.getElementById(`fb-picto-${idx}`);
+            if (chosenOpt === item.correct) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Exacto! Esa es la justificación oficial de la regla (+10 XP).`;
+                if (!state.solvedTasks[`picto_${idx}`]) {
+                    state.solvedTasks[`picto_${idx}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ No es esa regla. La correcta es: "${item.opts[item.correct]}".`;
+                playSound('error');
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             loadState();
             renderDeleQuestions();
             renderVerbConj();
             renderTildesGrid();
+            renderTecSpecialties();
+            renderTablaVerbos();
+            renderActAgudas();
+            renderPictoJustif();
             initLearningAppsGame();
             initQuizizzTrainer();
             renderMasterQuiz();
