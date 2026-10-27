@@ -57,7 +57,7 @@
     <section class="module-hero">
         <div class="hero-inner">
             <div class="hero-title-group">
-                <div class="hero-tag-badge" id="hero-stats-badge">14 ASIGNATURAS • 7 TEMAS INTERACTIVOS</div>
+                <div class="hero-tag-badge" id="hero-stats-badge">14 ASIGNATURAS • 8 TEMAS INTERACTIVOS</div>
                 <h1>¡Hola, Álvaro! 👋</h1>
                 <p>Accede con un clic a tus carpetas de Google Drive y practica con los apuntes interactivos creados
                     para tus materias.</p>
@@ -68,7 +68,7 @@
                     <div class="stat-label">Asignaturas</div>
                 </div>
                 <div class="stat-card-mini">
-                    <div class="stat-val" id="stat-total-topics">7</div>
+                    <div class="stat-val" id="stat-total-topics">8</div>
                     <div class="stat-label">Temas Listos</div>
                 </div>
                 <div class="stat-card-mini">
@@ -152,6 +152,14 @@
                         url: "castellano/signo_puntuacion/Apuntes.html",
                         desc: "Taller interactivo de puntuación, mayúsculas, reto de orden alfabético y tarjetas de estudio.",
                         badge: "100% Interactivo"
+                    },
+                    {
+                        id: "tema2",
+                        title: "Tema 2: El Verbo, Acentuación & Tecnicismos",
+                        shortTitle: "El Verbo & Acentuación",
+                        url: "castellano/tema2/Apuntes.html",
+                        desc: "Formas no personales del verbo, acentuación con 65 retos (LearningApps & Quizizz), tecnicismos, parónimas y misión espacial.",
+                        badge: "Nuevo Tema"
                     }
                 ]
             },
@@ -422,6 +430,12 @@
                     const s = ((data.sorterSolved ? data.sorterSolved.length : 0) / 10) * 20;
                     const f = ((data.flashcardsMastered ? data.flashcardsMastered.length : 0) / 15) * 25;
                     return Math.min(100, Math.round(q + w + s + f));
+                }
+                if (subjectId === 'castellano' && topicId === 'tema2') {
+                    const data = JSON.parse(localStorage.getItem('alvaro_progress_castellano_tema2'));
+                    if (!data) return null;
+                    const solved = Object.keys(data.solvedTasks || {}).length;
+                    return Math.min(100, Math.round((solved / 25) * 100));
                 }
                 if (subjectId === 'mates' && topicId === 'operaciones') {
                     const data = JSON.parse(localStorage.getItem('alvaro_progress_mates_operaciones'));

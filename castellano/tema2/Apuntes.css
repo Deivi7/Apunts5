@@ -1,0 +1,985 @@
+/* ==========================================================================
+   ÁLVARO STUDY HUB - LENGUA CASTELLANA 5º DE PRIMARIA
+   Tema 2: El Verbo, Acentuación, Tecnicismos y Expresión Escrita
+   Apuntes.css - Hoja de estilos desacoplada del módulo
+   ========================================================================== */
+
+/* 1. PALETA TEMÁTICA ESPECÍFICA (CASTELLANO TEMA 2 - CARMESÍ, ÁMBAR & VIOLETA) */
+:root {
+    --primary: #dc2626;          /* Rojo editorial / gramática */
+    --primary-hover: #b91c1c;
+    --primary-light: #fee2e2;
+    --primary-glow: rgba(220, 38, 38, 0.35);
+    --accent: #10b981;           /* Esmeralda fresco para aciertos */
+    --accent-light: #d1fae5;
+    --accent-purple: #7c3aed;    /* Violeta para tecnicismos y sintaxis */
+    --accent-purple-light: #ede9fe;
+    --accent-amber: #d97706;     /* Ámbar para trucos y notas */
+    --accent-amber-light: #fef3c7;
+    --hero-gradient: linear-gradient(135deg, #991b1b 0%, #dc2626 40%, #c2410c 100%);
+}
+
+body.dark-mode {
+    --primary: #f87171;
+    --primary-hover: #ef4444;
+    --primary-light: rgba(248, 113, 113, 0.18);
+    --primary-glow: rgba(248, 113, 113, 0.45);
+    --accent: #34d399;
+    --accent-light: rgba(52, 211, 153, 0.18);
+    --accent-purple: #a78bfa;
+    --accent-purple-light: rgba(167, 139, 250, 0.18);
+    --accent-amber: #fbbf24;
+    --accent-amber-light: rgba(251, 191, 36, 0.18);
+    --hero-gradient: linear-gradient(135deg, #450a0a 0%, #1e1b4b 50%, #431407 100%);
+}
+
+/* 2. ADAPTACIÓN DEL HERO BANNER */
+.module-hero {
+    background: var(--hero-gradient) !important;
+}
+
+/* 3. LAYOUT & GRID PRINCIPAL */
+.app-layout {
+    max-width: 1400px;
+    margin: 1.25rem auto 3rem;
+    padding: 0 1.25rem;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.app-main {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 4. SIDEBAR ADHESIVA NAVEGACIONAL */
+.app-sidebar {
+    position: sticky;
+    top: 5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(8px);
+}
+
+.sidebar-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-brand-icon {
+    font-size: 1.8rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-brand-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.sidebar-brand-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.sidebar-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.sidebar-tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-tab-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.sidebar-tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.sidebar-tab-btn.active .sidebar-btn-desc {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.sidebar-tab-btn.active .sidebar-btn-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+.sidebar-btn-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.sidebar-btn-icon {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.sidebar-btn-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sidebar-btn-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-btn-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-btn-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    background: var(--bg-hover);
+    color: var(--text-muted);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* 5. SECCIONES Y CONTENEDORES DE PESTAÑAS */
+.tab-section {
+    display: none;
+    animation: fadeInTab 0.25s ease-out forwards;
+}
+
+.tab-section.active {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header-styled {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header-styled h2 {
+    margin: 0;
+    font-size: 1.45rem;
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+/* 6. DIDÁCTICA PARA 5º DE PRIMARIA: CAJAS DIDÁCTICAS */
+.theory-block {
+    margin-bottom: 2rem;
+}
+
+.theory-title-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.didactic-qa-card {
+    background: var(--bg-hover);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.didactic-qa-title {
+    font-weight: 800;
+    color: var(--primary);
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profe-tip-box {
+    background: var(--accent-amber-light);
+    border: 1px dashed var(--accent-amber);
+    border-radius: var(--radius-md);
+    padding: 1.15rem;
+    margin: 1.25rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.profe-tip-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.profe-tip-content h4 {
+    margin: 0 0 0.25rem;
+    color: #92400e;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+body.dark-mode .profe-tip-content h4 {
+    color: #fde68a;
+}
+
+.profe-tip-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* Comparación Bien vs Mal */
+.vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+@media (max-width: 768px) {
+    .vs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vs-card {
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    border: 1px solid;
+}
+
+.vs-card.correct {
+    background: var(--accent-light);
+    border-color: var(--accent);
+}
+
+.vs-card.wrong {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+
+.vs-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.vs-card.correct .vs-header {
+    color: #065f46;
+}
+
+.vs-card.wrong .vs-header {
+    color: #991b1b;
+}
+
+body.dark-mode .vs-card.correct .vs-header {
+    color: #6ee7b7;
+}
+
+body.dark-mode .vs-card.wrong .vs-header {
+    color: #fca5a5;
+}
+
+.cheat-sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cheat-card {
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    transition: transform 0.2s;
+}
+
+.cheat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cheat-card-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 7. RESOURCE HUB Y ESTANTERÍA DUAL */
+.resource-hub-container {
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.hub-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.hub-link-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.2s;
+}
+
+.hub-link-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.hub-link-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.hub-link-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.hub-link-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.shelf-doc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.shelf-doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.shelf-doc-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.shelf-doc-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.shelf-doc-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+
+.shelf-doc-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 0.35rem;
+}
+
+.badge-verified {
+    background: var(--accent-light);
+    color: #065f46;
+}
+
+.badge-manual {
+    background: var(--accent-amber-light);
+    color: #92400e;
+}
+
+.shelf-actions-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-shelf-action {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-shelf-local {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-shelf-local:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-shelf-drive {
+    background: var(--bg-hover);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+.btn-shelf-drive:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+}
+
+/* 8. CONTENEDORES DE EJERCICIOS INTERACTIVOS */
+.exercise-box {
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.exercise-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.exercise-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.exercise-grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.exercise-question-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.exercise-q-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.exercise-input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.exercise-input-text {
+    flex: 1;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.exercise-input-text:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.btn-check-answer {
+    padding: 0.6rem 1rem;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-check-answer:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.feedback-msg {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    display: none;
+    margin-top: 0.35rem;
+}
+
+.feedback-msg.show {
+    display: block;
+    animation: fadeInTab 0.2s ease-out;
+}
+
+.feedback-msg.correct {
+    background: var(--accent-light);
+    color: #065f46;
+    border-left: 3px solid var(--accent);
+}
+
+.feedback-msg.incorrect {
+    background: var(--primary-light);
+    color: #991b1b;
+    border-left: 3px solid var(--primary);
+}
+
+/* 9. JUEGO DE CLASIFICACIÓN LEARNINGAPPS */
+.categorization-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 850px) {
+    .categorization-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cat-drop-zone {
+    background: var(--bg-card);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-drop-zone.hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.cat-zone-header {
+    font-weight: 800;
+    font-size: 1rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+    margin-bottom: 0.75rem;
+}
+
+.cat-zone-agudas .cat-zone-header {
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+.cat-zone-llanas .cat-zone-header {
+    color: #d97706;
+    border-color: #d97706;
+}
+
+.cat-zone-esdrujulas .cat-zone-header {
+    color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+.cat-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: 1;
+    align-content: flex-start;
+}
+
+.word-token {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: grab;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.word-token:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.word-token.dragging {
+    opacity: 0.5;
+}
+
+.tokens-pool {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.tokens-pool-header {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tokens-pool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    min-height: 50px;
+}
+
+/* 10. ENTRENADOR QUIZIZZ (35 PREGUNTAS) */
+.quizizz-trainer-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin: 1.5rem 0;
+}
+
+.quizizz-top-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.quizizz-q-card {
+    background: var(--bg-hover);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid var(--primary);
+}
+
+.quizizz-q-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
+.quizizz-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+@media (max-width: 650px) {
+    .quizizz-options-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-quiz-option {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.btn-quiz-option:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-quiz-option.correct-choice {
+    background: var(--accent-light) !important;
+    border-color: var(--accent) !important;
+    color: #065f46 !important;
+    font-weight: 800;
+}
+
+.btn-quiz-option.wrong-choice {
+    background: var(--primary-light) !important;
+    border-color: var(--primary) !important;
+    color: #991b1b !important;
+    font-weight: 800;
+}
+
+/* 11. SIMULADOR DE INFORME ESPACIAL (EXPRESIÓN ESCRITA) */
+.space-terminal-mockup {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: 1.5rem 0;
+    color: #f8fafc;
+}
+
+.terminal-header {
+    background: #1e293b;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+}
+
+.terminal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: #38bdf8;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.terminal-dot-red { background: #ef4444; }
+.terminal-dot-yellow { background: #f59e0b; }
+.terminal-dot-green { background: #10b981; }
+
+.terminal-body {
+    padding: 1.25rem;
+}
+
+.terminal-prompt-box {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.terminal-textarea {
+    width: 100%;
+    min-height: 140px;
+    background: #090d16;
+    border: 1px solid #334155;
+    border-radius: var(--radius-md);
+    color: #f1f5f9;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
+    padding: 1rem;
+    resize: vertical;
+    outline: none;
+    line-height: 1.6;
+}
+
+.terminal-textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+.terminal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.detected-tags-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tecnicismo-tag {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #6ee7b7;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-weight: 700;
+}
+
+.btn-send-report {
+    background: #38bdf8;
+    color: #0f172a;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-send-report:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+}

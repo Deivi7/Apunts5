@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 2: El Verbo, Acentuación y Tecnicismos | Lengua Castellana 5º | Álvaro Study Hub</title>
+    <meta name="description"
+        content="Apuntes didácticos interactivos de Lengua Castellana para 5º de Primaria: Vocabulario (tecnicismos, neologismos, parónimas), Gramática (el verbo, formas no personales), Ortografía (agudas, llanas y esdrújulas) y taller de redacción espacial.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS del Núcleo Compartido y CSS específico del Tema -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="Apuntes.css">
+</head>
+
+<body>
+    <!-- ===================================================================
+         CABECERA UNIFICADA DE LA PLATAFORMA (TOP NAVBAR)
+         =================================================================== -->
+    <header class="site-header">
+        <div class="top-navbar">
+            <div class="nav-left">
+                <a href="../../index.html" class="nav-brand-btn" title="Volver al Portal Principal">
+                    <span class="brand-arrow">←</span>
+                    <span class="brand-portal-name">Álvaro Study Hub</span>
+                </a>
+                <span class="nav-divider">/</span>
+                <div class="nav-breadcrumbs">
+                    <span class="bc-subject">Lengua Castellana 5º</span>
+                    <span class="bc-arrow">›</span>
+                    <span class="bc-topic">Tema 2: El Verbo & Acentuación</span>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <!-- Contador de Experiencia (Gamificación) -->
+                <div class="xp-streak-pill" id="xp-counter-badge" title="Puntos de Experiencia conseguidos">
+                    <span class="xp-star">⭐</span>
+                    <span class="xp-points" id="user-xp-display">0 XP</span>
+                </div>
+
+                <!-- Control de Sonido -->
+                <button class="icon-toggle-btn" id="btn-toggle-sound" onclick="toggleAudio()" title="Activar/Desactivar Sonido">
+                    <span id="sound-icon">🔊</span>
+                </button>
+
+                <!-- Modo Oscuro / Claro -->
+                <button class="icon-toggle-btn" id="btn-toggle-dark" onclick="toggleTheme()" title="Modo Oscuro / Claro">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================
+         HERO BANNER DEL TEMA
+         =================================================================== -->
+    <section class="module-hero">
+        <div class="module-hero-inner">
+            <div class="hero-left-content">
+                <div class="hero-badges-row">
+                    <span class="hero-pill-badge">✍️ LENGUA CASTELLANA 5º</span>
+                    <span class="hero-pill-badge accent-badge">TEMA 2 OFICIAL</span>
+                </div>
+                <h1 class="hero-main-title">El Verbo, la Acentuación & los Tecnicismos</h1>
+                <p class="hero-subtitle">
+                    Domina las formas verbales (infinitivo, gerundio, participio), clasifica palabras agudas, llanas y esdrújulas con 65 retos interactivos, amplía tu vocabulario técnico y escribe tu informe de laboratorio espacial.
+                </p>
+            </div>
+
+            <div class="hero-stats-panel">
+                <div class="hero-stat-card">
+                    <span class="stat-number" id="stat-challenges-total">85+</span>
+                    <span class="stat-desc">Retos Prácticos</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-desc">Interactividad</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number" id="stat-quiz-record">0/10</span>
+                    <span class="stat-desc">Récord Test</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         LAYOUT PRINCIPAL (SIDEBAR ADHESIVA + CONTENIDO MODULAR)
+         =================================================================== -->
+    <div class="app-layout">
+        <!-- Barra Lateral Sticky -->
+        <aside class="app-sidebar">
+            <div class="sidebar-brand-box">
+                <div class="sidebar-brand-icon">📚</div>
+                <div>
+                    <div class="sidebar-brand-title">Índice del Tema 2</div>
+                    <div class="sidebar-brand-sub">8 Apartados Didácticos</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-tabs-list">
+                <button class="sidebar-tab-btn active" onclick="switchTab('apuntes', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Apuntes & Teoría</span>
+                            <span class="sidebar-btn-desc">Guía didáctica 5º Primaria</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Teoría</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('lectura', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📚</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Lectura & Comprensión</span>
+                            <span class="sidebar-btn-desc">Narración & Preguntas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-lectura">0/5</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('vocabulario', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">💡</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Vocabulario</span>
+                            <span class="sidebar-btn-desc">Tecnicismos & Neologismos</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-vocabulario">0/8</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('verbo', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">⚙️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. Gramática: El Verbo</span>
+                            <span class="sidebar-btn-desc">Formas no personales & Raíz</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-verbo">16 retos</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('acentuacion', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✍️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Ortografía: Acentuación</span>
+                            <span class="sidebar-btn-desc">Agudas, llanas & esdrújulas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-acentuacion">65 retos</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('taller', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🚀</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Taller: Misión Espacial</span>
+                            <span class="sidebar-btn-desc">Informe científico interactivo</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Taller</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('quiz', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🏆</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">7. Autoavaluación Master</span>
+                            <span class="sidebar-btn-desc">Test global 10 preguntas</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-quiz">0/10</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('documentos', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📂</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">8. Documentos de Clase</span>
+                            <span class="sidebar-btn-desc">PDFs oficiales & Drive</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">8 PDFs</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Contenido Central de Pestañas -->
+        <main class="app-main">
+            <!-- ===================================================================
+                 PESTAÑA 1: APUNTES & TEORÍA DIDÁCTICA PARA 5º DE PRIMARIA
+                 =================================================================== -->
+            <section class="tab-section active" id="tab-apuntes">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">📖</span>
+                        <div>
+                            <h2>Teoría Didáctica Oficial: Tema 2 de Castellano</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Explicación clara, trucos mnemotécnicos y resúmenes visuales paso a paso adaptados para 5º de Primaria.</p>
+                        </div>
+                    </div>
+
+                    <!-- Resource Hub de la Unidad -->
+                    <div class="resource-hub-container">
+                        <h3 style="margin-top: 0; color: var(--primary);">🌐 Enlaces & Recursos Digitales de la Unidad</h3>
+                        <div class="hub-links-grid">
+                            <a href="https://view.genially.com/6757189d207e6b6da70c81bb" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">✨</span>
+                                <div>
+                                    <div class="hub-link-title">Genially Oficial Tema 2</div>
+                                    <div class="hub-link-sub">Presentación interactiva de clase</div>
+                                </div>
+                            </a>
+                            <a href="https://learningapps.org/21440388" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">🧩</span>
+                                <div>
+                                    <div class="hub-link-title">LearningApps Acentuación</div>
+                                    <div class="hub-link-sub">Clasificador de 30 palabras</div>
+                                </div>
+                            </a>
+                            <a href="https://quizizz.com/admin/quiz/5dadd9ec882bf1001d1a67d1/acentuacion" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">⚡</span>
+                                <div>
+                                    <div class="hub-link-title">Quizizz Acentuación</div>
+                                    <div class="hub-link-sub">Batería de 35 preguntas de agudas, llanas y esdrújulas</div>
+                                </div>
+                            </a>
+                            <a href="https://deleahora.com/actividades/gramatica/formas-no-personales-del-verbo" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">📝</span>
+                                <div>
+                                    <div class="hub-link-title">DELE Ahora: Formas no personales</div>
+                                    <div class="hub-link-sub">Infinitivo, gerundio y participio en contexto</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- BLOQUE 1: VOCABULARIO (TECNICISMOS, NEOLOGISMOS Y PARÓNIMAS) -->
+                    <div class="theory-block">
+                        <span class="theory-title-badge">Bloque 1 • Vocabulario</span>
+                        <h3 style="margin-top:0.4rem; color: var(--text-main);">1. Tecnicismos, Neologismos y Palabras Parónimas</h3>
+
+                        <div class="didactic-qa-card">
+                            <div class="didactic-qa-title">❓ ¿Qué son y para qué sirven?</div>
+                            <p style="margin: 0; line-height: 1.6; color: var(--text-main);">
+                                • <strong>Tecnicismos:</strong> Son palabras que se usan de forma precisa y específica en una ciencia, profesión u oficio (ejemplo: en medicina se dice <em>estetoscopio</em>; en informática se dice <em>algoritmo, software o procesador</em>).<br>
+                                • <strong>Neologismos:</strong> Son palabras nuevas que se incorporan a nuestro idioma para nombrar inventos, realidades o tecnologías recientes (ejemplo: <em>chatear, selfi, dron, tuitear</em>).<br>
+                                • <strong>Palabras parónimas:</strong> Son palabras que se pronuncian o se escriben de forma muy parecida, ¡pero tienen significados totalmente distintos! Si no prestamos atención, podemos confundirlas (ejemplo: <em>efecto</em> y <em>afecto</em>).
+                            </p>
+                        </div>
+
+                        <div class="vs-grid">
+                            <div class="vs-card correct">
+                                <div class="vs-header">✅ Ejemplos Correctos y Precisos</div>
+                                <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.5;">
+                                    <li>"El médico me recetó un <strong>analgésico</strong>" (tecnicismo médico adecuado).</li>
+                                    <li>"Le tengo mucho <strong>afecto</strong> (cariño) a mi amigo".</li>
+                                    <li>"La lluvia provocó un <strong>efecto</strong> (consecuencia) inesperado".</li>
+                                    <li>"Vamos a <strong>adoptar</strong> (acoger) un perrito en casa".</li>
+                                </ul>
+                            </div>
+                            <div class="vs-card wrong">
+                                <div class="vs-header">❌ Error Típico de Examen (Parónimas)</div>
+                                <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.5;">
+                                    <li>Confundir <em>adaptar</em> (ajustar) con <em>adoptar</em> (acoger legalmente).</li>
+                                    <li>Confundir <em>especia</em> (condimento de cocina) con <em>especie</em> (tipo de animal o planta).</li>
+                                    <li>Confundir <em>absorber</em> (chupar líquido) con <em>absolver</em> (declarar inocente a alguien).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="profe-tip-box">
+                            <div class="profe-tip-icon">💡</div>
+                            <div class="profe-tip-content">
+                                <h4>El Truco del Profe: "La Pista de la Profesión"</h4>
+                                <p>Para saber si una palabra es un <strong>tecnicismo</strong>, pregúntate: <em>"¿Esta palabra la usaría cualquier persona por la calle para hablar del tiempo, o la usa un experto cuando está trabajando?"</em> Si pertenece al trabajo de un médico, mecánico, informático o científico, ¡es un tecnicismo seguro!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                    <!-- BLOQUE 2: GRAMÁTICA (EL VERBO) -->
+                    <div class="theory-block">
+                        <span class="theory-title-badge">Bloque 2 • Gramática</span>
+                        <h3 style="margin-top:0.4rem; color: var(--text-main);">2. El Verbo: Raíz, Desinencia y Formas No Personales</h3>
+
+                        <div class="didactic-qa-card">
+                            <div class="didactic-qa-title">❓ ¿Qué es el verbo y cómo se organiza?</div>
+                            <p style="margin: 0; line-height: 1.6; color: var(--text-main);">
+                                Los <strong>verbos</strong> son las palabras que expresan acciones (<em>saltar, escribir</em>), estados (<em>estar, parecer</em>) o procesos (<em>crecer, aprender</em>).<br>
+                                • <strong>Raíz:</strong> Es la parte que contiene el significado principal del verbo. Se obtiene quitando la terminación del infinitivo (de <em>cant-ar</em>, la raíz es <strong>cant-</strong>).<br>
+                                • <strong>Desinencias:</strong> Son las terminaciones que se añaden a la raíz para indicar persona (1ª, 2ª, 3ª), número (singular, plural), tiempo (pasado, presente, futuro) y modo.
+                            </p>
+                        </div>
+
+                        <div class="cheat-sheet-grid">
+                            <div class="cheat-card">
+                                <div class="cheat-card-title">1ª Conjugación (-AR)</div>
+                                <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">
+                                    Verbos con infinitivo terminado en <strong>-ar</strong>.<br>
+                                    <em>Ejemplos:</em> cantar, bailar, estudiar, saltar.
+                                </p>
+                            </div>
+                            <div class="cheat-card">
+                                <div class="cheat-card-title">2ª Conjugación (-ER)</div>
+                                <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">
+                                    Verbos con infinitivo terminado en <strong>-er</strong>.<br>
+                                    <em>Ejemplos:</em> comer, temer, correr, aprender.
+                                </p>
+                            </div>
+                            <div class="cheat-card">
+                                <div class="cheat-card-title">3ª Conjugación (-IR)</div>
+                                <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">
+                                    Verbos con infinitivo terminado en <strong>-ir</strong>.<br>
+                                    <em>Ejemplos:</em> vivir, salir, escribir, decidir.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="didactic-qa-card" style="margin-top: 1.25rem;">
+                            <div class="didactic-qa-title">🎭 Las Formas No Personales (¡No llevan persona yo/tú/él!)</div>
+                            <p style="margin: 0; line-height: 1.6; color: var(--text-main);">
+                                1. <strong>Infinitivo:</strong> Es el nombre del verbo. Termina en <strong>-ar, -er, -ir</strong> (<em>jugar, comer, salir</em>).<br>
+                                2. <strong>Gerundio:</strong> Expresa una acción en desarrollo. Termina en <strong>-ando</strong> o <strong>-iendo</strong> (<em>jugando, comiendo, saliendo</em>).<br>
+                                3. <strong>Participio:</strong> Expresa una acción terminada. Termina en <strong>-ado</strong> o <strong>-ido</strong> (<em>jugado, comido, salido</em>).
+                            </p>
+                        </div>
+
+                        <div class="profe-tip-box">
+                            <div class="profe-tip-icon">💡</div>
+                            <div class="profe-tip-content">
+                                <h4>El Truco del Profe: "Haber + Participio / Estar + Gerundio"</h4>
+                                <p>• Siempre que veas el verbo <strong>haber</strong> (he, has, hemos...), detrás va un <strong>participio</strong>: <em>"He desayun<strong>ado</strong>", "Hemos com<strong>ido</strong>"</em>.<br>
+                                • Siempre que veas el verbo <strong>estar</strong> (estoy, estás, están...), detrás va un <strong>gerundio</strong>: <em>"Están jug<strong>ando</strong>", "Estoy le<strong>yendo</strong>"</em>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                    <!-- BLOQUE 3: ORTOGRAFÍA (ACENTUACIÓN: AGUDAS, LLANAS Y ESDRÚJULAS) -->
+                    <div class="theory-block">
+                        <span class="theory-title-badge">Bloque 3 • Ortografía</span>
+                        <h3 style="margin-top:0.4rem; color: var(--text-main);">3. Reglas Oficiales de Acentuación: La Regla EGA</h3>
+
+                        <div class="didactic-qa-card">
+                            <div class="didactic-qa-title">❓ ¿Qué es la sílaba tónica?</div>
+                            <p style="margin: 0; line-height: 1.6; color: var(--text-main);">
+                                En cualquier palabra de más de una sílaba, siempre hay una sílaba que pronunciamos con <strong>más fuerza o intensidad</strong>: es la <strong>sílaba tónica</strong>. Las demás sílabas, que suenan más suaves, se llaman <strong>sílabas átonas</strong>.<br>
+                                <em>Ejemplo:</em> En <strong>or-de-na-dor</strong>, la sílaba que suena más fuerte al gritarla es <strong>-dor</strong>.
+                            </p>
+                        </div>
+
+                        <div class="cheat-sheet-grid">
+                            <div class="cheat-card" style="border-top: 4px solid #dc2626;">
+                                <div class="cheat-card-title" style="color:#dc2626;">1. Agudas (Última sílaba)</div>
+                                <p style="font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;">
+                                    Llevan tilde si terminan en <strong>vocal, -n o -s</strong>.<br>
+                                    • Con tilde: <em>balón, camión, café, compás</em>.<br>
+                                    • Sin tilde: <em>reloj, collar, papel, amistad</em>.
+                                </p>
+                            </div>
+
+                            <div class="cheat-card" style="border-top: 4px solid #d97706;">
+                                <div class="cheat-card-title" style="color:#d97706;">2. Llanas / Graves (Penúltima)</div>
+                                <p style="font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;">
+                                    Llevan tilde si <strong>NO</strong> terminan en vocal, -n o -s.<br>
+                                    • Con tilde: <em>árbol, difícil, lápiz, túnel</em>.<br>
+                                    • Sin tilde: <em>casa, mesa, examen, lunes</em>.
+                                </p>
+                            </div>
+
+                            <div class="cheat-card" style="border-top: 4px solid #7c3aed;">
+                                <div class="cheat-card-title" style="color:#7c3aed;">3. Esdrújulas (Antepenúltima)</div>
+                                <p style="font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;">
+                                    ¡Llevan tilde <strong>SIEMPRE</strong> sin excepción!<br>
+                                    • <em>murciélago, clásico, oxígeno, lámpara, fábrica, rápido</em>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="profe-tip-box">
+                            <div class="profe-tip-icon">📢</div>
+                            <div class="profe-tip-content">
+                                <h4>El Truco del Profe: "La Regla de la Palabra EGA"</h4>
+                                <p>Escribe la palabra <strong>E - G - A</strong> de izquierda a derecha sobre las sílabas contando desde el final:<br>
+                                • <strong>E</strong> = Esdrújula (antepenúltima sílaba).<br>
+                                • <strong>G</strong> = Grave o Llana (penúltima sílaba).<br>
+                                • <strong>A</strong> = Aguda (última sílaba).<br>
+                                ¡Apunta a la sílaba que suena fuerte y sabrás al instante qué tipo de palabra es!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 2: LECTURA & COMPRENSIÓN LECTORA
+                 =================================================================== -->
+            <section class="tab-section" id="tab-lectura">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">📚</span>
+                        <div>
+                            <h2>Comprensión Lectora: La Narración</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Analiza los elementos de la narración (narrador, personajes, tiempo y espacio) y responde las preguntas interactivas.</p>
+                        </div>
+                    </div>
+
+                    <div class="didactic-qa-card">
+                        <div class="didactic-qa-title">📖 Lectura Oficial de la Unidad: "El viaje inesperado"</div>
+                        <p style="line-height: 1.6; color: var(--text-main); margin: 0.5rem 0 0;">
+                            «La nave exploradora Orión zarpó a primera hora de la mañana con rumbo al laboratorio orbital Alfa-9. La capitana Elena revisaba los monitores táctiles mientras el procesador cuántico calculaba la trayectoria con precisión milimétrica. A mitad del trayecto, una señal de alarma parpadeó en rojo: la batería auxiliar había sufrido una sobrecarga debido a una tormenta geomagnética. Sin perder la calma, el ingeniero Lucas activó el software de emergencia para aislar el circuito averiado. Gracias a su rápida actuación, el microchip regulador restableció la energía y la nave atracó sana y salva en la estación.»
+                        </p>
+                    </div>
+
+                    <!-- 5 Preguntas Interactivas de Comprensión -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🧠</span> Cuestionario de Comprensión Lectora
+                            </div>
+                            <span class="sidebar-btn-badge" id="lectura-counter-display">0/5 completadas</span>
+                        </div>
+
+                        <div class="exercise-grid-inputs">
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. ¿Hacia dónde se dirigía la nave Orión?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="lec-q1" class="exercise-input-text" placeholder="Escribe el destino...">
+                                    <button class="btn-check-answer" onclick="checkLectura(1)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-lec-1"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. ¿Qué provocó la alarma en la nave?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="lec-q2" class="exercise-input-text" placeholder="Escribe la causa...">
+                                    <button class="btn-check-answer" onclick="checkLectura(2)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-lec-2"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. ¿Quién era la capitana de la nave?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="lec-q3" class="exercise-input-text" placeholder="Nombre de la capitana...">
+                                    <button class="btn-check-answer" onclick="checkLectura(3)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-lec-3"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. ¿Qué componente restableció finalmente la energía?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="lec-q4" class="exercise-input-text" placeholder="Nombre del componente...">
+                                    <button class="btn-check-answer" onclick="checkLectura(4)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-lec-4"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">5. ¿El narrador está en primera o en tercera persona?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="lec-q5" class="exercise-input-text" placeholder="tercera o primera...">
+                                    <button class="btn-check-answer" onclick="checkLectura(5)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-lec-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 3: VOCABULARIO: TECNICISMOS, NEOLOGISMOS Y PARÓNIMAS
+                 =================================================================== -->
+            <section class="tab-section" id="tab-vocabulario">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">💡</span>
+                        <div>
+                            <h2>Vocabulario: Tecnicismos, Neologismos y Parónimas</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Aprende a diferenciar el vocabulario especializado, las palabras tecnológicas modernas y los términos de pronunciación similar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reto 1: Clasificación de Tecnicismos por Ámbito -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🔬</span> Práctica 1: ¿A qué profesión o ámbito pertenece cada tecnicismo?
+                            </div>
+                            <span class="sidebar-btn-badge">4 Casos Clave</span>
+                        </div>
+                        <div class="exercise-grid-inputs">
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">a) <em>Estetoscopio, bisturí, diagnóstico, antibiótico</em> pertenecen a la...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-tec-1" class="exercise-input-text" placeholder="Ámbito...">
+                                    <button class="btn-check-answer" onclick="checkVocTec(1)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-voc-1"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">b) <em>Procesador, software, algoritmo, microchip</em> pertenecen a la...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-tec-2" class="exercise-input-text" placeholder="Ámbito...">
+                                    <button class="btn-check-answer" onclick="checkVocTec(2)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-voc-2"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">c) <em>Partitura, pentagrama, metrónomo, bemol</em> pertenecen a la...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-tec-3" class="exercise-input-text" placeholder="Ámbito...">
+                                    <button class="btn-check-answer" onclick="checkVocTec(3)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-voc-3"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">d) <em>Penalti, fuera de juego, prórroga, córner</em> pertenecen al...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-tec-4" class="exercise-input-text" placeholder="Ámbito...">
+                                    <button class="btn-check-answer" onclick="checkVocTec(4)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-voc-4"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reto 2: Palabras Parónimas (Elige la correcta) -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>⚖️</span> Práctica 2: Elige la palabra parónima correcta
+                            </div>
+                            <span class="sidebar-btn-badge">4 Retos Parónimos</span>
+                        </div>
+                        <div class="exercise-grid-inputs">
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. La pimienta y el comino son tipos de... (¿especia o especie?)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-par-1" class="exercise-input-text" placeholder="especia / especie">
+                                    <button class="btn-check-answer" onclick="checkVocPar(1)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-par-1"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. La esponja sirve para... el agua. (¿absorber o absolver?)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-par-2" class="exercise-input-text" placeholder="absorber / absolver">
+                                    <button class="btn-check-answer" onclick="checkVocPar(2)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-par-2"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. El juez decidió... al acusado de todos los cargos. (¿absorber o absolver?)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-par-3" class="exercise-input-text" placeholder="absorber / absolver">
+                                    <button class="btn-check-answer" onclick="checkVocPar(3)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-par-3"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. La familia decidió... a una niña pequeña. (¿adaptar o adoptar?)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="voc-par-4" class="exercise-input-text" placeholder="adaptar / adoptar">
+                                    <button class="btn-check-answer" onclick="checkVocPar(4)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-par-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 4: GRAMÁTICA: EL VERBO (10 DE DELEAHORA + RAÍZ/DESINENCIA)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-verbo">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">⚙️</span>
+                        <div>
+                            <h2>Gramática: El Verbo y sus Formas No Personales</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Las 10 frases oficiales de DELE Ahora para dominar Infinitivo, Gerundio y Participio, más identificación de raíz y conjugaciones.</p>
+                        </div>
+                    </div>
+
+                    <!-- Las 10 Preguntas de DELE Ahora -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🎯</span> Actividad Oficial: Formas No Personales del Verbo (10 Frases)
+                            </div>
+                            <span class="sidebar-btn-badge" id="dele-counter-badge">10 Retos</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+                            Elige o escribe la forma verbal no personal adecuada (Infinitivo terminado en <em>-ar/-er/-ir</em>, Gerundio terminado en <em>-ando/-iendo</em>, o Participio terminado en <em>-ado/-ido</em>):
+                        </p>
+
+                        <div class="exercise-grid-inputs" id="dele-questions-grid">
+                            <!-- Se generan dinámicamente con JS -->
+                        </div>
+                    </div>
+
+                    <!-- Reto de Raíz y Conjugación -->
+                    <div class="exercise-box" style="margin-top: 1.5rem;">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🧩</span> Desglose de Verbos: Raíz, Desinencia y Conjugación
+                            </div>
+                            <span class="sidebar-btn-badge">6 Ejercicios de Examen</span>
+                        </div>
+
+                        <div class="exercise-grid-inputs">
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. En el verbo «cantábamos», ¿cuál es la raíz?</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-1" class="exercise-input-text" placeholder="Raíz...">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(1)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-1"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. En el verbo «escribiremos», ¿a qué conjugación pertenece? (1ª, 2ª o 3ª)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-2" class="exercise-input-text" placeholder="1ª, 2ª o 3ª...">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(2)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-2"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. El infinitivo de la forma «comieron» es...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-3" class="exercise-input-text" placeholder="Infinitivo...">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(3)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-3"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. El gerundio del verbo «vivir» es...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-4" class="exercise-input-text" placeholder="Gerundio...">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(4)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-4"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">5. El participio del verbo «romper» es irregular: no se dice rompido, sino...</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-5" class="exercise-input-text" placeholder="Participio irregular...">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(5)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-5"></div>
+                            </div>
+
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">6. «Nosotros jugamos» está en número... (singular o plural)</div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="v-raiz-6" class="exercise-input-text" placeholder="singular o plural">
+                                    <button class="btn-check-answer" onclick="checkVerboExtra(6)">Comprobar</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-v-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 5: ORTOGRAFÍA: ACENTUACIÓN (65 RETOS COMPLETOS)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-acentuacion">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">✍️</span>
+                        <div>
+                            <h2>Ortografía: Acentuación (Agudas, Llanas y Esdrújulas)</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">65 retos interactivos reales: el juego clasificador de 30 palabras de LearningApps y el test completo de 35 preguntas de Quizizz.</p>
+                        </div>
+                    </div>
+
+                    <!-- PARTE 1: CLASIFICADOR OFICIAL LEARNINGAPPS (30 PALABRAS) -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🧩</span> Juego Clasificador LearningApps: 30 Palabras Oficiales
+                            </div>
+                            <span class="sidebar-btn-badge" id="la-badge-status">0/30 clasificadas</span>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                            Haz clic en cada palabra para clasificarla en su grupo según dónde tenga su sílaba tónica (Aguda, Llana o Esdrújula):
+                        </p>
+
+                        <!-- Panel de Palabras Pendientes -->
+                        <div class="tokens-pool">
+                            <div class="tokens-pool-header">
+                                <span>📦 Palabras para clasificar (haz clic sobre una palabra):</span>
+                                <span id="la-words-left">30 restantes</span>
+                            </div>
+                            <div class="tokens-pool-list" id="la-tokens-container">
+                                <!-- Generadas por JS -->
+                            </div>
+                        </div>
+
+                        <!-- 3 Zonas de Destino -->
+                        <div class="categorization-board">
+                            <div class="cat-drop-zone cat-zone-agudas" onclick="placeSelectedToken('agudas')">
+                                <div class="cat-zone-header">🔴 AGUDAS (Última sílaba)</div>
+                                <div class="cat-items-list" id="zone-agudas"></div>
+                            </div>
+
+                            <div class="cat-drop-zone cat-zone-llanas" onclick="placeSelectedToken('llanas')">
+                                <div class="cat-zone-header">🟠 LLANAS (Penúltima)</div>
+                                <div class="cat-items-list" id="zone-llanas"></div>
+                            </div>
+
+                            <div class="cat-drop-zone cat-zone-esdrujulas" onclick="placeSelectedToken('esdrujulas')">
+                                <div class="cat-zone-header">🟣 ESDRÚJULAS (Antepenúltima)</div>
+                                <div class="cat-items-list" id="zone-esdrujulas"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; align-items: center;">
+                            <button class="btn-check-answer" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;" onclick="checkLearningAppsGame()">
+                                Comprobar Clasificación 🚀
+                            </button>
+                            <button class="btn-shelf-action" style="background:transparent; border-color:var(--border-color);" onclick="resetLearningAppsGame()">
+                                🔄 Reiniciar Juego
+                            </button>
+                            <div class="feedback-msg" id="fb-la-game" style="flex:1;"></div>
+                        </div>
+                    </div>
+
+                    <!-- PARTE 2: ENTRENADOR OFICIAL QUIZIZZ (35 PREGUNTAS COMPLETAS) -->
+                    <div class="quizizz-trainer-container">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>⚡</span> Entrenador Quizizz Oficial: 35 Preguntas de Acentuación
+                            </div>
+                            <span class="sidebar-btn-badge" id="qz-progress-badge">Pregunta 1 de 35</span>
+                        </div>
+
+                        <div class="quizizz-top-status">
+                            <span id="qz-score-counter">Aciertos: 0 / 35</span>
+                            <span id="qz-streak-counter">Racha actual: 🔥 0</span>
+                        </div>
+
+                        <div class="quizizz-q-card">
+                            <div class="quizizz-q-title" id="qz-question-text">Cargando pregunta...</div>
+                            <div class="quizizz-options-grid" id="qz-options-container">
+                                <!-- Botones de opciones generados por JS -->
+                            </div>
+                            <div class="feedback-msg" id="fb-qz-feedback" style="margin-top: 1rem;"></div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <button class="btn-shelf-action" style="background:var(--bg-hover);" onclick="prevQuizizzQuestion()">
+                                ← Anterior
+                            </button>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);" id="qz-nav-indicator">1 / 35</span>
+                            <button class="btn-check-answer" onclick="nextQuizizzQuestion()">
+                                Siguiente →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 6: TALLER DE EXPRESIÓN ESCRITA (MISIÓN ESPACIAL)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-taller">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🚀</span>
+                        <div>
+                            <h2>Taller de Expresión Escrita: Misión Espacial Alfa</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Redacta un informe científico con el simulador de terminal de la estación espacial utilizando tecnicismos con validación en tiempo real.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-terminal-mockup">
+                        <div class="terminal-header">
+                            <div class="terminal-title">
+                                <span>🛰️</span> TERMINAL DE ASTRONÁUTICA — ESTACIÓN ESPACIAL ALFA-9
+                            </div>
+                            <div class="terminal-dots">
+                                <span class="terminal-dot terminal-dot-red"></span>
+                                <span class="terminal-dot terminal-dot-yellow"></span>
+                                <span class="terminal-dot terminal-dot-green"></span>
+                            </div>
+                        </div>
+
+                        <div class="terminal-body">
+                            <div class="terminal-prompt-box">
+                                <strong>Instrucciones Oficiales de la Misión:</strong><br>
+                                Imagina que eres un/a científico/a en una estación espacial. Escribe un informe de <strong>5 a 6 líneas</strong> explicando qué ha ocurrido hoy con los ordenadores o los instrumentos del laboratorio.<br>
+                                💡 <strong>Requisito obligatorio:</strong> Debes incluir y usar correctamente al menos <strong>2 tecnicismos científicos o informáticos</strong> (ejemplos: <em>procesador, software, microchip, algoritmo, batería, órbita, telemetría, circuito</em>).
+                            </div>
+
+                            <textarea id="space-report-editor" class="terminal-textarea" placeholder="Escribe aquí tu informe científico espacial:
+[Registro Estelar 2026.10]
+Hoy a las 08:00 horas detectamos una anomalía en el laboratorio principal...
+El software de navegación alertó sobre una sobrecarga en el procesador cuántico...
+Rápidamente cambiamos el microchip dañado y restauramos la batería..."></textarea>
+
+                            <div class="terminal-footer">
+                                <div class="detected-tags-box">
+                                    <span style="font-size: 0.82rem; color: #94a3b8;">Tecnicismos detectados:</span>
+                                    <span id="detected-tecnicismos-list">
+                                        <em style="color:#64748b; font-size:0.8rem;">(Escribe palabras como procesador, software, microchip, algoritmo, batería...)</em>
+                                    </span>
+                                </div>
+
+                                <button class="btn-send-report" onclick="validateSpaceReport()">
+                                    <span>📡</span> ENVIAR INFORME CIENTÍFICO (+25 XP)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-msg" id="fb-space-report"></div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 7: AUTOEVALUACIÓN MASTER (TEST GLOBAL 10 PREGUNTAS)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-quiz">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🏆</span>
+                        <div>
+                            <h2>Autoevaluación Master: Test Global del Tema 2</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Ponte a prueba con 10 preguntas clave sobre tecnicismos, el verbo, la acentuación y la expresión escrita. ¡Gana 50 XP!</p>
+                        </div>
+                    </div>
+
+                    <div id="master-quiz-container">
+                        <!-- Generado por JS -->
+                    </div>
+
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <button class="btn-check-answer" style="font-size: 1.1rem; padding: 0.85rem 2rem;" onclick="gradeMasterQuiz()">
+                            Finalizar y Evaluar Examen 🚀
+                        </button>
+                        <div id="quiz-final-result" style="margin-top: 1.25rem; font-size: 1.2rem; font-weight: 800;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTAÑA 8: DOCUMENTOS & RECURSOS DIGITALES (DUAL SHELF)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-documentos">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">📂</span>
+                        <div>
+                            <h2>Documentos de Clase & Recursos Oficiales</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Accede a los archivos locales verificados y a los enlaces oficiales en la nube de Google Drive.</p>
+                        </div>
+                    </div>
+
+                    <div class="shelf-grid">
+                        <!-- Doc 1 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">📖</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Lectura y Narración</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Texto oficial de lectura de la unidad narrativo de clase.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/open?id=1F1o4n1w3ipU-1IftRPUBDw178vuOhEqT" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 2 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">🧠</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Comprensión Lectora</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Ficha oficial de preguntas y actividades sobre la narración.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/open?id=1K6ttxM7PwTP9w6j7v5zTWzfobuV7dVAW" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 3 (Verificado en local) -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">💡</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Tecnicismos: Guía y Ejercicios</div>
+                                        <span class="shelf-doc-badge badge-verified">Descargado y Verificado (195 KB)</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Cuadernillo completo de ejercicios sobre qué son los tecnicismos (Unprofesor).</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="./documents/Tecnicismos_Guia_Ejercicios.pdf" target="_blank" class="btn-shelf-action btn-shelf-local">📥 Ver PDF Local</a>
+                                <a href="https://media.unprofesor.com/es/ejercicios/9/1/7/ejercicio_que_son_los_tecnicismos_719.pdf" target="_blank" class="btn-shelf-action btn-shelf-drive">🌐 Web Original</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 4 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">⚙️</span>
+                                    <div>
+                                        <div class="shelf-doc-title">El Verbo: Teoría</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Ficha de teoría gramatical del verbo, conjugaciones y desinencias.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/file/d/17vDcO-7t_xHOU3_Jid1PAuiCvjzX4tDb/view" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 5 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">📝</span>
+                                    <div>
+                                        <div class="shelf-doc-title">El Verbo: Ejercicios de Clase</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Cuaderno de actividades prácticas sobre formas verbales.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/file/d/1qgxE_81tz8Z5EL4R44JUqJPpCYHBzK6e/view" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 6 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">✍️</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Acentuación: Reglas & Teoría</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Ficha explicativa de agudas, llanas, esdrújulas y sílaba tónica.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/open?id=1FjEy4KKcWSJDYLstE5qt_LukWk_s3mgr" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 7 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">📑</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Acentuación: Ficha Práctica 1</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Ejercicios de división silábica y colocación de tildes.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/open?id=199E2F16AQiRrq8K7Une2rO9kBzdabLtU" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- Doc 8 -->
+                        <div class="shelf-doc-card">
+                            <div>
+                                <div class="shelf-doc-header">
+                                    <span class="shelf-doc-icon">📋</span>
+                                    <div>
+                                        <div class="shelf-doc-title">Acentuación: Ficha Práctica 2</div>
+                                        <span class="shelf-doc-badge badge-manual">Google Drive Oficial</span>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Actividades complementarias de ortografía y repaso de tildes.</p>
+                            </div>
+                            <div class="shelf-actions-row">
+                                <a href="https://drive.google.com/file/d/1tys6vQKW_VCN3CptSoOq8QoLFDP_q2hs/view?usp=sharing" target="_blank" class="btn-shelf-action btn-shelf-drive">☁️ Abrir en Drive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ===================================================================
+         LOGICA JAVASCRIPT: GAMIFICACIÓN, EJERCICIOS Y ESTADO
+         =================================================================== -->
+    <script>
+        // 1. ESTADO GLOBAL Y PERSISTENCIA
+        const state = {
+            xp: 0,
+            soundEnabled: true,
+            solvedTasks: {},
+            laSelectedToken: null,
+            laPlaced: {
+                agudas: [],
+                llanas: [],
+                esdrujulas: []
+            },
+            qzCurrentIndex: 0,
+            qzAnswers: {}
+        };
+
+        function loadState() {
+            const saved = localStorage.getItem('alvaro_progress_castellano_tema2');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    state.xp = parsed.xp || 0;
+                    state.solvedTasks = parsed.solvedTasks || {};
+                } catch (e) {
+                    console.error("Error loading state", e);
+                }
+            }
+            updateXPDisplay();
+        }
+
+        function saveState() {
+            localStorage.setItem('alvaro_progress_castellano_tema2', JSON.stringify({
+                xp: state.xp,
+                solvedTasks: state.solvedTasks
+            }));
+        }
+
+        function addXP(amount) {
+            state.xp += amount;
+            updateXPDisplay();
+            saveState();
+            playSound('success');
+        }
+
+        function updateXPDisplay() {
+            const el = document.getElementById('user-xp-display');
+            if (el) el.textContent = `${state.xp} XP`;
+        }
+
+        // 2. SONIDO Y MODO OSCURO
+        function toggleAudio() {
+            state.soundEnabled = !state.soundEnabled;
+            const icon = document.getElementById('sound-icon');
+            if (icon) icon.textContent = state.soundEnabled ? '🔊' : '🔇';
+        }
+
+        function playSound(type) {
+            if (!state.soundEnabled) return;
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                if (type === 'success') {
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                } else if (type === 'error') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.25);
+                }
+            } catch (e) {}
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            const icon = document.getElementById('theme-icon');
+            if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('alvaro_dark_mode', isDark);
+        }
+
+        // 3. CAMBIO DE PESTAÑAS
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+
+            const target = document.getElementById(`tab-${tabId}`);
+            if (target) target.classList.add('active');
+            if (btn) btn.classList.add('active');
+            window.scrollTo({ top: 320, behavior: 'smooth' });
+        }
+
+        // 4. COMPROBACIÓN DE LECTURA (5 PREGUNTAS)
+        const lecturaAnswers = {
+            1: ["alfa-9", "laboratorio alfa-9", "laboratorio orbital alfa-9", "alfa 9", "estación espacial"],
+            2: ["sobrecarga", "tormenta geomagnética", "sobrecarga en la batería", "sobrecarga de la batería"],
+            3: ["elena", "capitana elena"],
+            4: ["microchip", "microchip regulador"],
+            5: ["tercera", "tercera persona", "3ª persona", "3a"]
+        };
+
+        function checkLectura(qNum) {
+            const input = document.getElementById(`lec-q${qNum}`);
+            const fb = document.getElementById(`fb-lec-${qNum}`);
+            const val = (input.value || '').trim().toLowerCase();
+            const valid = lecturaAnswers[qNum].some(ans => val.includes(ans));
+
+            if (valid) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 ¡Respuesta correcta! Muy buena comprensión (+10 XP).';
+                if (!state.solvedTasks[`lec_${qNum}`]) {
+                    state.solvedTasks[`lec_${qNum}`] = true;
+                    addXP(10);
+                    updateLecturaBadge();
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ Revisa el texto de la lectura y vuelve a intentarlo.';
+                playSound('error');
+            }
+        }
+
+        function updateLecturaBadge() {
+            let count = 0;
+            for (let i = 1; i <= 5; i++) {
+                if (state.solvedTasks[`lec_${i}`]) count++;
+            }
+            const b = document.getElementById('badge-lectura');
+            const d = document.getElementById('lectura-counter-display');
+            if (b) b.textContent = `${count}/5`;
+            if (d) d.textContent = `${count}/5 completadas`;
+        }
+
+        // 5. VOCABULARIO: TECNICISMOS Y PARÓNIMAS
+        const tecSol = {
+            1: ["medicina", "sanidad", "salud"],
+            2: ["informática", "tecnología", "computación"],
+            3: ["música", "músicos"],
+            4: ["deporte", "fútbol", "fútbol/deporte"]
+        };
+
+        function checkVocTec(num) {
+            const input = document.getElementById(`voc-tec-${num}`);
+            const fb = document.getElementById(`fb-voc-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+            const valid = tecSol[num].some(sol => val.includes(sol));
+
+            if (valid) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 ¡Exacto! Es el ámbito profesional correcto (+10 XP).';
+                if (!state.solvedTasks[`voctec_${num}`]) {
+                    state.solvedTasks[`voctec_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ Intenta de nuevo. Piensa en qué profesión o especialidad se usan.';
+                playSound('error');
+            }
+        }
+
+        const parSol = {
+            1: "especia",
+            2: "absorber",
+            3: "absolver",
+            4: "adoptar"
+        };
+
+        function checkVocPar(num) {
+            const input = document.getElementById(`voc-par-${num}`);
+            const fb = document.getElementById(`fb-par-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+
+            if (val === parSol[num]) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Correcto! "${parSol[num]}" es la palabra precisa (+10 XP).`;
+                if (!state.solvedTasks[`vocpar_${num}`]) {
+                    state.solvedTasks[`vocpar_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Cuidado con las parónimas. La forma correcta era "${parSol[num]}".`;
+                playSound('error');
+            }
+        }
+
+        // 6. GRAMÁTICA: LAS 10 FRASES OFICIALES DE DELE AHORA
+        const deleData = [
+            { id: 1, text: "Los niños están ___ al baloncesto.", sol: "jugando", opts: ["jugado", "jugar", "jugando"], tip: "Acción en desarrollo tras 'estar' -> Gerundio" },
+            { id: 2, text: "___ español es muy útil.", sol: "hablar", opts: ["Hablado", "Hablando", "Hablar"], tip: "Actúa como sujeto de la frase -> Infinitivo" },
+            { id: 3, text: "Ya he ___.", sol: "desayunado", opts: ["desayunado", "desayunando", "desayunar"], tip: "Tiempo compuesto con 'haber' -> Participio" },
+            { id: 4, text: "Tengo que ___ mi habitación.", sol: "ordenar", opts: ["ordenar", "ordenado", "ordenando"], tip: "Perífrasis de obligación con 'que' -> Infinitivo" },
+            { id: 5, text: "¿Qué quieres ___ hoy?", sol: "comer", opts: ["comido", "comer", "comiendo"], tip: "Detrás del verbo de deseo 'querer' -> Infinitivo" },
+            { id: 6, text: "¿Has ___ alguna vez en Tailandia?", sol: "estado", opts: ["estado", "estando", "estar"], tip: "Pretérito perfecto con 'has' -> Participio" },
+            { id: 7, text: "Todavía no hemos ___ ese castillo.", sol: "visitado", opts: ["visitar", "visitado", "visitando"], tip: "Con 'hemos' -> Participio" },
+            { id: 8, text: "¿Quién está ___ tanto ruido?", sol: "haciendo", opts: ["haciendo", "hacer", "hecho"], tip: "Acción continua tras 'está' -> Gerundio" },
+            { id: 9, text: "En este momento están ___ el proyecto.", sol: "presentando", opts: ["presentar", "presentando", "presentado"], tip: "Acción simultánea con 'están' -> Gerundio" },
+            { id: 10, text: "___ en esta ciudad es maravilloso.", sol: "vivir", opts: ["Vivido", "Vivir", "Viviendo"], tip: "Sujeto de la oración -> Infinitivo" }
+        ];
+
+        function renderDeleQuestions() {
+            const container = document.getElementById('dele-questions-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            deleData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text"><strong>${item.id}.</strong> ${item.text}</div>
+                    <div style="display:flex; gap:0.5rem; margin: 0.35rem 0;">
+                        ${item.opts.map(opt => `
+                            <button class="btn-quiz-option" style="padding:0.4rem 0.75rem; font-size:0.85rem;" onclick="checkDeleOption(${item.id}, '${opt.toLowerCase()}')">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="feedback-msg" id="fb-dele-${item.id}"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkDeleOption(id, chosen) {
+            const item = deleData.find(d => d.id === id);
+            const fb = document.getElementById(`fb-dele-${id}`);
+            if (!item || !fb) return;
+
+            if (chosen.toLowerCase() === item.sol.toLowerCase()) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Perfecto! "${item.sol}". (${item.tip}) (+10 XP).`;
+                if (!state.solvedTasks[`dele_${id}`]) {
+                    state.solvedTasks[`dele_${id}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ No es correcto. Piensa: ${item.tip}.`;
+                playSound('error');
+            }
+        }
+
+        // Reto Extra de Raíz / Desinencia
+        const vExtraSol = {
+            1: "cant",
+            2: ["3", "3ª", "tercera", "3ra"],
+            3: "comer",
+            4: "viviendo",
+            5: "roto",
+            6: "plural"
+        };
+
+        function checkVerboExtra(num) {
+            const input = document.getElementById(`v-raiz-${num}`);
+            const fb = document.getElementById(`fb-v-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+
+            let correct = false;
+            if (Array.isArray(vExtraSol[num])) {
+                correct = vExtraSol[num].some(s => val.includes(s));
+            } else {
+                correct = val === vExtraSol[num];
+            }
+
+            if (correct) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 ¡Genial! Análisis gramatical perfecto (+10 XP).';
+                if (!state.solvedTasks[`vextra_${num}`]) {
+                    state.solvedTasks[`vextra_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ Revisa las reglas de raíz, infinitivo o desinencias.';
+                playSound('error');
+            }
+        }
+
+        // 7. JUEGO CLASIFICADOR LEARNINGAPPS (30 PALABRAS OFICIALES)
+        const learningAppsWords = [
+            // Esdrújulas (10)
+            { word: "MURCIÉLAGO", type: "esdrujulas" },
+            { word: "CLÁSICO", type: "esdrujulas" },
+            { word: "CERÁMICO", type: "esdrujulas" },
+            { word: "MICROSCÓPICO", type: "esdrujulas" },
+            { word: "OXÍGENO", type: "esdrujulas" },
+            { word: "HETEROGÉNEO", type: "esdrujulas" },
+            { word: "HUMORÍSTICO", type: "esdrujulas" },
+            { word: "AUTOMÁTICO", type: "esdrujulas" },
+            { word: "CÁLIDO", type: "esdrujulas" },
+            { word: "FANÁTICO", type: "esdrujulas" },
+            // Llanas (10)
+            { word: "MIRAS", type: "llanas" },
+            { word: "HERMANO", type: "llanas" },
+            { word: "PISO", type: "llanas" },
+            { word: "PARQUE", type: "llanas" },
+            { word: "AMBIGUO", type: "llanas" },
+            { word: "RISA", type: "llanas" },
+            { word: "PULSERA", type: "llanas" },
+            { word: "VAJILLA", type: "llanas" },
+            { word: "ÁRBOL", type: "llanas" },
+            { word: "DÓCIL", type: "llanas" },
+            // Agudas (10)
+            { word: "BALÓN", type: "agudas" },
+            { word: "BEBÉ", type: "agudas" },
+            { word: "BOTÓN", type: "agudas" },
+            { word: "EDREDÓN", type: "agudas" },
+            { word: "COMPRENSIÓN", type: "agudas" },
+            { word: "BRUTAL", type: "agudas" },
+            { word: "RITUAL", type: "agudas" },
+            { word: "CAMIÓN", type: "agudas" },
+            { word: "BREVEDAD", type: "agudas" },
+            { word: "PORCENTUAL", type: "agudas" }
+        ];
+
+        let unplacedWords = [...learningAppsWords];
+
+        function initLearningAppsGame() {
+            renderUnplacedTokens();
+            renderPlacedZones();
+        }
+
+        function renderUnplacedTokens() {
+            const container = document.getElementById('la-tokens-container');
+            const leftEl = document.getElementById('la-words-left');
+            if (!container) return;
+            container.innerHTML = '';
+
+            unplacedWords.forEach((item, idx) => {
+                const btn = document.createElement('div');
+                btn.className = `word-token ${state.laSelectedToken === item.word ? 'selected-token' : ''}`;
+                btn.style.borderColor = state.laSelectedToken === item.word ? 'var(--primary)' : 'var(--border-color)';
+                btn.style.background = state.laSelectedToken === item.word ? 'var(--primary-light)' : 'var(--bg-hover)';
+                btn.textContent = item.word;
+                btn.onclick = (e) => {
+                    e.stopPropagation();
+                    selectWordToken(item.word);
+                };
+                container.appendChild(btn);
+            });
+
+            if (leftEl) leftEl.textContent = `${unplacedWords.length} restantes`;
+        }
+
+        function selectWordToken(word) {
+            state.laSelectedToken = (state.laSelectedToken === word) ? null : word;
+            renderUnplacedTokens();
+        }
+
+        function placeSelectedToken(category) {
+            if (!state.laSelectedToken) return;
+            const word = state.laSelectedToken;
+            const itemIdx = unplacedWords.findIndex(w => w.word === word);
+            if (itemIdx === -1) return;
+
+            const item = unplacedWords.splice(itemIdx, 1)[0];
+            state.laPlaced[category].push(item);
+            state.laSelectedToken = null;
+
+            renderUnplacedTokens();
+            renderPlacedZones();
+            updateLAGameStatus();
+        }
+
+        function renderPlacedZones() {
+            ['agudas', 'llanas', 'esdrujulas'].forEach(cat => {
+                const zone = document.getElementById(`zone-${cat}`);
+                if (!zone) return;
+                zone.innerHTML = '';
+                state.laPlaced[cat].forEach((item, idx) => {
+                    const tag = document.createElement('span');
+                    tag.className = 'word-token';
+                    tag.style.fontSize = '0.78rem';
+                    tag.innerHTML = `${item.word} <small style="cursor:pointer; color:#ef4444; font-weight:800; margin-left:4px;" title="Devolver">×</small>`;
+                    tag.onclick = (e) => {
+                        e.stopPropagation();
+                        // Devolver a la lista
+                        state.laPlaced[cat].splice(idx, 1);
+                        unplacedWords.push(item);
+                        renderUnplacedTokens();
+                        renderPlacedZones();
+                        updateLAGameStatus();
+                    };
+                    zone.appendChild(tag);
+                });
+            });
+        }
+
+        function updateLAGameStatus() {
+            const placedCount = 30 - unplacedWords.length;
+            const badge = document.getElementById('la-badge-status');
+            if (badge) badge.textContent = `${placedCount}/30 clasificadas`;
+        }
+
+        function checkLearningAppsGame() {
+            const fb = document.getElementById('fb-la-game');
+            if (unplacedWords.length > 0) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `⚠️ Todavía te quedan ${unplacedWords.length} palabras por clasificar. Colócalas todas antes de comprobar.`;
+                playSound('error');
+                return;
+            }
+
+            let errors = 0;
+            ['agudas', 'llanas', 'esdrujulas'].forEach(cat => {
+                state.laPlaced[cat].forEach(item => {
+                    if (item.type !== cat) errors++;
+                });
+            });
+
+            if (errors === 0) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 ¡EXTRAORDINARIO! ¡Las 30 palabras están perfectamente clasificadas según su sílaba tónica! (+50 XP)';
+                if (!state.solvedTasks['la_game_complete']) {
+                    state.solvedTasks['la_game_complete'] = true;
+                    addXP(50);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Hay ${errors} palabra(s) en el grupo equivocado. Recuerda: Agudas (última), Llanas (penúltima), Esdrújulas (antepenúltima). ¡Haz clic en '×' para corregirlas!`;
+                playSound('error');
+            }
+        }
+
+        function resetLearningAppsGame() {
+            unplacedWords = [...learningAppsWords];
+            state.laPlaced = { agudas: [], llanas: [], esdrujulas: [] };
+            state.laSelectedToken = null;
+            renderUnplacedTokens();
+            renderPlacedZones();
+            updateLAGameStatus();
+            const fb = document.getElementById('fb-la-game');
+            if (fb) fb.className = 'feedback-msg';
+        }
+
+        // 8. ENTRENADOR QUIZIZZ (35 PREGUNTAS OFICIALES)
+        const quizizzQuestions = [
+            {
+                        "question": "En las palabras esdrújulas la sílaba tónica es la...",
+                        "correct": "antepenúltima sílaba",
+                        "distractors": [
+                                    "penúltima sílaba",
+                                    "última sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ],
+                        "options": [
+                                    "antepenúltima sílaba",
+                                    "penúltima sílaba",
+                                    "última sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ]
+            },
+            {
+                        "question": "En las palabras llanas la sílaba tónica es la....",
+                        "correct": "penúltima sílaba",
+                        "distractors": [
+                                    "antepenúltima sílaba",
+                                    "última sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ],
+                        "options": [
+                                    "penúltima sílaba",
+                                    "antepenúltima sílaba",
+                                    "última sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ]
+            },
+            {
+                        "question": "En las palabras agudas la sílaba tónica es la...",
+                        "correct": "última sílaba",
+                        "distractors": [
+                                    "antepenúltima sílaba",
+                                    "penúltima sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ],
+                        "options": [
+                                    "última sílaba",
+                                    "antepenúltima sílaba",
+                                    "penúltima sílaba",
+                                    "sílaba antes de la antepenúltima"
+                        ]
+            },
+            {
+                        "question": "Las palabras esdrújulas llevan tilde...",
+                        "correct": "siempre",
+                        "distractors": [
+                                    "nunca",
+                                    "cuando terminan en n, s o vocal",
+                                    "cuando terminan en consonante."
+                        ],
+                        "options": [
+                                    "siempre",
+                                    "nunca",
+                                    "cuando terminan en n, s o vocal",
+                                    "cuando terminan en consonante."
+                        ]
+            },
+            {
+                        "question": "Las palabras agudas llevan tilde...",
+                        "correct": "cuando terminan en n, s o vocal.",
+                        "distractors": [
+                                    "siempre",
+                                    "cuando no terminan en n, s o vocal",
+                                    "nunca"
+                        ],
+                        "options": [
+                                    "cuando terminan en n, s o vocal.",
+                                    "siempre",
+                                    "cuando no terminan en n, s o vocal",
+                                    "nunca"
+                        ]
+            },
+            {
+                        "question": "Las palabras llanas llevan tilde...",
+                        "correct": "cuando no terminan en n, s o vocal",
+                        "distractors": [
+                                    "cuando terminan en n, s o vocal",
+                                    "cuando terminan en consonante",
+                                    "siempre"
+                        ],
+                        "options": [
+                                    "cuando no terminan en n, s o vocal",
+                                    "cuando terminan en n, s o vocal",
+                                    "cuando terminan en consonante",
+                                    "siempre"
+                        ]
+            },
+            {
+                        "question": "Una de las siguientes palabras es aguda:",
+                        "correct": "collar",
+                        "distractors": [
+                                    "coche",
+                                    "cántaro",
+                                    "mesa"
+                        ],
+                        "options": [
+                                    "collar",
+                                    "coche",
+                                    "cántaro",
+                                    "mesa"
+                        ]
+            },
+            {
+                        "question": "Una de las siguientes palabras es llana",
+                        "correct": "zapato",
+                        "distractors": [
+                                    "bondad",
+                                    "átomo",
+                                    "azul"
+                        ],
+                        "options": [
+                                    "zapato",
+                                    "bondad",
+                                    "átomo",
+                                    "azul"
+                        ]
+            },
+            {
+                        "question": "Una de las siguientes palabras es esdrújula",
+                        "correct": "fósforo",
+                        "distractors": [
+                                    "biblioteca",
+                                    "carácter",
+                                    "marroquí"
+                        ],
+                        "options": [
+                                    "fósforo",
+                                    "biblioteca",
+                                    "carácter",
+                                    "marroquí"
+                        ]
+            },
+            {
+                        "question": "La palabra \"sillón\" lleva tilde porque",
+                        "correct": "es aguda y termina en \"n\"",
+                        "distractors": [
+                                    "es llana y termina en \"n\"",
+                                    "es esdrújula",
+                                    "es acentuada en la penúltima sílaba"
+                        ],
+                        "options": [
+                                    "es aguda y termina en \"n\"",
+                                    "es llana y termina en \"n\"",
+                                    "es esdrújula",
+                                    "es acentuada en la penúltima sílaba"
+                        ]
+            },
+            {
+                        "question": "La palabra \"difícil\" lleva tilde porque",
+                        "correct": "es llana y termina en una consonante que no es \"n\" o \"s\"",
+                        "distractors": [
+                                    "es esdrújula",
+                                    "es aguda y termina en \"n\", \"s\" o vocal",
+                                    "es acentuada en la última sílaba"
+                        ],
+                        "options": [
+                                    "es llana y termina en una consonante que no es \"n\" o \"s\"",
+                                    "es esdrújula",
+                                    "es aguda y termina en \"n\", \"s\" o vocal",
+                                    "es acentuada en la última sílaba"
+                        ]
+            },
+            {
+                        "question": "La palabra \"adulto\" no lleva tilde porque",
+                        "correct": "es llana y termina en vocal",
+                        "distractors": [
+                                    "es aguda y no lo precisa",
+                                    "es esdrújula",
+                                    "se acentúa en la última sílaba"
+                        ],
+                        "options": [
+                                    "es llana y termina en vocal",
+                                    "es aguda y no lo precisa",
+                                    "es esdrújula",
+                                    "se acentúa en la última sílaba"
+                        ]
+            },
+            {
+                        "question": "Sólo una de estas palabras está escrita correctamente",
+                        "correct": "ágil",
+                        "distractors": [
+                                    "álto",
+                                    "métros",
+                                    "alégran"
+                        ],
+                        "options": [
+                                    "ágil",
+                                    "álto",
+                                    "métros",
+                                    "alégran"
+                        ]
+            },
+            {
+                        "question": "Sólo una de estas palabras está escrita correctamente",
+                        "correct": "doméstico",
+                        "distractors": [
+                                    "fantasticó",
+                                    "fanatíco",
+                                    "térmometro"
+                        ],
+                        "options": [
+                                    "doméstico",
+                                    "fantasticó",
+                                    "fanatíco",
+                                    "térmometro"
+                        ]
+            },
+            {
+                        "question": "Sólo una de estas palabras está escrita correctamente",
+                        "correct": "túnel",
+                        "distractors": [
+                                    "soldádo",
+                                    "ázucar",
+                                    "rémos"
+                        ],
+                        "options": [
+                                    "túnel",
+                                    "soldádo",
+                                    "ázucar",
+                                    "rémos"
+                        ]
+            },
+            {
+                        "question": "Sólo una de estas palabras está escrita correctamente",
+                        "correct": "corazones",
+                        "distractors": [
+                                    "cadaver",
+                                    "martir",
+                                    "trebol"
+                        ],
+                        "options": [
+                                    "corazones",
+                                    "cadaver",
+                                    "martir",
+                                    "trebol"
+                        ]
+            },
+            {
+                        "question": "La palabra *murcielago lleva tilde en la...",
+                        "correct": "é",
+                        "distractors": [
+                                    "ú",
+                                    "í",
+                                    "á",
+                                    "ó"
+                        ],
+                        "options": [
+                                    "é",
+                                    "ú",
+                                    "í",
+                                    "á",
+                                    "ó"
+                        ]
+            },
+            {
+                        "question": "¿A cuál de estas palabras le falta la tilde?",
+                        "correct": "Boligrafo",
+                        "distractors": [
+                                    "Amigo",
+                                    "Mesita",
+                                    "Acuarela"
+                        ],
+                        "options": [
+                                    "Boligrafo",
+                                    "Amigo",
+                                    "Mesita",
+                                    "Acuarela"
+                        ]
+            },
+            {
+                        "question": "¿A cuál de estas palabras le falta la tilde?",
+                        "correct": "Arbol",
+                        "distractors": [
+                                    "Actuar",
+                                    "Mirando",
+                                    "Telefonear"
+                        ],
+                        "options": [
+                                    "Arbol",
+                                    "Actuar",
+                                    "Mirando",
+                                    "Telefonear"
+                        ]
+            },
+            {
+                        "question": "Son llanas...",
+                        "correct": "Tortuga, carrito y examen",
+                        "distractors": [
+                                    "Habitación, comprar y reloj",
+                                    "Triangular, corazón y murciélago",
+                                    "Plátano, elástico y bolígrafo"
+                        ],
+                        "options": [
+                                    "Tortuga, carrito y examen",
+                                    "Habitación, comprar y reloj",
+                                    "Triangular, corazón y murciélago",
+                                    "Plátano, elástico y bolígrafo"
+                        ]
+            },
+            {
+                        "question": "¿Cuál de estas palabras está mal acentuada?",
+                        "correct": "Arbóles",
+                        "distractors": [
+                                    "Metáfora",
+                                    "Clínica",
+                                    "Interpretación"
+                        ],
+                        "options": [
+                                    "Arbóles",
+                                    "Metáfora",
+                                    "Clínica",
+                                    "Interpretación"
+                        ]
+            },
+            {
+                        "question": "¿A cuál de estas palabras le sobra la tilde?",
+                        "correct": "Disparáte",
+                        "distractors": [
+                                    "Además",
+                                    "Automóvil",
+                                    "Romántico"
+                        ],
+                        "options": [
+                                    "Disparáte",
+                                    "Además",
+                                    "Automóvil",
+                                    "Romántico"
+                        ]
+            },
+            {
+                        "question": "¿Qué palabra debe llevar tilde?",
+                        "correct": "Atencion",
+                        "distractors": [
+                                    "Viernes",
+                                    "Amor",
+                                    "Orientado"
+                        ],
+                        "options": [
+                                    "Atencion",
+                                    "Viernes",
+                                    "Amor",
+                                    "Orientado"
+                        ]
+            },
+            {
+                        "question": "Rápido es una palabra...",
+                        "correct": "Esdrújula",
+                        "distractors": [
+                                    "Aguda",
+                                    "Llana",
+                                    "Sobreesdrújula"
+                        ],
+                        "options": [
+                                    "Esdrújula",
+                                    "Aguda",
+                                    "Llana",
+                                    "Sobreesdrújula"
+                        ]
+            },
+            {
+                        "question": "Devuélvemelo es una palabra ...",
+                        "correct": "Sobreesdrújula",
+                        "distractors": [
+                                    "Aguda",
+                                    "Llana",
+                                    "Esdrújula"
+                        ],
+                        "options": [
+                                    "Sobreesdrújula",
+                                    "Aguda",
+                                    "Llana",
+                                    "Esdrújula"
+                        ]
+            },
+            {
+                        "question": "¿A cuál de estas palabras le falta la tilde?",
+                        "correct": "Arbol",
+                        "distractors": [
+                                    "Actuar",
+                                    "Mirando",
+                                    "Telefonear"
+                        ],
+                        "options": [
+                                    "Arbol",
+                                    "Actuar",
+                                    "Mirando",
+                                    "Telefonear"
+                        ]
+            },
+            {
+                        "question": "¿Qué palabra debe llevar tilde?",
+                        "correct": "Pesimo",
+                        "distractors": [
+                                    "Sacudir",
+                                    "Acogedor",
+                                    "Orientado"
+                        ],
+                        "options": [
+                                    "Pesimo",
+                                    "Sacudir",
+                                    "Acogedor",
+                                    "Orientado"
+                        ]
+            },
+            {
+                        "question": "¿Cómo se escribe...?",
+                        "correct": "avestruz",
+                        "distractors": [
+                                    "avestrús",
+                                    "abestrúz",
+                                    "abestruz"
+                        ],
+                        "options": [
+                                    "avestruz",
+                                    "avestrús",
+                                    "abestrúz",
+                                    "abestruz"
+                        ]
+            },
+            {
+                        "question": "¿Cómo se escribe...?",
+                        "correct": "bolígrafo",
+                        "distractors": [
+                                    "boligráfo",
+                                    "boligrafo",
+                                    "volígrafo"
+                        ],
+                        "options": [
+                                    "bolígrafo",
+                                    "boligráfo",
+                                    "boligrafo",
+                                    "volígrafo"
+                        ]
+            },
+            {
+                        "question": "¿Cómo se escribe...?",
+                        "correct": "frigorífico",
+                        "distractors": [
+                                    "figorífico",
+                                    "frigrorífico",
+                                    "frigorifico"
+                        ],
+                        "options": [
+                                    "frigorífico",
+                                    "figorífico",
+                                    "frigrorífico",
+                                    "frigorifico"
+                        ]
+            },
+            {
+                        "question": "¿Cuál de las siguientes palabras debe llevar tilde?",
+                        "correct": "Facil",
+                        "distractors": [
+                                    "Ayer",
+                                    "Estuve",
+                                    "Dale"
+                        ],
+                        "options": [
+                                    "Facil",
+                                    "Ayer",
+                                    "Estuve",
+                                    "Dale"
+                        ]
+            },
+            {
+                        "question": "¿Cuál de estas palabras está mal acentuada?",
+                        "correct": "polícia",
+                        "distractors": [
+                                    "hidrógeno",
+                                    "policía",
+                                    "oxígeno"
+                        ],
+                        "options": [
+                                    "polícia",
+                                    "hidrógeno",
+                                    "policía",
+                                    "oxígeno"
+                        ]
+            },
+            {
+                        "question": "¿Cuál de estas palabras está mal acentuada?",
+                        "correct": "secretária",
+                        "distractors": [
+                                    "anuncio",
+                                    "párrafo",
+                                    "dímelo"
+                        ],
+                        "options": [
+                                    "secretária",
+                                    "anuncio",
+                                    "párrafo",
+                                    "dímelo"
+                        ]
+            },
+            {
+                        "question": "De las siguientes palabras agudas, a la única que realmente NO se le marca tilde es:",
+                        "correct": "pared",
+                        "distractors": [
+                                    "camion",
+                                    "Saul",
+                                    "jamas"
+                        ],
+                        "options": [
+                                    "pared",
+                                    "camion",
+                                    "Saul",
+                                    "jamas"
+                        ]
+            },
+            {
+                        "question": "De las siguientes palabras llanas, ¿cuál es la única que realmente no lleva tilde?",
+                        "correct": "Fernando",
+                        "distractors": [
+                                    "carcel",
+                                    "cesped",
+                                    "habia"
+                        ],
+                        "options": [
+                                    "Fernando",
+                                    "carcel",
+                                    "cesped",
+                                    "habia"
+                        ]
+            }
+];
+
+        function initQuizizzTrainer() {
+            renderQuizizzQuestion(0);
+        }
+
+        function renderQuizizzQuestion(index) {
+            if (!quizizzQuestions || quizizzQuestions.length === 0) return;
+            if (index < 0) index = 0;
+            if (index >= quizizzQuestions.length) index = quizizzQuestions.length - 1;
+            state.qzCurrentIndex = index;
+
+            const q = quizizzQuestions[index];
+            const qTitle = document.getElementById('qz-question-text');
+            const optContainer = document.getElementById('qz-options-container');
+            const navInd = document.getElementById('qz-nav-indicator');
+            const badge = document.getElementById('qz-progress-badge');
+            const fb = document.getElementById('fb-qz-feedback');
+
+            if (qTitle) qTitle.textContent = `${index + 1}. ${q.question}`;
+            if (navInd) navInd.textContent = `${index + 1} / ${quizizzQuestions.length}`;
+            if (badge) badge.textContent = `Pregunta ${index + 1} de ${quizizzQuestions.length}`;
+            if (fb) fb.className = 'feedback-msg';
+
+            if (optContainer) {
+                optContainer.innerHTML = '';
+                q.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'btn-quiz-option';
+                    btn.textContent = opt;
+
+                    // Si ya fue respondida
+                    const prevAns = state.qzAnswers[index];
+                    if (prevAns) {
+                        if (opt === q.correct) btn.classList.add('correct-choice');
+                        else if (opt === prevAns) btn.classList.add('wrong-choice');
+                    }
+
+                    btn.onclick = () => answerQuizizz(index, opt, q.correct);
+                    optContainer.appendChild(btn);
+                });
+            }
+        }
+
+        function answerQuizizz(qIndex, selected, correct) {
+            state.qzAnswers[qIndex] = selected;
+            const fb = document.getElementById('fb-qz-feedback');
+
+            if (selected === correct) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = `🎉 ¡Correcto! "${correct}" es la opción exacta (+10 XP).`;
+                if (!state.solvedTasks[`qz_${qIndex}`]) {
+                    state.solvedTasks[`qz_${qIndex}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Incorrecto. La respuesta correcta era: "${correct}".`;
+                playSound('error');
+            }
+            renderQuizizzQuestion(qIndex);
+            updateQuizizzScore();
+        }
+
+        function nextQuizizzQuestion() {
+            if (state.qzCurrentIndex < quizizzQuestions.length - 1) {
+                renderQuizizzQuestion(state.qzCurrentIndex + 1);
+            }
+        }
+
+        function prevQuizizzQuestion() {
+            if (state.qzCurrentIndex > 0) {
+                renderQuizizzQuestion(state.qzCurrentIndex - 1);
+            }
+        }
+
+        function updateQuizizzScore() {
+            let correct = 0;
+            quizizzQuestions.forEach((q, idx) => {
+                if (state.qzAnswers[idx] === q.correct) correct++;
+            });
+            const sc = document.getElementById('qz-score-counter');
+            if (sc) sc.textContent = `Aciertos: ${correct} / ${quizizzQuestions.length}`;
+        }
+
+        // 9. SIMULADOR DE INFORME ESPACIAL (EXPRESIÓN ESCRITA)
+        const validTecnicismosList = [
+            "procesador", "software", "microchip", "algoritmo", "batería", "bateria",
+            "telemetría", "telemetria", "circuito", "órbita", "orbita", "cuántico",
+            "cuantico", "laboratorio", "radiación", "radiacion", "sensor", "antena", "hardware"
+        ];
+
+        const reportEditor = document.getElementById('space-report-editor');
+        if (reportEditor) {
+            reportEditor.addEventListener('input', () => {
+                const text = reportEditor.value.toLowerCase();
+                const found = validTecnicismosList.filter(t => text.includes(t));
+                const listEl = document.getElementById('detected-tecnicismos-list');
+                if (listEl) {
+                    if (found.length === 0) {
+                        listEl.innerHTML = '<em style="color:#64748b; font-size:0.8rem;">(Escribe palabras como procesador, software, microchip, algoritmo, batería...)</em>';
+                    } else {
+                        listEl.innerHTML = found.map(t => `<span class="tecnicismo-tag">✓ ${t}</span>`).join(' ');
+                    }
+                }
+            });
+        }
+
+        function validateSpaceReport() {
+            const text = (document.getElementById('space-report-editor').value || '').trim();
+            const fb = document.getElementById('fb-space-report');
+            const lines = text.split('\n').filter(l => l.trim().length > 0);
+            const foundTec = validTecnicismosList.filter(t => text.toLowerCase().includes(t));
+
+            if (text.length < 80 || lines.length < 3) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ El informe es demasiado corto. Escribe al menos 4-5 líneas explicando con detalle qué ha ocurrido en la estación.';
+                playSound('error');
+                return;
+            }
+
+            if (foundTec.length < 2) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `⚠️ Requisito no cumplido: Has utilizado ${foundTec.length} tecnicismo(s). Debes incluir al menos 2 tecnicismos científicos (ej.: procesador, software, microchip, algoritmo, batería).`;
+                playSound('error');
+                return;
+            }
+
+            fb.className = 'feedback-msg show correct';
+            fb.innerHTML = `🛰️ <strong>¡Informe espacial transmitido con éxito!</strong> Has cumplido la longitud y utilizado ${foundTec.length} tecnicismo(s) científico(s) con rigor (+25 XP).`;
+            if (!state.solvedTasks['space_report_sent']) {
+                state.solvedTasks['space_report_sent'] = true;
+                addXP(25);
+            }
+        }
+
+        // 10. AUTOEVALUACIÓN MASTER (10 PREGUNTAS TIPO TEST)
+        const masterQuizData = [
+            {
+                q: "1. ¿Qué es un tecnicismo?",
+                opts: ["Una palabra que solo se usa en cuentos", "Una palabra específica de una ciencia, oficio o profesión", "Una palabra que siempre lleva tilde", "Un tipo de verbo irregular"],
+                ans: 1
+            },
+            {
+                q: "2. Las palabras «afecto» y «efecto» son:",
+                opts: ["Sinónimas", "Antónimas", "Parónimas", "Neologismos"],
+                ans: 2
+            },
+            {
+                q: "3. ¿Cuáles son las tres formas no personales del verbo?",
+                opts: ["Presente, pasado y futuro", "Singular, plural y neutro", "Infinitivo, gerundio y participio", "Primera, segunda y tercera"],
+                ans: 2
+            },
+            {
+                q: "4. En la oración «Ellos están desayunando», la forma «desayunando» es un:",
+                opts: ["Participio", "Gerundio", "Infinitivo", "Adjetivo"],
+                ans: 1
+            },
+            {
+                q: "5. ¿Cuál es la raíz del verbo «escribíamos»?",
+                opts: ["escrib-", "escribí-", "-íamos", "es-"],
+                ans: 0
+            },
+            {
+                q: "6. En las palabras agudas, la sílaba tónica es la:",
+                opts: ["Antepenúltima sílaba", "Penúltima sílaba", "Última sílaba", "Primera sílaba"],
+                ans: 2
+            },
+            {
+                q: "7. Las palabras llanas llevan tilde cuando:",
+                opts: ["Terminan en n, s o vocal", "NO terminan en n, s o vocal", "Terminan en vocal", "Siempre llevan tilde"],
+                ans: 1
+            },
+            {
+                q: "8. ¿Por qué la palabra «murciélago» lleva tilde obligatoria?",
+                opts: ["Porque termina en vocal", "Porque es esdrújula y las esdrújulas llevan tilde siempre", "Porque es aguda", "Porque es un animal"],
+                ans: 1
+            },
+            {
+                q: "9. ¿Cuál de las siguientes palabras está escrita con tilde correctamente?",
+                opts: ["árbol", "exámen", "cása", "papél"],
+                ans: 0
+            },
+            {
+                q: "10. ¿Qué palabra es un neologismo reciente de la tecnología?",
+                opts: ["Cantar", "Chatear", "Mesa", "Lápiz"],
+                ans: 1
+            }
+        ];
+
+        function renderMasterQuiz() {
+            const container = document.getElementById('master-quiz-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            masterQuizData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">${item.q}</div>
+                    <div style="display:flex; flex-direction:column; gap:0.45rem; margin-top:0.4rem;">
+                        ${item.opts.map((opt, oIdx) => `
+                            <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; font-size:0.92rem;">
+                                <input type="radio" name="mq_${idx}" value="${oIdx}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function gradeMasterQuiz() {
+            let correct = 0;
+            masterQuizData.forEach((item, idx) => {
+                const radios = document.getElementsByName(`mq_${idx}`);
+                let chosen = -1;
+                for (const r of radios) {
+                    if (r.checked) chosen = parseInt(r.value);
+                }
+                if (chosen === item.ans) {
+                    correct++;
+                }
+            });
+
+            const res = document.getElementById('quiz-final-result');
+            const recordEl = document.getElementById('stat-quiz-record');
+            const badgeQuiz = document.getElementById('badge-quiz');
+            if (recordEl) recordEl.textContent = `${correct}/10`;
+            if (badgeQuiz) badgeQuiz.textContent = `${correct}/10`;
+
+            if (correct >= 8) {
+                res.style.color = '#10b981';
+                res.innerHTML = `🎉 ¡Enhorabuena, Álvaro! Has obtenido ${correct} de 10 aciertos. ¡Dominas el Tema 2 de Castellano! (+50 XP).`;
+                addXP(50);
+            } else {
+                res.style.color = '#d97706';
+                res.innerHTML = `Has obtenido ${correct} de 10. Repasa la teoría de acentuación y los verbos para volver a intentarlo.`;
+                playSound('error');
+            }
+        }
+
+        // 11. INICIALIZACIÓN GLOBAL AL CARGAR
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            renderDeleQuestions();
+            initLearningAppsGame();
+            initQuizizzTrainer();
+            renderMasterQuiz();
+            updateLecturaBadge();
+
+            const savedDark = localStorage.getItem('alvaro_dark_mode');
+            if (savedDark === 'true') {
+                document.body.classList.add('dark-mode');
+                const icon = document.getElementById('theme-icon');
+                if (icon) icon.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+
+</html>
