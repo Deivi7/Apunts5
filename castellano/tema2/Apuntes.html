@@ -879,13 +879,13 @@
                             <span class="sidebar-btn-badge" id="la-badge-status">0/30 clasificadas</span>
                         </div>
                         <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
-                            Haz clic en cada palabra para clasificarla en su grupo según dónde tenga su sílaba tónica (Aguda, Llana o Esdrújula):
+                            🎯 <strong>¡Arrastra cada palabra (Drag & Drop)</strong> y suéltala en su grupo según su sílaba tónica (o haz clic sobre ella para seleccionarla y luego haz clic en el grupo):
                         </p>
 
                         <!-- Panel de Palabras Pendientes -->
-                        <div class="tokens-pool">
+                        <div class="tokens-pool" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'pool')">
                             <div class="tokens-pool-header">
-                                <span>📦 Palabras para clasificar (haz clic sobre una palabra):</span>
+                                <span>📦 Palabras para clasificar (arrastra con el ratón o pulsa para mover):</span>
                                 <span id="la-words-left">30 restantes</span>
                             </div>
                             <div class="tokens-pool-list" id="la-tokens-container">
@@ -895,17 +895,17 @@
 
                         <!-- 3 Zonas de Destino -->
                         <div class="categorization-board">
-                            <div class="cat-drop-zone cat-zone-agudas" onclick="placeSelectedToken('agudas')">
+                            <div class="cat-drop-zone cat-zone-agudas" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'agudas')" onclick="placeSelectedToken('agudas')">
                                 <div class="cat-zone-header">🔴 AGUDAS (Última sílaba)</div>
                                 <div class="cat-items-list" id="zone-agudas"></div>
                             </div>
 
-                            <div class="cat-drop-zone cat-zone-llanas" onclick="placeSelectedToken('llanas')">
+                            <div class="cat-drop-zone cat-zone-llanas" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'llanas')" onclick="placeSelectedToken('llanas')">
                                 <div class="cat-zone-header">🟠 LLANAS (Penúltima)</div>
                                 <div class="cat-items-list" id="zone-llanas"></div>
                             </div>
 
-                            <div class="cat-drop-zone cat-zone-esdrujulas" onclick="placeSelectedToken('esdrujulas')">
+                            <div class="cat-drop-zone cat-zone-esdrujulas" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'esdrujulas')" onclick="placeSelectedToken('esdrujulas')">
                                 <div class="cat-zone-header">🟣 ESDRÚJULAS (Antepenúltima)</div>
                                 <div class="cat-items-list" id="zone-esdrujulas"></div>
                             </div>
@@ -1605,10 +1605,100 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
         ];
 
         let unplacedWords = [...learningAppsWords];
+        let draggedLAWord = null;
 
         function initLearningAppsGame() {
             renderUnplacedTokens();
             renderPlacedZones();
+        }
+
+        // --- GESTIÓN DE DRAG AND DROP (HTML5 NATIVO) ---
+        function handleDragStart(e, word) {
+            draggedLAWord = word;
+            if (e.dataTransfer) {
+                e.dataTransfer.setData('text/plain', word);
+                e.dataTransfer.effectAllowed = 'move';
+            }
+            if (e.currentTarget) {
+                e.currentTarget.classList.add('dragging');
+            }
+        }
+
+        function handleDragEnd(e) {
+            draggedLAWord = null;
+            if (e.currentTarget) {
+                e.currentTarget.classList.remove('dragging');
+            }
+            document.querySelectorAll('.cat-drop-zone, .tokens-pool').forEach(el => {
+                el.classList.remove('drag-over');
+            });
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            if (e.dataTransfer) {
+                e.dataTransfer.dropEffect = 'move';
+            }
+            const zone = e.currentTarget;
+            if (zone && !zone.classList.contains('drag-over')) {
+                zone.classList.add('drag-over');
+            }
+        }
+
+        function handleDragLeave(e) {
+            const zone = e.currentTarget;
+            if (zone && !zone.contains(e.relatedTarget)) {
+                zone.classList.remove('drag-over');
+            }
+        }
+
+        function handleDrop(e, targetCat) {
+            e.preventDefault();
+            const zone = e.currentTarget;
+            if (zone) zone.classList.remove('drag-over');
+
+            const word = (e.dataTransfer ? e.dataTransfer.getData('text/plain') : null) || draggedLAWord;
+            if (word) {
+                moveWordTo(word, targetCat);
+            }
+            draggedLAWord = null;
+        }
+
+        // Mueve una palabra a cualquier destino (pool, agudas, llanas, esdrujulas)
+        function moveWordTo(word, targetCategory) {
+            if (!word) return;
+
+            let item = null;
+            const unplacedIdx = unplacedWords.findIndex(w => w.word === word);
+            if (unplacedIdx !== -1) {
+                item = unplacedWords.splice(unplacedIdx, 1)[0];
+            } else {
+                for (const cat of ['agudas', 'llanas', 'esdrujulas']) {
+                    const idx = state.laPlaced[cat].findIndex(w => w.word === word);
+                    if (idx !== -1) {
+                        item = state.laPlaced[cat].splice(idx, 1)[0];
+                        break;
+                    }
+                }
+            }
+
+            if (!item) return;
+
+            if (targetCategory === 'pool') {
+                unplacedWords.push(item);
+                playSound('pop');
+            } else if (['agudas', 'llanas', 'esdrujulas'].includes(targetCategory)) {
+                state.laPlaced[targetCategory].push(item);
+                playSound('pop');
+            }
+
+            if (state.laSelectedToken === word) {
+                state.laSelectedToken = null;
+            }
+
+            renderUnplacedTokens();
+            renderPlacedZones();
+            updateLAGameStatus();
         }
 
         function renderUnplacedTokens() {
@@ -1617,12 +1707,16 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
             if (!container) return;
             container.innerHTML = '';
 
-            unplacedWords.forEach((item, idx) => {
+            unplacedWords.forEach((item) => {
                 const btn = document.createElement('div');
                 btn.className = `word-token ${state.laSelectedToken === item.word ? 'selected-token' : ''}`;
-                btn.style.borderColor = state.laSelectedToken === item.word ? 'var(--primary)' : 'var(--border-color)';
-                btn.style.background = state.laSelectedToken === item.word ? 'var(--primary-light)' : 'var(--bg-hover)';
+                btn.setAttribute('draggable', 'true');
+                btn.title = 'Arrastra con el ratón o haz clic para seleccionar';
                 btn.textContent = item.word;
+
+                btn.ondragstart = (e) => handleDragStart(e, item.word);
+                btn.ondragend = (e) => handleDragEnd(e);
+
                 btn.onclick = (e) => {
                     e.stopPropagation();
                     selectWordToken(item.word);
@@ -1640,17 +1734,7 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
 
         function placeSelectedToken(category) {
             if (!state.laSelectedToken) return;
-            const word = state.laSelectedToken;
-            const itemIdx = unplacedWords.findIndex(w => w.word === word);
-            if (itemIdx === -1) return;
-
-            const item = unplacedWords.splice(itemIdx, 1)[0];
-            state.laPlaced[category].push(item);
-            state.laSelectedToken = null;
-
-            renderUnplacedTokens();
-            renderPlacedZones();
-            updateLAGameStatus();
+            moveWordTo(state.laSelectedToken, category);
         }
 
         function renderPlacedZones() {
@@ -1658,20 +1742,25 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
                 const zone = document.getElementById(`zone-${cat}`);
                 if (!zone) return;
                 zone.innerHTML = '';
-                state.laPlaced[cat].forEach((item, idx) => {
+                state.laPlaced[cat].forEach((item) => {
                     const tag = document.createElement('span');
                     tag.className = 'word-token';
+                    tag.setAttribute('draggable', 'true');
+                    tag.title = 'Arrastra a otra columna o al panel de origen, o pulsa ×';
                     tag.style.fontSize = '0.78rem';
-                    tag.innerHTML = `${item.word} <small style="cursor:pointer; color:#ef4444; font-weight:800; margin-left:4px;" title="Devolver">×</small>`;
-                    tag.onclick = (e) => {
-                        e.stopPropagation();
-                        // Devolver a la lista
-                        state.laPlaced[cat].splice(idx, 1);
-                        unplacedWords.push(item);
-                        renderUnplacedTokens();
-                        renderPlacedZones();
-                        updateLAGameStatus();
-                    };
+                    tag.innerHTML = `${item.word} <small style="cursor:pointer; color:#ef4444; font-weight:800; margin-left:4px; font-size:1.1rem; vertical-align:middle;" title="Devolver a la lista">×</small>`;
+
+                    tag.ondragstart = (e) => handleDragStart(e, item.word);
+                    tag.ondragend = (e) => handleDragEnd(e);
+
+                    const removeBtn = tag.querySelector('small');
+                    if (removeBtn) {
+                        removeBtn.onclick = (e) => {
+                            e.stopPropagation();
+                            moveWordTo(item.word, 'pool');
+                        };
+                    }
+
                     zone.appendChild(tag);
                 });
             });
@@ -1702,13 +1791,14 @@ Rápidamente cambiamos el microchip dañado y restauramos la batería..."></text
             if (errors === 0) {
                 fb.className = 'feedback-msg show correct';
                 fb.textContent = '🎉 ¡EXTRAORDINARIO! ¡Las 30 palabras están perfectamente clasificadas según su sílaba tónica! (+50 XP)';
+                playSound('correct');
                 if (!state.solvedTasks['la_game_complete']) {
                     state.solvedTasks['la_game_complete'] = true;
                     addXP(50);
                 }
             } else {
                 fb.className = 'feedback-msg show incorrect';
-                fb.textContent = `❌ Hay ${errors} palabra(s) en el grupo equivocado. Recuerda: Agudas (última), Llanas (penúltima), Esdrújulas (antepenúltima). ¡Haz clic en '×' para corregirlas!`;
+                fb.textContent = `❌ Hay ${errors} palabra(s) en el grupo equivocado. Recuerda: Agudas (última), Llanas (penúltima), Esdrújulas (antepenúltima). ¡Reorganízalas arrastrando o haz clic en '×'!`;
                 playSound('error');
             }
         }

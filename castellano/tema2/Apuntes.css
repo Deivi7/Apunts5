@@ -692,9 +692,12 @@ body.dark-mode .vs-card.wrong .vs-header {
     flex-direction: column;
 }
 
-.cat-drop-zone.hover {
-    border-color: var(--primary);
-    background: var(--primary-light);
+.cat-drop-zone.hover,
+.cat-drop-zone.drag-over {
+    border-color: var(--primary) !important;
+    background: var(--primary-light) !important;
+    transform: scale(1.01);
+    box-shadow: 0 4px 14px var(--primary-glow);
 }
 
 .cat-zone-header {
@@ -750,8 +753,21 @@ body.dark-mode .vs-card.wrong .vs-header {
     transform: scale(1.05);
 }
 
+.word-token.selected-token {
+    background: var(--primary-light) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px var(--primary);
+    transform: scale(1.05);
+}
+
+.word-token:active {
+    cursor: grabbing;
+}
+
 .word-token.dragging {
-    opacity: 0.5;
+    opacity: 0.4;
+    transform: scale(0.95);
+    border: 2px dashed var(--primary);
 }
 
 .tokens-pool {
@@ -760,6 +776,12 @@ body.dark-mode .vs-card.wrong .vs-header {
     border-radius: var(--radius-md);
     padding: 1.25rem;
     margin-bottom: 1.25rem;
+    transition: all 0.2s;
+}
+
+.tokens-pool.drag-over {
+    border-color: var(--primary) !important;
+    background: var(--primary-light) !important;
 }
 
 .tokens-pool-header {
