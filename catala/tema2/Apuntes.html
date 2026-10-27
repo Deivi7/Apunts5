@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una trobada anguniosa | Llengua Catalana 5è | Álvaro Study Hub</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Common & Module Styles -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="./Apuntes.css">
+</head>
+
+<body>
+    <!-- Header Superior Oficial (Standard Harmonized Navbar) -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="../../index.html" class="btn-back-hub" title="Tornar al Portal Central">
+                <span>←</span> Tornar a Temes
+            </a>
+            <div class="topic-badge-header">
+                <span>📚</span> Català • Tema 2
+            </div>
+            <!-- Topic Switcher Dropdown -->
+            <div class="topic-switcher-dropdown">
+                <button class="btn-topic-switch" onclick="toggleTopicDropdown(event)">
+                    <span>📚 2. Una trobada anguniosa</span> ▾
+                </button>
+                <div class="topic-dropdown-menu" id="topic-dropdown-menu">
+                    <div style="padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Temes de Llengua Catalana</div>
+                    <a href="../sant_baldiri/Apuntes.html" class="topic-dropdown-item">
+                        <strong>1. L'escola de Sant Baldiri (5è)</strong>
+                    </a>
+                    <a href="../posat_a_prova_1/Apuntes.html" class="topic-dropdown-item">
+                        <strong>2. Posa't a prova 1 (Examen Oficial & Nivell Pro)</strong>
+                    </a>
+                    <a href="Apuntes.html" class="topic-dropdown-item current">
+                        <strong>3. Una trobada anguniosa (Tema 2 Oficial)</strong> (Actual)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Botó Xulla Ràpida -->
+            <button class="btn-quick-cheat-nav" onclick="openQuickCheatSheet()" title="Veure resum ràpid en qualsevol moment">
+                <span>💡</span> Xulla Ràpida
+            </button>
+
+            <!-- Stats Pills -->
+            <div class="score-pill-nav" title="Puntuació d'Experiència">
+                <span>⚡</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="score-pill-nav" title="Ratxa d'estudi">
+                <span>🔥</span>
+                <span id="streak-counter">0</span>
+            </div>
+
+            <!-- Sons i Mode Fosc -->
+            <button class="btn-icon-nav" id="btn-sound" onclick="toggleSound()" title="Sons">🔊</button>
+            <button class="btn-icon-nav" onclick="toggleDarkMode()" title="Mode Clar/Fosc">🌓</button>
+        </div>
+    </header>
+
+    <!-- Hero Banner a pantalla completa -->
+    <section class="module-hero">
+        <div class="hero-inner">
+            <div class="hero-title-group">
+                <div class="hero-tag-badge">LLENGUA CATALANA • TEMA 2 (5È PRIMÀRIA)</div>
+                <h1>Una trobada anguniosa 🎬</h1>
+                <p>Domina la comprensió lectora, les paraules polisèmiques, les normes d'accentuació (agudes, planes i esdrúixoles), l'adjectiu i la redacció de correus electrònics amb vídeos de classe i reptes interactius.</p>
+            </div>
+            <div class="hero-quick-stats">
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-quiz-record">0/10</div>
+                    <div class="stat-label">Rècord Quiz</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-accents-done">0/12</div>
+                    <div class="stat-label">Accents Fets</div>
+                </div>
+                <div class="stat-card-mini">
+                    <div class="stat-val" id="stat-total-xp">0 XP</div>
+                    <div class="stat-label">Punts XP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layout amb Sidebar Adhesiva -->
+    <div class="app-layout">
+        <!-- Barra de navegació mòbil -->
+        <div class="mobile-sidebar-toggle-bar">
+            <div class="mobile-toggle-label" id="mobile-current-tab-label">1. Apunts & Teoria</div>
+            <button class="btn-toggle-sidebar-mobile" onclick="toggleMobileSidebar()">
+                <span>☰</span> Menú d'Exercicis
+            </button>
+        </div>
+
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header-box">
+                <div class="sidebar-subject-title">TEMA 2 OFICIAL</div>
+                <div class="sidebar-topic-name">Una trobada anguniosa</div>
+                <div class="sidebar-progress-container">
+                    <div class="sidebar-progress-label">
+                        <span>Progrés del tema</span>
+                        <span id="sidebar-progress-num">0%</span>
+                    </div>
+                    <div class="sidebar-progress-track">
+                        <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú amb 8 pestanyes numerades -->
+            <nav class="sidebar-nav-list">
+                <button class="sidebar-tab-btn active" onclick="switchTab('apunts', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📖</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">1. Apunts & Teoria d'Or</span>
+                            <span class="sidebar-btn-desc">Regles clau & Trucs Didàctics</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Base</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('lectura', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🎬</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">2. Lectura & Comprensió</span>
+                            <span class="sidebar-btn-desc">Una trobada anguniosa</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-lectura">0/6</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('polisemia', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🧩</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">3. Lèxic: La Polisèmia</span>
+                            <span class="sidebar-btn-desc">Vídeo & Més d'un significat</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-polisemia">0/6</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('accentuacio', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✍️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">4. Ortografia: Accentuació</span>
+                            <span class="sidebar-btn-desc">Agudes, planes & esdrúixoles</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-accentuacio">Reptes</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('adjectiu', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🏷️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">5. Gramàtica: L'Adjectiu</span>
+                            <span class="sidebar-btn-desc">Concordança & Graus</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-adjectiu">0/8</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('mail', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">✉️</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">6. Expressió: El Mail</span>
+                            <span class="sidebar-btn-desc">Simulador interactiu de correu</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">Taller</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('quiz', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">🏆</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">7. Autoavaluació Master</span>
+                            <span class="sidebar-btn-desc">Test complet 10 preguntes</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge" id="badge-quiz">0/10</span>
+                </button>
+
+                <button class="sidebar-tab-btn" onclick="switchTab('documents', this)">
+                    <div class="sidebar-btn-left">
+                        <span class="sidebar-btn-icon">📂</span>
+                        <div class="sidebar-btn-text">
+                            <span class="sidebar-btn-title">8. Documents & Recursos</span>
+                            <span class="sidebar-btn-desc">14 fitxes, vídeos & Genially</span>
+                        </div>
+                    </div>
+                    <span class="sidebar-btn-badge">14 doc</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom-action">
+                <a href="https://drive.google.com/open?id=1HJx9E-8g6z7rw6ugg21xfUoyrx3zF7sv&usp=drive_copy" target="_blank" class="sidebar-link-topic">
+                    <span>☁️</span> Carpeta Català a Drive ↗
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contingut Principal -->
+        <main class="app-main">
+
+            <!-- ===================================================================
+                 PESTANYA 1: APUNTS & TEORIA D'OR (REGLE 9 COMPLIANT)
+                 =================================================================== -->
+            <section class="tab-section active" id="tab-apunts">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🌟</span>
+                        <div>
+                            <h2>Guia de Teoria Didàctica per a 5è de Primària</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Tots els conceptes clau explicats de forma visual, clara i amb trucs mnemotècnics.</p>
+                        </div>
+                        <span class="card-badge-tag" style="margin-left: auto;">Tema 2 Oficial</span>
+                    </div>
+
+                    <!-- 1. QUÈ ÉS I PER A QUÈ SERVEIX -->
+                    <div class="theory-block">
+                        <div class="theory-block-title">
+                            <span>💡</span> 1. Què és i per a què serveix aquest tema?
+                        </div>
+                        <p>En aquest Tema 2 de Llengua Catalana aprenem les eines fonamentals per parlar, escriure i comunicar-nos com a autèntics experts:</p>
+                        <ul style="padding-left: 1.25rem; line-height: 1.6; margin-top: 0.5rem;">
+                            <li><strong>Comprensió lectora:</strong> Saber interpretar com se senten els personatges (l'angoixa i els nervis d'en Biel i l'Ona a la sortida del metro).</li>
+                            <li><strong>La Polisèmia:</strong> Descobrir que una mateixa paraula pot tenir diversos significats segons la frase (com la paraula <em>banc</em>, que serveix per seure al parc, per guardar diners o per a un grup de peixos).</li>
+                            <li><strong>Normes d'Accentuació:</strong> Saber posar sempre l'accent exacte (obert <code>`</code> o tancat <code>´</code>) sense dubtar mai si una paraula és aguda, plana o esdrúixola.</li>
+                            <li><strong>L'Adjectiu:</strong> Fer que els nostres textos siguin expressius i conèixer com concorden en gènere (masculí/femení) i nombre (singular/plural).</li>
+                            <li><strong>El Correu Electrònic:</strong> Dominar el mitjà de comunicació digital més utilitzat al món acadèmic i professional sense cometre faltes ni errors de protocol.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. REGLES I PASOS CLAU -->
+                    <div class="theory-block">
+                        <div class="theory-block-title">
+                            <span>📐</span> 2. Regles i Passos Clau Pas a Pas
+                        </div>
+
+                        <h4 style="color: var(--primary); margin: 1rem 0 0.4rem;">A) Normes d'Accentuació Oficials en Català</h4>
+                        <div class="accent-table-board">
+                            <div class="accent-col-card agudes">
+                                <h3>AGUDES</h3>
+                                <span class="accent-syllable-badge">Síl·laba tònica: ÚLTIMA</span>
+                                <div class="accent-rule-box">
+                                    S'accentuen quan acaben en:<br>
+                                    <strong>Vocal</strong> (a, e, i, o, u)<br>
+                                    <strong>Vocal + S</strong> (as, es, is, os, us)<br>
+                                    <strong>-EN</strong>, <strong>-IN</strong>
+                                </div>
+                                <div class="accent-examples-list">
+                                    Exemples: <em>huracà, després, camió, veí, aprèn, sabó, ningú, matalàs</em>.
+                                </div>
+                            </div>
+
+                            <div class="accent-col-card planes">
+                                <h3>PLANES</h3>
+                                <span class="accent-syllable-badge">Síl·laba tònica: PENÚLTIMA</span>
+                                <div class="accent-rule-box">
+                                    S'accentuen quan <strong>NO</strong> acaben en:<br>
+                                    Vocal, Vocal + S, -EN, -IN.<br>
+                                    <em>(És a dir, s'accentuen si acaben en consonant diferent de -s o en diftong!)</em>
+                                </div>
+                                <div class="accent-examples-list">
+                                    Exemples: <em>cèrvol, plàstic, difícil, tornàvem, biòleg, córrer</em>.
+                                </div>
+                            </div>
+
+                            <div class="accent-col-card esdruixoles">
+                                <h3>ESDRÚIXOLES</h3>
+                                <span class="accent-syllable-badge">Síl·laba tònica: ANTEPENÚLTIMA</span>
+                                <div class="accent-rule-box">
+                                    S'accentuen <strong>SEMPRE (TOTES!)</strong><br>
+                                    Sense cap excepció.
+                                </div>
+                                <div class="accent-examples-list">
+                                    Exemples: <em>època, història, ciència, màquina, fàbrica, Mònica, música</em>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="color: var(--primary); margin: 1.25rem 0 0.4rem;">B) Accent Obert vs Accent Tancat</h4>
+                        <p style="margin-bottom: 0.5rem;">En català tenim dos tipus d'accent gràfic segons si el so de la vocal és obert o tancat:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="background: var(--bg-body); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid #2563eb;">
+                                <strong>Accent Obert (obert cap a l'esquerra: ` )</strong>
+                                <ul style="margin: 0.4rem 0 0 1.2rem; font-size: 0.9rem;">
+                                    <li><code>à</code> : La <strong>a</strong> SEMPRE és oberta (<em>demà, germà, matalàs</em>).</li>
+                                    <li><code>è</code> : La <strong>e</strong> oberta (<em>cafè, ciència, cèl·lula</em>).</li>
+                                    <li><code>ò</code> : La <strong>o</strong> oberta (<em>arròs, però, pròxim, allò</em>).</li>
+                                </ul>
+                            </div>
+                            <div style="background: var(--bg-body); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid #10b981;">
+                                <strong>Accent Tancat (tancat cap a la dreta: ´ )</strong>
+                                <ul style="margin: 0.4rem 0 0 1.2rem; font-size: 0.9rem;">
+                                    <li><code>í</code> : La <strong>i</strong> SEMPRE és tancada (<em>veí, país, difícil</em>).</li>
+                                    <li><code>ú</code> : La <strong>u</strong> SEMPRE és tancada (<em>ningú, música, fórmula</em>).</li>
+                                    <li><code>é</code> : La <strong>e</strong> tancada (<em>també, després, compré</em>).</li>
+                                    <li><code>ó</code> : La <strong>o</strong> tancada (<em>camió, sabó, córrer</em>).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 style="color: var(--primary); margin: 1.25rem 0 0.4rem;">C) Concordança i Formació de l'Adjectiu</h4>
+                        <p>L'adjectiu concorda <strong>sempre en gènere (masculí/femení)</strong> i <strong>en nombre (singular/plural)</strong> amb el substantiu:</p>
+                        <ul style="padding-left: 1.25rem; font-size: 0.92rem; line-height: 1.6;">
+                            <li><strong>Adjectius de dues terminacions:</strong> Canvien en femení (<em>un noi alt → una noia alta; un jersei blanc → una jaqueta blanca</em>).</li>
+                            <li><strong>Adjectius d'una terminació (invariables de gènere):</strong> Tenen la mateixa forma per a masculí i femení (<em>un nen amable → una nena amable; un cas difícil → una prova difícil; un noi diligent → una noia diligent</em>).</li>
+                            <li><strong>Canvis ortogràfics en fer el femení o plural:</strong>
+                                <ul>
+                                    <li><code>-c</code> passa a <code>-qu-</code>: <em>antic → antics, però femení: antiga / antigues</em>; <em>ric → rica / riques</em>.</li>
+                                    <li><code>-g</code> passa a <code>-gu-</code>: <em>groc → groga / grogues</em>; <em>poruc → poruga / porugues</em>.</li>
+                                    <li>Paraules amb ela geminada: <em>tranquil → tranquil·la / tranquil·les</em>.</li>
+                                    <li>Acabats en vocal tònica: <em>mallorquí → mallorquina / mallorquins / mallorquines</em>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. EXEMPLES CLARS (BÉ VS MALAMENT) -->
+                    <div class="theory-block">
+                        <div class="theory-block-title">
+                            <span>⚖️</span> 3. Exemples Clarificadors: Ben fet vs Error típic d'Examen
+                        </div>
+                        <table class="contrast-table">
+                            <thead>
+                                <tr>
+                                    <th>Cas d'Estudi</th>
+                                    <th>Correcte (Com s'ha de fer)</th>
+                                    <th>Error Habitual d'Examen</th>
+                                    <th>Per què passa? (Explicació)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Accentuació d'Agudes</strong></td>
+                                    <td><span class="pill-ok">demà, després, camió</span></td>
+                                    <td><span class="pill-bad">dema, despres, camio</span></td>
+                                    <td>Són agudes i acaben en vocal o vocal+s, per tant han de dur accent obligatòriament.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Accentuació de Planes</strong></td>
+                                    <td><span class="pill-ok">arbre (sense), plàstic (amb)</span></td>
+                                    <td><span class="pill-bad">àrbre (amb), plastic (sense)</span></td>
+                                    <td><em>Arbre</em> és plana acabada en vocal (NO s'accentua!). <em>Plàstic</em> acaba en consonant <code>-c</code> (S'accentua!).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Esdrúixoles</strong></td>
+                                    <td><span class="pill-ok">ciència, màquina, història</span></td>
+                                    <td><span class="pill-bad">ciencia, maquina, historia</span></td>
+                                    <td>Les esdrúixoles s'accentuen TOTES sense cap excepció.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Adjectius Invariables</strong></td>
+                                    <td><span class="pill-ok">una noia obedient</span></td>
+                                    <td><span class="pill-bad">una noia obedienta*</span></td>
+                                    <td>L'adjectiu <em>obedient</em> té una sola terminació, no s'afegeix cap 'a' en femení.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ela Geminada en Femení</strong></td>
+                                    <td><span class="pill-ok">una vila tranquil·la</span></td>
+                                    <td><span class="pill-bad">una vila tranquila*</span></td>
+                                    <td><em>Tranquil</em> fa el femení doblant la ela en forma de ela geminada (<code>l·l</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Assumpte del Correu</strong></td>
+                                    <td><span class="pill-ok">Assumpte: Deures de català T2</span></td>
+                                    <td><span class="pill-bad">Assumpte: Hola profe com estàs...</span></td>
+                                    <td>A l'assumpte mai s'escriu el correu sencer; només 3 o 4 paraules que resumeixin el tema.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 4. TRUCS MNEMOTÈCNICS ("EL TRUC DEL PROFE") -->
+                    <div class="teacher-tip-box">
+                        <div class="teacher-tip-title">
+                            <span>🧙‍♂️</span> 4. El Truc del Profe: "Com trobar la síl·laba tònica en 2 segons"
+                        </div>
+                        <p><strong>El Truc del Crit des de la finestra:</strong> Quan dubtis de quina és la síl·laba forta d'una paraula, imagina que un amic teu que es diu així està a l'altra punta del pati i el crides ben fort:</p>
+                        <p style="font-size: 1.1rem; font-weight: 800; color: #b45309; margin: 0.5rem 0;">
+                            «¡¡¡ca-mi-ÓOOOOOOO!!!» → La síl·laba que allargues de forma natural és la <strong>tònica</strong> (l'última = AGUDA).<br>
+                            «¡¡¡PLÀAAAAAS-tic!!!» → Allargues la penúltima (PLANTA = PLANA).<br>
+                            «¡¡¡MÀAAA-qui-na!!!» → Allargues l'antepenúltima (ESDRÚIXOLA).
+                        </p>
+                        <p style="margin-top: 0.5rem;"><strong>Regla de la memòria per a l'accent obert:</strong> Recorda que la lletra <code>a</code> només té un barret possible en català: SEMPRE obert cap a l'esquerra (<code>à</code>). La <code>i</code> i la <code>u</code> SEMPRE són tancades (<code>í</code>, <code>ú</code>). Només la <code>e</code> i la <code>o</code> poden triar barret!</p>
+                    </div>
+
+                    <!-- 5. RESUM VISUAL EN 1 MINUT -->
+                    <div class="theory-block" style="background: var(--bg-body); border-left: 5px solid var(--accent);">
+                        <div class="theory-block-title" style="color: var(--accent);">
+                            <span>⏱️</span> 5. Resum Visual en 1 Minut (La Chuleta Definitiva)
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+                            <div style="padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <strong style="color: #2563eb;">1. Agudes (Última)</strong><br>
+                                S'accentuen si acaben en:<br>
+                                <code>vocal</code>, <code>vocal+s</code>, <code>-en</code>, <code>-in</code>
+                            </div>
+                            <div style="padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <strong style="color: #d97706;">2. Planes (Penúltima)</strong><br>
+                                S'accentuen si <strong>NO</strong> acaben en les 12 de les agudes.
+                            </div>
+                            <div style="padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <strong style="color: #10b981;">3. Esdrúixoles</strong><br>
+                                S'accentuen <strong>TOTES</strong> sempre sense mirar la terminació!
+                            </div>
+                            <div style="padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <strong style="color: #8b5cf6;">4. Polisèmia</strong><br>
+                                1 paraula = Més d'un significat segons la frase (<em>banc, clau, cua</em>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 2: LECTURA & COMPRENSIÓ (UNA TROBADA ANGUNIOSA)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-lectura">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🎬</span>
+                        <div>
+                            <h2>Lectura: «Una trobada anguniosa»</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Llegeix el text atentament i respon a les preguntes de comprensió lectora per sumar XP.</p>
+                        </div>
+                    </div>
+
+                    <!-- Text Narratiu Il·lustrat -->
+                    <div style="background: var(--bg-body); border-radius: var(--radius-lg); padding: 1.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <span class="card-badge-tag">Narració • 5è de Primària</span>
+                            <h3 style="font-size: 1.6rem; color: var(--primary); margin: 0.5rem 0 0.25rem;">Una trobada anguniosa</h3>
+                            <small style="color: var(--text-muted);">Text adaptat per al treball de la comprensió i les emocions</small>
+                        </div>
+
+                        <div style="font-size: 1.05rem; line-height: 1.8; color: var(--text-main); text-align: justify;">
+                            <p>Eren gairebé les sis de la tarda d'un divendres ventós de tardor. En Biel havia quedat amb l'Ona exactament a les 18:00 hores davant la façana il·luminada del <strong>Cinemix</strong>, el cinema del barri, per anar a veure l'estrena de la pel·lícula d'aventures més esperada del curs.</p>
+
+                            <p>En Biel havia calculat el temps amb precisió: agafaria la línia del metro a les 17:35 i arribaria deu minuts abans. Però, de cop i volta, quan el tren circulava pel túnel fosc entre dues estacions, es va sentir una frenada sobtada i els llums del vagó van començar a parpellejar fins a apagar-se. Una veu metàl·lica pels altaveus va anunciar una aturada tècnica per incidència a la via.</p>
+
+                            <p>Els minuts passaven amb una lentitud desesperant: les 17:45, les 17:52, les 18:00... En Biel mirava el rellotge amb el cor bategant-li a tota velocitat. Sentia una <strong>angoixa creixent</strong> a l'estómac. No tenia cobertura al mòbil dins del túnel subterrani per avisar l'Ona! Què pensaria ella? Pensaria que s'havia oblidat de la cita? Que l'havia deixat plantada al mig del carrer amb el fred que feia?</p>
+
+                            <p>Quan finalment el comboi es va tornar a moure i va obrir les portes a l'estació de destí, en Biel va sortir disparat com un coet. Va pujar les escales del metro saltant els graons de dos en dos, agafant-se a la barana de ferro mentre la seva llarga bufanda de ratlles grogues voleiava descontrolada pel vent.</p>
+
+                            <p>En sortir a l'exterior, amb la respiració tallada i el front suat pel cansament, va veure l'Ona. Allà estava, dempeus davant les portes de vidre del Cinemix. Duia unes orelleres vermelles per protegir-se de la ventada freda, les mans enfonsades a les butxaques de l'anorac i una expressió seriosa i impacient.</p>
+
+                            <p>Quan les seves mirades es van creuar, en Biel va sentir un nus a la gola. Va ser un instant de silenci absolutament tens i incòmode, <strong>una trobada ben anguniosa</strong>. Però abans que en Biel pogués començar a balbucejar disculpes atabalades, l'Ona es va fixar en els seus cabells completament estarrufats pel vent i en la bufanda cargolada com una serpentina, i no va poder aguantar el riure.</p>
+
+                            <p>—Però d'on surts, Biel? Sembles un ocell espantat! —va exclamar l'Ona riallera.</p>
+
+                            <p>L'angoixa es va dissoldre en un segon. En Biel va respirar alleujat i tots dos van córrer cap a la taquilla just abans que apaguessin els llums de la sala.</p>
+                        </div>
+                    </div>
+
+                    <!-- Activitat Què hem entès? -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>❓</span> Què hem entès? (Comprensió Lectora Interactiva)
+                            </div>
+                            <span class="card-badge-tag">6 Preguntes</span>
+                        </div>
+
+                        <!-- Pregunta 1 -->
+                        <div class="exercise-question-card" id="q-lectura-1">
+                            <div class="exercise-q-text">1. On havien quedat exactament en Biel i l'Ona?</div>
+                            <div class="exercise-input-row">
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql1" value="a"> A l'andana del metro mentre esperaven el tren.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql1" value="b"> Davant la façana del cinema Cinemix, al costat de la boca del metro.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql1" value="c"> Dins de la cafeteria de la plaça de l'estació.
+                                </label>
+                            </div>
+                            <button class="btn-check-answer" style="margin-top: 0.75rem;" onclick="checkReadingQ(1, 'b')">Comprova la resposta</button>
+                            <div class="feedback-msg" id="fb-ql-1"></div>
+                        </div>
+
+                        <!-- Pregunta 2 -->
+                        <div class="exercise-question-card" id="q-lectura-2">
+                            <div class="exercise-q-text">2. Per què en Biel no va poder avisar l'Ona del seu retard amb el mòbil?</div>
+                            <div class="exercise-input-row">
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql2" value="a"> Perquè se li havia acabat la bateria del telèfon.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql2" value="b"> Perquè no tenia el número de l'Ona guardat a l'agenda.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql2" value="c"> Perquè el metro es va aturar dins d'un túnel subterrani fosc i no hi havia cobertura.
+                                </label>
+                            </div>
+                            <button class="btn-check-answer" style="margin-top: 0.75rem;" onclick="checkReadingQ(2, 'c')">Comprova la resposta</button>
+                            <div class="feedback-msg" id="fb-ql-2"></div>
+                        </div>
+
+                        <!-- Pregunta 3 -->
+                        <div class="exercise-question-card" id="q-lectura-3">
+                            <div class="exercise-q-text">3. Què significa que la trobada va ser «anguniosa»?</div>
+                            <div class="exercise-input-row">
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql3" value="a"> Que va ser una trobada molt divertida i plena de sorpreses agradables.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql3" value="b"> Que va ser un moment incòmode, de gran tensió, angoixa i preocupació mútua.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql3" value="c"> Que feia molt de fred i no van poder entrar al cinema.
+                                </label>
+                            </div>
+                            <button class="btn-check-answer" style="margin-top: 0.75rem;" onclick="checkReadingQ(3, 'b')">Comprova la resposta</button>
+                            <div class="feedback-msg" id="fb-ql-3"></div>
+                        </div>
+
+                        <!-- Pregunta 4 -->
+                        <div class="exercise-question-card" id="q-lectura-4">
+                            <div class="exercise-q-text">4. Com anava vestida l'Ona segons el text i la il·lustració de classe?</div>
+                            <div class="exercise-input-row">
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql4" value="a"> Amb unes orelleres vermelles per protegir-se del vent i un anorac.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql4" value="b"> Amb un barret de llana blau marí i una jaqueta de cuir.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql4" value="c"> Amb un paraigua groc i unes botes d'aigua verdes.
+                                </label>
+                            </div>
+                            <button class="btn-check-answer" style="margin-top: 0.75rem;" onclick="checkReadingQ(4, 'a')">Comprova la resposta</button>
+                            <div class="feedback-msg" id="fb-ql-4"></div>
+                        </div>
+
+                        <!-- Pregunta 5 -->
+                        <div class="exercise-question-card" id="q-lectura-5">
+                            <div class="exercise-q-text">5. Què va fer que es trenqués la tensió i tots dos es posessin a riure?</div>
+                            <div class="exercise-input-row">
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql5" value="a"> Que en Biel portava un gelat gegant de regal per demanar perdó.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql5" value="b"> Que l'Ona va veure els cabells esboirats d'en Biel i la bufanda tota cargolada pel vent.
+                                </label>
+                                <label style="display:flex; align-items:center; gap:0.5rem; width:100%; cursor:pointer;">
+                                    <input type="radio" name="ql5" value="c"> Que la pel·lícula s'havia suspès i van anar a jugar al parc.
+                                </label>
+                            </div>
+                            <button class="btn-check-answer" style="margin-top: 0.75rem;" onclick="checkReadingQ(5, 'b')">Comprova la resposta</button>
+                            <div class="feedback-msg" id="fb-ql-5"></div>
+                        </div>
+
+                        <!-- Pregunta 6: Text lliure amb paraula clau -->
+                        <div class="exercise-question-card" id="q-lectura-6">
+                            <div class="exercise-q-text">6. Quin sentiment o emoció va sentir en Biel mentre el metro estava aturat a les fosques? (Escriu la paraula en català):</div>
+                            <div class="exercise-input-row">
+                                <input type="text" id="input-ql-6" class="exercise-input-text" placeholder="Ex: angoixa / neguit / por...">
+                                <button class="btn-check-answer" onclick="checkReadingQ6()">Comprova</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-ql-6"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 3: LÈXIC: LA POLISÈMIA
+                 =================================================================== -->
+            <section class="tab-section" id="tab-polisemia">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🧩</span>
+                        <div>
+                            <h2>Lèxic: La Polisèmia</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Descobreix com una mateixa paraula pot tenir diversos significats segons el context on s'utilitza.</p>
+                        </div>
+                    </div>
+
+                    <!-- Vídeo de classe incrustat -->
+                    <div class="video-card-container">
+                        <h3 style="margin-top: 0; color: var(--primary);">🎥 Vídeo Didàctic de Classe: Paraules polisèmiques i homònimes</h3>
+                        <video class="video-player-frame" controls preload="metadata">
+                            <source src="./documents/Paraules_polisemiques_i_homonimes.mp4" type="video/mp4">
+                            El teu navegador no admet la reproducció directa de vídeo MP4. Pots veure'l a la carpeta de documents.
+                        </video>
+                        <div class="video-caption">
+                            <span>ℹ️</span> <em>Vídeo oficial de classe integrat per repassar la polisèmia i la diferència amb les paraules homònimes.</em>
+                        </div>
+                    </div>
+
+                    <!-- Quadre Didàctic de Paraules Polisèmiques -->
+                    <h3 style="color: var(--primary); margin: 1.5rem 0 0.75rem;">Paraules Polisèmiques Clau de 5è de Primària</h3>
+                    <div class="polisemia-cards-grid">
+                        <!-- Banc -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🏦</span> BANC
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. Per seure:</strong> Moble llarg de fusta o pedra al parc o a classe.</li>
+                                <li class="polisemia-meaning-item"><strong>2. De peixos:</strong> Conjunt gran de peixos que neden agrupats al mar.</li>
+                                <li class="polisemia-meaning-item"><strong>3. Financer:</strong> Entitat o oficina on es guarden els diners.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Clau -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🔑</span> CLAU
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. D'obrir:</strong> Peça metàl·lica per obrir o tancar panys i portes.</li>
+                                <li class="polisemia-meaning-item"><strong>2. Eina de cargolar:</strong> Eina per collar femelles (clau anglesa).</li>
+                                <li class="polisemia-meaning-item"><strong>3. Musical:</strong> Signe de notació musical al pentagrama (clau de sol).</li>
+                            </ul>
+                        </div>
+
+                        <!-- Fulla -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🍃</span> FULLA
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. D'arbre:</strong> Òrgan verd que neix a les branques dels vegetals.</li>
+                                <li class="polisemia-meaning-item"><strong>2. De paper:</strong> Tros de paper rectangular per escriure o dibuixar.</li>
+                                <li class="polisemia-meaning-item"><strong>3. De tallar:</strong> Part plana i afilada d'un ganivet o navalla.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Cua -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🐈</span> CUA
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. D'animal:</strong> Part allargada posterior del cos d'un animal.</li>
+                                <li class="polisemia-meaning-item"><strong>2. D'esperar:</strong> Fila ordenada de persones que esperen el seu torn.</li>
+                                <li class="polisemia-meaning-item"><strong>3. Pentinat:</strong> Cabells recollits subjectats amb una goma (cua de cavall).</li>
+                            </ul>
+                        </div>
+
+                        <!-- Carta -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🃏</span> CARTA
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. De correu:</strong> Missatge escrit enviat en un sobre per correu postal.</li>
+                                <li class="polisemia-meaning-item"><strong>2. De joc:</strong> Cartolina il·lustrada per jugar a la baralla o pòquer.</li>
+                                <li class="polisemia-meaning-item"><strong>3. De restaurant:</strong> Llista de plats i preus que ofereix un menjador.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Copa -->
+                        <div class="polisemia-card">
+                            <div class="polisemia-word-badge">
+                                <span>🏆</span> COPA
+                            </div>
+                            <ul class="polisemia-meanings-list">
+                                <li class="polisemia-meaning-item"><strong>1. Recipient:</strong> Vas de vidre amb peu per beure aigua o refresc.</li>
+                                <li class="polisemia-meaning-item"><strong>2. Trofeu:</strong> Guardó metàl·lic que guanyen els campions d'un torneig.</li>
+                                <li class="polisemia-meaning-item"><strong>3. D'un arbre:</strong> Conjunt de branques i fullatge superior d'un arbre.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Repte Pràctic de Polisèmia -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>✍️</span> Pràctica 1: Identifica el significat exacte de cada oració
+                            </div>
+                            <span class="card-badge-tag">Polisèmia en Context</span>
+                        </div>
+
+                        <div class="exercise-question-card">
+                            <div class="exercise-q-text">1. «Vam asseure'ns en un <strong>banc</strong> a menjar l'entrepà mentre miràvem els ànecs.» Quin significat té aquí?</div>
+                            <div class="exercise-input-row">
+                                <select id="sel-pol-1" class="exercise-input-text">
+                                    <option value="">-- Tria el significat correcte --</option>
+                                    <option value="financer">Entitat de diners i estalvis</option>
+                                    <option value="peixos">Conjunt nombrós de peixos</option>
+                                    <option value="moble">Moble llarg dissenyat per asseure's</option>
+                                </select>
+                                <button class="btn-check-answer" onclick="checkPolisemia(1, 'moble')">Comprova</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-pol-1"></div>
+                        </div>
+
+                        <div class="exercise-question-card">
+                            <div class="exercise-q-text">2. «El mecànic va agafar una <strong>clau</strong> per ajustar la roda de la bicicleta.»</div>
+                            <div class="exercise-input-row">
+                                <select id="sel-pol-2" class="exercise-input-text">
+                                    <option value="">-- Tria el significat correcte --</option>
+                                    <option value="pany">Objecte per obrir la porta de casa</option>
+                                    <option value="eina">Eina de ferro per descargolar femelles</option>
+                                    <option value="musica">Signe musical d'un pentagrama</option>
+                                </select>
+                                <button class="btn-check-answer" onclick="checkPolisemia(2, 'eina')">Comprova</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-pol-2"></div>
+                        </div>
+
+                        <div class="exercise-question-card">
+                            <div class="exercise-q-text">3. «El cambrer ens va portar la <strong>carta</strong> per triar les postres.»</div>
+                            <div class="exercise-input-row">
+                                <select id="sel-pol-3" class="exercise-input-text">
+                                    <option value="">-- Tria el significat correcte --</option>
+                                    <option value="restaurant">Llista de menjars i plats d'un restaurant</option>
+                                    <option value="correu">Escrit enviat per correu dins d'un sobre</option>
+                                    <option value="joc">Cartolina il·lustrada de la baralla</option>
+                                </select>
+                                <button class="btn-check-answer" onclick="checkPolisemia(3, 'restaurant')">Comprova</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-pol-3"></div>
+                        </div>
+
+                        <div class="exercise-question-card">
+                            <div class="exercise-q-text">4. «Hi havia tanta gent a la taquilla del cinema que la <strong>cua</strong> arribava al carrer.»</div>
+                            <div class="exercise-input-row">
+                                <select id="sel-pol-4" class="exercise-input-text">
+                                    <option value="">-- Tria el significat correcte --</option>
+                                    <option value="fila">Fila de persones que esperen el seu torn</option>
+                                    <option value="animal">Extremitat posterior d'un animal</option>
+                                    <option value="pentinat">Pentinat de cabells lligats</option>
+                                </select>
+                                <button class="btn-check-answer" onclick="checkPolisemia(4, 'fila')">Comprova</button>
+                            </div>
+                            <div class="feedback-msg" id="fb-pol-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 4: ORTOGRAFIA: L'ACCENTUACIÓ (AGUDES, PLANES, ESDRÚIXOLES)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-accentuacio">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">✍️</span>
+                        <div>
+                            <h2>Ortografia: Normes d'Accentuació</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Síl·laba tònica, regles d'agudes, planes i esdrúixoles, i pràctica interactiva amb accents especials.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dos Vídeos Oficials de Classe -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem;">
+                        <div class="video-card-container">
+                            <h4 style="margin-top: 0; color: var(--primary);">🎥 Vídeo 1: Síl·laba tònica & Classificació</h4>
+                            <video class="video-player-frame" controls preload="metadata">
+                                <source src="./documents/Classificacio_agudes_planes_esdruixoles_sillaba_tonica.mp4" type="video/mp4">
+                                Vídeo de síl·laba tònica disponible a documents.
+                            </video>
+                            <div class="video-caption"><span>ℹ️</span> <em>Descobreix com localitzar la síl·laba tònica i distingir agudes, planes i esdrúixoles.</em></div>
+                        </div>
+
+                        <div class="video-card-container">
+                            <h4 style="margin-top: 0; color: var(--primary);">🎥 Vídeo 2: Normes d'Accentuació en Català</h4>
+                            <video class="video-player-frame" controls preload="metadata">
+                                <source src="./documents/Normes_accentuacio_catala.mp4" type="video/mp4">
+                                Vídeo de normes d'accentuació disponible a documents.
+                            </video>
+                            <div class="video-caption"><span>ℹ️</span> <em>Explicació de quan s'accentua cada paraula i la tria d'accent obert o tancat.</em></div>
+                        </div>
+                    </div>
+
+                    <!-- JOC INTERACTIU DE CLASSIFICACIÓ PER GRUPS (WORDWALL STYLE) -->
+                    <div class="categorization-game">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🎯</span> Joc de Classificar: Aguda, Plana o Esdrúixola? (Reptes de Wordwall)
+                            </div>
+                            <span class="card-badge-tag">Joc d'ordenar</span>
+                        </div>
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+                            Fes clic a una paraula per seleccionar-la i després clica a la columna corresponent per col·locar-la. Si t'equivoques pots tornar-la a moure!
+                        </p>
+
+                        <!-- Bossa de Paraules -->
+                        <div class="word-pool" id="word-pool-container">
+                            <!-- Inserides per JS -->
+                        </div>
+
+                        <!-- Les 3 Columnes -->
+                        <div class="drop-zones-grid">
+                            <div class="drop-zone-box" id="zone-aguda" onclick="placeSelectedWord('aguda')">
+                                <div class="drop-zone-header" style="color: #2563eb;">
+                                    AGUDES (Última)
+                                </div>
+                                <div class="drop-zone-content" id="zone-aguda-content"></div>
+                            </div>
+
+                            <div class="drop-zone-box" id="zone-plana" onclick="placeSelectedWord('plana')">
+                                <div class="drop-zone-header" style="color: #d97706;">
+                                    PLANES (Penúltima)
+                                </div>
+                                <div class="drop-zone-content" id="zone-plana-content"></div>
+                            </div>
+
+                            <div class="drop-zone-box" id="zone-esdruixola" onclick="placeSelectedWord('esdruixola')">
+                                <div class="drop-zone-header" style="color: #10b981;">
+                                    ESDRÚIXOLES (Antepenúltima)
+                                </div>
+                                <div class="drop-zone-content" id="zone-esdruixola-content"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+                            <button class="btn-check-answer" onclick="checkWordwallClassification()">Comprova la Classificació</button>
+                            <button class="key-accent-btn" onclick="resetWordwallGame()" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Reinicia el Joc</button>
+                            <span id="wordwall-score-label" style="font-weight: 800; font-size: 1rem;"></span>
+                        </div>
+                        <div class="feedback-msg" id="fb-wordwall"></div>
+                    </div>
+
+                    <!-- EXERCICI PR 1 ENXANETA: POSA ACCENT GRÀFIC AMB TECLAT VIRTUAL -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>⌨️</span> Pràctica 1 (Enxaneta): Posa l'accent gràfic als mots que n'hagin de dur
+                            </div>
+                            <span class="card-badge-tag">Teclat d'Accents</span>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">
+                            Escriu la paraula correctament accentuada. Fes servir aquests botons ràpids per introduir caràcters especials còmodament:
+                        </p>
+                        
+                        <!-- Teclat ràpid de lletres catalanes -->
+                        <div class="accent-virtual-keyboard">
+                            <button class="key-accent-btn" onclick="insertAccentLetter('à')">à</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('è')">è</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('é')">é</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('í')">í</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ò')">ò</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ó')">ó</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ú')">ú</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ï')">ï</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ü')">ü</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ç')">ç</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('·')">· (punt volat)</button>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                            <!-- Mot 1: ningu -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. Paraula: <strong>ningu</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-1" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(1, 'ningú')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-1"></div>
+                            </div>
+
+                            <!-- Mot 2: passadis -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. Paraula: <strong>passadis</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-2" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(2, 'passadís')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-2"></div>
+                            </div>
+
+                            <!-- Mot 3: ratoli -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. Paraula: <strong>ratoli</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-3" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(3, 'ratolí')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-3"></div>
+                            </div>
+
+                            <!-- Mot 4: platan -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. Paraula: <strong>platan</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-4" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(4, 'plàtan')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-4"></div>
+                            </div>
+
+                            <!-- Mot 5: plastic -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">5. Paraula: <strong>plastic</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-5" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(5, 'plàstic')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-5"></div>
+                            </div>
+
+                            <!-- Mot 6: germa -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">6. Paraula: <strong>germa</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-6" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(6, 'germà')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-6"></div>
+                            </div>
+
+                            <!-- Mot 7: sindria -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">7. Paraula: <strong>sindria</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-7" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(7, 'síndria')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-7"></div>
+                            </div>
+
+                            <!-- Mot 8: semafor -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">8. Paraula: <strong>semafor</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-8" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(8, 'semàfor')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-8"></div>
+                            </div>
+
+                            <!-- Mot 9: algun (trampa: sense accent!) -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">9. Paraula: <strong>algun</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-9" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(9, 'algun')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-9"></div>
+                            </div>
+
+                            <!-- Mot 10: nuvols -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">10. Paraula: <strong>nuvols</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="acc-input-10" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
+                                    <button class="btn-check-answer" onclick="checkAccentSingle(10, 'núvols')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="acc-fb-10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 5: GRAMÀTICA: L'ADJECTIU
+                 =================================================================== -->
+            <section class="tab-section" id="tab-adjectiu">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🏷️</span>
+                        <div>
+                            <h2>Gramàtica: L'Adjectiu</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Concordança de gènere i nombre, formació de femenins i plurals, i graus de l'adjectiu.</p>
+                        </div>
+                    </div>
+
+                    <!-- Vídeo de l'adjectiu -->
+                    <div class="video-card-container">
+                        <h3 style="margin-top: 0; color: var(--primary);">🎥 Vídeo Oficial de Classe: L'Adjectiu</h3>
+                        <video class="video-player-frame" controls preload="metadata">
+                            <source src="./documents/L_adjectiu.mp4" type="video/mp4">
+                            Vídeo de l'adjectiu disponible a la carpeta de documents.
+                        </video>
+                        <div class="video-caption"><span>ℹ️</span> <em>Vídeo complet explicatiu de com acompanyen els adjectius als noms i com concorden.</em></div>
+                    </div>
+
+                    <!-- Repte Pr 1 Enxaneta: Masculí i Femení -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>🚻</span> Pràctica 1 (Enxaneta): Completa el femení adequat
+                            </div>
+                            <span class="card-badge-tag">Masculí & Femení</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                            Observa l'adjectiu destacat i escriu la forma femenina corresponent tenint en compte si és variable o d'una sola terminació:
+                        </p>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <!-- 1 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. Un jersei <em>ample</em> → una bota <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-1" class="exercise-input-text" placeholder="Escriu el femení...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(1, 'ampla')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-1"></div>
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. Un problema <em>difícil</em> → una situació <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-2" class="exercise-input-text focusable-accent" placeholder="Escriu el femení...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(2, 'difícil')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-2"></div>
+                            </div>
+
+                            <!-- 3 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. Un nen <em>obedient</em> → una nena <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-3" class="exercise-input-text" placeholder="Escriu el femení...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(3, 'obedient')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-3"></div>
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. Un poble <em>tranquil</em> → una vila <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-4" class="exercise-input-text" placeholder="Compte amb la l·l...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(4, 'tranquil·la')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-4"></div>
+                            </div>
+
+                            <!-- 5 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">5. Un orador <em>culte</em> → una professora <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-5" class="exercise-input-text" placeholder="Escriu el femení...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(5, 'culta')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-5"></div>
+                            </div>
+
+                            <!-- 6 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">6. Un país <em>lliure</em> → una societat <span style="color:var(--primary); font-weight:800;">...</span></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-fem-6" class="exercise-input-text" placeholder="Escriu el femení...">
+                                    <button class="btn-check-answer" onclick="checkAdjFem(6, 'lliure')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-fem-6"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repte Pr 2 Enxaneta: Formació del Plural -->
+                    <div class="exercise-box">
+                        <div class="exercise-header-row">
+                            <div class="exercise-title">
+                                <span>👥</span> Pràctica 2 (Enxaneta): Escriu en plural els sintagmes següents
+                            </div>
+                            <span class="card-badge-tag">Plurals Especials</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
+                            <!-- 1 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">1. Singular: <strong>el meu amic anglès</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-pl-1" class="exercise-input-text" placeholder="Plural complet: els meus...">
+                                    <button class="btn-check-answer" onclick="checkAdjPlural(1, 'els meus amics anglesos')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-pl-1"></div>
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">2. Singular: <strong>una boca xica</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-pl-2" class="exercise-input-text" placeholder="Plural complet: unes boques...">
+                                    <button class="btn-check-answer" onclick="checkAdjPlural(2, 'unes boques xiques')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-pl-2"></div>
+                            </div>
+
+                            <!-- 3 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">3. Singular: <strong>una fàbrica groga</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-pl-3" class="exercise-input-text focusable-accent" placeholder="Plural complet: unes fàbriques...">
+                                    <button class="btn-check-answer" onclick="checkAdjPlural(3, 'unes fàbriques grogues')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-pl-3"></div>
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="exercise-question-card">
+                                <div class="exercise-q-text">4. Singular: <strong>el peix mallorquí</strong></div>
+                                <div class="exercise-input-row">
+                                    <input type="text" id="adj-pl-4" class="exercise-input-text" placeholder="Plural complet: els peixos...">
+                                    <button class="btn-check-answer" onclick="checkAdjPlural(4, 'els peixos mallorquins')">Comprova</button>
+                                </div>
+                                <div class="feedback-msg" id="fb-adj-pl-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 6: EXPRESSIÓ ESCRITA: EL CORREU ELECTRÒNIC (EL MAIL)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-mail">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">✉️</span>
+                        <div>
+                            <h2>Expressió Escrita: El Correu Electrònic (El Mail)</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Aprèn a redactar correus clars, correctes i respectuosos mitjançant el nostre simulador interactiu.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5 Regles d'Or Oficials de Classe -->
+                    <div class="teacher-tip-box" style="margin-bottom: 2rem;">
+                        <div class="teacher-tip-title">
+                            <span>📜</span> Les 5 Regles d'Or per escriure bé els Mails (Diapositiva Oficial de Classe)
+                        </div>
+                        <ol style="margin: 0.5rem 0 0 1.25rem; line-height: 1.7; font-weight: 700;">
+                            <li><strong>Utilitza frases completes:</strong> Aprofita les possibilitats del llenguatge (no retallis paraules com <em>pq, q, tb, xk</em>). Es pot considerar una falta d'educació!</li>
+                            <li><strong>No escriguis tot en MAJÚSCULES:</strong> Fer-ho així a Internet és l'equivalent de <em>cridar</em>.</li>
+                            <li><strong>Utilitza sempre el corrector ortogràfic</strong> per detectar accents o faltes abans d'enviar.</li>
+                            <li><strong>No utilitzis oracions massa llargues:</strong> Redacta amb claredat, paràgrafs curts i punts i a part.</li>
+                            <li><strong>Torna a llegir el mail abans d'enviar-lo:</strong> Comprova que el to sigui adequat i que s'entengui exactament el que vols transmetre.</li>
+                        </ol>
+                    </div>
+
+                    <!-- SIMULADOR INTERACTIU DE CLIENT DE CORREU ELECTRÒNIC -->
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Taller Pràctic: El Simulador de Redacció de Correu</h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        Imagina que has d'escriure un correu al teu tutor/a explicant-li que la setmana vinent aniràs a una excursió escolar i demanant-li el full d'autorització signat. Emplena cadascun dels camps seguint l'estructura oficial:
+                    </p>
+
+                    <div class="email-client-mockup">
+                        <div class="email-window-topbar">
+                            <div class="email-window-title">
+                                <span>📧</span> Missatge nou — Client de Correu Escolar
+                            </div>
+                            <div class="email-window-controls">
+                                <span class="email-win-btn email-win-min"></span>
+                                <span class="email-win-btn email-win-max"></span>
+                                <span class="email-win-btn email-win-close"></span>
+                            </div>
+                        </div>
+
+                        <div class="email-fields-container">
+                            <div class="email-field-row">
+                                <label class="email-field-label" for="mail-to">Destinatari (Per a):</label>
+                                <input type="email" id="mail-to" class="email-input-control" placeholder="tutor.escola@educacio.cat">
+                            </div>
+                            <div class="email-field-row">
+                                <label class="email-field-label" for="mail-subject">Assumpte:</label>
+                                <input type="text" id="mail-subject" class="email-input-control" placeholder="Resum en 3-5 paraules (Ex: Full d'autorització per a l'excursió)">
+                            </div>
+                        </div>
+
+                        <div class="email-toolbar">
+                            <button class="email-tool-btn" onclick="insertMailSnippet('salutacio')">👋 Salutació</button>
+                            <button class="email-tool-btn" onclick="insertMailSnippet('comiat')">🤝 Comiat</button>
+                            <button class="email-tool-btn" onclick="insertMailSnippet('signatura')">✍️ Signatura</button>
+                            <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: auto;">📎 Adjunta fitxer | 🔤 Corrector activat</span>
+                        </div>
+
+                        <textarea id="mail-body" class="email-body-editor" placeholder="Escriu aquí el cos del correu:
+1. Salutació cordial (ex: Bon dia senyor Carles,)
+2. Cos del missatge amb frases completes i punts a part.
+3. Comiat respectuós (ex: Moltes gràcies i bona tarda,)
+4. La teva signatura (Álvaro - 5è de Primària)"></textarea>
+
+                        <div class="email-footer-actions">
+                            <button class="btn-send-email" onclick="validateAndSendEmail()">
+                                <span>🚀</span> ENVIAR CORREU
+                            </button>
+                            <span style="font-size: 0.82rem; color: var(--text-muted);">
+                                💡 Recorda la regla 5: Revisa abans de prémer Enviar!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="feedback-msg" id="fb-email-client"></div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 7: AUTOAVALUACIÓ MASTER (QUIZ DE 10 PREGUNTES)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-quiz">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">🏆</span>
+                        <div>
+                            <h2>Autoavaluació Master: Test Global del Tema 2</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Posa a prova els teus coneixements de comprensió, polisèmia, accents, adjectius i mails. Guanya 100 XP!</p>
+                        </div>
+                    </div>
+
+                    <div id="quiz-container">
+                        <!-- Generat dinàmicament per JS -->
+                    </div>
+
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <button class="btn-check-answer" style="font-size: 1.1rem; padding: 0.85rem 2rem;" onclick="gradeMasterQuiz()">
+                            Finalitza i Avalua el Test 🚀
+                        </button>
+                        <div id="quiz-final-result" style="margin-top: 1.25rem; font-size: 1.2rem; font-weight: 800;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================
+                 PESTANYA 8: DOCUMENTS & RECURSOS DIGITALS (DUAL SHELF & RESOURCE HUB)
+                 =================================================================== -->
+            <section class="tab-section" id="tab-documents">
+                <div class="content-card">
+                    <div class="card-header-styled">
+                        <span style="font-size: 1.8rem;">📂</span>
+                        <div>
+                            <h2>Documents de Classe & Recursos Digitals</h2>
+                            <p style="margin: 0; color: var(--text-muted); font-size: 0.88rem;">Accedeix als fitxers locals descarregats a l'ordinador i als enllaços oficials al núvol de Google Drive.</p>
+                        </div>
+                    </div>
+
+                    <!-- Resource Hub de la Unitat (Genially, Wordwall, Enxaneta) -->
+                    <div class="resource-hub-container">
+                        <h3 style="margin-top: 0; color: var(--primary);">🌐 Recursos Web Interactius de la Unitat</h3>
+                        <div class="hub-links-grid">
+                            <a href="https://view.genially.com/688f04ef7c44033a35558dac" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">✨</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Genially Oficial Tema 2</div>
+                                    <div class="hub-link-sub">Presentació interactiva de classe de 5è</div>
+                                </div>
+                            </a>
+
+                            <a href="https://wordwall.net/es/resource/36179166/catal%C3%A0/accentuaci%C3%B3" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">🎮</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Wordwall: Accentuació 1</div>
+                                    <div class="hub-link-sub">Classificar agudes, planes i esdrúixoles</div>
+                                </div>
+                            </a>
+
+                            <a href="https://wordwall.net/es/resource/54668935/accentuaci%C3%B3" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">🕹️</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Wordwall: Accentuació 2</div>
+                                    <div class="hub-link-sub">Repte de paraules per grups</div>
+                                </div>
+                            </a>
+
+                            <a href="https://nova.enxaneta.info/activitat/accentuacio/44" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">📝</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Nova Enxaneta: Accentuació 44</div>
+                                    <div class="hub-link-sub">Posa accent als mots catalans</div>
+                                </div>
+                            </a>
+
+                            <a href="https://nova.enxaneta.info/activitat/adjectiu-masculi-femeni/17" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">🚻</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Nova Enxaneta: Adjectiu M/F 17</div>
+                                    <div class="hub-link-sub">Flexió de masculí i femení</div>
+                                </div>
+                            </a>
+
+                            <a href="https://nova.enxaneta.info/activitat/adjectius-plural/99" target="_blank" class="hub-link-item">
+                                <span class="hub-link-icon">👥</span>
+                                <div class="hub-link-info">
+                                    <div class="hub-link-title">Nova Enxaneta: Adjectiu Plural 99</div>
+                                    <div class="hub-link-sub">Formació de plurals en adjectius</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Estanteria de Documents Dual (Local & Drive) -->
+                    <h3 style="color: var(--primary); margin: 2rem 0 1rem;">📚 Estanteria de Fitxes i Vídeos de la Unitat</h3>
+                    <div class="doc-shelf-grid">
+                        <!-- 1. Lectura -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Lectura</span>
+                                <div class="doc-shelf-title">Lectura: Una trobada anguniosa</div>
+                                <div class="doc-shelf-desc">Text narratiu complet del tema sobre en Biel i l'Ona a la sortida del metro.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Lectura_Una_trobada_anguniosa" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/18APcpE49qsXQUb41rrthND4LjL2Wazu7/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 2. Comprensió -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Comprensió: Què hem entès?</div>
+                                <div class="doc-shelf-desc">Qüestionari oficial de comprensió lectora del tema 2.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Comprensio_Que_hem_entes" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1zsd1E9rOrn7jvsGoFNamIMHTdq8UoyfZ/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Vídeo Polisèmia -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Vídeo MP4</span>
+                                <div class="doc-shelf-title">Vídeo: Paraules Polisèmiques</div>
+                                <div class="doc-shelf-desc">Vídeo didàctic sobre paraules amb més d'un significat i homònims.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Paraules_polisemiques_i_homonimes.mp4" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/17LdKq75weKdAqeqmPs0fac0BPW3iHMeL/view" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Polisèmia Pr 1 -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Exercicis</span>
+                                <div class="doc-shelf-title">Polisèmia: Pràctica 1</div>
+                                <div class="doc-shelf-desc">Fitxa d'activitats per identificar significats en oracions.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Polisemia_Pr1" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1PeAxfjpC2tj4-ZfbNYrsDvV6jx0q45jm/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Polisèmia Més exemples -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Polisèmia: Més Exemples</div>
+                                <div class="doc-shelf-desc">Guia ampliada amb paraules com clau, banc, carta i fulla.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Polisemia_Mes_exemples" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1EVNrTB1MXVbophIDap-uyoxwB_kF7p-N/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Vídeo Síl·laba Tònica -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Vídeo MP4</span>
+                                <div class="doc-shelf-title">Vídeo: Síl·laba Tònica & Agudes, Planes, Esdrúixoles</div>
+                                <div class="doc-shelf-desc">Identificació de la posició de la síl·laba tònica a les paraules.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Classificacio_agudes_planes_esdruixoles_sillaba_tonica.mp4" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1Rw9dFmi47cXyxIznQ6StOOdCLcT7flY1/view" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 7. Vídeo Normes Accentuació -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Vídeo MP4</span>
+                                <div class="doc-shelf-title">Vídeo: Normes d'Accentuació en Català</div>
+                                <div class="doc-shelf-desc">Les regles oficials d'accentuació explicades pas a pas.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Normes_accentuacio_catala.mp4" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1NZT1TYzfVU90WUhRr39rSP7MJXB7b17A/view" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 8. Accentuació Pr 1 -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Accentuació: Fitxa Pràctica 1</div>
+                                <div class="doc-shelf-desc">Activitats per posar accents gràfics segons les regles.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Accentuacio_Pr1" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1qEtQv1ltIgJQwee0TXn7XOwX_iruALoE/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 9. Accentuació Pr 2 -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Accentuació: Fitxa Pràctica 2</div>
+                                <div class="doc-shelf-desc">Classificació de paraules i exercicis d'accent obert/tancat.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Accentuacio_Pr2" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1efUQ-pmmN7_hEAIsFTrtbkHpdZpkhYxk/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 10. Vídeo L'Adjectiu -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Vídeo MP4</span>
+                                <div class="doc-shelf-title">Vídeo: L'Adjectiu en Català</div>
+                                <div class="doc-shelf-desc">Vídeo oficial de classe sobre l'adjectiu i la concordança.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/L_adjectiu.mp4" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/17r1SmEs36GDFZ81Oc4ZqUJUp7808jQBD/view" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 11. Adjectius Pr 3 -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Adjectius: Fitxa Pràctica 3</div>
+                                <div class="doc-shelf-desc">Exercicis de graus i concordança amb el substantiu.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Adjectius_Pr3" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1nIKbp71_AwLs-yxtLWfdsHobEUV38fh8/view?usp=sharing" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 12. Adjectius Fitxa -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa</span>
+                                <div class="doc-shelf-title">Adjectius: Fitxa Complementària</div>
+                                <div class="doc-shelf-desc">Fitxa de reforç escolar sobre la concordança i gènere.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Adjectius_Fitxa" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1xGTDRV1wLhUYh-Ur5z_fqJYMFEAfNtL-/view?usp=drive_link" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 13. Expressió escrita: Mail Intro -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Guia</span>
+                                <div class="doc-shelf-title">Expressió Escrita: El Correu Electrònic</div>
+                                <div class="doc-shelf-desc">Guia teòrica dels elements d'un correu i estructura.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Expressio_escrita_mail_intro" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1KuVWXVLtkt_kPUbZDsK5pxIhjUqv3xND/view?usp=drive_link" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 14. Expressió escrita: Activitat Mail -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Taller</span>
+                                <div class="doc-shelf-title">Expressió Escrita: Activitat Redactar Mail</div>
+                                <div class="doc-shelf-desc">Exercicis de redacció i correcció de correus electrònics.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Expressio_escrita_Activitat_mail" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/file/d/1pg1O8HnCvwWUAQDs_2nQrfRSxnWS4iHR/view?usp=drive_link" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODAL XULLA RÀPIDA (QUICK CHEAT SHEET) -->
+    <div class="cheat-modal-overlay" id="quickCheatModal" onclick="closeQuickCheatSheet(event)">
+        <div class="cheat-modal-content" onclick="event.stopPropagation()">
+            <button class="btn-close-modal" onclick="closeQuickCheatSheet(event)">✕</button>
+            <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.8rem;">💡</span>
+                <h2 style="margin: 0; color: var(--primary);">Xulla Ràpida de Butxaca • Tema 2</h2>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.95rem; line-height: 1.5;">
+                <div style="padding: 1rem; background: var(--bg-body); border-radius: var(--radius-md); border-left: 4px solid #2563eb;">
+                    <strong style="color: #2563eb;">1. Regles d'Accentuació</strong>
+                    <ul style="margin: 0.4rem 0 0 1.2rem;">
+                        <li><strong>Agudes (última):</strong> S'accentuen si acaben en vocal, vocal+s, <code>-en</code>, <code>-in</code> (<em>demà, després, camió, ningú</em>).</li>
+                        <li><strong>Planes (penúltima):</strong> S'accentuen si NO acaben en les anteriors (<em>cèrvol, plàstic, difícil</em>).</li>
+                        <li><strong>Esdrúixoles (antepenúltima):</strong> S'accentuen SEMPRE (<em>ciència, història, màquina</em>).</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1rem; background: var(--bg-body); border-radius: var(--radius-md); border-left: 4px solid #10b981;">
+                    <strong style="color: #10b981;">2. Tipus d'Accent</strong>
+                    <ul style="margin: 0.4rem 0 0 1.2rem;">
+                        <li><strong>Obert (`):</strong> <code>à</code> (sempre), <code>è</code> (oberta: cafè), <code>ò</code> (oberta: arròs).</li>
+                        <li><strong>Tancat (´):</strong> <code>é</code> (tancada: només), <code>í</code> (sempre), <code>ó</code> (tancada: cançó), <code>ú</code> (sempre).</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1rem; background: var(--bg-body); border-radius: var(--radius-md); border-left: 4px solid #f59e0b;">
+                    <strong style="color: #b45309;">3. Polisèmia & Adjectiu</strong>
+                    <ul style="margin: 0.4rem 0 0 1.2rem;">
+                        <li><strong>Polisèmia:</strong> Més d'un significat per a la mateixa paraula segons el context (<em>banc, clau, cua, carta, fulla</em>).</li>
+                        <li><strong>Adjectius d'una terminació:</strong> Invariables en gènere (<em>amable, difícil, obedient, lliure</em>).</li>
+                        <li><strong>Ela geminada:</strong> <em>tranquil → tranquil·la</em>.</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1rem; background: var(--bg-body); border-radius: var(--radius-md); border-left: 4px solid #8b5cf6;">
+                    <strong style="color: #8b5cf6;">4. Les 5 Regles del Correu Electrònic</strong>
+                    <ul style="margin: 0.4rem 0 0 1.2rem;">
+                        <li>1. Frases completes (res d'abreviatures tipus 'pq', 'tb').</li>
+                        <li>2. No escriure tot en MAJÚSCULES (és cridar!).</li>
+                        <li>3. Passar el corrector ortogràfic.</li>
+                        <li>4. Oracions clares i paràgrafs curts.</li>
+                        <li>5. Revisa abans de donar a Enviar!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS DE LÒGICA I GAMIFICACIÓ -->
+    <script>
+        // =========================================================================
+        // 1. ESTATS I GAMIFICACIÓ (LOCAL STORAGE)
+        // =========================================================================
+        const STORAGE_KEY = 'alvaro_study_catala_tema2';
+        let state = {
+            xp: 0,
+            streak: 0,
+            lastDate: null,
+            sound: true,
+            solvedTasks: {}
+        };
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    state = Object.assign(state, JSON.parse(saved));
+                }
+            } catch (e) {
+                console.error('Error loading state:', e);
+            }
+            updateCounters();
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch (e) {
+                console.error('Error saving state:', e);
+            }
+            updateCounters();
+        }
+
+        function addXP(amount) {
+            state.xp += amount;
+            playSound('correct');
+            saveState();
+        }
+
+        function updateCounters() {
+            const xpEl = document.getElementById('xp-counter');
+            const totalXpEl = document.getElementById('stat-total-xp');
+            const streakEl = document.getElementById('streak-counter');
+            if (xpEl) xpEl.textContent = `${state.xp} XP`;
+            if (totalXpEl) totalXpEl.textContent = `${state.xp} XP`;
+            if (streakEl) streakEl.textContent = state.streak;
+
+            // Recalcular progrés total de la unitat
+            let completed = 0;
+            const keys = Object.keys(state.solvedTasks || {});
+            completed = keys.filter(k => state.solvedTasks[k]).length;
+            const totalTasks = 20; // 6 lectura + 4 polisèmia + 10 accents/adjectius
+            const pct = Math.min(100, Math.round((completed / totalTasks) * 100));
+
+            const progFill = document.getElementById('sidebar-progress-fill');
+            const progNum = document.getElementById('sidebar-progress-num');
+            if (progFill) progFill.style.width = `${pct}%`;
+            if (progNum) progNum.textContent = `${pct}%`;
+        }
+
+        // =========================================================================
+        // 2. EFECTES SONORS SINTÈTICS (WEB AUDIO API)
+        // =========================================================================
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            return audioCtx;
+        }
+
+        function playSound(type) {
+            if (!state.sound) return;
+            try {
+                const ctx = getAudioContext();
+                if (ctx.state === 'suspended') ctx.resume();
+
+                if (type === 'correct') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                    osc.frequency.exponentialRampToValueAtTime(659.25, ctx.currentTime + 0.12); // E5
+                    osc.frequency.exponentialRampToValueAtTime(783.99, ctx.currentTime + 0.25); // G5
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.36);
+                } else if (type === 'error') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(260, ctx.currentTime);
+                    osc.frequency.setValueAtTime(190, ctx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.31);
+                }
+            } catch (e) {
+                // Audio no disponible
+            }
+        }
+
+        function toggleSound() {
+            state.sound = !state.sound;
+            const btn = document.getElementById('btn-sound');
+            if (btn) btn.textContent = state.sound ? '🔊' : '🔇';
+            saveState();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('alvaro_dark_mode', isDark ? 'true' : 'false');
+        }
+
+        // =========================================================================
+        // 3. CONTROL DE PESTANYES & NAVEGACIÓ
+        // =========================================================================
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+
+            const target = document.getElementById(`tab-${tabId}`);
+            if (target) target.classList.add('active');
+            if (btn) btn.classList.add('active');
+
+            const mobileLabel = document.getElementById('mobile-current-tab-label');
+            if (mobileLabel && btn) {
+                const title = btn.querySelector('.sidebar-btn-title');
+                if (title) mobileLabel.textContent = title.textContent;
+            }
+
+            // Tancar menú mòbil si estava obert
+            const sb = document.getElementById('app-sidebar');
+            if (sb && sb.classList.contains('mobile-open')) {
+                sb.classList.remove('mobile-open');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileSidebar() {
+            const sb = document.getElementById('app-sidebar');
+            if (sb) sb.classList.toggle('mobile-open');
+        }
+
+        function toggleTopicDropdown(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu) menu.classList.toggle('show');
+        }
+
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('topic-dropdown-menu');
+            if (menu && menu.classList.contains('show')) menu.classList.remove('show');
+        });
+
+        function openQuickCheatSheet() {
+            const modal = document.getElementById('quickCheatModal');
+            if (modal) modal.classList.add('open');
+        }
+
+        function closeQuickCheatSheet(e) {
+            const modal = document.getElementById('quickCheatModal');
+            if (modal) modal.classList.remove('open');
+        }
+
+        // =========================================================================
+        // 4. EXERCICIS DE COMPRENSIÓ LECTORA
+        // =========================================================================
+        function checkReadingQ(qNum, correctVal) {
+            const radios = document.getElementsByName(`ql${qNum}`);
+            let chosen = null;
+            for (const r of radios) {
+                if (r.checked) chosen = r.value;
+            }
+            const fb = document.getElementById(`fb-ql-${qNum}`);
+            if (!chosen) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = 'Si us plau, tria una opció abans de comprovar.';
+                return;
+            }
+            if (chosen === correctVal) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Molt bé! Resposta totalment correcta (+10 XP).';
+                if (!state.solvedTasks[`reading_${qNum}`]) {
+                    state.solvedTasks[`reading_${qNum}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ No és correcte. Torna a llegir el fragment del text per trobar la resposta.';
+                playSound('error');
+            }
+        }
+
+        function checkReadingQ6() {
+            const input = document.getElementById('input-ql-6');
+            const fb = document.getElementById('fb-ql-6');
+            const val = (input.value || '').trim().toLowerCase();
+            const validKeys = ['angoixa', 'neguit', 'por', 'nerviosisme', 'preocupacio', 'preocupació', 'angoixat', 'angunia', 'angúnia'];
+            const match = validKeys.some(k => val.includes(k));
+
+            if (match) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Exacte! En Biel sentia angoixa i neguit pel retard i per l\'espera a les fosques (+15 XP).';
+                if (!state.solvedTasks['reading_6']) {
+                    state.solvedTasks['reading_6'] = true;
+                    addXP(15);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ Pista: Pensa en el títol del tema («trobada anguniosa») i busca paraules com "angoixa" o "neguit".';
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 5. EXERCICIS DE POLISÈMIA
+        // =========================================================================
+        function checkPolisemia(num, correct) {
+            const sel = document.getElementById(`sel-pol-${num}`);
+            const fb = document.getElementById(`fb-pol-${num}`);
+            if (!sel || !sel.value) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = 'Selecciona una opció del desplegable.';
+                return;
+            }
+            if (sel.value === correct) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Correcte! Has identificat el context exacte del mot polisèmic (+10 XP).';
+                if (!state.solvedTasks[`pol_${num}`]) {
+                    state.solvedTasks[`pol_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '❌ No és aquest significat. Torna a llegir la frase sencera.';
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 6. JOC DE WORDWALL: CLASSIFICACIÓ AGUDES / PLANES / ESDRÚIXOLES
+        // =========================================================================
+        const wordwallData = [
+            { id: 'w1', word: 'camió', cat: 'aguda' },
+            { id: 'w2', word: 'matalàs', cat: 'aguda' },
+            { id: 'w3', word: 'arbre', cat: 'plana' },
+            { id: 'w4', word: 'plàstic', cat: 'plana' },
+            { id: 'w5', word: 'ciència', cat: 'esdruixola' },
+            { id: 'w6', word: 'història', cat: 'esdruixola' },
+            { id: 'w7', word: 'sabó', cat: 'aguda' },
+            { id: 'w8', word: 'arròs', cat: 'aguda' },
+            { id: 'w9', word: 'córrer', cat: 'plana' },
+            { id: 'w10', word: 'tornàvem', cat: 'plana' },
+            { id: 'w11', word: 'màquina', cat: 'esdruixola' },
+            { id: 'w12', word: 'fàbrica', cat: 'esdruixola' }
+        ];
+
+        let selectedWordId = null;
+        let wordPlacements = {}; // wordId -> 'aguda' | 'plana' | 'esdruixola' | null
+
+        function initWordwallGame() {
+            const pool = document.getElementById('word-pool-container');
+            if (!pool) return;
+            pool.innerHTML = '';
+            document.getElementById('zone-aguda-content').innerHTML = '';
+            document.getElementById('zone-plana-content').innerHTML = '';
+            document.getElementById('zone-esdruixola-content').innerHTML = '';
+            wordPlacements = {};
+            selectedWordId = null;
+
+            wordwallData.forEach(item => {
+                const pill = document.createElement('div');
+                pill.className = 'draggable-word-pill';
+                pill.id = `pill-${item.id}`;
+                pill.textContent = item.word;
+                pill.onclick = (e) => {
+                    e.stopPropagation();
+                    selectWord(item.id);
+                };
+                pool.appendChild(pill);
+            });
+        }
+
+        function selectWord(wordId) {
+            selectedWordId = wordId;
+            document.querySelectorAll('.draggable-word-pill').forEach(p => {
+                p.style.outline = 'none';
+            });
+            const cur = document.getElementById(`pill-${wordId}`);
+            if (cur) cur.style.outline = '3px solid var(--primary)';
+        }
+
+        function placeSelectedWord(zone) {
+            if (!selectedWordId) return;
+            wordPlacements[selectedWordId] = zone;
+
+            const pill = document.getElementById(`pill-${selectedWordId}`);
+            const targetZone = document.getElementById(`zone-${zone}-content`);
+            if (pill && targetZone) {
+                targetZone.appendChild(pill);
+                pill.style.outline = 'none';
+                pill.classList.add('placed');
+            }
+            selectedWordId = null;
+        }
+
+        function checkWordwallClassification() {
+            let correct = 0;
+            const fb = document.getElementById('fb-wordwall');
+            wordwallData.forEach(item => {
+                const placed = wordPlacements[item.id];
+                const pill = document.getElementById(`pill-${item.id}`);
+                if (placed === item.cat) {
+                    correct++;
+                    if (pill) pill.style.borderColor = '#16a34a';
+                } else if (placed) {
+                    if (pill) pill.style.borderColor = '#dc2626';
+                }
+            });
+
+            const scoreLabel = document.getElementById('wordwall-score-label');
+            if (scoreLabel) scoreLabel.textContent = `${correct} / ${wordwallData.length} correctes`;
+
+            if (correct === wordwallData.length) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🏆 EXCEL·LENT! Totes les 12 paraules estan perfectament classificades (+30 XP).';
+                if (!state.solvedTasks['wordwall_master']) {
+                    state.solvedTasks['wordwall_master'] = true;
+                    addXP(30);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `Tens ${correct} encertades. Revisa les paraules marcades en vermell i mou-les a la columna correcta.`;
+                playSound('error');
+            }
+        }
+
+        function resetWordwallGame() {
+            initWordwallGame();
+            const fb = document.getElementById('fb-wordwall');
+            if (fb) fb.className = 'feedback-msg';
+            const scoreLabel = document.getElementById('wordwall-score-label');
+            if (scoreLabel) scoreLabel.textContent = '';
+        }
+
+        // =========================================================================
+        // 7. TECLAT D'ACCENTS I PRÀCTICA D'ACCENTUACIÓ (ENXANETA 44)
+        // =========================================================================
+        let lastFocusedInput = null;
+        document.addEventListener('focusin', (e) => {
+            if (e.target && e.target.classList && e.target.classList.contains('focusable-accent')) {
+                lastFocusedInput = e.target;
+            }
+        });
+
+        function insertAccentLetter(char) {
+            if (!lastFocusedInput) {
+                lastFocusedInput = document.getElementById('acc-input-1');
+            }
+            if (lastFocusedInput) {
+                const start = lastFocusedInput.selectionStart || lastFocusedInput.value.length;
+                const end = lastFocusedInput.selectionEnd || lastFocusedInput.value.length;
+                const text = lastFocusedInput.value;
+                lastFocusedInput.value = text.substring(0, start) + char + text.substring(end);
+                lastFocusedInput.focus();
+                lastFocusedInput.setSelectionRange(start + char.length, start + char.length);
+            }
+        }
+
+        function checkAccentSingle(num, expected) {
+            const input = document.getElementById(`acc-input-${num}`);
+            const fb = document.getElementById(`acc-fb-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+            if (val === expected.toLowerCase()) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Molt bé! L\'accent està col·locat a la síl·laba i forma exacta (+10 XP).';
+                if (!state.solvedTasks[`acc_${num}`]) {
+                    state.solvedTasks[`acc_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Revisa-ho. La resposta correcta és: ${expected}. Recorda si és obert o tancat!`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 8. ADJECTIUS: FEMENÍ I PLURAL (ENXANETA 17 & 99)
+        // =========================================================================
+        function checkAdjFem(num, expected) {
+            const input = document.getElementById(`adj-fem-${num}`);
+            const fb = document.getElementById(`fb-adj-fem-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+            if (val === expected.toLowerCase()) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Correcte! Forma femenina ben aplicada (+10 XP).';
+                if (!state.solvedTasks[`adj_fem_${num}`]) {
+                    state.solvedTasks[`adj_fem_${num}`] = true;
+                    addXP(10);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Error. La forma correcta és "${expected}".`;
+                playSound('error');
+            }
+        }
+
+        function checkAdjPlural(num, expected) {
+            const input = document.getElementById(`adj-pl-${num}`);
+            const fb = document.getElementById(`fb-adj-pl-${num}`);
+            const val = (input.value || '').trim().toLowerCase();
+            if (val === expected.toLowerCase()) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Genial! Plural del sintagma perfecte (+15 XP).';
+                if (!state.solvedTasks[`adj_pl_${num}`]) {
+                    state.solvedTasks[`adj_pl_${num}`] = true;
+                    addXP(15);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Revisa els canvis ortogràfics. Esperat: "${expected}".`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 9. SIMULADOR DE CORREU ELECTRÒNIC (TALLER D'EXPRESSIÓ)
+        // =========================================================================
+        function insertMailSnippet(type) {
+            const body = document.getElementById('mail-body');
+            if (!body) return;
+            if (type === 'salutacio') {
+                body.value = "Bon dia senyor Carles,\n\n" + body.value;
+            } else if (type === 'comiat') {
+                body.value += "\n\nMoltes gràcies per la seva atenció i fins aviat,";
+            } else if (type === 'signatura') {
+                body.value += "\nÁlvaro Herrera\nAlumne de 5è de Primària";
+            }
+            body.focus();
+        }
+
+        function validateAndSendEmail() {
+            const to = (document.getElementById('mail-to').value || '').trim();
+            const subject = (document.getElementById('mail-subject').value || '').trim();
+            const body = (document.getElementById('mail-body').value || '').trim();
+            const fb = document.getElementById('fb-email-client');
+
+            if (!to || !to.includes('@')) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ Falta l\'adreça del destinatari o no té format de correu (ex: nom@escola.cat).';
+                playSound('error');
+                return;
+            }
+
+            if (!subject || subject.length < 5) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ L\'assumpte és massa curt. Escriu un títol clar que resumeixi el motiu del missatge.';
+                playSound('error');
+                return;
+            }
+
+            if (subject.length > 60) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ L\'assumpte és massa llarg! No escriguis tot el missatge aquí (regla oficial).';
+                playSound('error');
+                return;
+            }
+
+            if (body.toUpperCase() === body && body.length > 20) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ Regla 2 violada: Has escrit tot el correu en MAJÚSCULES. Això és sinònim de cridar!';
+                playSound('error');
+                return;
+            }
+
+            if (body.includes(' pq ') || body.includes(' q ') || body.includes(' tb ') || body.includes(' xk ')) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ Regla 1 violada: No retallis paraules com "pq", "q" o "tb". Fes servir frases completes!';
+                playSound('error');
+                return;
+            }
+
+            if (body.length < 40) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = '⚠️ El correu és massa breu. Recorda incloure salutació, explicació, comiat i signatura.';
+                playSound('error');
+                return;
+            }
+
+            fb.className = 'feedback-msg show correct';
+            fb.innerHTML = '🚀 <strong>Correu enviat amb èxit!</strong> Compleix amb les 5 Regles d\'Or oficials de classe i té un to respectuós i clar (+25 XP).';
+            if (!state.solvedTasks['mail_sent']) {
+                state.solvedTasks['mail_sent'] = true;
+                addXP(25);
+            }
+        }
+
+        // =========================================================================
+        // 10. AUTOAVALUACIÓ MASTER: 10 PREGUNTES AMB XP
+        // =========================================================================
+        const masterQuizData = [
+            {
+                q: "1. Com s'anomena la síl·laba que es pronuncia amb més força en una paraula?",
+                opts: ["Síl·laba àtona", "Síl·laba tònica", "Síl·laba inversa", "Dígraf"],
+                ans: 1
+            },
+            {
+                q: "2. Les paraules agudes s'accentuen quan acaben en:",
+                opts: ["Consonant que no sigui -s", "Qualsevol consonant", "Vocal, vocal+s, -en, -in", "Sempre sense excepció"],
+                ans: 2
+            },
+            {
+                q: "3. Quina d'aquestes paraules és plana i porta accent perquè acaba en consonant -c?",
+                opts: ["Camió", "Plàstic", "Biologia", "Ciència"],
+                ans: 1
+            },
+            {
+                q: "4. Quina regla segueixen SEMPRE les paraules esdrúixoles en català?",
+                opts: ["S'accentuen totes", "Només s'accentuen si acaben en vocal", "S'accentuen si acaben en -s", "Mai porten accent"],
+                ans: 0
+            },
+            {
+                q: "5. Quin accent porta SEMPRE la vocal 'a' en català?",
+                opts: ["Accent tancat (´)", "Accent obert (`)", "Depèn de la paraula", "Dièresi"],
+                ans: 1
+            },
+            {
+                q: "6. Què és una paraula polisèmica?",
+                opts: ["Una paraula inventada", "Una paraula amb més d'un significat", "Una paraula sense vocals", "Un adjectiu plural"],
+                ans: 1
+            },
+            {
+                q: "7. Quin és el femení correcte de l'adjectiu «tranquil»?",
+                opts: ["Tranquila", "Tranquil·la", "Tranquil·les", "Tranquila amb accent"],
+                ans: 1
+            },
+            {
+                q: "8. Quin és el plural del sintagma «el meu amic anglès»?",
+                opts: ["Els meus amics anglesos", "Els meus amics angles", "Els meus amics angleses", "Els amics anglès"],
+                ans: 0
+            },
+            {
+                q: "9. A quin camp del correu electrònic hem de posar un resum breu del motiu del missatge?",
+                opts: ["Destinatari (Per a)", "CCO", "Assumpte", "Signatura"],
+                ans: 2
+            },
+            {
+                q: "10. Per què no s'ha d'escriure un correu electrònic tot en MAJÚSCULES?",
+                opts: ["Perquè gasta més bateria", "Perquè a Internet significa cridar", "Perquè el correu no arriba", "Perquè s'esborra sol"],
+                ans: 1
+            }
+        ];
+
+        function renderMasterQuiz() {
+            const container = document.getElementById('quiz-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            masterQuizData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">${item.q}</div>
+                    <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                        ${item.opts.map((opt, oIdx) => `
+                            <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                                <input type="radio" name="mq_${idx}" value="${oIdx}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function gradeMasterQuiz() {
+            let correct = 0;
+            masterQuizData.forEach((item, idx) => {
+                const radios = document.getElementsByName(`mq_${idx}`);
+                let chosen = -1;
+                for (const r of radios) {
+                    if (r.checked) chosen = parseInt(r.value);
+                }
+                if (chosen === item.ans) {
+                    correct++;
+                }
+            });
+
+            const res = document.getElementById('quiz-final-result');
+            const recordEl = document.getElementById('stat-quiz-record');
+            const badgeQuiz = document.getElementById('badge-quiz');
+            if (recordEl) recordEl.textContent = `${correct}/10`;
+            if (badgeQuiz) badgeQuiz.textContent = `${correct}/10`;
+
+            if (correct >= 8) {
+                res.style.color = '#16a34a';
+                res.innerHTML = `🎉 Felicitats! Has obtingut ${correct} de 10 encerts! Ets un mestre del català (+50 XP).`;
+                addXP(50);
+            } else {
+                res.style.color = '#d97706';
+                res.innerHTML = `Has obtingut ${correct} de 10. Revisa la teoria i els vídeos per tornar-ho a provar!`;
+                playSound('error');
+            }
+        }
+
+        // =========================================================================
+        // 11. INICIALITZACIÓ GLOBAL
+        // =========================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            initWordwallGame();
+            renderMasterQuiz();
+
+            const savedDark = localStorage.getItem('alvaro_dark_mode');
+            if (savedDark === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
+</body>
+
+</html>
