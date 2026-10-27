@@ -145,10 +145,10 @@
                         <span class="sidebar-btn-icon">🧩</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">3. Lèxic: La Polisèmia</span>
-                            <span class="sidebar-btn-desc">Vídeo & Més d'un significat</span>
+                            <span class="sidebar-btn-desc">Vídeo, Fitxa Oficial & Contextos</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-polisemia">0/6</span>
+                    <span class="sidebar-btn-badge" id="badge-polisemia">0/10</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('accentuacio', this)">
@@ -200,10 +200,10 @@
                         <span class="sidebar-btn-icon">📂</span>
                         <div class="sidebar-btn-text">
                             <span class="sidebar-btn-title">8. Documents & Recursos</span>
-                            <span class="sidebar-btn-desc">15 fitxes, vídeos & Genially</span>
+                            <span class="sidebar-btn-desc">16 fitxes, vídeos & Genially</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge">15 doc</span>
+                    <span class="sidebar-btn-badge">16 doc</span>
                 </button>
             </nav>
 
@@ -747,6 +747,358 @@
                             <div class="feedback-msg" id="fb-pol-4"></div>
                         </div>
                     </div>
+
+                    <!-- BLOC OFICIAL: FITXA DE CLASSE "TREBALLEM LA POLISÈMIA" -->
+                    <div class="exercise-box" style="margin-top: 2rem; border-top: 3px solid var(--primary);">
+                        <div class="exercise-header-row" style="flex-wrap: wrap; gap: 0.75rem;">
+                            <div class="exercise-title">
+                                <span>📄</span> Fitxa Oficial de Classe: Treballem la Polisèmia
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <a href="./documents/Treballem la Polisèmia.pdf" class="btn-shelf-action" download style="padding: 0.35rem 0.75rem; font-size: 0.8rem; text-decoration: none;">📁 Local</a>
+                                <a href="https://drive.google.com/open?id=1ScnVWIhE-YTG0i4Rxlno00iIXfdZkH5M&usp=drive_copy" target="_blank" class="btn-shelf-action" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; text-decoration: none; background: var(--primary); color: white;">☁️ Drive ↗</a>
+                            </div>
+                        </div>
+                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.25rem;">
+                            Resol aquí mateix els 3 exercicis oficials de la fitxa de classe: completar frases amb paraules polisèmiques, descobrir les dues accepcions i relacionar contextos diferents.
+                        </p>
+
+                        <!-- EXERCICI 1: COMPLETA AMB CUL, PEU, CUA -->
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+                            <h4 style="margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                                <span>1️⃣</span> 1. Completa aquestes frases amb les paraules polisèmiques: <em>cul, peu, cua</em>
+                            </h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                                Tria la paraula exacta per a cadascuna de les 6 oracions segons el sentit de la frase:
+                            </p>
+
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">a) Va fer 
+                                        <select id="sel-fitxa-1-a" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        per treure les entrades de la pel·lícula.
+                                    </div>
+                                </div>
+
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">b) En Roger s'ha trencat el 
+                                        <select id="sel-fitxa-1-b" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        jugant a futbol.
+                                    </div>
+                                </div>
+
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">c) El 
+                                        <select id="sel-fitxa-1-c" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        del tassó és ple de sucre.
+                                    </div>
+                                </div>
+
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">d) Aquest problema durà 
+                                        <select id="sel-fitxa-1-d" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        .
+                                    </div>
+                                </div>
+
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">e) Va signar a 
+                                        <select id="sel-fitxa-1-e" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        de pàgina.
+                                    </div>
+                                </div>
+
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">f) Va llenegar i va caure de 
+                                        <select id="sel-fitxa-1-f" class="exercise-input-text" style="display: inline-block; width: auto; padding: 0.25rem 0.6rem; margin: 0 0.3rem;">
+                                            <option value="">-- tria --</option>
+                                            <option value="cul">cul</option>
+                                            <option value="peu">peu</option>
+                                            <option value="cua">cua</option>
+                                        </select>
+                                        .
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                                <button class="btn-check-answer" onclick="checkFitxaEx1()">Comprovar Exercici 1 🚀</button>
+                                <div class="feedback-msg" id="fb-fitxa-ex1" style="flex:1;"></div>
+                            </div>
+                        </div>
+
+                        <!-- EXERCICI 2: DUES ACCEPCIONS DE CADA MOT POLISÈMIC -->
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+                            <h4 style="margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                                <span>2️⃣</span> 2. Les dues accepcions de cada paraula polisèmica
+                            </h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                                Tria la definició correcta per a la 1ª i 2ª accepció de cadascuna d'aquestes 5 paraules:
+                            </p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                                <!-- Carta -->
+                                <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                                    <strong style="color: var(--primary); font-size: 1rem;">🃏 Carta</strong>
+                                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                        <div><strong>1ª accepció:</strong>
+                                            <select id="sel-acc-carta-1" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="correu">Escrit adreçat a algú enviat en un sobre per correu</option>
+                                                <option value="arbre">Fulla verda d'un arbre</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-top: 0.5rem;"><strong>2ª accepció:</strong>
+                                            <select id="sel-acc-carta-2" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="restaurant">Llista de plats d'un restaurant (o peça de baralla)</option>
+                                                <option value="moble">Moble per seure al parc</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Trau -->
+                                <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                                    <strong style="color: var(--primary); font-size: 1rem;">🧵 Trau</strong>
+                                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                        <div><strong>1ª accepció:</strong>
+                                            <select id="sel-acc-trau-1" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="boto">Obertura a una peça de roba per passar-hi un botó (ullet/ojal)</option>
+                                                <option value="eina">Eina de ferro per descargolar</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-top: 0.5rem;"><strong>2ª accepció:</strong>
+                                            <select id="sel-acc-trau-2" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="ferida">Tall profund o ferida oberta a la pell (bretxa)</option>
+                                                <option value="animal">Ocell amb plomes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Illa -->
+                                <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                                    <strong style="color: var(--primary); font-size: 1rem;">🏝️ Illa</strong>
+                                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                        <div><strong>1ª accepció:</strong>
+                                            <select id="sel-acc-illa-1" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="aigua">Porció de terra completament envoltada d'aigua</option>
+                                                <option value="diners">Banc per guardar diners</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-top: 0.5rem;"><strong>2ª accepció:</strong>
+                                            <select id="sel-acc-illa-2" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="cases">Conjunt d'edificis o cases envoltats de carrers (illa de cases)</option>
+                                                <option value="gos">Animal mamífer de companyia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Serra -->
+                                <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                                    <strong style="color: var(--primary); font-size: 1rem;">⛰️ Serra</strong>
+                                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                        <div><strong>1ª accepció:</strong>
+                                            <select id="sel-acc-serra-1" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="eina">Eina de fulla d'acer dentada per serrar fusta o metall</option>
+                                                <option value="port">Lloc on atraquen vaixells</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-top: 0.5rem;"><strong>2ª accepció:</strong>
+                                            <select id="sel-acc-serra-2" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="muntanyes">Serralada o renglera de muntanyes (ex: Serra de Tramuntana)</option>
+                                                <option value="mar">Platja d'arena fina</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cangur -->
+                                <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem;">
+                                    <strong style="color: var(--primary); font-size: 1rem;">🦘 Cangur</strong>
+                                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                        <div><strong>1ª accepció:</strong>
+                                            <select id="sel-acc-cangur-1" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="animal">Animal marsupial típic d'Austràlia que salta amb dues potes</option>
+                                                <option value="planta">Arbre amb fruits dolços</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-top: 0.5rem;"><strong>2ª accepció:</strong>
+                                            <select id="sel-acc-cangur-2" class="exercise-input-text" style="width: 100%; margin-top: 0.25rem;">
+                                                <option value="">-- Tria definició --</option>
+                                                <option value="babysitter">Persona que té cura d'infants quan els pares no hi són (mainadera)</option>
+                                                <option value="cotxe">Vehicle de quatre rodes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                                <button class="btn-check-answer" onclick="checkFitxaEx2()">Comprovar Exercici 2 🚀</button>
+                                <div class="feedback-msg" id="fb-fitxa-ex2" style="flex:1;"></div>
+                            </div>
+                        </div>
+
+                        <!-- EXERCICI 3: DOS CONTEXTOS DIFERENTS -->
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                            <h4 style="margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                                <span>3️⃣</span> 3. Dos contextos diferents per a cada paraula polisèmica
+                            </h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                                Identifica en quin context s'utilitza la paraula destacada en cadascuna d'aquestes 12 oracions de la fitxa:
+                            </p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0.85rem;">
+                                <!-- Pota -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">1. «El veterinari li va embenar la <strong>pota</strong> al gosset.»</div>
+                                    <select id="sel-ctx-1" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="moble">Moble</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">2. «Ajusta bé la <strong>pota</strong> de la cadira perquè balla.»</div>
+                                    <select id="sel-ctx-2" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="moble">Moble</option>
+                                    </select>
+                                </div>
+
+                                <!-- Pic -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">3. «Els excursionistes van arribar al <strong>pic</strong> de la muntanya.»</div>
+                                    <select id="sel-ctx-3" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="muntanya">Muntanya</option>
+                                        <option value="eina">Eina</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">4. «El miner feia forats a la roca amb un <strong>pic</strong> d'acer.»</div>
+                                    <select id="sel-ctx-4" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="muntanya">Muntanya</option>
+                                        <option value="eina">Eina</option>
+                                    </select>
+                                </div>
+
+                                <!-- Ala -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">5. «L'oreneta va moure l'<strong>ala</strong> ferida abans de volar.»</div>
+                                    <select id="sel-ctx-5" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="edifici">Edifici</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">6. «Van inaugurar una nova <strong>ala</strong> de la biblioteca escolar.»</div>
+                                    <select id="sel-ctx-6" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="edifici">Edifici</option>
+                                    </select>
+                                </div>
+
+                                <!-- Dent -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">7. «En Joan té un <strong>dent</strong> que li fa mal quan menja gelat.»</div>
+                                    <select id="sel-ctx-7" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="persona">Persona</option>
+                                        <option value="serra">Serra / Eina</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">8. «Aquesta serra té una <strong>dent</strong> trencada i no talla bé.»</div>
+                                    <select id="sel-ctx-8" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="persona">Persona</option>
+                                        <option value="serra">Serra / Eina</option>
+                                    </select>
+                                </div>
+
+                                <!-- Estrella -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">9. «Ahir a la nit vam veure un estel o <strong>estrella</strong> fugaç.»</div>
+                                    <select id="sel-ctx-9" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="astre">Astre</option>
+                                        <option value="famosa">Persona famosa</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">10. «Aquesta actriu és l'<strong>estrella</strong> del cinema juvenil.»</div>
+                                    <select id="sel-ctx-10" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="astre">Astre</option>
+                                        <option value="famosa">Persona famosa</option>
+                                    </select>
+                                </div>
+
+                                <!-- Ploma -->
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">11. «El colom té una <strong>ploma</strong> grisa a la cua.»</div>
+                                    <select id="sel-ctx-11" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="escriptura">Escriptura</option>
+                                    </select>
+                                </div>
+                                <div class="exercise-question-card" style="margin: 0; padding: 0.75rem 1rem;">
+                                    <div class="exercise-q-text">12. «L'escriptor va sucar la <strong>ploma</strong> al tinter per escriure.»</div>
+                                    <select id="sel-ctx-12" class="exercise-input-text" style="width: 100%; margin-top: 0.4rem;">
+                                        <option value="">-- Tria context --</option>
+                                        <option value="animal">Animal</option>
+                                        <option value="escriptura">Escriptura</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                                <button class="btn-check-answer" onclick="checkFitxaEx3()">Comprovar Exercici 3 🚀</button>
+                                <div class="feedback-msg" id="fb-fitxa-ex3" style="flex:1;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -1189,7 +1541,20 @@
                             </div>
                         </div>
 
-                        <!-- 6. Vídeo Síl·laba Tònica -->
+                        <!-- 6. Treballem la Polisèmia -->
+                        <div class="doc-shelf-card">
+                            <div class="doc-shelf-meta">
+                                <span class="doc-shelf-type-badge">Fitxa Oficial</span>
+                                <div class="doc-shelf-title">Fitxa: Treballem la Polisèmia</div>
+                                <div class="doc-shelf-desc">Activitats oficials de classe: oracions amb 'cul', 'peu' i 'cua', 2 accepcions i 12 contextos d'ús.</div>
+                            </div>
+                            <div class="doc-shelf-btn-group">
+                                <a href="./documents/Treballem la Polisèmia.pdf" class="btn-doc-shelf btn-doc-local" download>📁 Local</a>
+                                <a href="https://drive.google.com/open?id=1ScnVWIhE-YTG0i4Rxlno00iIXfdZkH5M&usp=drive_copy" target="_blank" class="btn-doc-shelf btn-doc-drive">☁️ Drive</a>
+                            </div>
+                        </div>
+
+                        <!-- 7. Vídeo Síl·laba Tònica -->
                         <div class="doc-shelf-card">
                             <div class="doc-shelf-meta">
                                 <span class="doc-shelf-type-badge">Vídeo MP4</span>
@@ -1428,13 +1793,24 @@
             let completed = 0;
             const keys = Object.keys(state.solvedTasks || {});
             completed = keys.filter(k => state.solvedTasks[k]).length;
-            const totalTasks = 20; // 6 lectura + 4 polisèmia + 10 accents/adjectius
+            const totalTasks = 25;
             const pct = Math.min(100, Math.round((completed / totalTasks) * 100));
 
             const progFill = document.getElementById('sidebar-progress-fill');
             const progNum = document.getElementById('sidebar-progress-num');
             if (progFill) progFill.style.width = `${pct}%`;
             if (progNum) progNum.textContent = `${pct}%`;
+
+            // Actualitzar badge de polisèmia
+            const polBadge = document.getElementById('badge-polisemia');
+            if (polBadge) {
+                let polDone = 0;
+                for (let i = 1; i <= 4; i++) if (state.solvedTasks[`pol_${i}`]) polDone++;
+                if (state.solvedTasks['fitxa_pol_ex1']) polDone += 2;
+                if (state.solvedTasks['fitxa_pol_ex2']) polDone += 2;
+                if (state.solvedTasks['fitxa_pol_ex3']) polDone += 2;
+                polBadge.textContent = `${polDone}/10`;
+            }
         }
 
         // =========================================================================
@@ -1620,6 +1996,149 @@
             } else {
                 fb.className = 'feedback-msg show incorrect';
                 fb.textContent = '❌ No és aquest significat. Torna a llegir la frase sencera.';
+                playSound('error');
+            }
+        }
+
+        // --- VERIFICACIONS DE LA FITXA OFICIAL: TREBALLEM LA POLISÈMIA ---
+        function checkFitxaEx1() {
+            const answers = {
+                a: 'cua', // Va fer cua per treure les entrades
+                b: 'peu', // En Roger s'ha trencat el peu
+                c: 'cul', // El cul del tassó
+                d: 'cua', // Aquest problema durà cua
+                e: 'peu', // Va signar a peu de pàgina
+                f: 'cul'  // Va llenegar i va caure de cul
+            };
+            const fb = document.getElementById('fb-fitxa-ex1');
+            let correctCount = 0;
+            let missing = false;
+
+            Object.keys(answers).forEach(k => {
+                const el = document.getElementById(`sel-fitxa-1-${k}`);
+                if (!el || !el.value) missing = true;
+                else if (el.value === answers[k]) {
+                    correctCount++;
+                    el.style.borderColor = 'var(--success)';
+                } else {
+                    el.style.borderColor = '#ef4444';
+                }
+            });
+
+            if (missing) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = 'Completa les 6 frases abans de comprovar.';
+                return;
+            }
+
+            if (correctCount === 6) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Excel·lent! Totes les 6 frases estan completades correctament amb cul, peu i cua (+20 XP).';
+                if (!state.solvedTasks['fitxa_pol_ex1']) {
+                    state.solvedTasks['fitxa_pol_ex1'] = true;
+                    addXP(20);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Has encertat ${correctCount} de 6 frases. Revisa les que estan en vermell (recorda: "fer cua", "peu de pàgina", "caure de cul", "durar cua").`;
+                playSound('error');
+            }
+        }
+
+        function checkFitxaEx2() {
+            const expected = {
+                'carta-1': 'correu',
+                'carta-2': 'restaurant',
+                'trau-1': 'boto',
+                'trau-2': 'ferida',
+                'illa-1': 'aigua',
+                'illa-2': 'cases',
+                'serra-1': 'eina',
+                'serra-2': 'muntanyes',
+                'cangur-1': 'animal',
+                'cangur-2': 'babysitter'
+            };
+            const fb = document.getElementById('fb-fitxa-ex2');
+            let correctCount = 0;
+            let missing = false;
+
+            Object.keys(expected).forEach(k => {
+                const el = document.getElementById(`sel-acc-${k}`);
+                if (!el || !el.value) missing = true;
+                else if (el.value === expected[k]) {
+                    correctCount++;
+                    el.style.borderColor = 'var(--success)';
+                } else {
+                    el.style.borderColor = '#ef4444';
+                }
+            });
+
+            if (missing) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = 'Selecciona les dues accepcions de totes les paraules.';
+                return;
+            }
+
+            if (correctCount === 10) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Impressionant! Has identificat perfectament les dues accepcions reals de cada paraula (+25 XP).';
+                if (!state.solvedTasks['fitxa_pol_ex2']) {
+                    state.solvedTasks['fitxa_pol_ex2'] = true;
+                    addXP(25);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Has encertat ${correctCount} de 10 accepcions. Revisa les opcions marcades en vermell.`;
+                playSound('error');
+            }
+        }
+
+        function checkFitxaEx3() {
+            const expected = {
+                1: 'animal',     // pota del gosset
+                2: 'moble',      // pota de la cadira
+                3: 'muntanya',   // pic de la muntanya
+                4: 'eina',       // pic d'acer
+                5: 'animal',     // ala de l'oreneta
+                6: 'edifici',    // ala de la biblioteca
+                7: 'persona',    // dent d'en Joan
+                8: 'serra',      // dent de la serra
+                9: 'astre',      // estrella fugaç
+                10: 'famosa',    // estrella del cinema
+                11: 'animal',    // ploma d'ocell
+                12: 'escriptura' // ploma al tinter
+            };
+            const fb = document.getElementById('fb-fitxa-ex3');
+            let correctCount = 0;
+            let missing = false;
+
+            for (let i = 1; i <= 12; i++) {
+                const el = document.getElementById(`sel-ctx-${i}`);
+                if (!el || !el.value) missing = true;
+                else if (el.value === expected[i]) {
+                    correctCount++;
+                    el.style.borderColor = 'var(--success)';
+                } else {
+                    el.style.borderColor = '#ef4444';
+                }
+            }
+
+            if (missing) {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = 'Si us plau, tria el context de totes 12 oracions abans de comprovar.';
+                return;
+            }
+
+            if (correctCount === 12) {
+                fb.className = 'feedback-msg show correct';
+                fb.textContent = '🎉 Brillant! Has assignat el context correcte a les 12 frases de la fitxa (+30 XP).';
+                if (!state.solvedTasks['fitxa_pol_ex3']) {
+                    state.solvedTasks['fitxa_pol_ex3'] = true;
+                    addXP(30);
+                }
+            } else {
+                fb.className = 'feedback-msg show incorrect';
+                fb.textContent = `❌ Has encertat ${correctCount} de 12 contextos. Corregeix les opcions en vermell.`;
                 playSound('error');
             }
         }
