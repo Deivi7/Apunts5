@@ -159,7 +159,7 @@
                             <span class="sidebar-btn-desc">Agudes, planes & esdrúixoles</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-accentuacio">Reptes</span>
+                    <span class="sidebar-btn-badge" id="badge-accentuacio">62 reptes</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('adjectiu', this)">
@@ -170,7 +170,7 @@
                             <span class="sidebar-btn-desc">Concordança & Graus</span>
                         </div>
                     </div>
-                    <span class="sidebar-btn-badge" id="badge-adjectiu">0/8</span>
+                    <span class="sidebar-btn-badge" id="badge-adjectiu">25 reptes</span>
                 </button>
 
                 <button class="sidebar-tab-btn" onclick="switchTab('mail', this)">
@@ -792,9 +792,15 @@
                             </div>
                             <span class="card-badge-tag">Joc d'ordenar</span>
                         </div>
-                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
-                            Fes clic a una paraula per seleccionar-la i després clica a la columna corresponent per col·locar-la. Si t'equivoques pots tornar-la a moure!
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+                            Tria el nivell oficial de Wordwall per practicar totes les paraules. Fes clic a una paraula i després a la columna corresponent per col·locar-la:
                         </p>
+
+                        <!-- Selector de Nivell Wordwall -->
+                        <div class="wordwall-mode-bar">
+                            <button class="btn-ww-mode active" id="btn-ww-mode-1" onclick="setWordwallLevel(1)">🎮 Nivell 1: Wordwall 36179166 (15 paraules)</button>
+                            <button class="btn-ww-mode" id="btn-ww-mode-2" onclick="setWordwallLevel(2)">🕹️ Nivell 2: Wordwall 54668935 (21 paraules)</button>
+                        </div>
 
                         <!-- Bossa de Paraules -->
                         <div class="word-pool" id="word-pool-container">
@@ -825,7 +831,7 @@
                             </div>
                         </div>
 
-                        <div style="margin-top: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+                        <div style="margin-top: 1.25rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
                             <button class="btn-check-answer" onclick="checkWordwallClassification()">Comprova la Classificació</button>
                             <button class="key-accent-btn" onclick="resetWordwallGame()" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Reinicia el Joc</button>
                             <span id="wordwall-score-label" style="font-weight: 800; font-size: 1rem;"></span>
@@ -833,16 +839,16 @@
                         <div class="feedback-msg" id="fb-wordwall"></div>
                     </div>
 
-                    <!-- EXERCICI PR 1 ENXANETA: POSA ACCENT GRÀFIC AMB TECLAT VIRTUAL -->
+                    <!-- EXERCICI PR 1 ENXANETA: POSA ACCENT GRÀFIC ALS 26 MOTS -->
                     <div class="exercise-box">
                         <div class="exercise-header-row">
                             <div class="exercise-title">
-                                <span>⌨️</span> Pràctica 1 (Enxaneta): Posa l'accent gràfic als mots que n'hagin de dur
+                                <span>⌨️</span> Pràctica 1 (Nova Enxaneta 44): Posa l'accent gràfic als 26 mots complets
                             </div>
-                            <span class="card-badge-tag">Teclat d'Accents</span>
+                            <span class="card-badge-tag">26 Mots Oficials</span>
                         </div>
                         <p style="font-size: 0.88rem; color: var(--text-muted);">
-                            Escriu la paraula correctament accentuada. Fes servir aquests botons ràpids per introduir caràcters especials còmodament:
+                            Escriu cadascuna de les 26 paraules oficials de l'activitat 44 correctament accentuada (o sense accent si segons la norma no en porta). Fes servir el teclat ràpid:
                         </p>
                         
                         <!-- Teclat ràpid de lletres catalanes -->
@@ -860,106 +866,9 @@
                             <button class="key-accent-btn" onclick="insertAccentLetter('·')">· (punt volat)</button>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
-                            <!-- Mot 1: ningu -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">1. Paraula: <strong>ningu</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-1" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(1, 'ningú')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-1"></div>
-                            </div>
-
-                            <!-- Mot 2: passadis -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">2. Paraula: <strong>passadis</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-2" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(2, 'passadís')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-2"></div>
-                            </div>
-
-                            <!-- Mot 3: ratoli -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">3. Paraula: <strong>ratoli</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-3" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(3, 'ratolí')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-3"></div>
-                            </div>
-
-                            <!-- Mot 4: platan -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">4. Paraula: <strong>platan</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-4" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(4, 'plàtan')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-4"></div>
-                            </div>
-
-                            <!-- Mot 5: plastic -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">5. Paraula: <strong>plastic</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-5" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(5, 'plàstic')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-5"></div>
-                            </div>
-
-                            <!-- Mot 6: germa -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">6. Paraula: <strong>germa</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-6" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(6, 'germà')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-6"></div>
-                            </div>
-
-                            <!-- Mot 7: sindria -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">7. Paraula: <strong>sindria</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-7" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(7, 'síndria')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-7"></div>
-                            </div>
-
-                            <!-- Mot 8: semafor -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">8. Paraula: <strong>semafor</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-8" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(8, 'semàfor')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-8"></div>
-                            </div>
-
-                            <!-- Mot 9: algun (trampa: sense accent!) -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">9. Paraula: <strong>algun</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-9" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(9, 'algun')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-9"></div>
-                            </div>
-
-                            <!-- Mot 10: nuvols -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">10. Paraula: <strong>nuvols</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="acc-input-10" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal...">
-                                    <button class="btn-check-answer" onclick="checkAccentSingle(10, 'núvols')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="acc-fb-10"></div>
-                            </div>
+                        <!-- Graella dinàmica dels 26 mots oficials d'Enxaneta 44 -->
+                        <div id="enxaneta44-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                            <!-- Inserits per JS -->
                         </div>
                     </div>
                 </div>
@@ -992,74 +901,29 @@
                     <div class="exercise-box">
                         <div class="exercise-header-row">
                             <div class="exercise-title">
-                                <span>🚻</span> Pràctica 1 (Enxaneta): Completa el femení adequat
+                                <span>🚻</span> Pràctica 1 (Nova Enxaneta 17): Completa els 16 adjectius en femení
                             </div>
-                            <span class="card-badge-tag">Masculí & Femení</span>
+                            <span class="card-badge-tag">16 Frases Oficials</span>
                         </div>
                         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
                             Observa l'adjectiu destacat i escriu la forma femenina corresponent tenint en compte si és variable o d'una sola terminació:
                         </p>
 
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-                            <!-- 1 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">1. Un jersei <em>ample</em> → una bota <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-1" class="exercise-input-text" placeholder="Escriu el femení...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(1, 'ampla')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-1"></div>
-                            </div>
+                        <!-- Teclat ràpid de lletres catalanes per a adjectius -->
+                        <div class="accent-virtual-keyboard" style="margin-bottom: 1rem;">
+                            <button class="key-accent-btn" onclick="insertAccentLetter('à')">à</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('è')">è</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('é')">é</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('í')">í</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ò')">ò</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ó')">ó</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ú')">ú</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('ç')">ç</button>
+                            <button class="key-accent-btn" onclick="insertAccentLetter('·')">· (punt volat)</button>
+                        </div>
 
-                            <!-- 2 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">2. Un problema <em>difícil</em> → una situació <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-2" class="exercise-input-text focusable-accent" placeholder="Escriu el femení...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(2, 'difícil')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-2"></div>
-                            </div>
-
-                            <!-- 3 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">3. Un nen <em>obedient</em> → una nena <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-3" class="exercise-input-text" placeholder="Escriu el femení...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(3, 'obedient')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-3"></div>
-                            </div>
-
-                            <!-- 4 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">4. Un poble <em>tranquil</em> → una vila <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-4" class="exercise-input-text" placeholder="Compte amb la l·l...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(4, 'tranquil·la')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-4"></div>
-                            </div>
-
-                            <!-- 5 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">5. Un orador <em>culte</em> → una professora <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-5" class="exercise-input-text" placeholder="Escriu el femení...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(5, 'culta')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-5"></div>
-                            </div>
-
-                            <!-- 6 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">6. Un país <em>lliure</em> → una societat <span style="color:var(--primary); font-weight:800;">...</span></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-fem-6" class="exercise-input-text" placeholder="Escriu el femení...">
-                                    <button class="btn-check-answer" onclick="checkAdjFem(6, 'lliure')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-fem-6"></div>
-                            </div>
+                        <div id="enxaneta17-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <!-- Inserits per JS -->
                         </div>
                     </div>
 
@@ -1067,51 +931,16 @@
                     <div class="exercise-box">
                         <div class="exercise-header-row">
                             <div class="exercise-title">
-                                <span>👥</span> Pràctica 2 (Enxaneta): Escriu en plural els sintagmes següents
+                                <span>👥</span> Pràctica 2 (Nova Enxaneta 99): Escriu en plural els 9 sintagmes complets
                             </div>
-                            <span class="card-badge-tag">Plurals Especials</span>
+                            <span class="card-badge-tag">9 Sintagmes Oficials</span>
                         </div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                            Transforma al plural tant l'article com el nom i l'adjectiu:
+                        </p>
 
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
-                            <!-- 1 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">1. Singular: <strong>el meu amic anglès</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-pl-1" class="exercise-input-text" placeholder="Plural complet: els meus...">
-                                    <button class="btn-check-answer" onclick="checkAdjPlural(1, 'els meus amics anglesos')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-pl-1"></div>
-                            </div>
-
-                            <!-- 2 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">2. Singular: <strong>una boca xica</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-pl-2" class="exercise-input-text" placeholder="Plural complet: unes boques...">
-                                    <button class="btn-check-answer" onclick="checkAdjPlural(2, 'unes boques xiques')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-pl-2"></div>
-                            </div>
-
-                            <!-- 3 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">3. Singular: <strong>una fàbrica groga</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-pl-3" class="exercise-input-text focusable-accent" placeholder="Plural complet: unes fàbriques...">
-                                    <button class="btn-check-answer" onclick="checkAdjPlural(3, 'unes fàbriques grogues')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-pl-3"></div>
-                            </div>
-
-                            <!-- 4 -->
-                            <div class="exercise-question-card">
-                                <div class="exercise-q-text">4. Singular: <strong>el peix mallorquí</strong></div>
-                                <div class="exercise-input-row">
-                                    <input type="text" id="adj-pl-4" class="exercise-input-text" placeholder="Plural complet: els peixos...">
-                                    <button class="btn-check-answer" onclick="checkAdjPlural(4, 'els peixos mallorquins')">Comprova</button>
-                                </div>
-                                <div class="feedback-msg" id="fb-adj-pl-4"></div>
-                            </div>
+                        <div id="enxaneta99-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
+                            <!-- Inserits per JS -->
                         </div>
                     </div>
                 </div>
@@ -1796,25 +1625,62 @@
         }
 
         // =========================================================================
-        // 6. JOC DE WORDWALL: CLASSIFICACIÓ AGUDES / PLANES / ESDRÚIXOLES
+        // 6. JOC DE WORDWALL: CLASSIFICACIÓ AGUDES / PLANES / ESDRÚIXOLES (2 NIVELLS OFICIALS)
         // =========================================================================
-        const wordwallData = [
-            { id: 'w1', word: 'camió', cat: 'aguda' },
-            { id: 'w2', word: 'matalàs', cat: 'aguda' },
-            { id: 'w3', word: 'arbre', cat: 'plana' },
-            { id: 'w4', word: 'plàstic', cat: 'plana' },
-            { id: 'w5', word: 'ciència', cat: 'esdruixola' },
-            { id: 'w6', word: 'història', cat: 'esdruixola' },
-            { id: 'w7', word: 'sabó', cat: 'aguda' },
-            { id: 'w8', word: 'arròs', cat: 'aguda' },
-            { id: 'w9', word: 'córrer', cat: 'plana' },
-            { id: 'w10', word: 'tornàvem', cat: 'plana' },
-            { id: 'w11', word: 'màquina', cat: 'esdruixola' },
-            { id: 'w12', word: 'fàbrica', cat: 'esdruixola' }
-        ];
+        const wordwallLevels = {
+            1: [ // Wordwall 36179166 (15 paraules)
+                { id: 'w1_1', word: 'matalàs', cat: 'aguda' },
+                { id: 'w1_2', word: 'camió', cat: 'aguda' },
+                { id: 'w1_3', word: 'emoció', cat: 'aguda' },
+                { id: 'w1_4', word: 'teclat', cat: 'aguda' },
+                { id: 'w1_5', word: 'només', cat: 'aguda' },
+                { id: 'w1_6', word: 'misteri', cat: 'plana' },
+                { id: 'w1_7', word: 'arbre', cat: 'plana' },
+                { id: 'w1_8', word: 'tònica', cat: 'esdruixola' },
+                { id: 'w1_9', word: 'pèrdua', cat: 'esdruixola' },
+                { id: 'w1_10', word: 'polític', cat: 'esdruixola' },
+                { id: 'w1_11', word: 'ambulància', cat: 'esdruixola' },
+                { id: 'w1_12', word: 'plàstic', cat: 'esdruixola' },
+                { id: 'w1_13', word: 'tornàvem', cat: 'esdruixola' },
+                { id: 'w1_14', word: 'història', cat: 'esdruixola' },
+                { id: 'w1_15', word: 'ciència', cat: 'esdruixola' }
+            ],
+            2: [ // Wordwall 54668935 (21 paraules)
+                { id: 'w2_1', word: 'Mitjó', cat: 'aguda' },
+                { id: 'w2_2', word: 'Demà', cat: 'aguda' },
+                { id: 'w2_3', word: 'Sabó', cat: 'aguda' },
+                { id: 'w2_4', word: 'Carbassó', cat: 'aguda' },
+                { id: 'w2_5', word: 'Arròs', cat: 'aguda' },
+                { id: 'w2_6', word: 'Germà', cat: 'aguda' },
+                { id: 'w2_7', word: 'Camió', cat: 'aguda' },
+                { id: 'w2_8', word: 'Casa', cat: 'plana' },
+                { id: 'w2_9', word: 'Foto', cat: 'plana' },
+                { id: 'w2_10', word: 'Córrer', cat: 'plana' },
+                { id: 'w2_11', word: 'Mosca', cat: 'plana' },
+                { id: 'w2_12', word: 'Préssec', cat: 'plana' },
+                { id: 'w2_13', word: 'Boca', cat: 'plana' },
+                { id: 'w2_14', word: 'Llàpis', cat: 'plana' },
+                { id: 'w2_15', word: 'Llàgrima', cat: 'esdruixola' },
+                { id: 'w2_16', word: 'Fàbrica', cat: 'esdruixola' },
+                { id: 'w2_17', word: 'Mònica', cat: 'esdruixola' },
+                { id: 'w2_18', word: 'Màquina', cat: 'esdruixola' },
+                { id: 'w2_19', word: 'Química', cat: 'esdruixola' },
+                { id: 'w2_20', word: 'Colònia', cat: 'esdruixola' },
+                { id: 'w2_21', word: 'Fórmula', cat: 'esdruixola' }
+            ]
+        };
 
+        let currentWordwallLevel = 1;
         let selectedWordId = null;
-        let wordPlacements = {}; // wordId -> 'aguda' | 'plana' | 'esdruixola' | null
+        let wordPlacements = {};
+
+        function setWordwallLevel(level) {
+            currentWordwallLevel = level;
+            document.querySelectorAll('.btn-ww-mode').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById(`btn-ww-mode-${level}`);
+            if (btn) btn.classList.add('active');
+            initWordwallGame();
+        }
 
         function initWordwallGame() {
             const pool = document.getElementById('word-pool-container');
@@ -1825,8 +1691,13 @@
             document.getElementById('zone-esdruixola-content').innerHTML = '';
             wordPlacements = {};
             selectedWordId = null;
+            const fb = document.getElementById('fb-wordwall');
+            if (fb) fb.className = 'feedback-msg';
+            const scoreLabel = document.getElementById('wordwall-score-label');
+            if (scoreLabel) scoreLabel.textContent = '';
 
-            wordwallData.forEach(item => {
+            const list = wordwallLevels[currentWordwallLevel] || [];
+            list.forEach(item => {
                 const pill = document.createElement('div');
                 pill.className = 'draggable-word-pill';
                 pill.id = `pill-${item.id}`;
@@ -1863,9 +1734,10 @@
         }
 
         function checkWordwallClassification() {
+            const list = wordwallLevels[currentWordwallLevel] || [];
             let correct = 0;
             const fb = document.getElementById('fb-wordwall');
-            wordwallData.forEach(item => {
+            list.forEach(item => {
                 const placed = wordPlacements[item.id];
                 const pill = document.getElementById(`pill-${item.id}`);
                 if (placed === item.cat) {
@@ -1877,32 +1749,28 @@
             });
 
             const scoreLabel = document.getElementById('wordwall-score-label');
-            if (scoreLabel) scoreLabel.textContent = `${correct} / ${wordwallData.length} correctes`;
+            if (scoreLabel) scoreLabel.textContent = `${correct} / ${list.length} correctes`;
 
-            if (correct === wordwallData.length) {
+            if (correct === list.length) {
                 fb.className = 'feedback-msg show correct';
-                fb.textContent = '🏆 EXCEL·LENT! Totes les 12 paraules estan perfectament classificades (+30 XP).';
-                if (!state.solvedTasks['wordwall_master']) {
-                    state.solvedTasks['wordwall_master'] = true;
+                fb.textContent = `🏆 EXCEL·LENT! Has completat totes les ${list.length} paraules del Nivell ${currentWordwallLevel} (+30 XP).`;
+                if (!state.solvedTasks[`wordwall_lvl_${currentWordwallLevel}`]) {
+                    state.solvedTasks[`wordwall_lvl_${currentWordwallLevel}`] = true;
                     addXP(30);
                 }
             } else {
                 fb.className = 'feedback-msg show incorrect';
-                fb.textContent = `Tens ${correct} encertades. Revisa les paraules marcades en vermell i mou-les a la columna correcta.`;
+                fb.textContent = `Tens ${correct} encertades de ${list.length}. Revisa les que estan en vermell i mou-les a la columna correcta.`;
                 playSound('error');
             }
         }
 
         function resetWordwallGame() {
             initWordwallGame();
-            const fb = document.getElementById('fb-wordwall');
-            if (fb) fb.className = 'feedback-msg';
-            const scoreLabel = document.getElementById('wordwall-score-label');
-            if (scoreLabel) scoreLabel.textContent = '';
         }
 
         // =========================================================================
-        // 7. TECLAT D'ACCENTS I PRÀCTICA D'ACCENTUACIÓ (ENXANETA 44)
+        // 7. TECLAT D'ACCENTS I PRÀCTICA D'ACCENTUACIÓ (NOVA ENXANETA 44 - 26 MOTS)
         // =========================================================================
         let lastFocusedInput = null;
         document.addEventListener('focusin', (e) => {
@@ -1913,7 +1781,7 @@
 
         function insertAccentLetter(char) {
             if (!lastFocusedInput) {
-                lastFocusedInput = document.getElementById('acc-input-1');
+                lastFocusedInput = document.querySelector('.focusable-accent');
             }
             if (lastFocusedInput) {
                 const start = lastFocusedInput.selectionStart || lastFocusedInput.value.length;
@@ -1925,59 +1793,188 @@
             }
         }
 
-        function checkAccentSingle(num, expected) {
+        const enxaneta44Data = [
+            { num: 1, mot: 'ningu', sol: 'ningú', hint: 'Aguda acabada en vocal (u tancada)' },
+            { num: 2, mot: 'passadis', sol: 'passadís', hint: 'Aguda acabada en vocal + s' },
+            { num: 3, mot: 'pingui', sol: 'pingüí', hint: 'Aguda amb dièresi a la ü i accent a la í' },
+            { num: 4, mot: 'urba', sol: 'urbà', hint: 'Aguda acabada en vocal (a oberta)' },
+            { num: 5, mot: 'ratoli', sol: 'ratolí', hint: 'Aguda acabada en vocal' },
+            { num: 6, mot: 'monoton', sol: 'monòton', hint: 'Esdrúixola (accent obert a la o)' },
+            { num: 7, mot: 'esglais', sol: 'esglais', hint: 'Aguda acabada en diftong decreixent (sense accent)' },
+            { num: 8, mot: 'algun', sol: 'algun', hint: 'Aguda acabada en -un (no -en/-in, sense accent)' },
+            { num: 9, mot: 'princep', sol: 'príncep', hint: 'Plana acabada en consonant que no és norma aguda' },
+            { num: 10, mot: 'nuvols', sol: 'núvols', hint: 'Plana acabada en consonant diferent de les de norma aguda' },
+            { num: 11, mot: 'correspon', sol: 'correspon', hint: 'Aguda acabada en -on (no -en/-in, sense accent)' },
+            { num: 12, mot: 'platan', sol: 'plàtan', hint: 'Plana acabada en -an (accent obert)' },
+            { num: 13, mot: 'germa', sol: 'germà', hint: 'Aguda acabada en vocal (a oberta)' },
+            { num: 14, mot: 'italia', sol: 'italià', hint: 'Aguda acabada en vocal (a oberta)' },
+            { num: 15, mot: 'permis', sol: 'permís', hint: 'Aguda acabada en vocal + s' },
+            { num: 16, mot: 'pais', sol: 'país', hint: 'Aguda acabada en vocal + s (accent a la í)' },
+            { num: 17, mot: 'plastic', sol: 'plàstic', hint: 'Plana acabada en consonant (-ic)' },
+            { num: 18, mot: 'renou', sol: 'renou', hint: 'Aguda acabada en diftong (sense accent)' },
+            { num: 19, mot: 'padri', sol: 'padrí', hint: 'Aguda acabada en vocal' },
+            { num: 20, mot: 'submari', sol: 'submarí', hint: 'Aguda acabada en vocal' },
+            { num: 21, mot: 'vei', sol: 'veí', hint: 'Aguda acabada en vocal (accent a la í)' },
+            { num: 22, mot: 'acabaran', sol: 'acabaran', hint: 'Plana acabada en -an (sense accent)' },
+            { num: 23, mot: 'remei', sol: 'remei', hint: 'Aguda acabada en diftong (sense accent)' },
+            { num: 24, mot: 'sindria', sol: 'síndria', hint: 'Esdrúixola (totes porten accent)' },
+            { num: 25, mot: 'tornavis', sol: 'tornavís', hint: 'Aguda acabada en vocal + s' },
+            { num: 26, mot: 'semafor', sol: 'semàfor', hint: 'Plana acabada en consonant (-or)' }
+        ];
+
+        function renderEnxaneta44() {
+            const grid = document.getElementById('enxaneta44-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            enxaneta44Data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">${item.num}. Paraula: <strong>${item.mot}</strong></div>
+                    <div class="exercise-input-row">
+                        <input type="text" id="acc-input-${item.num}" class="exercise-input-text focusable-accent" placeholder="Escriu amb accent si cal..." onkeydown="if(event.key==='Enter') checkAccentSingle(${item.num})">
+                        <button class="btn-check-answer" onclick="checkAccentSingle(${item.num})">Comprova</button>
+                    </div>
+                    <div class="feedback-msg" id="acc-fb-${item.num}"></div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function checkAccentSingle(num) {
+            const item = enxaneta44Data.find(d => d.num === num);
+            if (!item) return;
             const input = document.getElementById(`acc-input-${num}`);
             const fb = document.getElementById(`acc-fb-${num}`);
             const val = (input.value || '').trim().toLowerCase();
-            if (val === expected.toLowerCase()) {
+            const expected = item.sol.toLowerCase();
+
+            if (val === expected) {
                 fb.className = 'feedback-msg show correct';
-                fb.textContent = '🎉 Molt bé! L\'accent està col·locat a la síl·laba i forma exacta (+10 XP).';
+                fb.textContent = `🎉 Molt bé! (${item.sol}). ${item.hint} (+5 XP).`;
                 if (!state.solvedTasks[`acc_${num}`]) {
                     state.solvedTasks[`acc_${num}`] = true;
-                    addXP(10);
+                    addXP(5);
                 }
             } else {
                 fb.className = 'feedback-msg show incorrect';
-                fb.textContent = `❌ Revisa-ho. La resposta correcta és: ${expected}. Recorda si és obert o tancat!`;
+                fb.textContent = `❌ Revisa-ho. La resposta correcta és: "${item.sol}". (${item.hint})`;
                 playSound('error');
             }
         }
 
         // =========================================================================
-        // 8. ADJECTIUS: FEMENÍ I PLURAL (ENXANETA 17 & 99)
+        // 8. ADJECTIUS: FEMENÍ I PLURAL (NOVA ENXANETA 17 & 99 OFICIALS)
         // =========================================================================
-        function checkAdjFem(num, expected) {
+        const enxaneta17Data = [
+            { num: 1, base: "Un jersei ample", prompt: "una bota", sol: "ampla", tip: "Adjectiu variable (canvia -e per -a)" },
+            { num: 2, base: "Un tuf pestilent", prompt: "una olor", sol: "pestilent", tip: "Invariable d'una terminació (-ent)" },
+            { num: 3, base: "Un problema difícil", prompt: "una situació", sol: "difícil", tip: "Invariable d'una terminació (-il)" },
+            { num: 4, base: "Un orador culte", prompt: "una professora", sol: "culta", tip: "Adjectiu variable (canvia -e per -a)" },
+            { num: 5, base: "Un nen obedient", prompt: "una nena", sol: "obedient", tip: "Invariable d'una terminació (-ent)" },
+            { num: 6, base: "Un esforç inútil", prompt: "una dedicació", sol: "inútil", tip: "Invariable d'una terminació (-il)" },
+            { num: 7, base: "Un cafè doble", prompt: "una partida", sol: "doble", tip: "Invariable d'una terminació (-ble)" },
+            { num: 8, base: "Un home dèbil", prompt: "una dona", sol: "dèbil", tip: "Invariable d'una terminació (-il)" },
+            { num: 9, base: "Un problema simple", prompt: "una solució", sol: "simple", tip: "Invariable d'una terminació (-le)" },
+            { num: 10, base: "Un plat picant", prompt: "unes salses", sol: "picants", tip: "Plural femení d'adjectiu en -ant (-ants)" },
+            { num: 11, base: "Un ofici solemne", prompt: "una missa", sol: "solemne", tip: "Invariable d'una terminació (-ne)" },
+            { num: 12, base: "Un negoci fraudulent", prompt: "una acció", sol: "fraudulenta", tip: "Variable (fraudulent -> fraudulenta)" },
+            { num: 13, base: "Un país lliure", prompt: "una societat", sol: "lliure", tip: "Invariable d'una terminació (-re)" },
+            { num: 14, base: "Un home prudent", prompt: "una dona", sol: "prudent", tip: "Invariable d'una terminació (-ent)" },
+            { num: 15, base: "Un poble tranquil", prompt: "una vila", sol: "tranquil·la", tip: "Variable amb ela geminada (l·l)!" },
+            { num: 16, base: "Un so tènue", prompt: "una claror", sol: "tènue", tip: "Invariable d'una terminació (-ue)" }
+        ];
+
+        const enxaneta99Data = [
+            { num: 1, sing: "el meu amic anglès", sol: "els meus amics anglesos", tip: "-ès -> -esos" },
+            { num: 2, sing: "un pic antic", sol: "uns pics antics", tip: "-ic -> -ics" },
+            { num: 3, sing: "una boca xica", sol: "unes boques xiques", tip: "-ca -> -ques" },
+            { num: 4, sing: "la clínica principal", sol: "les clíniques principals", tip: "-al -> -als" },
+            { num: 5, sing: "una fàbrica groga", sol: "unes fàbriques grogues", tip: "-ga -> -gues" },
+            { num: 6, sing: "el peix mallorquí", sol: "els peixos mallorquins", tip: "-í -> -ins" },
+            { num: 7, sing: "un nus mariner", sol: "uns nusos mariners", tip: "-s -> -sos" },
+            { num: 8, sing: "un cas difícil", sol: "uns casos difícils", tip: "-il -> -ils" },
+            { num: 9, sing: "una euga poruga", sol: "unes eugues porugues", tip: "-ga -> -gues" }
+        ];
+
+        function renderEnxaneta17() {
+            const grid = document.getElementById('enxaneta17-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            enxaneta17Data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">${item.num}. ${item.base} → ${item.prompt} <span style="color:var(--primary); font-weight:800;">...</span></div>
+                    <div class="exercise-input-row">
+                        <input type="text" id="adj-fem-${item.num}" class="exercise-input-text focusable-accent" placeholder="Escriu el femení..." onkeydown="if(event.key==='Enter') checkAdjFem(${item.num})">
+                        <button class="btn-check-answer" onclick="checkAdjFem(${item.num})">Comprova</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-adj-fem-${item.num}"></div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function checkAdjFem(num) {
+            const item = enxaneta17Data.find(d => d.num === num);
+            if (!item) return;
             const input = document.getElementById(`adj-fem-${num}`);
             const fb = document.getElementById(`fb-adj-fem-${num}`);
             const val = (input.value || '').trim().toLowerCase();
-            if (val === expected.toLowerCase()) {
+            const expected = item.sol.toLowerCase();
+
+            if (val === expected) {
                 fb.className = 'feedback-msg show correct';
-                fb.textContent = '🎉 Correcte! Forma femenina ben aplicada (+10 XP).';
+                fb.textContent = `🎉 Correcte! "${item.sol}". (${item.tip}) (+5 XP).`;
                 if (!state.solvedTasks[`adj_fem_${num}`]) {
                     state.solvedTasks[`adj_fem_${num}`] = true;
-                    addXP(10);
+                    addXP(5);
                 }
             } else {
                 fb.className = 'feedback-msg show incorrect';
-                fb.textContent = `❌ Error. La forma correcta és "${expected}".`;
+                fb.textContent = `❌ Error. La forma correcta és "${item.sol}". (${item.tip})`;
                 playSound('error');
             }
         }
 
-        function checkAdjPlural(num, expected) {
+        function renderEnxaneta99() {
+            const grid = document.getElementById('enxaneta99-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            enxaneta99Data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'exercise-question-card';
+                card.innerHTML = `
+                    <div class="exercise-q-text">${item.num}. Singular: <strong>${item.sing}</strong></div>
+                    <div class="exercise-input-row">
+                        <input type="text" id="adj-pl-${item.num}" class="exercise-input-text focusable-accent" placeholder="Plural complet: ..." onkeydown="if(event.key==='Enter') checkAdjPlural(${item.num})">
+                        <button class="btn-check-answer" onclick="checkAdjPlural(${item.num})">Comprova</button>
+                    </div>
+                    <div class="feedback-msg" id="fb-adj-pl-${item.num}"></div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function checkAdjPlural(num) {
+            const item = enxaneta99Data.find(d => d.num === num);
+            if (!item) return;
             const input = document.getElementById(`adj-pl-${num}`);
             const fb = document.getElementById(`fb-adj-pl-${num}`);
             const val = (input.value || '').trim().toLowerCase();
-            if (val === expected.toLowerCase()) {
+            const expected = item.sol.toLowerCase();
+
+            if (val === expected) {
                 fb.className = 'feedback-msg show correct';
-                fb.textContent = '🎉 Genial! Plural del sintagma perfecte (+15 XP).';
+                fb.textContent = `🎉 Genial! "${item.sol}". (${item.tip}) (+10 XP).`;
                 if (!state.solvedTasks[`adj_pl_${num}`]) {
                     state.solvedTasks[`adj_pl_${num}`] = true;
-                    addXP(15);
+                    addXP(10);
                 }
             } else {
                 fb.className = 'feedback-msg show incorrect';
-                fb.textContent = `❌ Revisa els canvis ortogràfics. Esperat: "${expected}".`;
+                fb.textContent = `❌ Revisa els canvis ortogràfics. Esperat: "${item.sol}". (${item.tip})`;
                 playSound('error');
             }
         }
@@ -2169,6 +2166,9 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadState();
             initWordwallGame();
+            renderEnxaneta44();
+            renderEnxaneta17();
+            renderEnxaneta99();
             renderMasterQuiz();
 
             const savedDark = localStorage.getItem('alvaro_dark_mode');
