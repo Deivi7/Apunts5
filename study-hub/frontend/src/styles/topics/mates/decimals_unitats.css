@@ -10,6 +10,210 @@
   --du-grid: #cbd5e1;
 }
 
+/* ---- Teoria (estil targetes + taules, com signes de puntuació) ---- */
+.section-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+  max-width: 52rem;
+  line-height: 1.45;
+}
+
+.du-theory-block {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.15rem 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.du-theory-block.du-summary {
+  border-top: 5px solid var(--du-primary);
+}
+
+.du-block-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-main);
+}
+
+.du-lead {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.85rem;
+  color: var(--text-main);
+}
+
+.du-note {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: 0.75rem 0 0;
+}
+
+.du-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.du-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.15rem 1.2rem;
+  border-top: 5px solid var(--du-primary);
+}
+
+.du-card h3 {
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.45rem;
+}
+
+.du-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.45rem;
+  color: var(--text-main);
+}
+
+.du-card ul {
+  font-size: 0.82rem;
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.du-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border-color);
+}
+
+.du-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 420px;
+}
+
+.du-table th,
+.du-table td {
+  padding: 0.55rem 0.65rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.du-table th {
+  background: var(--du-primary-light);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.du-table td:first-child,
+.du-table.du-table-striped td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.du-table-striped tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--du-primary-light) 45%, transparent);
+}
+
+.du-table-compact {
+  min-width: 0;
+  font-size: 0.8rem;
+}
+
+.du-table .du-comma {
+  color: var(--du-primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.du-table .du-hl {
+  background: color-mix(in srgb, var(--du-amber-light) 80%, transparent);
+  font-weight: 800;
+}
+
+.du-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.du-ok,
+.du-bad {
+  border-radius: var(--radius-md, 8px);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.du-ok {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+}
+
+.du-bad {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+}
+
+.du-ok p,
+.du-bad p {
+  margin: 0.35rem 0 0;
+}
+
+body.dark-mode .du-ok {
+  background: #064e3b;
+  border-color: #059669;
+  color: #a7f3d0;
+}
+
+body.dark-mode .du-bad {
+  background: #4c0519;
+  border-color: #e11d48;
+  color: #fecdd3;
+}
+
+@media (max-width: 640px) {
+  .section-title { font-size: 1.25rem; }
+  .du-table { min-width: 340px; }
+}
+
 body.dark-mode {
   --du-primary-light: #134e4a;
   --du-primary-border: #0f766e;

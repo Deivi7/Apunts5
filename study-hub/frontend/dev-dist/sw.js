@@ -80,13 +80,13 @@ define(['./workbox-fbd06d59'], (function (workbox) { 'use strict';
     "url": "registerSW.js",
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
-    "url": "/index.html",
-    "revision": "0.840evs9tu0o"
+    "url": "index.html",
+    "revision": "0.go9ae0elqv"
   }], {});
   workbox.cleanupOutdatedCaches();
-  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("/index.html"), {
+  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/],
-    denylist: [/^\/api\//, /^\/content\//]
+    denylist: [/^\/api\//, /^\/content\//, /\/legacy\//]
   }));
   workbox.registerRoute(({
     url
