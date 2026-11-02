@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "subjectId": "curie",
+  "topicId": "wordslist",
+  "title": "Laboratory Words List & Vocabulary",
+  "language": "en",
+  "contentBase": "/content/curie/wordslist",
+  "sections": [
+    {
+      "id": "theory",
+      "title": "1. Lab theory",
+      "desc": "What / rules / tips",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "flashcards",
+      "title": "2. Tarjetas & Audio",
+      "desc": "35 tarjetas con voz nativa",
+      "role": "interactive",
+      "icon": "🎴",
+      "badge": "0/35"
+    },
+    {
+      "id": "memory",
+      "title": "3. Parejas de Memoria",
+      "desc": "Empareja término y significado",
+      "role": "interactive",
+      "icon": "🧩",
+      "badge": "Minijuego"
+    },
+    {
+      "id": "quiz",
+      "title": "4. Quiz de Laboratorio",
+      "desc": "10 preguntas multirespuesta",
+      "role": "interactive",
+      "icon": "🔘",
+      "badge": "Test"
+    },
+    {
+      "id": "spelling",
+      "title": "5. Reto de Ortografía",
+      "desc": "Escribe los términos en inglés",
+      "role": "interactive",
+      "icon": "✍️",
+      "badge": "Reto"
+    },
+    {
+      "id": "sorter",
+      "title": "6. Clasificador Veloz",
+      "desc": "Clasifica a contrarreloj",
+      "role": "interactive",
+      "icon": "🎯",
+      "badge": "Veloz"
+    },
+    {
+      "id": "cheatsheet",
+      "title": "7. Chuleta & Tablas",
+      "desc": "Resumen completo e imprimible",
+      "role": "interactive",
+      "icon": "📋",
+      "badge": "Ficha"
+    }
+  ],
+  "resources": [],
+  "documents": [
+    {
+      "title": "words List Lab.pdf",
+      "desc": "Documento local del tema",
+      "localUrl": "/content/curie/wordslist/words%20List%20Lab.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1GE41l8nfuuGgqw9ATHSqm83e8cvQfQgA&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<section class=\"theory-didactica\" lang=\"en\"><h2>What is it and why?</h2><p>Laboratory English helps you name tools, actions, science areas and jobs used in Madame Curie Science class.</p><h2>Key rules</h2><ul><li>Learn the English term and its meaning.</li><li>Listen to the pronunciation and repeat aloud.</li><li>Group words by family: verbs, containers, measuring tools, safety gear, -y sciences, -ist jobs.</li></ul><h2>Good vs bad</h2><ul><li><strong>Good:</strong> beaker = glass container for liquids</li><li><strong>Bad:</strong> calling a beaker a “cup” in a lab report</li></ul><h2>Teacher tip</h2><p>If it ends in -y it is often a science area (Biology). If it ends in -ist it is often a person (Biologist).</p><h2>1-minute summary</h2><p>Flashcards → memory → quiz → spelling → sorter. Practise until the 35 lab words feel natural.</p></section>",
+  "panelIds": [
+    "panel-flashcards",
+    "panel-memory",
+    "panel-quiz",
+    "panel-spelling",
+    "panel-sorter",
+    "panel-cheatsheet"
+  ],
+  "copiedFiles": [
+    "words List Lab.pdf"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.469Z"
+}

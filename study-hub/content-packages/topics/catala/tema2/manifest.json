@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "subjectId": "catala",
+  "topicId": "tema2",
+  "title": "Tema 2: Una trobada anguniosa",
+  "language": "ca",
+  "contentBase": "/content/catala/tema2",
+  "sections": [
+    {
+      "id": "apunts",
+      "title": "1. Apunts & Teoria d'Or",
+      "desc": "Regles clau & Trucs Didàctics",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "lectura",
+      "title": "2. Lectura & Comprensió",
+      "desc": "Una trobada anguniosa",
+      "role": "interactive",
+      "icon": "🎬"
+    },
+    {
+      "id": "polisemia",
+      "title": "3. Lèxic: La Polisèmia",
+      "desc": "Vídeo, Fitxa Oficial & Contextos",
+      "role": "interactive",
+      "icon": "🧩"
+    },
+    {
+      "id": "accentuacio",
+      "title": "4. Ortografia: Accentuació",
+      "desc": "Agudes, planes & esdrúixoles",
+      "role": "interactive",
+      "icon": "✍️"
+    },
+    {
+      "id": "adjectiu",
+      "title": "5. Gramàtica: L'Adjectiu",
+      "desc": "Concordança & Graus",
+      "role": "interactive",
+      "icon": "🏷️"
+    },
+    {
+      "id": "mail",
+      "title": "6. Expressió: El Mail",
+      "desc": "Simulador interactiu de correu",
+      "role": "interactive",
+      "icon": "✉️"
+    },
+    {
+      "id": "quiz",
+      "title": "7. Autoavaluació Master",
+      "desc": "Test complet 10 preguntes",
+      "role": "interactive",
+      "icon": "🏆"
+    },
+    {
+      "id": "documents",
+      "title": "8. Documents & Recursos",
+      "desc": "16 fitxes, vídeos & Genially",
+      "role": "interactive",
+      "icon": "📂"
+    }
+  ],
+  "resources": [],
+  "documents": [
+    {
+      "title": "Treballem la Polisèmia.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Treballem%20la%20Polis%C3%A8mia.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1ScnVWIhE-YTG0i4Rxlno00iIXfdZkH5M&usp=drive_copy"
+    },
+    {
+      "title": "Lectura_Una_trobada_anguniosa.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Lectura_Una_trobada_anguniosa.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1aTboYlAFj0WY298ZtQb6wY7z8oZOZ7H9&usp=drive_copy"
+    },
+    {
+      "title": "Comprensio_Que_hem_entes.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Comprensio_Que_hem_entes.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1j7pdJDgW1RfqqejJtBzTbtP3M68LJmmc&usp=drive_copy"
+    },
+    {
+      "title": "Polisemia_Pr1.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Polisemia_Pr1.pdf",
+      "driveUrl": "https://drive.google.com/open?id=14ZN36J5fLuZ8BNu-aqeSATUD-WrCxHcY&usp=drive_copy"
+    },
+    {
+      "title": "Polisemia_Mes_exemples.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Polisemia_Mes_exemples.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1qc4S36zS8yFSBHVokMhtE4yyrI5hML4R&usp=drive_copy"
+    },
+    {
+      "title": "Accentuacio_Pr1.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Accentuacio_Pr1.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1MnL9RCrxPudX09ffgK23dWeg0SzP8E_y&usp=drive_copy"
+    },
+    {
+      "title": "Accentuacio_Pr2.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Accentuacio_Pr2.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1M5EwWwLiBkUWixpV284JjI8OnslCz-UB&usp=drive_copy"
+    },
+    {
+      "title": "Adjectius_Pr3.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Adjectius_Pr3.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1hrcrQ2EEeJPzIj5e1jG0Gz8VaiMzCNMF&usp=drive_copy"
+    },
+    {
+      "title": "Adjectius_Fitxa.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Adjectius_Fitxa.pdf",
+      "driveUrl": "https://drive.google.com/open?id=15GquHUEeeO3kb15cjePASNd--I8-9sJl&usp=drive_copy"
+    },
+    {
+      "title": "2. l'adjectiu.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/2.%20l'adjectiu.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1sLmMnodfsxP-s407D0xZ7dtaL__Ht5kF&usp=drive_copy"
+    },
+    {
+      "title": "Expressio_escrita_mail_intro.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Expressio_escrita_mail_intro.pdf",
+      "driveUrl": "https://drive.google.com/open?id=12t7cexpDNeOCIlbLJGGx-XbaqypgCnWF&usp=drive_copy"
+    },
+    {
+      "title": "Expressio_escrita_Activitat_mail.pdf",
+      "desc": "",
+      "localUrl": "/content/catala/tema2/./documents/Expressio_escrita_Activitat_mail.pdf",
+      "driveUrl": "https://drive.google.com/open?id=10j5rhxdZKGYhZrh_sDQdJytGNiSR0jxl&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<div class=\"content-card\">\n                    <div class=\"card-header-styled\">\n                        <span style=\"font-size: 1.8rem;\">🌟</span>\n                        <div>\n                            <h2>Guia de Teoria Didàctica per a 5è de Primària</h2>\n                            <p style=\"margin: 0; color: var(--text-muted); font-size: 0.88rem;\">Tots els conceptes clau explicats de forma visual, clara i amb trucs mnemotècnics.</p>\n                        </div>\n                        <span class=\"card-badge-tag\" style=\"margin-left: auto;\">Tema 2 Oficial</span>\n                    </div>\n\n                    <!-- 1. QUÈ ÉS I PER A QUÈ SERVEIX -->\n                    <div class=\"theory-block\">\n                        <div class=\"theory-block-title\">\n                            <span>💡</span> 1. Què és i per a què serveix aquest tema?\n                        </div>\n                        <p>En aquest Tema 2 de Llengua Catalana aprenem les eines fonamentals per parlar, escriure i comunicar-nos com a autèntics experts:</p>\n                        <ul style=\"padding-left: 1.25rem; line-height: 1.6; margin-top: 0.5rem;\">\n                            <li><strong>Comprensió lectora:</strong> Saber interpretar com se senten els personatges (l'angoixa i els nervis d'en Biel i l'Ona a la sortida del metro).</li>\n                            <li><strong>La Polisèmia:</strong> Descobrir que una mateixa paraula pot tenir diversos significats segons la frase (com la paraula <em>banc</em>, que serveix per seure al parc, per guardar diners o per a un grup de peixos).</li>\n                            <li><strong>Normes d'Accentuació:</strong> Saber posar sempre l'accent exacte (obert <code>`</code> o tancat <code>´</code>) sense dubtar mai si una paraula és aguda, plana o esdrúixola.</li>\n                            <li><strong>L'Adjectiu:</strong> Fer que els nostres textos siguin expressius i conèixer com concorden en gènere (masculí/femení) i nombre (singular/plural).</li>\n                            <li><strong>El Correu Electrònic:</strong> Dominar el mitjà de comunicació digital més utilitzat al món acadèmic i professional sense cometre faltes ni errors de protocol.</li>\n                        </ul>\n                    </div>\n\n                    <!-- 2. REGLES I PASOS CLAU -->\n                    <div class=\"theory-block\">\n                        <div class=\"theory-block-title\">\n                            <span>📐</span> 2. Regles i Passos Clau Pas a Pas\n                        </div>\n\n                        <h4 style=\"color: var(--primary); margin: 1rem 0 0.4rem;\">A) Normes d'Accentuació Oficials en Català</h4>\n                        <div class=\"accent-table-board\">\n                            <div class=\"accent-col-card agudes\">\n                                <h3>AGUDES</h3>\n                                <span class=\"accent-syllable-badge\">Síl·laba tònica: ÚLTIMA</span>\n                                <div class=\"accent-rule-box\">\n                                    S'accentuen quan acaben en:<br>\n                                    <strong>Vocal</strong> (a, e, i, o, u)<br>\n                                    <strong>Vocal + S</strong> (as, es, is, os, us)<br>\n                                    <strong>-EN</strong>, <strong>-IN</strong>\n                                </div>\n                                <div class=\"accent-examples-list\">\n                                    Exemples: <em>huracà, després, camió, veí, aprèn, sabó, ningú, matalàs</em>.\n                                </div>\n                            </div>\n\n                            <div class=\"accent-col-card planes\">\n                                <h3>PLANES</h3>\n                                <span class=\"accent-syllable-badge\">Síl·laba tònica: PENÚLTIMA</span>\n                                <div class=\"accent-rule-box\">\n                                    S'accentuen quan <strong>NO</strong> acaben en:<br>\n                                    Vocal, Vocal + S, -EN, -IN.<br>\n                                    <em>(És a dir, s'accentuen si acaben en consonant diferent de -s o en diftong!)</em>\n                                </div>\n                                <div class=\"accent-examples-list\">\n                                    Exemples: <em>cèrvol, plàstic, difícil, tornàvem, biòleg, córrer</em>.\n                                </div>\n                            </div>\n\n                            <div class=\"accent-col-card esdruixoles\">\n                                <h3>ESDRÚIXOLES</h3>\n                                <span class=\"accent-syllable-badge\">Síl·laba tònica: ANTEPENÚLTIMA</span>\n                                <div class=\"accent-rule-box\">\n                                    S'accentuen <strong>SEMPRE (TOTES!)</strong><br>\n                                    Sense cap excepció.\n                                </div>\n                                <div class=\"accent-examples-list\">\n                                    Exemples: <em>època, història, ciència, màquina, fàbrica, Mònica, música</em>.\n                                </div>\n                            </div>\n                        </div>\n\n                        <h4 style=\"color: var(--primary); margin: 1.25rem 0 0.4rem;\">B) Accent Obert vs Accent Tancat</h4>\n                        <p style=\"margin-bottom: 0.5rem;\">En català tenim dos tipus d'accent gràfic segons si el so de la vocal és obert o tancat:</p>\n                        <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;\">\n                            <div style=\"background: var(--bg-body); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid #2563eb;\">\n                                <strong>Accent Obert (obert cap a l'esquerra: ` )</strong>\n                                <ul style=\"margin: 0.4rem 0 0 1.2rem; font-size: 0.9rem;\">\n                                    <li><code>à</code> : La <strong>a</strong> SEMPRE és oberta (<em>demà, germà, matalàs</em>).</li>\n                                    <li><code>è</code> : La <strong>e</strong> oberta (<em>cafè, ciència, cèl·lula</em>).</li>\n                                    <li><code>ò</code> : La <strong>o</strong> oberta (<em>arròs, però, pròxim, allò</em>).</li>\n                                </ul>\n                            </div>\n                            <div style=\"background: var(--bg-body); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid #10b981;\">\n                                <strong>Accent Tancat (tancat cap a la dreta: ´ )</strong>\n                                <ul style=\"margin: 0.4rem 0 0 1.2rem; font-size: 0.9rem;\">\n                                    <li><code>í</code> : La <strong>i</strong> SEMPRE és tancada (<em>veí, país, difícil</em>).</li>\n                                    <li><code>ú</code> : La <strong>u</strong> SEMPRE és tancada (<em>ningú, música, fórmula</em>).</li>\n                                    <li><code>é</code> : La <strong>e</strong> tancada (<em>també, després, compré</em>).</li>\n                                    <li><code>ó</code> : La <strong>o</strong> tancada (<em>camió, sabó, córrer</em>).</li>\n                                </ul>\n                            </div>\n                        </div>\n\n                        <h4 style=\"color: var(--primary); margin: 1.25rem 0 0.4rem;\">C) Concordança i Formació de l'Adjectiu</h4>\n                        <p>L'adjectiu concorda <strong>sempre en gènere (masculí/femení)</strong> i <strong>en nombre (singular/plural)</strong> amb el substantiu:</p>\n                        <ul style=\"padding-left: 1.25rem; font-size: 0.92rem; line-height: 1.6;\">\n                            <li><strong>Adjectius de dues terminacions:</strong> Canvien en femení (<em>un noi alt → una noia alta; un jersei blanc → una jaqueta blanca</em>).</li>\n                            <li><strong>Adjectius d'una terminació (invariables de gènere):</strong> Tenen la mateixa forma per a masculí i femení (<em>un nen amable → una nena amable; un cas difícil → una prova difícil; un noi diligent → una noia diligent</em>).</li>\n                            <li><strong>Canvis ortogràfics en fer el femení o plural:</strong>\n                                <ul>\n                                    <li><code>-c</code> passa a <code>-qu-</code>: <em>antic → antics, però femení: antiga / antigues</em>; <em>ric → rica / riques</em>.</li>\n                                    <li><code>-g</code> passa a <code>-gu-</code>: <em>groc → groga / grogues</em>; <em>poruc → poruga / porugues</em>.</li>\n                                    <li>Paraules amb ela geminada: <em>tranquil → tranquil·la / tranquil·les</em>.</li>\n                                    <li>Acabats en vocal tònica: <em>mallorquí → mallorquina / mallorquins / mallorquines</em>.</li>\n                                </ul>\n                            </li>\n                        </ul>\n                    </div>\n\n                    <!-- 3. EXEMPLES CLARS (BÉ VS MALAMENT) -->\n                    <div class=\"theory-block\">\n                        <div class=\"theory-block-title\">\n                            <span>⚖️</span> 3. Exemples Clarificadors: Ben fet vs Error típic d'Examen\n                        </div>\n                        <table class=\"contrast-table\">\n                            <thead>\n                                <tr>\n                                    <th>Cas d'Estudi</th>\n                                    <th>Correcte (Com s'ha de fer)</th>\n                                    <th>Error Habitual d'Examen</th>\n                                    <th>Per què passa? (Explicació)</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td><strong>Accentuació d'Agudes</strong></td>\n                                    <td><span class=\"pill-ok\">demà, després, camió</span></td>\n                                    <td><span class=\"pill-bad\">dema, despres, camio</span></td>\n                                    <td>Són agudes i acaben en vocal o vocal+s, per tant han de dur accent obligatòriament.</td>\n                                </tr>\n                                <tr>\n                                    <td><strong>Accentuació de Planes</strong></td>\n                                    <td><span class=\"pill-ok\">arbre (sense), plàstic (amb)</span></td>\n                                    <td><span class=\"pill-bad\">àrbre (amb), plastic (sense)</span></td>\n                                    <td><em>Arbre</em> és plana acabada en vocal (NO s'accentua!). <em>Plàstic</em> acaba en consonant <code>-c</code> (S'accentua!).</td>\n                                </tr>\n                                <tr>\n                                    <td><strong>Esdrúixoles</strong></td>\n                                    <td><span class=\"pill-ok\">ciència, màquina, història</span></td>\n                                    <td><span class=\"pill-bad\">ciencia, maquina, historia</span></td>\n                                    <td>Les esdrúixoles s'accentuen TOTES sense cap excepció.</td>\n                                </tr>\n                                <tr>\n                                    <td><strong>Adjectius Invariables</strong></td>\n                                    <td><span class=\"pill-ok\">una noia obedient</span></td>\n                                    <td><span class=\"pill-bad\">una noia obedienta*</span></td>\n                                    <td>L'adjectiu <em>obedient</em> té una sola terminació, no s'afegeix cap 'a' en femení.</td>\n                                </tr>\n                                <tr>\n                                    <td><strong>Ela Geminada en Femení</strong></td>\n                                    <td><span class=\"pill-ok\">una vila tranquil·la</span></td>\n                                    <td><span class=\"pill-bad\">una vila tranquila*</span></td>\n                                    <td><em>Tranquil</em> fa el femení doblant la ela en forma de ela geminada (<code>l·l</code>).</td>\n                                </tr>\n                                <tr>\n                                    <td><strong>Assumpte del Correu</strong></td>\n                                    <td><span class=\"pill-ok\">Assumpte: Deures de català T2</span></td>\n                                    <td><span class=\"pill-bad\">Assumpte: Hola profe com estàs...</span></td>\n                                    <td>A l'assumpte mai s'escriu el correu sencer; només 3 o 4 paraules que resumeixin el tema.</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n\n                    <!-- 4. TRUCS MNEMOTÈCNICS (\"EL TRUC DEL PROFE\") -->\n                    <div class=\"teacher-tip-box\">\n                        <div class=\"teacher-tip-title\">\n                            <span>🧙‍♂️</span> 4. El Truc del Profe: \"Com trobar la síl·laba tònica en 2 segons\"\n                        </div>\n                        <p><strong>El Truc del Crit des de la finestra:</strong> Quan dubtis de quina és la síl·laba forta d'una paraula, imagina que un amic teu que es diu així està a l'altra punta del pati i el crides ben fort:</p>\n                        <p style=\"font-size: 1.1rem; font-weight: 800; color: #b45309; margin: 0.5rem 0;\">\n                            «¡¡¡ca-mi-ÓOOOOOOO!!!» → La síl·laba que allargues de forma natural és la <strong>tònica</strong> (l'última = AGUDA).<br>\n                            «¡¡¡PLÀAAAAAS-tic!!!» → Allargues la penúltima (PLANTA = PLANA).<br>\n                            «¡¡¡MÀAAA-qui-na!!!» → Allargues l'antepenúltima (ESDRÚIXOLA).\n                        </p>\n                        <p style=\"margin-top: 0.5rem;\"><strong>Regla de la memòria per a l'accent obert:</strong> Recorda que la lletra <code>a</code> només té un barret possible en català: SEMPRE obert cap a l'esquerra (<code>à</code>). La <code>i</code> i la <code>u</code> SEMPRE són tancades (<code>í</code>, <code>ú</code>). Només la <code>e</code> i la <code>o</code> poden triar barret!</p>\n                    </div>\n\n                    <!-- 5. RESUM VISUAL EN 1 MINUT -->\n                    <div class=\"theory-block\" style=\"background: var(--bg-body); border-left: 5px solid var(--accent);\">\n                        <div class=\"theory-block-title\" style=\"color: var(--accent);\">\n                            <span>⏱️</span> 5. Resum Visual en 1 Minut (La Chuleta Definitiva)\n                        </div>\n                        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.75rem;\">\n                            <div style=\"padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);\">\n                                <strong style=\"color: #2563eb;\">1. Agudes (Última)</strong><br>\n                                S'accentuen si acaben en:<br>\n                                <code>vocal</code>, <code>vocal+s</code>, <code>-en</code>, <code>-in</code>\n                            </div>\n                            <div style=\"padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);\">\n                                <strong style=\"color: #d97706;\">2. Planes (Penúltima)</strong><br>\n                                S'accentuen si <strong>NO</strong> acaben en les 12 de les agudes.\n                            </div>\n                            <div style=\"padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);\">\n                                <strong style=\"color: #10b981;\">3. Esdrúixoles</strong><br>\n                                S'accentuen <strong>TOTES</strong> sempre sense mirar la terminació!\n                            </div>\n                            <div style=\"padding: 0.85rem; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);\">\n                                <strong style=\"color: #8b5cf6;\">4. Polisèmia</strong><br>\n                                1 paraula = Més d'un significat segons la frase (<em>banc, clau, cua</em>).\n                            </div>\n                        </div>\n                    </div>\n                </div>",
+  "panelIds": [
+    "tab-apunts",
+    "tab-lectura",
+    "tab-polisemia",
+    "tab-accentuacio",
+    "tab-adjectiu",
+    "tab-mail",
+    "tab-quiz",
+    "tab-documents"
+  ],
+  "copiedFiles": [
+    "documents\\2. l'adjectiu.pdf",
+    "documents\\Accentuacio_Pr1.pdf",
+    "documents\\Accentuacio_Pr2.pdf",
+    "documents\\Adjectius_Fitxa.pdf",
+    "documents\\Adjectius_Pr3.pdf",
+    "documents\\Classificacio_agudes_planes_esdruixoles_sillaba_tonica.mp4",
+    "documents\\Comprensio_Que_hem_entes.pdf",
+    "documents\\Expressio_escrita_Activitat_mail.pdf",
+    "documents\\Expressio_escrita_mail_intro.pdf",
+    "documents\\Lectura_Una_trobada_anguniosa.pdf",
+    "documents\\L_adjectiu.mp4",
+    "documents\\Normes_accentuacio_catala.mp4",
+    "documents\\Paraules_polisemiques_i_homonimes.mp4",
+    "documents\\Polisemia_Mes_exemples.pdf",
+    "documents\\Polisemia_Pr1.pdf",
+    "documents\\Treballem la Polisèmia.pdf"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.931Z"
+}

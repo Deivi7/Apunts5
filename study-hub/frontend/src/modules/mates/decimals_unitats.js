@@ -1,0 +1,406 @@
+import { createModule } from '../createModule.js'
+import {
+  POWER10_MUL,
+  POWER10_DIV,
+  ROUND_DESENA,
+  ROUND_CENTENA,
+  ROUND_MILER,
+  ROUND_ENTER,
+  METRIC_CONVERT,
+  METRIC_RESULT_UNIT,
+  ORDER_LENGTH_ITEMS,
+  ORDER_LENGTH_ORDER,
+  ORDER_CAPACITY_ITEMS,
+  ORDER_CAPACITY_ORDER,
+  DECIMAL_MULT,
+  DIVISION_DECIMAL,
+  DIVISION_CONTEXT,
+  POLYGON_TF,
+  CARTESIAN_MC,
+  DECIMALS_MASTER_QUIZ,
+} from './decimalsUnitatsData.js'
+
+function blanksFromBank(bank, prefix) {
+  return bank.map((item, i) => ({
+    id: `${prefix}${i + 1}`,
+    prompt: item.prompt,
+    answer: item.answer,
+  }))
+}
+
+export default createModule({
+  sections: [],
+  theoryHtml: '',
+  resources: [
+    {
+      title: 'Drive Mates',
+      url: 'https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy',
+    },
+  ],
+  documents: [],
+  exercisesBySection: {
+    potencies10: [
+      {
+        id: 'du-power-lab',
+        type: 'custom',
+        title: 'Laboratori: desplaça la coma',
+        instructions: 'Practica visualment multiplicar i dividir per 10, 100, 1000…',
+        maxScore: 12,
+        config: { xp: 12, component: 'DecimalPowerLab', hideCheck: true },
+        content: { component: 'DecimalPowerLab' },
+      },
+      {
+        id: 'du-power-mul',
+        type: 'fill_blank',
+        title: 'Multiplicacions per potències de 10 (examen)',
+        instructions: 'Mou la coma tants llocs a la dreta com zeros tingui el 10, 100, 1000…',
+        maxScore: POWER10_MUL.length,
+        config: { xp: 20 },
+        content: { blanks: blanksFromBank(POWER10_MUL, 'mul') },
+      },
+      {
+        id: 'du-power-div',
+        type: 'fill_blank',
+        title: 'Divisions per potències de 10 (examen)',
+        instructions: 'Mou la coma a l\'esquerra. Afegeix zeros si cal.',
+        maxScore: POWER10_DIV.length,
+        config: { xp: 20 },
+        content: { blanks: blanksFromBank(POWER10_DIV, 'div') },
+      },
+    ],
+    arrodoniment: [
+      {
+        id: 'du-round-lab',
+        type: 'custom',
+        title: 'Laboratori d\'arrodoniment',
+        maxScore: 12,
+        config: { xp: 12, component: 'RoundingLab', hideCheck: true },
+        content: { component: 'RoundingLab' },
+      },
+      {
+        id: 'du-round-desena',
+        type: 'fill_blank',
+        title: 'A la desena més propera',
+        maxScore: ROUND_DESENA.length,
+        config: { xp: 8 },
+        content: { blanks: blanksFromBank(ROUND_DESENA, 'rd') },
+      },
+      {
+        id: 'du-round-centena',
+        type: 'fill_blank',
+        title: 'A la centena més propera',
+        maxScore: ROUND_CENTENA.length,
+        config: { xp: 12 },
+        content: { blanks: blanksFromBank(ROUND_CENTENA, 'rc') },
+      },
+      {
+        id: 'du-round-miler',
+        type: 'fill_blank',
+        title: 'A la unitat de miler',
+        instructions: 'Compte: 1500 → 2000; 3205 → 3000; 5050 → 5000.',
+        maxScore: ROUND_MILER.length,
+        config: { xp: 12 },
+        content: { blanks: blanksFromBank(ROUND_MILER, 'rm') },
+      },
+      {
+        id: 'du-round-enter',
+        type: 'fill_blank',
+        title: 'Al nombre natural més proper',
+        maxScore: ROUND_ENTER.length,
+        config: { xp: 6 },
+        content: { blanks: blanksFromBank(ROUND_ENTER, 're') },
+      },
+      {
+        id: 'du-round-euros',
+        type: 'multiple_choice',
+        title: 'Problema: 4 arxivadors i 40 €',
+        maxScore: 1,
+        config: { xp: 10 },
+        content: {
+          questions: [
+            {
+              id: 'eu1',
+              prompt: '4 arxivadors a 8,48 €. Si arrodoneixes a 9 €: 4×9=36. Amb 40 €…',
+              options: [
+                'N\'hi ha prou amb seguretat (36 < 40)',
+                'No n\'hi ha prou',
+                'Cal exactament 33,92 € i no es pot estimar',
+              ],
+              correct: 'N\'hi ha prou amb seguretat (36 < 40)',
+            },
+          ],
+        },
+      },
+    ],
+    unitats: [
+      {
+        id: 'du-metric-lab',
+        type: 'custom',
+        title: 'Escalera mètrica',
+        maxScore: 12,
+        config: { xp: 12, component: 'MetricLadderLab', hideCheck: true },
+        content: { component: 'MetricLadderLab' },
+      },
+      {
+        id: 'du-metric-conv',
+        type: 'fill_blank',
+        title: 'Conversió d\'unitats (examen)',
+        maxScore: METRIC_CONVERT.length,
+        config: { xp: 18 },
+        content: { blanks: blanksFromBank(METRIC_CONVERT, 'mc') },
+      },
+      {
+        id: 'du-metric-unit',
+        type: 'multiple_choice',
+        title: 'Quina unitat resulta?',
+        maxScore: METRIC_RESULT_UNIT.length,
+        config: { xp: 12 },
+        content: {
+          questions: METRIC_RESULT_UNIT.map((q, i) => ({
+            id: `mu${i}`,
+            prompt: q.prompt,
+            options: q.options,
+            correct: q.correct,
+          })),
+        },
+      },
+      {
+        id: 'du-order-len',
+        type: 'ordering',
+        title: 'Ordena longituds (creixent)',
+        instructions: 'Tot a metres: 0,04 hm=4 m < 4500 mm=4,5 m < 48 dm=4,8 m < 0,49 dam=4,9 m < 497 cm=4,97 m',
+        maxScore: 5,
+        config: { xp: 12 },
+        content: { items: ORDER_LENGTH_ITEMS, order: ORDER_LENGTH_ORDER },
+      },
+      {
+        id: 'du-order-cap',
+        type: 'ordering',
+        title: 'Ordena capacitats (creixent)',
+        instructions: 'Tot a litres: 3 l < 33 dl=3,3 l < 333 cl=3,33 l < 3333 ml=3,333 l < 0,3 hl=30 l',
+        maxScore: 5,
+        config: { xp: 12 },
+        content: { items: ORDER_CAPACITY_ITEMS, order: ORDER_CAPACITY_ORDER },
+      },
+      {
+        id: 'du-cigrons',
+        type: 'fill_blank',
+        title: 'Problema: massa d\'un cigró',
+        instructions: 'Mig quilo = 500 000 mg i hi ha 862 cigrons. Arrodoneix el quocient.',
+        maxScore: 1,
+        config: { xp: 10 },
+        content: {
+          blanks: [{ id: 'cig', prompt: 'Massa aproximada d\'un cigró (mg)', answer: '580' }],
+        },
+      },
+    ],
+    poligons: [
+      {
+        id: 'du-poly-lab',
+        type: 'custom',
+        title: 'Inspector del trapezi isòsceles',
+        maxScore: 12,
+        config: { xp: 15, component: 'PolygonInspector', hideCheck: true },
+        content: { component: 'PolygonInspector' },
+      },
+      {
+        id: 'du-poly-tf',
+        type: 'true_false',
+        title: 'Polígons: cert o fals',
+        maxScore: POLYGON_TF.length,
+        config: { xp: 10 },
+        content: { items: POLYGON_TF },
+      },
+      {
+        id: 'du-poly-diag',
+        type: 'fill_blank',
+        title: 'Diagonals',
+        maxScore: 2,
+        config: { xp: 8 },
+        content: {
+          blanks: [
+            { id: 'd4', prompt: 'Diagonals d\'un quadrilàter (n=4)', answer: '2' },
+            { id: 'd5', prompt: 'Diagonals d\'un pentàgon (n=5)', answer: '5' },
+          ],
+        },
+      },
+    ],
+    'decimal-natural': [
+      {
+        id: 'du-dmult-lab',
+        type: 'custom',
+        title: 'Laboratori: decimal × natural',
+        maxScore: 12,
+        config: { xp: 12, component: 'DecimalMultLab', hideCheck: true },
+        content: { component: 'DecimalMultLab' },
+      },
+      {
+        id: 'du-dmult-calc',
+        type: 'fill_blank',
+        title: 'Càlculs (examen)',
+        maxScore: DECIMAL_MULT.length,
+        config: { xp: 12 },
+        content: { blanks: blanksFromBank(DECIMAL_MULT, 'dm') },
+      },
+      {
+        id: 'du-listo',
+        type: 'multiple_choice',
+        title: 'Problema del llitó (5 m)',
+        maxScore: 2,
+        config: { xp: 12 },
+        content: {
+          questions: [
+            {
+              id: 'li1',
+              prompt: '4 prestatges de 1,45 m. Quants metres calen?',
+              options: ['4,45 m', '5,80 m', '5 m', '1,45 m'],
+              correct: '5,80 m',
+            },
+            {
+              id: 'li2',
+              prompt: 'Només tens 5 m de llitó. Es poden fer els 4 prestatges?',
+              options: [
+                'Sí, sobren 0,80 m',
+                'No; falten 0,80 m (80 cm)',
+                'Sí, exactament',
+                'No; falten 1,45 m',
+              ],
+              correct: 'No; falten 0,80 m (80 cm)',
+            },
+          ],
+        },
+      },
+    ],
+    daus: [
+      {
+        id: 'du-dice-lab',
+        type: 'custom',
+        title: 'Optimitzador de producte (daus)',
+        instructions: 'Col·loca els 4 dígits per maximitzar (natural) × (decimal).',
+        maxScore: 12,
+        config: { xp: 15, component: 'DigitProductOptimizer', hideCheck: true },
+        content: { component: 'DigitProductOptimizer' },
+      },
+      {
+        id: 'du-dice-mc',
+        type: 'multiple_choice',
+        title: 'Claudi vs Eulàlia (1, 3, 6, 9)',
+        maxScore: 2,
+        config: { xp: 10 },
+        content: {
+          questions: [
+            {
+              id: 'da1',
+              prompt: '91 × 6,3 = ?',
+              options: ['567,9', '573,3', '631', '569'],
+              correct: '573,3',
+            },
+            {
+              id: 'da2',
+              prompt: 'Per què Claudi (91×6,3) guanya Eulàlia (631×0,9)?',
+              options: [
+                'Perquè 0,9 redueix el total i 6,3 l\'amplifica',
+                'Perquè 631 és més petit',
+                'Perquè 91 és més gran que 631',
+                'Perquè els decimals no compten',
+              ],
+              correct: 'Perquè 0,9 redueix el total i 6,3 l\'amplifica',
+            },
+          ],
+        },
+      },
+    ],
+    divisio: [
+      {
+        id: 'du-div-calc',
+        type: 'fill_blank',
+        title: 'Divisions amb decimal exacte',
+        instructions: 'Continua amb zeros després de la coma fins que el residu sigui 0.',
+        maxScore: DIVISION_DECIMAL.length,
+        config: { xp: 12 },
+        content: { blanks: blanksFromBank(DIVISION_DECIMAL, 'dd') },
+      },
+      {
+        id: 'du-div-period',
+        type: 'multiple_choice',
+        title: 'Periodicitat: 106 ÷ 3',
+        maxScore: 1,
+        config: { xp: 8 },
+        content: {
+          questions: [
+            {
+              id: 'per1',
+              prompt: '106 ÷ 3…',
+              options: [
+                'Dóna residu 0 de seguida',
+                'És periòdic (35,333…) perquè 3 ≠ factors 2 o 5',
+                'És 35 exacte',
+                'No es pot dividir',
+              ],
+              correct: 'És periòdic (35,333…) perquè 3 ≠ factors 2 o 5',
+            },
+          ],
+        },
+      },
+      {
+        id: 'du-div-ctx',
+        type: 'multiple_choice',
+        title: '34 ÷ 5 segons el context',
+        maxScore: DIVISION_CONTEXT.length,
+        config: { xp: 15 },
+        content: {
+          questions: DIVISION_CONTEXT.map((q, i) => ({
+            id: `ctx${i}`,
+            prompt: q.prompt,
+            options: q.options,
+            correct: q.correct,
+          })),
+        },
+      },
+    ],
+    cartesia: [
+      {
+        id: 'du-cart-lab',
+        type: 'custom',
+        title: 'Graella carrer / avinguda',
+        maxScore: 12,
+        config: { xp: 15, component: 'CartesianStreetGrid', hideCheck: true },
+        content: { component: 'CartesianStreetGrid' },
+      },
+      {
+        id: 'du-cart-mc',
+        type: 'multiple_choice',
+        title: 'Manhattan: coordenades',
+        maxScore: CARTESIAN_MC.length,
+        config: { xp: 12 },
+        content: {
+          questions: CARTESIAN_MC.map((q, i) => ({
+            id: `car${i}`,
+            prompt: q.prompt,
+            options: q.options,
+            correct: q.correct,
+          })),
+        },
+      },
+    ],
+    repas: [
+      {
+        id: 'du-master',
+        type: 'custom',
+        title: 'Quiz mesclat de repàs',
+        maxScore: 15,
+        config: { xp: 20, component: 'MasterQuiz', hideCheck: true },
+        content: { component: 'MasterQuiz', questions: DECIMALS_MASTER_QUIZ },
+      },
+      {
+        id: 'du-sheet',
+        type: 'custom',
+        title: 'Fitxa imprimible',
+        instructions: 'Genera una fitxa mixta per practicar a paper.',
+        maxScore: 10,
+        config: { xp: 10, component: 'DecimalsUnitatsWorksheet', hideCheck: true },
+        content: { component: 'DecimalsUnitatsWorksheet' },
+      },
+    ],
+  },
+})

@@ -1,0 +1,157 @@
+<div class="section-header">
+                    <div>
+                        <h2 class="section-title"><span>✂️</span> La Síl·laba, Dígrafs & La Síl·laba Tònica</h2>
+                        <p class="section-subtitle">Aprèn a separar correctament les paraules a final de línia, domina els dígrafs i troba la tònica amb el truc del crit.</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <a href="https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>🎬</span> Vídeo Dígrafs a Drive ↗
+                        </a>
+                        <a href="https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>🗣️</span> Vídeo Tònica a Drive ↗
+                        </a>
+                        <a href="https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy" target="_blank" class="btn-drive">
+                            <span>📄</span> Fitxa Pràctica Síl·laba ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VÍDEO 2 DEDICAT: SEPARACIÓ DE SÍL·LABES I DÍGRAFS -->
+                <div class="video-card-full">
+                    <div class="video-header-row">
+                        <div class="video-title-box">
+                            <div class="video-icon-bubble">✂️</div>
+                            <div>
+                                <h4 class="video-title-text">Vídeo: Separació de síl·labes i dígrafs (OK CATALÀ)</h4>
+                                <span class="video-meta-badge">Lliçó en Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-embed-wrap">
+                        <iframe src="https://drive.google.com/file/d/1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- TAULA COMPARATIVA DE DÍGRAFS -->
+                <div class="digraph-comparison-container" style="margin-top: 1.5rem;">
+                    <!-- Separables -->
+                    <div class="digraph-box separable">
+                        <div class="digraph-header">
+                            <span class="digraph-title">✂️ DÍGRAFS SEPARABLES</span>
+                            <span class="digraph-badge sep">Es trenquen</span>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                            Quan tallem una paraula a final de línia, aquests dígrafs <strong>sempre queden separats</strong> entre dues síl·labes diferents:
+                        </p>
+                        <div class="digraph-tag-list">
+                            <span class="digraph-tag"><strong>RR</strong> (car-ro)</span>
+                            <span class="digraph-tag"><strong>SS</strong> (tas-sa)</span>
+                            <span class="digraph-tag"><strong>L·L</strong> (col-le-gi)</span>
+                            <span class="digraph-tag"><strong>TX</strong> (cot-xe)</span>
+                            <span class="digraph-tag"><strong>TJ</strong> (plat-ja)</span>
+                            <span class="digraph-tag"><strong>TG</strong> (met-ge)</span>
+                        </div>
+                    </div>
+
+                    <!-- Inseparables -->
+                    <div class="digraph-box inseparable">
+                        <div class="digraph-header">
+                            <span class="digraph-title">🔒 DÍGRAFS INSEPARABLES</span>
+                            <span class="digraph-badge insep">Sempre junts</span>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+                            Aquests dígrafs representen un únic so i <strong>mai es poden separar</strong> a final de línia; van sempre a la mateixa síl·laba:
+                        </p>
+                        <div class="digraph-tag-list">
+                            <span class="digraph-tag"><strong>LL</strong> (lla-pis)</span>
+                            <span class="digraph-tag"><strong>NY</strong> (mun-ta-nya)</span>
+                            <span class="digraph-tag"><strong>QU</strong> (pa-quet)</span>
+                            <span class="digraph-tag"><strong>GU</strong> (gui-tar-ra)</span>
+                            <span class="digraph-tag"><strong>IG</strong> (lleig)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXERCICI 4.1: LABORATORI DE SEPARACIÓ DE DÍGRAFS -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🧩</span> 4.1 Laboratori: Separa les Paraules amb Dígrafs</h3>
+                        <span class="nav-stat-pill" id="digraph-score-badge">Encerts: 0 / 12</span>
+                    </div>
+                    <p class="section-subtitle">Tria la partició sil·làbica correcta per a cadascuna de les 12 paraules oficials de 5è:</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;" id="syllable-tester-list"></div>
+                </div>
+
+                <!-- EXERCICI 4.2: CLASSIFICADOR RÀPID DE DÍGRAFS (SEPARABLE O INSEPARABLE?) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>✂️</span> 4.2 Classificador Ràpid: Separable o Inseparable?</h3>
+                        <span class="nav-stat-pill" id="digraph-quick-badge">Encerts: 0 / 8</span>
+                    </div>
+                    <p class="section-subtitle">Mira cada dígraf i fes clic per indicar si es pot trencar a final de línia o ha d'anar sempre junt:</p>
+                    <div id="digraph-classify-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin-top: 1rem;"></div>
+                </div>
+
+                <!-- EXERCICI 4.3: COMPTADOR DE SÍL·LABES (MONOSÍL·LABES A POLISÍL·LABES) -->
+                <div class="exercise-subpanel">
+                    <div class="exercise-subpanel-header">
+                        <h3 class="exercise-subpanel-title"><span>🔢</span> 4.3 Quantes Síl·labes Té? (Comptador Sil·làbic)</h3>
+                        <span class="nav-stat-pill" id="syllable-count-badge">Encerts: 0 / 6</span>
+                    </div>
+                    <p class="section-subtitle">Pronuncia la paraula fent cops de veu i tria el nombre exacte de síl·labes (monosíl·laba, bisíl·laba, trisíl·laba o polisíl·laba):</p>
+                    <div id="syllable-count-container" style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;"></div>
+                </div>
+
+                <!-- =======================================================
+                     SECCIÓ: LA SÍL·LABA TÒNICA & EL TRUC DEL CRIT
+                     ======================================================= -->
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--border-color);">
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title"><span>🗣️</span> La Síl·laba Tònica & El Truc del Crit</h3>
+                            <p class="section-subtitle">Aprèn a identificar amb precisió quina síl·laba té la força de la paraula i si és Aguda, Plana o Esdrúixola!</p>
+                        </div>
+                    </div>
+
+                    <!-- VÍDEO 3 DEDICAT: LA SÍL·LABA TÒNICA -->
+                    <div class="video-card-full">
+                        <div class="video-header-row">
+                            <div class="video-title-box">
+                                <div class="video-icon-bubble">🗣️</div>
+                                <div>
+                                    <h4 class="video-title-text">Vídeo: La síl·laba tònica 🗣️ Com identificar-la fàcilment (OK CATALÀ)</h4>
+                                    <span class="video-meta-badge">Lliçó en Vídeo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-embed-wrap">
+                            <iframe src="https://drive.google.com/file/d/1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI/preview" allow="autoplay" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- TRUC DEL CRIT EXPLICACIÓ -->
+                    <div class="trick-box">
+                        <div class="trick-title"><span>📢</span> El Truc Màgic d'OK CATALÀ: "Cridar des de Lluny"</div>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--text-main);">
+                            Quan no sàpigues quina síl·laba és la tònica, <strong>imagina que crides la paraula a algú que està a l'altra punta del carrer</strong>:
+                            <br>• Si crides <em>"CAMEEELL!"</em>, de manera natural allargues <strong>MELL</strong> (és plana).
+                            <br>• Si crides <em>"FINESSS-TRA!"</em>, allargues <strong>NES</strong> (és plana).
+                            <br>• Si crides <em>"CAMI-ÓÓÓ!"</em>, allargues <strong>Ó</strong> (és aguda).
+                            <br>La síl·laba que allargues és <strong>sempre la tònica</strong>! Les altres que sonen suaus són <strong>àtones</strong>.
+                        </p>
+                    </div>
+
+                    <!-- EXERCICI 4.4 AMPLIAT: TROBA LA SÍL·LABA TÒNICA I EL SEU TIPUS -->
+                    <div class="exercise-subpanel">
+                        <div class="exercise-subpanel-header">
+                            <h4 class="exercise-subpanel-title">
+                                <span>🎯</span> 4.4 Repte en Viu: Fes Clic sobre la Síl·laba TÒNICA (12 Paraules)
+                            </h4>
+                            <span class="nav-stat-pill" id="tonica-score-badge">Encerts: 0 / 12</span>
+                        </div>
+                        <p class="section-subtitle">
+                            Pensa en el "Truc del Crit", fes clic a la síl·laba que porta la corona de la veu i comprova si és Aguda, Plana o Esdrúixola:
+                        </p>
+                        <div id="tonica-game-container" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+                    </div>
+                </div>

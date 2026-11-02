@@ -1,0 +1,16 @@
+/** Mapa vueModule → import dinámico del CSS del tema (estilos originales). */
+export const topicStyleLoaders = {
+  'castellano/comunicacion': () => import('./castellano/comunicacion.css'),
+  'castellano/signo_puntuacion': () => import('./castellano/signo_puntuacion.css'),
+  'castellano/tema2': () => import('./castellano/tema2.css'),
+  'catala/sant_baldiri': () => import('./catala/sant_baldiri.css'),
+  'catala/posat_a_prova_1': () => import('./catala/posat_a_prova_1.css'),
+  'catala/tema2': () => import('./catala/tema2.css'),
+  'curie/wordslist': () => import('./curie/wordslist.css'),
+  'mates/operaciones': () => import('./mates/operaciones.css'),
+  'mates/romanos': () => import('./mates/romanos.css'),
+  'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.css'),
+  'mates/decimals_unitats': () => import('./mates/decimals_unitats.css'),
+  'projecte/coordenadas': () => import('./projecte/coordenadas.css'),
+  'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.css'),
+}

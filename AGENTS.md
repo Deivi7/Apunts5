@@ -2,6 +2,12 @@
 
 Este archivo define las instrucciones permanentes del proyecto. Cada vez que interactúes con este repositorio, debes cumplir estrictamente con las decisiones acordadas con el usuario (documentadas también en `DECISIONES.md`):
 
+## 0. Plataforma Vue (`study-hub/`)
+- La evolución multi-etapa vive en `study-hub/` (Vue 3 + Vite). El hub HTML legacy en la raíz se conserva hasta validar cada módulo migrado.
+- Modo local: sin login y **sin persistir** XP/notas/intentos (solo memoria). Preferencias UI sí pueden persistir.
+- SQL v1 del backend: MySQL + MariaDB. Contratos compartidos con Zod en `study-hub/shared/`.
+- Documentación de arquitectura: `docs/ARQUITECTURA.md` y `docs/AUDITORIA_PROYECTO.md`.
+
 ## 1. Tipos de Ejercicios Adaptados a la Materia
 - **No forzar una plantilla única:** No todos los módulos HTML deben tener los mismos tipos de ejercicios.
 - Implementa los tipos de ejercicios más adecuados para cada materia:

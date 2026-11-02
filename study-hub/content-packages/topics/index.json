@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-01T13:07:59.932Z",
+  "topics": [
+    {
+      "key": "castellano/comunicacion",
+      "subjectId": "castellano",
+      "topicId": "comunicacion",
+      "sections": 9,
+      "resources": 16,
+      "documents": 3,
+      "hasTheory": true
+    },
+    {
+      "key": "castellano/signo_puntuacion",
+      "subjectId": "castellano",
+      "topicId": "signo_puntuacion",
+      "sections": 8,
+      "resources": 12,
+      "documents": 7,
+      "hasTheory": true
+    },
+    {
+      "key": "castellano/tema2",
+      "subjectId": "castellano",
+      "topicId": "tema2",
+      "sections": 8,
+      "resources": 0,
+      "documents": 8,
+      "hasTheory": true
+    },
+    {
+      "key": "curie/wordslist",
+      "subjectId": "curie",
+      "topicId": "wordslist",
+      "sections": 6,
+      "resources": 0,
+      "documents": 1,
+      "hasTheory": false
+    },
+    {
+      "key": "mates/operaciones",
+      "subjectId": "mates",
+      "topicId": "operaciones",
+      "sections": 8,
+      "resources": 0,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
+      "key": "mates/romanos",
+      "subjectId": "mates",
+      "topicId": "romanos",
+      "sections": 7,
+      "resources": 0,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
+      "key": "mates/posat_a_prova_1",
+      "subjectId": "mates",
+      "topicId": "posat_a_prova_1",
+      "sections": 4,
+      "resources": 0,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
+      "key": "projecte/coordenadas",
+      "subjectId": "projecte",
+      "topicId": "coordenadas",
+      "sections": 6,
+      "resources": 6,
+      "documents": 4,
+      "hasTheory": true
+    },
+    {
+      "key": "projecte/pasdeltemps",
+      "subjectId": "projecte",
+      "topicId": "pasdeltemps",
+      "sections": 6,
+      "resources": 0,
+      "documents": 5,
+      "hasTheory": true
+    },
+    {
+      "key": "catala/sant_baldiri",
+      "subjectId": "catala",
+      "topicId": "sant_baldiri",
+      "sections": 8,
+      "resources": 17,
+      "documents": 11,
+      "hasTheory": true
+    },
+    {
+      "key": "catala/posat_a_prova_1",
+      "subjectId": "catala",
+      "topicId": "posat_a_prova_1",
+      "sections": 4,
+      "resources": 0,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
+      "key": "catala/tema2",
+      "subjectId": "catala",
+      "topicId": "tema2",
+      "sections": 8,
+      "resources": 0,
+      "documents": 12,
+      "hasTheory": true
+    }
+  ]
+}

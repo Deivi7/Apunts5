@@ -1,0 +1,38 @@
+<div class="section-header">
+                    <div>
+                        <h2 class="section-title"><span>✍️</span> Taller d'Expressió Escrita: Expectatives de Curs</h2>
+                        <p class="section-subtitle">Redacta el teu text sobre com encares el curs de 5è a l'escola seguint la pauta oficial.</p>
+                    </div>
+                    <a href="https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy" target="_blank" class="btn-drive">
+                        <span>📄</span> Pauta Oficial a Drive ↗
+                    </a>
+                </div>
+
+                <div class="writing-tips-card">
+                    <div style="font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+                        📋 Pautes per a una Redacció Excel·lent:
+                    </div>
+                    <ul style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-left: 1.25rem;">
+                        <li><strong>1. Introducció:</strong> Com et sents en començar 5è? Què recordes de l'estiu?</li>
+                        <li><strong>2. Desenvolupament:</strong> Quines matèries o activitats et fan més il·lusió aquest any? Quins amics o mestres t'acompanyen?</li>
+                        <li><strong>3. Conclusió:</strong> Quin és el teu gran objectiu per a aquest nou curs?</li>
+                        <li><strong>4. Ortografia & Puntuació:</strong> Revisa punts, comes, dígrafs (<em>rr, ss, l·l, tx</em>) i accents tònics.</li>
+                    </ul>
+                </div>
+
+                <div class="writing-workshop-card">
+                    <div class="writing-editor-header">
+                        <span style="font-weight: 800; font-size: 0.95rem;">📝 El meu esborrany de redacció</span>
+                        <div class="writing-counters">
+                            <span>Paraules: <strong id="word-count">0</strong></span>
+                            <span>Caràcters: <strong id="char-count">0</strong></span>
+                        </div>
+                    </div>
+                    <textarea class="writing-textarea" id="writing-area" placeholder="Escriu aquí el teu text sobre les teves expectatives per a 5è de primària..." oninput="handleWritingInput()"></textarea>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <button class="btn-primary" onclick="saveDraft()">
+                            <span>💾</span> Guardar Esborrany
+                        </button>
+                        <span id="draft-save-status" style="font-size: 0.82rem; color: var(--text-muted);"></span>
+                    </div>
+                </div>

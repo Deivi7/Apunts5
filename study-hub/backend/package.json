@@ -1,0 +1,21 @@
+{
+  "name": "@study-hub/backend",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node src/scripts/migrate.js",
+    "seed": "node src/scripts/seed.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.1",
+    "@study-hub/shared": "*",
+    "argon2": "^0.45.1",
+    "dotenv": "^16.4.7",
+    "hono": "^4.7.4",
+    "mysql2": "^3.14.0",
+    "zod": "^3.24.2"
+  }
+}

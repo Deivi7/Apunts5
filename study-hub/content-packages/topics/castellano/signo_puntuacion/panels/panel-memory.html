@@ -1,0 +1,26 @@
+<div class="section-header">
+                <div>
+                    <h2 class="section-title"><span>🧩</span> Minijuego: Empareja Signo y Regla</h2>
+                    <p class="section-subtitle">Encuentra cada pareja: el signo de puntuación con su regla de oro o caso de uso.</p>
+                </div>
+                <button class="btn-primary" onclick="initMemoryGame()">
+                    <span>🔄</span> Nueva Partida
+                </button>
+            </div>
+
+            <div class="game-controls">
+                <div class="game-stat-box">
+                    <span>⏱️ Tiempo:</span>
+                    <span id="memory-timer" class="game-stat-val">00:00</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>🎯 Intentos:</span>
+                    <span id="memory-moves" class="game-stat-val">0</span>
+                </div>
+                <div class="game-stat-box">
+                    <span>✨ Parejas:</span>
+                    <span id="memory-pairs" class="game-stat-val">0 / 6</span>
+                </div>
+            </div>
+
+            <div id="memory-board" class="memory-grid"></div>

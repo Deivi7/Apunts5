@@ -1,0 +1,459 @@
+{
+  "castellano/comunicacion": {
+    "icons": {
+      "comunicacion": "📖",
+      "datealpie": "🛼",
+      "situaciones": "🎮",
+      "diccionario": "🔍",
+      "tipos_dicc": "🎡",
+      "alfabetico": "🔤",
+      "comic": "🎨",
+      "quiz": "🏆",
+      "recursos": "📋"
+    },
+    "sections": [
+      {
+        "id": "comunicacion",
+        "icon": "📖"
+      },
+      {
+        "id": "datealpie",
+        "icon": "🛼"
+      },
+      {
+        "id": "situaciones",
+        "icon": "🎮"
+      },
+      {
+        "id": "diccionario",
+        "icon": "🔍"
+      },
+      {
+        "id": "tipos_dicc",
+        "icon": "🎡"
+      },
+      {
+        "id": "alfabetico",
+        "icon": "🔤"
+      },
+      {
+        "id": "comic",
+        "icon": "🎨"
+      },
+      {
+        "id": "quiz",
+        "icon": "🏆"
+      },
+      {
+        "id": "recursos",
+        "icon": "📋"
+      }
+    ]
+  },
+  "castellano/signo_puntuacion": {
+    "icons": {
+      "apuntes": "📖",
+      "flashcards": "🎴",
+      "memory": "🧩",
+      "workshop": "✍️",
+      "sorter": "🎯",
+      "quiz": "🔘",
+      "cheatsheet": "📋",
+      "docs": "📁"
+    },
+    "sections": [
+      {
+        "id": "apuntes",
+        "icon": "📖"
+      },
+      {
+        "id": "flashcards",
+        "icon": "🎴"
+      },
+      {
+        "id": "memory",
+        "icon": "🧩"
+      },
+      {
+        "id": "workshop",
+        "icon": "✍️"
+      },
+      {
+        "id": "sorter",
+        "icon": "🎯"
+      },
+      {
+        "id": "quiz",
+        "icon": "🔘"
+      },
+      {
+        "id": "cheatsheet",
+        "icon": "📋"
+      },
+      {
+        "id": "docs",
+        "icon": "📁"
+      }
+    ]
+  },
+  "castellano/tema2": {
+    "icons": {
+      "apuntes": "📖",
+      "lectura": "📚",
+      "vocabulario": "💡",
+      "verbo": "⚙️",
+      "acentuacion": "✍️",
+      "taller": "🚀",
+      "quiz": "🏆",
+      "documentos": "📂"
+    },
+    "sections": [
+      {
+        "id": "apuntes",
+        "icon": "📖"
+      },
+      {
+        "id": "lectura",
+        "icon": "📚"
+      },
+      {
+        "id": "vocabulario",
+        "icon": "💡"
+      },
+      {
+        "id": "verbo",
+        "icon": "⚙️"
+      },
+      {
+        "id": "acentuacion",
+        "icon": "✍️"
+      },
+      {
+        "id": "taller",
+        "icon": "🚀"
+      },
+      {
+        "id": "quiz",
+        "icon": "🏆"
+      },
+      {
+        "id": "documentos",
+        "icon": "📂"
+      }
+    ]
+  },
+  "curie/wordslist": {
+    "icons": {
+      "flashcards": "🎴",
+      "memory": "🧩",
+      "quiz": "🔘",
+      "spelling": "✍️",
+      "sorter": "🎯",
+      "cheatsheet": "📋"
+    },
+    "sections": [
+      {
+        "id": "flashcards",
+        "icon": "🎴"
+      },
+      {
+        "id": "memory",
+        "icon": "🧩"
+      },
+      {
+        "id": "quiz",
+        "icon": "🔘"
+      },
+      {
+        "id": "spelling",
+        "icon": "✍️"
+      },
+      {
+        "id": "sorter",
+        "icon": "🎯"
+      },
+      {
+        "id": "cheatsheet",
+        "icon": "📋"
+      }
+    ]
+  },
+  "mates/operaciones": {
+    "icons": {
+      "apuntes": "📖",
+      "sprint": "⚡",
+      "multiplication": "✖️",
+      "division": "➗",
+      "worksheet": "📄",
+      "parentheses": "🧩",
+      "problems": "📖",
+      "cheatsheet": "💡"
+    },
+    "sections": [
+      {
+        "id": "apuntes",
+        "icon": "📖"
+      },
+      {
+        "id": "sprint",
+        "icon": "⚡"
+      },
+      {
+        "id": "multiplication",
+        "icon": "✖️"
+      },
+      {
+        "id": "division",
+        "icon": "➗"
+      },
+      {
+        "id": "worksheet",
+        "icon": "📄"
+      },
+      {
+        "id": "parentheses",
+        "icon": "🧩"
+      },
+      {
+        "id": "problems",
+        "icon": "📖"
+      },
+      {
+        "id": "cheatsheet",
+        "icon": "💡"
+      }
+    ]
+  },
+  "mates/romanos": {
+    "icons": {},
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "icon": null
+      },
+      {
+        "id": "tab-conversor",
+        "icon": null
+      },
+      {
+        "id": "tab-practica",
+        "icon": null
+      },
+      {
+        "id": "tab-detective",
+        "icon": null
+      },
+      {
+        "id": "tab-siglos",
+        "icon": null
+      },
+      {
+        "id": "tab-coliseo",
+        "icon": null
+      },
+      {
+        "id": "tab-print",
+        "icon": null
+      }
+    ]
+  },
+  "mates/posat_a_prova_1": {
+    "icons": {},
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "icon": null
+      },
+      {
+        "id": "tab-examen",
+        "icon": null
+      },
+      {
+        "id": "tab-pro",
+        "icon": null
+      },
+      {
+        "id": "tab-generator",
+        "icon": null
+      }
+    ]
+  },
+  "projecte/coordenadas": {
+    "icons": {
+      "teoria": "📖",
+      "radar": "🚀",
+      "mapa-punts": "🗺️",
+      "llegendaris": "⚡",
+      "test": "🏆",
+      "fitxes": "📥"
+    },
+    "sections": [
+      {
+        "id": "teoria",
+        "icon": "📖"
+      },
+      {
+        "id": "radar",
+        "icon": "🚀"
+      },
+      {
+        "id": "mapa-punts",
+        "icon": "🗺️"
+      },
+      {
+        "id": "llegendaris",
+        "icon": "⚡"
+      },
+      {
+        "id": "test",
+        "icon": "🏆"
+      },
+      {
+        "id": "fitxes",
+        "icon": "📥"
+      }
+    ]
+  },
+  "projecte/pasdeltemps": {
+    "icons": {},
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "icon": null
+      },
+      {
+        "id": "tab-romans",
+        "icon": null
+      },
+      {
+        "id": "tab-segles",
+        "icon": null
+      },
+      {
+        "id": "tab-edats-h5p",
+        "icon": null
+      },
+      {
+        "id": "tab-peninsula",
+        "icon": null
+      },
+      {
+        "id": "tab-documents",
+        "icon": null
+      }
+    ]
+  },
+  "catala/sant_baldiri": {
+    "icons": {
+      "apunts": "📖",
+      "lectura": "🏫",
+      "sinonims": "🔄",
+      "digrafs": "✂️",
+      "elnom": "🏷️",
+      "expressio": "✍️",
+      "quiz": "🏆",
+      "fitxes": "📥"
+    },
+    "sections": [
+      {
+        "id": "apunts",
+        "icon": "📖"
+      },
+      {
+        "id": "lectura",
+        "icon": "🏫"
+      },
+      {
+        "id": "sinonims",
+        "icon": "🔄"
+      },
+      {
+        "id": "digrafs",
+        "icon": "✂️"
+      },
+      {
+        "id": "elnom",
+        "icon": "🏷️"
+      },
+      {
+        "id": "expressio",
+        "icon": "✍️"
+      },
+      {
+        "id": "quiz",
+        "icon": "🏆"
+      },
+      {
+        "id": "fitxes",
+        "icon": "📥"
+      }
+    ]
+  },
+  "catala/posat_a_prova_1": {
+    "icons": {},
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "icon": null
+      },
+      {
+        "id": "tab-examen",
+        "icon": null
+      },
+      {
+        "id": "tab-pro",
+        "icon": null
+      },
+      {
+        "id": "tab-generator",
+        "icon": null
+      }
+    ]
+  },
+  "catala/tema2": {
+    "icons": {
+      "apunts": "📖",
+      "lectura": "🎬",
+      "polisemia": "🧩",
+      "accentuacio": "✍️",
+      "adjectiu": "🏷️",
+      "mail": "✉️",
+      "quiz": "🏆",
+      "documents": "📂"
+    },
+    "sections": [
+      {
+        "id": "apunts",
+        "icon": "📖"
+      },
+      {
+        "id": "lectura",
+        "icon": "🎬"
+      },
+      {
+        "id": "polisemia",
+        "icon": "🧩"
+      },
+      {
+        "id": "accentuacio",
+        "icon": "✍️"
+      },
+      {
+        "id": "adjectiu",
+        "icon": "🏷️"
+      },
+      {
+        "id": "mail",
+        "icon": "✉️"
+      },
+      {
+        "id": "quiz",
+        "icon": "🏆"
+      },
+      {
+        "id": "documents",
+        "icon": "📂"
+      }
+    ]
+  }
+}

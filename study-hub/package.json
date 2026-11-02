@@ -1,0 +1,24 @@
+{
+  "name": "study-hub",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w frontend",
+    "dev:backend": "npm run dev -w backend",
+    "build": "npm run build -w frontend",
+    "preview": "npm run preview -w frontend",
+    "pages:prepare": "node scripts/prepare-pages.mjs",
+    "migrate:content": "node scripts/migrate-legacy-content.mjs",
+    "content:audit": "node scripts/audit-content-coverage.mjs",
+    "prune:panels": "node scripts/prune-dead-panels.mjs"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "argon2@0.45.1": true
+  }
+}

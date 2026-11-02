@@ -1,0 +1,68 @@
+# Extracción Completa de Genially e Implementación de Módulo — [Asignatura] Tema [X]
+
+## Objetivo
+Analiza la presentación de Genially indicada, extrae todos sus materiales (documentos, vídeos, enlaces y ejercicios interactivos) y construye de forma autónoma y completa el nuevo módulo didáctico siguiendo estrictamente las directrices del proyecto en `AGENTS.md`.
+
+**Asignatura:** [Ej: Castellano / Catala / Mates]
+**Nombre del Tema:** [Ej: Tema 2 - El Pas del Temps / L'Adjectiu]
+**Carpeta de destino:** `[asignatura]/tema[X]/` (ej: `castellano/tema2/`)
+**URL del Genially:** `PEGA_AQUÍ_LA_URL_DEL_GENIALLY`
+
+---
+
+## FASE 1: Extracción Rápida y Eficiente de Genially (Sin llamadas redundantes)
+1. **Extracción directa de datos:** Inspecciona el código fuente o el objeto JSON embebido de la presentación (ej. scripts con datos de diapositivas, URLs de recursos o endpoints de la API de Genially) para obtener todas las pantallas, textos y enlaces de una sola vez, evitando recorrer la presentación clic a clic en el navegador a menos que sea estrictamente necesario.
+2. **Inventario exhaustivo de enlaces externos:** Detecta todos los enlaces a Google Drive, vídeos (YouTube/Drive/Vimeo) y actividades interactivas (Wordwall, Enxaneta, Educaplay, Liveworksheets, etc.).
+
+---
+
+## FASE 2: Descarga Inteligente de Archivos a `documents/`
+Para cada documento o vídeo detectado:
+1. **Conversión de enlaces Drive:** Convierte automáticamente los enlaces de visualización `/view` a descarga directa (`https://drive.google.com/uc?export=download&id=FILE_ID`).
+2. **Validación real de archivo:**
+   - Comprueba que la respuesta NO sea HTML (páginas de inicio de sesión, advertencias de virus o vistas previas de Google Drive).
+   - Verifica los primeros bytes (*magic bytes* como `%PDF-`) o el `Content-Type`.
+   - Asigna siempre la extensión de archivo correcta (`.pdf`, `.mp4`, etc.).
+3. **Corte rápido si no es público:** Si el archivo requiere permisos de acceso, contraseña o devuelve un HTML de error, **NO gastes llamadas ni reintentes**. Clasifícalo de inmediato como `PENDIENTE DE DESCARGA MANUAL`.
+4. **Almacenamiento:** Guarda los archivos descargados correctamente en `[asignatura]/tema[X]/documents/`.
+
+---
+
+## FASE 3: Extracción al 100% de Ejercicios Externos (Cero truncado)
+Para cada web externa de ejercicios detectada:
+1. **Extracción total:** NO te limites a una muestra de 5 preguntas. Extrae el **100% de los ejercicios o palabras** accediendo a sus fuentes de datos (ej. el JSON en Nova Enxaneta `JSON_activitat.php?aid=...`, los arrays en el HTML/scripts de Wordwall o los ítems de Educaplay).
+2. **Recreación interactiva nativa:** Recrea estos ejercicios al 100% dentro del código de `Apuntes.html` con botones de validación inmediata, teclado virtual de signos/tildes en pantalla si la materia lo requiere, mensajes formativos de acierto/error y gamificación con puntos XP.
+
+---
+
+## FASE 4: Construcción del Módulo Web según `AGENTS.md`
+Crea de una sola vez los archivos del tema reutilizando la arquitectura del proyecto:
+1. **Archivos desacoplados:**
+   - HTML: `[asignatura]/tema[X]/Apuntes.html`.
+   - CSS: `[asignatura]/tema[X]/Apuntes.css` (prohibido CSS embebido masivo).
+   - Enlace obligatorio al núcleo global: `<link rel="stylesheet" href="../../assets/css/common.css">`.
+2. **Idioma:** Redacta toda la interfaz, teoría y ejercicios en el mismo idioma de los apuntes de clase de la materia.
+3. **Estructura Didáctica Obligatoria (para niños de 5º de Primaria - 10-11 años):**
+   - *¿Qué es y para qué sirve?* (lenguaje cercano y visual).
+   - *Reglas y pasos clave.*
+   - *Ejemplos Bien vs. Mal* (errores típicos de examen).
+   - *Truco del profe* (reglas mnemotécnicas).
+   - *Resumen visual en 1 minuto*.
+4. **Componentes del Módulo:**
+   - Header unificado con regreso al portal, contador de XP, sonido y toggle oscuro/claro.
+   - Hero banner temático.
+   - Sidebar adhesiva con badges dinámicos de retos por pestaña.
+   - Estantería de documentos con botones duales (`Local` para archivos descargados y `Drive` para enlaces oficiales).
+   - Taller o simulador práctico adaptado al tema.
+   - Test de Autoavaluació Master (10 preguntas tipo test con puntuación y XP).
+5. **Registro en el Portal Central:** Añade el nuevo tema al array `topics: [...]` de esa asignatura en `index.html`.
+
+---
+
+## ENTREGABLES FINALES REQUERIDOS
+Al terminar, entrega un informe conciso con:
+1. **Tabla de Documentos Pendientes de Descarga Manual** (si los hay), con:
+   - Nombre sugerido para el archivo (con extensión `.pdf` o `.mp4`).
+   - Apartado del tema al que pertenece.
+   - Enlace directo a Google Drive / Web para que yo solo tenga que abrirlo y guardarlo en `documents/`.
+2. **Resumen del módulo creado:** Pestañas implementadas, número total de ejercicios integrados y comprobación de que el módulo funciona en el navegador y está listo para estudiar.

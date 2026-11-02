@@ -1,0 +1,894 @@
+[
+  {
+    "key": "castellano/comunicacion",
+    "sectionIds": [
+      "comunicacion",
+      "datealpie",
+      "situaciones",
+      "diccionario",
+      "tipos_dicc",
+      "alfabetico",
+      "comic",
+      "quiz",
+      "recursos"
+    ],
+    "panelIds": [
+      "panel-comunicacion",
+      "panel-datealpie",
+      "panel-situaciones",
+      "panel-diccionario",
+      "panel-tipos_dicc",
+      "panel-alfabetico",
+      "panel-comic",
+      "panel-quiz",
+      "panel-recursos"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "panel-alfabetico": 2018,
+      "panel-comic": 1620,
+      "panel-comunicacion": 18736,
+      "panel-datealpie": 10713,
+      "panel-diccionario": 4531,
+      "panel-quiz": 673,
+      "panel-recursos": 11985,
+      "panel-situaciones": 1250,
+      "panel-tipos_dicc": 5021
+    },
+    "theoryLen": 18121,
+    "resources": 16,
+    "documents": 3,
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "comunicacion",
+      "datealpie",
+      "situaciones",
+      "diccionario",
+      "tipos_dicc",
+      "alfabetico",
+      "comic",
+      "quiz"
+    ],
+    "customComponents": [
+      "CircuitExplorer",
+      "CircuitExplorer",
+      "SituationsLab",
+      "SituationsLab",
+      "RaeSimulator",
+      "RaeSimulator",
+      "AbbreviationLab",
+      "AbbreviationLab",
+      "DictTypesLab",
+      "DictTypesLab",
+      "AlphaOrderLab",
+      "AlphaOrderLab",
+      "ComicWorkshop",
+      "ComicWorkshop",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 101,
+      "checkFns": 6,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "total": 110
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "castellano/signo_puntuacion",
+    "sectionIds": [
+      "apuntes",
+      "flashcards",
+      "memory",
+      "workshop",
+      "sorter",
+      "quiz",
+      "cheatsheet",
+      "docs"
+    ],
+    "panelIds": [
+      "panel-apuntes",
+      "panel-flashcards",
+      "panel-memory",
+      "panel-quiz",
+      "panel-workshop",
+      "panel-sorter",
+      "panel-cheatsheet",
+      "panel-docs"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "panel-apuntes": 15953,
+      "panel-cheatsheet": 7605,
+      "panel-docs": 8662,
+      "panel-flashcards": 359,
+      "panel-memory": 1178,
+      "panel-quiz": 299,
+      "panel-sorter": 311,
+      "panel-workshop": 777
+    },
+    "theoryLen": 15376,
+    "resources": 12,
+    "documents": 7,
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "flashcards",
+      "memory",
+      "workshop",
+      "sorter",
+      "quiz"
+    ],
+    "customComponents": [
+      "FlashcardsSpeak",
+      "FlashcardsSpeak",
+      "PunctuationWorkshop",
+      "PunctuationWorkshop",
+      "AlphaOrderLab",
+      "AlphaOrderLab",
+      "PunctuationSorter",
+      "PunctuationSorter",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 65,
+      "checkFns": 3,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "total": 71
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "castellano/tema2",
+    "sectionIds": [
+      "apuntes",
+      "lectura",
+      "vocabulario",
+      "verbo",
+      "acentuacion",
+      "taller",
+      "quiz",
+      "documentos"
+    ],
+    "panelIds": [
+      "tab-apuntes",
+      "tab-lectura",
+      "tab-vocabulario",
+      "tab-verbo",
+      "tab-acentuacion",
+      "tab-taller",
+      "tab-quiz",
+      "tab-documentos"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-acentuacion": 275,
+      "tab-apuntes": 16038,
+      "tab-documentos": 11831,
+      "tab-lectura": 6303,
+      "tab-quiz": 247,
+      "tab-taller": 257,
+      "tab-verbo": 284,
+      "tab-vocabulario": 258
+    },
+    "theoryLen": 15844,
+    "resources": 0,
+    "documents": 8,
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "lectura",
+      "vocabulario",
+      "verbo",
+      "acentuacion",
+      "taller",
+      "quiz"
+    ],
+    "customComponents": [
+      "VerbLab",
+      "VerbLab",
+      "DragClassify",
+      "DragClassify",
+      "SpaceMissionLab",
+      "SpaceMissionLab",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 64,
+      "checkFns": 13,
+      "canvas": 0,
+      "inputs": 25,
+      "selects": 0,
+      "total": 102
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "curie/wordslist",
+    "sectionIds": [
+      "theory",
+      "flashcards",
+      "memory",
+      "quiz",
+      "spelling",
+      "sorter",
+      "cheatsheet"
+    ],
+    "panelIds": [
+      "panel-flashcards",
+      "panel-memory",
+      "panel-quiz",
+      "panel-spelling",
+      "panel-sorter",
+      "panel-cheatsheet"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "panel-cheatsheet": 2942,
+      "panel-flashcards": 364,
+      "panel-memory": 257,
+      "panel-quiz": 287,
+      "panel-sorter": 276,
+      "panel-spelling": 266
+    },
+    "theoryLen": 857,
+    "resources": 0,
+    "documents": 1,
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "flashcards",
+      "memory",
+      "quiz",
+      "spelling",
+      "sorter",
+      "cheatsheet"
+    ],
+    "customComponents": [
+      "FlashcardsSpeak",
+      "FlashcardsSpeak",
+      "CategorySorterTimed",
+      "CategorySorterTimed"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 40,
+      "checkFns": 2,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "total": 45
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "mates/operaciones",
+    "sectionIds": [
+      "apuntes",
+      "sprint",
+      "multiplication",
+      "division",
+      "worksheet",
+      "parentheses",
+      "problems",
+      "cheatsheet"
+    ],
+    "panelIds": [
+      "view-apuntes",
+      "view-sprint",
+      "view-multiplication",
+      "view-division",
+      "view-worksheet",
+      "view-parentheses",
+      "view-problems",
+      "view-cheatsheet"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "view-apuntes": 5838,
+      "view-cheatsheet": 3767,
+      "view-division": 275,
+      "view-multiplication": 272,
+      "view-parentheses": 256,
+      "view-problems": 278,
+      "view-sprint": 284,
+      "view-worksheet": 281
+    },
+    "theoryLen": 5759,
+    "resources": 0,
+    "documents": 0,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "sprint",
+      "multiplication",
+      "division",
+      "worksheet",
+      "parentheses",
+      "problems",
+      "cheatsheet"
+    ],
+    "customComponents": [
+      "MentalSprint",
+      "MentalSprint",
+      "MultiplicationBoard",
+      "MultiplicationBoard",
+      "DivisionBoard",
+      "DivisionBoard",
+      "PracticeWorksheet",
+      "PracticeWorksheet",
+      "PemdasGenerator",
+      "PemdasGenerator",
+      "ProblemsLab",
+      "ProblemsLab"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 88,
+      "checkFns": 4,
+      "canvas": 0,
+      "inputs": 15,
+      "selects": 0,
+      "total": 107
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "mates/romanos",
+    "sectionIds": [
+      "tab-teoria",
+      "tab-conversor",
+      "tab-practica",
+      "tab-detective",
+      "tab-siglos",
+      "tab-coliseo",
+      "tab-print"
+    ],
+    "panelIds": [
+      "tab-teoria",
+      "tab-conversor",
+      "tab-practica",
+      "tab-detective",
+      "tab-siglos",
+      "tab-coliseo",
+      "tab-print"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-coliseo": 317,
+      "tab-conversor": 281,
+      "tab-detective": 300,
+      "tab-practica": 272,
+      "tab-print": 293,
+      "tab-siglos": 286,
+      "tab-teoria": 28840
+    },
+    "theoryLen": 28619,
+    "resources": 0,
+    "documents": 0,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-conversor",
+      "tab-practica",
+      "tab-detective",
+      "tab-siglos",
+      "tab-print",
+      "tab-coliseo"
+    ],
+    "customComponents": [
+      "RomanConverter",
+      "RomanConverter",
+      "RomanDetectiveLab",
+      "RomanDetectiveLab",
+      "CenturyCalculator",
+      "CenturyCalculator",
+      "RomanClockLab",
+      "RomanClockLab",
+      "PrintableRomanSheet",
+      "PrintableRomanSheet",
+      "TimedChoiceLab",
+      "TimedChoiceLab"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 63,
+      "checkFns": 3,
+      "canvas": 1,
+      "inputs": 6,
+      "selects": 0,
+      "total": 73
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "mates/posat_a_prova_1",
+    "sectionIds": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "panelIds": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-examen": 629,
+      "tab-generator": 259,
+      "tab-pro": 260,
+      "tab-teoria": 14704
+    },
+    "theoryLen": 14542,
+    "resources": 0,
+    "documents": 0,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "customComponents": [
+      "EmatInfiniteLab",
+      "EmatInfiniteLab",
+      "MentalSprint",
+      "MentalSprint",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 56,
+      "checkFns": 20,
+      "canvas": 1,
+      "inputs": 41,
+      "selects": 8,
+      "total": 126
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "mates/decimals_unitats",
+    "sectionIds": [
+      "apunts",
+      "potencies10",
+      "arrodoniment",
+      "unitats",
+      "poligons",
+      "decimal-natural",
+      "daus",
+      "divisio",
+      "cartesia",
+      "repas"
+    ],
+    "panelIds": [],
+    "missingPanels": [],
+    "panelSizes": {
+      "apunts": 9381
+    },
+    "theoryLen": 9126,
+    "resources": 1,
+    "documents": 0,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "potencies10",
+      "arrodoniment",
+      "unitats",
+      "poligons",
+      "decimal-natural",
+      "daus",
+      "divisio",
+      "cartesia",
+      "repas"
+    ],
+    "customComponents": [
+      "DecimalPowerLab",
+      "DecimalPowerLab",
+      "RoundingLab",
+      "RoundingLab",
+      "MetricLadderLab",
+      "MetricLadderLab",
+      "PolygonInspector",
+      "PolygonInspector",
+      "DecimalMultLab",
+      "DecimalMultLab",
+      "DigitProductOptimizer",
+      "DigitProductOptimizer",
+      "CartesianStreetGrid",
+      "CartesianStreetGrid",
+      "MasterQuiz",
+      "MasterQuiz",
+      "DecimalsUnitatsWorksheet",
+      "DecimalsUnitatsWorksheet"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 0,
+      "checkFns": 0,
+      "canvas": 0,
+      "inputs": 0,
+      "selects": 0,
+      "total": 0
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "projecte/coordenadas",
+    "sectionIds": [
+      "teoria",
+      "practica-teoria",
+      "radar",
+      "mapa-punts",
+      "llegendaris",
+      "test",
+      "fitxes"
+    ],
+    "panelIds": [
+      "panel-teoria",
+      "panel-radar",
+      "panel-mapa-punts",
+      "panel-llegendaris",
+      "panel-test",
+      "panel-fitxes"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "panel-fitxes": 4193,
+      "panel-llegendaris": 302,
+      "panel-mapa-punts": 315,
+      "panel-radar": 349,
+      "panel-teoria": 325,
+      "panel-test": 286
+    },
+    "theoryLen": 12413,
+    "resources": 6,
+    "documents": 4,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "practica-teoria",
+      "radar",
+      "mapa-punts",
+      "llegendaris",
+      "test"
+    ],
+    "customComponents": [
+      "WindRoseSpeak",
+      "WindRoseSpeak",
+      "TheoryTrueFalse",
+      "TheoryTrueFalse",
+      "RadarCaptureLab",
+      "RadarCaptureLab",
+      "MapPointsHub",
+      "MapPointsHub",
+      "ConstellationCanvas",
+      "ConstellationCanvas"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 112,
+      "checkFns": 3,
+      "canvas": 1,
+      "inputs": 17,
+      "selects": 7,
+      "total": 140
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "projecte/pasdeltemps",
+    "sectionIds": [
+      "tab-teoria",
+      "tab-romans",
+      "tab-segles",
+      "tab-edats-h5p",
+      "tab-peninsula",
+      "tab-documents"
+    ],
+    "panelIds": [
+      "tab-teoria",
+      "tab-romans",
+      "tab-segles",
+      "tab-edats-h5p",
+      "tab-peninsula",
+      "tab-documents"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-documents": 15659,
+      "tab-edats-h5p": 295,
+      "tab-peninsula": 299,
+      "tab-romans": 289,
+      "tab-segles": 286,
+      "tab-teoria": 53629
+    },
+    "theoryLen": 53160,
+    "resources": 0,
+    "documents": 5,
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-romans",
+      "tab-segles",
+      "tab-edats-h5p",
+      "tab-peninsula",
+      "tab-documents"
+    ],
+    "customComponents": [
+      "RomanConverter",
+      "RomanConverter",
+      "RomanWorkshopLab",
+      "RomanWorkshopLab",
+      "CenturyCalculator",
+      "CenturyCalculator",
+      "AgesDragLab",
+      "AgesDragLab"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 135,
+      "checkFns": 12,
+      "canvas": 0,
+      "inputs": 54,
+      "selects": 0,
+      "total": 201
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "catala/sant_baldiri",
+    "sectionIds": [
+      "apunts",
+      "lectura",
+      "sinonims",
+      "digrafs",
+      "elnom",
+      "expressio",
+      "quiz",
+      "fitxes"
+    ],
+    "panelIds": [
+      "tab-apunts",
+      "tab-lectura",
+      "tab-sinonims",
+      "tab-digrafs",
+      "tab-elnom",
+      "tab-expressio",
+      "tab-quiz",
+      "tab-fitxes"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-apunts": 45012,
+      "tab-digrafs": 11218,
+      "tab-elnom": 5592,
+      "tab-expressio": 2843,
+      "tab-fitxes": 11648,
+      "tab-lectura": 2196,
+      "tab-quiz": 1020,
+      "tab-sinonims": 294
+    },
+    "theoryLen": 21178,
+    "resources": 17,
+    "documents": 11,
+    "exerciseKeys": [
+      "resources",
+      "lectura",
+      "sinonims",
+      "digrafs",
+      "elnom",
+      "expressio",
+      "quiz"
+    ],
+    "customComponents": [
+      "ContextSynonymLab",
+      "ContextSynonymLab"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 66,
+      "checkFns": 11,
+      "canvas": 0,
+      "inputs": 0,
+      "selects": 0,
+      "total": 77
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "catala/posat_a_prova_1",
+    "sectionIds": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "panelIds": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-examen": 819,
+      "tab-generator": 249,
+      "tab-pro": 267,
+      "tab-teoria": 14418
+    },
+    "theoryLen": 14173,
+    "resources": 0,
+    "documents": 0,
+    "exerciseKeys": [
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "customComponents": [
+      "SyllableTonicaLab",
+      "SyllableTonicaLab",
+      "GenderNumberLab",
+      "GenderNumberLab",
+      "SyllableSplitLab",
+      "SyllableSplitLab",
+      "WordChipHuntLab",
+      "WordChipHuntLab",
+      "DragClassify",
+      "DragClassify",
+      "SyllableTonicaLab",
+      "SyllableTonicaLab",
+      "SyllableSplitLab",
+      "SyllableSplitLab",
+      "PillChoiceLab",
+      "PillChoiceLab",
+      "PillChoiceLab",
+      "PillChoiceLab",
+      "PapInfiniteTrainer",
+      "PapInfiniteTrainer",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 151,
+      "checkFns": 23,
+      "canvas": 0,
+      "inputs": 24,
+      "selects": 3,
+      "total": 201
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "catala/tema2",
+    "sectionIds": [
+      "apunts",
+      "lectura",
+      "polisemia",
+      "accentuacio",
+      "adjectiu",
+      "mail",
+      "quiz",
+      "documents"
+    ],
+    "panelIds": [
+      "tab-apunts",
+      "tab-lectura",
+      "tab-polisemia",
+      "tab-accentuacio",
+      "tab-adjectiu",
+      "tab-mail",
+      "tab-quiz",
+      "tab-documents"
+    ],
+    "missingPanels": [],
+    "panelSizes": {
+      "tab-accentuacio": 266,
+      "tab-adjectiu": 263,
+      "tab-apunts": 16842,
+      "tab-documents": 20118,
+      "tab-lectura": 4234,
+      "tab-mail": 280,
+      "tab-polisemia": 260,
+      "tab-quiz": 252
+    },
+    "theoryLen": 16589,
+    "resources": 0,
+    "documents": 12,
+    "exerciseKeys": [
+      "resources",
+      "lectura",
+      "polisemia",
+      "accentuacio",
+      "adjectiu",
+      "mail",
+      "quiz"
+    ],
+    "customComponents": [
+      "PolisemiaFitxa",
+      "PolisemiaFitxa",
+      "WordwallAccentLab",
+      "WordwallAccentLab",
+      "AccentGenerator",
+      "AccentGenerator",
+      "AdjGenerator",
+      "AdjGenerator",
+      "AdjGenerator",
+      "AdjGenerator",
+      "EmailComposer",
+      "EmailComposer",
+      "MasterQuiz",
+      "MasterQuiz"
+    ],
+    "missingCustoms": [],
+    "sectionsWithoutExercises": [],
+    "interactions": {
+      "onclick": 65,
+      "checkFns": 10,
+      "canvas": 0,
+      "inputs": 22,
+      "selects": 32,
+      "total": 129
+    },
+    "orphanRisk": false,
+    "firstSectionRole": "theory"
+  },
+  {
+    "key": "tutoria/calendario",
+    "issue": "NO_SOURCE_HTML"
+  }
+]

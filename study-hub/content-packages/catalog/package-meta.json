@@ -1,0 +1,8 @@
+{
+  "id": "primary-catalog",
+  "version": "1.0.0",
+  "publishedAt": "2026-11-01",
+  "description": "Paquete estático de asignaturas/temas para modo local y PWA",
+  "includesSecrets": false,
+  "notes": "Las actividades locales incluyen datos de autocorrección en el frontend a propósito."
+}

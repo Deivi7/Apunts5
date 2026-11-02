@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "subjectId": "castellano",
+  "topicId": "signo_puntuacion",
+  "title": "Signos de Puntuación & Ortografía",
+  "language": "es",
+  "contentBase": "/content/castellano/signo_puntuacion",
+  "sections": [
+    {
+      "id": "apuntes",
+      "title": "1. Apuntes: Reglas",
+      "desc": "Los signos explicados paso a paso",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "flashcards",
+      "title": "2. Tarjetas con Voz (15)",
+      "desc": "Estudio con audio y ejemplos",
+      "role": "interactive",
+      "icon": "🎴"
+    },
+    {
+      "id": "memory",
+      "title": "3. Parejas Ortográficas",
+      "desc": "Memoria visual de signos",
+      "role": "interactive",
+      "icon": "🧩"
+    },
+    {
+      "id": "workshop",
+      "title": "4. Taller: Puntúa la Frase",
+      "desc": "Inserta signos en textos reales",
+      "role": "interactive",
+      "icon": "✍️"
+    },
+    {
+      "id": "sorter",
+      "title": "5. Clasificador Veloz",
+      "desc": "Identificación contrarreloj",
+      "role": "interactive",
+      "icon": "🎯"
+    },
+    {
+      "id": "quiz",
+      "title": "6. Quiz de Examen",
+      "desc": "10 preguntas aleatorias RAE",
+      "role": "interactive",
+      "icon": "🔘"
+    },
+    {
+      "id": "cheatsheet",
+      "title": "7. Chuleta Imprimible",
+      "desc": "Tabla oficial y trampas",
+      "role": "interactive",
+      "icon": "📋"
+    },
+    {
+      "id": "docs",
+      "title": "8. Documentos de Clase",
+      "desc": "PDFs oficiales de Drive",
+      "role": "docs",
+      "icon": "📁"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Signos de puntuación.pdf",
+      "subtitle": "Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.",
+      "url": "https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy"
+    },
+    {
+      "title": "41Signos de Puntuación.pdf",
+      "subtitle": "Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.",
+      "url": "https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy"
+    },
+    {
+      "title": "El abecedario español.pdf",
+      "subtitle": "Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.",
+      "url": "https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy"
+    },
+    {
+      "title": "El inventor Datealpié.pdf",
+      "subtitle": "Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).",
+      "url": "https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy"
+    },
+    {
+      "title": "Ordenar alfabéticamente.pdf",
+      "subtitle": "Ficha oficial con las listas de palabras para ordenar alfabéticamente.",
+      "url": "https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy"
+    },
+    {
+      "title": "Qué es el diccionario online.pdf",
+      "subtitle": "Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.",
+      "url": "https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy"
+    },
+    {
+      "title": "¡Practiquemos lo aprendido!",
+      "subtitle": "Ficha de ejercicios prácticos con el diccionario online de la RAE.",
+      "url": "https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy"
+    },
+    {
+      "title": "Genially Oficial Tema 1",
+      "subtitle": "Presentación interactiva completa del colegio con actividades de puntuación y vocabulario.",
+      "url": "https://view.genially.com/673b29cc495b2a814eb603f6"
+    },
+    {
+      "title": "AulaFácil: Signos Puntuación",
+      "subtitle": "Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.",
+      "url": "https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971"
+    },
+    {
+      "title": "Daypo: Test Interactivo",
+      "subtitle": "Test en línea sobre signos de puntuación referenciado en la presentación de clase.",
+      "url": "https://www.daypo.com/signos-puntuacion-1.html"
+    },
+    {
+      "title": "Anaya Educación: Signos",
+      "subtitle": "Batería de actividades multimedia de ortografía de Anaya Educación.",
+      "url": "https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm"
+    },
+    {
+      "title": "Liveworksheets: Puntuación",
+      "subtitle": "Ficha interactiva autocorregible de lengua castellana en Liveworksheets.",
+      "url": "https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027"
+    }
+  ],
+  "documents": [
+    {
+      "title": "Signos de puntuación.pdf",
+      "desc": "Guía teórica completa de 10 páginas con todas las explicaciones y ejemplos oficiales.",
+      "localUrl": "/content/castellano/signo_puntuacion/Signos%20de%20puntuaci%C3%B3n.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy"
+    },
+    {
+      "title": "41Signos-de-Puntuación.pdf-1-2.pdf",
+      "desc": "Fichas de ejercicios de clase: colocar puntos, comas y dos puntos en frases reales.",
+      "localUrl": "/content/castellano/signo_puntuacion/41Signos-de-Puntuacio%CC%81n.pdf-1-2.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy"
+    },
+    {
+      "title": "El abecedario español.pdf",
+      "desc": "Explicación de las 27 letras oficiales de la Real Academia Española (supresión de ch y ll).",
+      "localUrl": "/content/castellano/signo_puntuacion/El%20abecedario%20espa%C3%B1ol.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy"
+    },
+    {
+      "title": "El inventor Datealpié.pdf",
+      "desc": "Cuento oficial de lectura del Tema 1 (los patines de ruedas en el baile de Bruselas).",
+      "localUrl": "/content/castellano/signo_puntuacion/El%20inventor%20Datealpi%C3%A9.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy"
+    },
+    {
+      "title": "ordenar alfab.pdf",
+      "desc": "Lista de 24 palabras para practicar el orden alfabético estricto de clase.",
+      "localUrl": "/content/castellano/signo_puntuacion/ordenar%20alfab.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy"
+    },
+    {
+      "title": "qué es el diccionario online.pdf",
+      "desc": "Concepto de entrada, acepciones, abreviaturas gramaticales y cómo buscar verbos.",
+      "localUrl": "/content/castellano/signo_puntuacion/qu%C3%A9%20es%20el%20diccionario%20online.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy"
+    },
+    {
+      "title": "¡Practiquemos lo aprendido! Diccionario online.pdf",
+      "desc": "Práctica guiada buscando términos como 'ventana' en el diccionario de la RAE.",
+      "localUrl": "/content/castellano/signo_puntuacion/%C2%A1Practiquemos%20lo%20aprendido!%20Diccionario%20online.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<div class=\"section-header\">\n                <div>\n                    <h2 class=\"section-title\"><span>📖</span> Apuntes y Reglas de Puntuación</h2>\n                    <p class=\"section-subtitle\">Aprende cuándo usar cada signo para que tus textos se lean con entonación perfecta y sin faltas ortográficas.</p>\n                </div>\n                <button class=\"btn-primary\" onclick=\"openQuickCheatSheet()\">\n                    <span>💡</span> Abrir Chuleta Rápida\n                </button>\n            </div>\n\n            <!-- ==========================================\n                 RESOURCE HUB: ENLACES OFICIALES DRIVE & WEBS GENIALLY\n                 ========================================== -->\n            <div class=\"resource-group-title\">\n                    <span>📁</span> Documentos y Fichas en Google Drive\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>✍️</span> Signos de puntuación.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📋</span> 41Signos de Puntuación.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔤</span> El abecedario español.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📖</span> El inventor Datealpié.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔢</span> Ordenar alfabéticamente.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha oficial con las listas de palabras para ordenar alfabéticamente.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🌐</span> Qué es el diccionario online.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔍</span> ¡Practiquemos lo aprendido!</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha de ejercicios prácticos con el diccionario online de la RAE.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n                </div>\n\n                <div class=\"resource-group-title\">\n                    <span>✨</span> Presentación Interactiva y Actividades Web del Genially\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"https://view.genially.com/673b29cc495b2a814eb603f6\" target=\"_blank\" class=\"resource-card\" style=\"border-left: 4px solid #9333ea;\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>✨</span> Genially Oficial Tema 1</span>\n                            <span class=\"resource-badge genially\">Genially</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Presentación interactiva completa del colegio con actividades de puntuación y vocabulario.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Genially</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🎓</span> AulaFácil: Signos Puntuación</span>\n                            <span class=\"resource-badge web\">Web</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.</p>\n                        <div class=\"resource-card-action\"><span>Ver en AulaFácil</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.daypo.com/signos-puntuacion-1.html\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🕹️</span> Daypo: Test Interactivo</span>\n                            <span class=\"resource-badge web\">Test</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Test en línea sobre signos de puntuación referenciado en la presentación de clase.</p>\n                        <div class=\"resource-card-action\"><span>Realizar Test</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📖</span> Anaya Educación: Signos</span>\n                            <span class=\"resource-badge web\">Web</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Batería de actividades multimedia de ortografía de Anaya Educación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Actividades</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📄</span> Liveworksheets: Puntuación</span>\n                            <span class=\"resource-badge web\">Ficha</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha interactiva autocorregible de lengua castellana en Liveworksheets.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Ficha</span> <span>↗</span></div>\n                    </a>\n                </div>\n            </div>\n\n            <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 2rem;\">\n                <div style=\"background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #059669;\">\n                    <h3 style=\"font-size: 1.15rem; color: #059669; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;\">\n                        <span>🔴</span> 1. El Punto (.)\n                    </h3>\n                    <p style=\"font-size: 0.88rem; line-height: 1.5; color: var(--text-main);\">\n                        Indica una pausa larga y el final de un enunciado. Tras punto, <strong>siempre se escribe mayúscula inicial</strong>.\n                    </p>\n                    <ul style=\"font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;\">\n                        <li><strong>Punto y seguido:</strong> Separa oraciones dentro del mismo párrafo.</li>\n                        <li><strong>Punto y aparte:</strong> Separa párrafos que cambian de idea.</li>\n                        <li><strong>Punto final:</strong> Da fin al texto o redacción.</li>\n                    </ul>\n                </div>\n\n                <div style=\"background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #0284c7;\">\n                    <h3 style=\"font-size: 1.15rem; color: #0284c7; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;\">\n                        <span>🟢</span> 2. La Coma (,)\n                    </h3>\n                    <p style=\"font-size: 0.88rem; line-height: 1.5; color: var(--text-main);\">\n                        Marca una pausa breve dentro de la frase.\n                    </p>\n                    <ul style=\"font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;\">\n                        <li><strong>Enumeraciones:</strong> <em>Compré manzanas, peras y uvas.</em> (Delante de 'y' no se pone coma).</li>\n                        <li><strong>Aclaraciones:</strong> <em>Mi hermano, que vive en Girona, vino ayer.</em></li>\n                        <li><strong>Vocativo:</strong> <em>Álvaro, ven a cenar. / Hola, mamá.</em></li>\n                    </ul>\n                </div>\n\n                <div style=\"background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #d97706;\">\n                    <h3 style=\"font-size: 1.15rem; color: #d97706; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;\">\n                        <span>🟡</span> 3. Los Dos Puntos (:)\n                    </h3>\n                    <p style=\"font-size: 0.88rem; line-height: 1.5; color: var(--text-main);\">\n                        Detienen el discurso para llamar la atención sobre lo que viene a continuación.\n                    </p>\n                    <ul style=\"font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;\">\n                        <li><strong>Antes de enumeración anunciada:</strong> <em>Había tres cosas: lápiz, goma y regla.</em></li>\n                        <li><strong>Antes de cita textual:</strong> <em>El profesor dijo: «Abran el libro».</em></li>\n                        <li><strong>Cartas y correos:</strong> <em>Querido amigo: / Estimada abuela:</em></li>\n                    </ul>\n                </div>\n\n                <div style=\"background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #8b5cf6;\">\n                    <h3 style=\"font-size: 1.15rem; color: #8b5cf6; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;\">\n                        <span>🟣</span> 4. Interrogación y Exclamación\n                    </h3>\n                    <p style=\"font-size: 0.88rem; line-height: 1.5; color: var(--text-main);\">\n                        En español son <strong>signos dobles obligatorios</strong>: apertura y cierre.\n                    </p>\n                    <ul style=\"font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;\">\n                        <li><strong>¿ ? :</strong> Expresan preguntas directas. <em>¿Qué hora es?</em></li>\n                        <li><strong>¡ ! :</strong> Expresan sorpresa, emoción o alegría. <em>¡Qué golazo!</em></li>\n                        <li><strong>Regla de oro:</strong> Tras '?' o '!' <strong>nunca se pone punto</strong> (el signo ya lo lleva).</li>\n                    </ul>\n                </div>\n\n                <div style=\"background: var(--bg-card); border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; border-top: 5px solid #ec4899;\">\n                    <h3 style=\"font-size: 1.15rem; color: #ec4899; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;\">\n                        <span>💬</span> 5. Puntos Suspensivos y Comillas\n                    </h3>\n                    <p style=\"font-size: 0.88rem; line-height: 1.5; color: var(--text-main);\">\n                        Matices expresivos y palabras textuales.\n                    </p>\n                    <ul style=\"font-size: 0.82rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.45;\">\n                        <li><strong>Puntos suspensivos (...):</strong> Son tres. Indican duda, suspense o enumeración abierta.</li>\n                        <li><strong>Comillas (« » / \" \"):</strong> Enmarcan citas textuales o títulos de capítulos.</li>\n                    </ul>\n                </div>\n            </div>",
+  "panelIds": [
+    "panel-apuntes",
+    "panel-flashcards",
+    "panel-memory",
+    "panel-quiz",
+    "panel-workshop",
+    "panel-sorter",
+    "panel-cheatsheet",
+    "panel-docs"
+  ],
+  "copiedFiles": [
+    "41Signos-de-Puntuación.pdf-1-2.pdf",
+    "El abecedario español.pdf",
+    "El inventor Datealpié.pdf",
+    "ordenar alfab.pdf",
+    "qué es el diccionario online.pdf",
+    "Signos de puntuación.pdf",
+    "¡Practiquemos lo aprendido! Diccionario online.pdf"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.408Z"
+}

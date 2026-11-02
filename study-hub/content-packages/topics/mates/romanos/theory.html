@@ -1,0 +1,424 @@
+<div class="section-banner-title">
+                    <div>
+                        <h2><span>📖</span> Teoría Didáctica de Números Romanos</h2>
+                        <p>Explicación completa paso a paso para 5º de Primaria: las 7 letras, las 4 reglas sagradas, el cálculo de siglos y los errores prohibidos de examen.</p>
+                    </div>
+                    <div>
+                        <button class="btn-check-action" onclick="switchTab('tab-conversor')">
+                            <span>🔮</span> Ir al Conversor Mágico →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 1. ¿Qué es y para qué sirve? -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🏛️</div>
+                        <div>
+                            <h3>1. ¿Qué son los números romanos y para qué sirven hoy?</h3>
+                            <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">En català: «Els nombres romans»</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Hace más de 2.000 años, los antiguos romanos inventaron un sistema para contar y registrar cuentas usando las letras mayúsculas de su abecedario. 
+                        <strong>No conocían el número 0</strong> (¡el cero llegó a Europa mucho después!) y su sistema no era posicional como el nuestro, sino <strong>aditivo y sustractivo</strong> (las letras suman o restan según dónde se coloquen).
+                    </p>
+                    <div class="rule-examples-box">
+                        <strong>¿Dónde los usamos en la vida real hoy en día?</strong>
+                        <ul style="margin-left: 1.25rem; margin-top: 0.35rem; line-height: 1.5;">
+                            <li><strong>Siglos de la historia:</strong> Estamos en el siglo <strong>XXI</strong>, Colón llegó a América en el siglo <strong>XV</strong>.</li>
+                            <li><strong>Reyes, reinas y papas:</strong> El rey de España Felipe <strong>VI</strong>, la reina Isabel <strong>II</strong>, el papa Juan Pablo <strong>II</strong>.</li>
+                            <li><strong>Esferas de relojes:</strong> Muchos relojes clásicos marcan las horas con <strong>I, II, III, IV, V... XII</strong>.</li>
+                            <li><strong>Monumentos y películas:</strong> En las piedras angulares de edificios antiguos (ej: <strong>MCMLXXV</strong> = 1975) o sagas como <em>Star Wars: Episodio <strong>IV</strong></em>.</li>
+                            <li><strong>Olimpiadas y eventos:</strong> Edición de los Juegos Olímpicos (ej: <strong>XXXIII</strong> Olimpiada en París 2024).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Las 7 Letras Fundamentales -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">🔤</div>
+                        <h3>2. Las 7 Letras Legendarias (Los Bloques de Construcción)</h3>
+                    </div>
+                    <p class="rule-desc">
+                        Todo el sistema romano se construye combinando únicamente <strong>7 letras mayúsculas</strong>. Se dividen en dos grupos muy diferentes:
+                    </p>
+
+                    <!-- Showcase interactivo de las 7 letras -->
+                    <div class="letters-showcase-grid">
+                        <div class="letter-card primary-letter" onclick="inspectLetter('I', 1, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">I</div>
+                            <div class="letter-value">1</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('V', 5, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">V</div>
+                            <div class="letter-value">5</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('X', 10, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">X</div>
+                            <div class="letter-value">10</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('L', 50, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">L</div>
+                            <div class="letter-value">50</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('C', 100, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">C</div>
+                            <div class="letter-value">100</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                        <div class="letter-card secondary-letter" onclick="inspectLetter('D', 500, false)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">D</div>
+                            <div class="letter-value">500</div>
+                            <span class="letter-badge-role norep">No Repetible</span>
+                        </div>
+                        <div class="letter-card primary-letter" onclick="inspectLetter('M', 1000, true)" title="Haz clic para ver detalles">
+                            <div class="letter-glyph">M</div>
+                            <div class="letter-value">1.000</div>
+                            <span class="letter-badge-role rep">Repetible (x3)</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem;">
+                        <div style="background: var(--bg-main); padding: 0.75rem; border-radius: var(--radius-md); border-left: 4px solid #3b82f6;">
+                            <strong style="color: #2563eb;">🔵 Letras Principales (I, X, C, M):</strong>
+                            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: var(--text-muted);">
+                                Representan el 1 y sus potencias de 10. Son las <strong>únicas que se pueden repetir hasta 3 veces</strong> y las <strong>únicas que pueden restar</strong>.
+                            </p>
+                        </div>
+                        <div style="background: var(--bg-main); padding: 0.75rem; border-radius: var(--radius-md); border-left: 4px solid #ef4444;">
+                            <strong style="color: #dc2626;">🔴 Letras Secundarias (V, L, D):</strong>
+                            <p style="font-size: 0.8rem; margin-top: 0.2rem; color: var(--text-muted);">
+                                Representan los múltiplos de 5 (5, 50, 500). <strong>NUNCA se repiten</strong> (nunca verás VV ni LL) y <strong>NUNCA se colocan a la izquierda para restar</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Las 4 Reglas Sagradas -->
+                <div class="rules-grid">
+                    <!-- Regla 1: Suma -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">➕</div>
+                            <div>
+                                <h3>Regla 1: Suma (Adición)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">A la derecha se suma</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Una letra escrita a la <strong>DERECHA</strong> de otra de igual o mayor valor <strong>SUMA</strong> su valor.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight">VI = 5 + 1 = 6</span>
+                                <span class="rule-pill highlight">XI = 10 + 1 = 11</span>
+                                <span class="rule-pill highlight">LV = 50 + 5 = 55</span>
+                                <span class="rule-pill highlight">CL = 100 + 50 = 150</span>
+                                <span class="rule-pill highlight">MD = 1000 + 500 = 1500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regla 2: Resta -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">➖</div>
+                            <div>
+                                <h3>Regla 2: Resta (Sustracción)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">A la izquierda resta (¡solo 3 parejas!)</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Una letra de menor valor escrita a la <strong>IZQUIERDA</strong> de otra mayor <strong>RESTA</strong> su valor. 
+                            <strong>¡Ojo! Solo existen 3 parejas permitidas:</strong>
+                        </p>
+                        <div class="rule-examples-box">
+                            <ul style="margin-left: 1.1rem; line-height: 1.45; font-size: 0.8rem;">
+                                <li><strong>I</strong> solo resta a <strong>V</strong> y a <strong>X</strong>: <code>IV = 4</code>, <code>IX = 9</code>.</li>
+                                <li><strong>X</strong> solo resta a <strong>L</strong> y a <strong>C</strong>: <code>XL = 40</code>, <code>XC = 90</code>.</li>
+                                <li><strong>C</strong> solo resta a <strong>D</strong> y a <strong>M</strong>: <code>CD = 400</code>, <code>CM = 900</code>.</li>
+                                <li><em>¡V, L, D NUNCA restan! Y nunca se ponen dos letras restando (8 no es IIX, es VIII).</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Regla 3: Repetición -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">🔁</div>
+                            <div>
+                                <h3>Regla 3: Repetición (Máx. 3)</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">I, X, C, M hasta 3 veces seguidas</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Las letras <strong>I, X, C, M</strong> solo pueden repetirse como máximo <strong>3 VECES SEGUIDAS</strong>.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight">III = 3</span>
+                                <span class="rule-pill warn">IIII = ❌ ¡Mal! Se escribe IV</span>
+                                <span class="rule-pill highlight">XXX = 30</span>
+                                <span class="rule-pill warn">XXXX = ❌ ¡Mal! Se escribe XL</span>
+                                <span class="rule-pill highlight">CCC = 300</span>
+                                <span class="rule-pill warn">CCCC = ❌ ¡Mal! Se escribe CD</span>
+                            </div>
+                            <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #ef4444; font-weight: 700;">
+                                ⚠️ Las letras V, L, D no se pueden repetir NUNCA (10 no es VV, 100 no es LL).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Regla 4: Multiplicación de Millar -->
+                    <div class="rule-box">
+                        <div class="rule-header">
+                            <div class="rule-icon-box">📏</div>
+                            <div>
+                                <h3>Regla 4: Raya Multiplicadora</h3>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">Para números a partir de 4.000</span>
+                            </div>
+                        </div>
+                        <p class="rule-desc">
+                            Como no se puede escribir MMMM para 4.000, los romanos ponían una <strong>raya horizontal encima</strong>, que <strong>multiplica su valor por 1.000</strong>.
+                        </p>
+                        <div class="rule-examples-box">
+                            <div class="rule-pill-list">
+                                <span class="rule-pill highlight" style="text-decoration: overline;">IV = 4.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">V = 5.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">IX = 9.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">X = 10.000</span>
+                                <span class="rule-pill highlight" style="text-decoration: overline;">L = 50.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. El Gran Truco del Cálculo de Siglos -->
+                <div class="rule-box" style="margin-bottom: 1.5rem; border: 2px solid var(--roman-gold);">
+                    <div class="rule-header">
+                        <div class="rule-icon-box" style="background: var(--roman-gold); color: white;">⏳</div>
+                        <div>
+                            <h3>El Truco Maestro: ¿Cómo Calcular el Siglo de Cualquier Año?</h3>
+                            <span style="font-size: 0.74rem; color: var(--roman-gold-hover); font-weight: 800;">¡Pregunta fija de examen en 5º de Primaria!</span>
+                        </div>
+                    </div>
+                    <p class="rule-desc">
+                        Un siglo tiene 100 años. El siglo I empezó el año 1 y terminó el año 100. El siglo II empezó en el 101 y terminó en el 200. Por eso, para saber el siglo de cualquier año, sigue esta regla de oro:
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
+                        <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-top: 3px solid #10b981;">
+                            <strong style="color: #059669;">Caso A: Termina en "00" (Cero-Cero)</strong>
+                            <p style="font-size: 0.82rem; margin-top: 0.25rem;">
+                                ¡Facilísimo! Solo <strong>quita los dos ceros</strong> y el número que queda es el siglo.
+                            </p>
+                            <div class="rule-pill-list" style="margin-top: 0.4rem;">
+                                <span class="rule-pill highlight">Año 1800 → Siglo XVIII (18)</span>
+                                <span class="rule-pill highlight">Año 2000 → Siglo XX (20)</span>
+                                <span class="rule-pill highlight">Año 500 → Siglo V (5)</span>
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-main); padding: 0.85rem; border-radius: var(--radius-md); border-top: 3px solid #6366f1;">
+                            <strong style="color: #4f46e5;">Caso B: NO termina en "00"</strong>
+                            <p style="font-size: 0.82rem; margin-top: 0.25rem;">
+                                Tapa las dos últimas cifras y <strong>SÚMALE 1 (+1)</strong> a lo que te queda delante.
+                            </p>
+                            <div class="rule-pill-list" style="margin-top: 0.4rem;">
+                                <span class="rule-pill highlight">Año 1492 → 14 + 1 = Siglo XV (15)</span>
+                                <span class="rule-pill highlight">Año 1789 → 17 + 1 = Siglo XVIII (18)</span>
+                                <span class="rule-pill highlight">Año 2026 → 20 + 1 = Siglo XXI (21)</span>
+                                <span class="rule-pill highlight">Año 711 → 7 + 1 = Siglo VIII (8)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Tabla Bien vs Mal (Errores de Examen) -->
+                <div class="vs-table-container">
+                    <div class="vs-table-title">
+                        <span>⚔️</span> Errores Clásicos que Cuestan Puntos en los Controles (Bien vs Mal)
+                    </div>
+                    <div class="vs-grid">
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IIII</div>
+                                <div class="vs-reason">Repetición prohibida (> 3 veces)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ IV (4)</div>
+                                <div class="vs-reason">Resta: 5 - 1 = 4</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ VV</div>
+                                <div class="vs-reason">V nunca se repite</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ X (10)</div>
+                                <div class="vs-reason">10 ya tiene letra propia</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IL</div>
+                                <div class="vs-reason">I no puede restar a L (solo a V y X)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ XLIX (49)</div>
+                                <div class="vs-reason">40 (XL) + 9 (IX) = 49</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ IC</div>
+                                <div class="vs-reason">I no puede restar a C</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ XCIX (99)</div>
+                                <div class="vs-reason">90 (XC) + 9 (IX) = 99</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ VX</div>
+                                <div class="vs-reason">V nunca se coloca restando</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ V (5)</div>
+                                <div class="vs-reason">10 - 5 = 5 se escribe V</div>
+                            </div>
+                        </div>
+
+                        <div class="vs-card">
+                            <div>
+                                <div class="vs-bad">❌ XD</div>
+                                <div class="vs-reason">X solo resta a L y C (no a D)</div>
+                            </div>
+                            <div class="vs-arrow">→</div>
+                            <div>
+                                <div class="vs-good">✅ CDXC (490)</div>
+                                <div class="vs-reason">400 (CD) + 90 (XC) = 490</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Trucos Mnemotécnicos -->
+                <div class="teacher-trick-card">
+                    <div class="teacher-trick-header">
+                        <span>💡</span> «El Truco del Profe»: Frases Mágicas para No Olvidar Jamás
+                    </div>
+                    <div class="teacher-trick-body">
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>1. Para recordar las 7 letras de menor a mayor (1 → 1000):</strong><br>
+                            Aprende esta divertida frase: 
+                            <span class="mnemo-highlight">«<strong>I</strong>rene <strong>V</strong>e <strong>X</strong>ilófonos en <strong>L</strong>a <strong>C</strong>asa <strong>D</strong>e <strong>M</strong>i abuela»</span>
+                            <br>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">(I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1.000).</span>
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>2. El truco del 4 y el 9:</strong><br>
+                            Siempre que un número tenga un <strong>4</strong> o un <strong>9</strong> en cualquier posición (unidades, decenas o centenas), <strong>¡SE ESCRIBE RESTANDO!</strong>
+                            <br>
+                            • 4 = IV | 9 = IX | 40 = XL | 90 = XC | 400 = CD | 900 = CM.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. Resumen Visual en 1 Minuto -->
+                <div class="rule-box" style="margin-bottom: 1.5rem;">
+                    <div class="rule-header">
+                        <div class="rule-icon-box">⏱️</div>
+                        <h3>7. Resumen Visual en 1 Minuto (La Tabla de Oro)</h3>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center;">
+                            <thead>
+                                <tr style="background: var(--bg-main); border-bottom: 2px solid var(--border-color);">
+                                    <th style="padding: 0.5rem;">Posición</th>
+                                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Unidades</td>
+                                    <td>I</td><td>II</td><td>III</td><td style="color:#ef4444; font-weight:800;">IV</td><td>V</td><td>VI</td><td>VII</td><td>VIII</td><td style="color:#ef4444; font-weight:800;">IX</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Decenas</td>
+                                    <td>X</td><td>XX</td><td>XXX</td><td style="color:#ef4444; font-weight:800;">XL</td><td>L</td><td>LX</td><td>LXX</td><td>LXXX</td><td style="color:#ef4444; font-weight:800;">XC</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Centenas</td>
+                                    <td>C</td><td>CC</td><td>CCC</td><td style="color:#ef4444; font-weight:800;">CD</td><td>D</td><td>DC</td><td>DCC</td><td>DCCC</td><td style="color:#ef4444; font-weight:800;">CM</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 800; padding: 0.45rem; text-align: left;">Millares</td>
+                                    <td>M</td><td>MM</td><td>MMM</td><td style="color:#ef4444; font-weight:800; text-decoration:overline;">IV</td><td style="text-decoration:overline;">V</td><td style="text-decoration:overline;">VI</td><td style="text-decoration:overline;">VII</td><td style="text-decoration:overline;">VIII</td><td style="color:#ef4444; font-weight:800; text-decoration:overline;">IX</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 8. Resource Hub (Regla 6 y 7) -->
+                <div class="resource-hub-container">
+                    <div class="resource-hub-header">
+                        <div class="resource-hub-title">
+                            <span>📚</span> Resource Hub: Materiales de Números Romanos & Drive
+                        </div>
+                        <a href="https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy" target="_blank" class="sidebar-action-btn">
+                            <span>☁️</span> Abrir Carpeta Mates en Google Drive ↗
+                        </a>
+                    </div>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-card-top">
+                                <div class="resource-card-title">
+                                    <span>📄</span> Fichas de Clase (Drive)
+                                </div>
+                                <span class="resource-badge drive">Google Drive</span>
+                            </div>
+                            <div class="resource-card-desc">
+                                Carpeta oficial de Matemáticas 5º de Primaria de Álvaro para subir o consultar los apuntes escolares.
+                            </div>
+                            <div class="resource-card-action">
+                                <a href="https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy" target="_blank" style="text-decoration:none; color:inherit; font-weight:800;">
+                                    Ver en la Nube ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-top">
+                                <div class="resource-card-title">
+                                    <span>🎮</span> Entrenador Interactivo
+                                </div>
+                                <span class="resource-badge web">Herramienta Web</span>
+                            </div>
+                            <div class="resource-card-desc">
+                                Conversor paso a paso, detector de errores y sprint contrarreloj del Imperio Romano.
+                            </div>
+                            <div class="resource-card-action">
+                                <button onclick="switchTab('tab-conversor')" style="background:none; border:none; cursor:pointer; color:var(--primary); font-weight:800; font-size:inherit;">
+                                    Probar Conversor →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>

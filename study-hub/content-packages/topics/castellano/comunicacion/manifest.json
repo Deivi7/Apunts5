@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "subjectId": "castellano",
+  "topicId": "comunicacion",
+  "title": "Lenguaje, Comunicación & El Diccionario",
+  "language": "es",
+  "contentBase": "/content/castellano/comunicacion",
+  "sections": [
+    {
+      "id": "comunicacion",
+      "title": "1. Apuntes: Circuito",
+      "desc": "Los 6 elementos & Recursos",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "datealpie",
+      "title": "2. Cuento: Datealpié",
+      "desc": "Lectura & Comprensión",
+      "role": "interactive",
+      "icon": "🛼"
+    },
+    {
+      "id": "situaciones",
+      "title": "3. Reto: Casos Reales",
+      "desc": "Identifica en vivo (+15 XP)",
+      "role": "interactive",
+      "icon": "🎮"
+    },
+    {
+      "id": "diccionario",
+      "title": "4. Diccionario & Abreviaturas",
+      "desc": "Simulador RAE & 25 abreviaturas",
+      "role": "interactive",
+      "icon": "🔍"
+    },
+    {
+      "id": "tipos_dicc",
+      "title": "5. Tipos de Diccionarios",
+      "desc": "9 tipos y fragmentos reales",
+      "role": "interactive",
+      "icon": "🎡"
+    },
+    {
+      "id": "alfabetico",
+      "title": "6. Orden Alfabético",
+      "desc": "Los 3 retos de clase (PDF)",
+      "role": "interactive",
+      "icon": "🔤"
+    },
+    {
+      "id": "comic",
+      "title": "7. Taller de Cómic",
+      "desc": "Bocadillos y puntuación",
+      "role": "interactive",
+      "icon": "🎨"
+    },
+    {
+      "id": "quiz",
+      "title": "8. Quiz de Examen",
+      "desc": "10 preguntas aleatorias",
+      "role": "interactive",
+      "icon": "🏆"
+    },
+    {
+      "id": "recursos",
+      "title": "9. Chuleta & Ficha",
+      "desc": "Resumen e imprimibles",
+      "role": "interactive",
+      "icon": "📋"
+    }
+  ],
+  "resources": [
+    {
+      "title": "El inventor Datealpié.pdf",
+      "subtitle": "Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).",
+      "url": "https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy"
+    },
+    {
+      "title": "Comprensión Lectora",
+      "subtitle": "Ficha con preguntas oficiales sobre la lectura de Datealpié.",
+      "url": "https://drive.google.com/file/d/1QwsmmCYxbd2IFUNSn-LSLnmPvWyH5iZL/view?usp=sharing"
+    },
+    {
+      "title": "Qué es el diccionario online.pdf",
+      "subtitle": "Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.",
+      "url": "https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy"
+    },
+    {
+      "title": "¡Practiquemos lo aprendido!",
+      "subtitle": "Ficha de ejercicios prácticos con el diccionario online de la RAE.",
+      "url": "https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy"
+    },
+    {
+      "title": "El abecedario español.pdf",
+      "subtitle": "Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.",
+      "url": "https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy"
+    },
+    {
+      "title": "Ordenar alfabéticamente.pdf",
+      "subtitle": "Ficha oficial con las listas de palabras para ordenar alfabéticamente.",
+      "url": "https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy"
+    },
+    {
+      "title": "Teoría Elementos Comunicación",
+      "subtitle": "PDF con el esquema, definiciones y viñetas del circuito comunicativo.",
+      "url": "https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view"
+    },
+    {
+      "title": "Videotutorial Comunicación",
+      "subtitle": "Vídeo explicativo oficial del circuito y elementos de la comunicación.",
+      "url": "https://drive.google.com/open?id=10n3DY0fG2YCf-cNdv35Pa0Roh6Lb-Ue4&usp=drive_copy"
+    },
+    {
+      "title": "Signos de puntuación.pdf",
+      "subtitle": "Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.",
+      "url": "https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy"
+    },
+    {
+      "title": "41Signos de Puntuación.pdf",
+      "subtitle": "Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.",
+      "url": "https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy"
+    },
+    {
+      "title": "Genially Oficial Tema 1",
+      "subtitle": "Presentación interactiva completa del colegio con índice, juegos y actividades.",
+      "url": "https://view.genially.com/673b29cc495b2a814eb603f6"
+    },
+    {
+      "title": "AprenderEspañol (Alfabeto)",
+      "subtitle": "Actividad interactiva recomendada para ordenar palabras alfabéticamente.",
+      "url": "https://aprenderespanol.org/ejercicios/gramatica/alfabeto/alfabeto-palabras-1.htm"
+    },
+    {
+      "title": "AulaFácil: Signos Puntuación",
+      "subtitle": "Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.",
+      "url": "https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971"
+    },
+    {
+      "title": "Daypo: Test Interactivo",
+      "subtitle": "Test en línea sobre puntuación referenciado en la presentación de clase.",
+      "url": "https://www.daypo.com/signos-puntuacion-1.html"
+    },
+    {
+      "title": "Anaya Educación: Signos",
+      "subtitle": "Batería de actividades multimedia de ortografía de Anaya Educación.",
+      "url": "https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm"
+    },
+    {
+      "title": "Liveworksheets: Puntuación",
+      "subtitle": "Ficha interactiva autocorregible de lengua castellana en Liveworksheets.",
+      "url": "https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027"
+    }
+  ],
+  "documents": [
+    {
+      "title": "El  lenguaje  y  la  comunicación.pdf",
+      "desc": "Documento local del tema",
+      "localUrl": "/content/castellano/comunicacion/El%20%20lenguaje%20%20y%20%20la%20%20comunicaci%C3%B3n.pdf",
+      "driveUrl": "https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view"
+    },
+    {
+      "title": "ordenar alfab.pdf",
+      "desc": "Documento local del tema",
+      "localUrl": "/content/castellano/comunicacion/ordenar%20alfab.pdf",
+      "driveUrl": "https://drive.google.com/file/d/1NUxueZeoTvpEvb0sDEq74RtMsTu7eywR/view"
+    },
+    {
+      "title": "¡Practiquemos lo aprendido! Diccionario online (1).pdf",
+      "desc": "Documento local del tema",
+      "localUrl": "/content/castellano/comunicacion/%C2%A1Practiquemos%20lo%20aprendido!%20Diccionario%20online%20(1).pdf",
+      "driveUrl": "https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<div class=\"section-header\">\n                <div>\n                    <h2 class=\"section-title\"><span>📡</span> El Circuito de la Comunicación</h2>\n                    <p class=\"section-subtitle\">Aprende a descomponer cualquier acto comunicativo en sus 6 elementos fundamentales.</p>\n                </div>\n                <div style=\"display: flex; gap: 0.5rem; flex-wrap: wrap;\">\n                    <a href=\"https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view\" target=\"_blank\" class=\"btn-drive\">\n                        <span>📄</span> PDF Teoría Comunicación\n                    </a>\n                    <a href=\"https://drive.google.com/open?id=10n3DY0fG2YCf-cNdv35Pa0Roh6Lb-Ue4&usp=drive_copy\" target=\"_blank\" class=\"btn-drive\">\n                        <span>🎬</span> Videotutorial Drive\n                    </a>\n                </div>\n            </div>\n\n            <!-- ==========================================\n                 RESOURCE HUB: ENLACES OFICIALES DRIVE & WEBS GENIALLY\n                 ========================================== -->\n            <div class=\"resource-group-title\">\n                    <span>📁</span> Documentos y Fichas en Google Drive\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"https://drive.google.com/open?id=1-A26tY8Bjh-UeH7R1jgyWfp6ynWTc_cW&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📖</span> El inventor Datealpié.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Cuento oficial de lectura del Tema 1 (el inventor de los patines con ruedas).</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/file/d/1QwsmmCYxbd2IFUNSn-LSLnmPvWyH5iZL/view?usp=sharing\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📝</span> Comprensión Lectora</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha con preguntas oficiales sobre la lectura de Datealpié.</p>\n                        <div class=\"resource-card-action\"><span>Abrir en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1zgW5RRro1BnEPhKDKpSOFICFH93AvZaJ&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🌐</span> Qué es el diccionario online.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Guía sobre entradas, acepciones, abreviaturas y búsqueda de verbos en el DLE.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1zXyG6antyBghpHV8b3xAqumStgrSeSfX&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔍</span> ¡Practiquemos lo aprendido!</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha de ejercicios prácticos con el diccionario online de la RAE.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1fVAnGLzdbJ0NaRDQ5mXRHofTvP1KT00j&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔤</span> El abecedario español.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Las 27 letras oficiales de la RAE, supresión de Ch y Ll como letras independientes.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1MtgWvRgefgycHqFIfm9ol50RdVuwpcsq&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🔢</span> Ordenar alfabéticamente.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha oficial con las listas de palabras para ordenar alfabéticamente.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/file/d/1bBlO0m8FfMaJKCkW3lMKNowH7sNZE3J9/view\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📡</span> Teoría Elementos Comunicación</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">PDF con el esquema, definiciones y viñetas del circuito comunicativo.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=10n3DY0fG2YCf-cNdv35Pa0Roh6Lb-Ue4&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🎬</span> Videotutorial Comunicación</span>\n                            <span class=\"resource-badge video\">Vídeo</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Vídeo explicativo oficial del circuito y elementos de la comunicación.</p>\n                        <div class=\"resource-card-action\"><span>Ver Vídeo en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1E6RG7sStvjG-Q0jAisFx5p38aCKRrZjy&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>✍️</span> Signos de puntuación.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Guía teórica de 10 páginas con todas las reglas oficiales de puntuación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://drive.google.com/open?id=1CBX0wGP7yKDj6bQsVNPw1fuOyw37AbQ8&usp=drive_copy\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📋</span> 41Signos de Puntuación.pdf</span>\n                            <span class=\"resource-badge drive\">Drive</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Fichas de ejercicios para colocar punto, coma, interrogación y exclamación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir PDF en Drive</span> <span>↗</span></div>\n                    </a>\n                </div>\n\n                <div class=\"resource-group-title\">\n                    <span>✨</span> Presentación Interactiva y Actividades Web del Genially\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"https://view.genially.com/673b29cc495b2a814eb603f6\" target=\"_blank\" class=\"resource-card\" style=\"border-left: 4px solid #9333ea;\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>✨</span> Genially Oficial Tema 1</span>\n                            <span class=\"resource-badge genially\">Genially</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Presentación interactiva completa del colegio con índice, juegos y actividades.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Genially</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://aprenderespanol.org/ejercicios/gramatica/alfabeto/alfabeto-palabras-1.htm\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🌐</span> AprenderEspañol (Alfabeto)</span>\n                            <span class=\"resource-badge web\">Web</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Actividad interactiva recomendada para ordenar palabras alfabéticamente.</p>\n                        <div class=\"resource-card-action\"><span>Practicar Online</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.aulafacil.com/cursos/lenguaje-primaria/lengua-quinto-primaria-10-anos/signos-de-puntuacion-l7971\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🎓</span> AulaFácil: Signos Puntuación</span>\n                            <span class=\"resource-badge web\">Web</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Curso y ejercicios prácticos de signos de puntuación para 5º de Primaria.</p>\n                        <div class=\"resource-card-action\"><span>Ver en AulaFácil</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.daypo.com/signos-puntuacion-1.html\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🕹️</span> Daypo: Test Interactivo</span>\n                            <span class=\"resource-badge web\">Test</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Test en línea sobre puntuación referenciado en la presentación de clase.</p>\n                        <div class=\"resource-card-action\"><span>Realizar Test</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://edistribucion.es/anayaeducacion/Lengua_literatura2ESO2017/actividadesdesignos.htm\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📖</span> Anaya Educación: Signos</span>\n                            <span class=\"resource-badge web\">Web</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Batería de actividades multimedia de ortografía de Anaya Educación.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Actividades</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://www.liveworksheets.com/es/worksheet/es/lengua-castellana/7080027\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📄</span> Liveworksheets: Puntuación</span>\n                            <span class=\"resource-badge web\">Ficha</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Ficha interactiva autocorregible de lengua castellana en Liveworksheets.</p>\n                        <div class=\"resource-card-action\"><span>Abrir Ficha</span> <span>↗</span></div>\n                    </a>\n                </div>\n            </div>\n\n            <!-- Comic strip preview from the PDF -->\n            <div class=\"comic-preview-card\">\n                <div style=\"flex: 1; min-width: 260px;\">\n                    <span style=\"font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;\">Ejemplo Real de Clase (Viñeta de Raquel)</span>\n                    <h3 style=\"font-size: 1.25rem; font-weight: 800; margin: 0.3rem 0 0.5rem;\">El Teléfono de Hilo y Lata</h3>\n                    <p style=\"font-size: 0.9rem; line-height: 1.4;\">\n                        Raquel y su amigo se están comunicando a través de dos vasos de plástico y un hilo de lana tenso. \n                        <strong>¿Cómo viaja la información entre ellos?</strong>\n                    </p>\n                </div>\n                <div class=\"comic-art\">\n                    <div style=\"text-align: center;\">\n                        <span style=\"font-size: 2.2rem;\">👧</span>\n                        <div style=\"font-size: 0.75rem; font-weight: 800;\">Raquel (Emisora)</div>\n                    </div>\n                    <div style=\"flex: 1; text-align: center; border-bottom: 2px dashed #0284c7; padding-bottom: 4px;\">\n                        <div class=\"speech-bubble\">«¿Quién puede estar interesado en cuáles sean...?»</div>\n                        <span style=\"font-size: 0.75rem; color: #0284c7; font-weight: 700;\">Hilo y vibración sonora</span>\n                    </div>\n                    <div style=\"text-align: center;\">\n                        <span style=\"font-size: 2.2rem;\">👦</span>\n                        <div style=\"font-size: 0.75rem; font-weight: 800;\">Amigo (Receptor)</div>\n                    </div>\n                </div>\n            </div>\n\n            <!-- Interactive Circuit -->\n            <div class=\"comm-circuit\">\n                <div style=\"text-align: center; max-width: 650px; margin: 0 auto 1.5rem;\">\n                    <span class=\"badge-pill\">💡 Haz clic en cada elemento para explorar su rol</span>\n                    <h3 style=\"font-size: 1.3rem; margin-top: 0.5rem;\">Los 6 Elementos Imprescindibles</h3>\n                </div>\n\n                <div class=\"circuit-grid\">\n                    <div class=\"circuit-node active\" onclick=\"selectCircuitElement('emisor')\">\n                        <div class=\"circuit-icon\">🗣️</div>\n                        <div class=\"circuit-title\">1. Emisor</div>\n                        <div class=\"circuit-desc\">Es la persona, ser o entidad que <strong>transmite la información</strong> o elabora el mensaje.</div>\n                    </div>\n                    <div class=\"circuit-node\" onclick=\"selectCircuitElement('receptor')\">\n                        <div class=\"circuit-icon\">👂</div>\n                        <div class=\"circuit-title\">2. Receptor</div>\n                        <div class=\"circuit-desc\">Es la persona o grupo que <strong>recibe y descodifica</strong> la información transmitida.</div>\n                    </div>\n                    <div class=\"circuit-node\" onclick=\"selectCircuitElement('mensaje')\">\n                        <div class=\"circuit-icon\">✉️</div>\n                        <div class=\"circuit-title\">3. Mensaje</div>\n                        <div class=\"circuit-desc\">Es el <strong>contenido o información concreta</strong> que se transmite entre emisor y receptor.</div>\n                    </div>\n                    <div class=\"circuit-node\" onclick=\"selectCircuitElement('codigo')\">\n                        <div class=\"circuit-icon\">🔤</div>\n                        <div class=\"circuit-title\">4. Código</div>\n                        <div class=\"circuit-desc\">El <strong>sistema de signos y reglas</strong> (idioma español, morse, señales) conocido por ambos.</div>\n                    </div>\n                    <div class=\"circuit-node\" onclick=\"selectCircuitElement('canal')\">\n                        <div class=\"circuit-icon\">📡</div>\n                        <div class=\"circuit-title\">5. Canal</div>\n                        <div class=\"circuit-desc\">El <strong>medio físico</strong> por el que viaja el mensaje: aire, papel, pantalla, cable, hilo de lana.</div>\n                    </div>\n                    <div class=\"circuit-node\" onclick=\"selectCircuitElement('contexto')\">\n                        <div class=\"circuit-icon\">🌍</div>\n                        <div class=\"circuit-title\">6. Contexto</div>\n                        <div class=\"circuit-desc\">Las <strong>circunstancias de lugar y tiempo</strong> que rodean y ayudan a comprender el acto comunicativo.</div>\n                    </div>\n                </div>\n\n                <div id=\"circuit-detail-box\" class=\"comm-interactive-box\">\n                    <div>\n                        <span id=\"detail-tag\" style=\"font-weight: 800; color: var(--primary); font-size: 0.85rem;\">DETALLE SELECCIONADO: EMISOR</span>\n                        <h4 id=\"detail-title\" style=\"font-size: 1.15rem; margin-top: 0.2rem;\">¿Quién envía el mensaje?</h4>\n                        <p id=\"detail-body\" style=\"font-size: 0.92rem; color: var(--text-muted); margin-top: 0.3rem;\">\n                            El emisor inicia el acto comunicativo codificando sus ideas en un mensaje comprensible. Ejemplo: El profesor explicando en clase o un semáforo emitiendo luz roja.\n                        </p>\n                    </div>\n                    <button class=\"btn-primary\" onclick=\"testRandomCommCase()\">\n                        <span>🎯</span> Probar Caso Práctico\n                    </button>\n            </div>",
+  "panelIds": [
+    "panel-comunicacion",
+    "panel-datealpie",
+    "panel-situaciones",
+    "panel-diccionario",
+    "panel-tipos_dicc",
+    "panel-alfabetico",
+    "panel-comic",
+    "panel-quiz",
+    "panel-recursos"
+  ],
+  "copiedFiles": [
+    "El  lenguaje  y  la  comunicación.pdf",
+    "ordenar alfab.pdf",
+    "¡Practiquemos lo aprendido! Diccionario online (1).pdf"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.379Z"
+}

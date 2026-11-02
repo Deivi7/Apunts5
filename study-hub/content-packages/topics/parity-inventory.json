@@ -1,0 +1,1173 @@
+[
+  {
+    "subjectId": "castellano",
+    "subjectTitle": "Castellà",
+    "topicId": "comunicacion",
+    "vueModule": "castellano/comunicacion",
+    "title": "Lenguaje, Comunicación & El Diccionario",
+    "language": "es",
+    "sections": [
+      {
+        "id": "comunicacion",
+        "title": "1. Apuntes: Circuito",
+        "role": "theory",
+        "desc": "Los 6 elementos & Recursos"
+      },
+      {
+        "id": "datealpie",
+        "title": "2. Cuento: Datealpié",
+        "role": "interactive",
+        "desc": "Lectura & Comprensión"
+      },
+      {
+        "id": "situaciones",
+        "title": "3. Reto: Casos Reales",
+        "role": "interactive",
+        "desc": "Identifica en vivo (+15 XP)"
+      },
+      {
+        "id": "diccionario",
+        "title": "4. Diccionario & Abreviaturas",
+        "role": "interactive",
+        "desc": "Simulador RAE & 25 abreviaturas"
+      },
+      {
+        "id": "tipos_dicc",
+        "title": "5. Tipos de Diccionarios",
+        "role": "interactive",
+        "desc": "9 tipos y fragmentos reales"
+      },
+      {
+        "id": "alfabetico",
+        "title": "6. Orden Alfabético",
+        "role": "interactive",
+        "desc": "Los 3 retos de clase (PDF)"
+      },
+      {
+        "id": "comic",
+        "title": "7. Taller de Cómic",
+        "role": "interactive",
+        "desc": "Bocadillos y puntuación"
+      },
+      {
+        "id": "quiz",
+        "title": "8. Quiz de Examen",
+        "role": "interactive",
+        "desc": "10 preguntas aleatorias"
+      },
+      {
+        "id": "recursos",
+        "title": "9. Chuleta & Ficha",
+        "role": "interactive",
+        "desc": "Resumen e imprimibles"
+      }
+    ],
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "comunicacion",
+      "datealpie",
+      "situaciones",
+      "diccionario",
+      "tipos_dicc",
+      "alfabetico",
+      "comic",
+      "quiz"
+    ],
+    "customs": [
+      "CircuitExplorer",
+      "SituationsLab",
+      "RaeSimulator",
+      "AbbreviationLab",
+      "DictTypesLab",
+      "AlphaOrderLab",
+      "ComicWorkshop",
+      "MasterQuiz"
+    ],
+    "types": [
+      "custom",
+      "matching",
+      "true_false",
+      "multiple_choice"
+    ],
+    "legacyPanels": [
+      "panel-comunicacion",
+      "panel-datealpie",
+      "panel-situaciones",
+      "panel-diccionario",
+      "panel-tipos_dicc",
+      "panel-alfabetico",
+      "panel-comic",
+      "panel-quiz",
+      "panel-recursos"
+    ],
+    "interactions": {
+      "onclick": 101,
+      "checks": 6,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 3,
+    "docsNoDrive": 2,
+    "docsMissing": [
+      "El  lenguaje  y  la  comunicación.pdf",
+      "ordenar alfab.pdf"
+    ],
+    "theoryLen": 18121,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "castellano",
+    "subjectTitle": "Castellà",
+    "topicId": "signo_puntuacion",
+    "vueModule": "castellano/signo_puntuacion",
+    "title": "Signos de Puntuación & Ortografía",
+    "language": "es",
+    "sections": [
+      {
+        "id": "apuntes",
+        "title": "1. Apuntes: Reglas",
+        "role": "theory",
+        "desc": "Los signos explicados paso a paso"
+      },
+      {
+        "id": "flashcards",
+        "title": "2. Tarjetas con Voz (15)",
+        "role": "interactive",
+        "desc": "Estudio con audio y ejemplos"
+      },
+      {
+        "id": "memory",
+        "title": "3. Parejas Ortográficas",
+        "role": "interactive",
+        "desc": "Memoria visual de signos"
+      },
+      {
+        "id": "workshop",
+        "title": "4. Taller: Puntúa la Frase",
+        "role": "interactive",
+        "desc": "Inserta signos en textos reales"
+      },
+      {
+        "id": "sorter",
+        "title": "5. Clasificador Veloz",
+        "role": "interactive",
+        "desc": "Identificación contrarreloj"
+      },
+      {
+        "id": "quiz",
+        "title": "6. Quiz de Examen",
+        "role": "interactive",
+        "desc": "10 preguntas aleatorias RAE"
+      },
+      {
+        "id": "cheatsheet",
+        "title": "7. Chuleta Imprimible",
+        "role": "interactive",
+        "desc": "Tabla oficial y trampas"
+      },
+      {
+        "id": "docs",
+        "title": "8. Documentos de Clase",
+        "role": "docs",
+        "desc": "PDFs oficiales de Drive"
+      }
+    ],
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "flashcards",
+      "memory",
+      "workshop",
+      "sorter",
+      "quiz"
+    ],
+    "customs": [
+      "FlashcardsSpeak",
+      "PunctuationWorkshop",
+      "AlphaOrderLab",
+      "PunctuationSorter",
+      "MasterQuiz"
+    ],
+    "types": [
+      "custom",
+      "memory"
+    ],
+    "legacyPanels": [
+      "panel-apuntes",
+      "panel-flashcards",
+      "panel-memory",
+      "panel-quiz",
+      "panel-workshop",
+      "panel-sorter",
+      "panel-cheatsheet",
+      "panel-docs"
+    ],
+    "interactions": {
+      "onclick": 65,
+      "checks": 3,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "speakText": 3
+    },
+    "docsCount": 7,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 15376,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "castellano",
+    "subjectTitle": "Castellà",
+    "topicId": "tema2",
+    "vueModule": "castellano/tema2",
+    "title": "Tema 2: El Verbo, Acentuación & Tecnicismos",
+    "language": "es",
+    "sections": [
+      {
+        "id": "apuntes",
+        "title": "1. Apuntes & Teoría",
+        "role": "theory",
+        "desc": "Guía didáctica 5º Primaria"
+      },
+      {
+        "id": "lectura",
+        "title": "2. Lectura & Comprensión",
+        "role": "interactive",
+        "desc": "Narración & Preguntas"
+      },
+      {
+        "id": "vocabulario",
+        "title": "3. Vocabulario",
+        "role": "interactive",
+        "desc": "Tecnicismos & Neologismos"
+      },
+      {
+        "id": "verbo",
+        "title": "4. Gramática: El Verbo",
+        "role": "interactive",
+        "desc": "Formas no personales & Raíz"
+      },
+      {
+        "id": "acentuacion",
+        "title": "5. Ortografía: Acentuación",
+        "role": "interactive",
+        "desc": "Agudas, llanas & esdrújulas"
+      },
+      {
+        "id": "taller",
+        "title": "6. Taller: Misión Espacial",
+        "role": "interactive",
+        "desc": "Informe científico interactivo"
+      },
+      {
+        "id": "quiz",
+        "title": "7. Autoavaluación Master",
+        "role": "interactive",
+        "desc": "Test global 10 preguntas"
+      },
+      {
+        "id": "documentos",
+        "title": "8. Documentos de Clase",
+        "role": "docs",
+        "desc": "PDFs oficiales & Drive"
+      }
+    ],
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "lectura",
+      "vocabulario",
+      "verbo",
+      "acentuacion",
+      "taller",
+      "quiz"
+    ],
+    "customs": [
+      "DragClassify"
+    ],
+    "types": [
+      "multiple_choice",
+      "fill_blank",
+      "custom",
+      "ordering"
+    ],
+    "legacyPanels": [
+      "tab-apuntes",
+      "tab-lectura",
+      "tab-vocabulario",
+      "tab-verbo",
+      "tab-acentuacion",
+      "tab-taller",
+      "tab-quiz",
+      "tab-documentos"
+    ],
+    "interactions": {
+      "onclick": 64,
+      "checks": 13,
+      "canvas": 0,
+      "inputs": 25,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 8,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 15844,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "curie",
+    "subjectTitle": "M. Curie",
+    "topicId": "wordslist",
+    "vueModule": "curie/wordslist",
+    "title": "Laboratory Words List & Vocabulary",
+    "language": "en",
+    "sections": [
+      {
+        "id": "flashcards",
+        "title": "1. Tarjetas & Audio",
+        "role": "interactive",
+        "desc": "35 tarjetas con voz nativa"
+      },
+      {
+        "id": "memory",
+        "title": "2. Parejas de Memoria",
+        "role": "interactive",
+        "desc": "Empareja término y significado"
+      },
+      {
+        "id": "quiz",
+        "title": "3. Quiz de Laboratorio",
+        "role": "interactive",
+        "desc": "10 preguntas multirespuesta"
+      },
+      {
+        "id": "spelling",
+        "title": "4. Reto de Ortografía",
+        "role": "interactive",
+        "desc": "Escribe los términos en inglés"
+      },
+      {
+        "id": "sorter",
+        "title": "5. Clasificador Veloz",
+        "role": "interactive",
+        "desc": "Clasifica a contrarreloj"
+      },
+      {
+        "id": "cheatsheet",
+        "title": "6. Chuleta & Tablas",
+        "role": "interactive",
+        "desc": "Resumen completo e imprimible"
+      }
+    ],
+    "exerciseKeys": [
+      "rules",
+      "examples",
+      "resources",
+      "documents",
+      "flashcards",
+      "memory",
+      "quiz",
+      "spelling",
+      "sorter",
+      "cheatsheet"
+    ],
+    "customs": [
+      "FlashcardsSpeak"
+    ],
+    "types": [
+      "custom",
+      "memory",
+      "multiple_choice",
+      "fill_blank",
+      "true_false",
+      "ordering"
+    ],
+    "legacyPanels": [
+      "panel-flashcards",
+      "panel-memory",
+      "panel-quiz",
+      "panel-spelling",
+      "panel-sorter",
+      "panel-cheatsheet"
+    ],
+    "interactions": {
+      "onclick": 40,
+      "checks": 2,
+      "canvas": 1,
+      "inputs": 2,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 1,
+    "docsNoDrive": 1,
+    "docsMissing": [
+      "words List Lab.pdf"
+    ],
+    "theoryLen": 0,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "mates",
+    "subjectTitle": "Mates",
+    "topicId": "operaciones",
+    "vueModule": "mates/operaciones",
+    "title": "Cálculo Mental, Operaciones & Problemas",
+    "language": "es",
+    "sections": [
+      {
+        "id": "apuntes",
+        "title": "1. Apuntes: Reglas de Oro",
+        "role": "theory",
+        "desc": "Jerarquía, algoritmos y pruebas"
+      },
+      {
+        "id": "sprint",
+        "title": "2. Sprint Cálculo Mental",
+        "role": "interactive",
+        "desc": "60 operaciones en 2 min"
+      },
+      {
+        "id": "multiplication",
+        "title": "3. Multiplicación",
+        "role": "interactive",
+        "desc": "Varias cifras paso a paso"
+      },
+      {
+        "id": "division",
+        "title": "4. División con Prueba",
+        "role": "interactive",
+        "desc": "Paso a paso guiado"
+      },
+      {
+        "id": "worksheet",
+        "title": "5. Fichas de Examen",
+        "role": "interactive",
+        "desc": "Papel sin resultado"
+      },
+      {
+        "id": "parentheses",
+        "title": "6. Paréntesis Combinados",
+        "role": "interactive",
+        "desc": "Jerarquía de operaciones"
+      },
+      {
+        "id": "problems",
+        "title": "7. Banco de Problemas",
+        "role": "interactive",
+        "desc": "32 problemas razonados"
+      },
+      {
+        "id": "cheatsheet",
+        "title": "8. Trucos de Cálculo",
+        "role": "interactive",
+        "desc": "Multiplicar por 5, 9, 11 y ceros"
+      }
+    ],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "sprint",
+      "multiplication",
+      "division",
+      "worksheet",
+      "parentheses",
+      "problems",
+      "cheatsheet"
+    ],
+    "customs": [
+      "MentalSprint",
+      "MultiplicationBoard"
+    ],
+    "types": [
+      "custom",
+      "fill_blank",
+      "multiple_choice"
+    ],
+    "legacyPanels": [
+      "view-apuntes",
+      "view-sprint",
+      "view-multiplication",
+      "view-division",
+      "view-worksheet",
+      "view-parentheses",
+      "view-problems",
+      "view-cheatsheet"
+    ],
+    "interactions": {
+      "onclick": 88,
+      "checks": 4,
+      "canvas": 0,
+      "inputs": 15,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 0,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 5759,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "mates",
+    "subjectTitle": "Mates",
+    "topicId": "romanos",
+    "vueModule": "mates/romanos",
+    "title": "Números Romanos — El Imperio de las Cifras",
+    "language": "es",
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "title": "📖",
+        "role": "theory",
+        "desc": "1. Apuntes & Teoría de Oro"
+      },
+      {
+        "id": "tab-conversor",
+        "title": "🔮",
+        "role": "interactive",
+        "desc": "2. Conversor & Descompositor"
+      },
+      {
+        "id": "tab-practica",
+        "title": "✍️",
+        "role": "interactive",
+        "desc": "3. Taller (Romano ↔ Decimal)"
+      },
+      {
+        "id": "tab-detective",
+        "title": "🕵️",
+        "role": "interactive",
+        "desc": "4. Detective de Errores"
+      },
+      {
+        "id": "tab-siglos",
+        "title": "⏳",
+        "role": "interactive",
+        "desc": "5. Reto de Siglos & Relojes"
+      },
+      {
+        "id": "tab-coliseo",
+        "title": "⚔️",
+        "role": "interactive",
+        "desc": "6. Coliseo Contrarreloj (2 min)"
+      },
+      {
+        "id": "tab-print",
+        "title": "🖨️",
+        "role": "interactive",
+        "desc": "7. Ficha Imprimible A4"
+      }
+    ],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-conversor",
+      "tab-practica",
+      "tab-detective",
+      "tab-siglos",
+      "tab-print",
+      "tab-coliseo"
+    ],
+    "customs": [
+      "RomanConverter",
+      "CenturyCalculator",
+      "RomanClockLab",
+      "PrintableRomanSheet",
+      "TimedChoiceLab"
+    ],
+    "types": [
+      "custom",
+      "fill_blank",
+      "true_false",
+      "multiple_choice"
+    ],
+    "legacyPanels": [
+      "tab-teoria",
+      "tab-conversor",
+      "tab-practica",
+      "tab-detective",
+      "tab-siglos",
+      "tab-coliseo",
+      "tab-print"
+    ],
+    "interactions": {
+      "onclick": 63,
+      "checks": 3,
+      "canvas": 1,
+      "inputs": 6,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 0,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 28619,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "mates",
+    "subjectTitle": "Mates",
+    "topicId": "posat_a_prova_1",
+    "vueModule": "mates/posat_a_prova_1",
+    "title": "Posa't a prova 1 (Examen Oficial & Entrenament Pro)",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "title": "📖",
+        "role": "theory",
+        "desc": "1. Teoria & Trucs Clau"
+      },
+      {
+        "id": "tab-examen",
+        "title": "📝",
+        "role": "interactive",
+        "desc": "2. Examen Real (14-10)"
+      },
+      {
+        "id": "tab-pro",
+        "title": "🚀",
+        "role": "interactive",
+        "desc": "3. Nivell Pro (Més Difícil)"
+      },
+      {
+        "id": "tab-generator",
+        "title": "⚡",
+        "role": "interactive",
+        "desc": "4. Entrenador Infinit"
+      }
+    ],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "customs": [
+      "MentalSprint"
+    ],
+    "types": [
+      "fill_blank",
+      "multiple_choice",
+      "true_false",
+      "custom"
+    ],
+    "legacyPanels": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "interactions": {
+      "onclick": 56,
+      "checks": 20,
+      "canvas": 1,
+      "inputs": 41,
+      "selects": 8,
+      "speakText": 0
+    },
+    "docsCount": 0,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 14542,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "projecte",
+    "subjectTitle": "Projecte",
+    "topicId": "coordenadas",
+    "vueModule": "projecte/coordenadas",
+    "title": "Tema 1: Orienta't i atrapa'ls (Coordenades & Pokémon)",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "teoria",
+        "title": "1. Apunts: Teoria & Conceptes",
+        "role": "theory",
+        "desc": "Paral·lels, meridians i globus"
+      },
+      {
+        "id": "radar",
+        "title": "2. Radar Pokémon (10)",
+        "role": "interactive",
+        "desc": "Missió de rescat al mapamundi"
+      },
+      {
+        "id": "mapa-punts",
+        "title": "3. Mapa & Generador Dinàmic",
+        "role": "interactive",
+        "desc": "Pràctica aleatòria de punts"
+      },
+      {
+        "id": "llegendaris",
+        "title": "4. Constel·lació Llegendària",
+        "role": "interactive",
+        "desc": "Dibuix de Pikachu per coordenades"
+      },
+      {
+        "id": "test",
+        "title": "5. Test de Repàs (20)",
+        "role": "interactive",
+        "desc": "Preguntes tipus examen"
+      },
+      {
+        "id": "fitxes",
+        "title": "6. Fitxes Originals (PDF)",
+        "role": "docs",
+        "desc": "Descàrrega dels 4 dossiers"
+      }
+    ],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "teoria",
+      "radar",
+      "mapa-punts",
+      "llegendaris",
+      "test"
+    ],
+    "customs": [
+      "WindRoseSpeak",
+      "TheoryTrueFalse",
+      "RadarCaptureLab",
+      "MapPointsHub",
+      "ConstellationCanvas"
+    ],
+    "types": [
+      "custom",
+      "multiple_choice"
+    ],
+    "legacyPanels": [
+      "panel-teoria",
+      "panel-radar",
+      "panel-mapa-punts",
+      "panel-llegendaris",
+      "panel-test",
+      "panel-fitxes"
+    ],
+    "interactions": {
+      "onclick": 112,
+      "checks": 3,
+      "canvas": 1,
+      "inputs": 17,
+      "selects": 7,
+      "speakText": 15
+    },
+    "docsCount": 4,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 9977,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "projecte",
+    "subjectTitle": "Projecte",
+    "topicId": "pasdeltemps",
+    "vueModule": "projecte/pasdeltemps",
+    "title": "Tema 2: El pas del temps (Història & Nombres Romans)",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "title": "📖",
+        "role": "theory",
+        "desc": "1. Apuntes & Teoria d'Or"
+      },
+      {
+        "id": "tab-romans",
+        "title": "🏛️",
+        "role": "interactive",
+        "desc": "2. Nombres Romans (Taller)"
+      },
+      {
+        "id": "tab-segles",
+        "title": "⏳",
+        "role": "interactive",
+        "desc": "3. Anys, Segles & Cronologia"
+      },
+      {
+        "id": "tab-edats-h5p",
+        "title": "🏰",
+        "role": "interactive",
+        "desc": "4. Les 5 Edats: Jocs & Reptes H5P"
+      },
+      {
+        "id": "tab-peninsula",
+        "title": "🇪🇸",
+        "role": "interactive",
+        "desc": "5. Història de la Península"
+      },
+      {
+        "id": "tab-documents",
+        "title": "📁",
+        "role": "docs",
+        "desc": "6. Biblioteca de Documents & Vídeos"
+      }
+    ],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents",
+      "tab-romans",
+      "tab-segles",
+      "tab-edats-h5p",
+      "tab-peninsula",
+      "tab-documents"
+    ],
+    "customs": [
+      "RomanConverter",
+      "CenturyCalculator",
+      "DragClassify"
+    ],
+    "types": [
+      "custom",
+      "fill_blank",
+      "multiple_choice",
+      "ordering",
+      "true_false"
+    ],
+    "legacyPanels": [
+      "tab-teoria",
+      "tab-romans",
+      "tab-segles",
+      "tab-edats-h5p",
+      "tab-peninsula",
+      "tab-documents"
+    ],
+    "interactions": {
+      "onclick": 135,
+      "checks": 12,
+      "canvas": 0,
+      "inputs": 54,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 5,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 53160,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "catala",
+    "subjectTitle": "Català",
+    "topicId": "sant_baldiri",
+    "vueModule": "catala/sant_baldiri",
+    "title": "Tema 1: L'escola de Sant Baldiri",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "apunts",
+        "title": "1. Apunts & Teoria",
+        "role": "theory",
+        "desc": "Teoria Didàctica & Drive"
+      },
+      {
+        "id": "lectura",
+        "title": "2. Lectura & Comprensió",
+        "role": "interactive",
+        "desc": "L'escola de St. Baldiri"
+      },
+      {
+        "id": "sinonims",
+        "title": "3. Sinònims & Antònims",
+        "role": "interactive",
+        "desc": "Vídeo & Joc de parelles"
+      },
+      {
+        "id": "digrafs",
+        "title": "4. Síl·laba & Dígrafs",
+        "role": "interactive",
+        "desc": "Dígrafs & Truc del Crit"
+      },
+      {
+        "id": "elnom",
+        "title": "5. Classes de Noms",
+        "role": "interactive",
+        "desc": "El substantiu interactiu"
+      },
+      {
+        "id": "expressio",
+        "title": "6. Expressió Escrita",
+        "role": "interactive",
+        "desc": "Taller de redacció"
+      },
+      {
+        "id": "quiz",
+        "title": "7. Autoavaluació",
+        "role": "interactive",
+        "desc": "Test mestre 10 preguntes"
+      },
+      {
+        "id": "fitxes",
+        "title": "8. Fitxes & PDFs",
+        "role": "docs",
+        "desc": "11 fitxes i vídeos a Drive"
+      }
+    ],
+    "exerciseKeys": [
+      "resources",
+      "lectura",
+      "sinonims",
+      "digrafs",
+      "elnom",
+      "expressio",
+      "quiz"
+    ],
+    "customs": [],
+    "types": [
+      "multiple_choice",
+      "matching",
+      "fill_blank",
+      "true_false"
+    ],
+    "legacyPanels": [
+      "tab-apunts",
+      "tab-lectura",
+      "tab-sinonims",
+      "tab-digrafs",
+      "tab-elnom",
+      "tab-expressio",
+      "tab-quiz",
+      "tab-fitxes"
+    ],
+    "interactions": {
+      "onclick": 66,
+      "checks": 11,
+      "canvas": 0,
+      "inputs": 0,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 11,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 21178,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "catala",
+    "subjectTitle": "Català",
+    "topicId": "posat_a_prova_1",
+    "vueModule": "catala/posat_a_prova_1",
+    "title": "Posa't a prova 1 (Examen Oficial & Nivell Pro)",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "tab-teoria",
+        "title": "📖",
+        "role": "theory",
+        "desc": "1. Teoria & Trucs Clau"
+      },
+      {
+        "id": "tab-examen",
+        "title": "📝",
+        "role": "interactive",
+        "desc": "2. Examen Real (15-10)"
+      },
+      {
+        "id": "tab-pro",
+        "title": "🚀",
+        "role": "interactive",
+        "desc": "3. Nivell Pro (Més Difícil)"
+      },
+      {
+        "id": "tab-generator",
+        "title": "⚡",
+        "role": "interactive",
+        "desc": "4. Entrenador Infinit"
+      }
+    ],
+    "exerciseKeys": [
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "customs": [],
+    "types": [
+      "multiple_choice",
+      "true_false",
+      "fill_blank",
+      "matching",
+      "ordering"
+    ],
+    "legacyPanels": [
+      "tab-teoria",
+      "tab-examen",
+      "tab-pro",
+      "tab-generator"
+    ],
+    "interactions": {
+      "onclick": 151,
+      "checks": 23,
+      "canvas": 0,
+      "inputs": 24,
+      "selects": 3,
+      "speakText": 0
+    },
+    "docsCount": 0,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 14173,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "catala",
+    "subjectTitle": "Català",
+    "topicId": "tema2",
+    "vueModule": "catala/tema2",
+    "title": "Tema 2: Una trobada anguniosa",
+    "language": "ca",
+    "sections": [
+      {
+        "id": "apunts",
+        "title": "1. Apunts & Teoria d'Or",
+        "role": "theory",
+        "desc": "Regles clau & Trucs Didàctics"
+      },
+      {
+        "id": "lectura",
+        "title": "2. Lectura & Comprensió",
+        "role": "interactive",
+        "desc": "Una trobada anguniosa"
+      },
+      {
+        "id": "polisemia",
+        "title": "3. Lèxic: La Polisèmia",
+        "role": "interactive",
+        "desc": "Vídeo, Fitxa Oficial & Contextos"
+      },
+      {
+        "id": "accentuacio",
+        "title": "4. Ortografia: Accentuació",
+        "role": "interactive",
+        "desc": "Agudes, planes & esdrúixoles"
+      },
+      {
+        "id": "adjectiu",
+        "title": "5. Gramàtica: L'Adjectiu",
+        "role": "interactive",
+        "desc": "Concordança & Graus"
+      },
+      {
+        "id": "mail",
+        "title": "6. Expressió: El Mail",
+        "role": "interactive",
+        "desc": "Simulador interactiu de correu"
+      },
+      {
+        "id": "quiz",
+        "title": "7. Autoavaluació Master",
+        "role": "interactive",
+        "desc": "Test complet 10 preguntes"
+      },
+      {
+        "id": "documents",
+        "title": "8. Documents & Recursos",
+        "role": "interactive",
+        "desc": "16 fitxes, vídeos & Genially"
+      }
+    ],
+    "exerciseKeys": [
+      "resources",
+      "lectura",
+      "polisemia",
+      "accentuacio",
+      "adjectiu",
+      "mail",
+      "quiz"
+    ],
+    "customs": [
+      "DragClassify",
+      "EmailComposer"
+    ],
+    "types": [
+      "multiple_choice",
+      "fill_blank",
+      "matching",
+      "custom"
+    ],
+    "legacyPanels": [
+      "tab-apunts",
+      "tab-lectura",
+      "tab-polisemia",
+      "tab-accentuacio",
+      "tab-adjectiu",
+      "tab-mail",
+      "tab-quiz",
+      "tab-documents"
+    ],
+    "interactions": {
+      "onclick": 65,
+      "checks": 10,
+      "canvas": 0,
+      "inputs": 22,
+      "selects": 32,
+      "speakText": 0
+    },
+    "docsCount": 12,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 16589,
+    "hasLegacyHtml": true,
+    "hasModule": true
+  },
+  {
+    "subjectId": "tutoria",
+    "subjectTitle": "Tutoria",
+    "topicId": "calendario",
+    "vueModule": "tutoria/calendario",
+    "title": "Calendario Escolar & Exámenes",
+    "language": null,
+    "sections": [],
+    "exerciseKeys": [
+      "sections",
+      "resources",
+      "documents"
+    ],
+    "customs": [],
+    "types": [],
+    "legacyPanels": [],
+    "interactions": {
+      "onclick": 0,
+      "checks": 0,
+      "canvas": 0,
+      "inputs": 0,
+      "selects": 0,
+      "speakText": 0
+    },
+    "docsCount": 0,
+    "docsNoDrive": 0,
+    "docsMissing": [],
+    "theoryLen": 0,
+    "hasLegacyHtml": false,
+    "hasModule": true
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "subjectId": "mates",
+  "topicId": "operaciones",
+  "title": "Cálculo Mental, Operaciones & Problemas",
+  "language": "es",
+  "contentBase": "/content/mates/operaciones",
+  "sections": [
+    {
+      "id": "apuntes",
+      "title": "1. Apuntes: Reglas de Oro",
+      "desc": "Jerarquía, algoritmos y pruebas",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "sprint",
+      "title": "2. Sprint Cálculo Mental",
+      "desc": "60 operaciones en 2 min",
+      "role": "interactive",
+      "icon": "⚡"
+    },
+    {
+      "id": "multiplication",
+      "title": "3. Multiplicación",
+      "desc": "Solucionador vertical paso a paso",
+      "role": "interactive",
+      "icon": "✖️"
+    },
+    {
+      "id": "division",
+      "title": "4. División con Prueba",
+      "desc": "Caja escolar + prueba oficial",
+      "role": "interactive",
+      "icon": "➗"
+    },
+    {
+      "id": "worksheet",
+      "title": "5. Fichas imprimibles",
+      "desc": "Sumas, restas, × y ÷ para imprimir",
+      "role": "interactive",
+      "icon": "🖨️"
+    },
+    {
+      "id": "parentheses",
+      "title": "6. Paréntesis Combinados",
+      "desc": "Jerarquía de operaciones",
+      "role": "interactive",
+      "icon": "🧩"
+    },
+    {
+      "id": "problems",
+      "title": "7. Banco de Problemas",
+      "desc": "32 problemas razonados",
+      "role": "interactive",
+      "icon": "📖"
+    },
+    {
+      "id": "cheatsheet",
+      "title": "8. Trucos de Cálculo",
+      "desc": "Multiplicar por 5, 9, 11 y ceros",
+      "role": "interactive",
+      "icon": "💡"
+    }
+  ],
+  "resources": [],
+  "documents": [],
+  "theoryHtml": "<div class=\"glass-card\">\n                <div class=\"card-header-styled\">\n                    <div>\n                        <h2><span>📖</span> Apuntes y Reglas de Oro Matemáticas</h2>\n                        <p>Los métodos fundamentales de 5º y 6º de Primaria para operar con seguridad, rapidez y sin cometer fallos en exámenes.</p>\n                    </div>\n                    <button class=\"btn-primary\" onclick=\"openQuickCheatSheet()\">\n                        <span>💡</span> Abrir Chuleta Rápida\n                    </button>\n                </div>\n\n                <div class=\"cheatsheet-grid\" style=\"margin-top: 1.25rem;\">\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #4f46e5;\">\n                        <h3><span>1️⃣</span> Jerarquía de las Operaciones Combinadas</h3>\n                        <p>Cuando hay varias operaciones juntas, SIEMPRE sigue este orden estricto de izquierda a derecha:</p>\n                        <div class=\"cheat-example\">\n                            <strong>1º Paréntesis:</strong> Resuelve primero lo que esté dentro de ( ).<br>\n                            <strong>2º Multiplicaciones y Divisiones:</strong> De izquierda a derecha.<br>\n                            <strong>3º Sumas y Restas:</strong> Al final, de izquierda a derecha.<br>\n                            <em>Ejemplo: 5 + 3 × (8 - 2) = 5 + 3 × 6 = 5 + 18 = <strong>23</strong></em>\n                        </div>\n                    </div>\n\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #0ea5e9;\">\n                        <h3><span>2️⃣</span> Algoritmo de Multiplicación por Varias Cifras</h3>\n                        <p>Coloca los números alineados a la derecha. Multiplica cifra por cifra del segundo número:</p>\n                        <div class=\"cheat-example\">\n                            <strong>1.</strong> Multiplica las unidades del multiplicador por todo el número de arriba.<br>\n                            <strong>2.</strong> Al multiplicar las decenas, <strong>deja un hueco (o pon un 0) a la derecha</strong>.<br>\n                            <strong>3.</strong> Al multiplicar las centenas, deja dos huecos (o dos ceros).<br>\n                            <strong>4.</strong> Suma todos los productos parciales.\n                        </div>\n                    </div>\n\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #10b981;\">\n                        <h3><span>3️⃣</span> Algoritmo de División y Prueba Oficial</h3>\n                        <p>Divide cifras empezando por la izquierda. La prueba confirma si el cálculo es perfecto:</p>\n                        <div class=\"cheat-example\">\n                            <strong>Fórmula de la Prueba:</strong> Dividendo = (Divisor × Cociente) + Resto.<br>\n                            <strong>Regla de Oro:</strong> El resto SIEMPRE debe ser menor que el divisor (Resto &lt; Divisor).<br>\n                            <em>Si el resto es igual o mayor que el divisor, cabe una vez más en el cociente.</em>\n                        </div>\n                    </div>\n\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #f59e0b;\">\n                        <h3><span>4️⃣</span> Ceros en Multiplicaciones y Divisiones</h3>\n                        <p>Ahorra tiempo al operar con múltiplos de 10 (10, 100, 1.000...):</p>\n                        <div class=\"cheat-example\">\n                            <strong>Multiplicar:</strong> Multiplica los números sin ceros y añade al final todos los ceros juntos.<br>\n                            <em>Ej: 400 × 30 = (4×3=12) + 3 ceros = <strong>12.000</strong></em><br>\n                            <strong>Dividir:</strong> Tacha la misma cantidad de ceros en dividendo y divisor.<br>\n                            <em>Ej: 4.800 ÷ 60 = 480 ÷ 6 = <strong>80</strong></em>\n                        </div>\n                    </div>\n\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #8b5cf6;\">\n                        <h3><span>5️⃣</span> Trucos Relámpago de Cálculo Mental</h3>\n                        <p>Atajos mentales para responder las 60 operaciones en menos de 2 minutos:</p>\n                        <div class=\"cheat-example\">\n                            <strong>× 5:</strong> Multiplica por 10 y saca la mitad (÷2). Ej: 34 × 5 = 340 ÷ 2 = <strong>170</strong>.<br>\n                            <strong>× 9:</strong> Multiplica por 10 y resta el número. Ej: 25 × 9 = 250 - 25 = <strong>225</strong>.<br>\n                            <strong>× 11 (2 cifras):</strong> Separa cifras y suma en medio. Ej: 53 × 11 = 5_(5+3)_3 = <strong>583</strong>.<br>\n                            <strong>Redondeo:</strong> Para sumar +29, suma +30 y resta 1.\n                        </div>\n                    </div>\n\n                    <div class=\"cheat-card\" style=\"border-top: 4px solid #f43f5e;\">\n                        <h3><span>6️⃣</span> Método para Resolver Problemas (4 Pasos)</h3>\n                        <p>La estructura oficial que piden todos los profesores en los controles de Primaria:</p>\n                        <div class=\"cheat-example\">\n                            <strong>1. Datos:</strong> Anota solo las cantidades y unidades que te da el enunciado.<br>\n                            <strong>2. Pregunta & Razonamiento:</strong> ¿Qué me piden? ¿Tengo que juntar (+), quitar (-), repartir (÷) o repetir (×)?<br>\n                            <strong>3. Operaciones:</strong> Realiza los cálculos en limpio.<br>\n                            <strong>4. Solución Redactada:</strong> Responde con frase completa (ej: «Le quedan 14 euros en la hucha»).\n                        </div>\n                    </div>\n                </div>\n            </div>",
+  "panelIds": [
+    "view-apuntes",
+    "view-sprint",
+    "view-multiplication",
+    "view-division",
+    "view-worksheet",
+    "view-parentheses",
+    "view-problems",
+    "view-cheatsheet"
+  ],
+  "copiedFiles": [],
+  "migratedAt": "2026-11-01T13:07:59.474Z"
+}

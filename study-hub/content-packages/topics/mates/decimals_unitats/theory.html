@@ -1,0 +1,286 @@
+<div class="section-banner-title">
+  <div>
+    <h2><span>📖</span> Teoria &amp; Trucs Clau — Decimals, unitats i geometria</h2>
+    <p>Com a la versió clàssica del hub: explicacions de 5è amb exemples bé/mal, taules i el truc del profe. Tot en català, alineat amb l'examen (pàg. 39–56).</p>
+  </div>
+</div>
+
+<div class="theory-grid-layout">
+
+  <!-- 0. Valor posicional (estil posat_a_prova + part decimal) -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">🔢</div>
+      <h3>0. Valor posicional: enters i decimals</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Què és i per a què serveix?</strong> Cada xifra val segons el lloc on és. A l'esquerra de la coma hi ha unitats, desenes, centenes…; a la dreta, dècimes, centèsimes, mil·lèsimes. Moure't un lloc = ×10 o ÷10.</p>
+      <table class="place-value-table" style="font-size:0.78rem;">
+        <thead>
+          <tr>
+            <th>C</th><th>D</th><th>U</th><th>,</th><th>d</th><th>c</th><th>m</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Centenes</td><td>Desenes</td><td>Unitats</td><td>coma</td><td>Dècimes</td><td>Centèsimes</td><td>Mil·lèsimes</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>3</td><td>1</td><td>4</td><td>,</td><td><strong>1</strong></td><td>5</td><td>9</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.9rem;">Exemple: a <strong>314,159</strong> el <strong>1</strong> de després de la coma són les dècimes (1/10).</p>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>El truc del profe:</strong> Als enters poses puntets cada 3 xifres des de la dreta (10.953.214). Amb decimals, la coma és la “frontera”: cada salt a la dreta ÷10, a l'esquerra ×10.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Potències de 10 -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">🔟</div>
+      <h3>1. Multiplicar i dividir per potències de 10</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Què és i per a què serveix?</strong> El sistema és decimal i posicional. ×10, ×100, ×1000… (o dividir-hi) és el mateix que desplaçar la coma sense recalcular tot el nombre.</p>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ Multiplicar per 10ⁿ:</strong> la coma salta <em>n</em> llocs a la <strong>dreta</strong>. Si falten xifres, afegeixes zeros.<br>
+          <em>0,975 × 10 = 9,75 · 12,3 × 100 = 1230 · 3,14 × 1000 = 3140</em>
+        </div>
+        <div class="bad-side">
+          <strong>❌ Error típic:</strong> afegir zeros “a ull” sense mirar la coma, o moure-la a l'esquerra quan multipliques.
+        </div>
+      </div>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ Dividir per 10ⁿ:</strong> la coma salta <em>n</em> llocs a l'<strong>esquerra</strong>. Si cal, zeros davant.<br>
+          <em>42,7 ÷ 10 = 4,27 · 0,76 ÷ 10 = 0,076 · 423 ÷ 100 = 4,23</em>
+        </div>
+        <div class="bad-side">
+          <strong>❌ Error típic:</strong> oblidar el zero auxiliar (escriure 0,76 en lloc de <strong>0,076</strong>).
+        </div>
+      </div>
+      <div class="cheat-example" style="background:var(--bg-main);padding:0.75rem;border-radius:var(--radius-sm);font-size:0.9rem;margin:0.5rem 0;">
+        <strong>Truc dels ceros (com a Operacions, amb enters):</strong><br>
+        Multiplicar: opera sense ceros i afegeix-los al final. <em>400 × 30 → (4×3) + 3 ceros = 12.000</em><br>
+        Dividir: tacha el mateix nombre de ceros. <em>4.800 ÷ 60 → 480 ÷ 6 = 80</em><br>
+        Amb <em>decimals</em>, el mateix esperit: <strong>compte els zeros de 10, 100, 1000… = salts de la coma</strong>.
+      </div>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>El truc del profe:</strong> 10 → 1 salt · 100 → 2 · 1000 → 3. Multiplicar = dreta; dividir = esquerra.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Arrodoniment -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">🎯</div>
+      <h3>2. Aproximacions i arrodoniment</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Què és i per a què serveix?</strong> Apropar un nombre a la desena, centena, miler o enter per estimar (diners, mesures) o per comprovar si un càlcul té sentit. (A Operacions també useu el “redondeo mental”: +29 → +30 − 1.)</p>
+      <p><strong>Passos clau (regla de l'examen):</strong></p>
+      <ol style="padding-left:1.25rem;font-size:0.92rem;line-height:1.55;">
+        <li>Tria l'ordre que et demanen (desena, centena, miler, unitat…).</li>
+        <li>Mira el dígit <strong>just a la dreta</strong>.</li>
+        <li>0–4 → mantens; 5–9 → puges 1. La resta d'ordres menors es tornen zeros.</li>
+      </ol>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ Exemples correctes:</strong><br>
+          745 → desena = <strong>750</strong> (unitat 5 → amunt)<br>
+          1255 → centena = <strong>1300</strong><br>
+          1500 → miler = <strong>2000</strong> (centena 5 → amunt)<br>
+          14,5 → enter = <strong>15</strong>
+        </div>
+        <div class="bad-side">
+          <strong>❌ Correccions típiques d'examen:</strong><br>
+          3205 → miler = <strong>3000</strong> (no 3200: la centena és 2 &lt; 5)<br>
+          5050 → miler = <strong>5000</strong> (centena 0)
+        </div>
+      </div>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>Truc diners:</strong> 4 arxivadors a 8,48 € amb 40 € → arrodoneix <em>amunt</em> a 9 €: 4×9=36 &lt; 40 → n'hi ha prou amb marge.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Sistema mètric -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">📏</div>
+      <h3>3. Sistema mètric: l'escala de 10</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Què és i per a què serveix?</strong> Longitud (m), massa (g) i capacitat (l) comparteixen prefixos. Cada graó és ×10 o ÷10 — igual que moure la coma!</p>
+      <table class="place-value-table" style="font-size:0.78rem;">
+        <thead>
+          <tr><th>km / kg / kl</th><th>hm / hg / hl</th><th>dam / dag / dal</th><th>m / g / l</th><th>dm / dg / dl</th><th>cm / cg / cl</th><th>mm / mg / ml</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row">
+            <td>×1000</td><td>×100</td><td>×10</td><td><strong>base</strong></td><td>×0,1</td><td>×0,01</td><td>×0,001</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ Canvi d'unitats (com a Posa't a prova):</strong><br>
+          1 km = 1.000 m. Si la tanca fa 96 km → 96 × 1.000 = <strong>96.000 m</strong>.<br>
+          14 m → cm = 2 graons avall → ×100 = <strong>1400 cm</strong>.
+        </div>
+        <div class="bad-side">
+          <strong>❌ Error habitual:</strong> deixar 96 quan demanen <em>metres</em>, o confondre perímetre (m) amb àrea (m²).
+        </div>
+      </div>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>Truc:</strong> Per ordenar quantitats barrejades, passa-ho tot a la mateixa unitat (sovint m o l) i després compara. Baixar graons = ×10 cada graó; pujar = ÷10.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Polígons -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">⬡</div>
+      <h3>4. Polígons: vèrtexs, diagonals i trapezi</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Què és?</strong> Un polígon té costats, vèrtexs i diagonals (uneixen vèrtexs no consecutius).</p>
+      <p><strong>Fórmula:</strong> D = n(n − 3) / 2. Quadrilàter (n=4) → D = 2.</p>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>🧱 Perímetre = la tanca (vora)</strong> — suma de TOTS els costats.<br>
+          Trapezi isòsceles de l'examen: 9 + 6 + 6 + 6 = <strong>27 cm</strong>.
+        </div>
+        <div class="good-side" style="background:var(--math-primary-light,#eef2ff);border-color:var(--math-primary-border,#c7d2fe);">
+          <strong>✅ Trapezi:</strong> exactament <em>1</em> parell de costats paral·lels. Convex. <strong>No</strong> és paral·lelogram (en caldrien 2 parells).
+        </div>
+      </div>
+      <div class="bad-side" style="margin-top:0.5rem;padding:0.65rem;border-radius:var(--radius-sm);">
+        <strong>❌ Confusió:</strong> “té costats paral·lels” ≠ paral·lelogram. El paral·lelogram en necessita dos a dos.
+      </div>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>Truc mnemotècnic (Posa't a prova):</strong> Si camines per la vora → <strong>perímetre</strong>. Si pintes l'interior → <strong>àrea</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Decimal × natural -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">✖️</div>
+      <h3>5. Multiplicar un decimal per un natural</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>Passos (algoritme escolar):</strong></p>
+      <ol style="padding-left:1.25rem;font-size:0.92rem;line-height:1.55;">
+        <li>Multiplica com si fossin enters (ignora la coma).</li>
+        <li>Compte quants decimals hi havia al factor decimal.</li>
+        <li>Al producte, compta des de la dreta i posa la coma.</li>
+      </ol>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ 173 × 0,12:</strong> 173×12 = 2076, amb 2 decimals → <strong>20,76</strong><br>
+          <strong>✅ 2,4 × 5:</strong> 24×5 = 120 → 1 decimal → <strong>12</strong>
+        </div>
+        <div class="bad-side">
+          <strong>❌ Oblidar la coma:</strong> deixar 2076 en lloc de 20,76.
+        </div>
+      </div>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>Comprovació per magnitud:</strong> 2,4×5 ≈ 2×5 = 10 → el resultat ha d'estar prop de 12. Problema del llitó: 1,45×4 = 5,80 m &gt; 5 m → <strong>no</strong> hi ha prou fusta.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Daus -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">🎲</div>
+      <h3>6. Maximitzar un producte amb dígits fixos</h3>
+    </div>
+    <div class="theory-card-body">
+      <p>Amb dígits fixos (ex. 1, 3, 6, 9) per formar (nombre natural) × (nombre decimal), els dígits alts han d'anar als ordres més valuosos i el multiplicador hauria de ser &gt; 1 si pots.</p>
+      <div class="good-vs-bad-box">
+        <div class="good-side"><strong>✅ Claudi:</strong> 91 × 6,3 = <strong>573,3</strong></div>
+        <div class="bad-side"><strong>⚠️ Eulàlia:</strong> 631 × 0,9 = 567,9 (base gran, però ×0,9 redueix)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Divisió -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">➗</div>
+      <h3>7. Divisió amb decimals i el residu</h3>
+    </div>
+    <div class="theory-card-body">
+      <p>Com a Operacions / Posa't a prova: <strong>Dividend = (Divisor × Quocient) + Residu</strong>, amb residu &lt; divisor. Si queda residu, pots posar coma al quocient i afegir zeros al dividend.</p>
+      <ul style="padding-left:1.25rem;font-size:0.9rem;line-height:1.55;">
+        <li>Residu 0 → decimal <strong>exacte</strong> (36÷5 = 7,2).</li>
+        <li>Residu que es repeteix → <strong>periòdic</strong> (106÷3 = 35,333…): el 3 no és factor 2 ni 5.</li>
+      </ul>
+      <p><strong>El mateix 34÷5 canvia segons el context:</strong></p>
+      <ul style="padding-left:1.25rem;font-size:0.88rem;line-height:1.5;">
+        <li>Cotxes (no es parteixen) → <strong>7</strong> (arrodoniment amunt).</li>
+        <li>Vestits de 5 m → <strong>6</strong> (sobren 4 m).</li>
+        <li>Diners → <strong>6,80 €</strong>.</li>
+        <li>Ampolles → <strong>6 R 4</strong>.</li>
+        <li>Pa (es pot partir) → <strong>6 4/5</strong>.</li>
+      </ul>
+      <div class="profe-tip-callout">
+        <div class="tip-icon">💡</div>
+        <div><strong>Truc:</strong> Pregunta't «es pot partir?». Si no (persones, cotxes) → enter. Si sí (euros, litres) → decimal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Cartesià -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">🗺️</div>
+      <h3>8. Pla cartesià: el parell (x, y)</h3>
+    </div>
+    <div class="theory-card-body">
+      <p><strong>x</strong> = eix horitzontal (carrer). <strong>y</strong> = eix vertical (avinguda). L'ordre importa: (4, 3) ≠ (3, 4). (Això és el pla escolar; no confondre amb latitud/longitud del Projecte de Medi.)</p>
+      <div class="good-vs-bad-box">
+        <div class="good-side">
+          <strong>✅ Conveni (Carrer, Avinguda):</strong> B = Carrer 4 i 3a Av. → <strong>(4, 3)</strong> · «2 amb 8a» → <strong>(2, 8)</strong>
+        </div>
+        <div class="bad-side">
+          <strong>❌ Invertir:</strong> llegir (1, 5a) com (5, 1a) i anar al punt equivocat.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resum -->
+  <div class="theory-card">
+    <div class="theory-card-header">
+      <div class="theory-card-icon">⏱️</div>
+      <h3>9. Resum visual en 1 minut</h3>
+    </div>
+    <div class="theory-card-body">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.55rem;font-size:0.88rem;padding:0;margin:0;">
+        <li><strong>🔟 Coma dreta</strong> = ×10ⁿ · <strong>coma esquerra</strong> = ÷10ⁿ (compte els zeros).</li>
+        <li><strong>🎯 Dígit ≥ 5</strong> puja; si no, mantens (1500→2000; 3205→3000).</li>
+        <li><strong>📏 1 km = 1.000 m</strong> · cada graó mètric = ×/÷10.</li>
+        <li><strong>🧱 Perímetre</strong> = suma de costats · trapezi ≠ paral·lelogram.</li>
+        <li><strong>➗ Prova:</strong> D = d × q + r (r &lt; d) · context decideix enter vs decimal.</li>
+        <li><strong>🗺️ (x, y)</strong> ordre estricte: carrer, després avinguda.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

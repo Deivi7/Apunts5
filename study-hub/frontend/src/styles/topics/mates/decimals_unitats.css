@@ -1,0 +1,144 @@
+/* Mates 5è — Decimals, unitats i geometria */
+
+:root {
+  --du-primary: #0f766e;
+  --du-primary-light: #ccfbf1;
+  --du-primary-border: #5eead4;
+  --du-amber: #d97706;
+  --du-amber-light: #fffbeb;
+  --du-rose: #e11d48;
+  --du-grid: #cbd5e1;
+}
+
+body.dark-mode {
+  --du-primary-light: #134e4a;
+  --du-primary-border: #0f766e;
+  --du-amber-light: #451a03;
+  --du-grid: #334155;
+}
+
+.du-lab {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 640px;
+}
+
+.du-lab .du-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.du-lab .du-num {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.du-lab .du-comma {
+  color: var(--du-primary);
+  font-weight: 900;
+}
+
+.du-ladder {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.du-ladder span {
+  background: var(--du-primary-light);
+  border: 1px solid var(--du-primary-border);
+  border-radius: 0.4rem;
+  padding: 0.35rem 0.15rem;
+}
+
+.du-ladder span.on {
+  background: var(--du-primary);
+  color: #fff;
+}
+
+.du-grid-map {
+  display: inline-grid;
+  gap: 2px;
+  background: var(--du-grid);
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 2px;
+}
+
+.du-grid-map button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: var(--bg-card);
+  cursor: pointer;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.du-grid-map button.target {
+  outline: 2px solid var(--du-amber);
+}
+
+.du-grid-map button.ok {
+  background: #dcfce7;
+}
+
+.du-grid-map button.bad {
+  background: #fee2e2;
+}
+
+.du-poly-svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.du-digit-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.du-digit-pool button,
+.du-slot {
+  min-width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.45rem;
+  border: 2px dashed var(--border-color);
+  background: var(--bg-card);
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.du-digit-pool button {
+  border-style: solid;
+  background: var(--du-primary-light);
+  border-color: var(--du-primary-border);
+}
+
+.du-ws-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.du-ws-card {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--bg-card);
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .du-ws-card { break-inside: avoid; }
+}

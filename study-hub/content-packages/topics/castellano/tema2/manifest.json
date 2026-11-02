@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "subjectId": "castellano",
+  "topicId": "tema2",
+  "title": "Tema 2: El Verbo, Acentuación & Tecnicismos",
+  "language": "es",
+  "contentBase": "/content/castellano/tema2",
+  "sections": [
+    {
+      "id": "apuntes",
+      "title": "1. Apuntes & Teoría",
+      "desc": "Guía didáctica 5º Primaria",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "lectura",
+      "title": "2. Lectura & Comprensión",
+      "desc": "Narración & Preguntas",
+      "role": "interactive",
+      "icon": "📚"
+    },
+    {
+      "id": "vocabulario",
+      "title": "3. Vocabulario",
+      "desc": "Tecnicismos & Neologismos",
+      "role": "interactive",
+      "icon": "💡"
+    },
+    {
+      "id": "verbo",
+      "title": "4. Gramática: El Verbo",
+      "desc": "Formas no personales & Raíz",
+      "role": "interactive",
+      "icon": "⚙️"
+    },
+    {
+      "id": "acentuacion",
+      "title": "5. Ortografía: Acentuación",
+      "desc": "Agudas, llanas & esdrújulas",
+      "role": "interactive",
+      "icon": "✍️"
+    },
+    {
+      "id": "taller",
+      "title": "6. Taller: Misión Espacial",
+      "desc": "Informe científico interactivo",
+      "role": "interactive",
+      "icon": "🚀"
+    },
+    {
+      "id": "quiz",
+      "title": "7. Autoavaluación Master",
+      "desc": "Test global 10 preguntas",
+      "role": "interactive",
+      "icon": "🏆"
+    },
+    {
+      "id": "documentos",
+      "title": "8. Documentos de Clase",
+      "desc": "PDFs oficiales & Drive",
+      "role": "docs",
+      "icon": "📂"
+    }
+  ],
+  "resources": [],
+  "documents": [
+    {
+      "title": "El perro azul.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/El%20perro%20azul.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1adgl6qA2QsmKzCs_BP-y6vjoi2lNxCQm&usp=drive_copy"
+    },
+    {
+      "title": "Comp. lect. 2.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Comp.%20lect.%202.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1llKZU_upMm3yQQ_CgcYTxpNF3j72gKGq&usp=drive_copy"
+    },
+    {
+      "title": "Tecnicismos_Guia_Ejercicios.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Tecnicismos_Guia_Ejercicios.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1JkDDV-Z5lgflMCQ0RvqZKJ-jZrxc8RfL&usp=drive_copy"
+    },
+    {
+      "title": "Formas no personales - esquema + ejercicios.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Formas%20no%20personales%20-%20esquema%20%2B%20ejercicios.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1kXkh6-M9nhO3Az5s5YuvFrXE5B9V6ROl&usp=drive_copy"
+    },
+    {
+      "title": "Act. Verbos.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Act.%20Verbos.pdf",
+      "driveUrl": "https://drive.google.com/open?id=14z5mGaEziBhkUa0QGedbOs7ifnCLiB_3&usp=drive_copy"
+    },
+    {
+      "title": "Las-reglas-de-acentuación-con-pictogramas.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Las-reglas-de-acentuacio%CC%81n-con-pictogramas.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1B0JVxs6elL1W5VaCpdfXSi1LpH_PA9Lg&usp=drive_copy"
+    },
+    {
+      "title": "Act. Agudas.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Act.%20Agudas.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1dBGer_FZwECqp8qNOv-cfSarlh_tIfkc&usp=drive_copy"
+    },
+    {
+      "title": "Act. Normas.pdf",
+      "desc": "",
+      "localUrl": "/content/castellano/tema2/./documents/Act.%20Normas.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1PJAzsqojkUEi-qyQ-NoxtmSzPUUcIokr&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<div class=\"content-card\">\r\n                    <div class=\"card-header-styled\">\r\n                        <span style=\"font-size: 1.8rem;\">📖</span>\r\n                        <div>\r\n                            <h2>Teoría Didáctica Oficial: Tema 2 de Castellano</h2>\r\n                            <p style=\"margin: 0; color: var(--text-muted); font-size: 0.88rem;\">Explicación clara, trucos mnemotécnicos y resúmenes visuales paso a paso adaptados para 5º de Primaria.</p>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <!-- Resource Hub de la Unidad -->\r\n                    <div class=\"resource-hub-container\">\r\n                        <h3 style=\"margin-top: 0; color: var(--primary);\">🌐 Enlaces & Recursos Digitales de la Unidad</h3>\r\n                        <div class=\"hub-links-grid\">\r\n                            <a href=\"https://view.genially.com/6757189d207e6b6da70c81bb\" target=\"_blank\" class=\"hub-link-item\">\r\n                                <span class=\"hub-link-icon\">✨</span>\r\n                                <div>\r\n                                    <div class=\"hub-link-title\">Genially Oficial Tema 2</div>\r\n                                    <div class=\"hub-link-sub\">Presentación interactiva de clase</div>\r\n                                </div>\r\n                            </a>\r\n                            <a href=\"https://learningapps.org/21440388\" target=\"_blank\" class=\"hub-link-item\">\r\n                                <span class=\"hub-link-icon\">🧩</span>\r\n                                <div>\r\n                                    <div class=\"hub-link-title\">LearningApps Acentuación</div>\r\n                                    <div class=\"hub-link-sub\">Clasificador de 30 palabras</div>\r\n                                </div>\r\n                            </a>\r\n                            <a href=\"https://quizizz.com/admin/quiz/5dadd9ec882bf1001d1a67d1/acentuacion\" target=\"_blank\" class=\"hub-link-item\">\r\n                                <span class=\"hub-link-icon\">⚡</span>\r\n                                <div>\r\n                                    <div class=\"hub-link-title\">Quizizz Acentuación</div>\r\n                                    <div class=\"hub-link-sub\">Batería de 35 preguntas de agudas, llanas y esdrújulas</div>\r\n                                </div>\r\n                            </a>\r\n                            <a href=\"https://deleahora.com/actividades/gramatica/formas-no-personales-del-verbo\" target=\"_blank\" class=\"hub-link-item\">\r\n                                <span class=\"hub-link-icon\">📝</span>\r\n                                <div>\r\n                                    <div class=\"hub-link-title\">DELE Ahora: Formas no personales</div>\r\n                                    <div class=\"hub-link-sub\">Infinitivo, gerundio y participio en contexto</div>\r\n                                </div>\r\n                            </a>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <!-- BLOQUE 1: VOCABULARIO (TECNICISMOS, NEOLOGISMOS Y PARÓNIMAS) -->\r\n                    <div class=\"theory-block\">\r\n                        <span class=\"theory-title-badge\">Bloque 1 • Vocabulario</span>\r\n                        <h3 style=\"margin-top:0.4rem; color: var(--text-main);\">1. Tecnicismos, Neologismos y Palabras Parónimas</h3>\r\n\r\n                        <div class=\"didactic-qa-card\">\r\n                            <div class=\"didactic-qa-title\">❓ ¿Qué son y para qué sirven?</div>\r\n                            <p style=\"margin: 0; line-height: 1.6; color: var(--text-main);\">\r\n                                • <strong>Tecnicismos:</strong> Son palabras que se usan de forma precisa y específica en una ciencia, profesión u oficio (ejemplo: en medicina se dice <em>estetoscopio</em>; en informática se dice <em>algoritmo, software o procesador</em>).<br>\r\n                                • <strong>Neologismos:</strong> Son palabras nuevas que se incorporan a nuestro idioma para nombrar inventos, realidades o tecnologías recientes (ejemplo: <em>chatear, selfi, dron, tuitear</em>).<br>\r\n                                • <strong>Palabras parónimas:</strong> Son palabras que se pronuncian o se escriben de forma muy parecida, ¡pero tienen significados totalmente distintos! Si no prestamos atención, podemos confundirlas (ejemplo: <em>efecto</em> y <em>afecto</em>).\r\n                            </p>\r\n                        </div>\r\n\r\n                        <div class=\"vs-grid\">\r\n                            <div class=\"vs-card correct\">\r\n                                <div class=\"vs-header\">✅ Ejemplos Correctos y Precisos</div>\r\n                                <ul style=\"margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.5;\">\r\n                                    <li>\"El médico me recetó un <strong>analgésico</strong>\" (tecnicismo médico adecuado).</li>\r\n                                    <li>\"Le tengo mucho <strong>afecto</strong> (cariño) a mi amigo\".</li>\r\n                                    <li>\"La lluvia provocó un <strong>efecto</strong> (consecuencia) inesperado\".</li>\r\n                                    <li>\"Vamos a <strong>adoptar</strong> (acoger) un perrito en casa\".</li>\r\n                                </ul>\r\n                            </div>\r\n                            <div class=\"vs-card wrong\">\r\n                                <div class=\"vs-header\">❌ Error Típico de Examen (Parónimas)</div>\r\n                                <ul style=\"margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.5;\">\r\n                                    <li>Confundir <em>adaptar</em> (ajustar) con <em>adoptar</em> (acoger legalmente).</li>\r\n                                    <li>Confundir <em>especia</em> (condimento de cocina) con <em>especie</em> (tipo de animal o planta).</li>\r\n                                    <li>Confundir <em>absorber</em> (chupar líquido) con <em>absolver</em> (declarar inocente a alguien).</li>\r\n                                </ul>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"profe-tip-box\">\r\n                            <div class=\"profe-tip-icon\">💡</div>\r\n                            <div class=\"profe-tip-content\">\r\n                                <h4>El Truco del Profe: \"La Pista de la Profesión\"</h4>\r\n                                <p>Para saber si una palabra es un <strong>tecnicismo</strong>, pregúntate: <em>\"¿Esta palabra la usaría cualquier persona por la calle para hablar del tiempo, o la usa un experto cuando está trabajando?\"</em> Si pertenece al trabajo de un médico, mecánico, informático o científico, ¡es un tecnicismo seguro!</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <hr style=\"border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;\">\r\n\r\n                    <!-- BLOQUE 2: GRAMÁTICA (EL VERBO) -->\r\n                    <div class=\"theory-block\">\r\n                        <span class=\"theory-title-badge\">Bloque 2 • Gramática</span>\r\n                        <h3 style=\"margin-top:0.4rem; color: var(--text-main);\">2. El Verbo: Raíz, Desinencia y Formas No Personales</h3>\r\n\r\n                        <div class=\"didactic-qa-card\">\r\n                            <div class=\"didactic-qa-title\">❓ ¿Qué es el verbo y cómo se organiza?</div>\r\n                            <p style=\"margin: 0; line-height: 1.6; color: var(--text-main);\">\r\n                                Los <strong>verbos</strong> son las palabras que expresan acciones (<em>saltar, escribir</em>), estados (<em>estar, parecer</em>) o procesos (<em>crecer, aprender</em>).<br>\r\n                                • <strong>Raíz:</strong> Es la parte que contiene el significado principal del verbo. Se obtiene quitando la terminación del infinitivo (de <em>cant-ar</em>, la raíz es <strong>cant-</strong>).<br>\r\n                                • <strong>Desinencias:</strong> Son las terminaciones que se añaden a la raíz para indicar persona (1ª, 2ª, 3ª), número (singular, plural), tiempo (pasado, presente, futuro) y modo.\r\n                            </p>\r\n                        </div>\r\n\r\n                        <div class=\"cheat-sheet-grid\">\r\n                            <div class=\"cheat-card\">\r\n                                <div class=\"cheat-card-title\">1ª Conjugación (-AR)</div>\r\n                                <p style=\"margin:0; font-size:0.85rem; color:var(--text-muted);\">\r\n                                    Verbos con infinitivo terminado en <strong>-ar</strong>.<br>\r\n                                    <em>Ejemplos:</em> cantar, bailar, estudiar, saltar.\r\n                                </p>\r\n                            </div>\r\n                            <div class=\"cheat-card\">\r\n                                <div class=\"cheat-card-title\">2ª Conjugación (-ER)</div>\r\n                                <p style=\"margin:0; font-size:0.85rem; color:var(--text-muted);\">\r\n                                    Verbos con infinitivo terminado en <strong>-er</strong>.<br>\r\n                                    <em>Ejemplos:</em> comer, temer, correr, aprender.\r\n                                </p>\r\n                            </div>\r\n                            <div class=\"cheat-card\">\r\n                                <div class=\"cheat-card-title\">3ª Conjugación (-IR)</div>\r\n                                <p style=\"margin:0; font-size:0.85rem; color:var(--text-muted);\">\r\n                                    Verbos con infinitivo terminado en <strong>-ir</strong>.<br>\r\n                                    <em>Ejemplos:</em> vivir, salir, escribir, decidir.\r\n                                </p>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"didactic-qa-card\" style=\"margin-top: 1.25rem;\">\r\n                            <div class=\"didactic-qa-title\">🎭 Las Formas No Personales (¡No llevan persona yo/tú/él!)</div>\r\n                            <p style=\"margin: 0; line-height: 1.6; color: var(--text-main);\">\r\n                                1. <strong>Infinitivo:</strong> Es el nombre del verbo. Termina en <strong>-ar, -er, -ir</strong> (<em>jugar, comer, salir</em>).<br>\r\n                                2. <strong>Gerundio:</strong> Expresa una acción en desarrollo. Termina en <strong>-ando</strong> o <strong>-iendo</strong> (<em>jugando, comiendo, saliendo</em>).<br>\r\n                                3. <strong>Participio:</strong> Expresa una acción terminada. Termina en <strong>-ado</strong> o <strong>-ido</strong> (<em>jugado, comido, salido</em>).\r\n                            </p>\r\n                        </div>\r\n\r\n                        <div class=\"profe-tip-box\">\r\n                            <div class=\"profe-tip-icon\">💡</div>\r\n                            <div class=\"profe-tip-content\">\r\n                                <h4>El Truco del Profe: \"Haber + Participio / Estar + Gerundio\"</h4>\r\n                                <p>• Siempre que veas el verbo <strong>haber</strong> (he, has, hemos...), detrás va un <strong>participio</strong>: <em>\"He desayun<strong>ado</strong>\", \"Hemos com<strong>ido</strong>\"</em>.<br>\r\n                                • Siempre que veas el verbo <strong>estar</strong> (estoy, estás, están...), detrás va un <strong>gerundio</strong>: <em>\"Están jug<strong>ando</strong>\", \"Estoy le<strong>yendo</strong>\"</em>.</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <hr style=\"border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;\">\r\n\r\n                    <!-- BLOQUE 3: ORTOGRAFÍA (ACENTUACIÓN: AGUDAS, LLANAS Y ESDRÚJULAS) -->\r\n                    <div class=\"theory-block\">\r\n                        <span class=\"theory-title-badge\">Bloque 3 • Ortografía</span>\r\n                        <h3 style=\"margin-top:0.4rem; color: var(--text-main);\">3. Reglas Oficiales de Acentuación: La Regla EGA</h3>\r\n\r\n                        <div class=\"didactic-qa-card\">\r\n                            <div class=\"didactic-qa-title\">❓ ¿Qué es la sílaba tónica?</div>\r\n                            <p style=\"margin: 0; line-height: 1.6; color: var(--text-main);\">\r\n                                En cualquier palabra de más de una sílaba, siempre hay una sílaba que pronunciamos con <strong>más fuerza o intensidad</strong>: es la <strong>sílaba tónica</strong>. Las demás sílabas, que suenan más suaves, se llaman <strong>sílabas átonas</strong>.<br>\r\n                                <em>Ejemplo:</em> En <strong>or-de-na-dor</strong>, la sílaba que suena más fuerte al gritarla es <strong>-dor</strong>.\r\n                            </p>\r\n                        </div>\r\n\r\n                        <div class=\"cheat-sheet-grid\">\r\n                            <div class=\"cheat-card\" style=\"border-top: 4px solid #dc2626;\">\r\n                                <div class=\"cheat-card-title\" style=\"color:#dc2626;\">1. Agudas (Última sílaba)</div>\r\n                                <p style=\"font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;\">\r\n                                    Llevan tilde si terminan en <strong>vocal, -n o -s</strong>.<br>\r\n                                    • Con tilde: <em>balón, camión, café, compás</em>.<br>\r\n                                    • Sin tilde: <em>reloj, collar, papel, amistad</em>.\r\n                                </p>\r\n                            </div>\r\n\r\n                            <div class=\"cheat-card\" style=\"border-top: 4px solid #d97706;\">\r\n                                <div class=\"cheat-card-title\" style=\"color:#d97706;\">2. Llanas / Graves (Penúltima)</div>\r\n                                <p style=\"font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;\">\r\n                                    Llevan tilde si <strong>NO</strong> terminan en vocal, -n o -s.<br>\r\n                                    • Con tilde: <em>árbol, difícil, lápiz, túnel</em>.<br>\r\n                                    • Sin tilde: <em>casa, mesa, examen, lunes</em>.\r\n                                </p>\r\n                            </div>\r\n\r\n                            <div class=\"cheat-card\" style=\"border-top: 4px solid #7c3aed;\">\r\n                                <div class=\"cheat-card-title\" style=\"color:#7c3aed;\">3. Esdrújulas (Antepenúltima)</div>\r\n                                <p style=\"font-size:0.85rem; line-height:1.5; color:var(--text-main); margin:0;\">\r\n                                    ¡Llevan tilde <strong>SIEMPRE</strong> sin excepción!<br>\r\n                                    • <em>murciélago, clásico, oxígeno, lámpara, fábrica, rápido</em>.\r\n                                </p>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"profe-tip-box\">\r\n                            <div class=\"profe-tip-icon\">📢</div>\r\n                            <div class=\"profe-tip-content\">\r\n                                <h4>El Truco del Profe: \"La Regla de la Palabra EGA\"</h4>\r\n                                <p>Escribe la palabra <strong>E - G - A</strong> de izquierda a derecha sobre las sílabas contando desde el final:<br>\r\n                                • <strong>E</strong> = Esdrújula (antepenúltima sílaba).<br>\r\n                                • <strong>G</strong> = Grave o Llana (penúltima sílaba).<br>\r\n                                • <strong>A</strong> = Aguda (última sílaba).<br>\r\n                                ¡Apunta a la sílaba que suena fuerte y sabrás al instante qué tipo de palabra es!</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>",
+  "panelIds": [
+    "tab-apuntes",
+    "tab-lectura",
+    "tab-vocabulario",
+    "tab-verbo",
+    "tab-acentuacion",
+    "tab-taller",
+    "tab-quiz",
+    "tab-documentos"
+  ],
+  "copiedFiles": [
+    "documents\\Act. Agudas.pdf",
+    "documents\\Act. Normas.pdf",
+    "documents\\Act. Verbos.pdf",
+    "documents\\backup-2026-10-28-10-20-03.zip",
+    "documents\\Comp. lect. 2.pdf",
+    "documents\\El perro azul.pdf",
+    "documents\\Formas no personales - esquema + ejercicios.pdf",
+    "documents\\Las-reglas-de-acentuación-con-pictogramas.pdf",
+    "documents\\Tecnicismos_Guia_Ejercicios.pdf"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.454Z"
+}

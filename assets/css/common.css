@@ -184,6 +184,27 @@ h1, h2, h3, h4, h5, .font-heading {
     color: white;
 }
 
+.btn-legacy-hub {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted, #64748b);
+    background: var(--bg-card, #fff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    text-decoration: none;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-md);
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-legacy-hub:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
 .topic-badge-header {
     font-size: 0.72rem;
     font-weight: 800;

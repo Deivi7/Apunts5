@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "subjectId": "catala",
+  "topicId": "sant_baldiri",
+  "title": "Tema 1: L'escola de Sant Baldiri",
+  "language": "ca",
+  "contentBase": "/content/catala/sant_baldiri",
+  "sections": [
+    {
+      "id": "apunts",
+      "title": "1. Apunts & Teoria",
+      "desc": "Teoria Didàctica & Drive",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "lectura",
+      "title": "2. Lectura & Comprensió",
+      "desc": "L'escola de St. Baldiri",
+      "role": "interactive",
+      "icon": "🏫"
+    },
+    {
+      "id": "sinonims",
+      "title": "3. Sinònims & Antònims",
+      "desc": "Vídeo & Joc de parelles",
+      "role": "interactive",
+      "icon": "🔄"
+    },
+    {
+      "id": "digrafs",
+      "title": "4. Síl·laba & Dígrafs",
+      "desc": "Dígrafs & Truc del Crit",
+      "role": "interactive",
+      "icon": "✂️"
+    },
+    {
+      "id": "elnom",
+      "title": "5. Classes de Noms",
+      "desc": "El substantiu interactiu",
+      "role": "interactive",
+      "icon": "🏷️"
+    },
+    {
+      "id": "expressio",
+      "title": "6. Expressió Escrita",
+      "desc": "Taller de redacció",
+      "role": "interactive",
+      "icon": "✍️"
+    },
+    {
+      "id": "quiz",
+      "title": "7. Autoavaluació",
+      "desc": "Test mestre 10 preguntes",
+      "role": "interactive",
+      "icon": "🏆"
+    },
+    {
+      "id": "fitxes",
+      "title": "8. Fitxes & PDFs",
+      "desc": "11 fitxes i vídeos a Drive",
+      "role": "docs",
+      "icon": "📥"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Sinònims i antònims",
+      "subtitle": "Vídeo oficial amb explicació dels mots sinònims, antònims i prefixos de negació.",
+      "url": "https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy"
+    },
+    {
+      "title": "Separació de síl·labes & dígrafs",
+      "subtitle": "Vídeo oficial d'OK CATALÀ sobre dígrafs separables, inseparables i casos difícils.",
+      "url": "https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy"
+    },
+    {
+      "title": "La síl·laba tònica (El Truc del Crit)",
+      "subtitle": "Com identificar fàcilment la síl·laba tònica i diferenciar-la de les àtones.",
+      "url": "https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy"
+    },
+    {
+      "title": "Lescola de St Baldiri.PDF",
+      "subtitle": "PDF amb el text complet de la lectura «L'escola de Sant Baldiri».",
+      "url": "https://drive.google.com/open?id=14HbGl_jggAPXHX9QF-4lC4qV_QcsrFFk&usp=drive_copy"
+    },
+    {
+      "title": "Comprensió Escola St Baldiri2.pdf",
+      "subtitle": "Fitxa de preguntes de comprensió lectora «Què hem entès?».",
+      "url": "https://drive.google.com/open?id=1CBoLZh_b_rdEf4zjDilt8sdsy-Bb8iNP&usp=drive_copy"
+    },
+    {
+      "title": "Exercicis sinònims i antònims 1",
+      "subtitle": "Fitxa pràctica 1 d'exercicis de vocabulari i parelles de mots de classe.",
+      "url": "https://drive.google.com/open?id=1xQuC-rhwMuIvaslqVb6FVePKGlRD2e-N&usp=drive_copy"
+    },
+    {
+      "title": "Exercicis sinònims i antònims 2",
+      "subtitle": "Fitxa pràctica complementària 2 de sinònims i antònims.",
+      "url": "https://drive.google.com/open?id=16y4VSsQ_ObMbt8ACSOqRdiclbo3lfP3v&usp=drive_copy"
+    },
+    {
+      "title": "Practica La síl·laba.pdf",
+      "subtitle": "Exercicis de separació sil·làbica, dígrafs i tòniques.",
+      "url": "https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy"
+    },
+    {
+      "title": "El Substantiu (o nom).pdf",
+      "subtitle": "Guia teòrica de classes de substantius: comú/propi, concret/abstracte...",
+      "url": "https://drive.google.com/open?id=1erMnFAqQus8ekkCMa67BuJFLAaOZFDHZ&usp=drive_copy"
+    },
+    {
+      "title": "El Nom_exercicis.pdf",
+      "subtitle": "Fitxa oficial d'exercicis pràctics sobre el substantiu.",
+      "url": "https://drive.google.com/open?id=13EjKoJYSyUL6RBEzQAKcJs-MlsqO0HIK&usp=drive_copy"
+    },
+    {
+      "title": "Expectatives pel nou curs.pdf",
+      "subtitle": "Pautes oficials per a la redacció d'expressió escrita.",
+      "url": "https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy"
+    },
+    {
+      "title": "Genially Tema 1 (Català)",
+      "subtitle": "Presentació interactiva oficial del col·legi amb tots els mòduls.",
+      "url": "https://view.genially.com/688137a94d87ce5b85568742"
+    },
+    {
+      "title": "Wordwall: Classes de Noms",
+      "subtitle": "Joc interactiu per classificar substantius comuns, propis, etc.",
+      "url": "https://wordwall.net/es/resource/27878035/classes-de-noms"
+    },
+    {
+      "title": "Wordwall: Els Dígrafs",
+      "subtitle": "Joc en línia per identificar i separar dígrafs en català.",
+      "url": "https://wordwall.net/es/resource/23554794/els-d%C3%ADgrafs"
+    },
+    {
+      "title": "JClic: Paraules Sinònimes",
+      "subtitle": "Paquet d'activitats digitals interactives de la XTEC.",
+      "url": "https://clic.xtec.cat/projects/sinonims/jclic.js/index.html"
+    },
+    {
+      "title": "Quia: Matching Sinònims",
+      "subtitle": "Joc d'emparellar paraules sinònimes en català.",
+      "url": "https://www.quia.com/mc/1010226.html"
+    },
+    {
+      "title": "Liveworksheets: Els Dígrafs",
+      "subtitle": "Fitxa autoavaluativa en línia sobre la separació sil·làbica.",
+      "url": "https://www.liveworksheets.com/es/worksheet/ca/llengua-catalana/433203"
+    }
+  ],
+  "documents": [
+    {
+      "title": "Lescola de St Baldiri.PDF",
+      "desc": "Text oficial complet del conte de classe.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=14HbGl_jggAPXHX9QF-4lC4qV_QcsrFFk&usp=drive_copy"
+    },
+    {
+      "title": "Comprensió Escola Sant Baldiri2.pdf",
+      "desc": "Qüestionari de preguntes de comprensió lectora.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1CBoLZh_b_rdEf4zjDilt8sdsy-Bb8iNP&usp=drive_copy"
+    },
+    {
+      "title": "Sinònims i antònims.mp4",
+      "desc": "Videotutorial sobre vocabulari i prefixos.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1QqswETKu1EIAPmoqS78BEpZEvxYFfihE&usp=drive_copy"
+    },
+    {
+      "title": "Exercicis sinònims i antònims 1.pdf",
+      "desc": "Primera fitxa d'exercicis de lèxic.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1xQuC-rhwMuIvaslqVb6FVePKGlRD2e-N&usp=drive_copy"
+    },
+    {
+      "title": "Exercicis sinonims i antonims 2.pdf",
+      "desc": "Segona fitxa d'exercicis pràctics de lèxic.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=16y4VSsQ_ObMbt8ACSOqRdiclbo3lfP3v&usp=drive_copy"
+    },
+    {
+      "title": "Practica La síl·laba.pdf",
+      "desc": "Dossier de pràctica de separació sil·làbica.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=10ZfvuK0ea3zleXW5lKN2_U5VuvSWbpL0&usp=drive_copy"
+    },
+    {
+      "title": "Separació de síl·labes dígrafs (OK CATALÀ)",
+      "desc": "Vídeo sobre dígrafs separables i inseparables.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1RaQZlju-eb3Gs9E1PEueD3qZhXfWugpE&usp=drive_copy"
+    },
+    {
+      "title": "La síl·laba tònica (OK CATALÀ)",
+      "desc": "Videotutorial sobre la síl·laba tònica i el truc del crit.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1uHyJksm8Ne7gj8SQsf_AkJRQnfr9WGDI&usp=drive_copy"
+    },
+    {
+      "title": "El Substantiu (o nom).pdf",
+      "desc": "Resum teòric oficial de les classes de substantius.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1erMnFAqQus8ekkCMa67BuJFLAaOZFDHZ&usp=drive_copy"
+    },
+    {
+      "title": "El Nom_exercicis.pdf",
+      "desc": "Fitxa d'activitats de gramàtica sobre el nom.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=13EjKoJYSyUL6RBEzQAKcJs-MlsqO0HIK&usp=drive_copy"
+    },
+    {
+      "title": "Expectatives pel nou curs.pdf",
+      "desc": "Fitxa d'instruccions per a la redacció personal.",
+      "localUrl": null,
+      "driveUrl": "https://drive.google.com/open?id=1aq5NXMR3xUjQeCA0u5-nrIog1t559grR&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<div class=\"section-header\">\r\n                    <div>\r\n                        <h2 class=\"section-title\"><span>📚</span> Apunts Oficials & Recursos del Tema</h2>\r\n                        <p class=\"section-subtitle\">Tots els continguts curriculars de 5è de Primària de la unitat «L'escola de Sant Baldiri».</p>\r\n                    </div>\r\n                    <a href=\"https://view.genially.com/688137a94d87ce5b85568742\" target=\"_blank\" class=\"btn-primary\" style=\"background: #9333ea;\">\r\n                        <span>✨</span> Obrir Genially del Tema ↗\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- RESOURCE HUB OFICIAL -->\r\n                <div class=\"theory-kid-container\">\r\n\r\n                        <!-- BLOC 1: SINÒNIMS I ANTÒNIMS -->\r\n                        <div class=\"theory-kid-card amber\">\r\n                            <div class=\"theory-kid-header\">\r\n                                <h4 class=\"theory-kid-title\"><span>🔄</span> 1. Sinònims & Antònims: El Joc del Lèxic</h4>\r\n                                <span class=\"theory-kid-badge\">Lèxic & Vocabulari</span>\r\n                            </div>\r\n                            <p style=\"font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;\">\r\n                                Imagina que les paraules són com persones: n'hi ha que pensen exactament igual (germanes o <strong>sinònims</strong>) i n'hi ha que són completament oposades (rivals o <strong>antònims</strong>).\r\n                            </p>\r\n                            \r\n                            <div class=\"theory-kid-grid\">\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>👯</span> Què és un Sinònim?</h5>\r\n                                    <p>Són paraules diferents que signifiquen el mateix o gairebé el mateix. <strong>Per a què serveixen?</strong> Per no repetir la mateixa paraula cinc vegades en una redacció!</p>\r\n                                    <div style=\"margin-top: 0.6rem; font-size: 0.85rem; background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 6px;\">\r\n                                        • <em>parlar</em> = <em>enraonar</em><br>\r\n                                        • <em>alegre</em> = <em>content</em><br>\r\n                                        • <em>començar</em> = <em>iniciar</em>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>⚡</span> Què és un Antònim?</h5>\r\n                                    <p>Són paraules que expressen idees contràries o oposades. Ens serveixen per fer comparacions i descriure diferències.</p>\r\n                                    <div style=\"margin-top: 0.6rem; font-size: 0.85rem; background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 6px;\">\r\n                                        • <em>ràpid</em> ≠ <em>lent</em><br>\r\n                                        • <em>obert</em> ≠ <em>tancat</em><br>\r\n                                        • <em>fosc</em> ≠ <em>clar</em>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"trick-box\" style=\"margin-top: 1.25rem;\">\r\n                                <div class=\"trick-title\"><span>🎩</span> El Truc dels Prefixos Màgics de Negació</div>\r\n                                <p style=\"font-size: 0.88rem; line-height: 1.6; margin: 0; color: var(--text-main);\">\r\n                                    Sabies que pots fabricar antònims afegint una petita peça davant de la paraula?\r\n                                    <br>• <strong>des-</strong> : <em>pentinar</em> → <em>despentinar</em> | <em>enganxar</em> → <em>desenganxar</em>\r\n                                    <br>• <strong>in-</strong> : <em>visible</em> → <em>invisible</em> | <em>feliç</em> → <em>infeliç</em>\r\n                                    <br>• <strong>im-</strong> : (sempre abans de <em>p</em> o <em>b</em>!): <em>possible</em> → <em>impossible</em> | <em>pacient</em> → <em>impacient</em>\r\n                                </p>\r\n                            </div>\r\n\r\n                            <div class=\"theory-good-bad-row\">\r\n                                <div class=\"good-case\">\r\n                                    <strong>✅ Com fer-ho bé a l'examen:</strong><br>\r\n                                    <em>«El cavall és veloç i el caragol és lent»</em> (has fet servir un antònim precís).\r\n                                </div>\r\n                                <div class=\"bad-case\">\r\n                                    <strong>❌ Error típic de 5è:</strong><br>\r\n                                    Posar <em>des-</em> a totes les paraules: l'antònim de <em>gran</em> NO és <em>desgran</em>, és <em>petit</em>!\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <!-- BLOC 2: LA SÍL·LABA I ELS DÍGRAFS -->\r\n                        <div class=\"theory-kid-card blue\">\r\n                            <div class=\"theory-kid-header\">\r\n                                <h4 class=\"theory-kid-title\"><span>✂️</span> 2. La Síl·laba & Els Dígrafs: Com tallar paraules sense equivocar-te</h4>\r\n                                <span class=\"theory-kid-badge\" style=\"background: rgba(37, 99, 235, 0.12); color: #2563eb;\">Ortografia Oficial</span>\r\n                            </div>\r\n                            <p style=\"font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;\">\r\n                                Una <strong>síl·laba</strong> és cadascun dels cops de veu amb què pronunciem un mot. <strong>La regla d'or de 5è:</strong> TOTA síl·laba necessita obligatòriament com a mínim <strong>UNA vocal</strong>!\r\n                            </p>\r\n\r\n                            <div class=\"theory-kid-grid\">\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5 style=\"color: #dc2626;\"><span>✂️</span> Dígrafs SEPARABLES (Es trenquen)</h5>\r\n                                    <p>Quan s'acaba la línia i poses un guió, aquests dígrafs <strong>sempre se separen</strong> entre dues síl·labes diferents:</p>\r\n                                    <ul style=\"margin: 0.5rem 0 0 1.1rem; font-size: 0.85rem; line-height: 1.6; padding: 0;\">\r\n                                        <li><strong>RR:</strong> <em>car - ro</em>, <em>ter - ra</em></li>\r\n                                        <li><strong>SS:</strong> <em>tas - sa</em>, <em>bos - sa</em></li>\r\n                                        <li><strong>L·L (ela geminada):</strong> <em>col - le - gi</em>, <em>pel - lí - cu - la</em> (el punt volat es converteix en guió!)</li>\r\n                                        <li><strong>TX:</strong> <em>cot - xe</em>, <em>pan - txa</em></li>\r\n                                        <li><strong>TJ:</strong> <em>plat - ja</em>, <em>mit - ja</em></li>\r\n                                        <li><strong>TG:</strong> <em>met - ge</em>, <em>vi - at - ge</em></li>\r\n                                    </ul>\r\n                                </div>\r\n\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5 style=\"color: #10b981;\"><span>🔒</span> Dígrafs INSEPARABLES (Millors amics)</h5>\r\n                                    <p>Són dues lletres que fan un únic so tan unit que <strong>mai es poden separar</strong>; van sempre junts a la mateixa síl·laba:</p>\r\n                                    <ul style=\"margin: 0.5rem 0 0 1.1rem; font-size: 0.85rem; line-height: 1.6; padding: 0;\">\r\n                                        <li><strong>LL:</strong> <em>lla - pis</em>, <em>ca - vall</em></li>\r\n                                        <li><strong>NY:</strong> <em>ba - nyar</em>, <em>mun - ta - nya</em></li>\r\n                                        <li><strong>QU:</strong> <em>pa - quet</em>, <em>es - qui</em></li>\r\n                                        <li><strong>GU:</strong> <em>gui - tar - ra</em>, <em>à - gui - la</em></li>\r\n                                        <li><strong>IG:</strong> <em>lleig</em>, <em>des - patx</em></li>\r\n                                    </ul>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"theory-good-bad-row\" style=\"margin-top: 1rem;\">\r\n                                <div class=\"good-case\">\r\n                                    <strong>✅ Correcte a final de línia:</strong><br>\r\n                                    <em>mun-ta- / nya</em> (NY juntes a la segona línia)<br>\r\n                                    <em>pel- / lícula</em> (L·L separada amb guionet)\r\n                                </div>\r\n                                <div class=\"bad-case\">\r\n                                    <strong>❌ Error molt greu a l'examen:</strong><br>\r\n                                    <em>mun-tan- / ya</em> (mai separis la NY!)<br>\r\n                                    <em>pe- / l·lícula</em> (mai deixis la L·L junta!)\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <!-- BLOC 3: LA SÍL·LABA TÒNICA -->\r\n                        <div class=\"theory-kid-card purple\">\r\n                            <div class=\"theory-kid-header\">\r\n                                <h4 class=\"theory-kid-title\"><span>🗣️</span> 3. La Síl·laba Tònica: La Reina de la Paraula & El Truc del Crit</h4>\r\n                                <span class=\"theory-kid-badge\" style=\"background: rgba(139, 92, 246, 0.12); color: #8b5cf6;\">Pronúncia & Accentuació</span>\r\n                            </div>\r\n                            <p style=\"font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;\">\r\n                                En tota paraula en català només hi ha <strong>UNA sola síl·laba tònica</strong> (la que té la corona i sona més forta). Totes les altres són <strong>àtones</strong> (més suaus i febles).\r\n                            </p>\r\n\r\n                            <div class=\"trick-box\">\r\n                                <div class=\"trick-title\"><span>📢</span> Com trobar la tònica si dubtes? El Truc del Crit!</div>\r\n                                <p style=\"font-size: 0.88rem; line-height: 1.6; margin: 0; color: var(--text-main);\">\r\n                                    Tanca els ulls i imagina que estàs a la porta de casa i crides la paraula a un amic que és a l'altra punta del pati:\r\n                                    <br>• Si crides <em>\"CAMEEELL!\"</em> → La que allargues de manera natural és <strong>MELL</strong>!\r\n                                    <br>• Si crides <em>\"FINESSS-TRA!\"</em> → La que allargues és <strong>NES</strong>!\r\n                                    <br>• Si crides <em>\"CAMI-ÓÓÓ!\"</em> → La que allargues és <strong>Ó</strong>!\r\n                                    <br>La síl·laba que allargues <strong>ÉS SEMPRE LA TÒNICA</strong>. Mai falla!\r\n                                </p>\r\n                            </div>\r\n\r\n                            <div style=\"margin-top: 1.25rem;\">\r\n                                <h5 style=\"margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 800;\">On cau la força? Les 3 posicions oficials:</h5>\r\n                                <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;\">\r\n                                    <div style=\"background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;\">\r\n                                        <strong style=\"color: var(--primary);\">1. Agudes:</strong><br>\r\n                                        Força a l'<strong>última</strong> síl·laba.<br>\r\n                                        Exemples: <em>ca-mi-Ó</em>, <em>ra-TOLÍ</em>, <em>pa-PER</em>.\r\n                                    </div>\r\n                                    <div style=\"background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;\">\r\n                                        <strong style=\"color: #2563eb;\">2. Planes:</strong><br>\r\n                                        Força a la <strong>penúltima</strong> síl·laba.<br>\r\n                                        Exemples: <em>CA-sa</em>, <em>CO-txe</em>, <em>LLI-bre</em>.\r\n                                    </div>\r\n                                    <div style=\"background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem;\">\r\n                                        <strong style=\"color: #10b981;\">3. Esdrúixoles:</strong><br>\r\n                                        Força a l'<strong>antepenúltima</strong>.<br>\r\n                                        Exemples: <em>MÚ-si-ca</em>, <em>FÀ-bri-ca</em> (sempre porten accent!).\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <!-- BLOC 4: LES CLASSES DE NOMS (EL SUBSTANTIU) -->\r\n                        <div class=\"theory-kid-card green\">\r\n                            <div class=\"theory-kid-header\">\r\n                                <h4 class=\"theory-kid-title\"><span>🏷️</span> 4. El Nom o Substantiu: Les 4 Parelles per Classificar-ho Tot</h4>\r\n                                <span class=\"theory-kid-badge\" style=\"background: rgba(16, 185, 129, 0.12); color: #10b981;\">Gramàtica Fàcil</span>\r\n                            </div>\r\n                            <p style=\"font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem 0;\">\r\n                                Un <strong>substantiu o nom</strong> és la paraula que fem servir per posar etiqueta a qualsevol cosa que existeix al món. Per classificar un nom a 5è de primària, només has de passar-lo per aquestes <strong>4 proves</strong>:\r\n                            </p>\r\n\r\n                            <div class=\"theory-kid-grid\">\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>👤</span> Parella 1: Comú vs Propi</h5>\r\n                                    <p>\r\n                                        • <strong>Comú:</strong> Nombra qualsevol ésser o cosa en general (<em>gos, riu, ciutat, mestre</em>).<br>\r\n                                        • <strong>Propi:</strong> És el nom particular d'algú o d'un lloc i <strong>porta majúscula</strong>! (<em>Tobi, Ebre, Barcelona, Jordi</em>).\r\n                                    </p>\r\n                                </div>\r\n\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>✋</span> Parella 2: Concret vs Abstracte</h5>\r\n                                    <p>\r\n                                        • <strong>Concret:</strong> Ho pots percebre amb els 5 sentits (tocar, veure, olorar, tastar): <em>pissarra, pilota, pizza</em>.<br>\r\n                                        • <strong>Abstracte:</strong> Idees, valors o sentiments que són al cap o al cor: <em>alegria, pau, amistat, por</em>.\r\n                                    </p>\r\n                                </div>\r\n\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>🐑</span> Parella 3: Individual vs Col·lectiu</h5>\r\n                                    <p>\r\n                                        • <strong>Individual:</strong> En singular nombra 1 sol ésser (<em>ovella, arbre, ocell</em>).<br>\r\n                                        • <strong>Col·lectiu:</strong> En singular nombra tot un grup sencer! (<em>ramat</em> = conjunt d'ovelles; <em>bosc</em> = conjunt d'arbres; <em>estol</em> = conjunt d'ocells).\r\n                                    </p>\r\n                                </div>\r\n\r\n                                <div class=\"theory-box-mini\">\r\n                                    <h5><span>🔢</span> Parella 4: Comptable vs No Comptable</h5>\r\n                                    <p>\r\n                                        • <strong>Comptable:</strong> Pots dir 1, 2, 3 unitats soltes (<em>un llapis, dues pomes, tres llibres</em>).<br>\r\n                                        • <strong>No comptable:</strong> Es mesura o es pesa, però no es compta en unitats individuals (<em>aigua, sucre, sorra, llet</em>).\r\n                                    </p>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div style=\"margin-top: 1.25rem; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;\">\r\n                                <strong style=\"color: var(--primary);\">💡 Exemple complet d'anàlisi de classe:</strong><br>\r\n                                Si agafem la paraula <strong>«gos»</strong>:<br>\r\n                                És un nom <strong>comú</strong> (no és un nom propi amb majúscula), <strong>concret</strong> (el pots tocar), <strong>individual</strong> (és un sol animal) i <strong>comptable</strong> (pots dir un gos, dos gossos). Molt fàcil!\r\n                            </div>\r\n                        </div>\r\n\r\n                        <!-- BLOC 5: RESUM VISUAL EN 1 MINUT -->\r\n                        <div class=\"theory-kid-card amber\">\r\n                            <div class=\"theory-kid-header\">\r\n                                <h4 class=\"theory-kid-title\"><span>⚡</span> 5. Resum Visual en 1 Minut: La Chuleta de 5è</h4>\r\n                                <span class=\"theory-kid-badge\">Per Repassar Ràpid</span>\r\n                            </div>\r\n                            <table class=\"theory-summary-table\">\r\n                                <thead>\r\n                                    <tr>\r\n                                        <th>Concepte</th>\r\n                                        <th>Què és?</th>\r\n                                        <th>Exemple Clau</th>\r\n                                        <th>Truc d'Examen</th>\r\n                                    </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr>\r\n                                        <td><strong>Sinònims</strong></td>\r\n                                        <td>Significat igual</td>\r\n                                        <td><em>parlar = enraonar</em></td>\r\n                                        <td>Evita repetir paraules</td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td><strong>Antònims</strong></td>\r\n                                        <td>Significat contrari</td>\r\n                                        <td><em>feliç ≠ infeliç</em></td>\r\n                                        <td>Fes servir prefixos <em>des-</em>, <em>in-</em>, <em>im-</em></td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td><strong>Dígrafs Separables</strong></td>\r\n                                        <td>Es divideixen entre dues síl·labes</td>\r\n                                        <td><em>car-ro, tas-sa, col-le-gi, cot-xe, plat-ja, met-ge</em></td>\r\n                                        <td>Sempre es trenquen a meitat</td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td><strong>Dígrafs Inseparables</strong></td>\r\n                                        <td>Van sempre junts</td>\r\n                                        <td><em>lla-pis, mun-ta-nya, pa-quet, gui-tar-ra, lleig</em></td>\r\n                                        <td>Mai els separis a final de línia!</td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td><strong>Síl·laba Tònica</strong></td>\r\n                                        <td>La que sona amb més força</td>\r\n                                        <td><em>fe-li-ci-<strong>tat</strong></em> (aguda)</td>\r\n                                        <td>Fes el truc del crit!</td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td><strong>El Substantiu</strong></td>\r\n                                        <td>Posa nom a tot el que existeix</td>\r\n                                        <td><em>arbre</em> (comú, concret, individual, comptable)</td>\r\n                                        <td>Passa les 4 parelles màgiques</td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n\r\n                    </div>\r\n                </div>",
+  "panelIds": [
+    "tab-apunts",
+    "tab-lectura",
+    "tab-sinonims",
+    "tab-digrafs",
+    "tab-elnom",
+    "tab-expressio",
+    "tab-quiz",
+    "tab-fitxes"
+  ],
+  "copiedFiles": [],
+  "migratedAt": "2026-11-01T13:07:59.728Z"
+}

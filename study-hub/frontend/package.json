@@ -1,0 +1,33 @@
+{
+  "name": "@study-hub/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@primevue/themes": "^4.3.1",
+    "@study-hub/shared": "*",
+    "dexie": "^4.4.7",
+    "lucide-vue-next": "^0.475.0",
+    "pinia": "^3.0.1",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.9",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tailwindcss": "^4.0.9",
+    "vite": "^6.2.0",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.5"
+  }
+}

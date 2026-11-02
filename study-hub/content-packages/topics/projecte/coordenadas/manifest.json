@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "subjectId": "projecte",
+  "topicId": "coordenadas",
+  "title": "Tema 1: Orienta't i atrapa'ls (Coordenades & Pokémon)",
+  "language": "ca",
+  "contentBase": "/content/projecte/coordenadas",
+  "sections": [
+    {
+      "id": "teoria",
+      "title": "1. Apunts: Teoria & Conceptes",
+      "desc": "Paral·lels, meridians i globus",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "practica-teoria",
+      "title": "2. Pràctica de teoria",
+      "desc": "Rosa dels vents TTS + Veritat/Fals",
+      "role": "interactive",
+      "icon": "🧠"
+    },
+    {
+      "id": "radar",
+      "title": "3. Radar Pokémon (10)",
+      "desc": "Missió de rescat al mapamundi",
+      "role": "interactive",
+      "icon": "🚀"
+    },
+    {
+      "id": "mapa-punts",
+      "title": "4. Mapa & Generador Dinàmic",
+      "desc": "Pràctica aleatòria de punts",
+      "role": "interactive",
+      "icon": "🗺️"
+    },
+    {
+      "id": "llegendaris",
+      "title": "5. Constel·lació Llegendària",
+      "desc": "Dibuix de Pikachu per coordenades",
+      "role": "interactive",
+      "icon": "⚡"
+    },
+    {
+      "id": "test",
+      "title": "6. Test de Repàs (20)",
+      "desc": "Preguntes tipus examen",
+      "role": "interactive",
+      "icon": "🏆"
+    },
+    {
+      "id": "fitxes",
+      "title": "7. Fitxes Originals (PDF)",
+      "desc": "Descàrrega dels 4 dossiers",
+      "role": "docs",
+      "icon": "📥"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Joc de Coordenades Geogràfiques",
+      "subtitle": "Minijoc interactiu per localitzar punts al mapa de coordenades amb puntuació en viu.",
+      "url": "https://wordwall.net/es/resource/53783300/juego-de-coordenadas-geogr%C3%A1ficas"
+    },
+    {
+      "title": "Repte de Coordenades Geogràfiques",
+      "subtitle": "Exercicis interactius a Educaplay per practicar latitud, longitud i hemisferis terrestres.",
+      "url": "https://es.educaplay.com/recursos-educativos/646874-coordenadas_geograficas.html"
+    },
+    {
+      "title": "1. Cerca els Pokémons Team Rocket",
+      "subtitle": "Mapa mundial amb les 10 coordenades dels Pokémon segrestats.",
+      "url": "1.%20Cerca%20els%20pokemons%20del%20Team%20Rocket.pdf"
+    },
+    {
+      "title": "4. Practiquem Més",
+      "subtitle": "Teoria de paral·lels, meridians, hemisferis i la rosa dels vents.",
+      "url": "4.%20Practiquem%20més.pdf"
+    },
+    {
+      "title": "A Practicar (Dossier 5 Pàgines)",
+      "subtitle": "Dossier escolar complet d'exercicis, activitats i mapamundis.",
+      "url": "A%20practicar.pdf"
+    },
+    {
+      "title": "Coordenades Llegendàries",
+      "subtitle": "Missió de punts i traçat de coordenades per descobrir a Pikachu.",
+      "url": "Cooredenades%20llegendaris.pdf"
+    }
+  ],
+  "documents": [
+    {
+      "title": "1. Cerca els pokemons del Team Rocket.pdf",
+      "desc": "",
+      "localUrl": "/content/projecte/coordenadas/1.%20Cerca%20els%20pokemons%20del%20Team%20Rocket.pdf",
+      "driveUrl": "https://drive.google.com/open?id=19FDieISSkqv5PgC2JKDXyaEMKSkydwgd&usp=drive_copy"
+    },
+    {
+      "title": "4. Practiquem més.pdf",
+      "desc": "",
+      "localUrl": "/content/projecte/coordenadas/4.%20Practiquem%20m%C3%A9s.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1tImr8eCDp6kQDe44NGkhGoS_6wpnlsoI&usp=drive_copy"
+    },
+    {
+      "title": "A practicar.pdf",
+      "desc": "",
+      "localUrl": "/content/projecte/coordenadas/A%20practicar.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1Adr1GQqKtJQssRTo1oW7VlehG9U6-HWG&usp=drive_copy"
+    },
+    {
+      "title": "Cooredenades llegendaris.pdf",
+      "desc": "",
+      "localUrl": "/content/projecte/coordenadas/Cooredenades%20llegendaris.pdf",
+      "driveUrl": "https://drive.google.com/open?id=1gzjyKZuZH0OpXrwS-TuHR8IuRsgG4b3S&usp=drive_copy"
+    }
+  ],
+  "theoryHtml": "<!-- ==========================================\n                 RESOURCE HUB: ENLLAÇOS OFICIALS DRIVE & WEBS DIDÀCTIQUES\n                 ========================================== -->\n            <div class=\"resource-hub-container\">\n                <div class=\"resource-hub-header\">\n                    <div>\n                        <div class=\"resource-hub-title\">\n                            <span>📁</span> Carpeta Oficial de Google Drive & Recursos Didàctics\n                        </div>\n                        <p style=\"font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0 0;\">\n                            Accedeix als documents oficials en PDF i a les plataformes web per practicar interactius.\n                        </p>\n                    </div>\n                    <a href=\"https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy\" target=\"_blank\" class=\"resource-drive-btn\">\n                        <span>☁️</span> Obrir Carpeta Projecte a Drive ↗\n                    </a>\n                </div>\n\n                <!-- GRUP 1: WEBS INTERACTIVES PER A PRACTICAR -->\n                <div class=\"resource-group-title\">\n                    <span>🎮</span> Activitats Web per Practicar Coordenades Geogràfiques\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"https://wordwall.net/es/resource/53783300/juego-de-coordenadas-geogr%C3%A1ficas\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🎯</span> Joc de Coordenades Geogràfiques</span>\n                            <span class=\"resource-badge web\">Wordwall</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Minijoc interactiu per localitzar punts al mapa de coordenades amb puntuació en viu.</p>\n                        <div class=\"resource-card-action\"><span>Jugar a Wordwall</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"https://es.educaplay.com/recursos-educativos/646874-coordenadas_geograficas.html\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🧭</span> Repte de Coordenades Geogràfiques</span>\n                            <span class=\"resource-badge game\">Educaplay</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Exercicis interactius a Educaplay per practicar latitud, longitud i hemisferis terrestres.</p>\n                        <div class=\"resource-card-action\"><span>Practicar a Educaplay</span> <span>↗</span></div>\n                    </a>\n                </div>\n\n                <!-- GRUP 2: FITXES OFICIALS DE CLASSE (PDF) -->\n                <div class=\"resource-group-title\">\n                    <span>📑</span> Fitxes Oficials del Col·legi (PDF)\n                </div>\n                <div class=\"resource-grid\">\n                    <a href=\"1.%20Cerca%20els%20pokemons%20del%20Team%20Rocket.pdf\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🚀</span> 1. Cerca els Pokémons Team Rocket</span>\n                            <span class=\"resource-badge drive\">PDF Local</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Mapa mundial amb les 10 coordenades dels Pokémon segrestats.</p>\n                        <div class=\"resource-card-action\"><span>Obrir Fitxa Local</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"4.%20Practiquem%20més.pdf\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>🌍</span> 4. Practiquem Més</span>\n                            <span class=\"resource-badge drive\">PDF Local</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Teoria de paral·lels, meridians, hemisferis i la rosa dels vents.</p>\n                        <div class=\"resource-card-action\"><span>Obrir Fitxa Local</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"A%20practicar.pdf\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>📋</span> A Practicar (Dossier 5 Pàgines)</span>\n                            <span class=\"resource-badge drive\">PDF Local</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Dossier escolar complet d'exercicis, activitats i mapamundis.</p>\n                        <div class=\"resource-card-action\"><span>Obrir Fitxa Local</span> <span>↗</span></div>\n                    </a>\n\n                    <a href=\"Cooredenades%20llegendaris.pdf\" target=\"_blank\" class=\"resource-card\">\n                        <div class=\"resource-card-top\">\n                            <span class=\"resource-card-title\"><span>⚡</span> Coordenades Llegendàries</span>\n                            <span class=\"resource-badge drive\">PDF Local</span>\n                        </div>\n                        <p class=\"resource-card-desc\">Missió de punts i traçat de coordenades per descobrir a Pikachu.</p>\n                        <div class=\"resource-card-action\"><span>Obrir Fitxa Local</span> <span>↗</span></div>\n                    </a>\n                </div>\n            </div>\n            \n            <div class=\"content-card\">\n                <div class=\"card-header-row\">\n                    <div>\n                        <h2 class=\"card-title\"><span>🌍</span> Les Línies Imaginàries de la Terra</h2>\n                        <p class=\"card-subtitle\">Per poder situar qualsevol punt exacte del nostre planeta, els geògrafs han creat una xarxa de línies imaginàries: els paral·lels i els meridians.</p>\n                    </div>\n                </div>\n\n                <div class=\"grid-2\">\n                    <!-- Paral·lels -->\n                    <div class=\"concept-box\">\n                        <div>\n                            <span class=\"concept-badge blue\">Línies Horitzontals (Est - Oest)</span>\n                            <h3 style=\"margin-top: 0.5rem;\">📏 Els Paral·lels & La Latitud</h3>\n                            <p>Són cercles imaginaris paral·lels a l'Equador que van d'Est a Oest.</p>\n                            <ul style=\"font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 0.75rem 1.25rem; line-height: 1.6;\">\n                                <li><strong>Paral·lel principal 0°:</strong> L'<strong>Equador</strong>, que divideix la Terra en dues meitats iguals: l'<strong>Hemisferi Nord</strong> i l'<strong>Hemisferi Sud</strong>.</li>\n                                <li><strong>Mesura la Latitud:</strong> És la distància d'un punt fins a l'Equador. Pot ser <strong>Latitud Nord (N)</strong> o <strong>Latitud Sud (S)</strong>.</li>\n                                <li><strong>Màxim de graus:</strong> De 0° a <strong>90°</strong> (Pol Nord 90°N i Pol Sud 90°S).</li>\n                                <li><strong>Important:</strong> Els paral·lels <strong>NO tenen tots la mateixa longitud</strong>; es fan més petits com més a prop dels pols estem!</li>\n                            </ul>\n                        </div>\n                        <div class=\"concept-image-holder\">\n                            <img src=\"img/globus_paralels_equador.jpg\" alt=\"Globus amb els Paral·lels i l'Equador\">\n                        </div>\n                    </div>\n\n                    <!-- Meridians -->\n                    <div class=\"concept-box\">\n                        <div>\n                            <span class=\"concept-badge red\">Línies Verticals (Nord - Sud)</span>\n                            <h3 style=\"margin-top: 0.5rem;\">📐 Els Meridians & La Longitud</h3>\n                            <p>Són semicircles imaginaris que uneixen els dos pols (van de Nord a Sud).</p>\n                            <ul style=\"font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 0.75rem 1.25rem; line-height: 1.6;\">\n                                <li><strong>Meridià principal 0°:</strong> El <strong>Meridià de Greenwich</strong> (porta el nom de la ciutat anglesa per on passa).</li>\n                                <li>Divideix la Terra en <strong>Hemisferi Oriental (Est)</strong> i <strong>Hemisferi Occidental (Oest)</strong>.</li>\n                                <li><strong>Mesura la Longitud:</strong> Distància d'un punt fins al Meridià 0°. Pot ser <strong>Longitud Est (E)</strong> o <strong>Longitud Oest (O)</strong>.</li>\n                                <li><strong>Màxim de graus:</strong> De 0° a <strong>180°</strong> cap a l'Est i cap a l'Oest.</li>\n                                <li><strong>Important:</strong> Tots els meridians <strong>SÍ tenen la mateixa longitud</strong> (tots van de pol a pol).</li>\n                            </ul>\n                        </div>\n                        <div class=\"concept-image-holder\">\n                            <img src=\"img/globus_meridians_greenwich.jpg\" alt=\"Globus amb els Meridians i Greenwich\">\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <!-- Resum estàtic (la pràctica interactiva és a la secció 2) -->\n            <div class=\"grid-2\">\n                <div class=\"content-card\">\n                    <h3 class=\"card-title\"><span>🧭</span> La Rosa dels Vents & Punts Cardinals</h3>\n                    <p class=\"card-subtitle\">N, S, E, O i les diagonals (NE, NO, SE, SO). Per escoltar-los i practicar, ves a <strong>2. Pràctica de teoria</strong>.</p>\n                    <div style=\"display: flex; align-items: center; justify-content: center; margin-top: 1rem;\">\n                        <img src=\"img/rosa_dels_vents.png\" alt=\"Rosa dels Vents\" style=\"max-width: 170px; height: auto;\">\n                    </div>\n                </div>\n\n                <div class=\"content-card\">\n                    <h3 class=\"card-title\"><span>📌</span> Línies Clau de la Terra</h3>\n                    <p class=\"card-subtitle\">Referències que cal memoritzar abans del test.</p>\n                    <div style=\"display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1rem;\">\n                        <div class=\"pokedex-item\">\n                            <strong>❄️ Cercle Polar Àrtic</strong>\n                            <span class=\"concept-badge blue\">66,5° N</span>\n                        </div>\n                        <div class=\"pokedex-item\">\n                            <strong>☀️ Tròpic de Càncer</strong>\n                            <span class=\"concept-badge amber\">23,5° N</span>\n                        </div>\n                        <div class=\"pokedex-item\">\n                            <strong>🌐 L'Equador (Paral·lel 0°)</strong>\n                            <span class=\"concept-badge green\">0° (Divideix N / S)</span>\n                        </div>\n                        <div class=\"pokedex-item\">\n                            <strong>☀️ Tròpic de Capricorn</strong>\n                            <span class=\"concept-badge amber\">23,5° S</span>\n                        </div>\n                        <div class=\"pokedex-item\">\n                            <strong>❄️ Cercle Polar Antàrtic</strong>\n                            <span class=\"concept-badge blue\">66,5° S</span>\n                        </div>\n                        <div class=\"pokedex-item\">\n                            <strong>📍 Meridià de Greenwich (0°)</strong>\n                            <span class=\"concept-badge red\">0° (Divideix E / O)</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"content-card\" style=\"margin-top: 1rem;\">\n                <h3 class=\"card-title\"><span>🧠</span> Següent pas: practica</h3>\n                <p class=\"card-subtitle\" style=\"margin: 0;\">\n                    El repte <strong>Veritat o Fals</strong> de la fitxa i la rosa dels vents amb àudio són a la secció\n                    <strong>2. Pràctica de teoria</strong> (ja no van dins els apunts).\n                </p>\n            </div>",
+  "panelIds": [
+    "panel-teoria",
+    "panel-radar",
+    "panel-mapa-punts",
+    "panel-llegendaris",
+    "panel-test",
+    "panel-fitxes"
+  ],
+  "copiedFiles": [
+    "1. Cerca els pokemons del Team Rocket.pdf",
+    "4. Practiquem més.pdf",
+    "A practicar.pdf",
+    "continents_svg.json",
+    "Cooredenades llegendaris.pdf",
+    "extracted\\ap_p1_Im1.png",
+    "extracted\\ap_p1_Im2.png",
+    "extracted\\ap_p1_Im3.png",
+    "extracted\\ap_p1_Im4.png",
+    "extracted\\ap_p2_Im5.jpg",
+    "extracted\\ap_p2_Im6.jpg",
+    "extracted\\ap_p3_Im7.png",
+    "extracted\\ap_p3_Im8.png",
+    "extracted\\ap_p4_Im9.png",
+    "extracted\\ap_p5_Im1.png",
+    "extracted\\ap_p5_Im2.png",
+    "extracted\\A_practicar_p2_Im5.jpg",
+    "extracted\\A_practicar_p2_Im6.jpg",
+    "extracted\\legendary_page_1.png",
+    "extracted\\legendary_page_2.png",
+    "extracted\\legendary_page_3.png",
+    "extracted\\legendary_page_4.png",
+    "extracted\\legendary_page_5.png",
+    "extracted\\legend_p1_FXX1.png",
+    "extracted\\legend_p1_FXX2.png",
+    "extracted\\legend_p1_FXX3.png",
+    "extracted\\legend_p3_X7.png",
+    "extracted\\legend_p5_X9.png",
+    "extracted\\p1_R13.jpg",
+    "extracted\\p1_R15.jpg",
+    "extracted\\p1_R17.jpg",
+    "extracted\\p1_R19.jpg",
+    "extracted\\p1_R22.jpg",
+    "extracted\\p1_R25.jpg",
+    "extracted\\p1_R28.jpg",
+    "extracted\\p1_R31.jpg",
+    "extracted\\p1_R34.jpg",
+    "extracted\\p1_R41.jpg",
+    "extracted\\p1_R43.jpg",
+    "extracted\\p1_R45.jpg",
+    "extracted\\p1_R48.jpg",
+    "extracted\\p2_R101.jpg",
+    "extracted\\p2_R104.jpg",
+    "extracted\\p2_R107.jpg",
+    "extracted\\p2_R110.jpg",
+    "extracted\\p2_R127.jpg",
+    "extracted\\p2_R13.jpg",
+    "extracted\\p2_R15.jpg",
+    "extracted\\p2_R17.jpg",
+    "extracted\\p2_R19.jpg",
+    "extracted\\p2_R31.jpg",
+    "extracted\\p2_R41.jpg",
+    "extracted\\p2_R43.jpg",
+    "extracted\\p2_R45.jpg",
+    "extracted\\p2_R48.jpg",
+    "extracted\\p2_R99.jpg",
+    "extracted\\p3_R165.jpg",
+    "extracted\\team_rocket_page_1.png",
+    "extracted\\team_rocket_page_2.png",
+    "extracted\\team_rocket_page_3.png",
+    "extracted\\test_crop_arbok.png",
+    "extracted\\test_crop_center_bot.png",
+    "extracted\\test_crop_center_eq.png",
+    "extracted\\test_crop_center_top.png",
+    "extracted\\test_crop_golem.png",
+    "extracted\\test_crop_greenwich_meowth.png",
+    "extracted\\test_crop_gyarados.png",
+    "extracted\\test_crop_left_eq.png",
+    "extracted\\test_crop_lickitung.png",
+    "extracted\\test_crop_mewtwo.png",
+    "extracted\\test_crop_rhyhorn.png",
+    "extracted\\test_crop_tentacruel.png",
+    "extracted\\test_crop_tl.png",
+    "extracted\\test_crop_weezing.png",
+    "extracted\\test_crop_zero.png",
+    "extracted\\test_header_center.png",
+    "extracted\\test_header_east.png",
+    "extracted\\test_header_west.png",
+    "extracted\\test_lat_north.png",
+    "extracted\\test_lat_south.png",
+    "img\\esfera_coordenades_punts.png",
+    "img\\globus_meridians_greenwich.jpg",
+    "img\\globus_paralels_equador.jpg",
+    "img\\globus_terra.png",
+    "img\\mapamundi_continents_oceans.png",
+    "img\\mapamundi_quadricula_buit.png",
+    "img\\mapamundi_quadricula_punts.png",
+    "img\\mapa_pokemon_team_rocket.jpg",
+    "img\\mapa_pokemon_team_rocket_fixed.png",
+    "img\\pokeball.png",
+    "img\\rosa_dels_vents.png"
+  ],
+  "migratedAt": "2026-11-01T13:07:59.611Z"
+}
