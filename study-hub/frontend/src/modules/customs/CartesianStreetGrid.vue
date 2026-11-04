@@ -5,7 +5,7 @@
       Clica la casella demanada.
     </p>
 
-    <p style="font-weight:800;margin:0">Troba el punt {{ targetLabel }} → ({{ target.x }}, {{ target.y }})</p>
+    <p style="font-weight:800;margin:0">Troba: {{ targetLabel }}</p>
 
     <div style="overflow:auto">
       <div
@@ -17,11 +17,9 @@
           :key="cell.key"
           type="button"
           :class="{
-            target: cell.x === target.x && cell.y === target.y && !picked,
-            ok: picked && cell.x === target.x && cell.y === target.y,
-            bad: picked && lastPick && cell.x === lastPick.x && cell.y === lastPick.y && !ok,
+            ok: revealed && cell.x === target.x && cell.y === target.y,
+            bad: revealed && lastPick && cell.x === lastPick.x && cell.y === lastPick.y && !ok,
           }"
-          :title="`(${cell.x}, ${cell.y})`"
           @click="pick(cell)"
         >
           {{ cell.x }},{{ cell.y }}
@@ -43,16 +41,16 @@ const emit = defineEmits(['complete', 'update:modelValue'])
 
 const size = 8
 const presets = [
-  { x: 4, y: 3, label: 'B (Carrer 4, 3a Av.)' },
-  { x: 1, y: 5, label: 'A (Carrer 1, 5a Av.)' },
-  { x: 5, y: 1, label: 'F (si invertissis: 5, 1a)' },
-  { x: 2, y: 8, label: 'N (Carrer 2, 8a Av.)' },
-  { x: 3, y: 6, label: 'aleatori' },
-  { x: 7, y: 2, label: 'aleatori' },
+  { x: 4, y: 3, label: 'punt B · Carrer 4 amb 3a Avinguda' },
+  { x: 1, y: 5, label: 'punt A · Carrer 1 amb 5a Avinguda' },
+  { x: 5, y: 1, label: 'punt F · Carrer 5 amb 1a Avinguda' },
+  { x: 2, y: 8, label: 'punt N · Carrer 2 amb 8a Avinguda' },
+  { x: 3, y: 6, label: 'Carrer 3 amb 6a Avinguda' },
+  { x: 7, y: 2, label: 'Carrer 7 amb 2a Avinguda' },
 ]
 
 const target = ref(presets[0])
-const picked = ref(false)
+const revealed = ref(false)
 const lastPick = ref(null)
 const ok = ref(false)
 const feedback = ref('')
@@ -81,22 +79,21 @@ function newTarget() {
     },
   ]
   target.value = pool[Math.floor(Math.random() * pool.length)]
-  // Clamp y for size if preset N uses 8
   if (target.value.y > size) target.value = { ...target.value, y: size }
-  picked.value = false
+  revealed.value = false
   lastPick.value = null
   ok.value = false
   feedback.value = ''
 }
 
 function pick(cell) {
-  if (picked.value && ok.value) return
+  if (revealed.value && ok.value) return
   lastPick.value = cell
-  picked.value = true
+  revealed.value = true
   ok.value = cell.x === target.value.x && cell.y === target.value.y
   feedback.value = ok.value
-    ? `Molt bé! (${cell.x}, ${cell.y})`
-    : `Has clicat (${cell.x}, ${cell.y}). Calia (${target.value.x}, ${target.value.y}).`
+    ? `Correcte! És (${target.value.x}, ${target.value.y}).`
+    : `Incorrecte: has clicat (${cell.x}, ${cell.y}). Era (${target.value.x}, ${target.value.y}).`
   emit('update:modelValue', { pick: cell, target: target.value })
   if (ok.value) {
     correctCount.value += 1
@@ -106,7 +103,7 @@ function pick(cell) {
         _grade: { score: max, maxScore: max, feedback: `${correctCount.value} punts localitzats.` },
       })
     }
-    setTimeout(() => newTarget(), 700)
+    setTimeout(() => newTarget(), 900)
   }
 }
 </script>
