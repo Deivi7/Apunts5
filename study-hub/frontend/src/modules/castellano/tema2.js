@@ -105,6 +105,9 @@ export default createModule({
         maxScore: 8,
         config: { xp: 16 },
         content: {
+          columns: 2,
+          compact: true,
+          hideHint: true,
           blanks: [
             { id: 'v1', prompt: 'Hueso largo de la pierna (t____)', answer: 'tibia', accept: ['tibia'] },
             { id: 'v2', prompt: 'Máquina que procesa datos (o_______)', answer: 'ordenador', accept: ['ordenador', 'computadora'] },

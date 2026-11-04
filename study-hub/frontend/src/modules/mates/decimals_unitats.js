@@ -28,6 +28,11 @@ function blanksFromBank(bank, prefix) {
   }))
 }
 
+/** Layout compacto en columnas para FillBlank. */
+function fillContent(blanks, columns = 2, extra = {}) {
+  return { columns, compact: true, hideHint: true, blanks, ...extra }
+}
+
 export default createModule({
   sections: [],
   theoryHtml: '',
@@ -56,7 +61,7 @@ export default createModule({
         instructions: 'Mou la coma tants llocs a la dreta com zeros tingui el 10, 100, 1000…',
         maxScore: POWER10_MUL.length,
         config: { xp: 20 },
-        content: { blanks: blanksFromBank(POWER10_MUL, 'mul') },
+        content: fillContent(blanksFromBank(POWER10_MUL, 'mul'), 2),
       },
       {
         id: 'du-power-div',
@@ -65,7 +70,7 @@ export default createModule({
         instructions: 'Mou la coma a l\'esquerra. Afegeix zeros si cal.',
         maxScore: POWER10_DIV.length,
         config: { xp: 20 },
-        content: { blanks: blanksFromBank(POWER10_DIV, 'div') },
+        content: fillContent(blanksFromBank(POWER10_DIV, 'div'), 2),
       },
     ],
     arrodoniment: [
@@ -83,7 +88,7 @@ export default createModule({
         title: 'A la desena més propera',
         maxScore: ROUND_DESENA.length,
         config: { xp: 8 },
-        content: { blanks: blanksFromBank(ROUND_DESENA, 'rd') },
+        content: fillContent(blanksFromBank(ROUND_DESENA, 'rd'), 3),
       },
       {
         id: 'du-round-centena',
@@ -91,7 +96,7 @@ export default createModule({
         title: 'A la centena més propera',
         maxScore: ROUND_CENTENA.length,
         config: { xp: 12 },
-        content: { blanks: blanksFromBank(ROUND_CENTENA, 'rc') },
+        content: fillContent(blanksFromBank(ROUND_CENTENA, 'rc'), 3),
       },
       {
         id: 'du-round-miler',
@@ -100,7 +105,7 @@ export default createModule({
         instructions: 'Mira la centena: si és ≥ 5 puja el miler; si no, mantén-lo.',
         maxScore: ROUND_MILER.length,
         config: { xp: 12 },
-        content: { blanks: blanksFromBank(ROUND_MILER, 'rm') },
+        content: fillContent(blanksFromBank(ROUND_MILER, 'rm'), 3),
       },
       {
         id: 'du-round-enter',
@@ -108,7 +113,7 @@ export default createModule({
         title: 'Al nombre natural més proper',
         maxScore: ROUND_ENTER.length,
         config: { xp: 6 },
-        content: { blanks: blanksFromBank(ROUND_ENTER, 're') },
+        content: fillContent(blanksFromBank(ROUND_ENTER, 're'), 3),
       },
       {
         id: 'du-round-euros',
@@ -147,7 +152,7 @@ export default createModule({
         title: 'Conversió d\'unitats (examen)',
         maxScore: METRIC_CONVERT.length,
         config: { xp: 18 },
-        content: { blanks: blanksFromBank(METRIC_CONVERT, 'mc') },
+        content: fillContent(blanksFromBank(METRIC_CONVERT, 'mc'), 2),
       },
       {
         id: 'du-metric-unit',
@@ -217,12 +222,13 @@ export default createModule({
         title: 'Diagonals',
         maxScore: 2,
         config: { xp: 8 },
-        content: {
-          blanks: [
+        content: fillContent(
+          [
             { id: 'd4', prompt: 'Diagonals d\'un quadrilàter (n=4)', answer: '2' },
             { id: 'd5', prompt: 'Diagonals d\'un pentàgon (n=5)', answer: '5' },
           ],
-        },
+          2,
+        ),
       },
     ],
     'decimal-natural': [
@@ -240,7 +246,7 @@ export default createModule({
         title: 'Càlculs (examen)',
         maxScore: DECIMAL_MULT.length,
         config: { xp: 12 },
-        content: { blanks: blanksFromBank(DECIMAL_MULT, 'dm') },
+        content: fillContent(blanksFromBank(DECIMAL_MULT, 'dm'), 2),
       },
       {
         id: 'du-listo',
@@ -318,7 +324,7 @@ export default createModule({
         instructions: 'Continua amb zeros després de la coma fins que el residu sigui 0.',
         maxScore: DIVISION_DECIMAL.length,
         config: { xp: 12 },
-        content: { blanks: blanksFromBank(DIVISION_DECIMAL, 'dd') },
+        content: fillContent(blanksFromBank(DIVISION_DECIMAL, 'dd'), 2),
       },
       {
         id: 'du-div-period',

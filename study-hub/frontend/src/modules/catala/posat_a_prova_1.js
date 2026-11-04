@@ -52,6 +52,9 @@ export default createModule({
         maxScore: 5,
         config: { xp: 16 },
         content: {
+          columns: 2,
+          compact: true,
+          hideHint: true,
           blanks: EX4_COLLECTIVES.map((c) => ({
             id: c.id,
             prompt: c.prompt,
@@ -84,6 +87,9 @@ export default createModule({
         maxScore: 8,
         config: { xp: 18 },
         content: {
+          columns: 2,
+          compact: true,
+          hideHint: true,
           blanks: EX7_SYN_ANT.map((row) => ({
             id: row.id,
             prompt: row.prompt,
@@ -207,6 +213,9 @@ export default createModule({
         maxScore: 5,
         config: { xp: 18 },
         content: {
+          columns: 2,
+          compact: true,
+          hideHint: true,
           blanks: PRO4_COLLECTIVES.map((c) => ({
             id: c.id,
             prompt: c.prompt,

@@ -56,6 +56,9 @@ export default createModule({
         maxScore: 9,
         config: { xp: 18 },
         content: {
+          columns: 3,
+          compact: true,
+          hideHint: true,
           blanks: [
             { id: 's102', prompt: 'Any 102 →', answer: 'II', accept: ['II', 's. II', 'segle II', 'Segle II'] },
             { id: 's10', prompt: 'Any 10 →', answer: 'I', accept: ['I', 's. I', 'segle I', 'Segle I'] },

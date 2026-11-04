@@ -11,7 +11,7 @@
       >
         {{ p.label }}
       </button>
-      <button type="button" class="ex-btn" @click="newItem">🎲 Un altre</button>
+      <button type="button" class="ex-btn" :disabled="locked" @click="newItem">🎲 Un altre</button>
     </div>
 
     <p class="match-hint" style="margin:0">
@@ -25,8 +25,8 @@
     </p>
 
     <form class="du-row" @submit.prevent="check">
-      <input v-model="answer" class="input-hub" type="text" placeholder="Nombre arrodonit" autocomplete="off">
-      <button type="submit" class="ex-btn ex-btn-primary">Comprovar</button>
+      <input v-model="answer" class="input-hub" type="text" placeholder="Nombre arrodonit" autocomplete="off" :disabled="locked">
+      <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">Comprovar</button>
     </form>
 
     <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'">{{ feedback }}</p>
@@ -35,6 +35,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useLabAttemptLock } from '@/composables/useLabAttemptLock.js'
 import {
   answersMatch,
   generateRoundingItem,
@@ -44,6 +45,7 @@ import {
 
 const props = defineProps({ exercise: Object })
 const emit = defineEmits(['update:modelValue', 'complete'])
+const { locked, canCheck, unlockForNext, lockAfterCorrect, clearTimer } = useLabAttemptLock()
 
 const places = [
   { id: 'd', label: 'Desena', value: 10 },
@@ -72,6 +74,8 @@ function expected() {
 }
 
 function pick() {
+  clearTimer()
+  unlockForNext()
   if (place.value === 1) {
     const base = Math.floor(Math.random() * 40) + 10
     const frac = Math.floor(Math.random() * 100) / 100
@@ -92,10 +96,12 @@ function setPlace(v) {
 }
 
 function newItem() {
+  if (locked.value) return
   pick()
 }
 
 function check() {
+  if (!canCheck()) return
   const exp = expected()
   ok.value = answersMatch(answer.value, exp)
   feedback.value = ok.value
@@ -110,7 +116,7 @@ function check() {
         _grade: { score: max, maxScore: max, feedback: `${correctCount.value} arrodoniments correctes.` },
       })
     }
-    setTimeout(() => pick(), 700)
+    lockAfterCorrect(700, pick)
   }
 }
 

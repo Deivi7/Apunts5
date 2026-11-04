@@ -159,6 +159,9 @@ export default createModule({
         maxScore: 4,
         config: { xp: 18 },
         content: {
+          columns: 2,
+          compact: true,
+          hideHint: true,
           blanks: EXAM_DIVISIONS.flatMap((d) => [
             { id: `${d.id}-q`, prompt: `${d.label} → cociente`, answer: d.q },
             { id: `${d.id}-r`, prompt: `${d.label} → resto`, answer: d.r },

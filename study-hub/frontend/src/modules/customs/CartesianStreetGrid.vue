@@ -87,6 +87,7 @@ function newTarget() {
 }
 
 function pick(cell) {
+  // Evita dobles clic mientras espera el siguiente reto
   if (revealed.value && ok.value) return
   lastPick.value = cell
   revealed.value = true
@@ -103,6 +104,7 @@ function pick(cell) {
         _grade: { score: max, maxScore: max, feedback: `${correctCount.value} punts localitzats.` },
       })
     }
+    // Bloqueo implícito: revealed+ok impide reclics hasta newTarget
     setTimeout(() => newTarget(), 900)
   }
 }

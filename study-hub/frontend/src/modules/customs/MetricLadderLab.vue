@@ -11,7 +11,7 @@
       >
         {{ k.label }}
       </button>
-      <button type="button" class="ex-btn" @click="newItem">🎲 Un altre</button>
+      <button type="button" class="ex-btn" :disabled="locked" @click="newItem">🎲 Un altre</button>
     </div>
 
     <div class="du-ladder">
@@ -29,8 +29,8 @@
     </p>
 
     <form class="du-row" @submit.prevent="check">
-      <input v-model="answer" class="input-hub" placeholder="Valor en la nova unitat" autocomplete="off">
-      <button type="submit" class="ex-btn ex-btn-primary">Comprovar</button>
+      <input v-model="answer" class="input-hub" placeholder="Valor en la nova unitat" autocomplete="off" :disabled="locked">
+      <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">Comprovar</button>
     </form>
 
     <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'">{{ feedback }}</p>
@@ -39,6 +39,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useLabAttemptLock } from '@/composables/useLabAttemptLock.js'
 import {
   LENGTH_UNITS,
   MASS_UNITS,
@@ -51,6 +52,7 @@ import {
 
 const props = defineProps({ exercise: Object })
 const emit = defineEmits(['update:modelValue', 'complete'])
+const { locked, canCheck, unlockForNext, lockAfterCorrect, clearTimer } = useLabAttemptLock()
 
 const kinds = [
   { id: 'length', label: 'Longitud' },
@@ -79,6 +81,8 @@ const steps = computed(() => stepsBetween(fromU.value, toU.value, kind.value))
 const expected = computed(() => convertMetric(value.value, fromU.value, toU.value, kind.value))
 
 function pick() {
+  clearTimer()
+  unlockForNext()
   const list = units.value
   let a = Math.floor(Math.random() * list.length)
   let b = Math.floor(Math.random() * list.length)
@@ -97,10 +101,12 @@ function setKind(id) {
 }
 
 function newItem() {
+  if (locked.value) return
   pick()
 }
 
 function check() {
+  if (!canCheck()) return
   ok.value = answersMatch(answer.value, expected.value)
   feedback.value = ok.value
     ? `Correcte! ${formatCa(value.value)} ${fromU.value} = ${formatCa(expected.value)} ${toU.value}`
@@ -114,7 +120,7 @@ function check() {
         _grade: { score: max, maxScore: max, feedback: `${correctCount.value} conversions correctes.` },
       })
     }
-    setTimeout(() => pick(), 700)
+    lockAfterCorrect(700, pick)
   }
 }
 

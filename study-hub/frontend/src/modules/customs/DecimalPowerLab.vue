@@ -1,9 +1,9 @@
 <template>
   <div class="du-lab">
     <div class="du-row">
-      <button type="button" class="level-pill" :class="{ on: mode === 'mul' }" @click="setMode('mul')">× 10ⁿ</button>
-      <button type="button" class="level-pill" :class="{ on: mode === 'div' }" @click="setMode('div')">÷ 10ⁿ</button>
-      <button type="button" class="ex-btn" @click="newItem">🎲 Un altre</button>
+      <button type="button" class="level-pill" :class="{ on: mode === 'mul' }" @click="setMode('mul')">× 10, 100…</button>
+      <button type="button" class="level-pill" :class="{ on: mode === 'div' }" @click="setMode('div')">÷ 10, 100…</button>
+      <button type="button" class="ex-btn" :disabled="locked" @click="newItem">🎲 Un altre</button>
     </div>
 
     <p class="match-hint" style="margin:0">
@@ -19,8 +19,8 @@
     </div>
 
     <form class="du-row" @submit.prevent="check">
-      <input v-model="answer" class="input-hub" placeholder="Resultat (usa coma)" autocomplete="off">
-      <button type="submit" class="ex-btn ex-btn-primary">Comprovar</button>
+      <input v-model="answer" class="input-hub" placeholder="Resultat (usa coma)" autocomplete="off" :disabled="locked">
+      <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">Comprovar</button>
       <button type="button" class="ex-btn" @click="showHint = !showHint">Pista</button>
     </form>
 
@@ -29,12 +29,13 @@
       {{ mode === 'mul' ? 'cap a la dreta' : 'cap a l\'esquerra' }}.
     </p>
     <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'">{{ feedback }}</p>
-    <p class="match-hint" style="margin:0">Encerts seguits per al repte: {{ correctCount }}/{{ needed }}</p>
+    <p class="match-hint" style="margin:0">Encerts: {{ correctCount }}/{{ needed }}</p>
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useLabAttemptLock } from '@/composables/useLabAttemptLock.js'
 import {
   answersMatch,
   formatCa,
@@ -43,6 +44,7 @@ import {
 
 const props = defineProps({ exercise: Object })
 const emit = defineEmits(['update:modelValue', 'complete'])
+const { locked, canCheck, unlockForNext, lockAfterCorrect, clearTimer } = useLabAttemptLock()
 
 const mode = ref('mul')
 const current = ref(null)
@@ -54,6 +56,8 @@ const correctCount = ref(0)
 const needed = 4
 
 function pick() {
+  clearTimer()
+  unlockForNext()
   current.value = generatePower10Item(mode.value)
   answer.value = ''
   feedback.value = ''
@@ -67,11 +71,12 @@ function setMode(m) {
 }
 
 function newItem() {
+  if (locked.value) return
   pick()
 }
 
 function check() {
-  if (!current.value) return
+  if (!current.value || !canCheck()) return
   ok.value = answersMatch(answer.value, current.value.answer)
   feedback.value = ok.value
     ? `Correcte! ${formatCa(current.value.n)} ${current.value.op} ${current.value.power} = ${formatCa(current.value.answer)}`
@@ -89,7 +94,7 @@ function check() {
         },
       })
     }
-    setTimeout(() => pick(), 700)
+    lockAfterCorrect(700, pick)
   }
 }
 
@@ -111,5 +116,10 @@ onMounted(pick)
   background: var(--du-primary, #0f766e);
   color: #fff;
   border-color: transparent;
+}
+.ex-btn:disabled,
+.input-hub:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 </style>

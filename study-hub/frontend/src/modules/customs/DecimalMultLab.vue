@@ -15,10 +15,10 @@
     </div>
 
     <form class="du-row" @submit.prevent="check">
-      <input v-model="answer" class="input-hub" placeholder="Producte" autocomplete="off">
-      <button type="submit" class="ex-btn ex-btn-primary">Comprovar</button>
+      <input v-model="answer" class="input-hub" placeholder="Producte" autocomplete="off" :disabled="locked">
+      <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">Comprovar</button>
       <button type="button" class="ex-btn" @click="showSteps = !showSteps">Passos</button>
-      <button type="button" class="ex-btn" @click="pick">🎲 Un altre</button>
+      <button type="button" class="ex-btn" :disabled="locked" @click="newItem">🎲 Un altre</button>
     </form>
 
     <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'">{{ feedback }}</p>
@@ -27,6 +27,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useLabAttemptLock } from '@/composables/useLabAttemptLock.js'
 import {
   answersMatch,
   countDecimals,
@@ -36,6 +37,7 @@ import {
 
 const props = defineProps({ exercise: Object })
 const emit = defineEmits(['update:modelValue', 'complete'])
+const { locked, canCheck, unlockForNext, lockAfterCorrect, clearTimer } = useLabAttemptLock()
 
 const current = ref({ dec: 2.4, nat: 5, answer: 12 })
 const answer = ref('')
@@ -50,6 +52,8 @@ const rawInt = computed(() => String(current.value.dec).replace('.', '').replace
 const rawProduct = computed(() => Number(rawInt.value) * current.value.nat)
 
 function pick() {
+  clearTimer()
+  unlockForNext()
   current.value = generateDecimalMultItem()
   answer.value = ''
   feedback.value = ''
@@ -57,7 +61,13 @@ function pick() {
   showSteps.value = false
 }
 
+function newItem() {
+  if (locked.value) return
+  pick()
+}
+
 function check() {
+  if (!canCheck()) return
   ok.value = answersMatch(answer.value, current.value.answer)
   feedback.value = ok.value
     ? `Exacte! ${formatCa(current.value.dec)} × ${current.value.nat} = ${formatCa(current.value.answer)}`
@@ -72,7 +82,7 @@ function check() {
         _grade: { score: max, maxScore: max, feedback: `${correctCount.value} productes correctes.` },
       })
     }
-    setTimeout(() => pick(), 800)
+    lockAfterCorrect(800, pick)
   }
 }
 
