@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "subjectId": "mates",
+  "topicId": "perimetres_arees",
+  "title": "Perímetres i Àrees: Quadrats i Rectangles",
+  "language": "ca",
+  "contentBase": "/content/mates/perimetres_arees",
+  "sections": [
+    {
+      "id": "apunts",
+      "title": "1. Apunts",
+      "desc": "Teoria didàctica de 5è",
+      "role": "theory",
+      "icon": "📖"
+    },
+    {
+      "id": "perimetre",
+      "title": "2. El Perímetre",
+      "desc": "La vora (cm / m)",
+      "role": "interactive",
+      "icon": "🚧"
+    },
+    {
+      "id": "area",
+      "title": "3. L'Àrea",
+      "desc": "La superfície (cm² / m²)",
+      "role": "interactive",
+      "icon": "🟩"
+    },
+    {
+      "id": "invers",
+      "title": "4. Reptes inversos",
+      "desc": "Troba el costat que falta",
+      "role": "interactive",
+      "icon": "🕵️"
+    },
+    {
+      "id": "problemes",
+      "title": "5. Problemes reals",
+      "desc": "Tanques, gespa i rajoles",
+      "role": "interactive",
+      "icon": "🏡"
+    },
+    {
+      "id": "repas",
+      "title": "6. Repàs final",
+      "desc": "Quiz i fitxa imprimible",
+      "role": "interactive",
+      "icon": "🏆"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Drive Mates",
+      "url": "https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy"
+    }
+  ],
+  "documents": [],
+  "theoryHtml": "<div class=\"section-header\">\n  <div>\n    <h2 class=\"section-title\"><span>📐</span> Apunts de 5è: Perímetres i Àrees (Quadrats i Rectangles)</h2>\n    <p class=\"section-subtitle\">Explicat pas a pas per a 5è de primària amb exemples clars, trucs del profe i taules resum.</p>\n  </div>\n</div>\n\n<!-- ========== 1. QUÈ ÉS I PER A QUÈ SERVEIX ========== -->\n<div class=\"du-theory-block\">\n  <h3 class=\"du-block-title\"><span>💡</span> 1. Quina diferència hi ha entre el Perímetre i l'Àrea?</h3>\n  <p class=\"du-lead\">\n    Imagina un camp de futbol o un jardí:\n  </p>\n  <p class=\"du-lead\">\n    • El <strong>PERÍMETRE</strong> és la <strong>vora de fora</strong> (com si hi posessis una <strong>tanca de fusta</strong> al voltant o caminant per sobre de la línia blanca). Es mesura en unitats de longitud normals: <strong>centímetres (<code>cm</code>)</strong> o <strong>metres (<code>m</code>)</strong>.\n  </p>\n  <p class=\"du-lead\" style=\"margin-bottom:0\">\n    • L'<strong>ÀREA</strong> és la <strong>superfície de dins</strong> (com si cobrissis tot el terra amb <strong>rajoles quadrades</strong> o amb <strong>gespa</strong>). Es mesura comptant quants quadradets hi caben a dins: <strong>centímetres quadrats (<code>cm²</code>)</strong> o <strong>metres quadrats (<code>m²</code>)</strong>.\n  </p>\n</div>\n\n<!-- ========== 2. REGLES I FÓRMULES CLAU ========== -->\n<div class=\"du-cards-grid\">\n\n  <article class=\"du-card\" style=\"border-top-color:#0284c7;\">\n    <h3 style=\"color:#0284c7;\"><span>⬛</span> 1. El Quadrat (4 costats iguals)</h3>\n    <p>Un quadrat té els seus <strong>4 costats exactament iguals</strong>:</p>\n    <ul>\n      <li><strong>🚧 Perímetre del quadrat:</strong> Sumes els 4 costats iguals (o multipliques el costat per 4).<br><code>Perímetre = costat + costat + costat + costat = 4 × costat</code><br><em>Exemple (costat 5 cm):</em> <code>4 × 5 = 20 cm</code>.</li>\n      <li><strong>🟩 Àrea del quadrat:</strong> Multipliques el costat per ell mateix.<br><code>Àrea = costat × costat</code><br><em>Exemple (costat 5 cm):</em> <code>5 × 5 = 25 cm²</code>.</li>\n    </ul>\n  </article>\n\n  <article class=\"du-card\" style=\"border-top-color:#059669;\">\n    <h3 style=\"color:#059669;\"><span>▭</span> 2. El Rectangle (Base i Altura)</h3>\n    <p>Un rectangle té <strong>2 bases iguals</strong> (a dalt i a baix) i <strong>2 altures iguals</strong> (esquerra i dreta):</p>\n    <ul>\n      <li><strong>🚧 Perímetre del rectangle:</strong> Sumes els <strong>4 costats</strong>.<br><code>Perímetre = base + base + altura + altura</code><br><em>Exemple (base 8 cm, altura 3 cm):</em> <code>8 + 8 + 3 + 3 = 22 cm</code>.</li>\n      <li><strong>🟩 Àrea del rectangle:</strong> Multipliques les columnes (base) per les files (altura).<br><code>Àrea = base × altura</code><br><em>Exemple (base 8 cm, altura 3 cm):</em> <code>8 × 3 = 24 cm²</code>.</li>\n    </ul>\n  </article>\n\n  <article class=\"du-card\" style=\"border-top-color:#8b5cf6;\">\n    <h3 style=\"color:#8b5cf6;\"><span>🕵️</span> 3. Reptes a l'inrevés (Trobar el costat)</h3>\n    <p>Què passa si ja et donen el perímetre o l'àrea i et demanen el costat?</p>\n    <ul>\n      <li><strong>Si saps el Perímetre d'un quadrat:</strong> Divideixes entre 4 costats.<br><em>Ex: Perímetre = 36 cm</em> → <code>36 ÷ 4 = 9 cm</code> cada costat.</li>\n      <li><strong>Si saps l'Àrea d'un quadrat:</strong> Penses quin nombre multiplicat per ell mateix dóna l'àrea.<br><em>Ex: Àrea = 49 cm²</em> → com que <code>7 × 7 = 49</code>, el costat és <strong>7 cm</strong>.</li>\n      <li><strong>Si saps l'Àrea d'un rectangle i la base:</strong> Divideixes l'àrea entre la base.<br><em>Ex: Àrea = 45 cm² i base = 9 cm</em> → <code>45 ÷ 9 = 5 cm</code> d'altura.</li>\n    </ul>\n  </article>\n\n</div>\n\n<!-- ========== 3. EXEMPLES CLARS (BÉ VS MAL) ========== -->\n<div class=\"du-theory-block\">\n  <h3 class=\"du-block-title\"><span>⚖️</span> 3. Exemples clars: Compte amb les dues grans trampes! (Bé vs Mal)</h3>\n  <div class=\"du-table-wrap\">\n    <table class=\"du-table du-table-striped\">\n      <thead>\n        <tr>\n          <th>Figura</th>\n          <th>Càlcul del Perímetre (Vora)</th>\n          <th>Càlcul de l'Àrea (Dins)</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>Quadrat de costat 6 cm</strong></td>\n          <td><code>6 + 6 + 6 + 6 = 4 × 6 =</code> <strong>24 cm</strong></td>\n          <td><code>6 × 6 =</code> <strong>36 cm²</strong></td>\n        </tr>\n        <tr>\n          <td><strong>Quadrat de costat 10 m</strong></td>\n          <td><code>4 × 10 =</code> <strong>40 m</strong></td>\n          <td><code>10 × 10 =</code> <strong>100 m²</strong></td>\n        </tr>\n        <tr>\n          <td><strong>Rectangle de 9 cm × 4 cm</strong></td>\n          <td><code>9 + 9 + 4 + 4 =</code> <strong>26 cm</strong></td>\n          <td><code>9 × 4 =</code> <strong>36 cm²</strong></td>\n        </tr>\n        <tr>\n          <td><strong>Rectangle de 12 m × 5 m</strong></td>\n          <td><code>12 + 12 + 5 + 5 =</code> <strong>34 m</strong></td>\n          <td><code>12 × 5 =</code> <strong>60 m²</strong></td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div class=\"du-split\">\n    <div class=\"du-ok\">\n      <strong>✅ BÉ (Com un expert de 5è)</strong>\n      <p>• Al perímetre d'un rectangle, sumar <strong>els 4 costats</strong> (<code>base + base + altura + altura</code>).<br>• A l'àrea d'un quadrat de costat 5, fer <strong>costat × costat</strong> (<code>5 × 5 = 25 cm²</code>).</p>\n    </div>\n    <div class=\"du-bad\">\n      <strong>❌ MAL (Les 2 errades més típiques d'examen)</strong>\n      <p>• <strong>Errada 1:</strong> Fer el perímetre d'un rectangle sumant només 2 costats (<code>8 + 3 = 11</code> ❌). Et deixes mitja tanca oberta!<br>• <strong>Errada 2:</strong> Calcular l'àrea d'un quadrat de costat 5 fent <code>5 × 4 = 20</code> ❌ (això és el perímetre, no l'àrea!).</p>\n    </div>\n  </div>\n</div>\n\n<!-- ========== 4. EL TRUC DEL PROFE ========== -->\n<div class=\"du-theory-block\">\n  <h3 class=\"du-block-title\"><span>🧙‍♂️</span> 4. Els Trucs del Profe per recordar-ho sempre</h3>\n  <div class=\"du-cards-grid\" style=\"margin-bottom:0\">\n    <article class=\"du-card\" style=\"border-top-color:#d97706;\">\n      <h3 style=\"color:#d97706;\"><span>🚧</span> 1. El Truc de la Tanca i les Rajoles</h3>\n      <p>Quan llegeixis un problema, pregunta't:<br>• Va per <strong>fora</strong> (tanca, marc d'un quadre, córrer per la línia, cinta)? → <strong>PERÍMETRE (sumar costats)</strong>.<br>• Cobreix per <strong>dins</strong> (gespa, rajoles, parquet, vidre, pintar una paret)? → <strong>ÀREA (multiplicar)</strong>.</p>\n    </article>\n\n    <article class=\"du-card\" style=\"border-top-color:#e11d48;\">\n      <h3 style=\"color:#e11d48;\"><span>🍫</span> 2. El Truc de la Rajola de Xocolata</h3>\n      <p>Pensa en un rectangle com una <strong>rajola de xocolata</strong>: si a baix hi ha <strong>7 onzes</strong> (base) i cap amunt hi ha <strong>4 pisos</strong> (altura), per saber quantes onzes de xocolata tens en total (l'àrea) no les comptes d'una en una: fas <strong><code>7 × 4 = 28</code></strong>!</p>\n    </article>\n  </div>\n</div>\n\n<!-- ========== 5. RESUM VISUAL EN 1 MINUT ========== -->\n<div class=\"du-theory-block du-summary\">\n  <h3 class=\"du-block-title\"><span>⏱️</span> 5. Resum Visual en 1 Minut (Xuleta abans de practicar)</h3>\n  <div class=\"du-table-wrap\">\n    <table class=\"du-table\">\n      <thead>\n        <tr>\n          <th>Figura</th>\n          <th>🚧 Perímetre (Contorn en cm / m)</th>\n          <th>🟩 Àrea (Interior en cm² / m²)</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>⬛ Quadrat (costat <em>c</em>)</strong></td>\n          <td><code>c + c + c + c</code> &nbsp;o&nbsp; <strong><code>4 × c</code></strong></td>\n          <td><strong><code>c × c</code></strong></td>\n        </tr>\n        <tr>\n          <td><strong>▭ Rectangle (base <em>b</em>, altura <em>h</em>)</strong></td>\n          <td><strong><code>b + b + h + h</code></strong> &nbsp;(o <code>2×b + 2×h</code>)</td>\n          <td><strong><code>b × h</code></strong></td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n",
+  "panelIds": [
+    "apunts"
+  ],
+  "copiedFiles": [],
+  "migratedAt": "2026-11-08T17:02:55.266Z"
+}

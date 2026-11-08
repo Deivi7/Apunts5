@@ -13,6 +13,7 @@ const loaders = {
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.js'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.js'),
   'mates/funcions_enters': () => import('./mates/funcions_enters.js'),
+  'mates/perimetres_arees': () => import('./mates/perimetres_arees.js'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.js'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.js'),
   'tutoria/calendario': () => import('./tutoria/calendario.js'),

@@ -12,6 +12,7 @@ export const topicStyleLoaders = {
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.css'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.css'),
   'mates/funcions_enters': () => import('./mates/funcions_enters.css'),
+  'mates/perimetres_arees': () => import('./mates/perimetres_arees.css'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.css'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.css'),
 }

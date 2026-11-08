@@ -1,50 +1,170 @@
-/** Bancs de dades i exercicis del tema funcions_enters (EMAT pàg. 57, 58, 59 i 61). */
+/** Bancs de dades i exercicis del tema funcions_enters. */
 
-/** Pàgina 57 - Activitat 1: Robot de funcions +8 */
+/** Activitat 1: Robot de funcions +8 */
 export const P57_ROBOT_INTRO = [
   {
     id: 'r1a',
-    prompt: 'a) Norma +8: Si hi poses un 10 (Entra = 10), quin nombre en surt?',
+    badge: 'Norma +8',
+    prompt: 'a) Si al robot hi entra un 10, quin nombre en surt?',
+    sub: 'Càlcul: 10 + 8 = ?',
     answer: '18',
-    placeholder: 'y = …',
+    placeholder: 'Escriu la sortida (y)…',
   },
   {
     id: 'r1b',
-    prompt: 'b) Norma +8: Si en surt un 16 (Surt = 16), quin nombre ha entrat?',
+    badge: 'Norma +8',
+    prompt: 'b) Si del robot en surt un 16, quin nombre hi havia entrat?',
+    sub: 'Pensa a l\'inrevés: quin nombre + 8 dóna 16? (16 − 8)',
     answer: '8',
+    placeholder: 'Escriu l\'entrada (x)…',
+  },
+]
+
+/** Activitat 2 (Columna esquerra) */
+export const P57_COL_LEFT = [
+  {
+    id: 'fl1',
+    badge: 'Troba la sortida y',
+    prompt: '5 ──(+8)──► y',
+    sub: 'Entra el 5 i el robot suma 8. Quant val y?',
+    answer: '13',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fl2',
+    badge: 'Troba la sortida y',
+    prompt: '7 ──(+28)──► y',
+    sub: 'Entra el 7 i el robot suma 28. Quant val y?',
+    answer: '35',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fl3',
+    badge: 'Fletxa cap a l\'esquerra ◄──',
+    prompt: 'y ◄──(+18)── 5',
+    sub: 'Entra el 5 per la dreta i suma 18 cap a l\'esquerra. Quant val y?',
+    answer: '23',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fl4',
+    badge: 'Troba l\'entrada x',
+    prompt: '13 ◄──(+7)── x',
+    sub: 'A x li sumem 7 i surt 13 (13 − 7). Quant val x?',
+    answer: '6',
+    placeholder: 'x = …',
+  },
+  {
+    id: 'fl5',
+    badge: 'Troba la sortida y',
+    prompt: '4 ──(+0)──► y',
+    sub: 'Entra el 4 i sumem 0. Quant val y?',
+    answer: '4',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fl6',
+    badge: 'Descobreix la norma (?)',
+    prompt: '25 ──(?)──► 25',
+    sub: 'Entra 25 i surt el mateix 25. Quina és la norma?',
+    answer: '+0',
+    accept: ['+0', '0', '-0'],
+    placeholder: 'Ex: +0',
+  },
+  {
+    id: 'fl7',
+    badge: 'Descobreix la norma (?)',
+    prompt: '5 ──(?)──► 30',
+    sub: 'Entra un 5 i surt un 30. Quant ha sumat el robot?',
+    answer: '+25',
+    accept: ['+25', '25'],
+    placeholder: 'Ex: +25',
+  },
+  {
+    id: 'fl8',
+    badge: 'Troba l\'entrada x',
+    prompt: '7 ◄──(−18)── x',
+    sub: 'A x li restem 18 i surt 7 (fes el contrari: 7 + 18). Quant val x?',
+    answer: '25',
     placeholder: 'x = …',
   },
 ]
 
-/** Pàgina 57 - Activitat 2 (Columna esquerra) */
-export const P57_COL_LEFT = [
-  { id: 'fl1', prompt: '5 ──(+8)──► y   ⇒   y =', answer: '13' },
-  { id: 'fl2', prompt: '7 ──(+28)──► y   ⇒   y =', answer: '35' },
-  { id: 'fl3', prompt: 'y ◄──(+18)── 5   ⇒   y =', answer: '23' },
-  { id: 'fl4', prompt: '13 ◄──(+7)── x   ⇒   x =', answer: '6' },
-  { id: 'fl5', prompt: '4 ──(+0)──► y   ⇒   y =', answer: '4' },
-  { id: 'fl6', prompt: '25 ──(?)──► 25   ⇒   norma =', answer: '+0', accept: ['+0', '0', '-0'], placeholder: '+0' },
-  { id: 'fl7', prompt: '5 ──(?)──► 30   ⇒   norma =', answer: '+25', accept: ['+25', '25'], placeholder: '+…' },
-  { id: 'fl8', prompt: '7 ◄──(−18)── x   ⇒   x =', answer: '25' },
-]
-
-/** Pàgina 57 - Activitat 2 (Columna dreta) */
+/** Activitat 2 (Columna dreta) */
 export const P57_COL_RIGHT = [
-  { id: 'fr1', prompt: '7 ──(?)──► 24   ⇒   norma =', answer: '+17', accept: ['+17', '17'], placeholder: '+…' },
-  { id: 'fr2', prompt: 'x ──(+12)──► 12   ⇒   x =', answer: '0' },
-  { id: 'fr3', prompt: '15 ◄──(+5)── x   ⇒   x =', answer: '10' },
-  { id: 'fr4', prompt: '7 ──(+38)──► y   ⇒   y =', answer: '45' },
-  { id: 'fr5', prompt: '6 ──(+9)──► y   ⇒   y =', answer: '15' },
-  { id: 'fr6', prompt: '7 ──(?)──► 13   ⇒   norma =', answer: '+6', accept: ['+6', '6'], placeholder: '+…' },
-  { id: 'fr7', prompt: '7 ──(+8)──► y   ⇒   y =', answer: '15' },
-  { id: 'fr8', prompt: 'x ──(+8)──► 39   ⇒   x =', answer: '31' },
+  {
+    id: 'fr1',
+    badge: 'Descobreix la norma (?)',
+    prompt: '7 ──(?)──► 24',
+    sub: 'Entra un 7 i surt un 24. Quant ha sumat el robot?',
+    answer: '+17',
+    accept: ['+17', '17'],
+    placeholder: 'Ex: +17',
+  },
+  {
+    id: 'fr2',
+    badge: 'Troba l\'entrada x',
+    prompt: 'x ──(+12)──► 12',
+    sub: 'Quin nombre + 12 dóna 12? (12 − 12)',
+    answer: '0',
+    placeholder: 'x = …',
+  },
+  {
+    id: 'fr3',
+    badge: 'Troba l\'entrada x',
+    prompt: '15 ◄──(+5)── x',
+    sub: 'A x li sumem 5 i surt 15 (15 − 5). Quant val x?',
+    answer: '10',
+    placeholder: 'x = …',
+  },
+  {
+    id: 'fr4',
+    badge: 'Troba la sortida y',
+    prompt: '7 ──(+38)──► y',
+    sub: 'Entra el 7 i el robot suma 38. Quant val y?',
+    answer: '45',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fr5',
+    badge: 'Troba la sortida y',
+    prompt: '6 ──(+9)──► y',
+    sub: 'Entra el 6 i el robot suma 9. Quant val y?',
+    answer: '15',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fr6',
+    badge: 'Descobreix la norma (?)',
+    prompt: '7 ──(?)──► 13',
+    sub: 'Entra un 7 i surt un 13. Quant ha sumat el robot?',
+    answer: '+6',
+    accept: ['+6', '6'],
+    placeholder: 'Ex: +6',
+  },
+  {
+    id: 'fr7',
+    badge: 'Troba la sortida y',
+    prompt: '7 ──(+8)──► y',
+    sub: 'Entra el 7 i el robot suma 8. Quant val y?',
+    answer: '15',
+    placeholder: 'y = …',
+  },
+  {
+    id: 'fr8',
+    badge: 'Troba l\'entrada x',
+    prompt: 'x ──(+8)──► 39',
+    sub: 'A x li sumem 8 i surt 39 (fes el contrari: 39 − 8). Quant val x?',
+    answer: '31',
+    placeholder: 'x = …',
+  },
 ]
 
-/** Pàgina 57 - Peu de pàgina: Estratègia per deduir la norma i l'entrada */
+/** Estratègia per deduir la norma i l'entrada */
 export const P57_STRATEGY_MC = [
   {
     id: 'st1',
-    prompt: 'PER ACABAR (Pàg. 57): Quina estratègia serveix per deduir la norma (?) quan coneixes l\'entrada (x) i la sortida (y), com a 5 ──(?)──► 30?',
+    prompt: 'PER ACABAR: Quina estratègia serveix per deduir la norma (?) quan coneixes l\'entrada (x) i la sortida (y), com a 5 ──(?)──► 30?',
     options: [
       'Mirar si el nombre creix o disminueix i calcular la diferència entre sortida i entrada (30 − 5 = +25)',
       'Sumar sempre l\'entrada i la sortida (5 + 30 = +35)',
@@ -64,7 +184,7 @@ export const P57_STRATEGY_MC = [
   },
 ]
 
-/** Pàgina 58 - Joc de cubs (Anàlisi de la partida Helena vs Leo) */
+/** Joc de cubs (Anàlisi de la partida Helena vs Leo) */
 export const P58_GAME_ANALYSIS_MC = [
   {
     id: 'ga1',
@@ -99,37 +219,163 @@ export const P58_GAME_ANALYSIS_MC = [
   },
 ]
 
-/** Pàgina 59 - Activitat 1: Taula 1 (Funció +8) */
+/** Activitat 1: Taula 1 (Funció +8) */
 export const P59_TABLE_PLUS8 = [
-  { id: 't1_1', prompt: 'Funció +8  ·  x = 4  →  y =', answer: '12' },
-  { id: 't1_2', prompt: 'Funció +8  ·  x = 12  →  y =', answer: '20' },
-  { id: 't1_3', prompt: 'Funció +8  ·  x = 10  →  y =', answer: '18' },
-  { id: 't1_4', prompt: 'Funció +8  ·  x = 976  →  y =', answer: '984' },
-  { id: 't1_5', prompt: 'Funció +8  ·  x = 54  →  y =', answer: '62' },
-  { id: 't1_6', prompt: 'Funció +8  ·  x = 0  →  y =', answer: '8' },
+  {
+    id: 't1_1',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 4   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 4 + 8',
+    answer: '12',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't1_2',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 12   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 12 + 8',
+    answer: '20',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't1_3',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 10   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 10 + 8',
+    answer: '18',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't1_4',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 976   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 976 + 8',
+    answer: '984',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't1_5',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 54   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 54 + 8',
+    answer: '62',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't1_6',
+    badge: 'Suma +8',
+    prompt: 'Si entra x = 0   ──(+8)──►   Surt y =',
+    sub: 'Calcula: 0 + 8',
+    answer: '8',
+    placeholder: 'y = …',
+  },
 ]
 
-/** Pàgina 59 - Activitat 1: Taula 2 (Funció −5) */
+/** Activitat 1: Taula 2 (Funció −5) */
 export const P59_TABLE_MINUS5 = [
-  { id: 't2_1', prompt: 'Funció −5  ·  x = 203  →  y =', answer: '198' },
-  { id: 't2_2', prompt: 'Funció −5  ·  x = 137  →  y =', answer: '132' },
-  { id: 't2_3', prompt: 'Funció −5  ·  x = 81  →  y =', answer: '76' },
-  { id: 't2_4', prompt: 'Funció −5  ·  x = 76  →  y =', answer: '71' },
-  { id: 't2_5', prompt: 'Funció −5  ·  x = 12  →  y =', answer: '7' },
-  { id: 't2_6', prompt: 'Funció −5  ·  x = 954  →  y =', answer: '949' },
+  {
+    id: 't2_1',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 203   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 203 − 5',
+    answer: '198',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't2_2',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 137   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 137 − 5',
+    answer: '132',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't2_3',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 81   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 81 − 5',
+    answer: '76',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't2_4',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 76   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 76 − 5',
+    answer: '71',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't2_5',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 12   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 12 − 5',
+    answer: '7',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't2_6',
+    badge: 'Resta −5',
+    prompt: 'Si entra x = 954   ──(−5)──►   Surt y =',
+    sub: 'Resta 5 al nombre d\'entrada: 954 − 5',
+    answer: '949',
+    placeholder: 'y = …',
+  },
 ]
 
-/** Pàgina 59 - Activitat 1: Taula 3 (Funció ×2) */
+/** Activitat 1: Taula 3 (Funció ×2) */
 export const P59_TABLE_MUL2 = [
-  { id: 't3_1', prompt: 'Funció ×2  ·  x = 3  →  y =', answer: '6' },
-  { id: 't3_2', prompt: 'Funció ×2  ·  x = 16  →  y =', answer: '32' },
-  { id: 't3_3', prompt: 'Funció ×2  ·  x = 21  →  y =', answer: '42' },
-  { id: 't3_4', prompt: 'Funció ×2  ·  x = 344  →  y =', answer: '688' },
-  { id: 't3_5', prompt: 'Funció ×2  ·  x = 108  →  y =', answer: '216' },
-  { id: 't3_6', prompt: 'Funció ×2  ·  x = 65  →  y =', answer: '130' },
+  {
+    id: 't3_1',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 3   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 3 × 2',
+    answer: '6',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't3_2',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 16   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 16 × 2',
+    answer: '32',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't3_3',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 21   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 21 × 2',
+    answer: '42',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't3_4',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 344   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 344 × 2',
+    answer: '688',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't3_5',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 108   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 108 × 2',
+    answer: '216',
+    placeholder: 'y = …',
+  },
+  {
+    id: 't3_6',
+    badge: 'Multiplica ×2',
+    prompt: 'Si entra x = 65   ──(×2)──►   Surt y =',
+    sub: 'Calcula el doble: 65 × 2',
+    answer: '130',
+    placeholder: 'y = …',
+  },
 ]
 
-/** Pàgina 59 - Activitat 2: Prediccions amb la calculadora (comences pel 5 i prems + 2 =) */
+/** Activitat 2: Prediccions amb la calculadora (comences pel 5 i prems + 2 =) */
 export const P59_PREDICTIONS_MC = [
   {
     id: 'pr1',
@@ -159,7 +405,7 @@ export const P59_PREDICTIONS_MC = [
       'Sí, prement = deu vegades',
       'Sí, després del 18',
     ],
-    correct: 'No, mai (passaràs del 19 al 21)'.replace('passaràs', 'passarà'),
+    correct: 'No, mai (passarà del 19 al 21)',
   },
   {
     id: 'pr4',
@@ -173,74 +419,82 @@ export const P59_PREDICTIONS_MC = [
   },
 ]
 
-/** Pàgina 61 - Activitat 2: Taula de busseig d'en Joan */
+/** Activitat 2: Taula de busseig d'en Joan */
 export const P61_JOAN_TABLE = [
   {
     id: 'j1',
-    prompt: 'Ubicació inicial: −20 m  ·  Desplaçament: Baixa 5 m  [(−20) − 5]  →  Nova ubicació (m) =',
+    badge: 'Baixa 5 m (−5)',
+    prompt: 'Ubicació inicial: −20 metres  →  Baixa 5 metres',
+    sub: 'S\'enfonsa 5 m més avall: (−20) − 5 = ?',
     answer: '-25',
     accept: ['-25', '-25 m', '-25m', '-25 metres'],
-    placeholder: '-25',
+    placeholder: 'Ex: -25',
   },
   {
     id: 'j2',
-    prompt: 'Ubicació inicial: −10 m  ·  Desplaçament: Puja 5 m  [(−10) + 5]  →  Nova ubicació (m) =',
+    badge: 'Puja 5 m (+5)',
+    prompt: 'Ubicació inicial: −10 metres  →  Puja 5 metres',
+    sub: 'S\'acosta 5 m cap a la superfície: (−10) + 5 = ?',
     answer: '-5',
     accept: ['-5', '-5 m', '-5m', '-5 metres'],
-    placeholder: '-5',
+    placeholder: 'Ex: -5',
   },
   {
     id: 'j3',
-    prompt: 'Ubicació inicial: −15 m  ·  Desplaçament: Baixa 10 m  [(−15) − 10]  →  Nova ubicació (m) =',
+    badge: 'Baixa 10 m (−10)',
+    prompt: 'Ubicació inicial: −15 metres  →  Baixa 10 metres',
+    sub: 'S\'enfonsa 10 m més avall: (−15) − 10 = ?',
     answer: '-25',
     accept: ['-25', '-25 m', '-25m', '-25 metres'],
-    placeholder: '-25',
+    placeholder: 'Ex: -25',
   },
   {
     id: 'j4',
-    prompt: 'Ubicació inicial: −25 m  ·  Desplaçament: Puja 20 m  [(−25) + 20]  →  Nova ubicació (m) =',
+    badge: 'Puja 20 m (+20)',
+    prompt: 'Ubicació inicial: −25 metres  →  Puja 20 metres',
+    sub: 'S\'acosta 20 m cap a la superfície: (−25) + 20 = ?',
     answer: '-5',
     accept: ['-5', '-5 m', '-5m', '-5 metres'],
-    placeholder: '-5',
+    placeholder: 'Ex: -5',
   },
 ]
 
-/** Pàgina 61 - Activitat 3: Suma o resta sense fer servir la calculadora */
+/** Activitat 3: Suma o resta sense fer servir la calculadora */
 export const P61_CALC_NO_CALC = [
-  { id: 'nc1', prompt: '(−7) + 4 =', answer: '-3' },
-  { id: 'nc2', prompt: '4 − 6 =', answer: '-2' },
-  { id: 'nc3', prompt: '(−7) − 8 =', answer: '-15' },
-  { id: 'nc4', prompt: '30 − 35 =', answer: '-5' },
-  { id: 'nc5', prompt: '10 − 12 =', answer: '-2' },
-  { id: 'nc6', prompt: '(−6) + 5 =', answer: '-1' },
-  { id: 'nc7', prompt: '60 − 50 =', answer: '10', accept: ['10', '+10'] },
-  { id: 'nc8', prompt: '6 − 9 =', answer: '-3' },
-  { id: 'nc9', prompt: '(−25) + 25 =', answer: '0', accept: ['0', '+0', '-0'] },
+  { id: 'nc1', badge: 'Puja +4', prompt: '(−7) + 4 =', sub: 'Ets a −7 i puges 4 cap al 0', answer: '-3' },
+  { id: 'nc2', badge: 'Baixa −6', prompt: '4 − 6 =', sub: 'Ets a +4 i baixes 6 (passes sota 0)', answer: '-2' },
+  { id: 'nc3', badge: 'Baixa −8', prompt: '(−7) − 8 =', sub: 'Ets a −7 i baixes 8 més avall', answer: '-15' },
+  { id: 'nc4', badge: 'Baixa −35', prompt: '30 − 35 =', sub: 'A 30 li restes 35 (5 sota zero)', answer: '-5' },
+  { id: 'nc5', badge: 'Baixa −12', prompt: '10 − 12 =', sub: 'A 10 li restes 12 (2 sota zero)', answer: '-2' },
+  { id: 'nc6', badge: 'Puja +5', prompt: '(−6) + 5 =', sub: 'Ets a −6 i puges 5 cap al 0', answer: '-1' },
+  { id: 'nc7', badge: 'Resta normal', prompt: '60 − 50 =', sub: '60 menys 50 (positiu)', answer: '10', accept: ['10', '+10'] },
+  { id: 'nc8', badge: 'Baixa −9', prompt: '6 − 9 =', sub: 'Ets a +6 i baixes 9 (3 sota zero)', answer: '-3' },
+  { id: 'nc9', badge: 'Nombres oposats', prompt: '(−25) + 25 =', sub: 'Ets a −25 i puges 25 exactes', answer: '0', accept: ['0', '+0', '-0'] },
 ]
 
-/** Pàgina 61 - Activitat 4: Escriu = o ≠ */
+/** Activitat 4: Escriu = o ≠ */
 export const P61_COMPARE_MC = [
   {
     id: 'cmp1',
-    prompt: '9 − 12   ____   (−12) + 9     (Pista: 9 − 12 = −3  i  (−12) + 9 = −3)',
+    prompt: 'Compara:   9 − 12     i     (−12) + 9     (Pista: calcula quant dóna cada costat)',
     options: ['= (Són iguals: tots dos donen −3)', '≠ (Són diferents)'],
     correct: '= (Són iguals: tots dos donen −3)',
   },
   {
     id: 'cmp2',
-    prompt: '0 − 15   ____   15 − 0     (Pista: 0 − 15 = −15  però  15 − 0 = +15)',
+    prompt: 'Compara:   0 − 15     i     15 − 0     (Pista: 0 − 15 dóna −15, però 15 − 0 dóna +15)',
     options: ['= (Són iguals)', '≠ (Són diferents: −15 i +15)'],
     correct: '≠ (Són diferents: −15 i +15)',
   },
   {
     id: 'cmp3',
-    prompt: '(−2) + 5   ____   (−5) − 2     (Pista: (−2) + 5 = +3  però  (−5) − 2 = −7)',
+    prompt: 'Compara:   (−2) + 5     i     (−5) − 2     (Pista: (−2) + 5 dóna +3, però (−5) − 2 dóna −7)',
     options: ['= (Són iguals)', '≠ (Són diferents: +3 i −7)'],
     correct: '≠ (Són diferents: +3 i −7)',
   },
   {
     id: 'cmp4',
-    prompt: '(−7) − 1   ____   (−1) − 7     (Pista: (−7) − 1 = −8  i  (−1) − 7 = −8)',
+    prompt: 'Compara:   (−7) − 1     i     (−1) − 7     (Pista: tots dos baixen fins a −8)',
     options: ['= (Són iguals: tots dos donen −8)', '≠ (Són diferents)'],
     correct: '= (Són iguals: tots dos donen −8)',
   },
@@ -279,7 +533,7 @@ export const FUNCIONS_ENTERS_QUIZ = [
     hint: 'Si entra 25 i surt 25, no hem afegit res: norma +0.',
   },
   {
-    question: 'Al Joc de Cubs (Pàg. 58), quin és l\'objectiu amb la suma dels 4 valors de y?',
+    question: 'Al Joc de Cubs, quin és l\'objectiu amb la suma dels 4 valors de y?',
     options: [
       'Aconseguir el nombre més gran possible sense límit',
       'Apropar-se el màxim a 100 sense passar-se',
@@ -359,4 +613,3 @@ export const FUNCIONS_ENTERS_QUIZ = [
     hint: '(−2) + 5 = 3, mentre que (−5) − 2 = −7.',
   },
 ]
-

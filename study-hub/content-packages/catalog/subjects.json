@@ -124,6 +124,16 @@
           "language": "ca",
           "vueModule": "mates/funcions_enters",
           "migrated": true
+        },
+        {
+          "id": "perimetres_arees",
+          "title": "Perímetres i Àrees: Quadrats i Rectangles",
+          "shortTitle": "Perímetres & Àrees",
+          "desc": "Perímetre (contorn) i àrea (superfície) de quadrats i rectangles, reptes inversos i problemes reals.",
+          "badge": "Vue · Nou",
+          "language": "ca",
+          "vueModule": "mates/perimetres_arees",
+          "migrated": true
         }
       ]
     },

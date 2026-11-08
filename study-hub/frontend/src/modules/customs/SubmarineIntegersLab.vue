@@ -7,7 +7,7 @@
         :class="{ on: mode === 'joan' }"
         @click="setMode('joan')"
       >
-        🤿 El busseig d'en Joan (Pàg. 61)
+        🤿 El busseig d'en Joan
       </button>
       <button
         type="button"

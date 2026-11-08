@@ -55,7 +55,7 @@
         </div>
       </template>
 
-      <!-- direcció esquerra: y <- x (com a la pàg. 57) -->
+      <!-- direcció esquerra: y <- x -->
       <template v-else>
         <div class="fe-box" :class="{ unknown: mode === 'findY' }">
           <span class="fe-box-label">SURT (y)</span>

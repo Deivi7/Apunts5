@@ -12,7 +12,13 @@
       >
         <span class="ex-prompt fill-blank-prompt">
           <span class="fill-blank-num">{{ idx + 1 }}.</span>
+          <template v-if="blank.badge">
+            <span class="fill-blank-badge">{{ blank.badge }}</span>
+          </template>
           <span class="fill-blank-q">{{ blank.prompt }}</span>
+          <template v-if="blank.sub">
+            <span class="fill-blank-sub">{{ blank.sub }}</span>
+          </template>
           <span
             v-if="statusOf(blank.id || idx)"
             class="fill-status"
@@ -133,9 +139,29 @@ function rowClass(id) {
   flex-shrink: 0;
 }
 
+.fill-blank-badge {
+  display: inline-block;
+  padding: 0.14rem 0.48rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: color-mix(in srgb, var(--accent-primary, #4f46e5) 14%, var(--bg-card));
+  color: var(--accent-primary, #4f46e5);
+  border: 1px solid color-mix(in srgb, var(--accent-primary, #4f46e5) 35%, transparent);
+  flex-shrink: 0;
+}
+
 .fill-blank-q {
   flex: 1 1 auto;
   min-width: 0;
+  font-weight: 600;
+}
+
+.fill-blank-sub {
+  flex: 1 1 100%;
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  margin-top: -0.1rem;
 }
 
 .fill-blank-input {

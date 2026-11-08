@@ -43,7 +43,7 @@ export default createModule({
       {
         id: 'fe-p57-act1',
         type: 'fill_blank',
-        title: 'Pàgina 57 · Activitat 1: El robot amb norma +8',
+        title: 'Activitat 1: El robot amb norma +8',
         instructions: 'Aquest robot suma 8 en cada nombre que hi introdueixis. Respon a les preguntes:',
         maxScore: P57_ROBOT_INTRO.length,
         config: { xp: 10 },
@@ -52,7 +52,7 @@ export default createModule({
       {
         id: 'fe-p57-col-left',
         type: 'fill_blank',
-        title: 'Pàgina 57 · Activitat 2: Completa les funcions (Columna esquerra)',
+        title: 'Activitat 2: Completa les funcions (Columna esquerra)',
         instructions: 'Fixa\'t bé cap a on apunta la fletxa (──► o ◄──). Si busques la norma, escriu p. ex. +25 o +0.',
         maxScore: P57_COL_LEFT.length,
         config: { xp: 20 },
@@ -61,7 +61,7 @@ export default createModule({
       {
         id: 'fe-p57-col-right',
         type: 'fill_blank',
-        title: 'Pàgina 57 · Activitat 2: Completa les funcions (Columna dreta)',
+        title: 'Activitat 2: Completa les funcions (Columna dreta)',
         instructions: 'Recorda fer l\'operació contrària quan et demanen el nombre d\'entrada x!',
         maxScore: P57_COL_RIGHT.length,
         config: { xp: 20 },
@@ -70,7 +70,7 @@ export default createModule({
       {
         id: 'fe-p57-strategy',
         type: 'multiple_choice',
-        title: 'Pàgina 57 · Per acabar: Estratègia per deduir la norma',
+        title: 'Per acabar: Estratègia per deduir la norma',
         maxScore: P57_STRATEGY_MC.length,
         config: { xp: 10 },
         content: { questions: P57_STRATEGY_MC },
@@ -80,7 +80,7 @@ export default createModule({
       {
         id: 'fe-cubes-lab',
         type: 'custom',
-        title: 'Pàgina 58 · Simulador del Joc de Cubs EMAT + Inventa 5 parells (A casa)',
+        title: 'Simulador del Joc de Cubs + Inventa 5 parells (A casa)',
         instructions: 'Juga una partida per apropar-te a 100 sense passar-te o inventa la teva pròpia taula de 5 parells ordenats (x, y).',
         maxScore: 15,
         config: { xp: 20, component: 'CubesFunctionGameLab', hideCheck: true },
@@ -89,7 +89,7 @@ export default createModule({
       {
         id: 'fe-p58-analysis',
         type: 'multiple_choice',
-        title: 'Pàgina 58 · Anàlisi de la partida: Taula de l\'Helena (+18) vs Taula d\'en Leo (+20)',
+        title: 'Anàlisi de la partida: Taula de l\'Helena (+18) vs Taula d\'en Leo (+20)',
         maxScore: P58_GAME_ANALYSIS_MC.length,
         config: { xp: 12 },
         content: { questions: P58_GAME_ANALYSIS_MC },
@@ -99,7 +99,7 @@ export default createModule({
       {
         id: 'fe-calc-lab',
         type: 'custom',
-        title: 'Pàgina 59 · Calculadora de funcions constants',
+        title: 'Calculadora de funcions constants',
         instructions: 'Prova les funcions +8, −5, ×2 o fes saltar el 5 de 2 en 2 prement el botó =.',
         maxScore: 10,
         config: { xp: 12, component: 'ConstantCalculatorLab', hideCheck: true },
@@ -108,8 +108,8 @@ export default createModule({
       {
         id: 'fe-p59-t1',
         type: 'fill_blank',
-        title: 'Pàgina 59 · Activitat 1 (Taula 1): Funció +8',
-        instructions: 'Converteix la calculadora en una funció +8 i completa la taula:',
+        title: 'Activitat 1 (Taula 1): Funció que sempre suma +8',
+        instructions: 'En aquesta taula la calculadora té guardada la norma +8. A cada fila tens el nombre que hi poses (x): suma-li 8 i escriu quin nombre en surt (y):',
         maxScore: P59_TABLE_PLUS8.length,
         config: { xp: 15 },
         content: fillContent(P59_TABLE_PLUS8, 2),
@@ -117,8 +117,8 @@ export default createModule({
       {
         id: 'fe-p59-t2',
         type: 'fill_blank',
-        title: 'Pàgina 59 · Activitat 1 (Taula 2): Funció −5',
-        instructions: 'Converteix la calculadora en una funció −5 i completa la taula:',
+        title: 'Activitat 1 (Taula 2): Funció que sempre resta −5',
+        instructions: 'Ara la calculadora té guardada la norma −5. A cada fila tens el nombre d\'entrada (x): resta-li 5 i escriu quin nombre en surt (y):',
         maxScore: P59_TABLE_MINUS5.length,
         config: { xp: 15 },
         content: fillContent(P59_TABLE_MINUS5, 2),
@@ -126,8 +126,8 @@ export default createModule({
       {
         id: 'fe-p59-t3',
         type: 'fill_blank',
-        title: 'Pàgina 59 · Activitat 1 (Taula 3): Funció ×2',
-        instructions: 'Converteix la calculadora en una funció ×2 i completa la taula:',
+        title: 'Activitat 1 (Taula 3): Funció que sempre multiplica ×2',
+        instructions: 'Ara la calculadora té guardada la norma ×2 (el doble). Multiplica per 2 cada nombre d\'entrada (x) i escriu quin nombre en surt (y):',
         maxScore: P59_TABLE_MUL2.length,
         config: { xp: 15 },
         content: fillContent(P59_TABLE_MUL2, 2),
@@ -135,7 +135,7 @@ export default createModule({
       {
         id: 'fe-p59-act2',
         type: 'multiple_choice',
-        title: 'Pàgina 59 · Activitat 2: Prediccions començant pel 5 i prement + 2 =',
+        title: 'Activitat 2: Prediccions començant pel 5 i prement + 2 =',
         maxScore: P59_PREDICTIONS_MC.length,
         config: { xp: 15 },
         content: { questions: P59_PREDICTIONS_MC },
@@ -145,7 +145,7 @@ export default createModule({
       {
         id: 'fe-sub-lab',
         type: 'custom',
-        title: 'Pàgina 61 · Simulador sota el mar: El busseig d\'en Joan',
+        title: 'Simulador sota el mar: El busseig d\'en Joan',
         instructions: 'Observa l\'escala sota el nivell del mar (0 m) i calcula la nova ubicació o el resultat d\'enters.',
         maxScore: 12,
         config: { xp: 15, component: 'SubmarineIntegersLab', hideCheck: true },
@@ -154,7 +154,7 @@ export default createModule({
       {
         id: 'fe-p61-act2',
         type: 'fill_blank',
-        title: 'Pàgina 61 · Activitat 2: Completa la taula d\'ubicació d\'en Joan',
+        title: 'Activitat 2: Completa la taula d\'ubicació d\'en Joan',
         instructions: 'Escriu la nova ubicació amb el signe negatiu (p. ex. -25 o -5).',
         maxScore: P61_JOAN_TABLE.length,
         config: { xp: 15 },
@@ -163,7 +163,7 @@ export default createModule({
       {
         id: 'fe-p61-act3',
         type: 'fill_blank',
-        title: 'Pàgina 61 · Activitat 3: Suma o resta sense fer servir la calculadora',
+        title: 'Activitat 3: Suma o resta sense fer servir la calculadora',
         instructions: 'Pensa en el nivell del mar: restar és baixar més fons (−) i sumar és pujar cap a la superfície (+).',
         maxScore: P61_CALC_NO_CALC.length,
         config: { xp: 20 },
@@ -172,7 +172,7 @@ export default createModule({
       {
         id: 'fe-p61-act4',
         type: 'multiple_choice',
-        title: 'Pàgina 61 · Activitat 4: Escriu = (igual) o ≠ (diferent)',
+        title: 'Activitat 4: Escriu = (igual) o ≠ (diferent)',
         instructions: 'Calcula mentalment cada costat i decideix si donen el mateix resultat o no.',
         maxScore: P61_COMPARE_MC.length,
         config: { xp: 15 },
@@ -183,7 +183,7 @@ export default createModule({
       {
         id: 'fe-master-quiz',
         type: 'custom',
-        title: 'Quiz final de repàs (Pàg. 57–61)',
+        title: 'Quiz final de repàs',
         maxScore: 15,
         config: { xp: 25, component: 'MasterQuiz', hideCheck: true },
         content: { component: 'MasterQuiz', questions: FUNCIONS_ENTERS_QUIZ },

@@ -12,7 +12,7 @@
     <div class="worksheet-print-header">
       <div>
         <strong>Álvaro Study Hub · Funcions, Calculadora i Nombres Negatius</strong>
-        <div class="match-hint" style="margin:0">EMAT Pàg. 57–61 · Robots de funcions · Taules (x, y) · Nombres sota zero</div>
+        <div class="match-hint" style="margin:0">Robots de funcions · Taules (x, y) · Nombres sota zero</div>
       </div>
       <div class="match-hint">Nom: _____________ Data: ________ Nota: ___ / {{ items.length }}</div>
     </div>
@@ -88,16 +88,16 @@ function regen() {
   const c1 = randInt(40, 400)
   out.push({
     id: 'w5',
-    kind: 'Calculadora (Funció −5)',
-    prompt: `Funció −5  ·  Si x = ${c1}  →  y =`,
+    kind: 'Calculadora (Resta 5)',
+    prompt: `Si entra x = ${c1}  ──(−5)──►  Surt y =`,
     answer: String(c1 - 5),
   })
 
   const c2 = randInt(15, 250)
   out.push({
     id: 'w6',
-    kind: 'Calculadora (Funció ×2)',
-    prompt: `Funció ×2  ·  Si x = ${c2}  →  y =`,
+    kind: 'Calculadora (Multiplica per 2)',
+    prompt: `Si entra x = ${c2}  ──(×2)──►  Surt y =`,
     answer: String(c2 * 2),
   })
 

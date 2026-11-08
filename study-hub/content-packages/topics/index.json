@@ -84,6 +84,15 @@
       "hasTheory": true
     },
     {
+      "key": "mates/perimetres_arees",
+      "subjectId": "mates",
+      "topicId": "perimetres_arees",
+      "sections": 6,
+      "resources": 1,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
       "key": "projecte/coordenadas",
       "subjectId": "projecte",
       "topicId": "coordenadas",

@@ -19,10 +19,10 @@
       </button>
     </div>
 
-    <!-- MODO 1: JOC DE CUBS PÀG. 58 -->
+    <!-- MODO 1: JOC DE CUBS -->
     <template v-if="tab === 'game'">
       <p class="match-hint" style="margin:0">
-        <strong>Objectiu (Pàg. 58):</strong> Tira els 4 cubs EMAT (dos de 0–5 i dos de 5–10) per obtenir els valors de <strong>x</strong>. Tria una norma de suma (p. ex. <code>+18</code>) i calcula les <strong>y</strong> perquè la suma s'acosti al màxim a <strong>100 sense passar-se</strong>!
+        <strong>Objectiu:</strong> Tira els 4 cubs EMAT (dos de 0–5 i dos de 5–10) per obtenir els valors de <strong>x</strong>. Tria una norma de suma (p. ex. <code>+18</code>) i calcula les <strong>y</strong> perquè la suma s'acosti al màxim a <strong>100 sense passar-se</strong>!
       </p>
 
       <div class="fe-row">
@@ -30,7 +30,7 @@
           🎲 Tirar els 4 cubs EMAT
         </button>
         <button type="button" class="ex-btn" @click="loadBookExample">
-          📖 Carregar exemple del llibre (5, 4, 6, 8)
+          📖 Carregar partida d'exemple (5, 4, 6, 8)
         </button>
       </div>
 
@@ -119,10 +119,10 @@
       </p>
     </template>
 
-    <!-- MODO 2: A CASA (PÀG. 57) TAULA DE 5 PARELLS ORDENATS -->
+    <!-- MODO 2: A CASA TAULA DE 5 PARELLS ORDENATS -->
     <template v-else>
       <p class="match-hint" style="margin:0">
-        <strong>A CASA (Pàg. 57):</strong> Inventa una funció i calcula amb ella una taula de <strong>cinc parells ordenats (x, y)</strong>.
+        <strong>A CASA:</strong> Inventa una funció i calcula amb ella una taula de <strong>cinc parells ordenats (x, y)</strong>.
       </p>
 
       <div class="fe-row">

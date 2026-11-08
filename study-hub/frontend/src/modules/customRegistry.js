@@ -65,6 +65,8 @@ const customs = {
   ConstantCalculatorLab: () => import('./customs/ConstantCalculatorLab.vue'),
   SubmarineIntegersLab: () => import('./customs/SubmarineIntegersLab.vue'),
   FuncionsEntersWorksheet: () => import('./customs/FuncionsEntersWorksheet.vue'),
+  AreaPerimeterGridLab: () => import('./customs/AreaPerimeterGridLab.vue'),
+  PerimetresAreesWorksheet: () => import('./customs/PerimetresAreesWorksheet.vue'),
 }
 
 export function resolveCustomComponent(name) {
