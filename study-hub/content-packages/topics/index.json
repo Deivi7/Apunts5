@@ -48,15 +48,6 @@
       "hasTheory": true
     },
     {
-      "key": "mates/romanos",
-      "subjectId": "mates",
-      "topicId": "romanos",
-      "sections": 7,
-      "resources": 0,
-      "documents": 0,
-      "hasTheory": true
-    },
-    {
       "key": "mates/posat_a_prova_1",
       "subjectId": "mates",
       "topicId": "posat_a_prova_1",
@@ -108,6 +99,15 @@
       "sections": 6,
       "resources": 0,
       "documents": 5,
+      "hasTheory": true
+    },
+    {
+      "key": "projecte/romanos",
+      "subjectId": "projecte",
+      "topicId": "romanos",
+      "sections": 7,
+      "resources": 0,
+      "documents": 0,
       "hasTheory": true
     },
     {

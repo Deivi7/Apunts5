@@ -9,13 +9,13 @@ const loaders = {
   'catala/posat_a_prova_1': () => import('./catala/posat_a_prova_1.js'),
   'catala/tema2': () => import('./catala/tema2.js'),
   'mates/operaciones': () => import('./mates/operaciones.js'),
-  'mates/romanos': () => import('./mates/romanos.js'),
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.js'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.js'),
   'mates/funcions_enters': () => import('./mates/funcions_enters.js'),
   'mates/perimetres_arees': () => import('./mates/perimetres_arees.js'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.js'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.js'),
+  'projecte/romanos': () => import('./projecte/romanos.js'),
   'tutoria/calendario': () => import('./tutoria/calendario.js'),
 }
 

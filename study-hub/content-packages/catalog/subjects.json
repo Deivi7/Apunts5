@@ -73,7 +73,7 @@
       "category": "ciencias",
       "driveUrl": "https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy",
       "localFolder": "mates/",
-      "description": "Cálculo mental, decimals i unitats, paréntesis, números romanos y problemas.",
+      "description": "Cálculo mental, decimals i unitats, funcions, perímetres i àrees, paréntesis y problemas.",
       "topics": [
         {
           "id": "operaciones",
@@ -83,16 +83,6 @@
           "badge": "Vue",
           "language": "es",
           "vueModule": "mates/operaciones",
-          "migrated": true
-        },
-        {
-          "id": "romanos",
-          "title": "Números Romanos — El Imperio de las Cifras",
-          "shortTitle": "Números Romanos",
-          "desc": "Conversor, detective de errores, siglos, reloj romano y sprint del Coliseo.",
-          "badge": "Vue · Nuevo",
-          "language": "es",
-          "vueModule": "mates/romanos",
           "migrated": true
         },
         {
@@ -165,6 +155,16 @@
           "badge": "Vue",
           "language": "ca",
           "vueModule": "projecte/pasdeltemps",
+          "migrated": true
+        },
+        {
+          "id": "romanos",
+          "title": "Números Romanos — El Imperio de las Cifras",
+          "shortTitle": "Números Romanos",
+          "desc": "Conversor, detective de errores, siglos, reloj romano y sprint del Coliseo.",
+          "badge": "Vue",
+          "language": "es",
+          "vueModule": "projecte/romanos",
           "migrated": true
         }
       ]

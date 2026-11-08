@@ -1,12 +1,12 @@
-﻿import { createModule } from '../createModule.js'
+import { createModule } from '../createModule.js'
 
 export default createModule({
   sections: [],
   theoryHtml: '',
   resources: [
     {
-      title: 'Drive Mates',
-      url: 'https://drive.google.com/open?id=1pKvH1edDYiNEwQ8Ynq6a2wuzNIqK60tv&usp=drive_copy',
+      title: 'Drive Projecte',
+      url: 'https://drive.google.com/open?id=1Dyk1gri0h3W3Sc1YCaa2NnIcw-bffugs&usp=drive_copy',
     },
   ],
   documents: [],

@@ -8,11 +8,11 @@ export const topicStyleLoaders = {
   'catala/tema2': () => import('./catala/tema2.css'),
   'curie/wordslist': () => import('./curie/wordslist.css'),
   'mates/operaciones': () => import('./mates/operaciones.css'),
-  'mates/romanos': () => import('./mates/romanos.css'),
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.css'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.css'),
   'mates/funcions_enters': () => import('./mates/funcions_enters.css'),
   'mates/perimetres_arees': () => import('./mates/perimetres_arees.css'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.css'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.css'),
+  'projecte/romanos': () => import('./projecte/romanos.css'),
 }

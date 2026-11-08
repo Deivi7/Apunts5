@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "subjectId": "mates",
+  "subjectId": "projecte",
   "topicId": "romanos",
   "title": "Números Romanos — El Imperio de las Cifras",
   "language": "es",
-  "contentBase": "/content/mates/romanos",
+  "contentBase": "/content/projecte/romanos",
   "sections": [
     {
       "id": "tab-teoria",
