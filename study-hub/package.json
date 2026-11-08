@@ -17,6 +17,12 @@
     "content:audit": "node scripts/audit-content-coverage.mjs",
     "prune:panels": "node scripts/prune-dead-panels.mjs"
   },
+  "devDependencies": {
+    "glob": "13.0.6"
+  },
+  "overrides": {
+    "glob": "13.0.6"
+  },
   "allowScripts": {
     "esbuild@0.25.12": true,
     "argon2@0.45.1": true

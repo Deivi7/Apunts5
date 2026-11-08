@@ -66,6 +66,24 @@
       "hasTheory": true
     },
     {
+      "key": "mates/decimals_unitats",
+      "subjectId": "mates",
+      "topicId": "decimals_unitats",
+      "sections": 10,
+      "resources": 1,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
+      "key": "mates/funcions_enters",
+      "subjectId": "mates",
+      "topicId": "funcions_enters",
+      "sections": 6,
+      "resources": 1,
+      "documents": 0,
+      "hasTheory": true
+    },
+    {
       "key": "projecte/coordenadas",
       "subjectId": "projecte",
       "topicId": "coordenadas",

@@ -1,4 +1,4 @@
-﻿import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
 
 const customs = {
   RomanConverter: () => import('./customs/RomanConverter.vue'),
@@ -60,6 +60,11 @@ const customs = {
   CartesianStreetGrid: () => import('./customs/CartesianStreetGrid.vue'),
   DigitProductOptimizer: () => import('./customs/DigitProductOptimizer.vue'),
   DecimalsUnitatsWorksheet: () => import('./customs/DecimalsUnitatsWorksheet.vue'),
+  FunctionRobotLab: () => import('./customs/FunctionRobotLab.vue'),
+  CubesFunctionGameLab: () => import('./customs/CubesFunctionGameLab.vue'),
+  ConstantCalculatorLab: () => import('./customs/ConstantCalculatorLab.vue'),
+  SubmarineIntegersLab: () => import('./customs/SubmarineIntegersLab.vue'),
+  FuncionsEntersWorksheet: () => import('./customs/FuncionsEntersWorksheet.vue'),
 }
 
 export function resolveCustomComponent(name) {

@@ -1,0 +1,574 @@
+/* Mates 5è — Robots de funcions, calculadora i nombres negatius (EMAT Pàg. 57–61) */
+
+:root {
+  --fe-primary: #4f46e5;
+  --fe-primary-light: #e0e7ff;
+  --fe-primary-border: #818cf8;
+  --du-primary: #4f46e5;
+  --du-primary-light: #e0e7ff;
+  --du-primary-border: #818cf8;
+  --du-amber: #d97706;
+  --du-amber-light: #fffbeb;
+  --du-rose: #e11d48;
+  --du-grid: #cbd5e1;
+}
+
+body.dark-mode {
+  --fe-primary-light: #1e1b4b;
+  --fe-primary-border: #4338ca;
+  --du-primary-light: #1e1b4b;
+  --du-primary-border: #4338ca;
+  --du-amber-light: #451a03;
+  --du-grid: #334155;
+}
+
+/* ---- Teoria (estil targetes + taules) ---- */
+.section-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+  max-width: 52rem;
+  line-height: 1.45;
+}
+
+.du-theory-block {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.15rem 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.du-theory-block.du-summary {
+  border-top: 5px solid var(--fe-primary);
+}
+
+.du-block-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-main);
+}
+
+.du-lead {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.85rem;
+  color: var(--text-main);
+}
+
+.du-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.du-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.15rem 1.2rem;
+  border-top: 5px solid var(--fe-primary);
+}
+
+.du-card h3 {
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.45rem;
+}
+
+.du-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.45rem;
+  color: var(--text-main);
+}
+
+.du-card ul {
+  font-size: 0.82rem;
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.du-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border-color);
+}
+
+.du-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 420px;
+}
+
+.du-table th,
+.du-table td {
+  padding: 0.55rem 0.65rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.du-table th {
+  background: var(--fe-primary-light);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.du-table td:first-child,
+.du-table.du-table-striped td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.du-table-striped tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--fe-primary-light) 45%, transparent);
+}
+
+.du-table-compact {
+  min-width: 0;
+  font-size: 0.82rem;
+}
+
+.du-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.du-ok,
+.du-bad {
+  border-radius: var(--radius-md, 8px);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.du-ok {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+}
+
+.du-bad {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+}
+
+.du-ok p,
+.du-bad p {
+  margin: 0.35rem 0 0;
+}
+
+body.dark-mode .du-ok {
+  background: #064e3b;
+  border-color: #059669;
+  color: #a7f3d0;
+}
+
+body.dark-mode .du-bad {
+  background: #4c0519;
+  border-color: #e11d48;
+  color: #fecdd3;
+}
+
+/* ---- Laboratoris de Funcions i Enters ---- */
+.fe-lab {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.fe-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.fe-pill {
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text-main);
+  transition: all 0.15s ease;
+}
+
+.fe-pill.on {
+  background: var(--fe-primary);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Robot Stage */
+.fe-robot-stage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.1rem;
+  border-radius: 0.75rem;
+  border: 2px dashed var(--fe-primary-border);
+  background: color-mix(in srgb, var(--fe-primary-light) 35%, var(--bg-card));
+}
+
+.fe-box {
+  min-width: 115px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.65rem;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  text-align: center;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.fe-box.unknown,
+.fe-robot-body.unknown {
+  border-color: var(--du-amber);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--du-amber) 25%, transparent);
+}
+
+.fe-box-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.fe-box-val {
+  font-size: 1.35rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  color: var(--text-main);
+}
+
+.fe-arrow {
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--fe-primary);
+}
+
+.fe-robot-body {
+  padding: 0.65rem 1rem;
+  border-radius: 0.85rem;
+  border: 2px solid var(--fe-primary);
+  background: var(--bg-card);
+  text-align: center;
+  min-width: 120px;
+}
+
+.fe-robot-eyes {
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.fe-robot-badge {
+  margin-top: 0.25rem;
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--fe-primary);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.fe-quick-signs {
+  display: flex;
+  gap: 0.3rem;
+}
+
+/* Cubs EMAT */
+.fe-cubes-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.fe-cube {
+  min-width: 78px;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.65rem;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  text-align: center;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.fe-cube.cube-low {
+  border-top: 4px solid #0d9488;
+}
+
+.fe-cube.cube-high {
+  border-top: 4px solid #4f46e5;
+}
+
+.fe-cube-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.fe-cube strong {
+  font-size: 1.3rem;
+}
+
+.fe-cube-sum {
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.6rem;
+  background: var(--fe-primary-light);
+  font-size: 0.88rem;
+}
+
+.fe-total-row td {
+  background: color-mix(in srgb, var(--fe-primary-light) 50%, var(--bg-card));
+}
+
+.fe-badge-rule {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: var(--fe-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+/* Calculadora constant */
+.fe-calc-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 280px) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .fe-calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fe-calc-device {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 0.9rem;
+  border-radius: 0.9rem;
+  border: 2px solid #334155;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fe-calc-screen {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: right;
+}
+
+.fe-calc-mem {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-bottom: 0.2rem;
+}
+
+.fe-calc-display {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.fe-calc-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+
+.fe-key {
+  padding: 0.55rem 0.3rem;
+  border-radius: 0.45rem;
+  border: 1px solid #475569;
+  background: #334155;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.fe-key:hover {
+  background: #475569;
+}
+
+.fe-key-op {
+  background: #4f46e5;
+  border-color: #6366f1;
+}
+
+.fe-key-clear {
+  background: #e11d48;
+  border-color: #f43f5e;
+}
+
+.fe-key-eq {
+  background: #059669;
+  border-color: #10b981;
+}
+
+.fe-seq-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fe-seq-chip {
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: var(--fe-primary-light);
+  border: 1px solid var(--fe-primary-border);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.fe-seq-chip.hl15 {
+  background: #059669;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Busseig sota el mar */
+.fe-sea-container {
+  display: grid;
+  grid-template-columns: minmax(190px, 230px) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .fe-sea-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fe-sea-column {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid #0284c7;
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 45%, #0369a1 100%);
+}
+
+body.dark-mode .fe-sea-column {
+  background: linear-gradient(180deg, #0c4a6e 0%, #075985 50%, #082f49 100%);
+}
+
+.fe-sea-surface {
+  background: #0284c7;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.65rem;
+  text-align: center;
+}
+
+.fe-sea-depths {
+  display: grid;
+  padding: 0.35rem 0.55rem;
+  gap: 0.22rem;
+}
+
+.fe-depth-mark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.22rem 0.45rem;
+  border-radius: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+body.dark-mode .fe-depth-mark {
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.fe-depth-mark.is-start {
+  background: #fef08a;
+  color: #713f12;
+  outline: 2px solid #eab308;
+}
+
+.fe-depth-mark.is-end {
+  background: #bbf7d0;
+  color: #14532d;
+  outline: 2px solid #22c55e;
+}
+
+.fe-diver-tag,
+.fe-target-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.du-num {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.du-ws-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.du-ws-card {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--bg-card);
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .du-ws-card { break-inside: avoid; }
+}
+

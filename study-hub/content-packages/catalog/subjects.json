@@ -114,6 +114,16 @@
           "language": "ca",
           "vueModule": "mates/decimals_unitats",
           "migrated": true
+        },
+        {
+          "id": "funcions_enters",
+          "title": "Robots de funcions, calculadora i nombres negatius",
+          "shortTitle": "Funcions & Negatius",
+          "desc": "Robots de funcions (x → y), Joc de Cubs cap a 100, calculadora constant i nombres negatius sota el mar.",
+          "badge": "Vue · Nou",
+          "language": "ca",
+          "vueModule": "mates/funcions_enters",
+          "migrated": true
         }
       ]
     },

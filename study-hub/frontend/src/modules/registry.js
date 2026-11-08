@@ -1,4 +1,4 @@
-﻿import { loadContentPackage, mergeModuleWithPackage } from '@/content/loadContentPackage.js'
+import { loadContentPackage, mergeModuleWithPackage } from '@/content/loadContentPackage.js'
 
 const loaders = {
   'curie/wordslist': () => import('./curie/wordslist.js'),
@@ -12,6 +12,7 @@ const loaders = {
   'mates/romanos': () => import('./mates/romanos.js'),
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.js'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.js'),
+  'mates/funcions_enters': () => import('./mates/funcions_enters.js'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.js'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.js'),
   'tutoria/calendario': () => import('./tutoria/calendario.js'),

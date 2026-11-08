@@ -11,6 +11,7 @@ export const topicStyleLoaders = {
   'mates/romanos': () => import('./mates/romanos.css'),
   'mates/posat_a_prova_1': () => import('./mates/posat_a_prova_1.css'),
   'mates/decimals_unitats': () => import('./mates/decimals_unitats.css'),
+  'mates/funcions_enters': () => import('./mates/funcions_enters.css'),
   'projecte/coordenadas': () => import('./projecte/coordenadas.css'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.css'),
 }
