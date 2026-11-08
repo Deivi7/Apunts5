@@ -40,8 +40,8 @@ export default createModule({
       {
         id: 'pa-perim-sq',
         type: 'fill_blank',
-        title: 'Perímetre de quadrats (4 costats iguals)',
-        instructions: 'Un quadrat té els 4 costats iguals. Suma els 4 costats (o multiplica el costat per 4) per trobar el perímetre:',
+        title: 'Perímetre de quadrats',
+        instructions: 'Calcula el perímetre total de cadascun d\'aquests quadrats:',
         maxScore: PERIM_SQUARES.length,
         config: { xp: 12 },
         content: fillContent(PERIM_SQUARES, 2),
@@ -49,8 +49,8 @@ export default createModule({
       {
         id: 'pa-perim-rect',
         type: 'fill_blank',
-        title: 'Perímetre de rectangles (2 bases + 2 altures)',
-        instructions: 'Un rectangle té 2 bases iguals i 2 altures iguals. Suma els 4 costats (base + base + altura + altura):',
+        title: 'Perímetre de rectangles',
+        instructions: 'Calcula el perímetre total de cadascun d\'aquests rectangles:',
         maxScore: PERIM_RECTANGLES.length,
         config: { xp: 18 },
         content: fillContent(PERIM_RECTANGLES, 2),
@@ -68,8 +68,8 @@ export default createModule({
       {
         id: 'pa-area-sq',
         type: 'fill_blank',
-        title: 'Àrea de quadrats (costat × costat)',
-        instructions: 'Per calcular quants quadradets caben dins d\'un quadrat, multiplica el costat per ell mateix (costat × costat):',
+        title: 'Àrea de quadrats',
+        instructions: 'Calcula la superfície interior (àrea) de cadascun d\'aquests quadrats:',
         maxScore: AREA_SQUARES.length,
         config: { xp: 12 },
         content: fillContent(AREA_SQUARES, 2),
@@ -77,8 +77,8 @@ export default createModule({
       {
         id: 'pa-area-rect',
         type: 'fill_blank',
-        title: 'Àrea de rectangles (base × altura)',
-        instructions: 'Per calcular l\'àrea d\'un rectangle, multiplica la base per l\'altura (base × altura):',
+        title: 'Àrea de rectangles',
+        instructions: 'Calcula la superfície interior (àrea) de cadascun d\'aquests rectangles:',
         maxScore: AREA_RECTANGLES.length,
         config: { xp: 18 },
         content: fillContent(AREA_RECTANGLES, 2),

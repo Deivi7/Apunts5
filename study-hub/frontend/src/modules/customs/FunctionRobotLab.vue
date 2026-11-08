@@ -152,12 +152,12 @@ function buildItem() {
 
   let hint = ''
   if (mode.value === 'findY') {
-    hint = `Aplica la norma directament a l'entrada: ${x} ${delta >= 0 ? '+ ' + delta : '− ' + Math.abs(delta)} = ${y}.`
+    hint = `Segueix la direcció de la fletxa i aplica la norma (${ruleStr}) al nombre d'entrada.`
   } else if (mode.value === 'findX') {
-    const inv = delta >= 0 ? `− ${delta}` : `+ ${Math.abs(delta)}`
-    hint = `Truc del cangur (operació contrària): com que surt ${y} amb norma ${ruleStr}, fem ${y} ${inv} = ${x}.`
+    const invVerb = delta >= 0 ? 'resta' : 'suma'
+    hint = `Truc de la marxa enrere: com que coneixes la sortida, fes l'operació contrària (${invVerb} ${Math.abs(delta)} a la sortida).`
   } else {
-    hint = `De ${x} fins a ${y}, quant hem sumat o restat? (${y} − ${x} = ${ruleStr}).`
+    hint = `Fixa't si la sortida és més gran o més petita que l'entrada i calcula quants punts de diferència hi ha.`
   }
 
   return { x, y, delta, ruleStr, dir, hint }

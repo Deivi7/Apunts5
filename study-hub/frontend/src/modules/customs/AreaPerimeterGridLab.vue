@@ -124,7 +124,7 @@
                 v-model="ansPerim"
                 type="number"
                 class="input-hub"
-                placeholder="Suma dels 4 costats"
+                placeholder="cm…"
                 :disabled="locked"
               >
             </label>
@@ -135,7 +135,7 @@
                 v-model="ansArea"
                 type="number"
                 class="input-hub"
-                placeholder="Base × Altura"
+                placeholder="cm²…"
                 :disabled="locked"
               >
             </label>
@@ -144,11 +144,18 @@
               <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">
                 Comprovar
               </button>
+              <button type="button" class="ex-btn" @click="showHint = !showHint">
+                💡 Pista
+              </button>
               <button type="button" class="ex-btn" :disabled="locked" @click="nextChallenge">
                 🎲 Una altra figura
               </button>
             </div>
           </form>
+
+          <p v-if="showHint" class="match-hint" style="margin:0.35rem 0 0">
+            El perímetre és la longitud del contorn exterior (tots els costats); l'àrea és la quantitat de quadradets interiors.
+          </p>
 
           <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'" style="margin-top:0.5rem">
             {{ feedback }}
@@ -176,6 +183,7 @@ const ansPerim = ref('')
 const ansArea = ref('')
 const feedback = ref('')
 const ok = ref(false)
+const showHint = ref(false)
 const correctCount = ref(0)
 const needed = 4
 
@@ -198,6 +206,7 @@ function nextChallenge() {
   ansArea.value = ''
   feedback.value = ''
   ok.value = false
+  showHint.value = false
 }
 
 function startChallenge() {

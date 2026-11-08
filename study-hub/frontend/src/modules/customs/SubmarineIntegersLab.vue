@@ -138,8 +138,8 @@ function buildItem() {
     const end = start + delta
     const expr = `(${start}) ${delta < 0 ? '− ' + Math.abs(delta) : '+ ' + delta}`
     const hint = delta < 0
-      ? `Baixar vol dir enfonsar-se més: a ${Math.abs(start)} m sota l'aigua hi sumes ${Math.abs(delta)} m més cap al fons → ${end} m.`
-      : `Pujar vol dir apropar-se al 0: estàs a ${start} m i puges ${delta} m cap a la superfície → ${end} m.`
+      ? `Baixar vol dir enfonsar-se més: t'allunyes encara més de la superfície (0 m), així que suma les profunditats amb signe negatiu.`
+      : `Pujar vol dir apropar-se a la superfície (0 m): redueix la profunditat tant com puja en Joan.`
     return { start, delta, end, expr, hint }
   }
 
@@ -152,7 +152,7 @@ function buildItem() {
   const end = start + delta
   const startStr = start < 0 ? `(${start})` : `${start}`
   const expr = `${startStr} ${delta < 0 ? '− ' + Math.abs(delta) : '+ ' + delta}`
-  const hint = `Si surts de ${start} i fas ${delta < 0 ? '−' + Math.abs(delta) + ' (baixes)' : '+' + delta + ' (puges)'}, arribes a ${end}.`
+  const hint = `Mira l'escala vertical: si és una resta (−) mou-te cap al fons; si és una suma (+) mou-te cap a dalt.`
   return { start: Math.min(0, Math.max(-40, Math.round(start / 5) * 5)), delta, end, expr, hint }
 }
 
