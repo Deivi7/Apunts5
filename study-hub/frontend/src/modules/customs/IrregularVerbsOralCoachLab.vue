@@ -143,19 +143,20 @@
 
         <div class="iv-fb-actions" style="margin-top: 0.65rem;">
           <button
-            v-if="!wasCorrect && speechSupported"
+            v-if="!wasCorrect"
             type="button"
             class="iv-retry-btn"
-            @click="toggleListening"
+            @click="repeatCurrentQuestion"
           >
-            🎙️ Repetir "{{ expectedDisplay }}" en voz alta ahora
+            🔁 Volver a intentar esta misma pregunta ({{ promptDisplay }})
           </button>
           <button
+            v-if="wasCorrect"
             type="button"
             class="iv-next-btn"
             @click="pickNewQuestion(true)"
           >
-            ▶️ Siguiente pregunta en voz alta →
+            ▶️ Siguiente pregunta diferente ahora →
           </button>
         </div>
       </div>
@@ -196,6 +197,15 @@ ALL_IRREGULAR_VERBS.forEach((v) => {
 })
 
 let recognition = null
+let autoFlowTimer = null
+const recentPresents = ref([])
+
+function clearAutoFlowTimer() {
+  if (autoFlowTimer) {
+    clearTimeout(autoFlowTimer)
+    autoFlowTimer = null
+  }
+}
 
 const pool = computed(() => {
   if (selectedFamilyId.value === 'all') return ALL_IRREGULAR_VERBS
@@ -255,6 +265,7 @@ function speakWithCallback(text, rate = 0.92, onEnd = null) {
 }
 
 function askQuestionOutLoud() {
+  clearAutoFlowTimer()
   stopListening()
   coachFeedback.value = ''
   studentTranscript.value = ''
@@ -265,13 +276,27 @@ function askQuestionOutLoud() {
   })
 }
 
+function repeatCurrentQuestion() {
+  clearAutoFlowTimer()
+  stopListening()
+  studentTranscript.value = ''
+  manualAnswer.value = ''
+  coachFeedback.value = ''
+  askQuestionOutLoud()
+}
+
 function speakCorrectionAgain() {
   if (!lastSpokenCorrection.value) return
   speakWithCallback(lastSpokenCorrection.value, 0.9)
 }
 
-function pickWeightedVerb(list, exclude = '') {
-  const candidates = list.length > 1 ? list.filter((v) => v.present !== exclude) : list
+function pickWeightedVerb(list, excludePresents = []) {
+  let candidates = list.filter((v) => !excludePresents.includes(v.present))
+  if (!candidates.length && excludePresents.length > 0) {
+    candidates = list.filter((v) => v.present !== excludePresents[0])
+  }
+  if (!candidates.length) candidates = list
+
   const bag = []
   candidates.forEach((v) => {
     const w = weights[v.present] || 2
@@ -281,13 +306,17 @@ function pickWeightedVerb(list, exclude = '') {
 }
 
 function pickNewQuestion(speakNow = false) {
+  clearAutoFlowTimer()
   stopListening()
   if (direction.value === 'p2past') askPast.value = true
   else if (direction.value === 'past2p') askPast.value = false
   else askPast.value = Math.random() < 0.5
 
   const prev = currentVerb.value?.present || ''
-  currentVerb.value = pickWeightedVerb(pool.value, prev)
+  if (prev) {
+    recentPresents.value = [prev, ...recentPresents.value.filter((p) => p !== prev)].slice(0, 3)
+  }
+  currentVerb.value = pickWeightedVerb(pool.value, recentPresents.value)
   studentTranscript.value = ''
   manualAnswer.value = ''
   coachFeedback.value = ''
@@ -305,6 +334,7 @@ function changeDirection(dir) {
 
 function evaluateAnswer(candidatesList) {
   if (!currentVerb.value) return
+  clearAutoFlowTimer()
   const validList = askPast.value
     ? [
         ...(currentVerb.value.pastHomophones || []),
@@ -332,14 +362,12 @@ function evaluateAnswer(candidatesList) {
     weights[currentVerb.value.present] = Math.max(1, (weights[currentVerb.value.present] || 2) - 1)
 
     if (askPast.value) {
-      coachFeedback.value = `Great job! The past of "${currentVerb.value.present}" is "${currentVerb.value.past}"!`
+      coachFeedback.value = `Great job! The past of "${currentVerb.value.present}" is "${currentVerb.value.past}"! Pasando a una pregunta diferente...`
       lastSpokenCorrection.value = `Great job! The past of ${presentSpoken} is ${pastSpoken}!`
     } else {
-      coachFeedback.value = `Awesome! The present of "${currentVerb.value.past}" is "${currentVerb.value.present}"!`
+      coachFeedback.value = `Awesome! The present of "${currentVerb.value.past}" is "${currentVerb.value.present}"! Pasando a una pregunta diferente...`
       lastSpokenCorrection.value = `Awesome! The present of ${pastSpoken} is ${presentSpoken}!`
     }
-
-    speakWithCallback(lastSpokenCorrection.value, 0.94)
 
     const max = props.exercise?.maxScore || 20
     if (correctTotal.value >= 5) {
@@ -351,19 +379,31 @@ function evaluateAnswer(candidatesList) {
         },
       })
     }
+
+    // Al acertar, tras el elogio del profe salta automáticamente a otra pregunta diferente
+    speakWithCallback(lastSpokenCorrection.value, 0.95, () => {
+      autoFlowTimer = setTimeout(() => {
+        pickNewQuestion(true)
+      }, 650)
+    })
   } else {
     streak.value = 0
     weights[currentVerb.value.present] = Math.min(8, (weights[currentVerb.value.present] || 2) + 3)
 
+    // Si falla, NO cambia de pregunta: corrige y repite la misma pregunta hasta que la acierte
     if (askPast.value) {
-      coachFeedback.value = `Almost! Listen carefully: the past of "${currentVerb.value.present}" is "${currentVerb.value.past}". Repeat after me: "${currentVerb.value.past}"!`
-      lastSpokenCorrection.value = `Almost! Listen carefully: the past of ${presentSpoken} is ${pastSpoken}. Repeat after me: ${pastSpoken}!`
+      coachFeedback.value = `Almost! The past of "${currentVerb.value.present}" is "${currentVerb.value.past}". Repetimos la misma pregunta: What is the PAST form of "${currentVerb.value.present}"?`
+      lastSpokenCorrection.value = `Almost! Listen carefully: the past of ${presentSpoken} is ${pastSpoken}. Let's repeat the question: ${teacherQuestionSpoken.value}`
     } else {
-      coachFeedback.value = `Not quite! Listen carefully: the present of "${currentVerb.value.past}" is "${currentVerb.value.present}". Repeat after me: "${currentVerb.value.present}"!`
-      lastSpokenCorrection.value = `Not quite! Listen carefully: the present of ${pastSpoken} is ${presentSpoken}. Repeat after me: ${presentSpoken}!`
+      coachFeedback.value = `Not quite! The present of "${currentVerb.value.past}" is "${currentVerb.value.present}". Repetimos la misma pregunta: What is the PRESENT form of "${currentVerb.value.past}"?`
+      lastSpokenCorrection.value = `Not quite! Listen carefully: the present of ${pastSpoken} is ${presentSpoken}. Let's repeat the question: ${teacherQuestionSpoken.value}`
     }
 
-    speakWithCallback(lastSpokenCorrection.value, 0.88)
+    speakWithCallback(lastSpokenCorrection.value, 0.9, () => {
+      if (autoListenAfterQuestion.value && speechSupported.value) {
+        startListening()
+      }
+    })
   }
 }
 
@@ -443,6 +483,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  clearAutoFlowTimer()
   stopListening()
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     window.speechSynthesis.cancel()
