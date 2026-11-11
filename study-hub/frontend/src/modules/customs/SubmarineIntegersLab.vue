@@ -1,20 +1,10 @@
 <template>
   <div class="fe-lab">
     <div class="fe-row">
-      <button
-        type="button"
-        class="fe-pill"
-        :class="{ on: mode === 'joan' }"
-        @click="setMode('joan')"
-      >
+      <button type="button" class="fe-pill" :class="{ on: mode === 'joan' }" @click="setMode('joan')">
         🤿 El busseig d'en Joan
       </button>
-      <button
-        type="button"
-        class="fe-pill"
-        :class="{ on: mode === 'mental' }"
-        @click="setMode('mental')"
-      >
+      <button type="button" class="fe-pill" :class="{ on: mode === 'mental' }" @click="setMode('mental')">
         🧠 Suma i resta d'enters
       </button>
       <button type="button" class="ex-btn" :disabled="locked" @click="newItem">
@@ -27,15 +17,10 @@
       <div class="fe-sea-column">
         <div class="fe-sea-surface">🌊 Nivell del mar (0 m)</div>
         <div class="fe-sea-depths">
-          <div
-            v-for="d in depthMarks"
-            :key="d"
-            class="fe-depth-mark"
-            :class="{
-              'is-start': d === item.start,
-              'is-end': showVisualTarget && d === item.end,
-            }"
-          >
+          <div v-for="d in depthMarks" :key="d" class="fe-depth-mark" :class="{
+            'is-start': d === item.start,
+            'is-end': showVisualTarget && d === item.end,
+          }">
             <span class="fe-depth-num">{{ d }} m</span>
             <span v-if="d === item.start" class="fe-diver-tag">🤿 Inici ({{ item.start }})</span>
             <span v-if="showVisualTarget && d === item.end" class="fe-target-tag">🏁 Final ({{ item.end }})</span>
@@ -51,18 +36,19 @@
             <p style="font-size:0.92rem;margin-bottom:0.5rem">
               En Joan busseja a <strong>{{ item.start }} metres</strong>
               ({{ Math.abs(item.start) }} m sota el nivell del mar).<br>
-              Tot seguit, <strong>{{ item.delta < 0 ? `baixa ${Math.abs(item.delta)} metres` : `puja ${item.delta} metres` }}</strong>.
+              Tot seguit, <strong>{{ item.delta < 0 ? `baixa ${Math.abs(item.delta)} metres` : `puja ${item.delta}
+                  metres` }}</strong>.
             </p>
             <div class="du-num" style="margin-bottom:0.65rem">
-              ({{ item.start }}) {{ item.delta < 0 ? `− ${Math.abs(item.delta)}` : `+ ${item.delta}` }} = ?
-            </div>
+              ({{ item.start }}) {{ item.delta < 0 ? `− ${Math.abs(item.delta)}` : `+ ${item.delta}` }}=? </div>
           </template>
 
           <template v-else>
             <h3 style="margin-bottom:0.4rem"><span>🧠</span> Càlcul amb nombres negatius</h3>
             <p style="font-size:0.86rem;margin-bottom:0.45rem">
               Pensa-ho com el submarí: comences a <strong>{{ item.start }}</strong> i et mous
-              <strong>{{ item.delta < 0 ? `${Math.abs(item.delta)} cap avall (−)` : `${item.delta} cap amunt (+)` }}</strong>.
+              <strong>{{ item.delta < 0 ? `${Math.abs(item.delta)} cap avall (−)` : `${item.delta} cap amunt (+)`
+                  }}</strong>.
             </p>
             <div class="du-num" style="margin-bottom:0.65rem">
               {{ item.expr }} = ?
@@ -72,14 +58,8 @@
           <form class="fe-row" @submit.prevent="check">
             <button type="button" class="ex-btn" @click="prependSign('-')">−</button>
             <button type="button" class="ex-btn" @click="prependSign('+')">+</button>
-            <input
-              v-model="answer"
-              class="input-hub"
-              placeholder="Ex: -25 o -3"
-              autocomplete="off"
-              style="max-width:140px"
-              :disabled="locked"
-            >
+            <input v-model="answer" class="input-hub" placeholder="Ex: -25 o -3" autocomplete="off"
+              style="max-width:140px" :disabled="locked">
             <button type="submit" class="ex-btn ex-btn-primary" :disabled="locked">
               Comprovar
             </button>
@@ -91,7 +71,8 @@
           <p v-if="showHint" class="match-hint" style="margin-top:0.55rem">
             {{ item.hint }}
           </p>
-          <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'" style="margin-top:0.55rem">
+          <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'"
+            style="margin-top:0.55rem">
             {{ feedback }}
           </p>
           <p class="match-hint" style="margin:0.45rem 0 0">
@@ -214,4 +195,3 @@ function check() {
 
 onMounted(pick)
 </script>
-

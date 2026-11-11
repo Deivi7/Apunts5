@@ -1,20 +1,10 @@
 <template>
   <div class="pa-lab">
     <div class="pa-row">
-      <button
-        type="button"
-        class="pa-pill"
-        :class="{ on: mode === 'explore' }"
-        @click="mode = 'explore'"
-      >
+      <button type="button" class="pa-pill" :class="{ on: mode === 'explore' }" @click="mode = 'explore'">
         📐 Explorador visual (Quadrat / Rectangle)
       </button>
-      <button
-        type="button"
-        class="pa-pill"
-        :class="{ on: mode === 'challenge' }"
-        @click="startChallenge"
-      >
+      <button type="button" class="pa-pill" :class="{ on: mode === 'challenge' }" @click="startChallenge">
         🎯 Repte de càlcul ({{ correctCount }}/{{ needed }})
       </button>
     </div>
@@ -44,18 +34,11 @@
           <div class="pa-dim-top">Base = {{ base }} cm</div>
           <div class="pa-grid-mid">
             <div class="pa-dim-side">Altura = {{ height }} cm</div>
-            <div
-              class="pa-unit-grid"
-              :style="{
-                gridTemplateColumns: `repeat(${base}, 26px)`,
-                gridTemplateRows: `repeat(${height}, 26px)`,
-              }"
-            >
-              <div
-                v-for="n in base * height"
-                :key="n"
-                class="pa-unit-cell"
-              />
+            <div class="pa-unit-grid" :style="{
+              gridTemplateColumns: `repeat(${base}, 26px)`,
+              gridTemplateRows: `repeat(${height}, 26px)`,
+            }">
+              <div v-for="n in base * height" :key="n" class="pa-unit-cell" />
             </div>
           </div>
         </div>
@@ -96,48 +79,30 @@
           <div class="pa-dim-top">Base = {{ challenge.b }} cm</div>
           <div class="pa-grid-mid">
             <div class="pa-dim-side">Altura = {{ challenge.h }} cm</div>
-            <div
-              class="pa-unit-grid"
-              :style="{
-                gridTemplateColumns: `repeat(${challenge.b}, 24px)`,
-                gridTemplateRows: `repeat(${challenge.h}, 24px)`,
-              }"
-            >
-              <div
-                v-for="n in challenge.b * challenge.h"
-                :key="n"
-                class="pa-unit-cell"
-              />
+            <div class="pa-unit-grid" :style="{
+              gridTemplateColumns: `repeat(${challenge.b}, 24px)`,
+              gridTemplateRows: `repeat(${challenge.h}, 24px)`,
+            }">
+              <div v-for="n in challenge.b * challenge.h" :key="n" class="pa-unit-cell" />
             </div>
           </div>
         </div>
 
         <div class="pa-stats-card">
           <div class="pa-shape-tag">
-            {{ challenge.b === challenge.h ? `⬛ Quadrat de costat ${challenge.b} cm` : `▭ Rectangle de ${challenge.b} cm × ${challenge.h} cm` }}
+            {{ challenge.b === challenge.h ? `⬛ Quadrat de costat ${challenge.b} cm` : `▭ Rectangle de ${challenge.b} cm
+            × ${challenge.h} cm` }}
           </div>
 
           <form class="pa-challenge-form" @submit.prevent="checkChallenge">
             <label class="pa-input-row">
               <span>🚧 Perímetre (cm):</span>
-              <input
-                v-model="ansPerim"
-                type="number"
-                class="input-hub"
-                placeholder="cm…"
-                :disabled="locked"
-              >
+              <input v-model="ansPerim" type="number" class="input-hub" placeholder="cm…" :disabled="locked">
             </label>
 
             <label class="pa-input-row">
               <span>🟩 Àrea (cm²):</span>
-              <input
-                v-model="ansArea"
-                type="number"
-                class="input-hub"
-                placeholder="cm²…"
-                :disabled="locked"
-              >
+              <input v-model="ansArea" type="number" class="input-hub" placeholder="cm²…" :disabled="locked">
             </label>
 
             <div class="pa-row" style="margin-top:0.35rem">
@@ -154,10 +119,12 @@
           </form>
 
           <p v-if="showHint" class="match-hint" style="margin:0.35rem 0 0">
-            El perímetre és la longitud del contorn exterior (tots els costats); l'àrea és la quantitat de quadradets interiors.
+            El perímetre és la longitud del contorn exterior (tots els costats); l'àrea és la quantitat de quadradets
+            interiors.
           </p>
 
-          <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'" style="margin-top:0.5rem">
+          <p v-if="feedback" class="feedback-msg" :class="ok ? 'feedback-ok' : 'feedback-bad'"
+            style="margin-top:0.5rem">
             {{ feedback }}
           </p>
         </div>
@@ -243,4 +210,3 @@ function checkChallenge() {
   }
 }
 </script>
-

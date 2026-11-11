@@ -71,7 +71,12 @@
       <div class="iv-speech-bubble teacher">
         <div class="iv-bubble-top">
           <span class="iv-speaker-tag">🧑‍🏫 Teacher asks ({{ askPast ? 'Present → Past' : 'Past → Present' }}):</span>
-          <button type="button" class="iv-repeat-q-btn" @click="askQuestionOutLoud">
+          <button
+            type="button"
+            class="iv-repeat-q-btn"
+            :disabled="questionLocked"
+            @click="askQuestionOutLoud"
+          >
             🔊 Escuchar pregunta del profe
           </button>
         </div>
@@ -88,11 +93,12 @@
       </div>
 
       <!-- Zona de respuesta por voz del alumno -->
-      <div class="iv-student-response-zone">
+      <div class="iv-student-response-zone" :class="{ 'is-locked': questionLocked }">
         <div class="iv-mic-controls">
           <button
             type="button"
             class="iv-big-action-btn ask"
+            :disabled="questionLocked"
             @click="askQuestionOutLoud"
           >
             🗣️ 1. Que el profe me pregunte en voz alta
@@ -102,10 +108,10 @@
             type="button"
             class="iv-big-action-btn mic"
             :class="{ listening: isListening }"
-            :disabled="!speechSupported"
+            :disabled="!speechSupported || questionLocked"
             @click="toggleListening"
           >
-            <span>{{ isListening ? '🛑 Escuchando tu voz...' : '🎙️ 2. Responder en voz alta' }}</span>
+            <span>{{ questionLocked ? '🔒 ¡Correcto! Cargando siguiente...' : isListening ? '🛑 Escuchando tu voz...' : '🎙️ 2. Responder en voz alta' }}</span>
           </button>
         </div>
 
@@ -116,13 +122,15 @@
         <!-- Alternativa escrita por si el micrófono no está disponible -->
         <form class="iv-coach-fallback-form" @submit.prevent="submitManualAnswer">
           <input
+            ref="manualInputRef"
             v-model="manualAnswer"
             type="text"
             class="iv-write-input"
-            :placeholder="askPast ? 'O escribe aquí el PASADO si no usas micrófono...' : 'O escribe aquí el PRESENTE si no usas micrófono...'"
+            :disabled="questionLocked"
+            :placeholder="questionLocked ? '¡Correcto! Preparando la siguiente pregunta...' : askPast ? 'O escribe aquí el PASADO si no usas micrófono...' : 'O escribe aquí el PRESENTE si no usas micrófono...'"
           />
-          <button type="submit" class="iv-check-btn" :disabled="!manualAnswer.trim()">
-            Responder
+          <button type="submit" class="iv-check-btn" :disabled="questionLocked || !manualAnswer.trim()">
+            {{ questionLocked ? '🔒 Bloqueado' : 'Responder' }}
           </button>
         </form>
       </div>
@@ -165,7 +173,7 @@
 </template>
 
 <script setup>
-import { ref, computed, reactive, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, reactive, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { VERB_FAMILIES, ALL_IRREGULAR_VERBS } from '../amco/irregularVerbsData.js'
 
 const props = defineProps({ exercise: Object })
@@ -183,10 +191,12 @@ const isListening = ref(false)
 const speechSupported = ref(false)
 const studentTranscript = ref('')
 const manualAnswer = ref('')
+const manualInputRef = ref(null)
 
 const coachFeedback = ref('')
 const lastSpokenCorrection = ref('')
 const wasCorrect = ref(false)
+const questionLocked = ref(false)
 const streak = ref(0)
 const correctTotal = ref(0)
 
@@ -245,38 +255,43 @@ function speakWithCallback(text, rate = 0.92, onEnd = null) {
     if (onEnd) onEnd()
     return
   }
+  let finished = false
+  const finishOnce = () => {
+    if (finished) return
+    finished = true
+    isTeacherSpeaking.value = false
+    if (onEnd) onEnd()
+  }
   try {
     window.speechSynthesis.cancel()
     const utter = new SpeechSynthesisUtterance(text)
     utter.lang = 'en-US'
     utter.rate = rate
     isTeacherSpeaking.value = true
-    utter.onend = () => {
-      isTeacherSpeaking.value = false
-      if (onEnd) onEnd()
-    }
-    utter.onerror = () => {
-      isTeacherSpeaking.value = false
-    }
+    utter.onend = finishOnce
+    utter.onerror = finishOnce
     window.speechSynthesis.speak(utter)
+    setTimeout(finishOnce, 4500)
   } catch {
-    isTeacherSpeaking.value = false
+    finishOnce()
   }
 }
 
 function askQuestionOutLoud() {
+  if (questionLocked.value) return
   clearAutoFlowTimer()
   stopListening()
   coachFeedback.value = ''
   studentTranscript.value = ''
   speakWithCallback(teacherQuestionSpoken.value, 0.92, () => {
-    if (autoListenAfterQuestion.value && speechSupported.value) {
+    if (!questionLocked.value && autoListenAfterQuestion.value && speechSupported.value) {
       startListening()
     }
   })
 }
 
 function repeatCurrentQuestion() {
+  if (questionLocked.value) return
   clearAutoFlowTimer()
   stopListening()
   studentTranscript.value = ''
@@ -305,7 +320,7 @@ function pickWeightedVerb(list, excludePresents = []) {
   return bag[Math.floor(Math.random() * bag.length)] || candidates[0]
 }
 
-function pickNewQuestion(speakNow = false) {
+function pickNewQuestion(speakNow = false, focusInput = false) {
   clearAutoFlowTimer()
   stopListening()
   if (direction.value === 'p2past') askPast.value = true
@@ -317,13 +332,23 @@ function pickNewQuestion(speakNow = false) {
     recentPresents.value = [prev, ...recentPresents.value.filter((p) => p !== prev)].slice(0, 3)
   }
   currentVerb.value = pickWeightedVerb(pool.value, recentPresents.value)
+  questionLocked.value = false
+  wasCorrect.value = false
   studentTranscript.value = ''
   manualAnswer.value = ''
   coachFeedback.value = ''
   lastSpokenCorrection.value = ''
 
+  if (focusInput) {
+    nextTick(() => manualInputRef.value?.focus())
+  }
+
   if (speakNow) {
-    askQuestionOutLoud()
+    if (focusInput) {
+      speakWithCallback(teacherQuestionSpoken.value, 0.92)
+    } else {
+      askQuestionOutLoud()
+    }
   }
 }
 
@@ -332,9 +357,10 @@ function changeDirection(dir) {
   pickNewQuestion(false)
 }
 
-function evaluateAnswer(candidatesList) {
-  if (!currentVerb.value) return
+function evaluateAnswer(candidatesList, fromKeyboard = false) {
+  if (!currentVerb.value || questionLocked.value) return
   clearAutoFlowTimer()
+  stopListening()
   const validList = askPast.value
     ? [
         ...(currentVerb.value.pastHomophones || []),
@@ -357,6 +383,8 @@ function evaluateAnswer(candidatesList) {
   const presentSpoken = currentVerb.value.present
 
   if (isOk) {
+    // Bloquea la pregunta actual hasta que aparezca la siguiente pregunta diferente
+    questionLocked.value = true
     streak.value += 1
     correctTotal.value += 1
     weights[currentVerb.value.present] = Math.max(1, (weights[currentVerb.value.present] || 2) - 1)
@@ -380,13 +408,13 @@ function evaluateAnswer(candidatesList) {
       })
     }
 
-    // Al acertar, tras el elogio del profe salta automáticamente a otra pregunta diferente
-    speakWithCallback(lastSpokenCorrection.value, 0.95, () => {
-      autoFlowTimer = setTimeout(() => {
-        pickNewQuestion(true)
-      }, 650)
-    })
+    speakWithCallback(lastSpokenCorrection.value, 0.95)
+    // Salta automáticamente a otra pregunta diferente tras 1.4s sin depender de que termine el audio del navegador
+    autoFlowTimer = setTimeout(() => {
+      pickNewQuestion(true, fromKeyboard)
+    }, 1400)
   } else {
+    questionLocked.value = false
     streak.value = 0
     weights[currentVerb.value.present] = Math.min(8, (weights[currentVerb.value.present] || 2) + 3)
 
@@ -399,19 +427,25 @@ function evaluateAnswer(candidatesList) {
       lastSpokenCorrection.value = `Not quite! Listen carefully: the present of ${pastSpoken} is ${presentSpoken}. Let's repeat the question: ${teacherQuestionSpoken.value}`
     }
 
-    speakWithCallback(lastSpokenCorrection.value, 0.9, () => {
-      if (autoListenAfterQuestion.value && speechSupported.value) {
-        startListening()
-      }
-    })
+    if (fromKeyboard) {
+      nextTick(() => manualInputRef.value?.focus())
+      speakWithCallback(lastSpokenCorrection.value, 0.9)
+    } else {
+      speakWithCallback(lastSpokenCorrection.value, 0.9, () => {
+        if (!questionLocked.value && autoListenAfterQuestion.value && speechSupported.value) {
+          startListening()
+        }
+      })
+    }
   }
 }
 
 function submitManualAnswer() {
-  if (!manualAnswer.value.trim()) return
-  studentTranscript.value = manualAnswer.value.trim()
-  evaluateAnswer([manualAnswer.value.trim()])
+  if (questionLocked.value || !manualAnswer.value.trim()) return
+  const val = manualAnswer.value.trim()
   manualAnswer.value = ''
+  studentTranscript.value = val
+  evaluateAnswer([val], true)
 }
 
 function initRecognition() {
@@ -430,6 +464,7 @@ function initRecognition() {
 
   recognition.onresult = (event) => {
     isListening.value = false
+    if (questionLocked.value) return
     const res = event.results?.[0]
     if (!res) return
     const alts = []
@@ -450,7 +485,7 @@ function initRecognition() {
 }
 
 function startListening() {
-  if (!speechSupported.value || !recognition || isListening.value) return
+  if (questionLocked.value || !speechSupported.value || !recognition || isListening.value) return
   try {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel()
     isTeacherSpeaking.value = false
@@ -473,6 +508,7 @@ function stopListening() {
 }
 
 function toggleListening() {
+  if (questionLocked.value) return
   if (isListening.value) stopListening()
   else startListening()
 }

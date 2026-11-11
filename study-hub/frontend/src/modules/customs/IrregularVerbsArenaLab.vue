@@ -178,16 +178,17 @@
             type="button"
             class="iv-mic-btn"
             :class="{ listening: isListening }"
-            :disabled="!speechSupported"
+            :disabled="!speechSupported || roundResolved"
             @click="toggleSpeechRecognition"
           >
-            <span class="iv-mic-icon">{{ isListening ? '🛑' : '🎙️' }}</span>
-            <span>{{ isListening ? 'Escuchando... ¡Habla ahora!' : 'Pulsar y decir en inglés' }}</span>
+            <span class="iv-mic-icon">{{ roundResolved && lastSuccess ? '🔒' : isListening ? '🛑' : '🎙️' }}</span>
+            <span>{{ roundResolved && lastSuccess ? '¡Correcto! Cargando siguiente...' : isListening ? 'Escuchando... ¡Habla ahora!' : 'Pulsar y decir en inglés' }}</span>
           </button>
 
           <button
             type="button"
             class="iv-listen-model-btn"
+            :disabled="roundResolved && lastSuccess"
             @click="speakTargetAnswer"
           >
             👂 Escuchar cómo se pronuncia
@@ -206,6 +207,7 @@
           <button
             type="button"
             class="iv-fallback-btn"
+            :disabled="roundResolved"
             @click="showVoiceFallbackOptions = !showVoiceFallbackOptions"
           >
             {{ showVoiceFallbackOptions ? 'Ocultar botones de apoyo' : '🎛️ ¿Sin micrófono? Responder con botones rápidos' }}
@@ -213,6 +215,7 @@
           <button
             type="button"
             class="iv-fallback-btn"
+            :disabled="roundResolved"
             @click="setGameMode('options')"
           >
             ⚡ Cambiar a Modo 4 Opciones
@@ -302,9 +305,10 @@
             class="iv-retry-btn"
             @click="retryCurrentVerb"
           >
-            🔄 Reintentar este verbo
+            🔄 Reintentar este mismo verbo
           </button>
           <button
+            v-if="lastSuccess"
             type="button"
             class="iv-next-btn"
             @click="nextVerb"
@@ -359,6 +363,14 @@ const isListening = ref(false)
 const spokenTranscript = ref('')
 const showVoiceFallbackOptions = ref(false)
 let recognitionInstance = null
+let autoNextTimer = null
+
+function clearAutoNextTimer() {
+  if (autoNextTimer) {
+    clearTimeout(autoNextTimer)
+    autoNextTimer = null
+  }
+}
 
 const currentFamilyMeta = computed(() => {
   if (selectedLevelId.value === 'all') {
@@ -511,6 +523,7 @@ function buildOptionsForVerb(verb, askPast) {
 }
 
 function nextVerb() {
+  clearAutoNextTimer()
   stopListening()
   if (directionMode.value === 'p2past') activeAskPast.value = true
   else if (directionMode.value === 'past2p') activeAskPast.value = false
@@ -535,6 +548,7 @@ function nextVerb() {
 }
 
 function retryCurrentVerb() {
+  clearAutoNextTimer()
   stopListening()
   roundResolved.value = false
   lastSuccess.value = false
@@ -567,7 +581,9 @@ function setDirection(dir) {
 // VALIDACIÓN DE RESPUESTAS Y ACTUALIZACIÓN DE PESOS
 // ============================================================================
 function registerResult(isOk) {
-  if (!currentVerb.value) return
+  if (!currentVerb.value || roundResolved.value) return
+  clearAutoNextTimer()
+  stopListening()
   const st = verbStats[currentVerb.value.present]
   roundResolved.value = true
   lastSuccess.value = isOk
@@ -581,7 +597,7 @@ function registerResult(isOk) {
       st.weight = Math.max(1, st.weight - 1)
       st.mastered = true
     }
-    feedbackMsg.value = `¡Genial! ${pairText}.`
+    feedbackMsg.value = `¡Genial! ${pairText}. Cargando siguiente verbo...`
     playTone('success')
     triggerCelebration()
 
@@ -595,6 +611,11 @@ function registerResult(isOk) {
         },
       })
     }
+
+    // Mantiene bloqueada la pregunta actual hasta que aparece la siguiente pregunta
+    autoNextTimer = setTimeout(() => {
+      nextVerb()
+    }, 1100)
   } else {
     streak.value = 0
     st.fails += 1
@@ -691,6 +712,7 @@ function initSpeechRecognition() {
 
   recognitionInstance.onresult = (event) => {
     isListening.value = false
+    if (roundResolved.value) return
     const results = event.results?.[0]
     if (!results) return
     const alternatives = []
@@ -711,7 +733,7 @@ function initSpeechRecognition() {
 }
 
 function validateSpokenAlternatives(alternatives) {
-  if (!currentVerb.value) return
+  if (!currentVerb.value || roundResolved.value) return
   const validList = activeAskPast.value
     ? currentVerb.value.pastHomophones || [currentVerb.value.past.toLowerCase()]
     : currentVerb.value.presentHomophones || [currentVerb.value.present.toLowerCase()]
@@ -724,12 +746,11 @@ function validateSpokenAlternatives(alternatives) {
 }
 
 function toggleSpeechRecognition() {
-  if (!speechSupported.value || !recognitionInstance) return
+  if (roundResolved.value || !speechSupported.value || !recognitionInstance) return
   if (isListening.value) {
     stopListening()
     return
   }
-  roundResolved.value = false
   feedbackMsg.value = ''
   spokenTranscript.value = ''
   try {
@@ -757,6 +778,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  clearAutoNextTimer()
   stopListening()
 })
 </script>
