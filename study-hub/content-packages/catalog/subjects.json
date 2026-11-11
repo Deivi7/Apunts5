@@ -166,6 +166,16 @@
           "language": "es",
           "vueModule": "projecte/romanos",
           "migrated": true
+        },
+        {
+          "id": "edat_antiga",
+          "title": "Una mica més d'història: L'Edat Antiga (Civilitzacions, Ibers, Celtes i Roma)",
+          "shortTitle": "L'Edat Antiga",
+          "desc": "Civilitzacions fluvials, Ibers i Celtes, pobles colonitzadors, la Romanització d'Hispània i edificis romans.",
+          "badge": "Vue · Nou",
+          "language": "ca",
+          "vueModule": "projecte/edat_antiga",
+          "migrated": true
         }
       ]
     },
@@ -220,7 +230,18 @@
       "driveUrl": "https://drive.google.com/open?id=11MTXbwRSRHr8vQThod9kVhjcwmopSonJ&usp=drive_copy",
       "localFolder": "amco/",
       "description": "Programa oficial de inglés Amco.",
-      "topics": []
+      "topics": [
+        {
+          "id": "irregular_verbs",
+          "title": "Irregular Verbs Challenge (Present ↔ Past)",
+          "shortTitle": "Irregular Verbs",
+          "desc": "Entrenador por familias fonéticas con reconocimiento de voz, Speaking Coach bidireccional, 4 opciones y escritura.",
+          "badge": "Vue · Nou",
+          "language": "en",
+          "vueModule": "amco/irregular_verbs",
+          "migrated": true
+        }
+      ]
     },
     {
       "id": "bae",

@@ -15,4 +15,6 @@ export const topicStyleLoaders = {
   'projecte/coordenadas': () => import('./projecte/coordenadas.css'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.css'),
   'projecte/romanos': () => import('./projecte/romanos.css'),
+  'projecte/edat_antiga': () => import('./projecte/edat_antiga.css'),
+  'amco/irregular_verbs': () => import('./amco/irregular_verbs.css'),
 }

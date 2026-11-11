@@ -111,6 +111,15 @@
       "hasTheory": true
     },
     {
+      "key": "projecte/edat_antiga",
+      "subjectId": "projecte",
+      "topicId": "edat_antiga",
+      "sections": 6,
+      "resources": 6,
+      "documents": 5,
+      "hasTheory": true
+    },
+    {
       "key": "catala/sant_baldiri",
       "subjectId": "catala",
       "topicId": "sant_baldiri",
@@ -135,6 +144,15 @@
       "sections": 8,
       "resources": 0,
       "documents": 12,
+      "hasTheory": true
+    },
+    {
+      "key": "amco/irregular_verbs",
+      "subjectId": "amco",
+      "topicId": "irregular_verbs",
+      "sections": 5,
+      "resources": 1,
+      "documents": 0,
       "hasTheory": true
     }
   ]

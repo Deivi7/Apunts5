@@ -16,6 +16,8 @@ const loaders = {
   'projecte/coordenadas': () => import('./projecte/coordenadas.js'),
   'projecte/pasdeltemps': () => import('./projecte/pasdeltemps.js'),
   'projecte/romanos': () => import('./projecte/romanos.js'),
+  'projecte/edat_antiga': () => import('./projecte/edat_antiga.js'),
+  'amco/irregular_verbs': () => import('./amco/irregular_verbs.js'),
   'tutoria/calendario': () => import('./tutoria/calendario.js'),
 }
 

@@ -67,6 +67,15 @@ const customs = {
   FuncionsEntersWorksheet: () => import('./customs/FuncionsEntersWorksheet.vue'),
   AreaPerimeterGridLab: () => import('./customs/AreaPerimeterGridLab.vue'),
   PerimetresAreesWorksheet: () => import('./customs/PerimetresAreesWorksheet.vue'),
+  RiverCivilizationsMapLab: () => import('./customs/RiverCivilizationsMapLab.vue'),
+  IberianPeoplesLab: () => import('./customs/IberianPeoplesLab.vue'),
+  RomanHispaniaLab: () => import('./customs/RomanHispaniaLab.vue'),
+  RomanBuildingsTallerLab: () => import('./customs/RomanBuildingsTallerLab.vue'),
+  EdatAntigaWorksheet: () => import('./customs/EdatAntigaWorksheet.vue'),
+  IrregularVerbsArenaLab: () => import('./customs/IrregularVerbsArenaLab.vue'),
+  IrregularVerbsOralCoachLab: () => import('./customs/IrregularVerbsOralCoachLab.vue'),
+  IrregularVerbsSoundboardLab: () => import('./customs/IrregularVerbsSoundboardLab.vue'),
+  IrregularVerbsWorksheet: () => import('./customs/IrregularVerbsWorksheet.vue'),
 }
 
 export function resolveCustomComponent(name) {

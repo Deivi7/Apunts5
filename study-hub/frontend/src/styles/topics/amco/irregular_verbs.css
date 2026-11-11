@@ -1,0 +1,1152 @@
+/* Amco 5º — Irregular Verbs Challenge (amco/irregular_verbs) */
+
+:root {
+  --iv-primary: #2563eb;
+  --iv-primary-light: #dbeafe;
+  --iv-primary-border: #60a5fa;
+  --iv-amber: #f59e0b;
+  --iv-emerald: #10b981;
+  --iv-rose: #f43f5e;
+}
+
+body.dark-mode {
+  --iv-primary-light: #1e3a8a;
+  --iv-primary-border: #3b82f6;
+}
+
+.section-header {
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+  max-width: 56rem;
+  line-height: 1.45;
+}
+
+.du-theory-block {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 14px);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.du-theory-block.du-summary {
+  border-top: 5px solid var(--iv-primary);
+}
+
+.du-block-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-main);
+}
+
+.du-lead {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+  color: var(--text-main);
+}
+
+.du-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.du-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg, 14px);
+  padding: 1.05rem 1.15rem;
+  border-top: 5px solid var(--iv-primary);
+}
+
+.du-card h3 {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.45rem;
+}
+
+.du-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 0.45rem;
+  color: var(--text-main);
+}
+
+.du-card ul {
+  font-size: 0.85rem;
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.du-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md, 10px);
+  border: 1px solid var(--border-color);
+}
+
+.du-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.du-table th,
+.du-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.du-table th {
+  background: var(--iv-primary-light);
+  font-weight: 800;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+.du-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.du-ok,
+.du-bad {
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.du-ok {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+}
+
+.du-bad {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+}
+
+body.dark-mode .du-ok {
+  background: #064e3b;
+  border-color: #059669;
+  color: #a7f3d0;
+}
+
+body.dark-mode .du-bad {
+  background: #4c0519;
+  border-color: #e11d48;
+  color: #fecdd3;
+}
+
+/* ==================== IRREGULAR VERBS ARENA ==================== */
+.iv-arena {
+  display: grid;
+  gap: 1rem;
+}
+
+.iv-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.85rem 1.1rem;
+}
+
+@media (max-width: 720px) {
+  .iv-topbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iv-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 12px;
+  background: var(--bg-main);
+  border: 1.5px solid var(--border-color);
+}
+
+.iv-stat-pill.hot {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.iv-stat-pill span {
+  font-size: 1.5rem;
+}
+
+.iv-stat-pill small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.iv-stat-pill strong {
+  font-size: 0.96rem;
+}
+
+.iv-progress-wrap {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.iv-progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+}
+
+.iv-xp-tag {
+  font-weight: 800;
+  color: #d97706;
+}
+
+.iv-progress-bar {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.iv-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.iv-sound-toggle {
+  padding: 0.48rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Niveles por familias */
+.iv-levels-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.iv-level-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.12s ease;
+}
+
+.iv-level-chip:hover {
+  transform: translateY(-1px);
+}
+
+.iv-level-chip.iv-level-all.active {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-color: transparent;
+  color: #fff;
+}
+
+.iv-family-banner {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-left: 6px solid var(--iv-primary);
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.iv-family-banner strong {
+  margin-right: 0.35rem;
+}
+
+/* Selector de modo y dirección */
+.iv-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.iv-mode-tabs,
+.iv-dir-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.iv-mode-tab {
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.iv-mode-tab.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.iv-dir-btn {
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.iv-dir-btn.active {
+  background: #059669;
+  border-color: #059669;
+  color: #fff;
+}
+
+/* Tarjeta de juego */
+.iv-stage-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 2.5px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.35rem 1.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.iv-prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.iv-direction-badge {
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.iv-direction-badge.to-past {
+  background: rgba(37, 99, 235, 0.14);
+  color: #2563eb;
+}
+
+.iv-direction-badge.to-present {
+  background: rgba(124, 58, 237, 0.14);
+  color: #7c3aed;
+}
+
+.iv-repeat-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.16);
+  color: #d97706;
+}
+
+.iv-verb-showcase {
+  text-align: center;
+  padding: 1.1rem 1rem;
+  background: var(--bg-main);
+  border: 2px dashed var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 1.15rem;
+}
+
+.iv-verb-label {
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.iv-verb-word-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.35rem 0;
+  flex-wrap: wrap;
+}
+
+.iv-verb-big {
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin: 0;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+}
+
+.iv-speak-mini {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.iv-verb-meaning {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.iv-verb-note {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.iv-instruction {
+  text-align: center;
+  font-size: 0.92rem;
+  margin: 0 0 0.85rem;
+}
+
+/* Modo Voz */
+.iv-mic-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.iv-mic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ef4444, #e11d48);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.32);
+  font-family: inherit;
+  transition: transform 0.15s ease;
+}
+
+.iv-mic-btn:hover:not(:disabled) {
+  transform: scale(1.03);
+}
+
+.iv-mic-btn.listening {
+  background: linear-gradient(135deg, #059669, #10b981);
+  animation: iv-pulse 1.1s infinite;
+}
+
+.iv-mic-icon {
+  font-size: 1.35rem;
+}
+
+.iv-listen-model-btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.iv-transcript-pill {
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--iv-primary-light);
+  font-size: 0.88rem;
+  margin: 0.5rem auto;
+  max-width: 420px;
+}
+
+.iv-mic-fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.iv-fallback-btn {
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  border: 1px dashed var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.iv-warn-text {
+  font-size: 0.8rem;
+  color: #d97706;
+  font-weight: 700;
+}
+
+/* Modo 4 Opciones */
+.iv-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+@media (max-width: 520px) {
+  .iv-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iv-option-btn {
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  border: 2.5px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 1.15rem;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.iv-option-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.iv-option-btn.correct {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.iv-option-btn.wrong {
+  background: #fff1f2;
+  border-color: #f43f5e;
+  color: #9f1239;
+}
+
+/* Modo Escribir */
+.iv-write-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.iv-write-input {
+  flex: 1;
+  min-width: 210px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.iv-check-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.92rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.iv-hint-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.iv-hint-banner {
+  text-align: center;
+  margin-top: 0.75rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.14);
+  font-size: 0.9rem;
+}
+
+.iv-hint-code {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.12rem;
+}
+
+/* Feedback */
+.iv-feedback-box {
+  margin-top: 1.1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.iv-feedback-box.ok {
+  background: #ecfdf5;
+  border: 2px solid #10b981;
+  color: #065f46;
+}
+
+.iv-feedback-box.ko {
+  background: #fff1f2;
+  border: 2px solid #f43f5e;
+  color: #9f1239;
+}
+
+.iv-fb-text {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.92rem;
+}
+
+.iv-fb-actions {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.iv-retry-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.iv-next-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* ==================== SPEAKING COACH BIDIRECCIONAL ==================== */
+.iv-oral-coach {
+  display: grid;
+  gap: 1rem;
+}
+
+.iv-coach-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .iv-coach-header {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iv-coach-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--iv-primary-light);
+  border: 3px solid #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.iv-coach-avatar.speaking {
+  animation: iv-pulse 0.9s infinite;
+  border-color: #f59e0b;
+}
+
+.iv-coach-avatar.listening {
+  animation: iv-pulse 0.9s infinite;
+  border-color: #10b981;
+}
+
+.iv-coach-intro h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1.08rem;
+}
+
+.iv-coach-intro p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.iv-coach-scores {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.iv-score-badge {
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  background: var(--bg-main);
+  border: 1.5px solid var(--border-color);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.iv-coach-settings {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iv-setting-group {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.iv-select {
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.iv-automic-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.iv-coach-stage {
+  display: grid;
+  gap: 1rem;
+}
+
+.iv-speech-bubble {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.1rem 1.25rem;
+}
+
+.iv-speech-bubble.teacher {
+  border-left: 6px solid #2563eb;
+}
+
+.iv-speech-bubble.correction.ok {
+  border-left: 6px solid #10b981;
+  background: color-mix(in srgb, #ecfdf5 55%, var(--bg-card));
+}
+
+.iv-speech-bubble.correction.ko {
+  border-left: 6px solid #f43f5e;
+  background: color-mix(in srgb, #fff1f2 55%, var(--bg-card));
+}
+
+.iv-bubble-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.iv-speaker-tag {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #2563eb;
+  text-transform: uppercase;
+}
+
+.iv-repeat-q-btn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.iv-teacher-question {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin: 0.35rem 0 0.65rem;
+}
+
+.iv-coach-target-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  font-size: 0.86rem;
+}
+
+.iv-student-response-zone {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.1rem 1.25rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.iv-mic-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.iv-big-action-btn {
+  padding: 0.9rem 1.4rem;
+  border-radius: 14px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+}
+
+.iv-big-action-btn.ask {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.iv-big-action-btn.mic {
+  background: linear-gradient(135deg, #e11d48, #be123c);
+}
+
+.iv-big-action-btn.mic.listening {
+  background: linear-gradient(135deg, #059669, #10b981);
+  animation: iv-pulse 1s infinite;
+}
+
+.iv-coach-fallback-form {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  max-width: 580px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.iv-correction-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0.35rem 0;
+}
+
+.iv-pair-summary {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ==================== SOUNDBOARD & WORKSHEET ==================== */
+.iv-soundboard {
+  display: grid;
+  gap: 1rem;
+}
+
+.iv-sb-controls {
+  display: grid;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+}
+
+.iv-sb-family-group {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+}
+
+.iv-sb-fam-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-left: 5px solid #2563eb;
+  padding-left: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.iv-sb-fam-head h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+}
+
+.iv-sb-fam-head p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.iv-speak-fam-btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.iv-sb-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 0.6rem;
+}
+
+.iv-sb-card {
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-main);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.iv-sb-card:hover,
+.iv-sb-card.speaking {
+  transform: translateY(-2px);
+  border-color: #2563eb;
+}
+
+.iv-sb-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.96rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.iv-sb-arrow {
+  color: var(--text-muted);
+}
+
+.iv-sb-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.iv-ws-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.iv-ws-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.iv-ws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem;
+}
+
+.iv-ws-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.iv-ws-card h5 {
+  margin: 0 0 0.5rem;
+  font-size: 0.94rem;
+}
+
+/* ==================== ANIMACIONES & CONFETI ==================== */
+@keyframes iv-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+@keyframes iv-bounce-anim {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+}
+
+@keyframes iv-shake-anim {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-7px); }
+  75% { transform: translateX(7px); }
+}
+
+.iv-bounce {
+  animation: iv-bounce-anim 0.45s ease;
+}
+
+.iv-shake {
+  animation: iv-shake-anim 0.35s ease;
+}
+
+.iv-confetti-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.iv-confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 9px;
+  height: 14px;
+  border-radius: 3px;
+  animation: iv-confetti-fall 0.85s ease-out forwards;
+}
+
+@keyframes iv-confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(220px) rotate(260deg);
+    opacity: 0;
+  }
+}
+
